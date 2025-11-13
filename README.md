@@ -77,6 +77,32 @@ npm run validate:workflow:json
 
 NOTE: At the moment these scripts are passing in the profile to validate against. TOTO: In future the code will support fetching or matching local copies of profiles by IRI on a conformsTo property.
 
+Similarly, validators can use a ROC-MAPS crate as a set of rules:
+
+<!--
+@startuml
+
+package "Machine Actionable Profile Crate" as mapc {
+rectangle "ro-crate-metadata.json" as rcd
+}
+
+rectangle "Candidate RO-Crate Metadata Document" as roc
+
+rectangle "Validator"  as dgs
+
+rectangle "Validation Report" as vr
+
+dgs <-up- rcd : Use rules
+dgs <-up- roc : Read
+dgs -down-> vr : Generate Report
+
+
+
+@enduml
+-->
+
+![alt text](image-1.png)
+
 
 ## Draft ROC-MAP Implementations
 
