@@ -2,16 +2,23 @@
 title: RO-Crate 1.1 Core Profile
 ---
 
-This document in an experimental SoSS+ profile for RO-Crate 1.1 - for the core, mandated metadata only
+This document in an experimental RO-Crate Machine Actionable Profile for RO-Crate 1.1 - for the core, mandated metadata only. 
+
+The rules in this profile MAY be reused in another profile and made more specific.
 
 
-A conformant RO-Crate:
+# The RO-Crate Root Data Entity
 
-${rules.Dataset}
+${rules.rootDataEntity}
+
+
+
+
+
+${rules.all}
 
 ${rules.allDefinedTermSets}
 
-${rules.all}
 
 ## Provenance
 

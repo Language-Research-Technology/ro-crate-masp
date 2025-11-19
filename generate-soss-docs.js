@@ -62,6 +62,7 @@ try {
     all: "", // Will contain all classes summary
     definedTermSets: {}, // Will contain DefinedTermSet documentation
     itemLists: {}, // Will contain item lists documentation
+    rootDataEntity: ""  
   };
 
   // Index entities by @type using native RO-Crate methods
@@ -84,6 +85,7 @@ try {
 
 
   if (rootDataEntityClassRule) {
+    console.log(`Found Root Data Entity class rule: ${rootDataEntityClassRule.id}`);
     // TODO: Change all the code in this script to use Rules like this instead of dealing with entities directly
     const rootDataEntityClass = rootDataEntityClassRule.entity;
     const rootTypes = rootDataEntityClass["prov:specializationOf"] || [];
@@ -96,7 +98,7 @@ try {
     // Add additional requirements
     const rootProps = rootDataEntityClass.propertyRules || [];
     if (rootProps.length > 0) {
-      rules.Dataset += `- MUST include the following properties:\n`;
+      rules.rootDataEntity += `- MUST include the following properties:\n`;
 
       rootProps.forEach((prop) => {
         const propName = prop["name"] || prop["rdfs:label"] || prop["@id"];
@@ -104,7 +106,7 @@ try {
           prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0;
 
         if (isRequired) {
-          rules.Dataset += `  * ${clean(propName)}\n`;
+          rules.rootDataEntity += `  * ${clean(propName)}\n`;
         }
       });
     }
@@ -329,7 +331,6 @@ try {
       classRule["description"] || classRule["rdfs:comment"] || "";
     const specialized = classRule["prov:specializationOf"] || [];
     var classSummary = `\n### <a id="${githubId}"></a> ${clean(className)}\n\n`;
-    classSummary += `#### IRI: ${classURI}  \n\n`;
 
     classSummary += `${clean(classDesc)}\n\n`;
 

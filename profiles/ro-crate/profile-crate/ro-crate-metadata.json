@@ -37,7 +37,8 @@
         { "@id": "http://schema.org/name" },
         { "@id": "#prop_description_Dataset" },
         { "@id": "#prop_datePublised_Dataset" },
-        { "@id": "#prop_license_Dataset" }
+        { "@id": "#prop_license_Dataset" },
+        { "@id": "#class_CreativeWorkLicense" }
       ]
     },
     {
@@ -81,7 +82,7 @@
       "@type": "rdf:Property",
       "prov:specializationOf": { "@id": "http://schema.org/about" },
       "description": "This property on the RO-Crate Metadata Descriptor references the Root Data Entity. I a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Enitty with different @type arrays or `@conformsTo` references (or other specializations). In this example there is a single reference.",
-      "name": "about",
+      "name": "about (Root Data Entity)",
       "domainIncludes": [
         {
           "@id": "#RO-Crate_Metadata_Descriptor"
@@ -169,7 +170,7 @@
       "rdfs:comment": "SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used",
       "rangeIncludes": [
         {
-          "@id": "#class_CreativeWork"
+          "@id": "#class_CreativeWorkLicense"
         },
         {
           "@id": "schema:URL"
@@ -179,6 +180,13 @@
         }
       ],
       "sh:minCount": 1
+    },
+    {
+          "@id": "#class_CreativeWorkLicense",
+          "@type": "rdfs:Class",
+          "prov:specializationOf": { "@id": "http://schema.org/CreativeWork" },
+          "name": "License (Creative Work)",
+          "description": "A license included as a Creative Work - with at least a name and description"
     }
   ]
 }
