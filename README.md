@@ -18,7 +18,7 @@ If this work goes forward then this repository will probably turn into the home 
 ## What is here
 
 This repository contains:
-- Draft Profiles and Schemas, according to the definitions in [The Notes] which are packaged as RO-Crates, with schema rules included as *Contexual Entites*
+- Draft Profiles and Schemas, according to the definitions in [The Notes] which are packaged as RO-Crates, with schema rules included as *Contextual Entities*
 - Code (with unit tests) to demonstrate
     - Generating Profile or Schema documentation from a ROC-MAPS crate.
     - Validating candidate RO-Crates against a ROC-MAPS crate (initial implementation is as Unit-tests only)
@@ -58,7 +58,7 @@ dgs -up-> psd : Generate Documentation
 
 ![alt text](image.png)
 
-To run this, choose one of the examples from the implementations section below. Eg to generate the documentation for the RO-Crate Workflow profile example, run:
+To run this, choose one of the examples from the implementations section below. E.g. to generate the documentation for the RO-Crate Workflow profile example, run:
 
 ```javascript
 npm run build:workflow-profile
@@ -106,7 +106,7 @@ dgs -down-> vr : Generate Report
 
 ## Draft ROC-MAP Implementations
 
-The following RO-Crate Machine Actionable Profiles and Schemas are avaialable to try.
+The following RO-Crate Machine Actionable Profiles and Schemas are available to try.
 
 - Workflow Crate Profile
   Generate docs: `npm run build:workflow-profile`
@@ -114,7 +114,7 @@ The following RO-Crate Machine Actionable Profiles and Schemas are avaialable to
 
 ## TODO: (these are all partially implemented in the [SoSS+ Branch] 
 - ROC-MAPS for RO-Crate itself
-- ROC-MAPS for ROC-MAPS (extensions to the RO-Crate Profile chapeter)
+- ROC-MAPS for ROC-MAPS (extensions to the RO-Crate Profile chapter)
 - Language Data Commons Schemas an 
 
 
