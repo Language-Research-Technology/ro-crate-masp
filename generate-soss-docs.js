@@ -6,16 +6,11 @@
  * that can be used by a template to generate documentation.
  */
 
-import { ROCrate } from "ro-crate";
-import fs from "fs";
-import path from "path";
-import { SossValidator } from './lib/soss-validator.js';
-import { execSync } from "child_process";
-import { fileURLToPath } from 'url';
-
-// Get __dirname equivalent in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const { ROCrate } = require("ro-crate");
+const fs = require("fs");
+const path = require("path");
+const { SossValidator } = require("./lib/soss-validator");
+const { execSync } = require("child_process");
 
 async function main() {
 // Parse command line arguments
@@ -622,4 +617,7 @@ try {
 }
 }
 
-await main()
+main().catch((err) => {
+  console.error("Unhandled error:", err && err.stack ? err.stack : err);
+  process.exit(1);
+});
