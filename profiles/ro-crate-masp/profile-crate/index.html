@@ -22,11 +22,10 @@
       <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
       &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/issue-8-masp-profile/profiles/ro-crate-masp/profile-crate">📁 View whole crate on GitHub</a>
     </p>
-    <h1>RO-Crate MASP Profile for &quot;<em>RO-Crate Machine Actionable Schemas and Profiles</em> (MASP)&quot;</h1>
-<p>This is a work in progress draft implementing an RO-Crate MASP profile for RO-Crate MASP itself.</p>
+    <h1>RO-Crate Machine Actionable Schemas and Profiles (MASP)</h1>
+<p>This profile describes the structure of an RO-Crate MASP <strong>Profile Crate</strong> — a crate that contains machine-readable validation rules for other RO-Crates. It is used both as documentation and as input to the MASP validator and documentation generator. This profile is self-describing: the MASP profile crate is itself a valid instance of this profile.</p>
 <h2>Background</h2>
 <h3>Definitions</h3>
-<p>In the context of this document about RO-Crate profiles, the following terms are used.</p>
 <table>
 <thead>
 <tr>
@@ -37,322 +36,1478 @@
 <tbody>
 <tr>
 <td><strong>General Purpose Schema</strong></td>
-<td>A specification/documentation of Classes and Properties of entities and potentially vocabulary terms intended to be used across multiple profiles (E.g. Schema.org, Dublin Core, Darwin Core, et al.). There may be some constraints on the range (expected values) and domain (classes on which a property may occur) but these would typically be more tightly specified in a Profile Specific Schema. A general-purpose schema will typically have inheritance - e.g. a Person is a subClass of Thing.</td>
+<td>A specification of Classes and Properties intended for use across multiple profiles (e.g. Schema.org, Dublin Core, Darwin Core). These may have loose range/domain constraints, typically with inheritance (a <code>Person</code> is a subclass of <code>Thing</code>).</td>
 </tr>
 <tr>
 <td><strong>Schema Language</strong></td>
-<td>The formalisation used to express a schema. These languages may be couched in terms of describing Ontologies, or Vocabularies. Examples include RDF Schema (RDFS), OWL and SKOS and the simple approach used by Schema.org.</td>
+<td>The formalisation used to express a schema. Examples include RDF Schema (RDFS), OWL, SKOS, and Schema.org's own data model.</td>
 </tr>
 <tr>
 <td><strong>SoSS (Schema.org Style Schema)</strong></td>
-<td>Schema.org's data model is not particularly well documented, but the Schema for Schema.org is expressed as a set of Class and Property definitions which are available in a JSON-LD format, RO-Crate compatible. SoSS is a hybrid of RDF, RDFS and Schema.org's own property definition. RO-Crate 1.2 specifies using this SoSS approach for adding extra vocabulary terms which are not defined online to RO-Crates and profiles. See the section on existing RO-Crate support.</td>
+<td>Schema.org's data model expressed as a set of <code>rdfs:Class</code> and <code>rdf:Property</code> definitions in JSON-LD. RO-Crate 1.2 uses this approach for adding extra vocabulary terms to crates and profiles.</td>
 </tr>
 <tr>
 <td><strong>Profile Specific Schema</strong></td>
-<td>A schema which has been specialised for use in a particular domain. E.g. for the Language Data Commons there is a general-purpose SoSS for describing language data and context http://w3id.org/ldac/terms and a profile which gives stricter advice about how to use them to make documents for the Language Data Commons of Australia repository: https://w3id.org.ldac/profile.</td>
+<td>A schema specialised for a particular domain. For example, the Language Data Commons has a general-purpose SoSS at <code>http://w3id.org/ldac/terms</code> and a stricter profile at <code>https://w3id.org/ldac/profile</code>.</td>
 </tr>
 <tr>
 <td><strong>Class</strong></td>
-<td>A named type which is applied to entities using the @type property, for example, a Person (people are real-world things but describing them as JSON-LD entities is a representation). RO-Crate uses the RDF Schema (rdfs) version of Class as per Schema.org's data model.</td>
+<td>A named type applied to entities via the <code>@type</code> property. MASP uses <code>rdfs:Class</code> as per Schema.org's data model.</td>
 </tr>
 <tr>
 <td><strong>Property</strong></td>
-<td>An attribute of an entity. RO-Crate uses the RDF version of property (rdf:Property) as per Schema.org's data model.</td>
-</tr>
-<tr>
-<td><strong>Terms</strong></td>
-<td>Terms in a schema or profile are Classes, Properties and Defined Terms. In this document, Defined Terms are other fixed entities defined together with classes or properties.</td>
+<td>An attribute of an entity. MASP uses <code>rdf:Property</code> as per Schema.org's data model.</td>
 </tr>
 <tr>
 <td><strong>Profile</strong></td>
-<td>A profile, as defined by the W3C Profiles Vocabularies, is a specialisation of a standard or specification. Compared to a schema, which defines classes and properties that can be used in many ways, a profile introduces constraints, extensions or combinations that make the standard suitable for a particular purpose. RO-Crate for instance, can be seen as a profile of JSON-LD, which we indicate using conformsTo. Profile Crates are again profiles of RO-Crate, where they may constrain or extend for instance which schemas are used, but also on what entities are expected to be found in the crate.</td>
+<td>A specialisation of a standard or specification, as defined by the W3C Profiles Vocabulary. A profile introduces constraints or extensions that make a standard suitable for a particular purpose. Profile Crates are profiles of RO-Crate.</td>
+</tr>
+<tr>
+<td><strong>Profile Crate</strong></td>
+<td>An RO-Crate whose root entity has <code>@type: [&quot;Dataset&quot;, &quot;Profile&quot;]</code> and contains machine-readable schema rules alongside human-readable documentation.</td>
 </tr>
 </tbody>
 </table>
+<p>The relationship between schemas and profiles:</p>
 <pre class="mermaid">graph TD;
-    
     subgraph sc[&quot;Schemas: General purpose descriptions of a domain&quot;]
-      
     end
-    subgraph profile[&quot;Profiles: Specialized subsets of a schema, typically with more syntacic constraints and localized descriptions of terms *in this context*&quot;]
-
+    subgraph profile[&quot;Profiles: Specialised subsets of a schema, typically with stricter constraints and localised term descriptions&quot;]
     end
- 
-
 </pre>
+<p>An example with real vocabularies:</p>
 <pre class="mermaid">graph TD;
-    
     subgraph sc[&quot;Schemas: Example&quot;]
       schemao[&quot;Schema.org&quot;]
-      ldacs[&quot;Language Data Commons Profile&quot;]
-
+      ldacs[&quot;Language Data Commons Schema&quot;]
     end
     subgraph profile[&quot;Profiles: Example&quot;]
       ldacp[&quot;Language Data Commons Profile&quot;]
     end
- 
     ldacs --&gt;|Extends| schemao
     ldacp --&gt;|Specializes| ldacs
-
 </pre>
-<p>Both schemas and profiles can be expressed in RO-Crate MASP</p>
+<p>Both schemas and profiles can be expressed in RO-Crate MASP:</p>
 <pre class="mermaid">graph TD;
-    
-    
     subgraph sc[&quot;Schemas: Example&quot;]
       schemao[&quot;Schema.org&quot;]
-      ldacs[&quot;Language Data Commons Profile&quot;]
-
+      ldacs[&quot;Language Data Commons Schema&quot;]
     end
     subgraph profile[&quot;Profiles: Example&quot;]
       subgraph ldacp[&quot;Language Data Commons Profile - RO-Crate&quot;]
-          ldacpc[&quot;Profile RO-Crate-metadata.json&quot;]
-          ldacmd[&quot;Profile documentation&quot;]
+          ldacpc[&quot;ro-crate-metadata.json (rules)&quot;]
+          ldacmd[&quot;profile-documentation.md&quot;]
       end
     end
- 
     ldacs --&gt;|Extends| schemao
     ldacp --&gt;|Specializes| ldacs
-
-   subgraph v[&quot;Validators&quot;]
-      jsv[&quot;Javascript&quot;]
-      shcv[&quot;Shacl Shapes (w/ wrapper)&quot;]   
-   end
-        
-   
-
-  doco[&quot;Documentation Generator&quot;] --&gt; ldacmd
-
- ldacpc --&gt;|input| doco
-
-    
-   
-
+    subgraph v[&quot;Validators&quot;]
+      jsv[&quot;JavaScript (soss-validator.js)&quot;]
+    end
+    doco[&quot;Documentation Generator&quot;] --&gt; ldacmd
+    ldacpc --&gt;|input| doco
+    ldacpc --&gt;|input| jsv
 </pre>
-<h3>Background: extending Schema.org Style Schemas into a full &quot;RO-Crate Machine Actionable Schemas and Profiles Language&quot;</h3>
-<p>Schema.org describes its &quot;Schema&quot; using RDF Properties (rdf:Property) and RDF Schema Classes (rdfs:Class), the conventions are described in the Schema.org <a href="https://schema.org/docs/datamodel.html">Data Model</a>.</p>
-<p>For example here is the definition of Schema.org's Person class in the Schema.org Style Schema for Schema.org itself:</p>
-<pre><code>{
-      &quot;@id&quot;: &quot;schema:Person&quot;,
-      &quot;@type&quot;: &quot;rdfs:Class&quot;,
-      &quot;owl:equivalentClass&quot;: {
-        &quot;@id&quot;: &quot;foaf:Person&quot;
-      },
-      &quot;rdfs:comment&quot;: &quot;A person (alive, dead, undead, or fictional).&quot;,
-      &quot;rdfs:label&quot;: &quot;Person&quot;,
-      &quot;rdfs:subClassOf&quot;: {
-        &quot;@id&quot;: &quot;schema:Thing&quot;
-      },
-      &quot;schema:source&quot;: {
-        &quot;@id&quot;: &quot;http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews&quot;
-      }
-    },
-
-</code></pre>
-<p>This class definition indicates that it is a sub-class of <code>schema:Thing</code>, and thus in a [General Purpose Schema] for Schema.org, properties from Thing would be allowed on Person.</p>
-<pre><code>{
-      &quot;@id&quot;: &quot;schema:author&quot;,
-      &quot;@type&quot;: &quot;rdf:Property&quot;,
-      &quot;rdfs:comment&quot;: &quot;The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.&quot;,
-      &quot;rdfs:label&quot;: &quot;author&quot;,
-      &quot;schema:domainIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;schema:Rating&quot;
-        },
-        {
-          &quot;@id&quot;: &quot;schema:CreativeWork&quot;
-        }
-      ],
-      &quot;schema:rangeIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;schema:Organization&quot;
-        },
-        {
-          &quot;@id&quot;: &quot;schema:Person&quot;
-        }
-      ]
-    }
-
-</code></pre>
-<p>There is an mix of terms from different namespaces here, from RDF, RDF Schema and schema.org -- we won't go into this in detail here but follow Schema.org's approach as RO-Crate has done since its inception.</p>
-<h2>Profile Specific Schemas</h2>
-<p>This section looks at how the SoSS approach can be extended to provide profile-specific schema definitions which meet the requirements set out above.</p>
-<p>In summary, the approach builds on existing RO-Crate practice with a few extensions (REQ5):</p>
-<pre><code>{
-      &quot;@id&quot;: &quot;#prop_authorOfScholarlyWork&quot;, &lt;--- Has an arbitrary local ID which
-      &quot;@type&quot;: &quot;rdf:Property&quot;, &lt;--- Following Schema.org's model this represents an RDF property
-      &quot;prov:specializationOf&quot; : {&quot;@id&quot;: &quot;https://schema.org/author&quot;}, &lt;--- This is the property that instances of this rule will have
-      &quot;rdfs:comment&quot;: &quot;The author(s) of this scholarly work.&quot;, &lt;---- The 'definition' of the property is context specific to its domain of use (see below)
-      &quot;rdfs:label&quot;: &quot;author&quot;,
-      &quot;schema:domainIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;#class_MainArticle&quot;  &lt;---- This specialized `schema:author` property is found in the context of a specialized class
-        }
-      ],
-      &quot;schema:rangeIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;#class_Person&quot; &lt;---- The range of values for this is another specialized class
-        }
-      ],
-       &quot;sh:minCount&quot;: 1.   &lt;---- This 'minCount' property is borrowed from SHACL it is saying that there MUST be at least one `schema:author` property that meets this property definiton 
-    }
-
-</code></pre>
-<p>The above property example implies two more specialized Classes, shown below</p>
-<pre><code>{
-      &quot;@id&quot;: &quot;#class_MainArticle&quot;,
-      &quot;@type&quot;: &quot;rdfs:Class&quot;,
-      &quot;prov:specializationOf&quot; : {&quot;@id&quot;: &quot;https://schema.org/ScholarlyArticle&quot;}, 
-      &quot;rdfs:comment&quot;: &quot;A scholarly article in the context of this profile.&quot;,
-      &quot;rdfs:label&quot;: &quot;ScholarlyArticle&quot;
-},
-
-{
-      &quot;@id&quot;: &quot;#class_AuthorPerson&quot;,
-      &quot;@type&quot;: &quot;rdfs:Class&quot;,
-      &quot;prov:specializationOf&quot; : {&quot;@id&quot;: &quot;https://schema.org/Person&quot;},
-      &quot;rdfs:comment&quot;: &quot;A person in the context of a scholarly work author.&quot;,
-      &quot;rdfs:label&quot;: &quot;Person&quot;
+<h3>Background: Schema.org Style Schemas</h3>
+<p>Schema.org describes its vocabulary using <code>rdf:Property</code> and <code>rdfs:Class</code> entities. RO-Crate has used this convention since its inception. For example, the Schema.org definition of <code>author</code>:</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;schema:author&quot;,
+  &quot;@type&quot;: &quot;rdf:Property&quot;,
+  &quot;rdfs:comment&quot;: &quot;The author of this content.&quot;,
+  &quot;rdfs:label&quot;: &quot;author&quot;,
+  &quot;schema:domainIncludes&quot;: [
+    {&quot;@id&quot;: &quot;schema:CreativeWork&quot;}
+  ],
+  &quot;schema:rangeIncludes&quot;: [
+    {&quot;@id&quot;: &quot;schema:Organization&quot;},
+    {&quot;@id&quot;: &quot;schema:Person&quot;}
+  ]
 }
 </code></pre>
-<p>Continuing this chain of examples, a profile may mandate that the <em>Root Data Entity</em> of crates that conform to this profile must have a <code>schema:citation</code> property that links to ScholarlyArticle, specifically, in the Profile definition a particular specialized version: <code>#class_ScholarlyArticle</code> as shown in the example above.</p>
-<pre><code>{
-      &quot;@id&quot;: &quot;#prop_rootCitation&quot;,
-      &quot;@type&quot;: &quot;rdf:Property&quot;,
-      &quot;prov:specializationOf&quot; : {&quot;@id&quot;: &quot;https://schema.org/citation&quot;},
-      &quot;rdfs:comment&quot;: &quot;A citation or reference to a scholarly work.&quot;,
-      &quot;rdfs:label&quot;: &quot;citation&quot;,
-      &quot;schema:domainIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;#Root_Data_entity&quot;
-        }
-      ],
-      &quot;schema:rangeIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;schema:ScholarlyArticle&quot;
-        }
-      ],
-      &quot;sh:minCount&quot;: 1,
+<p>MASP extends this approach with a few additions — <code>prov:specializationOf</code> to link a profile-specific class or property to its base vocabulary term, and <code>sh:minCount</code>/<code>sh:maxCount</code> borrowed from SHACL to express cardinality.</p>
+<h2>Profile Specific Schemas</h2>
+<p>A MASP profile-specific schema specialises Schema.org-style terms for a particular context. The key differences from plain Schema.org style:</p>
+<ul>
+<li><code>prov:specializationOf</code> links the local rule to the base vocabulary term it constrains</li>
+<li><code>domainIncludes</code> (without <code>schema:</code> prefix — the validator resolves this via the RO-Crate JSON-LD context) links a property rule to its class rule</li>
+<li><code>sh:minCount</code> and <code>sh:maxCount</code> express how many times a property must appear</li>
+</ul>
+<p>Example class and property rules for a hypothetical scholarly profile:</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;#class_ScholarlyArticle&quot;,
+  &quot;@type&quot;: &quot;rdfs:Class&quot;,
+  &quot;prov:specializationOf&quot;: {&quot;@id&quot;: &quot;https://schema.org/ScholarlyArticle&quot;},
+  &quot;rdfs:label&quot;: &quot;ScholarlyArticle&quot;,
+  &quot;rdfs:comment&quot;: &quot;A scholarly article in this profile's context.&quot;,
+  &quot;sh:minCount&quot;: 1,
+  &quot;sh:maxCount&quot;: 1
 },
 {
-      &quot;@id&quot;: &quot;#Root_Data_Entity&quot;, 
-      &quot;@type&quot;: &quot;rdfs:Class&quot;,
-      &quot;prov:specializationOf&quot; : {&quot;@id&quot;: &quot;https://schema.org/Dataset&quot;},
-      &quot;rdfs:comment&quot;: &quot;The Root Data Entity for a crate&quot;,
-      &quot;rdfs:label&quot;: &quot;Root_Data_Entity,&quot;  
-      &quot;sh:minCount&quot;: 1,
-      &quot;sh:maxCount&quot;: 1,
+  &quot;@id&quot;: &quot;#prop_author_ScholarlyArticle&quot;,
+  &quot;@type&quot;: &quot;rdf:Property&quot;,
+  &quot;prov:specializationOf&quot;: {&quot;@id&quot;: &quot;https://schema.org/author&quot;},
+  &quot;rdfs:label&quot;: &quot;author&quot;,
+  &quot;rdfs:comment&quot;: &quot;The author(s) of this scholarly article.&quot;,
+  &quot;domainIncludes&quot;: {&quot;@id&quot;: &quot;#class_ScholarlyArticle&quot;},
+  &quot;rangeIncludes&quot;: {&quot;@id&quot;: &quot;#class_Person&quot;},
+  &quot;sh:minCount&quot;: 1
+}
+</code></pre>
+<p><strong>Important</strong>: use <code>domainIncludes</code> (not <code>schema:domainIncludes</code>) — the validator resolves property names through the RO-Crate JSON-LD context, where the <code>schema:</code> prefix is not defined by default.</p>
+<h3>Linking the Metadata Descriptor</h3>
+<p>Every MASP profile must define how to find the root class rule. This is done via a special property rule whose <code>rdfs:label</code> is <code>&quot;@id&quot;</code> and whose <code>value</code> is <code>&quot;ro-crate-metadata.json&quot;</code>. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows <code>about</code> to find the Root Data Entity class:</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;,
+  &quot;@type&quot;: &quot;rdfs:Class&quot;,
+  &quot;prov:specializationOf&quot;: {&quot;@id&quot;: &quot;http://schema.org/CreativeWork&quot;},
+  &quot;sh:minCount&quot;: 1,
+  &quot;sh:maxCount&quot;: 1
 },
-
+{
+  &quot;@id&quot;: &quot;#prop_id_MetadataDescriptor&quot;,
+  &quot;@type&quot;: &quot;rdf:Property&quot;,
+  &quot;rdfs:label&quot;: &quot;@id&quot;,
+  &quot;value&quot;: &quot;ro-crate-metadata.json&quot;,
+  &quot;domainIncludes&quot;: {&quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;},
+  &quot;sh:minCount&quot;: 1,
+  &quot;sh:maxCount&quot;: 1
+},
+{
+  &quot;@id&quot;: &quot;#prop_about_MetadataDescriptor&quot;,
+  &quot;@type&quot;: &quot;rdf:Property&quot;,
+  &quot;prov:specializationOf&quot;: {&quot;@id&quot;: &quot;http://schema.org/about&quot;},
+  &quot;rdfs:label&quot;: &quot;about&quot;,
+  &quot;domainIncludes&quot;: {&quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;},
+  &quot;rangeIncludes&quot;: {&quot;@id&quot;: &quot;#class_RootDataEntity&quot;},
+  &quot;sh:minCount&quot;: 1,
+  &quot;sh:maxCount&quot;: 1
+}
 </code></pre>
-<p>Finally, to conclude this example, we need to link the definition of the <em>RO-Crate Root Data Entity</em> to the <em>RO-Crate Metadata Descriptor</em>.</p>
-<pre><code> {
-      &quot;@id&quot;: &quot;#RO-Crate_Metadata_Descriptor&quot;, &lt;-- This is a definition for the RO-Crate Metadata Descriptor which is the &quot;magic&quot; ID for RO-Crate
-      &quot;@type&quot;: &quot;rdfs:Class&quot;,
-      &quot;rdfs:label&quot;: &quot;RO-Crate Metadadata Descriptor&quot;,
-      &quot;prov:specializationOf&quot;: { &quot;@id&quot;: &quot;http://schema.org/CreativeWork&quot; }, &lt;-- This is the required @type for an RO-Crate Metadata Descriptor
-      &quot;Description&quot;: &quot;An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.&quot;,
-      &quot;sh:minCount&quot;: 1,
-      &quot;sh:maxCount&quot;: 1 &lt;-- Max and min count of 1 means MUST have exactly ONE instance of an entity that meets the criteria
-    },
-    {
-        &quot;@id&quot;: &quot;#RO-Crate_Metadata_Descriptor.id&quot;,
-        &quot;@type&quot;: &quot;rdf:Property&quot;,
-        &quot;value&quot;: &quot;ro-crate-metadata.json&quot;, &lt;--- Using schema.org's `value` property here to express that the id 
-        &quot;description&quot;: &quot;The RO-Crate Metadata &quot;,
-        &quot;rdfs:label&quot;: &quot;@id&quot;, &lt;--- Strictly speaking JSON-LD @id does not have a URI but this is a way so this property is not a specializtion of anything
-        &quot;domainIncludes&quot;: [
-          {
-            &quot;@id&quot;: &quot;#RO-Crate_Metadata_Descriptor&quot; &lt;-- This property MUST be present on the Metadata Descriptors see the max and min count props below
-          }
-        ],
-        &quot;rangeIncludes&quot;: {&quot;@id&quot;: &quot;#Root_Data_Entity&quot;},
-        &quot;sh:minCount&quot;: 1,
-        &quot;sh:maxCount&quot;: 1
-   },
-    {
-      &quot;@id&quot;: &quot;#RO-Crate_Metadata_Descriptor.about&quot;,
-      &quot;@type&quot;: &quot;rdf:Property&quot;,
-      &quot;prov:specializationOf&quot;: { &quot;@id&quot;: &quot;http://schema.org/about&quot; },
-      &quot;description&quot;: &quot;This property on the RO-Crate Metadata Descriptor references the Root Data Entity. In a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Enitty with different @type arrays or `@conformsTo` references (or other specializations). In this example there is a single reference.&quot;,
-      &quot;name&quot;: &quot;about&quot;,
-      &quot;domainIncludes&quot;: [
-        {
-          &quot;@id&quot;: &quot;#RO-Crate_Metadata_Descriptor&quot;
-        }
-      ],
-      &quot;rangeIncludes&quot;: { &quot;@id&quot;: &quot;#Root_Data_Entity&quot; },
-      &quot;sh:minCount&quot;: 1,
-      &quot;sh:maxCount&quot;: 1
-    },
+<p>The validator uses the <code>#prop_id_MetadataDescriptor</code> pattern (<code>rdfs:label: &quot;@id&quot;</code> + <code>value: &quot;ro-crate-metadata.json&quot;</code>) to locate the root class rule at parse time.</p>
+<h3>How the Validator Finds Schema Rules</h3>
+<p>The validator locates schema rules by inspecting the profile's <code>hasResource</code> array for a <code>ResourceDescriptor</code> entity with <code>hasRole</code> pointing to <code>http://www.w3.org/ns/dx/prof/role/schema</code>. The <code>hasPart</code> array of that descriptor lists all the schema entities (<code>rdfs:Class</code>, <code>rdf:Property</code>, <code>ItemList</code>, <code>DefinedTermSet</code>):</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;#hasSpecializedSchema&quot;,
+  &quot;@type&quot;: &quot;ResourceDescriptor&quot;,
+  &quot;hasRole&quot;: {&quot;@id&quot;: &quot;http://www.w3.org/ns/dx/prof/role/schema&quot;},
+  &quot;hasPart&quot;: [
+    {&quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;},
+    {&quot;@id&quot;: &quot;#prop_id_MetadataDescriptor&quot;},
+    {&quot;@id&quot;: &quot;#prop_about_MetadataDescriptor&quot;},
+    ...
+  ]
+}
 </code></pre>
-<p>The draft Profile Specific RO-Crate schema for RO-Crate itself goes into more detail about this.</p>
-<h1>Algorithms for validation / configuring an editor</h1>
-<p>This section describes the process of validating a Target Crate with a <em>RO-Crate Schema</em> Crate, based on the implementation in the <code>soss-validator.js</code> library.</p>
-<h2>Validation Process Overview</h2>
-<p>The validation process follows these high-level steps:</p>
-<ol>
-<li>Load both the <em>Profile Crate</em> (containing schema definitions) and the Target Crate (to be validated)</li>
-<li>Extract all schema definitions from the Profile Crate, organizing them by type (Classes, Properties, ItemLists)</li>
-<li>Validate the Target Crate against these schema definitions</li>
-<li>Generate structured validation results with error, warning, and info messages</li>
-</ol>
-<h3>Key Concepts Implemented in the Validator</h3>
-<p>The current implementation in <code>soss-validator.js</code> uses these techniques:</p>
+<p>Only entities listed here are treated as validation rules. Other entities in the crate (documentation files, authors, etc.) are ignored by the validator.</p>
+<h2>Validation Algorithm</h2>
+<p>The validator (<code>soss-validator.js</code>) works as follows:</p>
 <ol>
 <li>
-<p><strong>Entity Type Resolution</strong>: The validator resolves entity types through the <code>prov:specializationOf</code> property, creating a mapping between specialized types in the profile and their schema.org (or other) base types.</p>
+<p><strong>Find the schema ResourceDescriptor</strong> — locate the <code>ResourceDescriptor</code> with <code>role/schema</code> in <code>hasResource</code> and read its <code>hasPart</code> list.</p>
 </li>
 <li>
-<p><strong>Bidirectional Property Validation</strong>: Properties are validated both from the domain perspective (checking if entities have required properties) and from the range perspective (checking if property values have the correct types).</p>
-</li>
-<li>
-<p><strong>Cardinality Checking</strong>: The validator enforces <code>sh:minCount</code> and <code>sh:maxCount</code> constraints for both classes and properties.</p>
-</li>
-<li>
-<p><strong>Value Validation</strong>: Property values are validated against their specified ranges, which can include:</p>
+<p><strong>Parse rules</strong> — for each entity in <code>hasPart</code>:</p>
 <ul>
-<li>Primitive types (Text, Number, Boolean, Date)</li>
-<li>Entity references (validated recursively)</li>
-<li>ItemLists (for enumerated valid values)</li>
-<li>Fixed values (using <code>schema:value</code>)</li>
+<li><code>rdfs:Class</code> → <code>ClassRule</code> (type matching + cardinality)</li>
+<li><code>rdf:Property</code> → <code>PropertyRule</code> (presence, cardinality, range, fixed value)</li>
+<li><code>ItemList</code> → <code>ItemListRule</code> (enumerated allowed values)</li>
+<li><code>DefinedTermSet</code> → <code>TermRule</code> (term documentation; currently pass-through)</li>
 </ul>
 </li>
 <li>
-<p><strong>Both Recursive and iterative Validation</strong>  Entities are validated recursively, following references to ensure that relationships as well as an exhaustive pass of the <code>@graph</code> being conducted to make sure unconnected entities are also validated, keeping track of which entities have already been validated against a given rule and only performing validation once.</p>
+<p><strong>Detect root class rule</strong> — the property rule with <code>rdfs:label: &quot;@id&quot;</code> and <code>value: &quot;ro-crate-metadata.json&quot;</code> identifies the Metadata Descriptor class rule. This sets the starting point for validation.</p>
 </li>
-</ol>
-<h3>Detailed Validation Algorithm</h3>
-<h3>Handling Multiple Types and Inheritance</h3>
-<p>The validator handles multiple type values in entities and class inheritance:</p>
-<ol>
-<li>When an entity has multiple type values, the validator checks it against all matching class definitions</li>
-<li>Through <code>prov:specializationOf</code>, the validator maps specialized classes to their parent classes</li>
-<li>The validator ensures an entity satisfies all required properties for all of its types</li>
-</ol>
-<h3>Editor Configuration Generation</h3>
-<p>Based on the validator's approach, an editor configuration can be generated that:</p>
-<ol>
-<li>Creates form sections for each class type</li>
-<li>Creates form fields for each property within its appropriate section</li>
-<li>Enforces required fields based on <code>sh:minCount</code> values</li>
-<li>Provides appropriate input controls based on range types:
+<li>
+<p><strong>Validate the target crate</strong> — for each class rule, iterate all entities in the target crate:</p>
 <ul>
-<li>Text inputs for string values</li>
-<li>Numeric inputs for numbers</li>
-<li>Date pickers for dates</li>
-<li>Dropdown selectors for ItemList values</li>
-<li>Entity reference selectors for object references</li>
+<li>Resolve the entity's <code>@type</code> values through the target crate's JSON-LD context</li>
+<li>Compare against the class rule's <code>prov:specializationOf</code> resolved types</li>
+<li>If the types match, validate all property rules linked to that class via <code>domainIncludes</code></li>
+<li>Count valid instances and check against <code>sh:minCount</code>/<code>sh:maxCount</code></li>
 </ul>
 </li>
+<li>
+<p><strong>Property rule validation</strong> — for each matching entity:</p>
+<ul>
+<li>If the property has a <code>value</code> constraint, check for exact match</li>
+<li>Otherwise check cardinality (<code>sh:minCount</code>, <code>sh:maxCount</code>)</li>
+<li>If <code>rangeIncludes</code> is set, validate each value: primitive types (Text, Number, Boolean, Date) are checked by JS type; entity references are looked up in the crate and validated recursively against the referenced class rule; <code>ItemList</code> values are checked against the list's <code>itemListElement</code> entries</li>
+</ul>
+</li>
+<li>
+<p><strong>Results</strong> — the validator returns <code>{ error, success, rules }</code> where <code>rules</code> contains per-entity property success/error details keyed by rule ID and entity ID.</p>
+</li>
 </ol>
-<p>This mapping between validation schema and editor configuration allows for dynamic generation of editing interfaces that enforce the same constraints as the validator.</p>
-<h3>Special Validation Cases</h3>
-<ol>
-<li><strong>ItemList Validation</strong>: When a property's range includes an ItemList, the validator checks if the property value matches one of the items in the list:</li>
-<li><strong>Fixed Value Validation</strong>: When a property has a <code>schema:value</code> constraint, the validator checks if the property value exactly matches the specified value:</li>
-<li><strong>Scalar Type Validation</strong>: The validator supports different scalar types including string, number, boolean, and date TODO: This needs to be extended, see REQ8.ii</li>
-</ol>
+<h3>Cardinality on Classes vs Properties</h3>
+<p><code>sh:minCount</code>/<code>sh:maxCount</code> mean different things depending on where they appear:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On an <code>rdfs:Class</code> entity</td>
+<td>How many instances of this type must exist in the whole crate</td>
+</tr>
+<tr>
+<td>On an <code>rdf:Property</code> entity</td>
+<td>How many values this property must/may have on each matching entity</td>
+</tr>
+</tbody>
+</table>
+<h3>Fixed-Value Properties</h3>
+<p>A property rule with a <code>value</code> field asserts that the property must have exactly that value. This is most commonly used for the metadata descriptor's <code>@id</code>, which must always be <code>&quot;ro-crate-metadata.json&quot;</code>. It is also used for entities like fixed dataset directory identifiers (e.g. <code>&quot;@id&quot;: &quot;examples/&quot;</code>).</p>
+<h3>ItemList Validation</h3>
+<p>When a property's <code>rangeIncludes</code> references an <code>ItemList</code> entity, the value must match one of the <code>itemListElement</code> entries by <code>@id</code>. Item elements can include additional properties that must also match, allowing for constrained contextual entity definitions within a profile.</p>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="class_MetadataDescriptor"></a> Class: RO-Crate Metadata Descriptor</h3>
+<p>The ro-crate-metadata.json file entity that describes the profile crate.</p>
+<p>At least 1 instances of this type MUST be present in the crate.</p>
+<p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/CreativeWork</td>
+</tr>
+<tr>
+<td><a href="#prop_id_MetadataDescriptor">@id</a></td>
+<td>Yes</td>
+<td></td>
+<td>Text</td>
+<td>ro-crate-metadata.json</td>
+</tr>
+<tr>
+<td><a href="#prop_about_MetadataDescriptor">about <a href="#prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>MUST reference the root profile Dataset entity.</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_conformsTo_MetadataDescriptor">conformsTo <a href="#prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>MUST reference the RO-Crate specification the crate conforms to.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_ProfileDataset"></a> Class: Profile Dataset</h3>
+<p>The root entity of a MASP profile crate. Must have @type [Dataset, Profile].</p>
+<p>At least 1 instances of this type MUST be present in the crate.</p>
+<p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/Dataset, http://www.w3.org/ns/dx/prof/Profile</td>
+</tr>
+<tr>
+<td><a href="#prop_hasResource_ProfileDataset">hasResource <a href="#prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
+<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_isProfileOf_ProfileDataset">isProfileOf <a href="#prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>MUST reference the base RO-Crate specification this profile extends.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_license_ProfileDataset">license <a href="#prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>License for this profile.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_name_ProfileDataset">name <a href="#prop_name_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>A human-readable name for the profile.</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_author_ProfileDataset">author <a href="#prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The person or organization responsible for creating this profile.</td>
+<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_description_ProfileDataset">description <a href="#prop_description_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>A description of the profile and its intended use.</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_hasPart_ProfileDataset">hasPart <a href="#prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>Files that are part of this profile crate.</td>
+<td><a href="#class_File">File</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_version_ProfileDataset">version <a href="#prop_version_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The version of this profile using semantic versioning (MAJOR.MINOR.PATCH).</td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_ResourceDescriptor"></a> Class: ResourceDescriptor</h3>
+<p>Describes a resource that is part of a profile, using the W3C Profiles Vocabulary.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://www.w3.org/ns/dx/prof/ResourceDescriptor</td>
+</tr>
+<tr>
+<td><a href="#prop_hasRole_ResourceDescriptor">hasRole <a href="#prop_hasRole_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_hasArtifact_ResourceDescriptor">hasArtifact <a href="#prop_hasArtifact_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The file or URL that is the artifact for this resource descriptor.</td>
+<td><a href="#class_File">File</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_hasPart_ResourceDescriptor">hasPart <a href="#prop_hasPart_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_rdfsClass"></a> Class: rdfs:Class</h3>
+<p>A class definition in a MASP schema. Defines a type of entity and its cardinality constraints.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://www.w3.org/2000/01/rdf-schema#Class</td>
+</tr>
+<tr>
+<td><a href="#prop_specializationOf_rdfsClass">prov:specializationOf <a href="#prop_specializationOf_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_label_rdfsClass">rdfs:label <a href="#prop_label_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label.</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_maxCount_rdfsClass">sh:maxCount <a href="#prop_maxCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>Maximum number of instances of this class allowed in a conforming crate.</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_minCount_rdfsClass">sh:minCount <a href="#prop_minCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>Minimum number of instances of this class that MUST appear in a conforming crate.</td>
+<td>Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_rdfProperty"></a> Class: rdf:Property</h3>
+<p>A property definition in a MASP schema. Defines a property, its domain class, range, and cardinality constraints.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</td>
+</tr>
+<tr>
+<td><a href="#prop_domainIncludes_rdfProperty">domainIncludes <a href="#prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The class(es) that this property applies to.</td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_label_rdfProperty">rdfs:label <a href="#prop_label_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>A human-readable label for the property, usually matching the property name.</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_specializationOf_rdfProperty">prov:specializationOf <a href="#prop_specializationOf_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_rangeIncludes_rdfProperty">rangeIncludes <a href="#prop_rangeIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_maxCount_rdfProperty">sh:maxCount <a href="#prop_maxCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>Maximum number of times this property MAY appear on entities of the domain class.</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_minCount_rdfProperty">sh:minCount <a href="#prop_minCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>Minimum number of times this property MUST appear on entities of the domain class.</td>
+<td>Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_value_rdfProperty">value <a href="#prop_value_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>No</td>
+<td>A fixed value that this property MUST have on conforming entities.</td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_ItemList"></a> Class: ItemList</h3>
+<p>A list of allowed values for a property. When a property's rangeIncludes is an ItemList, values MUST be drawn from the list.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/ItemList</td>
+</tr>
+<tr>
+<td><a href="#prop_itemListElement_ItemList">itemListElement <a href="#prop_itemListElement_ItemList" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The items in this list. Each item is an entity whose @id is an allowed value.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_DefinedTermSet"></a> Class: DefinedTermSet</h3>
+<p>A set of defined vocabulary terms.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/DefinedTermSet</td>
+</tr>
+<tr>
+<td><a href="#prop_name_DefinedTermSet">name <a href="#prop_name_DefinedTermSet" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The name of this term set.</td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_DefinedTerm"></a> Class: DefinedTerm</h3>
+<p>A single vocabulary term within a DefinedTermSet.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/DefinedTerm</td>
+</tr>
+<tr>
+<td><a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The DefinedTermSet this term belongs to.</td>
+<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_name_DefinedTerm">name <a href="#prop_name_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td>Yes</td>
+<td>The name of this term.</td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_Person"></a> Class: Person</h3>
+<p>A person, used as an author or contributor.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/Person</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_Organization"></a> Class: Organization</h3>
+<p>An organization, used as an author, publisher, or contributor.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/Organization</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_File"></a> Class: File</h3>
+<p>A file that is part of a profile crate.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/MediaObject</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_CreativeWork"></a> Class: CreativeWork</h3>
+<p>A creative work, used for licenses and specification references.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/CreativeWork</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_ResourceRole"></a> Class: ResourceRole</h3>
+<p>A role URI from the W3C Profiles Vocabulary (http://www.w3.org/ns/dx/prof/role/).</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://www.w3.org/ns/dx/prof/ResourceRole</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="prop_id_MetadataDescriptor"></a> Property: @id</h3>
+<p>ID: #prop_id_MetadataDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Text</td>
+<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_about_MetadataDescriptor"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_about_MetadataDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUST reference the root profile Dataset entity.</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_author_ProfileDataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_author_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The person or organization responsible for creating this profile.</td>
+<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_conformsTo_MetadataDescriptor"></a> Property: conformsTo <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_conformsTo_MetadataDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUST reference the RO-Crate specification the crate conforms to.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_description_ProfileDataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_description_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A description of the profile and its intended use.</td>
+<td>Text</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_domainIncludes_rdfProperty"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_domainIncludes_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The class(es) that this property applies to.</td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasArtifact_ResourceDescriptor"></a> Property: hasArtifact <a href="http://www.w3.org/ns/dx/prof/hasArtifact" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_hasArtifact_ResourceDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The file or URL that is the artifact for this resource descriptor.</td>
+<td><a href="#class_File">File</a></td>
+<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasPart_ProfileDataset"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_hasPart_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files that are part of this profile crate.</td>
+<td><a href="#class_File">File</a></td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasPart_ResourceDescriptor"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_hasPart_ResourceDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema.</td>
+<td></td>
+<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasResource_ProfileDataset"></a> Property: hasResource <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_hasResource_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
+<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasRole_ResourceDescriptor"></a> Property: hasRole <a href="http://www.w3.org/ns/dx/prof/hasRole" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_hasRole_ResourceDescriptor</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary.</td>
+<td></td>
+<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_inDefinedTermSet_DefinedTerm</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The DefinedTermSet this term belongs to.</td>
+<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_isProfileOf_ProfileDataset"></a> Property: isProfileOf <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_isProfileOf_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUST reference the base RO-Crate specification this profile extends.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_itemListElement_ItemList"></a> Property: itemListElement <a href="http://schema.org/itemListElement" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_itemListElement_ItemList</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The items in this list. Each item is an entity whose @id is an allowed value.</td>
+<td></td>
+<td><a href="#class_ItemList">ItemList</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_license_ProfileDataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_license_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>License for this profile.</td>
+<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_name_ProfileDataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_name_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A human-readable name for the profile.</td>
+<td>Text</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_name_DefinedTermSet"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_name_DefinedTermSet</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The name of this term set.</td>
+<td>Text</td>
+<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_name_DefinedTerm"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_name_DefinedTerm</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The name of this term.</td>
+<td>Text</td>
+<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_specializationOf_rdfsClass"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_specializationOf_rdfsClass</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs.</td>
+<td></td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_specializationOf_rdfProperty"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_specializationOf_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted.</td>
+<td></td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_rangeIncludes_rdfProperty"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_rangeIncludes_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate.</td>
+<td></td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_label_rdfsClass"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_label_rdfsClass</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label.</td>
+<td>Text</td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_label_rdfProperty"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_label_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A human-readable label for the property, usually matching the property name.</td>
+<td>Text</td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_maxCount_rdfsClass"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_maxCount_rdfsClass</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum number of instances of this class allowed in a conforming crate.</td>
+<td>Integer</td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_maxCount_rdfProperty"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_maxCount_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum number of times this property MAY appear on entities of the domain class.</td>
+<td>Integer</td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_minCount_rdfsClass"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_minCount_rdfsClass</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum number of instances of this class that MUST appear in a conforming crate.</td>
+<td>Integer</td>
+<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_minCount_rdfProperty"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_minCount_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum number of times this property MUST appear on entities of the domain class.</td>
+<td>Integer</td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_value_rdfProperty"></a> Property: value <a href="http://schema.org/value" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_value_rdfProperty</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A fixed value that this property MUST have on conforming entities.</td>
+<td>Text</td>
+<td><a href="#class_rdfProperty">rdf:Property</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_version_ProfileDataset"></a> Property: version <a href="http://schema.org/version" target="_blank" rel="noopener">ⓘ</a></h3>
+<p>ID: #prop_version_ProfileDataset</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The version of this profile using semantic versioning (MAJOR.MINOR.PATCH).</td>
+<td>Text</td>
+<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Item Lists</h2>
 
   </div>
   <script type="module">
