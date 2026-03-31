@@ -14,8 +14,8 @@ This profile describes the structure of an RO-Crate MASP **Profile Crate** — a
 | **Profile Specific Schema** | A schema specialised for a particular domain. For example, the Language Data Commons has a general-purpose SoSS at `http://w3id.org/ldac/terms` and a stricter profile at `https://w3id.org/ldac/profile`. |
 | **Class** | A named type applied to entities via the `@type` property. MASP uses `rdfs:Class` as per Schema.org's data model. |
 | **Property** | An attribute of an entity. MASP uses `rdf:Property` as per Schema.org's data model. |
-| **Profile** | A specialisation of a standard or specification, as defined by the W3C Profiles Vocabulary. A profile introduces constraints or extensions that make a standard suitable for a particular purpose. Profile Crates are profiles of RO-Crate. |
-| **Profile Crate** | An RO-Crate whose root entity has `@type: ["Dataset", "Profile"]` and contains machine-readable schema rules alongside human-readable documentation. |
+| **Profile** | A specialisation of a standard or specification, as defined by the [W3C Profiles Vocabulary](https://www.w3.org/TR/dx-prof/). A profile introduces constraints or extensions that make a standard suitable for a particular purpose. Profile Crates are profiles of RO-Crate. |
+| **Profile Crate** | An RO-Crate whose root entity has `@type: ["Dataset", "Profile"]` and contains machine-readable schema rules alongside human-readable documentation. The structure is defined in the [RO-Crate 1.2 Profiles specification](https://www.researchobject.org/ro-crate/specification/1.2/profiles.html). |
 
 The relationship between schemas and profiles:
 
@@ -90,7 +90,7 @@ MASP extends this approach with a few additions — `prov:specializationOf` to l
 
 ## Profile Specific Schemas
 
-A MASP profile-specific schema specialises Schema.org-style terms for a particular context. The key differences from plain Schema.org style:
+A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:
 
 - `prov:specializationOf` links the local rule to the base vocabulary term it constrains
 - `domainIncludes` (without `schema:` prefix — the validator resolves this via the RO-Crate JSON-LD context) links a property rule to its class rule

@@ -60,11 +60,11 @@
 </tr>
 <tr>
 <td><strong>Profile</strong></td>
-<td>A specialisation of a standard or specification, as defined by the W3C Profiles Vocabulary. A profile introduces constraints or extensions that make a standard suitable for a particular purpose. Profile Crates are profiles of RO-Crate.</td>
+<td>A specialisation of a standard or specification, as defined by the <a href="https://www.w3.org/TR/dx-prof/">W3C Profiles Vocabulary</a>. A profile introduces constraints or extensions that make a standard suitable for a particular purpose. Profile Crates are profiles of RO-Crate.</td>
 </tr>
 <tr>
 <td><strong>Profile Crate</strong></td>
-<td>An RO-Crate whose root entity has <code>@type: [&quot;Dataset&quot;, &quot;Profile&quot;]</code> and contains machine-readable schema rules alongside human-readable documentation.</td>
+<td>An RO-Crate whose root entity has <code>@type: [&quot;Dataset&quot;, &quot;Profile&quot;]</code> and contains machine-readable schema rules alongside human-readable documentation. The structure is defined in the <a href="https://www.researchobject.org/ro-crate/specification/1.2/profiles.html">RO-Crate 1.2 Profiles specification</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -126,7 +126,7 @@
 </code></pre>
 <p>MASP extends this approach with a few additions — <code>prov:specializationOf</code> to link a profile-specific class or property to its base vocabulary term, and <code>sh:minCount</code>/<code>sh:maxCount</code> borrowed from SHACL to express cardinality.</p>
 <h2>Profile Specific Schemas</h2>
-<p>A MASP profile-specific schema specialises Schema.org-style terms for a particular context. The key differences from plain Schema.org style:</p>
+<p>A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:</p>
 <ul>
 <li><code>prov:specializationOf</code> links the local rule to the base vocabulary term it constrains</li>
 <li><code>domainIncludes</code> (without <code>schema:</code> prefix — the validator resolves this via the RO-Crate JSON-LD context) links a property rule to its class rule</li>
