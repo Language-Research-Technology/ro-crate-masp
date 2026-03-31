@@ -92,7 +92,7 @@ MASP extends this approach with a few additions — `prov:specializationOf` to l
 
 A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:
 
-- `prov:specializationOf` links the local rule to the base vocabulary term it constrains
+- `prov:specializationOf` links the local rule to the base vocabulary term it constrains (specialises)
 - `domainIncludes` (without `schema:` prefix — the validator resolves this via the RO-Crate JSON-LD context) links a property rule to its class rule
 - `sh:minCount` and `sh:maxCount` express how many times a property must appear
 
@@ -124,8 +124,8 @@ Example class and property rules for a hypothetical scholarly profile:
 
 ### Linking the Metadata Descriptor
 
-Every MASP profile must define how to find the root class rule. This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `value` is `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
-
+Every MASP profile must define how to find the root class rule which describes the RO-Crate [Root Data Entity](https://www.researchobject.org/ro-crate/specification/1.2/terminology.html). This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `value` is `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
+ 
 ```json
 {
   "@id": "#class_MetadataDescriptor",
@@ -224,3 +224,7 @@ When a property's `rangeIncludes` references an `ItemList` entity, the value mus
 ${rules.all}
 
 ${rules.allItemLists}
+
+## Examples
+
+${rules.examples}

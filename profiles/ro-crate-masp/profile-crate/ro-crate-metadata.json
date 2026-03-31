@@ -41,6 +41,9 @@
         },
         {
           "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasExampleMASPProfile"
         }
       ],
       "hasPart": [
@@ -151,6 +154,33 @@
       "isPartOf": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
       }
+    },
+    {
+      "@id": "#hasExampleMASPProfile",
+      "@type": "ResourceDescriptor",
+      "name": "Example: A minimal MASP profile crate",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/example"
+      },
+      "hasArtifact": {
+        "@id": "#MASPProfileExample"
+      }
+    },
+    {
+      "@id": "#MASPProfileExample",
+      "@type": "LearningResource",
+      "name": "A minimal MASP profile crate",
+      "description": "Key entities from this profile crate, showing what a valid MASP profile crate looks like. This profile is self-describing so its own entities serve as the canonical example.",
+      "hasPart": [
+        { "@id": "ro-crate-metadata.json" },
+        { "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/" },
+        { "@id": "#hasSpecializedSchema" },
+        { "@id": "#class_ProfileDataset" },
+        { "@id": "#prop_name_ProfileDataset" },
+        { "@id": "#prop_isProfileOf_ProfileDataset" },
+        { "@id": "#class_MetadataDescriptor" },
+        { "@id": "#prop_id_MetadataDescriptor" }
+      ]
     },
     {
       "@id": "#author",
@@ -339,10 +369,9 @@
       "@type": "rdf:Property",
       "name": "hasArtifact",
       "rdfs:label": "hasArtifact",
-      "description": "The file or URL that is the artifact for this resource descriptor.",
+      "description": "The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.",
       "prov:specializationOf": { "@id": "http://www.w3.org/ns/dx/prof/hasArtifact" },
-      "domainIncludes": { "@id": "#class_ResourceDescriptor" },
-      "rangeIncludes": { "@id": "#class_File" }
+      "domainIncludes": { "@id": "#class_ResourceDescriptor" }
     },
     {
       "@id": "#prop_hasPart_ResourceDescriptor",

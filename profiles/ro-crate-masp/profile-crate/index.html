@@ -128,7 +128,7 @@
 <h2>Profile Specific Schemas</h2>
 <p>A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:</p>
 <ul>
-<li><code>prov:specializationOf</code> links the local rule to the base vocabulary term it constrains</li>
+<li><code>prov:specializationOf</code> links the local rule to the base vocabulary term it constrains (specialises)</li>
 <li><code>domainIncludes</code> (without <code>schema:</code> prefix — the validator resolves this via the RO-Crate JSON-LD context) links a property rule to its class rule</li>
 <li><code>sh:minCount</code> and <code>sh:maxCount</code> express how many times a property must appear</li>
 </ul>
@@ -155,7 +155,7 @@
 </code></pre>
 <p><strong>Important</strong>: use <code>domainIncludes</code> (not <code>schema:domainIncludes</code>) — the validator resolves property names through the RO-Crate JSON-LD context, where the <code>schema:</code> prefix is not defined by default.</p>
 <h3>Linking the Metadata Descriptor</h3>
-<p>Every MASP profile must define how to find the root class rule. This is done via a special property rule whose <code>rdfs:label</code> is <code>&quot;@id&quot;</code> and whose <code>value</code> is <code>&quot;ro-crate-metadata.json&quot;</code>. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows <code>about</code> to find the Root Data Entity class:</p>
+<p>Every MASP profile must define how to find the root class rule which describes the RO-Crate <a href="https://www.researchobject.org/ro-crate/specification/1.2/terminology.html">Root Data Entity</a>. This is done via a special property rule whose <code>rdfs:label</code> is <code>&quot;@id&quot;</code> and whose <code>value</code> is <code>&quot;ro-crate-metadata.json&quot;</code>. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows <code>about</code> to find the Root Data Entity class:</p>
 <pre><code class="language-json">{
   &quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;,
   &quot;@type&quot;: &quot;rdfs:Class&quot;,
@@ -322,6 +322,11 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li><a href="#ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
+</ul>
 <h3><a id="class_ProfileDataset"></a> Class: Profile Dataset</h3>
 <p>The root entity of a MASP profile crate. Must have @type [Dataset, Profile].</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
@@ -416,6 +421,11 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li><a href="#https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F">Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</a></li>
+</ul>
 <h3><a id="class_ResourceDescriptor"></a> Class: ResourceDescriptor</h3>
 <p>Describes a resource that is part of a profile, using the W3C Profiles Vocabulary.</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -461,8 +471,8 @@
 <tr>
 <td><a href="#prop_hasArtifact_ResourceDescriptor">hasArtifact <a href="#prop_hasArtifact_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>No</td>
-<td>The file or URL that is the artifact for this resource descriptor.</td>
-<td><a href="#class_File">File</a></td>
+<td>The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -474,6 +484,11 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li><a href="#hasSpecializedSchema">Example-1: #hasSpecializedSchema</a></li>
+</ul>
 <h3><a id="class_rdfsClass"></a> Class: rdfs:Class</h3>
 <p>A class definition in a MASP schema. Defines a type of entity and its cardinality constraints.</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -539,6 +554,16 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li>
+<p><a href="#class_ProfileDataset">Example-1: #class_ProfileDataset</a></p>
+</li>
+<li>
+<p><a href="#class_MetadataDescriptor">Example-1: #class_MetadataDescriptor</a></p>
+</li>
+</ul>
 <h3><a id="class_rdfProperty"></a> Class: rdf:Property</h3>
 <p>A property definition in a MASP schema. Defines a property, its domain class, range, and cardinality constraints.</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -625,6 +650,19 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li>
+<p><a href="#prop_name_ProfileDataset">Example-1: #prop_name_ProfileDataset</a></p>
+</li>
+<li>
+<p><a href="#prop_isProfileOf_ProfileDataset">Example-1: #prop_isProfileOf_ProfileDataset</a></p>
+</li>
+<li>
+<p><a href="#prop_id_MetadataDescriptor">Example-1: #prop_id_MetadataDescriptor</a></p>
+</li>
+</ul>
 <h3><a id="class_ItemList"></a> Class: ItemList</h3>
 <p>A list of allowed values for a property. When a property's rangeIncludes is an ItemList, values MUST be drawn from the list.</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -940,6 +978,11 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li><a href="#ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
+</ul>
 <h3><a id="class_ResourceRole"></a> Class: ResourceRole</h3>
 <p>A role URI from the W3C Profiles Vocabulary (http://www.w3.org/ns/dx/prof/role/).</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -1105,8 +1148,8 @@
 </thead>
 <tbody>
 <tr>
-<td>The file or URL that is the artifact for this resource descriptor.</td>
-<td><a href="#class_File">File</a></td>
+<td>The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.</td>
+<td></td>
 <td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
 </tr>
 </tbody>
@@ -1508,6 +1551,333 @@
 </tbody>
 </table>
 <h2>Item Lists</h2>
+<h2>Examples</h2>
+<p><a id="hasExampleMASPProfile"></a></p>
+<h2>Example-1: Example: A minimal MASP profile crate</h2>
+<h3><a id="MASPProfileExample"></a> Artifact: A minimal MASP profile crate</h3>
+<pre>
+ {
+  "@id": "#MASPProfileExample",
+  "@type": "LearningResource",
+  "name": "A minimal MASP profile crate",
+  "description": "Key entities from this profile crate, showing what a valid MASP profile crate looks like. This profile is self-describing so its own entities serve as the canonical example.",
+  "hasPart": [
+    {
+      "@id": "ro-crate-metadata.json"
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+    },
+    {
+      "@id": "#hasSpecializedSchema"
+    },
+    {
+      "@id": "#class_ProfileDataset"
+    },
+    {
+      "@id": "#prop_name_ProfileDataset"
+    },
+    {
+      "@id": "#prop_isProfileOf_ProfileDataset"
+    },
+    {
+      "@id": "#class_MetadataDescriptor"
+    },
+    {
+      "@id": "#prop_id_MetadataDescriptor"
+    }
+  ]
+}
+</pre>
+<h4><a id="ro-crate-metadata.json"></a>Example-1: ro-crate-metadata.json</h4>
+<pre>
+ {
+  "@id": "ro-crate-metadata.json",
+  "@type": "CreativeWork",
+  "identifier": "ro-crate-metadata.json",
+  "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+  },
+  "about": {
+    "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+  }
+}
+</pre>
+<h4><a id="https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F"></a>Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</h4>
+<pre>
+ {
+  "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/",
+  "@type": [
+    "Dataset",
+    "Profile"
+  ],
+  "name": "RO-Crate MASP Profile",
+  "description": "Profile for RO-Crate Machine Actionable Profiles and Schemas (MASP). Defines what a valid MASP profile crate must contain.",
+  "version": "0.1.0",
+  "isProfileOf": [
+    {
+      "@id": "https://w3id.org/ro/crate/1.2"
+    }
+  ],
+  "author": {
+    "@id": "#author"
+  },
+  "license": "Apache-2.0",
+  "hasResource": [
+    {
+      "@id": "#hasSpecializedSchema"
+    },
+    {
+      "@id": "#hasSpecification"
+    },
+    {
+      "@id": "#hasGuidance"
+    },
+    {
+      "@id": "#hasExampleMASPProfile"
+    }
+  ],
+  "hasPart": [
+    {
+      "@id": "index.html"
+    },
+    {
+      "@id": "profile-documentation.md"
+    }
+  ]
+}
+</pre>
+<h4><a id="hasSpecializedSchema"></a>Example-1: #hasSpecializedSchema</h4>
+<pre>
+ {
+  "@id": "#hasSpecializedSchema",
+  "@type": "ResourceDescriptor",
+  "name": "Specialized Schema Terms",
+  "hasRole": {
+    "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+  },
+  "hasPart": [
+    {
+      "@id": "#class_MetadataDescriptor"
+    },
+    {
+      "@id": "#class_ProfileDataset"
+    },
+    {
+      "@id": "#class_ResourceDescriptor"
+    },
+    {
+      "@id": "#class_rdfsClass"
+    },
+    {
+      "@id": "#class_rdfProperty"
+    },
+    {
+      "@id": "#class_ItemList"
+    },
+    {
+      "@id": "#class_DefinedTermSet"
+    },
+    {
+      "@id": "#class_DefinedTerm"
+    },
+    {
+      "@id": "#class_Person"
+    },
+    {
+      "@id": "#class_Organization"
+    },
+    {
+      "@id": "#class_File"
+    },
+    {
+      "@id": "#class_CreativeWork"
+    },
+    {
+      "@id": "#prop_id_MetadataDescriptor"
+    },
+    {
+      "@id": "#prop_conformsTo_MetadataDescriptor"
+    },
+    {
+      "@id": "#prop_about_MetadataDescriptor"
+    },
+    {
+      "@id": "#prop_name_ProfileDataset"
+    },
+    {
+      "@id": "#prop_description_ProfileDataset"
+    },
+    {
+      "@id": "#prop_version_ProfileDataset"
+    },
+    {
+      "@id": "#prop_isProfileOf_ProfileDataset"
+    },
+    {
+      "@id": "#prop_author_ProfileDataset"
+    },
+    {
+      "@id": "#prop_license_ProfileDataset"
+    },
+    {
+      "@id": "#prop_hasResource_ProfileDataset"
+    },
+    {
+      "@id": "#prop_hasPart_ProfileDataset"
+    },
+    {
+      "@id": "#prop_hasRole_ResourceDescriptor"
+    },
+    {
+      "@id": "#prop_hasArtifact_ResourceDescriptor"
+    },
+    {
+      "@id": "#prop_hasPart_ResourceDescriptor"
+    },
+    {
+      "@id": "#prop_label_rdfsClass"
+    },
+    {
+      "@id": "#prop_specializationOf_rdfsClass"
+    },
+    {
+      "@id": "#prop_minCount_rdfsClass"
+    },
+    {
+      "@id": "#prop_maxCount_rdfsClass"
+    },
+    {
+      "@id": "#prop_label_rdfProperty"
+    },
+    {
+      "@id": "#prop_domainIncludes_rdfProperty"
+    },
+    {
+      "@id": "#prop_rangeIncludes_rdfProperty"
+    },
+    {
+      "@id": "#prop_specializationOf_rdfProperty"
+    },
+    {
+      "@id": "#prop_minCount_rdfProperty"
+    },
+    {
+      "@id": "#prop_maxCount_rdfProperty"
+    },
+    {
+      "@id": "#prop_value_rdfProperty"
+    },
+    {
+      "@id": "#prop_itemListElement_ItemList"
+    },
+    {
+      "@id": "#prop_name_DefinedTermSet"
+    },
+    {
+      "@id": "#prop_name_DefinedTerm"
+    },
+    {
+      "@id": "#prop_inDefinedTermSet_DefinedTerm"
+    },
+    {
+      "@id": "#class_ResourceRole"
+    }
+  ]
+}
+</pre>
+<h4><a id="class_ProfileDataset"></a>Example-1: #class_ProfileDataset</h4>
+<pre>
+ {
+  "@id": "#class_ProfileDataset",
+  "@type": "rdfs:Class",
+  "name": "Profile Dataset",
+  "description": "The root entity of a MASP profile crate. Must have @type [Dataset, Profile].",
+  "prov:specializationOf": [
+    {
+      "@id": "http://schema.org/Dataset"
+    },
+    {
+      "@id": "http://www.w3.org/ns/dx/prof/Profile"
+    }
+  ],
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+}
+</pre>
+<h4><a id="prop_name_ProfileDataset"></a>Example-1: #prop_name_ProfileDataset</h4>
+<pre>
+ {
+  "@id": "#prop_name_ProfileDataset",
+  "@type": "rdf:Property",
+  "name": "name",
+  "rdfs:label": "name",
+  "description": "A human-readable name for the profile.",
+  "prov:specializationOf": {
+    "@id": "http://schema.org/name"
+  },
+  "domainIncludes": {
+    "@id": "#class_ProfileDataset"
+  },
+  "rangeIncludes": {
+    "@id": "Text"
+  },
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+}
+</pre>
+<h4><a id="prop_isProfileOf_ProfileDataset"></a>Example-1: #prop_isProfileOf_ProfileDataset</h4>
+<pre>
+ {
+  "@id": "#prop_isProfileOf_ProfileDataset",
+  "@type": "rdf:Property",
+  "name": "isProfileOf",
+  "rdfs:label": "isProfileOf",
+  "description": "MUST reference the base RO-Crate specification this profile extends.",
+  "prov:specializationOf": {
+    "@id": "http://schema.org/isProfileOf"
+  },
+  "domainIncludes": {
+    "@id": "#class_ProfileDataset"
+  },
+  "rangeIncludes": {
+    "@id": "#class_CreativeWork"
+  },
+  "sh:minCount": 1
+}
+</pre>
+<h4><a id="class_MetadataDescriptor"></a>Example-1: #class_MetadataDescriptor</h4>
+<pre>
+ {
+  "@id": "#class_MetadataDescriptor",
+  "@type": "rdfs:Class",
+  "name": "RO-Crate Metadata Descriptor",
+  "description": "The ro-crate-metadata.json file entity that describes the profile crate.",
+  "prov:specializationOf": {
+    "@id": "http://schema.org/CreativeWork"
+  },
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+}
+</pre>
+<h4><a id="prop_id_MetadataDescriptor"></a>Example-1: #prop_id_MetadataDescriptor</h4>
+<pre>
+ {
+  "@id": "#prop_id_MetadataDescriptor",
+  "@type": "rdf:Property",
+  "name": "@id",
+  "rdfs:label": "@id",
+  "value": "ro-crate-metadata.json",
+  "domainIncludes": {
+    "@id": "#class_MetadataDescriptor"
+  },
+  "rangeIncludes": {
+    "@id": "Text"
+  },
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+}
+</pre>
 
   </div>
   <script type="module">
