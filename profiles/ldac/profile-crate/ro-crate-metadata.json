@@ -11,8 +11,11 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "identifier": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
       "about": {
-        "@id": "./"
+        "@id": "https://w3id.org/ldac/profile"
       }
     },
     {
@@ -26,14 +29,48 @@
         },
         "text/markdown"
       ],
+      "about": {
+        "@id": "https://w3id.org/ldac/profile"
+      },
       "isPartOf": {
-        "@id": "./"
+        "@id": "https://w3id.org/ldac/profile"
       }
     },
     {
       "@id": "#author",
       "@type": "Organization",
       "name": "University of Queensland"
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "Language Data Commons Comprehensive Collection Profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "https://w3id.org/ldac/profile"
+      }
     },
     {
       "@id": "#hasSpecializedSchema",
@@ -126,6 +163,12 @@
         },
         {
           "@id": "#RO-Crate_Metadata_Descriptor"
+        },
+        {
+          "@id": "#README_Entity"
+        },
+        {
+          "@id": "#README.id"
         },
         {
           "@id": "#Root_Data_Entity"
@@ -986,6 +1029,34 @@
       },
       "sh:minCount": "1",
       "sh:maxCount": "1"
+    },
+    {
+      "@id": "#README_Entity",
+      "@type": "rdfs:Class",
+      "rdfs:label": "README_Entity",
+      "name": "README Entity",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/MediaObject"
+      },
+      "rdfs:comment": "An Data Package MUST contain a README file that describes the contents of the package. This entity represents the README.html file.",
+      "sh:minCount": "1",
+      "sh:maxCount": "1"
+    },
+    {
+      "@id": "#README.id",
+      "@type": "rdf:Property",
+      "rdfs:label": "@id",
+      "domainIncludes": {
+        "@id": "#README_Entity"
+      },
+      "rdfs:comment": "README file",
+      "rangeIncludes": {
+        "@id": "#README_Entity"
+      },
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
+      "description": "There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`.",
+      "value": "README.html"
     },
     {
       "@id": "#Root_Data_Entity",
@@ -3959,21 +4030,35 @@
       "name": "Markdown"
     },
     {
-      "@id": "./",
-      "@type": "Dataset",
+      "@id": "https://w3id.org/ldac/profile",
+      "@type": ["Dataset", "Profile"],
       "name": "Language Data Commons Comprehensive Collection Profile",
       "description": "Profile derived from Language Data Commons Comprehensive Collection: Implements the language data commons RO-Crate Metadata Profile for the top-level, objects and files.",
+      "version": "0.1.0",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
       "author": {
         "@id": "#author"
       },
       "license": "GPL-3.0",
-      "conformsTo": {
-        "@id": "https://w3id.org/ldac/profile"
-      },
-      "hasResource": {
-        "@id": "#hasSpecializedSchema"
-      },
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        },
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        }
+      ],
       "hasPart": [
+        {
+          "@id": "index.html"
+        },
         {
           "@id": "profile-documentation.md"
         }

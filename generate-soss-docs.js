@@ -11,6 +11,8 @@ const fs = require("fs");
 const path = require("path");
 const { SossValidator } = require("./lib/soss-validator");
 const { execSync } = require("child_process");
+const MarkdownIt = require("markdown-it");
+const md = new MarkdownIt("commonmark");
 
 async function main() {
 // Parse command line arguments
@@ -608,9 +610,40 @@ try {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  // Write the output to file
+  // Write the markdown output
   fs.writeFileSync(outputPath, output, "utf8");
   console.log(`Documentation generated successfully: ${clean(outputPath)}`);
+
+  // Write index.html — CommonMark HTML version with FAIR Signposting link header
+  const htmlBody = md.render(output);
+  const profileName = profileCrate.rootDataset?.name || "Profile Documentation";
+  const htmlOutput = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${profileName}</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a></p>
+    ${htmlBody}
+  </div>
+</body>
+</html>`;
+  const htmlOutputPath = path.join(outputDir, "index.html");
+  fs.writeFileSync(htmlOutputPath, htmlOutput, "utf8");
+  console.log(`HTML documentation generated successfully: ${clean(htmlOutputPath)}`);
 } catch (error) {
   console.error(`Error generating documentation: ${error.message}`);
   console.error(error.stack);

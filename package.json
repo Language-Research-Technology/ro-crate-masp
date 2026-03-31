@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "RO-Crate Machine Actionable Profiles and Schemas tools",
   "main": "index.js",
-  "bin":{
-     "generate-soss-docs": "./generate-soss-docs.js"
+  "bin": {
+    "generate-soss-docs": "./generate-soss-docs.js"
   },
   "scripts": {
     "test": "mocha",
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/Language-Research-Technology/ro-crate-maps#readme",
   "dependencies": {
+    "markdown-it": "^14.1.1",
     "ro-crate": "^3.6.1"
   },
   "devDependencies": {

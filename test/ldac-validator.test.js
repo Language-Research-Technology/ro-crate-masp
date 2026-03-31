@@ -40,7 +40,7 @@ describe('Language Data Commons (LDAC) Validator Tests', function() {
 
   
 
-  it('should be able to deal with the LDAC profile', async function() {
+  it('should be able to deal with the MASP-based LDAC profile', async function() {
     // Create a validator with the ldac crate
     // Load profile crate
     const profileData = fs.readFileSync(ldacProfileCratePath, 'utf8');
@@ -52,7 +52,7 @@ describe('Language Data Commons (LDAC) Validator Tests', function() {
     const targetCrate = new ROCrate({ array: true, link: true });
     var results = await validator.validateCrate(targetCrate);
     expect(results).to.have.property('error');
-    expect(results.error.length).to.equal(2);
+    expect(results.error.length).to.equal(3);
   
     // Add required properties
     targetCrate.root['@type'] = ['Dataset', "RepositoryCollection"];
@@ -65,8 +65,15 @@ describe('Language Data Commons (LDAC) Validator Tests', function() {
     targetCrate.root['publisher'] = {"@id": "https://ror.org/0000-0002-1825-XXXX", "name": "Test Publisher", "@type": "Organization"};
     targetCrate.root['dct:rightsHolder'] = {"@id": "https://orcid.org/0000-0002-1825-XXXX"};
 
+    targetCrate.addEntity({
+      "@id": "README.html",
+      "@type": "File",
+      "name": "README",
+      "encodingFormat": "text/html"
+    });
+    
+ 
     results = await validator.validateCrate(targetCrate);
-    console.log(JSON.stringify(results, null, 2)  );
 
     expect(results.error.length).to.equal(0);
 
@@ -103,7 +110,7 @@ The approach is to load the example PARADISEC data provided, show how it fails v
     expect(results).to.have.property('error');
 
     // Check the number of errors 
-    expect(results.error.length).to.equal(2);
+    expect(results.error.length).to.equal(3);
 
 
     results = await validator.validateCrate(targetCrate);
@@ -140,11 +147,18 @@ The approach is to load the example PARADISEC data provided, show how it fails v
     // THIS IS NOT AN ERROR but the subjectLanguage propety should not end with an "s"
     targetCrate.root.subjectLanguage = targetCrate.root.subjectLanguages;
     targetCrate.root.inLanguage = targetCrate.root.subjectLanguages;
+   
+    // Add a README file entity
+    targetCrate.addEntity({
+      "@id": "README.html",
+      "@type": "File",
+      "name": "README",
+      "encodingFormat": "text/html"
+    });
 
 
     var results = await validator.validateCrate(targetCrate);
 
-    console.log(JSON.stringify(results, null, 2));
     expect(results.error.length).to.equal(0);
 
     

@@ -1287,6 +1287,24 @@ At least 1 instances of this type MUST be present in the crate.
 | <a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. In a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Entity with different @type arrays or `@conformsTo` references (or other specializations). | <a href="#class-root-data-entity">Root Data Entity</a> |  |
 
 
+### <a id="class-readme-entity"></a> Class: README Entity
+
+An Data Package MUST contain a README file that describes the contents of the package. This entity represents the README.html file.
+
+At least 1 instances of this type MUST be present in the crate.
+
+ A maximum of 1 instances of this type  MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| 1 | 1 |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | http://schema.org/MediaObject |
+| <a href="#property-id">@id</a> | Yes | There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#class-readme-entity">README Entity</a> | README.html |
+
+
 ### <a id="class-root-data-entity"></a> Class: Root Data Entity
 
 The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor. In this profile, it is a Dataset and RepositoryCollection.
@@ -1309,6 +1327,13 @@ At least 1 instances of this type MUST be present in the crate.
 
 ## All Properties
 
+### <a id="property-id"></a> Property: @id
+
+ID: #README.id
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#class-readme-entity">README Entity</a> | <a href="#class-readme-entity">README Entity</a> |
 ### <a id="property-id"></a> Property: @id
 
 ID: #RO-Crate_Metadata_Descriptor.id

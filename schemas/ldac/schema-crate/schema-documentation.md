@@ -826,7 +826,3 @@ ID: https://w3id.org/ldac/terms#writtenLanguageFormat
 The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten).
 
 
-
-
-## Item Lists
-

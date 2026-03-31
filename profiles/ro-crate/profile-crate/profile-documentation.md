@@ -6,6 +6,7 @@ This document in an experimental RO-Crate Machine Actionable Profile for RO-Crat
 
 
 
+
 # The RO-Crate Root Data Entity
 
 
@@ -31,7 +32,7 @@ At least 1 instances of this type MUST be present in the crate.
 | -------- | -------- | ----------- | ----- | ----- |
 | @type | Yes |  |  | http://schema.org/CreativeWork |
 | <a href="#property-id">@id</a> | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
-| <a href="#property-about-root-data-entity">about (Root Data Entity) <a href="#property-about-root-data-entity" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. I a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Enitty with different @type arrays or `@conformsTo` references (or other specializations). In this example there is a single reference. | <a href="#class-root-data-entity">Root Data Entity</a> |  |
+| <a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> |  |
 
 
 ### <a id="class-root-data-entity"></a> Class: Root Data Entity
@@ -80,13 +81,13 @@ ID: #RO-Crate_Metadata_Descriptor.id
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
 | The RO-Crate Metadata  |  | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |
-### <a id="property-about-root-data-entity"></a> Property: about (Root Data Entity) <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a>
+### <a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #RO-Crate_Metadata_Descriptor.about
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This property on the RO-Crate Metadata Descriptor references the Root Data Entity. I a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Enitty with different @type arrays or `@conformsTo` references (or other specializations). In this example there is a single reference. | <a href="#class-root-data-entity">Root Data Entity</a> | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |
+| This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="property-datepublished"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_datePublised_Dataset
