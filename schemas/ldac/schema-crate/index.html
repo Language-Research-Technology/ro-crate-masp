@@ -21,7 +21,7 @@
     <h1>Language Data Commons Schema</h1>
 <p>This is a language data schema, in the style of the Schema.org schema. It is based on OLAC terms for use in the LDaCA project and is published at https://w3id.org/ldac/terms. This schema builds on Schema.org and is intended to be used with the Language Data Commons RO-Crate Profile: https://w3id.org/ldac/profile.</p>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3>&lt;a id=&quot;class-collectionevent&quot;&gt;&lt;/a&gt; Class: CollectionEvent</h3>
+<h3><a id="class-collectionevent"></a> Class: CollectionEvent</h3>
 <p>A description of an event at which one or more PrimaryMaterials were captured, e.g. as video or audio.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -57,15 +57,15 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-collectioneventtype&quot;&gt;collectionEventType&lt;/a&gt;</td>
+<td><a href="#property-collectioneventtype">collectionEventType</a></td>
 <td>No</td>
 <td>A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment.</td>
-<td>&lt;a href=&quot;#class-session&quot;&gt;Session&lt;/a&gt;</td>
+<td><a href="#class-session">Session</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;class-collectionprotocol&quot;&gt;&lt;/a&gt; Class: CollectionProtocol</h3>
+<h3><a id="class-collectionprotocol"></a> Class: CollectionProtocol</h3>
 <p>A description of how this Object or Collection was obtained, such as the strategy used for selecting written source texts, or the prompts given to participants.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -101,7 +101,7 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-collectionprotocoltype&quot;&gt;collectionProtocolType&lt;/a&gt;</td>
+<td><a href="#property-collectionprotocoltype">collectionProtocolType</a></td>
 <td>No</td>
 <td>A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection.</td>
 <td></td>
@@ -109,7 +109,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;class-datadepositlicense&quot;&gt;&lt;/a&gt; Class: DataDepositLicense</h3>
+<h3><a id="class-datadepositlicense"></a> Class: DataDepositLicense</h3>
 <p>A license document setting out terms for deposit into a repository.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -153,7 +153,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;class-datalicense&quot;&gt;&lt;/a&gt; Class: DataLicense</h3>
+<h3><a id="class-datalicense"></a> Class: DataLicense</h3>
 <p>A license document for data licensing. This is a superclass of DataReuseLicense and DataDepositLicense.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -189,7 +189,7 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-reviewdate&quot;&gt;reviewDate&lt;/a&gt;</td>
+<td><a href="#property-reviewdate">reviewDate</a></td>
 <td>No</td>
 <td>The date that this license should be reviewed.</td>
 <td></td>
@@ -197,7 +197,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;class-datareuselicense&quot;&gt;&lt;/a&gt; Class: DataReuseLicense</h3>
+<h3><a id="class-datareuselicense"></a> Class: DataReuseLicense</h3>
 <p>A license document, setting out terms for reuse of data.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -233,21 +233,21 @@
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-access&quot;&gt;access&lt;/a&gt;</td>
+<td><a href="#property-access">access</a></td>
 <td>No</td>
 <td>Whether this is an open or restricted access license.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-accesscontrollist&quot;&gt;accessControlList&lt;/a&gt;</td>
+<td><a href="#property-accesscontrollist">accessControlList</a></td>
 <td>No</td>
 <td>When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs.</td>
 <td>http://schema.org/URL</td>
 <td></td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#property-authorizationworkflow&quot;&gt;authorizationWorkflow&lt;/a&gt;</td>
+<td><a href="#property-authorizationworkflow">authorizationWorkflow</a></td>
 <td>No</td>
 <td>By what process a user is granted authorization to a license.</td>
 <td></td>
@@ -256,7 +256,7 @@
 </tbody>
 </table>
 <h2>All Properties</h2>
-<h3>&lt;a id=&quot;property-access&quot;&gt;&lt;/a&gt; Property: access</h3>
+<h3><a id="property-access"></a> Property: access</h3>
 <p>ID: https://w3id.org/ldac/terms#access</p>
 <table>
 <thead>
@@ -270,11 +270,11 @@
 <tr>
 <td>Whether this is an open or restricted access license.</td>
 <td></td>
-<td>&lt;a href=&quot;#class-datareuselicense&quot;&gt;DataReuseLicense&lt;/a&gt;</td>
+<td><a href="#class-datareuselicense">DataReuseLicense</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-accesscontrollist&quot;&gt;&lt;/a&gt; Property: accessControlList</h3>
+<h3><a id="property-accesscontrollist"></a> Property: accessControlList</h3>
 <p>ID: https://w3id.org/ldac/terms#accessControlList</p>
 <table>
 <thead>
@@ -288,11 +288,11 @@
 <tr>
 <td>When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs.</td>
 <td>http://schema.org/URL</td>
-<td>&lt;a href=&quot;#class-datareuselicense&quot;&gt;DataReuseLicense&lt;/a&gt;</td>
+<td><a href="#class-datareuselicense">DataReuseLicense</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-age&quot;&gt;&lt;/a&gt; Property: age</h3>
+<h3><a id="property-age"></a> Property: age</h3>
 <p>ID: https://w3id.org/ldac/terms#age</p>
 <table>
 <thead>
@@ -310,7 +310,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-annotationof&quot;&gt;&lt;/a&gt; Property: annotationOf</h3>
+<h3><a id="property-annotationof"></a> Property: annotationOf</h3>
 <p>ID: https://w3id.org/ldac/terms#annotationOf</p>
 <table>
 <thead>
@@ -323,12 +323,12 @@
 <tbody>
 <tr>
 <td>This resource contains some kind of description that adds information to the resource it references.</td>
-<td>&lt;a href=&quot;#class-primarymaterial&quot;&gt;PrimaryMaterial&lt;/a&gt;</td>
+<td><a href="#class-primarymaterial">PrimaryMaterial</a></td>
 <td>http://schema.org/CreativeWork</td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-annotationtype&quot;&gt;&lt;/a&gt; Property: annotationType</h3>
+<h3><a id="property-annotationtype"></a> Property: annotationType</h3>
 <p>ID: https://w3id.org/ldac/terms#annotationType</p>
 <table>
 <thead>
@@ -346,7 +346,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-annotator&quot;&gt;&lt;/a&gt; Property: annotator</h3>
+<h3><a id="property-annotator"></a> Property: annotator</h3>
 <p>ID: https://w3id.org/ldac/terms#annotator</p>
 <table>
 <thead>
@@ -364,7 +364,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-authorizationworkflow&quot;&gt;&lt;/a&gt; Property: authorizationWorkflow</h3>
+<h3><a id="property-authorizationworkflow"></a> Property: authorizationWorkflow</h3>
 <p>ID: https://w3id.org/ldac/terms#authorizationWorkflow</p>
 <table>
 <thead>
@@ -378,11 +378,11 @@
 <tr>
 <td>By what process a user is granted authorization to a license.</td>
 <td></td>
-<td>&lt;a href=&quot;#class-datareuselicense&quot;&gt;DataReuseLicense&lt;/a&gt;</td>
+<td><a href="#class-datareuselicense">DataReuseLicense</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-channels&quot;&gt;&lt;/a&gt; Property: channels</h3>
+<h3><a id="property-channels"></a> Property: channels</h3>
 <p>ID: https://w3id.org/ldac/terms#channels</p>
 <table>
 <thead>
@@ -400,7 +400,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-collectioneventtype&quot;&gt;&lt;/a&gt; Property: collectionEventType</h3>
+<h3><a id="property-collectioneventtype"></a> Property: collectionEventType</h3>
 <p>ID: https://w3id.org/ldac/terms#collectionEventType</p>
 <table>
 <thead>
@@ -413,12 +413,12 @@
 <tbody>
 <tr>
 <td>A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment.</td>
-<td>&lt;a href=&quot;#class-session&quot;&gt;Session&lt;/a&gt;</td>
-<td>&lt;a href=&quot;#class-collectionevent&quot;&gt;CollectionEvent&lt;/a&gt;</td>
+<td><a href="#class-session">Session</a></td>
+<td><a href="#class-collectionevent">CollectionEvent</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-collectionprotocoltype&quot;&gt;&lt;/a&gt; Property: collectionProtocolType</h3>
+<h3><a id="property-collectionprotocoltype"></a> Property: collectionProtocolType</h3>
 <p>ID: https://w3id.org/ldac/terms#collectionProtocolType</p>
 <table>
 <thead>
@@ -432,11 +432,11 @@
 <tr>
 <td>A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection.</td>
 <td></td>
-<td>&lt;a href=&quot;#class-collectionprotocol&quot;&gt;CollectionProtocol&lt;/a&gt;</td>
+<td><a href="#class-collectionprotocol">CollectionProtocol</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-communicationmode&quot;&gt;&lt;/a&gt; Property: communicationMode</h3>
+<h3><a id="property-communicationmode"></a> Property: communicationMode</h3>
 <p>ID: https://w3id.org/ldac/terms#communicationMode</p>
 <table>
 <thead>
@@ -454,7 +454,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-compiler&quot;&gt;&lt;/a&gt; Property: compiler</h3>
+<h3><a id="property-compiler"></a> Property: compiler</h3>
 <p>ID: https://w3id.org/ldac/terms#compiler</p>
 <table>
 <thead>
@@ -472,7 +472,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-consultant&quot;&gt;&lt;/a&gt; Property: consultant</h3>
+<h3><a id="property-consultant"></a> Property: consultant</h3>
 <p>ID: https://w3id.org/ldac/terms#consultant</p>
 <table>
 <thead>
@@ -490,7 +490,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-datainputter&quot;&gt;&lt;/a&gt; Property: dataInputter</h3>
+<h3><a id="property-datainputter"></a> Property: dataInputter</h3>
 <p>ID: https://w3id.org/ldac/terms#dataInputter</p>
 <table>
 <thead>
@@ -508,7 +508,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-datefreetext&quot;&gt;&lt;/a&gt; Property: dateFreeText</h3>
+<h3><a id="property-datefreetext"></a> Property: dateFreeText</h3>
 <p>ID: https://w3id.org/ldac/terms#dateFreeText</p>
 <table>
 <thead>
@@ -526,7 +526,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-depositor&quot;&gt;&lt;/a&gt; Property: depositor</h3>
+<h3><a id="property-depositor"></a> Property: depositor</h3>
 <p>ID: https://w3id.org/ldac/terms#depositor</p>
 <table>
 <thead>
@@ -544,7 +544,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-derivationof&quot;&gt;&lt;/a&gt; Property: derivationOf</h3>
+<h3><a id="property-derivationof"></a> Property: derivationOf</h3>
 <p>ID: https://w3id.org/ldac/terms#derivationOf</p>
 <table>
 <thead>
@@ -557,12 +557,12 @@
 <tbody>
 <tr>
 <td>This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF.</td>
-<td>&lt;a href=&quot;#class-annotation&quot;&gt;Annotation&lt;/a&gt;, &lt;a href=&quot;#class-primarymaterial&quot;&gt;PrimaryMaterial&lt;/a&gt;</td>
-<td>&lt;a href=&quot;#class-derivedmaterial&quot;&gt;DerivedMaterial&lt;/a&gt;</td>
+<td><a href="#class-annotation">Annotation</a>, <a href="#class-primarymaterial">PrimaryMaterial</a></td>
+<td><a href="#class-derivedmaterial">DerivedMaterial</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-developer&quot;&gt;&lt;/a&gt; Property: developer</h3>
+<h3><a id="property-developer"></a> Property: developer</h3>
 <p>ID: https://w3id.org/ldac/terms#developer</p>
 <table>
 <thead>
@@ -580,7 +580,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-doi&quot;&gt;&lt;/a&gt; Property: doi</h3>
+<h3><a id="property-doi"></a> Property: doi</h3>
 <p>ID: https://w3id.org/ldac/terms#doi</p>
 <table>
 <thead>
@@ -598,7 +598,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-editor&quot;&gt;&lt;/a&gt; Property: editor</h3>
+<h3><a id="property-editor"></a> Property: editor</h3>
 <p>ID: https://w3id.org/ldac/terms#editor</p>
 <table>
 <thead>
@@ -616,7 +616,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-geojson&quot;&gt;&lt;/a&gt; Property: geoJSON</h3>
+<h3><a id="property-geojson"></a> Property: geoJSON</h3>
 <p>ID: https://w3id.org/ldac/terms#geoJSON</p>
 <table>
 <thead>
@@ -634,7 +634,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-hasannotation&quot;&gt;&lt;/a&gt; Property: hasAnnotation</h3>
+<h3><a id="property-hasannotation"></a> Property: hasAnnotation</h3>
 <p>ID: https://w3id.org/ldac/terms#hasAnnotation</p>
 <table>
 <thead>
@@ -647,12 +647,12 @@
 <tbody>
 <tr>
 <td>This resource is referenced by another resource that describes it such as a translation, transcription or other analysis.</td>
-<td>&lt;a href=&quot;#class-annotation&quot;&gt;Annotation&lt;/a&gt;</td>
+<td><a href="#class-annotation">Annotation</a></td>
 <td>http://schema.org/CreativeWork</td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-hascollectionprotocol&quot;&gt;&lt;/a&gt; Property: hasCollectionProtocol</h3>
+<h3><a id="property-hascollectionprotocol"></a> Property: hasCollectionProtocol</h3>
 <p>ID: https://w3id.org/ldac/terms#hasCollectionProtocol</p>
 <table>
 <thead>
@@ -665,12 +665,12 @@
 <tbody>
 <tr>
 <td>This resource was assembled or collected according to the linked protocol.</td>
-<td>&lt;a href=&quot;#class-collectionprotocol&quot;&gt;CollectionProtocol&lt;/a&gt;</td>
+<td><a href="#class-collectionprotocol">CollectionProtocol</a></td>
 <td>http://schema.org/CreativeWork</td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-hasderivation&quot;&gt;&lt;/a&gt; Property: hasDerivation</h3>
+<h3><a id="property-hasderivation"></a> Property: hasDerivation</h3>
 <p>ID: https://w3id.org/ldac/terms#hasDerivation</p>
 <table>
 <thead>
@@ -683,12 +683,12 @@
 <tbody>
 <tr>
 <td>This property references another resource that is derived from it such as a downsampled audio or video file, or text extracted from a PDF.</td>
-<td>&lt;a href=&quot;#class-derivedmaterial&quot;&gt;DerivedMaterial&lt;/a&gt;</td>
-<td>&lt;a href=&quot;#class-primarymaterial&quot;&gt;PrimaryMaterial&lt;/a&gt;</td>
+<td><a href="#class-derivedmaterial">DerivedMaterial</a></td>
+<td><a href="#class-primarymaterial">PrimaryMaterial</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-illustrator&quot;&gt;&lt;/a&gt; Property: illustrator</h3>
+<h3><a id="property-illustrator"></a> Property: illustrator</h3>
 <p>ID: https://w3id.org/ldac/terms#illustrator</p>
 <table>
 <thead>
@@ -706,7 +706,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-indexabletext&quot;&gt;&lt;/a&gt; Property: indexableText</h3>
+<h3><a id="property-indexabletext"></a> Property: indexableText</h3>
 <p>ID: https://w3id.org/ldac/terms#indexableText</p>
 <table>
 <thead>
@@ -724,7 +724,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-interpreter&quot;&gt;&lt;/a&gt; Property: interpreter</h3>
+<h3><a id="property-interpreter"></a> Property: interpreter</h3>
 <p>ID: https://w3id.org/ldac/terms#interpreter</p>
 <table>
 <thead>
@@ -742,7 +742,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-interviewee&quot;&gt;&lt;/a&gt; Property: interviewee</h3>
+<h3><a id="property-interviewee"></a> Property: interviewee</h3>
 <p>ID: https://w3id.org/ldac/terms#interviewee</p>
 <table>
 <thead>
@@ -760,7 +760,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-interviewer&quot;&gt;&lt;/a&gt; Property: interviewer</h3>
+<h3><a id="property-interviewer"></a> Property: interviewer</h3>
 <p>ID: https://w3id.org/ldac/terms#interviewer</p>
 <table>
 <thead>
@@ -778,7 +778,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-isdeidentified&quot;&gt;&lt;/a&gt; Property: isDeIdentified</h3>
+<h3><a id="property-isdeidentified"></a> Property: isDeIdentified</h3>
 <p>ID: https://w3id.org/ldac/terms#isDeIdentified</p>
 <table>
 <thead>
@@ -796,7 +796,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-itemlocation&quot;&gt;&lt;/a&gt; Property: itemLocation</h3>
+<h3><a id="property-itemlocation"></a> Property: itemLocation</h3>
 <p>ID: https://w3id.org/ldac/terms#itemLocation</p>
 <table>
 <thead>
@@ -814,7 +814,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-linguisticgenre&quot;&gt;&lt;/a&gt; Property: linguisticGenre</h3>
+<h3><a id="property-linguisticgenre"></a> Property: linguisticGenre</h3>
 <p>ID: https://w3id.org/ldac/terms#linguisticGenre</p>
 <table>
 <thead>
@@ -832,7 +832,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-maintext&quot;&gt;&lt;/a&gt; Property: mainText</h3>
+<h3><a id="property-maintext"></a> Property: mainText</h3>
 <p>ID: https://w3id.org/ldac/terms#mainText</p>
 <table>
 <thead>
@@ -850,7 +850,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-material&quot;&gt;&lt;/a&gt; Property: material</h3>
+<h3><a id="property-material"></a> Property: material</h3>
 <p>ID: https://w3id.org/ldac/terms#material</p>
 <table>
 <thead>
@@ -868,7 +868,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-materialtype&quot;&gt;&lt;/a&gt; Property: materialType</h3>
+<h3><a id="property-materialtype"></a> Property: materialType</h3>
 <p>ID: https://w3id.org/ldac/terms#materialType</p>
 <table>
 <thead>
@@ -886,7 +886,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-openaccessindex&quot;&gt;&lt;/a&gt; Property: openAccessIndex</h3>
+<h3><a id="property-openaccessindex"></a> Property: openAccessIndex</h3>
 <p>ID: https://w3id.org/ldac/terms#openAccessIndex</p>
 <table>
 <thead>
@@ -904,7 +904,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-orthographicnotes&quot;&gt;&lt;/a&gt; Property: orthographicNotes</h3>
+<h3><a id="property-orthographicnotes"></a> Property: orthographicNotes</h3>
 <p>ID: https://w3id.org/ldac/terms#orthographicNotes</p>
 <table>
 <thead>
@@ -922,7 +922,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-participant&quot;&gt;&lt;/a&gt; Property: participant</h3>
+<h3><a id="property-participant"></a> Property: participant</h3>
 <p>ID: https://w3id.org/ldac/terms#participant</p>
 <table>
 <thead>
@@ -940,7 +940,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-performer&quot;&gt;&lt;/a&gt; Property: performer</h3>
+<h3><a id="property-performer"></a> Property: performer</h3>
 <p>ID: https://w3id.org/ldac/terms#performer</p>
 <table>
 <thead>
@@ -958,7 +958,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-photographer&quot;&gt;&lt;/a&gt; Property: photographer</h3>
+<h3><a id="property-photographer"></a> Property: photographer</h3>
 <p>ID: https://w3id.org/ldac/terms#photographer</p>
 <table>
 <thead>
@@ -976,7 +976,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-recorder&quot;&gt;&lt;/a&gt; Property: recorder</h3>
+<h3><a id="property-recorder"></a> Property: recorder</h3>
 <p>ID: https://w3id.org/ldac/terms#recorder</p>
 <table>
 <thead>
@@ -994,7 +994,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-register&quot;&gt;&lt;/a&gt; Property: register</h3>
+<h3><a id="property-register"></a> Property: register</h3>
 <p>ID: https://w3id.org/ldac/terms#register</p>
 <table>
 <thead>
@@ -1012,7 +1012,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-researcher&quot;&gt;&lt;/a&gt; Property: researcher</h3>
+<h3><a id="property-researcher"></a> Property: researcher</h3>
 <p>ID: https://w3id.org/ldac/terms#researcher</p>
 <table>
 <thead>
@@ -1030,7 +1030,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-researchparticipant&quot;&gt;&lt;/a&gt; Property: researchParticipant</h3>
+<h3><a id="property-researchparticipant"></a> Property: researchParticipant</h3>
 <p>ID: https://w3id.org/ldac/terms#researchParticipant</p>
 <table>
 <thead>
@@ -1048,7 +1048,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-responder&quot;&gt;&lt;/a&gt; Property: responder</h3>
+<h3><a id="property-responder"></a> Property: responder</h3>
 <p>ID: https://w3id.org/ldac/terms#responder</p>
 <table>
 <thead>
@@ -1066,7 +1066,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-reviewdate&quot;&gt;&lt;/a&gt; Property: reviewDate</h3>
+<h3><a id="property-reviewdate"></a> Property: reviewDate</h3>
 <p>ID: https://w3id.org/ldac/terms#reviewDate</p>
 <table>
 <thead>
@@ -1080,11 +1080,11 @@
 <tr>
 <td>The date that this license should be reviewed.</td>
 <td></td>
-<td>&lt;a href=&quot;#class-datalicense&quot;&gt;DataLicense&lt;/a&gt;</td>
+<td><a href="#class-datalicense">DataLicense</a></td>
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-signer&quot;&gt;&lt;/a&gt; Property: signer</h3>
+<h3><a id="property-signer"></a> Property: signer</h3>
 <p>ID: https://w3id.org/ldac/terms#signer</p>
 <table>
 <thead>
@@ -1102,7 +1102,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-singer&quot;&gt;&lt;/a&gt; Property: singer</h3>
+<h3><a id="property-singer"></a> Property: singer</h3>
 <p>ID: https://w3id.org/ldac/terms#singer</p>
 <table>
 <thead>
@@ -1120,7 +1120,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-speaker&quot;&gt;&lt;/a&gt; Property: speaker</h3>
+<h3><a id="property-speaker"></a> Property: speaker</h3>
 <p>ID: https://w3id.org/ldac/terms#speaker</p>
 <table>
 <thead>
@@ -1138,7 +1138,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-sponsor&quot;&gt;&lt;/a&gt; Property: sponsor</h3>
+<h3><a id="property-sponsor"></a> Property: sponsor</h3>
 <p>ID: https://w3id.org/ldac/terms#sponsor</p>
 <table>
 <thead>
@@ -1156,7 +1156,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-subjectlanguage&quot;&gt;&lt;/a&gt; Property: subjectLanguage</h3>
+<h3><a id="property-subjectlanguage"></a> Property: subjectLanguage</h3>
 <p>ID: https://w3id.org/ldac/terms#subjectLanguage</p>
 <table>
 <thead>
@@ -1174,7 +1174,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-transcriber&quot;&gt;&lt;/a&gt; Property: transcriber</h3>
+<h3><a id="property-transcriber"></a> Property: transcriber</h3>
 <p>ID: https://w3id.org/ldac/terms#transcriber</p>
 <table>
 <thead>
@@ -1192,7 +1192,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-translator&quot;&gt;&lt;/a&gt; Property: translator</h3>
+<h3><a id="property-translator"></a> Property: translator</h3>
 <p>ID: https://w3id.org/ldac/terms#translator</p>
 <table>
 <thead>
@@ -1210,7 +1210,7 @@
 </tr>
 </tbody>
 </table>
-<h3>&lt;a id=&quot;property-writtenlanguageformat&quot;&gt;&lt;/a&gt; Property: writtenLanguageFormat</h3>
+<h3><a id="property-writtenlanguageformat"></a> Property: writtenLanguageFormat</h3>
 <p>ID: https://w3id.org/ldac/terms#writtenLanguageFormat</p>
 <table>
 <thead>
@@ -1229,7 +1229,7 @@
 </tbody>
 </table>
 <h2>Defined Term Sets</h2>
-<h3>&lt;a id=&quot;defined-term-set-accesstypes&quot;&gt;&lt;/a&gt;Defined Term Set: AccessTypes</h3>
+<h3><a id="defined-term-set-accesstypes"></a>Defined Term Set: AccessTypes</h3>
 <p>ID: https://w3id.org/ldac/terms#AccessTypes</p>
 <p>A set of defined terms to specify whether a DataReuseLicense allows open or restricted (authorised) access.</p>
 <table>
@@ -1240,16 +1240,16 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-access&quot;&gt;&lt;/a&gt;Defined Term: access &lt;a href=&quot;https://w3id.org/ldac/terms#access&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-access"></a>Defined Term: access <a href="https://w3id.org/ldac/terms#access" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#access</p>
 <p>Whether this is an open or restricted access license.</p>
-<h3>&lt;a id=&quot;defined-term-authorizedaccess&quot;&gt;&lt;/a&gt;Defined Term: AuthorizedAccess &lt;a href=&quot;https://w3id.org/ldac/terms#AuthorizedAccess&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-authorizedaccess"></a>Defined Term: AuthorizedAccess <a href="https://w3id.org/ldac/terms#AuthorizedAccess" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#AuthorizedAccess</p>
 <p>Indicates that a DataReuseLicense requires some kind of authorization step, from SelfAuthorization (click-through) to processes that require a data steward to grant permission.</p>
-<h3>&lt;a id=&quot;defined-term-openaccess&quot;&gt;&lt;/a&gt;Defined Term: OpenAccess &lt;a href=&quot;https://w3id.org/ldac/terms#OpenAccess&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-openaccess"></a>Defined Term: OpenAccess <a href="https://w3id.org/ldac/terms#OpenAccess" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#OpenAccess</p>
 <p>Data covered by this license may be accessed as long as the license is served alongside it, and does not require any specific authorization step.</p>
-<h3>&lt;a id=&quot;defined-term-set-annotationtypeterms&quot;&gt;&lt;/a&gt;Defined Term Set: AnnotationTypeTerms</h3>
+<h3><a id="defined-term-set-annotationtypeterms"></a>Defined Term Set: AnnotationTypeTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#AnnotationTypeTerms</p>
 <p>The set of expected values for annotation types.</p>
 <table>
@@ -1260,43 +1260,43 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-annotationtype&quot;&gt;&lt;/a&gt;Defined Term: annotationType &lt;a href=&quot;https://w3id.org/ldac/terms#annotationType&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-annotationtype"></a>Defined Term: annotationType <a href="https://w3id.org/ldac/terms#annotationType" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#annotationType</p>
 <p>The type of annotation for Annotation resources.</p>
-<h3>&lt;a id=&quot;defined-term-gestural&quot;&gt;&lt;/a&gt;Defined Term: Gestural &lt;a href=&quot;https://w3id.org/ldac/terms#Gestural&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-gestural"></a>Defined Term: Gestural <a href="https://w3id.org/ldac/terms#Gestural" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Gestural</p>
 <p>The resource describes the gestural content of the resource it annotates.</p>
-<h3>&lt;a id=&quot;defined-term-orthographic&quot;&gt;&lt;/a&gt;Defined Term: Orthographic &lt;a href=&quot;https://w3id.org/ldac/terms#Orthographic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-orthographic"></a>Defined Term: Orthographic <a href="https://w3id.org/ldac/terms#Orthographic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Orthographic</p>
 <p>The resource contains annotations using orthography (a writing system) as opposed to a coded representation such as a phonetic transcription.</p>
-<h3>&lt;a id=&quot;defined-term-partofspeech&quot;&gt;&lt;/a&gt;Defined Term: PartOfSpeech &lt;a href=&quot;https://w3id.org/ldac/terms#PartOfSpeech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-partofspeech"></a>Defined Term: PartOfSpeech <a href="https://w3id.org/ldac/terms#PartOfSpeech" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#PartOfSpeech</p>
 <p>An annotation that assigns lexical elements of language to classes on the basis of their distributional properties (for sign languages, the term 'sign class' is appropriate).</p>
-<h3>&lt;a id=&quot;defined-term-phonemic&quot;&gt;&lt;/a&gt;Defined Term: Phonemic &lt;a href=&quot;https://w3id.org/ldac/terms#Phonemic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-phonemic"></a>Defined Term: Phonemic <a href="https://w3id.org/ldac/terms#Phonemic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Phonemic</p>
 <p>An annotation that represents speech in terms of the sound contrasts made in a language.</p>
-<h3>&lt;a id=&quot;defined-term-phonetic&quot;&gt;&lt;/a&gt;Defined Term: Phonetic &lt;a href=&quot;https://w3id.org/ldac/terms#Phonetic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-phonetic"></a>Defined Term: Phonetic <a href="https://w3id.org/ldac/terms#Phonetic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Phonetic</p>
 <p>A representation of speech in terms of the sounds produced, typically using the International Phonetic Alphabet.</p>
-<h3>&lt;a id=&quot;defined-term-phonological&quot;&gt;&lt;/a&gt;Defined Term: Phonological &lt;a href=&quot;https://w3id.org/ldac/terms#Phonological&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-phonological"></a>Defined Term: Phonological <a href="https://w3id.org/ldac/terms#Phonological" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Phonological</p>
 <p>An annotation that includes information about the sound system of a language, such as the contrasts between sounds which make up the sound system and the locally conditioned realisations of sounds which characterise speech in the language.</p>
-<h3>&lt;a id=&quot;defined-term-prosodic&quot;&gt;&lt;/a&gt;Defined Term: Prosodic &lt;a href=&quot;https://w3id.org/ldac/terms#Prosodic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-prosodic"></a>Defined Term: Prosodic <a href="https://w3id.org/ldac/terms#Prosodic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Prosodic</p>
 <p>An annotation that provides a symbolic record of intonation, stress, tone or other suprasegmental features, which is expressed independently of regular phonetic transcription.</p>
-<h3>&lt;a id=&quot;defined-term-semantic&quot;&gt;&lt;/a&gt;Defined Term: Semantic &lt;a href=&quot;https://w3id.org/ldac/terms#Semantic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-semantic"></a>Defined Term: Semantic <a href="https://w3id.org/ldac/terms#Semantic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Semantic</p>
 <p>The resource includes annotation or analysis concerning the encoding of meaning.</p>
-<h3>&lt;a id=&quot;defined-term-syntactic&quot;&gt;&lt;/a&gt;Defined Term: Syntactic &lt;a href=&quot;https://w3id.org/ldac/terms#Syntactic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-syntactic"></a>Defined Term: Syntactic <a href="https://w3id.org/ldac/terms#Syntactic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Syntactic</p>
 <p>The resource contains annotation or analysis describing the combinatorial patterns of words in another resource.</p>
-<h3>&lt;a id=&quot;defined-term-transcription&quot;&gt;&lt;/a&gt;Defined Term: Transcription &lt;a href=&quot;https://w3id.org/ldac/terms#Transcription&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-transcription"></a>Defined Term: Transcription <a href="https://w3id.org/ldac/terms#Transcription" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Transcription</p>
 <p>The resource contains a transcription, which is a written representation (orthographic or coded) of an audio or visual signal.</p>
-<h3>&lt;a id=&quot;defined-term-translation&quot;&gt;&lt;/a&gt;Defined Term: Translation &lt;a href=&quot;https://w3id.org/ldac/terms#Translation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-translation"></a>Defined Term: Translation <a href="https://w3id.org/ldac/terms#Translation" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Translation</p>
 <p>This is a translation of a resource in another language.</p>
-<h3>&lt;a id=&quot;defined-term-set-authorizationworkflows&quot;&gt;&lt;/a&gt;Defined Term Set: AuthorizationWorkflows</h3>
+<h3><a id="defined-term-set-authorizationworkflows"></a>Defined Term Set: AuthorizationWorkflows</h3>
 <p>ID: https://w3id.org/ldac/terms#AuthorizationWorkflows</p>
 <p>A set of DefinedTerms for access authorization mechanisms - some of these may be combined, e.g. AccessControlList and AgreeToTerms, but SelfAuthorization and AgreeToTerms would be redundant.</p>
 <table>
@@ -1307,25 +1307,25 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-accesscontrollist&quot;&gt;&lt;/a&gt;Defined Term: AccessControlList &lt;a href=&quot;https://w3id.org/ldac/terms#AccessControlList&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-accesscontrollist"></a>Defined Term: AccessControlList <a href="https://w3id.org/ldac/terms#AccessControlList" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#AccessControlList</p>
 <p>License grants access to data based on a list of approved users, specified using the property accessControlList.</p>
-<h3>&lt;a id=&quot;defined-term-agreetoterms&quot;&gt;&lt;/a&gt;Defined Term: AgreeToTerms &lt;a href=&quot;https://w3id.org/ldac/terms#AgreeToTerms&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-agreetoterms"></a>Defined Term: AgreeToTerms <a href="https://w3id.org/ldac/terms#AgreeToTerms" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#AgreeToTerms</p>
 <p>A user is expected to explicitly agree to a set of license terms, this may be combined with AccessControlList - to note that even if a user has been pre-approved for a license they must agree to license terms.</p>
-<h3>&lt;a id=&quot;defined-term-authorizationbyapplication&quot;&gt;&lt;/a&gt;Defined Term: AuthorizationByApplication &lt;a href=&quot;https://w3id.org/ldac/terms#AuthorizationByApplication&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-authorizationbyapplication"></a>Defined Term: AuthorizationByApplication <a href="https://w3id.org/ldac/terms#AuthorizationByApplication" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#AuthorizationByApplication</p>
 <p>Users may apply for a license via some workflow, such as a form, with the decision being made by a DataSteward or their delegate about whether to grant the license.</p>
-<h3>&lt;a id=&quot;defined-term-authorizationbyinvitation&quot;&gt;&lt;/a&gt;Defined Term: AuthorizationByInvitation &lt;a href=&quot;https://w3id.org/ldac/terms#AuthorizationByInvitation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-authorizationbyinvitation"></a>Defined Term: AuthorizationByInvitation <a href="https://w3id.org/ldac/terms#AuthorizationByInvitation" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#AuthorizationByInvitation</p>
 <p>A data steward or administrator is expected to use an access control system to invite users, for example, participants, collaborators or students.</p>
-<h3>&lt;a id=&quot;defined-term-authorizationworkflow&quot;&gt;&lt;/a&gt;Defined Term: authorizationWorkflow &lt;a href=&quot;https://w3id.org/ldac/terms#authorizationWorkflow&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-authorizationworkflow"></a>Defined Term: authorizationWorkflow <a href="https://w3id.org/ldac/terms#authorizationWorkflow" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#authorizationWorkflow</p>
 <p>By what process a user is granted authorization to a license.</p>
-<h3>&lt;a id=&quot;defined-term-selfauthorization&quot;&gt;&lt;/a&gt;Defined Term: SelfAuthorization &lt;a href=&quot;https://w3id.org/ldac/terms#SelfAuthorization&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-selfauthorization"></a>Defined Term: SelfAuthorization <a href="https://w3id.org/ldac/terms#SelfAuthorization" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#SelfAuthorization</p>
 <p>A user can be authorised to access data by clicking that they agree to a license, or filling out a form to check their understanding, which can be validated by a machine and does not require human intervention.</p>
-<h3>&lt;a id=&quot;defined-term-set-collectioneventtypeterms&quot;&gt;&lt;/a&gt;Defined Term Set: CollectionEventTypeTerms</h3>
+<h3><a id="defined-term-set-collectioneventtypeterms"></a>Defined Term Set: CollectionEventTypeTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#CollectionEventTypeTerms</p>
 <p>A set of terms which are expected values for CollectionEvent types.</p>
 <table>
@@ -1336,13 +1336,13 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-collectioneventtype&quot;&gt;&lt;/a&gt;Defined Term: collectionEventType &lt;a href=&quot;https://w3id.org/ldac/terms#collectionEventType&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-collectioneventtype"></a>Defined Term: collectionEventType <a href="https://w3id.org/ldac/terms#collectionEventType" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#collectionEventType</p>
 <p>A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment.</p>
-<h3>&lt;a id=&quot;defined-term-session&quot;&gt;&lt;/a&gt;Defined Term: Session &lt;a href=&quot;https://w3id.org/ldac/terms#Session&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-session"></a>Defined Term: Session <a href="https://w3id.org/ldac/terms#Session" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Session</p>
 <p>A collection event that is a recording or elicitation session with participants.</p>
-<h3>&lt;a id=&quot;defined-term-set-collectionprotocoltypeterms&quot;&gt;&lt;/a&gt;Defined Term Set: CollectionProtocolTypeTerms</h3>
+<h3><a id="defined-term-set-collectionprotocoltypeterms"></a>Defined Term Set: CollectionProtocolTypeTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#CollectionProtocolTypeTerms</p>
 <p>A set of terms which are expected values for CollectionProtocol types.</p>
 <table>
@@ -1353,16 +1353,16 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-collectionprotocoltype&quot;&gt;&lt;/a&gt;Defined Term: collectionProtocolType &lt;a href=&quot;https://w3id.org/ldac/terms#collectionProtocolType&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-collectionprotocoltype"></a>Defined Term: collectionProtocolType <a href="https://w3id.org/ldac/terms#collectionProtocolType" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#collectionProtocolType</p>
 <p>A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection.</p>
-<h3>&lt;a id=&quot;defined-term-elicitationtask&quot;&gt;&lt;/a&gt;Defined Term: ElicitationTask &lt;a href=&quot;https://w3id.org/ldac/terms#ElicitationTask&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-elicitationtask"></a>Defined Term: ElicitationTask <a href="https://w3id.org/ldac/terms#ElicitationTask" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#ElicitationTask</p>
 <p>The collection protocol includes a task-based prompt to participants.</p>
-<h3>&lt;a id=&quot;defined-term-materialselectioncriteria&quot;&gt;&lt;/a&gt;Defined Term: MaterialSelectionCriteria &lt;a href=&quot;https://w3id.org/ldac/terms#MaterialSelectionCriteria&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-materialselectioncriteria"></a>Defined Term: MaterialSelectionCriteria <a href="https://w3id.org/ldac/terms#MaterialSelectionCriteria" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#MaterialSelectionCriteria</p>
 <p>A description of the criteria used to select texts in a collection.</p>
-<h3>&lt;a id=&quot;defined-term-set-communicationmodeterms&quot;&gt;&lt;/a&gt;Defined Term Set: CommunicationModeTerms</h3>
+<h3><a id="defined-term-set-communicationmodeterms"></a>Defined Term Set: CommunicationModeTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#CommunicationModeTerms</p>
 <p>A set of expected values for the property communicationMode.</p>
 <table>
@@ -1373,28 +1373,28 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-communicationmode&quot;&gt;&lt;/a&gt;Defined Term: communicationMode &lt;a href=&quot;https://w3id.org/ldac/terms#communicationMode&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-communicationmode"></a>Defined Term: communicationMode <a href="https://w3id.org/ldac/terms#communicationMode" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#communicationMode</p>
 <p>The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property.</p>
-<h3>&lt;a id=&quot;defined-term-gesture&quot;&gt;&lt;/a&gt;Defined Term: Gesture &lt;a href=&quot;https://w3id.org/ldac/terms#Gesture&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-gesture"></a>Defined Term: Gesture <a href="https://w3id.org/ldac/terms#Gesture" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Gesture</p>
 <p>The resource contains non-linguistic gestural communication (i.e. not sign language).</p>
-<h3>&lt;a id=&quot;defined-term-signedlanguage&quot;&gt;&lt;/a&gt;Defined Term: SignedLanguage &lt;a href=&quot;https://w3id.org/ldac/terms#SignedLanguage&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-signedlanguage"></a>Defined Term: SignedLanguage <a href="https://w3id.org/ldac/terms#SignedLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#SignedLanguage</p>
 <p>The resource contains data for which the medium of interaction was signing.</p>
-<h3>&lt;a id=&quot;defined-term-song&quot;&gt;&lt;/a&gt;Defined Term: Song &lt;a href=&quot;https://w3id.org/ldac/terms#Song&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-song"></a>Defined Term: Song <a href="https://w3id.org/ldac/terms#Song" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Song</p>
 <p>&quot;Words or sounds [articulated] in succession with musical inflections or modulations of the voice&quot; OED.</p>
-<h3>&lt;a id=&quot;defined-term-spokenlanguage&quot;&gt;&lt;/a&gt;Defined Term: SpokenLanguage &lt;a href=&quot;https://w3id.org/ldac/terms#SpokenLanguage&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-spokenlanguage"></a>Defined Term: SpokenLanguage <a href="https://w3id.org/ldac/terms#SpokenLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#SpokenLanguage</p>
 <p>The resource contains data for which the medium of interaction was speech.</p>
-<h3>&lt;a id=&quot;defined-term-whistledlanguage&quot;&gt;&lt;/a&gt;Defined Term: WhistledLanguage &lt;a href=&quot;https://w3id.org/ldac/terms#WhistledLanguage&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-whistledlanguage"></a>Defined Term: WhistledLanguage <a href="https://w3id.org/ldac/terms#WhistledLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#WhistledLanguage</p>
 <p>The resource contains data for which the medium of interaction was whistling.</p>
-<h3>&lt;a id=&quot;defined-term-writtenlanguage&quot;&gt;&lt;/a&gt;Defined Term: WrittenLanguage &lt;a href=&quot;https://w3id.org/ldac/terms#WrittenLanguage&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-writtenlanguage"></a>Defined Term: WrittenLanguage <a href="https://w3id.org/ldac/terms#WrittenLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#WrittenLanguage</p>
 <p>The resource contains data for which the medium of interaction was writing.</p>
-<h3>&lt;a id=&quot;defined-term-set-indextypes&quot;&gt;&lt;/a&gt;Defined Term Set: IndexTypes</h3>
+<h3><a id="defined-term-set-indextypes"></a>Defined Term Set: IndexTypes</h3>
 <p>ID: https://w3id.org/ldac/terms#IndexTypes</p>
 <p>A set of defined terms for types of indexing, such as FullText.</p>
 <table>
@@ -1405,13 +1405,13 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-fulltext&quot;&gt;&lt;/a&gt;Defined Term: FullText &lt;a href=&quot;https://w3id.org/ldac/terms#FullText&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-fulltext"></a>Defined Term: FullText <a href="https://w3id.org/ldac/terms#FullText" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#FullText</p>
 <p>A text index that makes the full text of a data resource findable via a search interface.</p>
-<h3>&lt;a id=&quot;defined-term-openaccessindex&quot;&gt;&lt;/a&gt;Defined Term: openAccessIndex &lt;a href=&quot;https://w3id.org/ldac/terms#openAccessIndex&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-openaccessindex"></a>Defined Term: openAccessIndex <a href="https://w3id.org/ldac/terms#openAccessIndex" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#openAccessIndex</p>
 <p>One or more public index types allowed by a license, e.g. FullText indexing may be allowed for discovery even when an item is not.</p>
-<h3>&lt;a id=&quot;defined-term-set-linguisticgenreterms&quot;&gt;&lt;/a&gt;Defined Term Set: LinguisticGenreTerms</h3>
+<h3><a id="defined-term-set-linguisticgenreterms"></a>Defined Term Set: LinguisticGenreTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#LinguisticGenreTerms</p>
 <p>A set of expected values for the linguistic genre of a resource.</p>
 <table>
@@ -1422,46 +1422,46 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-dialogue&quot;&gt;&lt;/a&gt;Defined Term: Dialogue &lt;a href=&quot;https://w3id.org/ldac/terms#Dialogue&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-dialogue"></a>Defined Term: Dialogue <a href="https://w3id.org/ldac/terms#Dialogue" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Dialogue</p>
 <p>An interactive discourse with two or more participants. Examples of dialogues include conversations, interviews, correspondence, consultations, greetings and leave-takings.</p>
-<h3>&lt;a id=&quot;defined-term-drama&quot;&gt;&lt;/a&gt;Defined Term: Drama &lt;a href=&quot;https://w3id.org/ldac/terms#Drama&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-drama"></a>Defined Term: Drama <a href="https://w3id.org/ldac/terms#Drama" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Drama</p>
 <p>A planned, creative, rendition of discourse with two or more participants intended for presentation to an audience.</p>
-<h3>&lt;a id=&quot;defined-term-formulaic&quot;&gt;&lt;/a&gt;Defined Term: Formulaic &lt;a href=&quot;https://w3id.org/ldac/terms#Formulaic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-formulaic"></a>Defined Term: Formulaic <a href="https://w3id.org/ldac/terms#Formulaic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Formulaic</p>
 <p>The resource is a ritually or conventionally structured discourse.</p>
-<h3>&lt;a id=&quot;defined-term-informational&quot;&gt;&lt;/a&gt;Defined Term: Informational &lt;a href=&quot;https://w3id.org/ldac/terms#Informational&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-informational"></a>Defined Term: Informational <a href="https://w3id.org/ldac/terms#Informational" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Informational</p>
 <p>Discourse whose primary purpose is to inform the audience about the natural or social world.</p>
-<h3>&lt;a id=&quot;defined-term-interview&quot;&gt;&lt;/a&gt;Defined Term: Interview &lt;a href=&quot;https://w3id.org/ldac/terms#Interview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-interview"></a>Defined Term: Interview <a href="https://w3id.org/ldac/terms#Interview" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Interview</p>
 <p>The resource is a conversation where one or more speakers are directing the conversation.</p>
-<h3>&lt;a id=&quot;defined-term-lexicon&quot;&gt;&lt;/a&gt;Defined Term: Lexicon &lt;a href=&quot;https://w3id.org/ldac/terms#Lexicon&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-lexicon"></a>Defined Term: Lexicon <a href="https://w3id.org/ldac/terms#Lexicon" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Lexicon</p>
 <p>The resource includes a systematic listing of lexical items.</p>
-<h3>&lt;a id=&quot;defined-term-linguisticgenre&quot;&gt;&lt;/a&gt;Defined Term: linguisticGenre &lt;a href=&quot;https://w3id.org/ldac/terms#linguisticGenre&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-linguisticgenre"></a>Defined Term: linguisticGenre <a href="https://w3id.org/ldac/terms#linguisticGenre" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#linguisticGenre</p>
 <p>A linguistic classification of the genre of this resource.</p>
-<h3>&lt;a id=&quot;defined-term-ludic&quot;&gt;&lt;/a&gt;Defined Term: Ludic &lt;a href=&quot;https://w3id.org/ldac/terms#Ludic&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-ludic"></a>Defined Term: Ludic <a href="https://w3id.org/ldac/terms#Ludic" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Ludic</p>
 <p>Ludic discourse is language whose primary function is to be part of play, or a style of speech that involves a creative manipulation of the structures of the language. Examples of ludic discourse are play languages, jokes, secret languages, and speech disguises.</p>
-<h3>&lt;a id=&quot;defined-term-narrative&quot;&gt;&lt;/a&gt;Defined Term: Narrative &lt;a href=&quot;https://w3id.org/ldac/terms#Narrative&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-narrative"></a>Defined Term: Narrative <a href="https://w3id.org/ldac/terms#Narrative" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Narrative</p>
 <p>A discourse, monologic or co-constructed, which represents temporally organised events. Types of narratives include historical, traditional, and personal narratives, myths, folktales, fables, and humorous stories.</p>
-<h3>&lt;a id=&quot;defined-term-oratory&quot;&gt;&lt;/a&gt;Defined Term: Oratory &lt;a href=&quot;https://w3id.org/ldac/terms#Oratory&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-oratory"></a>Defined Term: Oratory <a href="https://w3id.org/ldac/terms#Oratory" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Oratory</p>
 <p>The art of public speaking, or of speaking eloquently according to rules or conventions. Examples of oratory include sermons, lectures, political speeches, and invocations.</p>
-<h3>&lt;a id=&quot;defined-term-procedural&quot;&gt;&lt;/a&gt;Defined Term: Procedural &lt;a href=&quot;https://w3id.org/ldac/terms#Procedural&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-procedural"></a>Defined Term: Procedural <a href="https://w3id.org/ldac/terms#Procedural" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Procedural</p>
 <p>An explanation or description of a method, process, or situation having ordered steps.</p>
-<h3>&lt;a id=&quot;defined-term-report&quot;&gt;&lt;/a&gt;Defined Term: Report &lt;a href=&quot;https://w3id.org/ldac/terms#Report&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-report"></a>Defined Term: Report <a href="https://w3id.org/ldac/terms#Report" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Report</p>
 <p>A factual account of some event or circumstance.</p>
-<h3>&lt;a id=&quot;defined-term-thesaurus&quot;&gt;&lt;/a&gt;Defined Term: Thesaurus &lt;a href=&quot;https://w3id.org/ldac/terms#Thesaurus&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-thesaurus"></a>Defined Term: Thesaurus <a href="https://w3id.org/ldac/terms#Thesaurus" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Thesaurus</p>
 <p>The resource contains a list or data structure consisting of words or concepts arranged according to sense.</p>
-<h3>&lt;a id=&quot;defined-term-set-materialtypes&quot;&gt;&lt;/a&gt;Defined Term Set: MaterialTypes</h3>
+<h3><a id="defined-term-set-materialtypes"></a>Defined Term Set: MaterialTypes</h3>
 <p>ID: https://w3id.org/ldac/terms#MaterialTypes</p>
 <p>A set of terms describing the relationship of a resource to the original data source.</p>
 <table>
@@ -1472,10 +1472,10 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-materialtype&quot;&gt;&lt;/a&gt;Defined Term: materialType &lt;a href=&quot;https://w3id.org/ldac/terms#materialType&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-materialtype"></a>Defined Term: materialType <a href="https://w3id.org/ldac/terms#materialType" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#materialType</p>
 <p>Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation.</p>
-<h3>&lt;a id=&quot;defined-term-set-writtenlanguagetypeterms&quot;&gt;&lt;/a&gt;Defined Term Set: WrittenLanguageTypeTerms</h3>
+<h3><a id="defined-term-set-writtenlanguagetypeterms"></a>Defined Term Set: WrittenLanguageTypeTerms</h3>
 <p>ID: https://w3id.org/ldac/terms#WrittenLanguageTypeTerms</p>
 <p>A set of expected types for WrittenLanguage communication mode (this set is incomplete - more work needed).</p>
 <table>
@@ -1486,16 +1486,16 @@
 </tr>
 </thead>
 </table>
-<h3>&lt;a id=&quot;defined-term-handwritten&quot;&gt;&lt;/a&gt;Defined Term: Handwritten &lt;a href=&quot;https://w3id.org/ldac/terms#Handwritten&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-handwritten"></a>Defined Term: Handwritten <a href="https://w3id.org/ldac/terms#Handwritten" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Handwritten</p>
 <p>The resource was written using a writing implement such as a pen, pencil, brush or computer stylus (except where the digital handwriting is converted to standard text).</p>
-<h3>&lt;a id=&quot;defined-term-typeset&quot;&gt;&lt;/a&gt;Defined Term: Typeset &lt;a href=&quot;https://w3id.org/ldac/terms#Typeset&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-typeset"></a>Defined Term: Typeset <a href="https://w3id.org/ldac/terms#Typeset" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Typeset</p>
 <p>The resource has been formatted for printing or display.</p>
-<h3>&lt;a id=&quot;defined-term-typewritten&quot;&gt;&lt;/a&gt;Defined Term: Typewritten &lt;a href=&quot;https://w3id.org/ldac/terms#Typewritten&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-typewritten"></a>Defined Term: Typewritten <a href="https://w3id.org/ldac/terms#Typewritten" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#Typewritten</p>
 <p>The resource contains text produced on a typewriter.</p>
-<h3>&lt;a id=&quot;defined-term-writtenlanguageformat&quot;&gt;&lt;/a&gt;Defined Term: writtenLanguageFormat &lt;a href=&quot;https://w3id.org/ldac/terms#writtenLanguageFormat&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
+<h3><a id="defined-term-writtenlanguageformat"></a>Defined Term: writtenLanguageFormat <a href="https://w3id.org/ldac/terms#writtenLanguageFormat" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: https://w3id.org/ldac/terms#writtenLanguageFormat</p>
 <p>The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten).</p>
 

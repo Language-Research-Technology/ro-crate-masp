@@ -12,7 +12,7 @@ const path = require("path");
 const { SossValidator } = require("./lib/soss-validator");
 const { execSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
-const md = new MarkdownIt("default");
+const md = new MarkdownIt("default", { html: true });
 
 async function main() {
 // Parse command line arguments
