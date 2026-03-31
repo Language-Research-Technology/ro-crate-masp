@@ -204,9 +204,6 @@ try {
     // Add terms table if there are terms in this set
     const terms = termSet["@reverse"]?.["inDefinedTermSet"] || [];
     if (terms.length > 0) {
-      termSetSummary += `| Term | Description |\n`;
-      termSetSummary += `| ---- | ----------- |\n`;
-
       // Sort terms alphabetically by name
       terms.sort((a, b) => {
         const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
@@ -214,39 +211,23 @@ try {
         return aName.localeCompare(bName);
       });
 
-      // For terms within the set:
+      termSetSummary += `| Term | Description |\n`;
+      termSetSummary += `| ---- | ----------- |\n`;
+
       for (const t of terms) {
         const termId = t["@id"];
-        const termBaseId = `https://w3id.org/ldac/terms#${t?.name}`;
-        const link =
-          termBaseId && termBaseId.match(/^http(s)?:/i)
-            ? ` <a href="${clean(
-                termBaseId
-              )}" target="_blank" rel="noopener">ⓘ</a>`
-            : "";
-        const termName = `Defined Term: ${
-          t["name"] || t["rdfs:label"] || t["@id"]
-        }`;
+        const termName = t["name"] || t["rdfs:label"] || t["@id"];
         const termAnchorId = getAnchorId(termId);
-
+        const termBaseId = `https://w3id.org/ldac/terms#${t?.name}`;
+        const termLink = termBaseId.match(/^http(s)?:/i)
+          ? `<a id="${termAnchorId}" href="${clean(termBaseId)}" target="_blank" rel="noopener">${clean(termName)}</a>`
+          : `<a id="${termAnchorId}">${clean(termName)}</a>`;
         const termDesc = t["description"] || t["rdfs:comment"] || "";
-        termSetSummary += `### <a id="${termAnchorId}"></a>${clean(
-          termName
-        )}${clean(link)}\n`;
-        termSetSummary += `ID: ${clean(termId)}\n\n`;
-        termSetSummary += `${clean(termDesc)}\n\n`;
+        termSetSummary += `| ${termLink} | ${clean(termDesc)} |\n`;
       }
     } else {
       termSetSummary += `*No terms defined for this term set*\n\n`;
     }
-    // terms.forEach(term => {
-    //   const termName = term['name'] || term['rdfs:label'] || term['@id'];
-    //   const termDesc = term['description'] || term['rdfs:comment'] || '';
-    //   termSetSummary += `| ${clean(termName)} | ${clean(termDesc)} |\n`;
-    // });
-    // } else {
-    //   termSetSummary += `*No terms defined for this term set*\n\n`;
-    // }
 
     termSetSummary += `\n`;
 

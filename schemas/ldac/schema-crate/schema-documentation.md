@@ -479,21 +479,9 @@ A set of defined terms to specify whether a DataReuseLicense allows open or rest
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="access"></a>Defined Term: access <a href="https://w3id.org/ldac/terms#access" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#access
-
-Whether this is an open or restricted access license.
-
-### <a id="AuthorizedAccess"></a>Defined Term: AuthorizedAccess <a href="https://w3id.org/ldac/terms#AuthorizedAccess" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#AuthorizedAccess
-
-Indicates that a DataReuseLicense requires some kind of authorization step, from SelfAuthorization (click-through) to processes that require a data steward to grant permission.
-
-### <a id="OpenAccess"></a>Defined Term: OpenAccess <a href="https://w3id.org/ldac/terms#OpenAccess" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#OpenAccess
-
-Data covered by this license may be accessed as long as the license is served alongside it, and does not require any specific authorization step.
-
+| <a id="access" href="https://w3id.org/ldac/terms#access" target="_blank" rel="noopener">access</a> | Whether this is an open or restricted access license. |
+| <a id="AuthorizedAccess" href="https://w3id.org/ldac/terms#AuthorizedAccess" target="_blank" rel="noopener">AuthorizedAccess</a> | Indicates that a DataReuseLicense requires some kind of authorization step, from SelfAuthorization (click-through) to processes that require a data steward to grant permission. |
+| <a id="OpenAccess" href="https://w3id.org/ldac/terms#OpenAccess" target="_blank" rel="noopener">OpenAccess</a> | Data covered by this license may be accessed as long as the license is served alongside it, and does not require any specific authorization step. |
 
 ### <a id="AnnotationTypeTerms"></a>Defined Term Set: AnnotationTypeTerms
 
@@ -503,66 +491,18 @@ The set of expected values for annotation types.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="annotationType"></a>Defined Term: annotationType <a href="https://w3id.org/ldac/terms#annotationType" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#annotationType
-
-The type of annotation for Annotation resources.
-
-### <a id="Gestural"></a>Defined Term: Gestural <a href="https://w3id.org/ldac/terms#Gestural" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Gestural
-
-The resource describes the gestural content of the resource it annotates.
-
-### <a id="Orthographic"></a>Defined Term: Orthographic <a href="https://w3id.org/ldac/terms#Orthographic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Orthographic
-
-The resource contains annotations using orthography (a writing system) as opposed to a coded representation such as a phonetic transcription.
-
-### <a id="PartOfSpeech"></a>Defined Term: PartOfSpeech <a href="https://w3id.org/ldac/terms#PartOfSpeech" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#PartOfSpeech
-
-An annotation that assigns lexical elements of language to classes on the basis of their distributional properties (for sign languages, the term 'sign class' is appropriate).
-
-### <a id="Phonemic"></a>Defined Term: Phonemic <a href="https://w3id.org/ldac/terms#Phonemic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Phonemic
-
-An annotation that represents speech in terms of the sound contrasts made in a language.
-
-### <a id="Phonetic"></a>Defined Term: Phonetic <a href="https://w3id.org/ldac/terms#Phonetic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Phonetic
-
-A representation of speech in terms of the sounds produced, typically using the International Phonetic Alphabet.
-
-### <a id="Phonological"></a>Defined Term: Phonological <a href="https://w3id.org/ldac/terms#Phonological" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Phonological
-
-An annotation that includes information about the sound system of a language, such as the contrasts between sounds which make up the sound system and the locally conditioned realisations of sounds which characterise speech in the language.
-
-### <a id="Prosodic"></a>Defined Term: Prosodic <a href="https://w3id.org/ldac/terms#Prosodic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Prosodic
-
-An annotation that provides a symbolic record of intonation, stress, tone or other suprasegmental features, which is expressed independently of regular phonetic transcription.
-
-### <a id="Semantic"></a>Defined Term: Semantic <a href="https://w3id.org/ldac/terms#Semantic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Semantic
-
-The resource includes annotation or analysis concerning the encoding of meaning.
-
-### <a id="Syntactic"></a>Defined Term: Syntactic <a href="https://w3id.org/ldac/terms#Syntactic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Syntactic
-
-The resource contains annotation or analysis describing the combinatorial patterns of words in another resource.
-
-### <a id="Transcription"></a>Defined Term: Transcription <a href="https://w3id.org/ldac/terms#Transcription" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Transcription
-
-The resource contains a transcription, which is a written representation (orthographic or coded) of an audio or visual signal.
-
-### <a id="Translation"></a>Defined Term: Translation <a href="https://w3id.org/ldac/terms#Translation" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Translation
-
-This is a translation of a resource in another language.
-
+| <a id="annotationType" href="https://w3id.org/ldac/terms#annotationType" target="_blank" rel="noopener">annotationType</a> | The type of annotation for Annotation resources. |
+| <a id="Gestural" href="https://w3id.org/ldac/terms#Gestural" target="_blank" rel="noopener">Gestural</a> | The resource describes the gestural content of the resource it annotates. |
+| <a id="Orthographic" href="https://w3id.org/ldac/terms#Orthographic" target="_blank" rel="noopener">Orthographic</a> | The resource contains annotations using orthography (a writing system) as opposed to a coded representation such as a phonetic transcription. |
+| <a id="PartOfSpeech" href="https://w3id.org/ldac/terms#PartOfSpeech" target="_blank" rel="noopener">PartOfSpeech</a> | An annotation that assigns lexical elements of language to classes on the basis of their distributional properties (for sign languages, the term 'sign class' is appropriate). |
+| <a id="Phonemic" href="https://w3id.org/ldac/terms#Phonemic" target="_blank" rel="noopener">Phonemic</a> | An annotation that represents speech in terms of the sound contrasts made in a language. |
+| <a id="Phonetic" href="https://w3id.org/ldac/terms#Phonetic" target="_blank" rel="noopener">Phonetic</a> | A representation of speech in terms of the sounds produced, typically using the International Phonetic Alphabet. |
+| <a id="Phonological" href="https://w3id.org/ldac/terms#Phonological" target="_blank" rel="noopener">Phonological</a> | An annotation that includes information about the sound system of a language, such as the contrasts between sounds which make up the sound system and the locally conditioned realisations of sounds which characterise speech in the language. |
+| <a id="Prosodic" href="https://w3id.org/ldac/terms#Prosodic" target="_blank" rel="noopener">Prosodic</a> | An annotation that provides a symbolic record of intonation, stress, tone or other suprasegmental features, which is expressed independently of regular phonetic transcription. |
+| <a id="Semantic" href="https://w3id.org/ldac/terms#Semantic" target="_blank" rel="noopener">Semantic</a> | The resource includes annotation or analysis concerning the encoding of meaning. |
+| <a id="Syntactic" href="https://w3id.org/ldac/terms#Syntactic" target="_blank" rel="noopener">Syntactic</a> | The resource contains annotation or analysis describing the combinatorial patterns of words in another resource. |
+| <a id="Transcription" href="https://w3id.org/ldac/terms#Transcription" target="_blank" rel="noopener">Transcription</a> | The resource contains a transcription, which is a written representation (orthographic or coded) of an audio or visual signal. |
+| <a id="Translation" href="https://w3id.org/ldac/terms#Translation" target="_blank" rel="noopener">Translation</a> | This is a translation of a resource in another language. |
 
 ### <a id="AuthorizationWorkflows"></a>Defined Term Set: AuthorizationWorkflows
 
@@ -572,36 +512,12 @@ A set of DefinedTerms for access authorization mechanisms - some of these may be
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="AccessControlList"></a>Defined Term: AccessControlList <a href="https://w3id.org/ldac/terms#AccessControlList" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#AccessControlList
-
-License grants access to data based on a list of approved users, specified using the property accessControlList.
-
-### <a id="AgreeToTerms"></a>Defined Term: AgreeToTerms <a href="https://w3id.org/ldac/terms#AgreeToTerms" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#AgreeToTerms
-
-A user is expected to explicitly agree to a set of license terms, this may be combined with AccessControlList - to note that even if a user has been pre-approved for a license they must agree to license terms.
-
-### <a id="AuthorizationByApplication"></a>Defined Term: AuthorizationByApplication <a href="https://w3id.org/ldac/terms#AuthorizationByApplication" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#AuthorizationByApplication
-
-Users may apply for a license via some workflow, such as a form, with the decision being made by a DataSteward or their delegate about whether to grant the license.
-
-### <a id="AuthorizationByInvitation"></a>Defined Term: AuthorizationByInvitation <a href="https://w3id.org/ldac/terms#AuthorizationByInvitation" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#AuthorizationByInvitation
-
-A data steward or administrator is expected to use an access control system to invite users, for example, participants, collaborators or students.
-
-### <a id="authorizationWorkflow"></a>Defined Term: authorizationWorkflow <a href="https://w3id.org/ldac/terms#authorizationWorkflow" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#authorizationWorkflow
-
-By what process a user is granted authorization to a license.
-
-### <a id="SelfAuthorization"></a>Defined Term: SelfAuthorization <a href="https://w3id.org/ldac/terms#SelfAuthorization" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#SelfAuthorization
-
-A user can be authorised to access data by clicking that they agree to a license, or filling out a form to check their understanding, which can be validated by a machine and does not require human intervention.
-
+| <a id="AccessControlList" href="https://w3id.org/ldac/terms#AccessControlList" target="_blank" rel="noopener">AccessControlList</a> | License grants access to data based on a list of approved users, specified using the property accessControlList. |
+| <a id="AgreeToTerms" href="https://w3id.org/ldac/terms#AgreeToTerms" target="_blank" rel="noopener">AgreeToTerms</a> | A user is expected to explicitly agree to a set of license terms, this may be combined with AccessControlList - to note that even if a user has been pre-approved for a license they must agree to license terms. |
+| <a id="AuthorizationByApplication" href="https://w3id.org/ldac/terms#AuthorizationByApplication" target="_blank" rel="noopener">AuthorizationByApplication</a> | Users may apply for a license via some workflow, such as a form, with the decision being made by a DataSteward or their delegate about whether to grant the license. |
+| <a id="AuthorizationByInvitation" href="https://w3id.org/ldac/terms#AuthorizationByInvitation" target="_blank" rel="noopener">AuthorizationByInvitation</a> | A data steward or administrator is expected to use an access control system to invite users, for example, participants, collaborators or students. |
+| <a id="authorizationWorkflow" href="https://w3id.org/ldac/terms#authorizationWorkflow" target="_blank" rel="noopener">authorizationWorkflow</a> | By what process a user is granted authorization to a license. |
+| <a id="SelfAuthorization" href="https://w3id.org/ldac/terms#SelfAuthorization" target="_blank" rel="noopener">SelfAuthorization</a> | A user can be authorised to access data by clicking that they agree to a license, or filling out a form to check their understanding, which can be validated by a machine and does not require human intervention. |
 
 ### <a id="CollectionEventTypeTerms"></a>Defined Term Set: CollectionEventTypeTerms
 
@@ -611,16 +527,8 @@ A set of terms which are expected values for CollectionEvent types.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="collectionEventType"></a>Defined Term: collectionEventType <a href="https://w3id.org/ldac/terms#collectionEventType" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#collectionEventType
-
-A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment.
-
-### <a id="Session"></a>Defined Term: Session <a href="https://w3id.org/ldac/terms#Session" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Session
-
-A collection event that is a recording or elicitation session with participants.
-
+| <a id="collectionEventType" href="https://w3id.org/ldac/terms#collectionEventType" target="_blank" rel="noopener">collectionEventType</a> | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. |
+| <a id="Session" href="https://w3id.org/ldac/terms#Session" target="_blank" rel="noopener">Session</a> | A collection event that is a recording or elicitation session with participants. |
 
 ### <a id="CollectionProtocolTypeTerms"></a>Defined Term Set: CollectionProtocolTypeTerms
 
@@ -630,21 +538,9 @@ A set of terms which are expected values for CollectionProtocol types.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="collectionProtocolType"></a>Defined Term: collectionProtocolType <a href="https://w3id.org/ldac/terms#collectionProtocolType" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#collectionProtocolType
-
-A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection.
-
-### <a id="ElicitationTask"></a>Defined Term: ElicitationTask <a href="https://w3id.org/ldac/terms#ElicitationTask" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#ElicitationTask
-
-The collection protocol includes a task-based prompt to participants.
-
-### <a id="MaterialSelectionCriteria"></a>Defined Term: MaterialSelectionCriteria <a href="https://w3id.org/ldac/terms#MaterialSelectionCriteria" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#MaterialSelectionCriteria
-
-A description of the criteria used to select texts in a collection.
-
+| <a id="collectionProtocolType" href="https://w3id.org/ldac/terms#collectionProtocolType" target="_blank" rel="noopener">collectionProtocolType</a> | A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection. |
+| <a id="ElicitationTask" href="https://w3id.org/ldac/terms#ElicitationTask" target="_blank" rel="noopener">ElicitationTask</a> | The collection protocol includes a task-based prompt to participants. |
+| <a id="MaterialSelectionCriteria" href="https://w3id.org/ldac/terms#MaterialSelectionCriteria" target="_blank" rel="noopener">MaterialSelectionCriteria</a> | A description of the criteria used to select texts in a collection. |
 
 ### <a id="CommunicationModeTerms"></a>Defined Term Set: CommunicationModeTerms
 
@@ -654,41 +550,13 @@ A set of expected values for the property communicationMode.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="communicationMode"></a>Defined Term: communicationMode <a href="https://w3id.org/ldac/terms#communicationMode" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#communicationMode
-
-The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property.
-
-### <a id="Gesture"></a>Defined Term: Gesture <a href="https://w3id.org/ldac/terms#Gesture" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Gesture
-
-The resource contains non-linguistic gestural communication (i.e. not sign language).
-
-### <a id="SignedLanguage"></a>Defined Term: SignedLanguage <a href="https://w3id.org/ldac/terms#SignedLanguage" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#SignedLanguage
-
-The resource contains data for which the medium of interaction was signing.
-
-### <a id="Song"></a>Defined Term: Song <a href="https://w3id.org/ldac/terms#Song" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Song
-
-"Words or sounds [articulated] in succession with musical inflections or modulations of the voice" OED.
-
-### <a id="SpokenLanguage"></a>Defined Term: SpokenLanguage <a href="https://w3id.org/ldac/terms#SpokenLanguage" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#SpokenLanguage
-
-The resource contains data for which the medium of interaction was speech.
-
-### <a id="WhistledLanguage"></a>Defined Term: WhistledLanguage <a href="https://w3id.org/ldac/terms#WhistledLanguage" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#WhistledLanguage
-
-The resource contains data for which the medium of interaction was whistling.
-
-### <a id="WrittenLanguage"></a>Defined Term: WrittenLanguage <a href="https://w3id.org/ldac/terms#WrittenLanguage" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#WrittenLanguage
-
-The resource contains data for which the medium of interaction was writing.
-
+| <a id="communicationMode" href="https://w3id.org/ldac/terms#communicationMode" target="_blank" rel="noopener">communicationMode</a> | The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property. |
+| <a id="Gesture" href="https://w3id.org/ldac/terms#Gesture" target="_blank" rel="noopener">Gesture</a> | The resource contains non-linguistic gestural communication (i.e. not sign language). |
+| <a id="SignedLanguage" href="https://w3id.org/ldac/terms#SignedLanguage" target="_blank" rel="noopener">SignedLanguage</a> | The resource contains data for which the medium of interaction was signing. |
+| <a id="Song" href="https://w3id.org/ldac/terms#Song" target="_blank" rel="noopener">Song</a> | "Words or sounds [articulated] in succession with musical inflections or modulations of the voice" OED. |
+| <a id="SpokenLanguage" href="https://w3id.org/ldac/terms#SpokenLanguage" target="_blank" rel="noopener">SpokenLanguage</a> | The resource contains data for which the medium of interaction was speech. |
+| <a id="WhistledLanguage" href="https://w3id.org/ldac/terms#WhistledLanguage" target="_blank" rel="noopener">WhistledLanguage</a> | The resource contains data for which the medium of interaction was whistling. |
+| <a id="WrittenLanguage" href="https://w3id.org/ldac/terms#WrittenLanguage" target="_blank" rel="noopener">WrittenLanguage</a> | The resource contains data for which the medium of interaction was writing. |
 
 ### <a id="IndexTypes"></a>Defined Term Set: IndexTypes
 
@@ -698,16 +566,8 @@ A set of defined terms for types of indexing, such as FullText.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="FullText"></a>Defined Term: FullText <a href="https://w3id.org/ldac/terms#FullText" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#FullText
-
-A text index that makes the full text of a data resource findable via a search interface.
-
-### <a id="openAccessIndex"></a>Defined Term: openAccessIndex <a href="https://w3id.org/ldac/terms#openAccessIndex" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#openAccessIndex
-
-One or more public index types allowed by a license, e.g. FullText indexing may be allowed for discovery even when an item is not.
-
+| <a id="FullText" href="https://w3id.org/ldac/terms#FullText" target="_blank" rel="noopener">FullText</a> | A text index that makes the full text of a data resource findable via a search interface. |
+| <a id="openAccessIndex" href="https://w3id.org/ldac/terms#openAccessIndex" target="_blank" rel="noopener">openAccessIndex</a> | One or more public index types allowed by a license, e.g. FullText indexing may be allowed for discovery even when an item is not. |
 
 ### <a id="LinguisticGenreTerms"></a>Defined Term Set: LinguisticGenreTerms
 
@@ -717,71 +577,19 @@ A set of expected values for the linguistic genre of a resource.
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="Dialogue"></a>Defined Term: Dialogue <a href="https://w3id.org/ldac/terms#Dialogue" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Dialogue
-
-An interactive discourse with two or more participants. Examples of dialogues include conversations, interviews, correspondence, consultations, greetings and leave-takings.
-
-### <a id="Drama"></a>Defined Term: Drama <a href="https://w3id.org/ldac/terms#Drama" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Drama
-
-A planned, creative, rendition of discourse with two or more participants intended for presentation to an audience.
-
-### <a id="Formulaic"></a>Defined Term: Formulaic <a href="https://w3id.org/ldac/terms#Formulaic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Formulaic
-
-The resource is a ritually or conventionally structured discourse.
-
-### <a id="Informational"></a>Defined Term: Informational <a href="https://w3id.org/ldac/terms#Informational" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Informational
-
-Discourse whose primary purpose is to inform the audience about the natural or social world.
-
-### <a id="Interview"></a>Defined Term: Interview <a href="https://w3id.org/ldac/terms#Interview" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Interview
-
-The resource is a conversation where one or more speakers are directing the conversation.
-
-### <a id="Lexicon"></a>Defined Term: Lexicon <a href="https://w3id.org/ldac/terms#Lexicon" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Lexicon
-
-The resource includes a systematic listing of lexical items.
-
-### <a id="linguisticGenre"></a>Defined Term: linguisticGenre <a href="https://w3id.org/ldac/terms#linguisticGenre" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#linguisticGenre
-
-A linguistic classification of the genre of this resource.
-
-### <a id="Ludic"></a>Defined Term: Ludic <a href="https://w3id.org/ldac/terms#Ludic" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Ludic
-
-Ludic discourse is language whose primary function is to be part of play, or a style of speech that involves a creative manipulation of the structures of the language. Examples of ludic discourse are play languages, jokes, secret languages, and speech disguises.
-
-### <a id="Narrative"></a>Defined Term: Narrative <a href="https://w3id.org/ldac/terms#Narrative" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Narrative
-
-A discourse, monologic or co-constructed, which represents temporally organised events. Types of narratives include historical, traditional, and personal narratives, myths, folktales, fables, and humorous stories.
-
-### <a id="Oratory"></a>Defined Term: Oratory <a href="https://w3id.org/ldac/terms#Oratory" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Oratory
-
-The art of public speaking, or of speaking eloquently according to rules or conventions. Examples of oratory include sermons, lectures, political speeches, and invocations.
-
-### <a id="Procedural"></a>Defined Term: Procedural <a href="https://w3id.org/ldac/terms#Procedural" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Procedural
-
-An explanation or description of a method, process, or situation having ordered steps.
-
-### <a id="Report"></a>Defined Term: Report <a href="https://w3id.org/ldac/terms#Report" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Report
-
-A factual account of some event or circumstance.
-
-### <a id="Thesaurus"></a>Defined Term: Thesaurus <a href="https://w3id.org/ldac/terms#Thesaurus" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Thesaurus
-
-The resource contains a list or data structure consisting of words or concepts arranged according to sense.
-
+| <a id="Dialogue" href="https://w3id.org/ldac/terms#Dialogue" target="_blank" rel="noopener">Dialogue</a> | An interactive discourse with two or more participants. Examples of dialogues include conversations, interviews, correspondence, consultations, greetings and leave-takings. |
+| <a id="Drama" href="https://w3id.org/ldac/terms#Drama" target="_blank" rel="noopener">Drama</a> | A planned, creative, rendition of discourse with two or more participants intended for presentation to an audience. |
+| <a id="Formulaic" href="https://w3id.org/ldac/terms#Formulaic" target="_blank" rel="noopener">Formulaic</a> | The resource is a ritually or conventionally structured discourse. |
+| <a id="Informational" href="https://w3id.org/ldac/terms#Informational" target="_blank" rel="noopener">Informational</a> | Discourse whose primary purpose is to inform the audience about the natural or social world. |
+| <a id="Interview" href="https://w3id.org/ldac/terms#Interview" target="_blank" rel="noopener">Interview</a> | The resource is a conversation where one or more speakers are directing the conversation. |
+| <a id="Lexicon" href="https://w3id.org/ldac/terms#Lexicon" target="_blank" rel="noopener">Lexicon</a> | The resource includes a systematic listing of lexical items. |
+| <a id="linguisticGenre" href="https://w3id.org/ldac/terms#linguisticGenre" target="_blank" rel="noopener">linguisticGenre</a> | A linguistic classification of the genre of this resource. |
+| <a id="Ludic" href="https://w3id.org/ldac/terms#Ludic" target="_blank" rel="noopener">Ludic</a> | Ludic discourse is language whose primary function is to be part of play, or a style of speech that involves a creative manipulation of the structures of the language. Examples of ludic discourse are play languages, jokes, secret languages, and speech disguises. |
+| <a id="Narrative" href="https://w3id.org/ldac/terms#Narrative" target="_blank" rel="noopener">Narrative</a> | A discourse, monologic or co-constructed, which represents temporally organised events. Types of narratives include historical, traditional, and personal narratives, myths, folktales, fables, and humorous stories. |
+| <a id="Oratory" href="https://w3id.org/ldac/terms#Oratory" target="_blank" rel="noopener">Oratory</a> | The art of public speaking, or of speaking eloquently according to rules or conventions. Examples of oratory include sermons, lectures, political speeches, and invocations. |
+| <a id="Procedural" href="https://w3id.org/ldac/terms#Procedural" target="_blank" rel="noopener">Procedural</a> | An explanation or description of a method, process, or situation having ordered steps. |
+| <a id="Report" href="https://w3id.org/ldac/terms#Report" target="_blank" rel="noopener">Report</a> | A factual account of some event or circumstance. |
+| <a id="Thesaurus" href="https://w3id.org/ldac/terms#Thesaurus" target="_blank" rel="noopener">Thesaurus</a> | The resource contains a list or data structure consisting of words or concepts arranged according to sense. |
 
 ### <a id="MaterialTypes"></a>Defined Term Set: MaterialTypes
 
@@ -791,11 +599,7 @@ A set of terms describing the relationship of a resource to the original data so
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="materialType"></a>Defined Term: materialType <a href="https://w3id.org/ldac/terms#materialType" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#materialType
-
-Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation.
-
+| <a id="materialType" href="https://w3id.org/ldac/terms#materialType" target="_blank" rel="noopener">materialType</a> | Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation. |
 
 ### <a id="WrittenLanguageTypeTerms"></a>Defined Term Set: WrittenLanguageTypeTerms
 
@@ -805,24 +609,8 @@ A set of expected types for WrittenLanguage communication mode (this set is inco
 
 | Term | Description |
 | ---- | ----------- |
-### <a id="Handwritten"></a>Defined Term: Handwritten <a href="https://w3id.org/ldac/terms#Handwritten" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Handwritten
-
-The resource was written using a writing implement such as a pen, pencil, brush or computer stylus (except where the digital handwriting is converted to standard text).
-
-### <a id="Typeset"></a>Defined Term: Typeset <a href="https://w3id.org/ldac/terms#Typeset" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Typeset
-
-The resource has been formatted for printing or display.
-
-### <a id="Typewritten"></a>Defined Term: Typewritten <a href="https://w3id.org/ldac/terms#Typewritten" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#Typewritten
-
-The resource contains text produced on a typewriter.
-
-### <a id="writtenLanguageFormat"></a>Defined Term: writtenLanguageFormat <a href="https://w3id.org/ldac/terms#writtenLanguageFormat" target="_blank" rel="noopener">ⓘ</a>
-ID: https://w3id.org/ldac/terms#writtenLanguageFormat
-
-The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten).
-
+| <a id="Handwritten" href="https://w3id.org/ldac/terms#Handwritten" target="_blank" rel="noopener">Handwritten</a> | The resource was written using a writing implement such as a pen, pencil, brush or computer stylus (except where the digital handwriting is converted to standard text). |
+| <a id="Typeset" href="https://w3id.org/ldac/terms#Typeset" target="_blank" rel="noopener">Typeset</a> | The resource has been formatted for printing or display. |
+| <a id="Typewritten" href="https://w3id.org/ldac/terms#Typewritten" target="_blank" rel="noopener">Typewritten</a> | The resource contains text produced on a typewriter. |
+| <a id="writtenLanguageFormat" href="https://w3id.org/ldac/terms#writtenLanguageFormat" target="_blank" rel="noopener">writtenLanguageFormat</a> | The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten). |
 
