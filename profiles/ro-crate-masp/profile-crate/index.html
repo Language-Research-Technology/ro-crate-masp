@@ -12,6 +12,7 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
   </style>
 </head>
@@ -68,7 +69,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-mermaid">graph TD;
+<pre class="mermaid">graph TD;
     
     subgraph sc[&quot;Schemas: General purpose descriptions of a domain&quot;]
       
@@ -78,8 +79,8 @@
     end
  
 
-</code></pre>
-<pre><code class="language-mermaid">graph TD;
+</pre>
+<pre class="mermaid">graph TD;
     
     subgraph sc[&quot;Schemas: Example&quot;]
       schemao[&quot;Schema.org&quot;]
@@ -93,9 +94,9 @@
     ldacs --&gt;|Extends| schemao
     ldacp --&gt;|Specializes| ldacs
 
-</code></pre>
+</pre>
 <p>Both schemas and profiles can be expressed in RO-Crate MASP</p>
-<pre><code class="language-mermaid">graph TD;
+<pre class="mermaid">graph TD;
     
     
     subgraph sc[&quot;Schemas: Example&quot;]
@@ -127,7 +128,7 @@
     
    
 
-</code></pre>
+</pre>
 <h3>Background: extending Schema.org Style Schemas into a full &quot;RO-Crate Machine Actionable Schemas and Profiles Language&quot;</h3>
 <p>Schema.org describes its &quot;Schema&quot; using RDF Properties (rdf:Property) and RDF Schema Classes (rdfs:Class), the conventions are described in the Schema.org <a href="https://schema.org/docs/datamodel.html">Data Model</a>.</p>
 <p>For example here is the definition of Schema.org's Person class in the Schema.org Style Schema for Schema.org itself:</p>
@@ -354,5 +355,9 @@
 </ol>
 
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

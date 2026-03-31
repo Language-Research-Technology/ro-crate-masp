@@ -12,6 +12,7 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
   </style>
 </head>
@@ -19,7 +20,7 @@
   <div class="container-fluid">
     <p>
       <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
-      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/main/profiles/ldac/profile-crate">📁 View whole crate on GitHub</a>
+      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/issue-8-masp-profile/profiles/ldac/profile-crate">📁 View whole crate on GitHub</a>
     </p>
     <h1>Language Data Commons RO-Crate Profile</h1>
 <p>This document is a DRAFT RO-Crate profile for Language Data resources. The
@@ -4451,5 +4452,9 @@ Dakota: The University of North Dakota M.A.
 </table>
 
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

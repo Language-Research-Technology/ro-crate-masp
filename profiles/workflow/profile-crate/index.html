@@ -12,6 +12,7 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
   </style>
 </head>
@@ -19,7 +20,7 @@
   <div class="container-fluid">
     <p>
       <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
-      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/main/profiles/workflow/profile-crate">📁 View whole crate on GitHub</a>
+      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/issue-8-masp-profile/profiles/workflow/profile-crate">📁 View whole crate on GitHub</a>
     </p>
     <hr>
 <h2>title: Workflow RO-Crate profile 1.0 -- EXPERIMENTAL RO-Crate Schema Profile</h2>
@@ -1088,7 +1089,7 @@
 }
 </pre>
 <h2>Provenance</h2>
-<p>This document was compiled using <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/generate-soss-docs.js">generate-soss-docs.js</a>, based on <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/workflow/profile-text.md">profiles/workflow/profile-text.md</a> using a SoSS+ Schema defined in <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/workflow/profile-crate/ro-crate-metadata.json">profiles/workflow/profile-crate/ro-crate-metadata.json</a>.</p>
+<p>This document was compiled using <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/issue-8-masp-profile/generate-soss-docs.js">generate-soss-docs.js</a>, based on <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/issue-8-masp-profile/profiles/workflow/profile-text.md">profiles/workflow/profile-text.md</a> using a SoSS+ Schema defined in <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/issue-8-masp-profile/profiles/workflow/profile-crate/ro-crate-metadata.json">profiles/workflow/profile-crate/ro-crate-metadata.json</a>.</p>
 <!--
 
 ## ORIGINAL TEXT BELOW -- WITH NOTES
@@ -1425,5 +1426,9 @@ A minimal example of _Workflow RO-Crate_ metadata, containing a CWL workflow, an
 -->
 
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>
