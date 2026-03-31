@@ -547,9 +547,22 @@ try {
     console.warn(`Warning: Could not determine Git branch: ${error.message}`);
   }
 
-  const repoUrl = `https://github.com/Language-Research-Technology/ro-crate-schema-tools/blob/${clean(
-    gitBranch
-  )}`;
+  let repoBaseUrl = "";
+  try {
+    const remoteUrl = execSync("git remote get-url origin", {
+      cwd: __dirname,
+      encoding: "utf8",
+    }).trim();
+    repoBaseUrl = remoteUrl
+      .replace(/^git@github\.com:/, "https://github.com/")
+      .replace(/\.git$/, "");
+  } catch (error) {
+    console.warn(`Warning: Could not determine git remote URL: ${error.message}`);
+  }
+  const repoUrl = `${repoBaseUrl}/blob/${clean(gitBranch)}`;
+  const crateTreeUrl = repoBaseUrl
+    ? `${repoBaseUrl}/tree/${clean(gitBranch)}/${path.relative(__dirname, profileDir)}`
+    : "";
   const scriptPath = path.relative(
     __dirname,
     path.resolve(__dirname, "generate-soss-docs.js")
@@ -627,7 +640,10 @@ try {
 </head>
 <body>
   <div class="container-fluid">
-    <p><a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a></p>
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
+      ${crateTreeUrl ? `&nbsp;|&nbsp; <a href="${crateTreeUrl}">📁 View whole crate on GitHub</a>` : ""}
+    </p>
     ${htmlBody}
   </div>
 </body>
