@@ -73,6 +73,15 @@
       }
     },
     {
+      "@id": "media/",
+      "@type": "Dataset",
+      "name": "Profile diagrams",
+      "description": "SVG diagrams used in the profile documentation",
+      "isPartOf": {
+        "@id": "https://w3id.org/ldac/profile"
+      }
+    },
+    {
       "@id": "#hasSpecializedSchema",
       "@type": "ResourceDescriptor",
       "name": "Specialized Schema Terms",
@@ -4061,6 +4070,9 @@
         },
         {
           "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "media/"
         }
       ]
     }
