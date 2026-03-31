@@ -90,7 +90,7 @@
 <h3>Context</h3>
 <p>The <em>Crate</em> JSON-LD MUST be valid according to <a href="https://w3id.org/ro/crate/1.1">RO-Crate 1.1</a> and SHOULD use the RO-Crate 1.1 <code>@context</code> <a href="https://w3id.org/ro/crate/1.1/context">https://w3id.org/ro/crate/1.1/context</a></p>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="class-ro-crate-metadadata-descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
+<h3><a id="RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -126,17 +126,17 @@
 <td>http://schema.org/CreativeWork</td>
 </tr>
 <tr>
-<td><a href="#property-id">@id</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
 <td></td>
 <td>ro-crate-metadata.json</td>
 </tr>
 <tr>
-<td><a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -144,9 +144,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1-https-w3id-org-workflowhub-workflow-ro-crate-1-0">Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0">Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0</a></li>
 </ul>
-<h3><a id="class-root-data-entity"></a> Class: Root Data Entity</h3>
+<h3><a id="Root_Data_Entity"></a> Class: Root Data Entity</h3>
 <p>The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -183,42 +183,42 @@
 <td>http://schema.org/Dataset</td>
 </tr>
 <tr>
-<td><a href="#property-conformsto">conformsTo</a></td>
+<td><a href="#prop_conformsTo_Root_Data_Entity">conformsTo</a></td>
 <td>Yes</td>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#class-profile-item-list">Profile Item List</a></td>
+<td><a href="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-datepublished">datePublished <a href="#property-datepublished" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_datePublised_Dataset">datePublished <a href="#prop_datePublised_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-description">description <a href="#property-description" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-license">license <a href="#property-license" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
 <td>#class_CreativeWork, schema:URL, schema:Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-mainentity">mainEntity <a href="#property-mainentity" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#Property_mainEntity_Workflow">mainEntity <a href="#Property_mainEntity_Workflow" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow.</td>
-<td><a href="#class-main-workflow">Main Workflow</a></td>
+<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-name">name <a href="#property-name" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#http%3A%2F%2Fschema.org%2Fname">name <a href="#http%3A%2F%2Fschema.org%2Fname" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
 <td>Text</td>
@@ -229,9 +229,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1">Example-1: ./</a></li>
+<li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
-<h3><a id="class-main-workflow"></a> Class: Main Workflow</h3>
+<h3><a id="Class_MainWorkflow"></a> Class: Main Workflow</h3>
 <p>The Main Workflow is the primary workflow of the RO-Crate. It represents the computational process that is described by the RO-Crate.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <table>
@@ -267,24 +267,24 @@
 <td>http://schema.org/MediaObject, http://schema.org/SoftwareSourceCode, https://bioschemas.org/ComputationalWorkflow</td>
 </tr>
 <tr>
-<td><a href="#property-programminglanguage">programmingLanguage <a href="#property-programminglanguage" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#Property_programmingLanguage_Workflow">programmingLanguage <a href="#Property_programmingLanguage_Workflow" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#class-programming-languages">Programming Languages</a></td>
+<td><a href="#programmingLanguages">Programming Languages</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-image">image <a href="#property-image" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#Property_MainWorkflow_image">image <a href="#Property_MainWorkflow_image" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>No</td>
 <td>If <em>Main Workflow Diagram</em> is present, the <em>Main Workflow</em> MUST refer to it via <code>image</code>.</td>
-<td><a href="#class-main-workflow-diagram">Main Workflow Diagram</a></td>
+<td><a href="#Class_ImageObject_Diagram">Main Workflow Diagram</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-subjectof">subjectOf <a href="#property-subjectof" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#Property_MainWorkflow_subjectOf">subjectOf <a href="#Property_MainWorkflow_subjectOf" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>No</td>
 <td>Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description.</td>
-<td><a href="#class-main-workflow-description">Main Workflow Description</a></td>
+<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -292,9 +292,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1-example-workflow-cwl">Example-1: example_workflow.cwl</a></li>
+<li><a href="#example_workflow.cwl">Example-1: example_workflow.cwl</a></li>
 </ul>
-<h3><a id="class-main-workflow-description"></a> Class: Main Workflow Description</h3>
+<h3><a id="Class_MainWorkflow_Description"></a> Class: Main Workflow Description</h3>
 <p>The <em>Crate</em> COULD contain a data entity of type <code>[File, SoftwareSourceCode, HowTo]</code> as the <em>Main Workflow CWL Description</em>.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -331,15 +331,15 @@
 <td>http://schema.org/MediaObject, http://schema.org/SoftwareSourceCode, http://schema.org/HowTo</td>
 </tr>
 <tr>
-<td><a href="#property-programminglanguage">programmingLanguage <a href="#property-programminglanguage" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#Property_programmingLanguage_WorkflowDescription">programmingLanguage <a href="#Property_programmingLanguage_WorkflowDescription" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#class-common-workflow-language">Common Workflow Language</a></td>
+<td><a href="#programmingLanguageCWLList">Common Workflow Language</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class-readme-file"></a> Class: README File</h3>
+<h3><a id="class_CreativeWork_README"></a> Class: README File</h3>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -375,21 +375,21 @@
 <td>http://schema.org/CreativeWork, http://schema.org/MediaObject</td>
 </tr>
 <tr>
-<td><a href="#property-id">@id</a></td>
+<td><a href="#property_CreativeWork_README.id">@id</a></td>
 <td>Yes</td>
 <td>README file must have @id of <code>README.md</code>.</td>
 <td></td>
 <td>README.md</td>
 </tr>
 <tr>
-<td><a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#property_CreativeWork_README.about">about <a href="#property_CreativeWork_README.about" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>The README.md file SHOULD have an about property referencing the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-encodingformat">encodingFormat <a href="#property-encodingformat" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#property_CreativeWork_README.encodingFormat">encodingFormat <a href="#property_CreativeWork_README.encodingFormat" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>Readme file must have an encodingFormat of <code>text/markdown</code>.</td>
 <td></td>
@@ -397,7 +397,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class-test-directory"></a> Class: Test Directory</h3>
+<h3><a id="class_Dataset_Test_Directory"></a> Class: Test Directory</h3>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -433,7 +433,7 @@
 <td>http://schema.org/Dataset</td>
 </tr>
 <tr>
-<td><a href="#property-id">@id</a></td>
+<td><a href="#property_Dataset_Test_Directory.id">@id</a></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
 <td></td>
@@ -444,9 +444,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1">Example-1: ./</a></li>
+<li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
-<h3><a id="class-examples-directory"></a> Class: Examples Directory</h3>
+<h3><a id="class_Dataset_Examples_Directory"></a> Class: Examples Directory</h3>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -482,7 +482,7 @@
 <td>http://schema.org/Dataset</td>
 </tr>
 <tr>
-<td><a href="#property-id">@id</a></td>
+<td><a href="#property_Dataset_Examples_Directory.id">@id</a></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
 <td></td>
@@ -493,9 +493,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1">Example-1: ./</a></li>
+<li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
-<h3><a id="class-main-workflow-diagram"></a> Class: Main Workflow Diagram</h3>
+<h3><a id="Class_ImageObject_Diagram"></a> Class: Main Workflow Diagram</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -541,10 +541,10 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#example-1-diagram-svg">Example-1: diagram.svg</a></li>
+<li><a href="#diagram.svg">Example-1: diagram.svg</a></li>
 </ul>
 <h2>All Properties</h2>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3><a id="RO-Crate_Metadata_Descriptor.id"></a> Property: @id</h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.id</p>
 <table>
 <thead>
@@ -558,11 +558,11 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3><a id="property_CreativeWork_README.id"></a> Property: @id</h3>
 <p>ID: #property_CreativeWork_README.id</p>
 <table>
 <thead>
@@ -576,11 +576,11 @@
 <tr>
 <td>README file must have @id of <code>README.md</code>.</td>
 <td></td>
-<td><a href="#class-readme-file">README File</a></td>
+<td><a href="#class_CreativeWork_README">README File</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3><a id="property_Dataset_Test_Directory.id"></a> Property: @id</h3>
 <p>ID: #property_Dataset_Test_Directory.id</p>
 <table>
 <thead>
@@ -594,11 +594,11 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class-test-directory">Test Directory</a></td>
+<td><a href="#class_Dataset_Test_Directory">Test Directory</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3><a id="property_Dataset_Examples_Directory.id"></a> Property: @id</h3>
 <p>ID: #property_Dataset_Examples_Directory.id</p>
 <table>
 <thead>
@@ -612,11 +612,11 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class-examples-directory">Examples Directory</a></td>
+<td><a href="#class_Dataset_Examples_Directory">Examples Directory</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="RO-Crate_Metadata_Descriptor.about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.about</p>
 <table>
 <thead>
@@ -629,12 +629,12 @@
 <tbody>
 <tr>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
-<td><a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="property_CreativeWork_README.about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #property_CreativeWork_README.about</p>
 <table>
 <thead>
@@ -647,12 +647,12 @@
 <tbody>
 <tr>
 <td>The README.md file SHOULD have an about property referencing the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
-<td><a href="#class-readme-file">README File</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#class_CreativeWork_README">README File</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-conformsto"></a> Property: conformsTo</h3>
+<h3><a id="prop_conformsTo_Root_Data_Entity"></a> Property: conformsTo</h3>
 <p>ID: #prop_conformsTo_Root_Data_Entity</p>
 <table>
 <thead>
@@ -665,12 +665,12 @@
 <tbody>
 <tr>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#class-profile-item-list">Profile Item List</a></td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-datepublished"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_datePublised_Dataset"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_datePublised_Dataset</p>
 <table>
 <thead>
@@ -684,11 +684,11 @@
 <tr>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-description"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_description_Dataset</p>
 <table>
 <thead>
@@ -702,11 +702,11 @@
 <tr>
 <td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
 <td>Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-encodingformat"></a> Property: encodingFormat <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="property_CreativeWork_README.encodingFormat"></a> Property: encodingFormat <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #property_CreativeWork_README.encodingFormat</p>
 <table>
 <thead>
@@ -720,11 +720,11 @@
 <tr>
 <td>Readme file must have an encodingFormat of <code>text/markdown</code>.</td>
 <td></td>
-<td><a href="#class-readme-file">README File</a></td>
+<td><a href="#class_CreativeWork_README">README File</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-image"></a> Property: image <a href="http://schema.org/image" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="Property_MainWorkflow_image"></a> Property: image <a href="http://schema.org/image" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #Property_MainWorkflow_image</p>
 <table>
 <thead>
@@ -737,12 +737,12 @@
 <tbody>
 <tr>
 <td>If <em>Main Workflow Diagram</em> is present, the <em>Main Workflow</em> MUST refer to it via <code>image</code>.</td>
-<td><a href="#class-main-workflow-diagram">Main Workflow Diagram</a></td>
-<td><a href="#class-main-workflow">Main Workflow</a></td>
+<td><a href="#Class_ImageObject_Diagram">Main Workflow Diagram</a></td>
+<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-license"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_license_Dataset</p>
 <table>
 <thead>
@@ -756,11 +756,11 @@
 <tr>
 <td>TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
 <td>#class_CreativeWork, schema:URL, schema:Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-mainentity"></a> Property: mainEntity <a href="http://schema.org/mainEntity" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="Property_mainEntity_Workflow"></a> Property: mainEntity <a href="http://schema.org/mainEntity" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #Property_mainEntity_Workflow</p>
 <table>
 <thead>
@@ -773,12 +773,12 @@
 <tbody>
 <tr>
 <td>Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow.</td>
-<td><a href="#class-main-workflow">Main Workflow</a></td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-name"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="http%3A%2F%2Fschema.org%2Fname"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: http://schema.org/name</p>
 <table>
 <thead>
@@ -792,11 +792,11 @@
 <tr>
 <td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
 <td>Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-programminglanguage"></a> Property: programmingLanguage <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="Property_programmingLanguage_Workflow"></a> Property: programmingLanguage <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #Property_programmingLanguage_Workflow</p>
 <table>
 <thead>
@@ -809,12 +809,12 @@
 <tbody>
 <tr>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#class-programming-languages">Programming Languages</a></td>
-<td><a href="#class-main-workflow">Main Workflow</a></td>
+<td><a href="#programmingLanguages">Programming Languages</a></td>
+<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-programminglanguage"></a> Property: programmingLanguage <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="Property_programmingLanguage_WorkflowDescription"></a> Property: programmingLanguage <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #Property_programmingLanguage_WorkflowDescription</p>
 <table>
 <thead>
@@ -827,12 +827,12 @@
 <tbody>
 <tr>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#class-common-workflow-language">Common Workflow Language</a></td>
-<td><a href="#class-main-workflow-description">Main Workflow Description</a></td>
+<td><a href="#programmingLanguageCWLList">Common Workflow Language</a></td>
+<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-subjectof"></a> Property: subjectOf <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="Property_MainWorkflow_subjectOf"></a> Property: subjectOf <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #Property_MainWorkflow_subjectOf</p>
 <table>
 <thead>
@@ -845,19 +845,19 @@
 <tbody>
 <tr>
 <td>Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description.</td>
-<td><a href="#class-main-workflow-description">Main Workflow Description</a></td>
-<td><a href="#class-main-workflow">Main Workflow</a></td>
+<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
+<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
 </tr>
 </tbody>
 </table>
 <h2>Item Lists</h2>
-<h3><a id="item-list-profile-item-list"></a>Item List: Profile Item List</h3>
+<h3><a id="Root_Data_Entity_profile_itemList"></a>Item List: Profile Item List</h3>
 <p>A list of valid profile values for this RO-Crate Profile</p>
 <ul>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-1-0">Workflow RO-Crate Profile (experimental)</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0">Workflow RO-Crate Profile (experimental)</a></li>
 </ul>
  <hr/>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate/1.0"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-1-0"></a><pre></h3>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate/1.0&quot;,
 &quot;@type&quot;: [
@@ -870,17 +870,17 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate/1.0</p>
-<h3><a id="item-list-programming-languages"></a>Item List: Programming Languages</h3>
+<h3><a id="programmingLanguages"></a>Item List: Programming Languages</h3>
 <p>A list of programming languages that can be used to implement the Main Workflow</p>
 <ul>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-cwl">Common Workflow Language</a></li>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-galaxy">Galaxy</a></li>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-knime">KNIME</a></li>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-nextflow">Nextflow</a></li>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-snakemake">Snakemake</a></li>
+<li><a href="#cwl">Common Workflow Language</a></li>
+<li><a href="#galaxy">Galaxy</a></li>
+<li><a href="#knime">KNIME</a></li>
+<li><a href="#nextflow">Nextflow</a></li>
+<li><a href="#snakemake">Snakemake</a></li>
 </ul>
  <hr/>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#cwl"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-cwl"></a><pre></h3>
+<h3><a id="cwl"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#cwl&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -895,7 +895,7 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#cwl</p>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#galaxy"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-galaxy"></a><pre></h3>
+<h3><a id="galaxy"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#galaxy&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -909,7 +909,7 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#galaxy</p>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#knime"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-knime"></a><pre></h3>
+<h3><a id="knime"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#knime&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -923,7 +923,7 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#knime</p>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#nextflow"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-nextflow"></a><pre></h3>
+<h3><a id="nextflow"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#nextflow&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -937,7 +937,7 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#nextflow</p>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#snakemake"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-snakemake"></a><pre></h3>
+<h3><a id="snakemake"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#snakemake&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -951,13 +951,13 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#snakemake</p>
-<h3><a id="item-list-common-workflow-language"></a>Item List: Common Workflow Language</h3>
+<h3><a id="programmingLanguageCWLList"></a>Item List: Common Workflow Language</h3>
 <p>A list containing only the Common Workflow Language (CWL) as a programming language for the WWorkflow Description.</p>
 <ul>
-<li><a href="#https-w3id-org-workflowhub-workflow-ro-crate-cwl">Common Workflow Language</a></li>
+<li><a href="#cwl">Common Workflow Language</a></li>
 </ul>
  <hr/>
-<h3><a id="https://w3id.org/workflowhub/workflow-ro-crate#cwl"></a><a id="https-w3id-org-workflowhub-workflow-ro-crate-cwl"></a><pre></h3>
+<h3><a id="cwl"></a><pre></h3>
 <p>{
 &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#cwl&quot;,
 &quot;@type&quot;: &quot;ComputerLanguage&quot;,
@@ -972,9 +972,9 @@
 }
 </pre></p>
 <p>ID: https://w3id.org/workflowhub/workflow-ro-crate#cwl</p>
-<p><a id="example-1-example-workflow"></a></p>
+<p><a id="hasExampleWorkflow"></a></p>
 <h2>Example-1: Example: Workflow</h2>
-<h3><a id="artifact-an-example-workflow-ro-crate"></a> Artifact: An example workflow RO-Crate</h3>
+<h3><a id="WorkflowExample"></a> Artifact: An example workflow RO-Crate</h3>
 <pre>
  {
   "@id": "#WorkflowExample",
@@ -1002,7 +1002,7 @@
   ]
 }
 </pre>
-<h4><a id="example-1"></a>Example-1: ./</h4>
+<h4><a id=".%2F"></a>Example-1: ./</h4>
 <pre>
  {
   "@id": "./",
@@ -1033,7 +1033,7 @@
   ]
 }
 </pre>
-<h4><a id="example-1-https-w3id-org-workflowhub-workflow-ro-crate-1-0"></a>Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0</h4>
+<h4><a id="https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0"></a>Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0</h4>
 <pre>
  {
   "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
@@ -1046,7 +1046,7 @@
   "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2"
 }
 </pre>
-<h4><a id="example-1-example-workflow-cwl"></a>Example-1: example_workflow.cwl</h4>
+<h4><a id="example_workflow.cwl"></a>Example-1: example_workflow.cwl</h4>
 <pre>
  {
   "@id": "example_workflow.cwl",
@@ -1064,7 +1064,7 @@
   }
 }
 </pre>
-<h4><a id="example-1-diagram-svg"></a>Example-1: diagram.svg</h4>
+<h4><a id="diagram.svg"></a>Example-1: diagram.svg</h4>
 <pre>
  {
   "@id": "diagram.svg",
@@ -1075,7 +1075,7 @@
   ]
 }
 </pre>
-<h4><a id="example-1-readme-md"></a>Example-1: README.md</h4>
+<h4><a id="README.md"></a>Example-1: README.md</h4>
 <pre>
  {
   "@id": "README.md",

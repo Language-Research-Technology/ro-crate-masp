@@ -16,7 +16,7 @@ This document in an experimental RO-Crate Machine Actionable Profile for RO-Crat
 ## Types of entities (specializations of Classes) and expected Properties
 
 
-### <a id="class-ro-crate-metadadata-descriptor"></a> Class: RO-Crate Metadadata Descriptor
+### <a id="RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor
 
 
 
@@ -31,11 +31,11 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | @type | Yes |  |  | http://schema.org/CreativeWork |
-| <a href="#property-id">@id</a> | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
-| <a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> |  |
+| <a href="#RO-Crate_Metadata_Descriptor.id">@id</a> | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity">Root Data Entity</a> |  |
 
 
-### <a id="class-root-data-entity"></a> Class: Root Data Entity
+### <a id="Root_Data_Entity"></a> Class: Root Data Entity
 
 The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor.
 
@@ -50,13 +50,13 @@ Instances of this type SHOULD be present in the crate.
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | @type | Yes |  |  | http://schema.org/Dataset |
-| <a href="#property-datepublished">datePublished <a href="#property-datepublished" target="_blank" rel="noopener">ⓘ</a></a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
-| <a href="#property-description">description <a href="#property-description" target="_blank" rel="noopener">ⓘ</a></a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
-| <a href="#property-license">license <a href="#property-license" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text |  |
-| <a href="#property-name">name <a href="#property-name" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text |  |
+| <a href="#prop_datePublised_Dataset">datePublished <a href="#prop_datePublised_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
+| <a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
+| <a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text |  |
+| <a href="#http%3A%2F%2Fschema.org%2Fname">name <a href="#http%3A%2F%2Fschema.org%2Fname" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text |  |
 
 
-### <a id="class-license-creative-work"></a> Class: License (Creative Work)
+### <a id="class_CreativeWorkLicense"></a> Class: License (Creative Work)
 
 A license included as a Creative Work - with at least a name and description
 
@@ -74,48 +74,48 @@ Instances of this type MAY be present in the crate.
 
 ## All Properties
 
-### <a id="property-id"></a> Property: @id
+### <a id="RO-Crate_Metadata_Descriptor.id"></a> Property: @id
 
 ID: #RO-Crate_Metadata_Descriptor.id
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The RO-Crate Metadata  |  | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |
-### <a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a>
+| The RO-Crate Metadata  |  | <a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+### <a id="RO-Crate_Metadata_Descriptor.about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #RO-Crate_Metadata_Descriptor.about
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |
-### <a id="property-datepublished"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a>
+| This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity">Root Data Entity</a> | <a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+### <a id="prop_datePublised_Dataset"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_datePublised_Dataset
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#class-root-data-entity">Root Data Entity</a> |
-### <a id="property-description"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a>
+| MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_description_Dataset
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text | <a href="#class-root-data-entity">Root Data Entity</a> |
-### <a id="property-license"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a>
+| (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text | <a href="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_license_Dataset
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text | <a href="#class-root-data-entity">Root Data Entity</a> |
-### <a id="property-name"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a>
+| SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text | <a href="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="http%3A%2F%2Fschema.org%2Fname"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a>
 
 ID: http://schema.org/name
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#class-root-data-entity">Root Data Entity</a> |
+| SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#Root_Data_Entity">Root Data Entity</a> |
 
 
 ## Defined Term Sets

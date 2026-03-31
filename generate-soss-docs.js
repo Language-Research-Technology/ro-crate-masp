@@ -39,13 +39,14 @@ function clean(str) {
   return str.toString().replace(/\s+/g, " ");
 }
 
-function createGitHubCompatibleId(id) {
-  // GitHub Pages converts IDs to lowercase and replaces special chars with hyphens
-  return id
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, ""); // Remove leading/trailing hyphens
+function getAnchorId(id) {
+  if (!id) return '';
+  // For fragment identifiers (#foo), strip the #
+  if (id.startsWith('#')) return id.slice(1);
+  // For full URIs with fragments (https://...#foo), use the fragment
+  const hashIdx = id.lastIndexOf('#');
+  if (hashIdx !== -1) return id.slice(hashIdx + 1);
+  return encodeURIComponent(id);
 }
 
 try {
@@ -132,15 +133,15 @@ try {
       const exampleId = resources["@id"];
       console.log(`\n\nProcessing example resource: ${exampleId}`);
       const exampleName = `Example-${++exampleCount}: ${resources["name"] || exampleId}`;
-      const exampleAnchorId = createGitHubCompatibleId(exampleName);
+      const exampleAnchorId = getAnchorId(exampleId);
       exampleSummary += `<a id="${exampleAnchorId}"></a>\n\n`;
       exampleSummary += `## ${exampleName}\n\n`;
       exampleLinks[exampleId] = exampleAnchorId;
 
       for (let exampleArtifact of resources["hasArtifact"] || []) {
         console.log(`Processing example artifact: ${exampleArtifact["@id"]}`);  
-        const exampleArtifactName = `Artifact: ${exampleArtifact["name"] || exampleArtifact["@id"]}`; 
-        const exampleArtifactAnchorId = createGitHubCompatibleId(exampleArtifactName);
+        const exampleArtifactName = `Artifact: ${exampleArtifact["name"] || exampleArtifact["@id"]}`;
+        const exampleArtifactAnchorId = getAnchorId(exampleArtifact["@id"]);
         exampleSummary += `\n### <a id="${exampleArtifactAnchorId}"></a> ${exampleArtifactName}\n\n`;
         exampleSummary += `<pre>\n ${JSON.stringify(
           exampleArtifact,
@@ -152,7 +153,7 @@ try {
           const partId = partEntity["@id"];
           if (partId) {
             const partName = `Example-${exampleCount}: ${partId}`;
-            const partAnchorId = createGitHubCompatibleId(partName);
+            const partAnchorId = getAnchorId(partId);
             exampleSummary += `\n#### <a id="${partAnchorId}"></a>${partName}\n\n`;
             exampleSummary += `<pre>\n ${JSON.stringify(
               partEntity,
@@ -186,10 +187,10 @@ try {
     const termSetName = `Defined Term Set: ${
       termSet["name"] || termSet["rdfs:label"] || termSetId
     }`;
-    const githubId = createGitHubCompatibleId(termSetName);
+    const termSetAnchorId = getAnchorId(termSetId);
     const termSetDesc = termSet["description"] || termSet["rdfs:comment"] || "";
 
-    let termSetSummary = `### <a id="${githubId}"></a>${clean(
+    let termSetSummary = `### <a id="${termSetAnchorId}"></a>${clean(
       termSetName
     )}\n\n`;
     termSetSummary += `ID: ${clean(termSetId)}\n\n`;
@@ -216,7 +217,6 @@ try {
       // For terms within the set:
       for (const t of terms) {
         const termId = t["@id"];
-        const anchorId = `${termId}_${termId}`;
         const termBaseId = `https://w3id.org/ldac/terms#${t?.name}`;
         const link =
           termBaseId && termBaseId.match(/^http(s)?:/i)
@@ -227,10 +227,10 @@ try {
         const termName = `Defined Term: ${
           t["name"] || t["rdfs:label"] || t["@id"]
         }`;
-        const termGithubId = createGitHubCompatibleId(termName);
+        const termAnchorId = getAnchorId(termId);
 
         const termDesc = t["description"] || t["rdfs:comment"] || "";
-        termSetSummary += `### <a id="${termGithubId}"></a>${clean(
+        termSetSummary += `### <a id="${termAnchorId}"></a>${clean(
           termName
         )}${clean(link)}\n`;
         termSetSummary += `ID: ${clean(termId)}\n\n`;
@@ -266,8 +266,8 @@ try {
     const listId = list["@id"];
     const listName = `Item List: ${list["name"] || listId}`;
     const listDescription = list["description"] || "";
-    const listGithubId = createGitHubCompatibleId(listName);
-    let listSummary = `### <a id="${clean(listGithubId)}"></a>${clean(
+    const listAnchorId = getAnchorId(listId);
+    let listSummary = `### <a id="${listAnchorId}"></a>${clean(
       listName
     )}\n\n`;
     listSummary += `${clean(listDescription)}\n\n`;
@@ -285,18 +285,18 @@ try {
       // For items within the list:
       items.forEach((item) => {
         const itemId = item["@id"];
-        const itemGithubId = createGitHubCompatibleId(itemId);
+        const itemAnchorId = getAnchorId(itemId);
         const itemName = item["name"] || item["@id"];
         const ItemDesc = item["description"] || "";
-        listSummary += `-  [${clean(itemName)}](#${itemGithubId})\n `;
+        listSummary += `-  [${clean(itemName)}](#${itemAnchorId})\n `;
       });
 
       listSummary += "<hr/>\n\n";
 
       items.forEach((item) => {
         const itemId = item["@id"];
-        const itemGithubId = createGitHubCompatibleId(itemId);
-        listSummary += `### <a id="${itemId}"></a><a id="${itemGithubId}"></a><pre>\n ${JSON.stringify(
+        const itemAnchorId = getAnchorId(itemId);
+        listSummary += `### <a id="${itemAnchorId}"></a><pre>\n ${JSON.stringify(
           item,
           null,
           2
@@ -327,12 +327,12 @@ try {
     const className = `Class: ${
       classRule["name"] || classRule["rdfs:label"] || classId
     }`;
-    const githubId = createGitHubCompatibleId(className);
+    const classAnchorId = getAnchorId(classId);
 
     const classDesc =
       classRule["description"] || classRule["rdfs:comment"] || "";
     const specialized = classRule["prov:specializationOf"] || [];
-    var classSummary = `\n### <a id="${githubId}"></a> ${clean(className)}\n\n`;
+    var classSummary = `\n### <a id="${classAnchorId}"></a> ${clean(className)}\n\n`;
 
     classSummary += `${clean(classDesc)}\n\n`;
 
@@ -399,9 +399,7 @@ try {
 
       props.forEach((prop) => {
         const propName = prop["name"] || prop["rdfs:label"] || prop["@id"];
-        const anchorGithubId = createGitHubCompatibleId(
-          `Property: ${propName}`
-        );
+        const anchorGithubId = getAnchorId(prop["@id"]);
         // Make a link to the 'main' definition of the property
         const propBaseId = prop?.["prov:specializationOf"]?.[0]?.["@id"];
         const link =
@@ -427,10 +425,7 @@ try {
                 rangeDefiniton["name"] ||
                 rangeDefiniton["rdfs:label"] ||
                 rangeId;
-              const rangeGithubId = createGitHubCompatibleId(
-                `Class: ${rangeName}`
-              );
-              return `<a href="#${rangeGithubId}">${clean(rangeName)}</a>`;
+              return `<a href="#${getAnchorId(rangeId)}">${clean(rangeName)}</a>`;
             }
             return `${clean(rangeId)}`;
           })
@@ -475,8 +470,8 @@ try {
     });
 
   for (let p of properties) {
-    const propName = `Property: ${p["name"] || p["rdfs:label"] || p["@id"]}`; // Add this line
-    const anchorGithubId = createGitHubCompatibleId(propName); // Add this line
+    const propName = `Property: ${p["name"] || p["rdfs:label"] || p["@id"]}`;
+    const anchorGithubId = getAnchorId(p["@id"]);
 
     const propDesc = p["description"] || p["rdfs:comment"] || ""; // Add this line
 
@@ -497,8 +492,7 @@ try {
         if (rangeDefinition) {
           const rangeName =
             rangeDefinition["name"] || rangeDefinition["rdfs:label"] || rangeId;
-          const rangeGithubId = createGitHubCompatibleId(`Class: ${rangeName}`);
-          return `<a href="#${rangeGithubId}">${clean(rangeName)}</a>`;
+          return `<a href="#${getAnchorId(rangeId)}">${clean(rangeName)}</a>`;
         }
         return `${clean(rangeId)}`;
       })
@@ -513,10 +507,7 @@ try {
         if (domainDef) {
           const domainName =
             domainDef["name"] || domainDef["rdfs:label"] || domainId;
-          const domainGithubId = createGitHubCompatibleId(
-            `Class: ${domainName}`
-          );
-          return `<a href="#${domainGithubId}">${clean(domainName)}</a>`;
+          return `<a href="#${getAnchorId(domainId)}">${clean(domainName)}</a>`;
         }
         return clean(domainId);
       })

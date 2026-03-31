@@ -23,7 +23,7 @@
 <p>This document in an experimental RO-Crate Machine Actionable Profile for RO-Crate 1.1 - for the core, mandated metadata only.</p>
 <h1>The RO-Crate Root Data Entity</h1>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="class-ro-crate-metadadata-descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
+<h3><a id="RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -59,22 +59,22 @@
 <td>http://schema.org/CreativeWork</td>
 </tr>
 <tr>
-<td><a href="#property-id">@id</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
 <td></td>
 <td>ro-crate-metadata.json</td>
 </tr>
 <tr>
-<td><a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class-root-data-entity"></a> Class: Root Data Entity</h3>
+<h3><a id="Root_Data_Entity"></a> Class: Root Data Entity</h3>
 <p>The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -111,28 +111,28 @@
 <td>http://schema.org/Dataset</td>
 </tr>
 <tr>
-<td><a href="#property-datepublished">datePublished <a href="#property-datepublished" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_datePublised_Dataset">datePublished <a href="#prop_datePublised_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-description">description <a href="#property-description" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-license">license <a href="#property-license" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
-<td><a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text</td>
+<td><a href="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#property-name">name <a href="#property-name" target="_blank" rel="noopener">ⓘ</a></a></td>
+<td><a href="#http%3A%2F%2Fschema.org%2Fname">name <a href="#http%3A%2F%2Fschema.org%2Fname" target="_blank" rel="noopener">ⓘ</a></a></td>
 <td>Yes</td>
 <td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
 <td>Text</td>
@@ -140,7 +140,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class-license-creative-work"></a> Class: License (Creative Work)</h3>
+<h3><a id="class_CreativeWorkLicense"></a> Class: License (Creative Work)</h3>
 <p>A license included as a Creative Work - with at least a name and description</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -185,7 +185,7 @@
 </tbody>
 </table>
 <h2>All Properties</h2>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3><a id="RO-Crate_Metadata_Descriptor.id"></a> Property: @id</h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.id</p>
 <table>
 <thead>
@@ -199,11 +199,11 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="RO-Crate_Metadata_Descriptor.about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.about</p>
 <table>
 <thead>
@@ -216,12 +216,12 @@
 <tbody>
 <tr>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
-<td><a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-datepublished"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_datePublised_Dataset"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_datePublised_Dataset</p>
 <table>
 <thead>
@@ -235,11 +235,11 @@
 <tr>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-description"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_description_Dataset</p>
 <table>
 <thead>
@@ -253,11 +253,11 @@
 <tr>
 <td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
 <td>Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-license"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: #prop_license_Dataset</p>
 <table>
 <thead>
@@ -270,12 +270,12 @@
 <tbody>
 <tr>
 <td>SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
-<td><a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text</td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="property-name"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<h3><a id="http%3A%2F%2Fschema.org%2Fname"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
 <p>ID: http://schema.org/name</p>
 <table>
 <thead>
@@ -289,7 +289,7 @@
 <tr>
 <td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
 <td>Text</td>
-<td><a href="#class-root-data-entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
