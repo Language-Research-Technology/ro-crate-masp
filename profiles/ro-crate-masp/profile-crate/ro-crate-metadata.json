@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://w3id.org/ro/crate/1.1/context",
+    "https://w3id.org/ro/crate/1.2/context",
     {
       "@vocab": "http://schema.org/"
     }
@@ -10,27 +10,92 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "identifier": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
       "about": {
-        "@id": "./"
+        "@id": "https://language-research-technology.github.io/ro-crate-maps/profiles/ro-crate-masp/profile-crate/"
       }
     },
     {
-      "@id": "./",
-      "@type": "Dataset",
+      "@id": "https://language-research-technology.github.io/ro-crate-maps/profiles/ro-crate-masp/profile-crate/",
+      "@type": ["Dataset", "Profile"],
       "name": "RO-Crate MASP Profile",
       "description": "RO-Crate Machine Actionable Profiles and Schemas Profile",
+      "version": "0.1.0",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
       "author": {
         "@id": "#author"
       },
       "license": "APACHE-2.0",
-      "conformsTo": {
-        "@id": "https://w3id.org/ro/crate/1.1"
-      },
+      "hasResource": [
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        }
+      ],
       "hasPart": [
+        {
+          "@id": "index.html"
+        },
         {
           "@id": "profile-documentation.md"
         }
       ]
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "RO-Crate MASP Profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "https://language-research-technology.github.io/ro-crate-maps/profiles/ro-crate-masp/profile-crate/"
+      }
+    },
+    {
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ],
+      "about": {
+        "@id": "https://language-research-technology.github.io/ro-crate-maps/profiles/ro-crate-masp/profile-crate/"
+      },
+      "isPartOf": {
+        "@id": "https://language-research-technology.github.io/ro-crate-maps/profiles/ro-crate-masp/profile-crate/"
+      }
     },
     {
       "@id": "#author",

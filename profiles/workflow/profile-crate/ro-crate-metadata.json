@@ -8,26 +8,71 @@
   "@graph": [
     {
       "@id": "https://w3id.org/ro/workflow-crate/",
-      "@type": "Dataset",
+      "@type": ["Dataset", "Profile"],
       "name": "Workflow Profile",
       "description": "This is an experimental port of the RO-Crate Workflow Profile to a proposed 'RO-Crate Schema' format.",
+      "version": "0.1.0",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
       "author": {
         "@id": "#author"
       },
       "license": "GPL-3.0",
-      "conformsTo": {
-        "@id": "https://w3id.org/ldac/profile"
-      },
       "hasResource": [
         {
           "@id": "#hasSpecializedSchema"
         },
         {
           "@id": "#hasExampleWorkflow"
+        },
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
         }
       ],
-      "hasPart": {
+      "hasPart": [
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "profile-documentation.md"
+        }
+      ]
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
         "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "Workflow Profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "https://w3id.org/ro/workflow-crate/"
       }
     },
     {
@@ -148,7 +193,13 @@
           "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
         },
         "text/markdown"
-      ]
+      ],
+      "about": {
+        "@id": "https://w3id.org/ro/workflow-crate/"
+      },
+      "isPartOf": {
+        "@id": "https://w3id.org/ro/workflow-crate/"
+      }
     },
     {
       "@id": "#RO-Crate_Metadata_Descriptor",
@@ -736,6 +787,9 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "identifier": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
       "about": {
         "@id": "https://w3id.org/ro/workflow-crate/"
       }
