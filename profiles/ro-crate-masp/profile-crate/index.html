@@ -23,16 +23,48 @@
 <h2>Background</h2>
 <h3>Definitions</h3>
 <p>In the context of this document about RO-Crate profiles, the following terms are used.</p>
-<p>| Term | Definition |
-|------|------------|
-| <strong>General Purpose Schema</strong> | A specification/documentation of Classes and Properties of entities and potentially vocabulary terms intended to be used across multiple profiles (E.g. Schema.org, Dublin Core, Darwin Core, et al.). There may be some constraints on the range (expected values) and domain (classes on which a property may occur) but these would typically be more tightly specified in a Profile Specific Schema. A general-purpose schema will typically have inheritance - e.g. a Person is a subClass of Thing. |
-| <strong>Schema Language</strong> | The formalisation used to express a schema. These languages may be couched in terms of describing Ontologies, or Vocabularies. Examples include RDF Schema (RDFS), OWL and SKOS and the simple approach used by Schema.org. |
-| <strong>SoSS (Schema.org Style Schema)</strong> | Schema.org's data model is not particularly well documented, but the Schema for Schema.org is expressed as a set of Class and Property definitions which are available in a JSON-LD format, RO-Crate compatible. SoSS is a hybrid of RDF, RDFS and Schema.org's own property definition. RO-Crate 1.2 specifies using this SoSS approach for adding extra vocabulary terms which are not defined online to RO-Crates and profiles. See the section on existing RO-Crate support. |
-| <strong>Profile Specific Schema</strong> | A schema which has been specialised for use in a particular domain. E.g. for the Language Data Commons there is a general-purpose SoSS for describing language data and context http://w3id.org/ldac/terms and a profile which gives stricter advice about how to use them to make documents for the Language Data Commons of Australia repository: https://w3id.org.ldac/profile. |
-| <strong>Class</strong> | A named type which is applied to entities using the @type property, for example, a Person (people are real-world things but describing them as JSON-LD entities is a representation). RO-Crate uses the RDF Schema (rdfs) version of Class as per Schema.org's data model. |
-| <strong>Property</strong> | An attribute of an entity. RO-Crate uses the RDF version of property (rdf:Property) as per Schema.org's data model. |
-| <strong>Terms</strong> | Terms in a schema or profile are Classes, Properties and Defined Terms. In this document, Defined Terms are other fixed entities defined together with classes or properties. |
-| <strong>Profile</strong> | A profile, as defined by the W3C Profiles Vocabularies, is a specialisation of a standard or specification. Compared to a schema, which defines classes and properties that can be used in many ways, a profile introduces constraints, extensions or combinations that make the standard suitable for a particular purpose. RO-Crate for instance, can be seen as a profile of JSON-LD, which we indicate using conformsTo. Profile Crates are again profiles of RO-Crate, where they may constrain or extend for instance which schemas are used, but also on what entities are expected to be found in the crate. |</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>General Purpose Schema</strong></td>
+<td>A specification/documentation of Classes and Properties of entities and potentially vocabulary terms intended to be used across multiple profiles (E.g. Schema.org, Dublin Core, Darwin Core, et al.). There may be some constraints on the range (expected values) and domain (classes on which a property may occur) but these would typically be more tightly specified in a Profile Specific Schema. A general-purpose schema will typically have inheritance - e.g. a Person is a subClass of Thing.</td>
+</tr>
+<tr>
+<td><strong>Schema Language</strong></td>
+<td>The formalisation used to express a schema. These languages may be couched in terms of describing Ontologies, or Vocabularies. Examples include RDF Schema (RDFS), OWL and SKOS and the simple approach used by Schema.org.</td>
+</tr>
+<tr>
+<td><strong>SoSS (Schema.org Style Schema)</strong></td>
+<td>Schema.org's data model is not particularly well documented, but the Schema for Schema.org is expressed as a set of Class and Property definitions which are available in a JSON-LD format, RO-Crate compatible. SoSS is a hybrid of RDF, RDFS and Schema.org's own property definition. RO-Crate 1.2 specifies using this SoSS approach for adding extra vocabulary terms which are not defined online to RO-Crates and profiles. See the section on existing RO-Crate support.</td>
+</tr>
+<tr>
+<td><strong>Profile Specific Schema</strong></td>
+<td>A schema which has been specialised for use in a particular domain. E.g. for the Language Data Commons there is a general-purpose SoSS for describing language data and context http://w3id.org/ldac/terms and a profile which gives stricter advice about how to use them to make documents for the Language Data Commons of Australia repository: https://w3id.org.ldac/profile.</td>
+</tr>
+<tr>
+<td><strong>Class</strong></td>
+<td>A named type which is applied to entities using the @type property, for example, a Person (people are real-world things but describing them as JSON-LD entities is a representation). RO-Crate uses the RDF Schema (rdfs) version of Class as per Schema.org's data model.</td>
+</tr>
+<tr>
+<td><strong>Property</strong></td>
+<td>An attribute of an entity. RO-Crate uses the RDF version of property (rdf:Property) as per Schema.org's data model.</td>
+</tr>
+<tr>
+<td><strong>Terms</strong></td>
+<td>Terms in a schema or profile are Classes, Properties and Defined Terms. In this document, Defined Terms are other fixed entities defined together with classes or properties.</td>
+</tr>
+<tr>
+<td><strong>Profile</strong></td>
+<td>A profile, as defined by the W3C Profiles Vocabularies, is a specialisation of a standard or specification. Compared to a schema, which defines classes and properties that can be used in many ways, a profile introduces constraints, extensions or combinations that make the standard suitable for a particular purpose. RO-Crate for instance, can be seen as a profile of JSON-LD, which we indicate using conformsTo. Profile Crates are again profiles of RO-Crate, where they may constrain or extend for instance which schemas are used, but also on what entities are expected to be found in the crate.</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="language-mermaid">graph TD;
     
     subgraph sc[&quot;Schemas: General purpose descriptions of a domain&quot;]

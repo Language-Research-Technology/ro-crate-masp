@@ -18,77 +18,281 @@
 <body>
   <div class="container-fluid">
     <p><a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a></p>
-    <hr />
+    <hr>
 <h2>title: RO-Crate 1.1 Core Profile</h2>
 <p>This document in an experimental RO-Crate Machine Actionable Profile for RO-Crate 1.1 - for the core, mandated metadata only.</p>
 <h1>The RO-Crate Root Data Entity</h1>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="class-ro-crate-metadadata-descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
+<h3>&lt;a id=&quot;class-ro-crate-metadadata-descriptor&quot;&gt;&lt;/a&gt; Class: RO-Crate Metadadata Descriptor</h3>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
-<p>| Min Count | Max Count |
-| --------- | --------- |
-| 1 | 1 |</p>
-<p>| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
-| <a href="#property-id">@id</a> | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
-| <a href="#property-about">about <a href="#property-about" target="_blank" rel="noopener">ⓘ</a></a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> |  |</p>
-<h3><a id="class-root-data-entity"></a> Class: Root Data Entity</h3>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/CreativeWork</td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-id&quot;&gt;@id&lt;/a&gt;</td>
+<td>Yes</td>
+<td>The RO-Crate Metadata</td>
+<td></td>
+<td>ro-crate-metadata.json</td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-about&quot;&gt;about &lt;a href=&quot;#property-about&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;&lt;/a&gt;</td>
+<td>Yes</td>
+<td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;class-root-data-entity&quot;&gt;&lt;/a&gt; Class: Root Data Entity</h3>
 <p>The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
-<p>| Min Count | Max Count |
-| --------- | --------- |
-| 0 | 1 |</p>
-<p>| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Dataset |
-| <a href="#property-datepublished">datePublished <a href="#property-datepublished" target="_blank" rel="noopener">ⓘ</a></a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
-| <a href="#property-description">description <a href="#property-description" target="_blank" rel="noopener">ⓘ</a></a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
-| <a href="#property-license">license <a href="#property-license" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text |  |
-| <a href="#property-name">name <a href="#property-name" target="_blank" rel="noopener">ⓘ</a></a> | Yes | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text |  |</p>
-<h3><a id="class-license-creative-work"></a> Class: License (Creative Work)</h3>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/Dataset</td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-datepublished&quot;&gt;datePublished &lt;a href=&quot;#property-datepublished&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;&lt;/a&gt;</td>
+<td>Yes</td>
+<td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
+<td>schema:Date</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-description&quot;&gt;description &lt;a href=&quot;#property-description&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;&lt;/a&gt;</td>
+<td>Yes</td>
+<td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-license&quot;&gt;license &lt;a href=&quot;#property-license&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;&lt;/a&gt;</td>
+<td>Yes</td>
+<td>SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
+<td>&lt;a href=&quot;#class-license-creative-work&quot;&gt;License (Creative Work)&lt;/a&gt;, schema:URL, schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;a href=&quot;#property-name&quot;&gt;name &lt;a href=&quot;#property-name&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;&lt;/a&gt;</td>
+<td>Yes</td>
+<td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;class-license-creative-work&quot;&gt;&lt;/a&gt; Class: License (Creative Work)</h3>
 <p>A license included as a Creative Work - with at least a name and description</p>
 <p>Instances of this type MAY be present in the crate.</p>
-<p>| Min Count | Max Count |
-| --------- | --------- |
-| N/A | N/A |</p>
-<p>| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
-<em>No properties defined for this class</em></p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>http://schema.org/CreativeWork</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2>All Properties</h2>
-<h3><a id="property-id"></a> Property: @id</h3>
+<h3>&lt;a id=&quot;property-id&quot;&gt;&lt;/a&gt; Property: @id</h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.id</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| The RO-Crate Metadata  |  | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |</p>
-<h3><a id="property-about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The RO-Crate Metadata</td>
+<td></td>
+<td>&lt;a href=&quot;#class-ro-crate-metadadata-descriptor&quot;&gt;RO-Crate Metadadata Descriptor&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;property-about&quot;&gt;&lt;/a&gt; Property: about &lt;a href=&quot;http://schema.org/about&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
 <p>ID: #RO-Crate_Metadata_Descriptor.about</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#class-root-data-entity">Root Data Entity</a> | <a href="#class-ro-crate-metadadata-descriptor">RO-Crate Metadadata Descriptor</a> |</p>
-<h3><a id="property-datepublished"></a> Property: datePublished <a href="http://schema.org/datePubished" target="_blank" rel="noopener">ⓘ</a></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+<td>&lt;a href=&quot;#class-ro-crate-metadadata-descriptor&quot;&gt;RO-Crate Metadadata Descriptor&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;property-datepublished&quot;&gt;&lt;/a&gt; Property: datePublished &lt;a href=&quot;http://schema.org/datePubished&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
 <p>ID: #prop_datePublised_Dataset</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#class-root-data-entity">Root Data Entity</a> |</p>
-<h3><a id="property-description"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
+<td>schema:Date</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;property-description&quot;&gt;&lt;/a&gt; Property: description &lt;a href=&quot;http://schema.org/description&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
 <p>ID: #prop_description_Dataset</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text | <a href="#class-root-data-entity">Root Data Entity</a> |</p>
-<h3><a id="property-license"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
+<td>Text</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;property-license&quot;&gt;&lt;/a&gt; Property: license &lt;a href=&quot;http://schema.org/license&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
 <p>ID: #prop_license_Dataset</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class-license-creative-work">License (Creative Work)</a>, schema:URL, schema:Text | <a href="#class-root-data-entity">Root Data Entity</a> |</p>
-<h3><a id="property-name"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
+<td>&lt;a href=&quot;#class-license-creative-work&quot;&gt;License (Creative Work)&lt;/a&gt;, schema:URL, schema:Text</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
+<h3>&lt;a id=&quot;property-name&quot;&gt;&lt;/a&gt; Property: name &lt;a href=&quot;http://schema.org/name&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ⓘ&lt;/a&gt;</h3>
 <p>ID: http://schema.org/name</p>
-<p>| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#class-root-data-entity">Root Data Entity</a> |</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
+<td>Text</td>
+<td>&lt;a href=&quot;#class-root-data-entity&quot;&gt;Root Data Entity&lt;/a&gt;</td>
+</tr>
+</tbody>
+</table>
 <h2>Defined Term Sets</h2>
 <h2>Provenance</h2>
 <p>This document was compiled using <a href="https://github.com/Language-Research-Technology/ro-crate-schema-tools/blob/main/generate-soss-docs.js">generate-soss-docs.js</a>, based on <a href="https://github.com/Language-Research-Technology/ro-crate-schema-tools/blob/main/profiles/ro-crate/profile-text.md">profiles/ro-crate/profile-text.md</a> using a SoSS+ Schema defined in <a href="https://github.com/Language-Research-Technology/ro-crate-schema-tools/blob/main/profiles/ro-crate/profile-crate/ro-crate-metadata.json">profiles/ro-crate/profile-crate/ro-crate-metadata.json</a>.</p>
