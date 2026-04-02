@@ -506,27 +506,9 @@ try {
   }
   rules.all += propsSummary;
 
-  // Add provenance information
-  // Get the current Git branch by running git command
-  let gitBranch = "main"; // Default to main
-  try {
-    const gitCommand = "git rev-parse --abbrev-ref HEAD";
-    gitBranch = execSync(gitCommand, {
-      cwd: __dirname,
-      encoding: "utf8",
-    }).trim();
-    // Handle detached HEAD state
-    if (gitBranch === "HEAD") {
-      // Try to get the branch from CI environment variables
-      gitBranch =
-        process.env.GITHUB_REF_NAME ||
-        process.env.CI_COMMIT_REF_NAME ||
-        process.env.BRANCH_NAME ||
-        "main";
-    }
-  } catch (error) {
-    console.warn(`Warning: Could not determine Git branch: ${error.message}`);
-  }
+  // Generated files are committed and served from main after merge,
+  // so links always point to main regardless of the build branch.
+  const gitBranch = "main";
 
   let repoBaseUrl = "";
   try {
