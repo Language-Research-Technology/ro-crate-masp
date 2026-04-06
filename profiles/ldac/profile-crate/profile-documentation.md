@@ -74,12 +74,12 @@ The structural elements of a Language Data Commons RO-Crate are:
 
 - **Dataset and File entities** (as per RO-Crate). Files may be referenced
   locally or via URI, for example, from an API. If an RO-Crate contains files, they MUST be linked to the root dataset as per the RO-Crate specification using either:
-  - \`hasPart\` relationships on the object(s), or
-  - \`isPartOf\` relationships on the file(s).
+  - `hasPart` relationships on the object(s), or
+  - `isPartOf` relationships on the file(s).
 
 NOTE: The terms Collection and Object
-are encoded in RO-Crate metadata using \`RepositoryCollection\` and
-\`RepositoryObject\` types respectively. These in turn are re-named versions
+are encoded in RO-Crate metadata using `RepositoryCollection` and
+`RepositoryObject` types respectively. These in turn are re-named versions
 of the Portland Common Data Model types,
 [pcdm:Collection](https://pcdm.org/2016/04/18/models#Collection)
 and
@@ -104,7 +104,7 @@ transmitted either as:
   Object data.
 
 Distributed collections may reference member collections or Objects in
-\`pcdm:hasMember\` property but should not include descriptions of Objects that
+`pcdm:hasMember` property but should not include descriptions of Objects that
 are stored elsewhere in the repository.
 
 <br>
@@ -125,25 +125,25 @@ In linked data, a class is a resource that represents a concept or entity. Class
 
 ## Bidirectional Relationships
 
-The relational hierachy between Collections, Objects and Files are represented bidirectionally in an RO-Crate by the terms \`hasPart\`/\`isPartOf\` and \`pcdm:hasMember\`/\`pcdm:memberOf\`.
+The relational hierachy between Collections, Objects and Files are represented bidirectionally in an RO-Crate by the terms `hasPart`/`isPartOf` and `pcdm:hasMember`/`pcdm:memberOf`.
 
 | Superset Term      | Inverse Of | Subset Term       |
 | ------------------ | ---------- | ----------------- |
-| \`pcdm:hasMember\` | ⟷          | \`pcdm:memberOf\` |
-| \`hasPart\`        | ⟷          | \`isPartOf\`      |
+| `pcdm:hasMember` | ⟷          | `pcdm:memberOf` |
+| `hasPart`        | ⟷          | `isPartOf`      |
 
-Objects are placed in a Collection using the \`pcdm:memberOf\` property, which is required. The inverse will be encoded automatically using the \`pcdm:hasMember\` property on a Collection. Similarly, if using \`pcdm:hasMember\`, \`pcdm:memberOf\` will also be automatically encoded.
+Objects are placed in a Collection using the `pcdm:memberOf` property, which is required. The inverse will be encoded automatically using the `pcdm:hasMember` property on a Collection. Similarly, if using `pcdm:hasMember`, `pcdm:memberOf` will also be automatically encoded.
 
-The same relationship applies for \`hasPart\` and \`isPartOf\` at the Object and File levels.
+The same relationship applies for `hasPart` and `isPartOf` at the Object and File levels.
 
 | Superset Level |     | Relationship       |     | Subset Level |
 | -------------- | --- | ------------------ | --- | ------------ |
-| Collection     | →   | \`pcdm:hasMember\` | →   | Object       |
-| Collection     | ←   | \`pcdm:memberOf\`  | ←   | Object       |
-| Object         | →   | \`hasPart\`        | →   | File         |
-| Object         | ←   | \`isPartOf\`       | ←   | File         |
+| Collection     | →   | `pcdm:hasMember` | →   | Object       |
+| Collection     | ←   | `pcdm:memberOf`  | ←   | Object       |
+| Object         | →   | `hasPart`        | →   | File         |
+| Object         | ←   | `isPartOf`       | ←   | File         |
 
-Depending on the data, using one term over another may be preferable when creating the hierarchical relationship. For example, if you are describing multiple files in a spreadsheet, it is easier to use \`isPartOf\` at the File level referencing the Object it belongs to, rather than listing all the \`hasPart\` entries at the Object level.
+Depending on the data, using one term over another may be preferable when creating the hierarchical relationship. For example, if you are describing multiple files in a spreadsheet, it is easier to use `isPartOf` at the File level referencing the Object it belongs to, rather than listing all the `hasPart` entries at the Object level.
 
 The following diagram shows how these relationships are encoded in a single "bundled" RO-Crate.
 
@@ -201,13 +201,13 @@ Alveo usage:
 > sample of documents from the [AustLit](http://www.austlit.edu.au/) archive.
 
 When an RO-Crate is used to package a collection that is part of
-another Collection it has a \`pcdm:memberOf\` property which references a
+another Collection it has a `pcdm:memberOf` property which references a
 resolvable ID (within the context of a repository or service) of the
-parent Collection. The Collection may also list its members in a \`pcdm:hasMember\`
+parent Collection. The Collection may also list its members in a `pcdm:hasMember`
 property, but this is not required.
 
-The root dataset must have at least these \`@type\` values: \`["Dataset",
-"RepositoryCollection"]\`
+The root dataset must have at least these `@type` values: `["Dataset",
+"RepositoryCollection"]`
 
 ### A RepositoryCollection:
 
@@ -236,12 +236,12 @@ The definition of an object is necessarily loose and needs to reflect
 what data owners have chosen to do with their collections in the past.
 
 If an RO-Crate contains a single Object, the Root Dataset would have a
-\`@type\` property of \`["Dataset", "RepositoryObject"]\` with a
-\`conformsTo\` property pointing to the Language Data Commons Object profile 
+`@type` property of `["Dataset", "RepositoryObject"]` with a
+`conformsTo` property pointing to the Language Data Commons Object profile 
 <https://w3id.org/ldac/profile#Object> (this document).
 
 If an RO-Crate contains an entire collection, each Object has a
-\`@type\` property of \`["Dataset", "RepositoryObject"]\` and a \`conformsTo\`
+`@type` property of `["Dataset", "RepositoryObject"]` and a `conformsTo`
 property referencing this document. For example:
 
 Objects SHOULD have files (which may be included in an RO-Crate for the
@@ -256,7 +256,7 @@ below).
 ![Structure of an Object crate](media/object-structure.svg)
 
 There are a number of terms that can be used to characterise resources -
-these use the Schema.org mechanism of \`DefinedTerm\` and \`DefinedTermSet\`.
+these use the Schema.org mechanism of `DefinedTerm` and `DefinedTermSet`.
 
 ### A RepositoryObject:
 
@@ -267,11 +267,11 @@ these use the Schema.org mechanism of \`DefinedTerm\` and \`DefinedTermSet\`.
 ## Files
 
 There are three important types of files (or references to other
-works) that may be included: \`ldac:PrimaryMaterial\` which is a recording or
-original text, or a citation of or proxy for it, \`ldac:DerivedMaterial\` which
+works) that may be included: `ldac:PrimaryMaterial` which is a recording or
+original text, or a citation of or proxy for it, `ldac:DerivedMaterial` which
 has been generated or sampled from primary material by a process such as format
-conversion or digitization, and \`ldac:Annotation\`, which contains one or more types of
-analysis of the \`ldac:PrimaryMaterial\` or \`ldac:DerivedMaterial\`.
+conversion or digitization, and `ldac:Annotation`, which contains one or more types of
+analysis of the `ldac:PrimaryMaterial` or `ldac:DerivedMaterial`.
 
 ### A File:
 
@@ -279,22 +279,22 @@ analysis of the \`ldac:PrimaryMaterial\` or \`ldac:DerivedMaterial\`.
 
 ### ldac:PrimaryMaterial
 
-\`ldac:PrimaryMaterial\` may be a video or audio file if it is available, or may be a ContextualEntity referencing a primary text such as a book.
+`ldac:PrimaryMaterial` may be a video or audio file if it is available, or may be a ContextualEntity referencing a primary text such as a book.
 
 ### ldac:DerivedMaterial
 
-\`ldac:DerivedMaterial\` is a non-analytical derivation from \`ldac:PrimaryMaterial\`, for example, downsampled video or excerpted text.
+`ldac:DerivedMaterial` is a non-analytical derivation from `ldac:PrimaryMaterial`, for example, downsampled video or excerpted text.
 
 ### ldac:Annotation
 
-\`ldac:Annotation\` is a description or analysis of other material. More than one type of annotation may be present in a file.
+`ldac:Annotation` is a description or analysis of other material. More than one type of annotation may be present in a file.
 
 #### Describing the columns in CSV or other tabular data
 
 CSV or similar tabular files are often used to represent transcribed
 speech or sign language data, sometimes also with time codes. To enable
 automated location of which column is which, use a [frictionless Table
-Schema](https://specs.frictionlessdata.io/table-schema/) described by a \`File\` entity in the crate.
+Schema](https://specs.frictionlessdata.io/table-schema/) described by a `File` entity in the crate.
 
 For example:
 ${exampleEntities('art', ['art_schema.json'])}
@@ -303,7 +303,7 @@ ${exampleEntities('art', ['art_schema.json'])}
 
 ## Places
 
-The place in which data was collected may be indicated using the \`contentLocation\` property.
+The place in which data was collected may be indicated using the `contentLocation` property.
 
 ${exampleEntities('paradisec-item-NT1-001', ['./', 'https://www.ethnologue.com/country/VU', '#Vanuatu'])}
 
@@ -339,21 +339,21 @@ A person:
 Some corpora express ages and other demographics of participants - this
 presents a data modelling challenge, as age and some other variables change
 over time, so if the same person appears over time then we need to have a
-base \`Person\` with date of birth etc. as well as time-based instances of the person
+base `Person` with date of birth etc. as well as time-based instances of the person
 with an age, social status, gender etc. _at that time_.
 
 There are three levels at which contributions to an object can be
 modelled:
 
-1.  Include one or more \`Person\` items as context in a crate and reference
+1.  Include one or more `Person` items as context in a crate and reference
     them with properties such as [creator](http://schema.org/creator) or the
     Language Data Commons Vocabulary properties such as [ldac:compiler]
-    or [ldac:depositor]. The \`@id\` of the person MUST be a URI and SHOULD
+    or [ldac:depositor]. The `@id` of the person MUST be a URI and SHOULD
     be re-used where the same person appears in multiple objects in a
     collection or repository.
 
 2.  For longitudinal studies where it is important to record changing
-    demographic information for a \`Person\`, or where precision is
+    demographic information for a `Person`, or where precision is
     required in listing contributions to a work use
     [ldac:PersonSnapshot].
 
@@ -378,10 +378,10 @@ Where data is collected from participants in a speech study with
 elicitation tasks such as "sessions" (see this [IMDI
 document](https://www.mpi.nl/ISLE/documents/draft/ISLE_MetaData_2.5.pdf))
 or field interviews, this can be recorded in metadata via the
-\`CollectionEvent\` class.
+`CollectionEvent` class.
 
 The indirection in this conforms-to relationship is to allow multiple
-objects to have a \`conformsTo\` property which indicates that they conform
+objects to have a `conformsTo` property which indicates that they conform
 to the _same_ schema while having a local copy of the schema, as per
 RO-Crate best practice of having all local context to use a data
 packages in the package where possible.
@@ -590,7 +590,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_ldac:annotationType_CreativeWork">ldac:annotationType <a href="#prop_ldac:annotationType_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | The type of an Annotation resource. | <a href="#ldac%3AAnnotationTypeTerms">AnnotationTypeTerms</a> |  |
 | <a href="#prop_ldac:channels_CreativeWork">ldac:channels <a href="#prop_ldac:channels_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | The number of audio channels this resource contains (e.g. 1, 2, 5.1). | http://schema.org/Text |  |
 | <a href="#prop_ldac:communicationMode_CreativeWork">ldac:communicationMode <a href="#prop_ldac:communicationMode_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property. | <a href="#ldac%3ACommunicationModeTerms">CommunicationModeTerms</a> |  |
-| <a href="#prop_ldac:indexableText_CreativeWork">ldac:indexableText <a href="#prop_ldac:indexableText_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | One or more target File(s) that together contain the full text of an item – each file should indicate its language. | "#class_MediaObject" |  |
+| <a href="#prop_ldac:indexableText_CreativeWork">ldac:indexableText <a href="#prop_ldac:indexableText_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | One or more target File(s) that together contain the full text of an item – each file should indicate its language. | http://schema.org/MediaObject |  |
 | <a href="#prop_ldac:isDeIdentified_CreativeWork">ldac:isDeIdentified <a href="#prop_ldac:isDeIdentified_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | The data in this item has had potentially identifying information removed, which may include replacing names with pseudonyms. | http://schema.org/Boolean |  |
 | <a href="#prop_ldac:linguisticGenre_CreativeWork">ldac:linguisticGenre <a href="#prop_ldac:linguisticGenre_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | A linguistic classification of the genre of this resource. | <a href="#ldac%3ALinguisticGenreTerms">LinguisticGenreTerms</a> |  |
 | <a href="#prop_ldac:material_CreativeWork">ldac:material <a href="#prop_ldac:material_CreativeWork" target="_blank" rel="noopener">ⓘ</a></a> | No | Description of the original media, e.g. audio cassette tapes, participant questionnaires, field notes. | http://schema.org/Text |  |
@@ -676,7 +676,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_isAccessibleForFree_Dataset">isAccessibleForFree <a href="#prop_isAccessibleForFree_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | This is available under an Open Access license. | http://schema.org/Boolean |  |
 | <a href="#prop_isBasedOn_Dataset">isBasedOn <a href="#prop_isBasedOn_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | Link to or description of an original resource. | http://schema.org/Text, http://schema.org/URL, <a href="#class_CreativeWork">CreativeWork</a>, <a href="#class_Dataset">Dataset</a>, <a href="#class_File">File</a> |  |
 | <a href="#prop_isPartOf_Dataset">isPartOf <a href="#prop_isPartOf_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | An item or CreativeWork that this item, or CreativeWork (in some sense), is part of. | http://schema.org/URL, <a href="#class_CreativeWork">CreativeWork</a> |  |
-| <a href="#prop_ldac:annotationOf_Dataset">ldac:annotationOf <a href="#prop_ldac:annotationOf_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | This resource contains some kind of description that adds information to the resource it references. | "#class_PrimaryMaterial" |  |
+| <a href="#prop_ldac:annotationOf_Dataset">ldac:annotationOf <a href="#prop_ldac:annotationOf_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | This resource contains some kind of description that adds information to the resource it references. | <a href="#ldac%3APrimaryMaterial">PrimaryMaterial</a> |  |
 | <a href="#prop_ldac:annotator_Dataset">ldac:annotator <a href="#prop_ldac:annotator_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | The participant produced an annotation of this or a related resource. | <a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a> |  |
 | <a href="#prop_ldac:compiler_Dataset">ldac:compiler <a href="#prop_ldac:compiler_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | The participant is responsible for collecting the sub-parts of the resource together. | <a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a> |  |
 | <a href="#prop_ldac:consultant_Dataset">ldac:consultant <a href="#prop_ldac:consultant_Dataset" target="_blank" rel="noopener">ⓘ</a></a> | No | The participant contributes expertise to the creation of a work, for example by contributing knowledge of their native language. | <a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a> |  |
@@ -928,10 +928,10 @@ Instances of this type MAY be present in the crate.
 | -------- | -------- | ----------- | ----- | ----- |
 | @type | Yes |  |  | http://schema.org/MediaObject |
 | <a href="#prop_contentSize_File">contentSize <a href="#prop_contentSize_File" target="_blank" rel="noopener">ⓘ</a></a> | No | File size in (mega/kilo)bytes. | http://schema.org/Text |  |
-| <a href="#prop_encodingFormat_File">encodingFormat <a href="#prop_encodingFormat_File" target="_blank" rel="noopener">ⓘ</a></a> | No | The media type typically expressed using a MIME format. | http://schema.org/Text, "#class_WebPage", "#class_Standard" |  |
+| <a href="#prop_encodingFormat_File">encodingFormat <a href="#prop_encodingFormat_File" target="_blank" rel="noopener">ⓘ</a></a> | No | The media type typically expressed using a MIME format. | http://schema.org/Text, http://schema.org/WebPage, http://schema.org/CreativeWork |  |
 | <a href="#prop_hasPart_File">hasPart <a href="#prop_hasPart_File" target="_blank" rel="noopener">ⓘ</a></a> | No | An item or CreativeWork that is part of this item, or CreativeWork (in some sense). | <a href="#class_CreativeWork">CreativeWork</a>, <a href="#class_File">File</a> |  |
-| <a href="#prop_ldac:derivationOf_File">ldac:derivationOf <a href="#prop_ldac:derivationOf_File" target="_blank" rel="noopener">ⓘ</a></a> | No | This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | "#class_Annotation", "#class_PrimaryMaterial" |  |
-| <a href="#prop_ldac:hasDerivation_File">ldac:hasDerivation <a href="#prop_ldac:hasDerivation_File" target="_blank" rel="noopener">ⓘ</a></a> | No | This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF. | "#class_DerivedMaterial" |  |
+| <a href="#prop_ldac:derivationOf_File">ldac:derivationOf <a href="#prop_ldac:derivationOf_File" target="_blank" rel="noopener">ⓘ</a></a> | No | This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | <a href="#ldac%3AAnnotation">Annotation</a>, <a href="#ldac%3APrimaryMaterial">PrimaryMaterial</a> |  |
+| <a href="#prop_ldac:hasDerivation_File">ldac:hasDerivation <a href="#prop_ldac:hasDerivation_File" target="_blank" rel="noopener">ⓘ</a></a> | No | This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF. | <a href="#ldac%3ADerivedMaterial">DerivedMaterial</a> |  |
 | <a href="#prop_ldac:materialType_File">ldac:materialType <a href="#prop_ldac:materialType_File" target="_blank" rel="noopener">ⓘ</a></a> | No | Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation. | <a href="#ldac%3AMaterialTypes">MaterialTypes</a> |  |
 
 
@@ -1074,8 +1074,8 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_creator_RepositoryObject">creator <a href="#prop_creator_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork. | <a href="#class_Person">Person</a> |  |
 | <a href="#prop_dateCreated_RepositoryObject">dateCreated <a href="#prop_dateCreated_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | The date on which the CreativeWork was created or the item was added to a DataFeed. | http://schema.org/Text |  |
 | <a href="#prop_description_RepositoryObject">description <a href="#prop_description_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | A description of the item. | http://schema.org/Text |  |
-| <a href="#prop_identifier_RepositoryObject">identifier <a href="#prop_identifier_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | "#class_PropertyValue", http://schema.org/Text, http://schema.org/URL |  |
-| <a href="#prop_ldac:hasAnnotation_RepositoryObject">ldac:hasAnnotation <a href="#prop_ldac:hasAnnotation_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis. | "#class_Annotation" |  |
+| <a href="#prop_identifier_RepositoryObject">identifier <a href="#prop_identifier_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | http://schema.org/PropertyValue, http://schema.org/Text, http://schema.org/URL |  |
+| <a href="#prop_ldac:hasAnnotation_RepositoryObject">ldac:hasAnnotation <a href="#prop_ldac:hasAnnotation_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis. | <a href="#ldac%3AAnnotation">Annotation</a> |  |
 | <a href="#prop_license_RepositoryObject">license <a href="#prop_license_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | A license document that applies to this content, typically indicated by URL. | <a href="#class_DataReuseLicense">DataReuseLicense</a> |  |
 | <a href="#prop_temporalCoverage_RepositoryObject">temporalCoverage <a href="#prop_temporalCoverage_RepositoryObject" target="_blank" rel="noopener">ⓘ</a></a> | No | The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written "2011/2012"). Other forms of content, e.g. ScholarlyArticle, Book, TVSeries or TVEpisode, may indicate their temporalCoverage in broader terms - textually or via well-known URL. Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via "1939/1945". Open-ended date ranges can be written with ".." in place of the end date. For example, "2015-11/.." indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated. | http://schema.org/Text |  |
 
@@ -1292,7 +1292,7 @@ ID: #prop_encodingFormat_File
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The media type typically expressed using a MIME format. | http://schema.org/Text, "#class_WebPage", "#class_Standard" | <a href="#class_File">File</a> |
+| The media type typically expressed using a MIME format. | http://schema.org/Text, http://schema.org/WebPage, http://schema.org/CreativeWork | <a href="#class_File">File</a> |
 ### <a id="prop_funder_Dataset"></a> Property: funder <a href="http://schema.org/funder" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_funder_Dataset
@@ -1341,7 +1341,7 @@ ID: #prop_identifier_RepositoryObject
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | "#class_PropertyValue", http://schema.org/Text, http://schema.org/URL | <a href="#class_RepositoryObject">RepositoryObject</a> |
+| The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | http://schema.org/PropertyValue, http://schema.org/Text, http://schema.org/URL | <a href="#class_RepositoryObject">RepositoryObject</a> |
 ### <a id="prop_inLanguage_RepositoryCollection"></a> Property: inLanguage <a href="http://schema.org/inLanguage" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_inLanguage_RepositoryCollection
@@ -1411,7 +1411,7 @@ ID: #prop_ldac:annotationOf_Dataset
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This resource contains some kind of description that adds information to the resource it references. | "#class_PrimaryMaterial" | <a href="#class_Dataset">Dataset</a> |
+| This resource contains some kind of description that adds information to the resource it references. | <a href="#ldac%3APrimaryMaterial">PrimaryMaterial</a> | <a href="#class_Dataset">Dataset</a> |
 ### <a id="prop_ldac:annotationType_CreativeWork"></a> Property: ldac:annotationType <a href="https://w3id.org/ldac/terms#annotationType" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_ldac:annotationType_CreativeWork
@@ -1502,7 +1502,7 @@ ID: #prop_ldac:derivationOf_File
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | "#class_Annotation", "#class_PrimaryMaterial" | <a href="#class_File">File</a> |
+| This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | <a href="#ldac%3AAnnotation">Annotation</a>, <a href="#ldac%3APrimaryMaterial">PrimaryMaterial</a> | <a href="#class_File">File</a> |
 ### <a id="prop_ldac:developer_Dataset"></a> Property: ldac:developer <a href="https://w3id.org/ldac/terms#developer" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_ldac:developer_Dataset
@@ -1530,7 +1530,7 @@ ID: #prop_ldac:hasAnnotation_RepositoryObject
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis. | "#class_Annotation" | <a href="#class_RepositoryObject">RepositoryObject</a> |
+| This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis. | <a href="#ldac%3AAnnotation">Annotation</a> | <a href="#class_RepositoryObject">RepositoryObject</a> |
 ### <a id="prop_ldac:hasCollectionProtocol_Dataset"></a> Property: ldac:hasCollectionProtocol <a href="https://w3id.org/ldac/terms#hasCollectionProtocol" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_ldac:hasCollectionProtocol_Dataset
@@ -1544,7 +1544,7 @@ ID: #prop_ldac:hasDerivation_File
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF. | "#class_DerivedMaterial" | <a href="#class_File">File</a> |
+| This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF. | <a href="#ldac%3ADerivedMaterial">DerivedMaterial</a> | <a href="#class_File">File</a> |
 ### <a id="prop_ldac:illustrator_Dataset"></a> Property: ldac:illustrator <a href="https://w3id.org/ldac/terms#illustrator" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_ldac:illustrator_Dataset
@@ -1558,7 +1558,7 @@ ID: #prop_ldac:indexableText_CreativeWork
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| One or more target File(s) that together contain the full text of an item – each file should indicate its language. | "#class_MediaObject" | <a href="#class_CreativeWork">CreativeWork</a> |
+| One or more target File(s) that together contain the full text of an item – each file should indicate its language. | http://schema.org/MediaObject | <a href="#class_CreativeWork">CreativeWork</a> |
 ### <a id="prop_ldac:interpreter_Dataset"></a> Property: ldac:interpreter <a href="https://w3id.org/ldac/terms#interpreter" target="_blank" rel="noopener">ⓘ</a>
 
 ID: #prop_ldac:interpreter_Dataset

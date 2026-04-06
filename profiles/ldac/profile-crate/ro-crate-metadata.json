@@ -1494,8 +1494,12 @@
         {
           "@id": "http://schema.org/Text"
         },
-        "\"#class_WebPage\"",
-        "\"#class_Standard\""
+        {
+          "@id": "http://schema.org/WebPage"
+        },
+        {
+          "@id": "http://schema.org/CreativeWork"
+        }
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -1647,7 +1651,9 @@
       },
       "rdfs:comment": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
       "rangeIncludes": [
-        "\"#class_PropertyValue\"",
+        {
+          "@id": "http://schema.org/PropertyValue"
+        },
         {
           "@id": "http://schema.org/Text"
         },
@@ -1866,7 +1872,7 @@
         "@id": "#class_Dataset"
       },
       "rdfs:comment": "This resource contains some kind of description that adds information to the resource it references.",
-      "rangeIncludes": "\"#class_PrimaryMaterial\"",
+      "rangeIncludes": {"@id": "ldac:PrimaryMaterial"},
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2140,8 +2146,8 @@
       },
       "rdfs:comment": "This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF.",
       "rangeIncludes": [
-        "\"#class_Annotation\"",
-        "\"#class_PrimaryMaterial\""
+        {"@id": "ldac:Annotation"},
+        {"@id": "ldac:PrimaryMaterial"}
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -2227,7 +2233,7 @@
         "@id": "#class_RepositoryObject"
       },
       "rdfs:comment": "This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis.",
-      "rangeIncludes": "\"#class_Annotation\"",
+      "rangeIncludes": {"@id": "ldac:Annotation"},
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2264,7 +2270,7 @@
         "@id": "#class_File"
       },
       "rdfs:comment": "This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF.",
-      "rangeIncludes": "\"#class_DerivedMaterial\"",
+      "rangeIncludes": {"@id": "ldac:DerivedMaterial"},
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2305,7 +2311,7 @@
         "@id": "#class_CreativeWork"
       },
       "rdfs:comment": "One or more target File(s) that together contain the full text of an item – each file should indicate its language.",
-      "rangeIncludes": "\"#class_MediaObject\"",
+      "rangeIncludes": {"@id": "http://schema.org/MediaObject"},
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
