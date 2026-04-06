@@ -3,9 +3,9 @@ const { expect } = require('chai');
 const path = require('path');
 const fs = require('fs');
 const { ROCrate } = require('ro-crate');
-const { SossValidator } = require('../lib/soss-validator');
+const { MaspValidator } = require('../lib/masp-validator');
 
-describe('SoSS+ Validator Tests', function() {
+describe('MASP Validator Tests', function() {
   this.timeout(10000); // Allow enough time for file operations
 
   // Profile crate paths
@@ -52,7 +52,7 @@ describe('SoSS+ Validator Tests', function() {
   
   it('should be able to follow the basic RO-Crate rules', async function() {
     // Create a validator with the profile crate
-    const validator = new SossValidator(rocrateProfileCrate);
+    const validator = new MaspValidator(rocrateProfileCrate);
     validator.parseRules();
     expect(validator.rules.rootClassRule.id).to.equal("#RO-Crate_Metadata_Descriptor")
     expect(Object.keys(validator.rules.classes).length).to.equal(3);

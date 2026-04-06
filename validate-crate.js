@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
  * validate-crate.js
- * Command-line tool to validate an RO-Crate against a profile crate using SoSS+ validation.
+ * Command-line tool to validate an RO-Crate against a profile crate using MASP validation.
  * Usage:
  *   node validate-crate.js <target-crate.json> <profile-crate.json>
  */
 const fs = require('fs');
 const { ROCrate } = require('ro-crate');
-const { SossValidator } = require('./lib/soss-validator');
+const { MaspValidator } = require('./lib/masp-validator');
 
 function printUsageAndExit() {
   console.log('Usage: node validate-crate.js <target-crate.json> <profile-crate.json>');
@@ -31,7 +31,7 @@ async function main() {
     const profileData = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
     const targetCrate = new ROCrate(targetData, { array: true, link: true });
     const profileCrate = new ROCrate(profileData, { array: true, link: true });
-    const validator = new SossValidator(profileCrate);
+    const validator = new MaspValidator(profileCrate);
     const results = await validator.validateCrate(targetCrate);
     const errors = results && results.error ? results.error : [];
     if (printJson) {

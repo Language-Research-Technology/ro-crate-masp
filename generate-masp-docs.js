@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * Generate documentation from a SOSS+ profile crate
+ * Generate documentation from a MASP profile/schema crate
  *
- * This script loads a SOSS+ profile crate and creates a data structure
+ * This script loads a MASP profile/schema crate and creates a data structure
  * that can be used by a template to generate documentation.
  */
 
 const { ROCrate } = require("ro-crate");
 const fs = require("fs");
 const path = require("path");
-const { SossValidator } = require("./lib/soss-validator");
+const { MaspValidator } = require("./lib/masp-validator");
 const { execSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
@@ -54,7 +54,7 @@ try {
   const profileJson = JSON.parse(profileData);
   const profileCrate = new ROCrate(profileJson, { array: true, link: true });
 
-  const validator = new SossValidator(profileCrate);
+  const validator = new MaspValidator(profileCrate);
 
   // Find all the rules in the profile crate -- TODO we will use this in this script rather than parsing them again
   validator.parseRules();
@@ -546,7 +546,7 @@ try {
     : "";
   const scriptPath = path.relative(
     __dirname,
-    path.resolve(__dirname, "generate-soss-docs.js")
+    path.resolve(__dirname, "generate-masp-docs.js")
   );
   const templateRelPath = path.relative(__dirname, templatePath);
   const profileRelPath = path.relative(__dirname, profilePath);
@@ -556,13 +556,13 @@ try {
 
 
   rules.provenance =
-    `This document was compiled using [generate-soss-docs.js](${clean(
+    `This document was compiled using [generate-masp-docs.js](${clean(
       repoUrl
     )}/${clean(scriptPath)}), ` +
     `based on [${clean(templateRelPath)}](${clean(repoUrl)}/${clean(
       templateRelPath
     )}) ` +
-    `using a SoSS+ Schema defined in [${clean(profileRelPath)}](${clean(
+    `using a MASP Schema defined in [${clean(profileRelPath)}](${clean(
       repoUrl
     )}/${clean(profileRelPath)}).`;
 

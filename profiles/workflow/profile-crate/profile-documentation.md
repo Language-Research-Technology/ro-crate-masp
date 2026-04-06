@@ -666,7 +666,7 @@ ID: https://w3id.org/workflowhub/workflow-ro-crate#cwl
 
 ## Provenance
 
-This document was compiled using [generate-soss-docs.js](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/generate-soss-docs.js), based on [profiles/workflow/profile-text.md](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/workflow/profile-text.md) using a SoSS+ Schema defined in [profiles/workflow/profile-crate/ro-crate-metadata.json](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/workflow/profile-crate/ro-crate-metadata.json).
+This document was compiled using [generate-masp-docs.js](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/generate-masp-docs.js), based on [profiles/workflow/profile-text.md](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/workflow/profile-text.md) using a MASP Schema defined in [profiles/workflow/profile-crate/ro-crate-metadata.json](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/workflow/profile-crate/ro-crate-metadata.json).
 
 
 <!--

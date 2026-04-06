@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const path = require('path');
 const fs = require('fs');
 const { ROCrate } = require('ro-crate');
-const { SossValidator } = require('../lib/soss-validator');
+const { MaspValidator } = require('../lib/masp-validator');
 
 describe('Language Data Commons (LDAC) Validator Tests', function() {
   this.timeout(10000); // Allow enough time for file operations
@@ -25,13 +25,13 @@ describe('Language Data Commons (LDAC) Validator Tests', function() {
   /*
 
   it('should load the SoSS+ profile crate from path', function() {
-    const validator = new SossValidator(rocProfileCratePath);
+    const validator = new MaspValidator(rocProfileCratePath);
     const result = validator.loadProfileCrate();
     expect(result).to.be.true;
   });
   
   it('should accept a crate object in constructor', function() {
-    const validator = new SossValidator(rocrateProfileCrate);
+    const validator = new MaspValidator(rocrateProfileCrate);
     expect(validator.profileCrate).to.equal(rocrateProfileCrate);
   });
   */
@@ -46,7 +46,7 @@ describe('Language Data Commons (LDAC) Validator Tests', function() {
     const profileData = fs.readFileSync(ldacProfileCratePath, 'utf8');
     const profileJson = JSON.parse(profileData);
     const ldacProfileCrate = new ROCrate(profileJson, { array: true, link: true });
-    const validator = new SossValidator(ldacProfileCrate);
+    const validator = new MaspValidator(ldacProfileCrate);
 
     // Empty RO-Crate for testing
     const targetCrate = new ROCrate({ array: true, link: true });
@@ -96,7 +96,7 @@ The approach is to load the example PARADISEC data provided, show how it fails v
     const profileData = fs.readFileSync(ldacProfileCratePath, 'utf8');
     const profileJson = JSON.parse(profileData);
     const ldacProfileCrate = new ROCrate(profileJson, { array: true, link: true });
-    const validator = new SossValidator(ldacProfileCrate);
+    const validator = new MaspValidator(ldacProfileCrate);
 
     // PARADISEC Collection Crate for testing
     const paraCollectionPath = path.join(

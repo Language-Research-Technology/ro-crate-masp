@@ -2,9 +2,9 @@ const { expect } = require("chai");
 const path = require("path");
 const fs = require("fs");
 const { ROCrate } = require("ro-crate");
-const { SossValidator } = require("../lib/soss-validator");
+const { MaspValidator } = require("../lib/masp-validator");
 
-describe("SoSS+ Validator Tests", function () {
+describe("MASP Validator Tests", function () {
   this.timeout(10000); // Allow enough time for file operations
 
   // Profile crate paths
@@ -48,20 +48,20 @@ describe("SoSS+ Validator Tests", function () {
   /*
 
   it('should load the SoSS+ profile crate from path', function() {
-    const validator = new SossValidator(rocProfileCratePath);
+    const validator = new MaspValidator(rocProfileCratePath);
     const result = validator.loadProfileCrate();
     expect(result).to.be.true;
   });
   
   it('should accept a crate object in constructor', function() {
-    const validator = new SossValidator(rocrateProfileCrate);
+    const validator = new MaspValidator(rocrateProfileCrate);
     expect(validator.profileCrate).to.equal(rocrateProfileCrate);
   });
   */
 
   it("should be able to follow the basic RO-Crate rules", async function () {
     // Create a validator with the profile crate
-    const validator = new SossValidator(rocrateProfileCrate);
+    const validator = new MaspValidator(rocrateProfileCrate);
     validator.parseRules();
 
     const targetCrate = new ROCrate({ array: true, link: true });
@@ -113,7 +113,7 @@ describe("SoSS+ Validator Tests", function () {
   it("should be able to deal with multiple required types on Root Data Entity", async function () {
     // Create a validator with the profile crate
     setup();
-    let validator = new SossValidator(rocrateProfileCrate);
+    let validator = new MaspValidator(rocrateProfileCrate);
     const targetCrate = new ROCrate({ array: true, link: true });
     var results = await validator.validateCrate(targetCrate);
     targetCrate.root.name = "Test Dataset";
@@ -130,7 +130,7 @@ describe("SoSS+ Validator Tests", function () {
       "@id": "http://schema.org/HairSalon",
     });
     // New validator with the modified profile crate
-    validator = new SossValidator(rocrateProfileCrate);
+    validator = new MaspValidator(rocrateProfileCrate);
 
     results = await validator.validateCrate(targetCrate);
     //console.log("Results:", JSON.stringify(results, null, 2));
@@ -152,7 +152,7 @@ describe("SoSS+ Validator Tests", function () {
     //Reset stuff
     setup();
     // Create a validator with the profile crate
-    let validator = new SossValidator(rocrateProfileCrate);
+    let validator = new MaspValidator(rocrateProfileCrate);
     const targetCrate = new ROCrate({ array: true, link: true });
     var results = await validator.validateCrate(targetCrate);
     targetCrate.root.name = "Test Dataset";
@@ -190,7 +190,7 @@ describe("SoSS+ Validator Tests", function () {
     // New validator with the modified profile crate
    
     
-    validator = new SossValidator(rocrateProfileCrate);
+    validator = new MaspValidator(rocrateProfileCrate);
 
     targetCrate.root["@type"] = ["HairSalon", "Dataset"];
     results = await validator.validateCrate(targetCrate);

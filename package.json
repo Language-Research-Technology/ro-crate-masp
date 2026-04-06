@@ -4,17 +4,19 @@
   "description": "RO-Crate Machine Actionable Profiles and Schemas tools",
   "main": "index.js",
   "bin": {
-    "generate-soss-docs": "./generate-soss-docs.js"
+    "generate-masp-docs": "./generate-masp-docs.js"
   },
   "scripts": {
     "test": "mocha",
-    "build:ldac-profile": "node generate-soss-docs.js profiles/ldac/profile-crate/ro-crate-metadata.json profiles/ldac/profile-text.md profiles/ldac/profile-crate/profile-documentation.md",
-    "build:ldac-schema": "node generate-soss-docs.js schemas/ldac/schema-crate/ro-crate-metadata.json schemas/ldac/schema-text.md schemas/ldac/schema-crate/schema-documentation.md",
-    "build:ro-crate-profile": "node generate-soss-docs.js profiles/ro-crate/profile-crate/ro-crate-metadata.json profiles/ro-crate/profile-text.md profiles/ro-crate/profile-crate/profile-documentation.md",
-    "build:ro-crate-masp-profile": "node generate-soss-docs.js profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json profiles/ro-crate-masp/profile-text.md profiles/ro-crate-masp/profile-crate/profile-documentation.md",
-    "build:workflow-profile": "node generate-soss-docs.js profiles/workflow/profile-crate/ro-crate-metadata.json profiles/workflow/profile-text.md profiles/workflow/profile-crate/profile-documentation.md",
-    "build:austalk-schema": "node generate-soss-docs.js schemas/austalk/schema-crate/ro-crate-metadata.json schemas/austalk/schema-text.md schemas/austalk/schema-crate/schema-documentation.md",
-    "build:template-schema": "node generate-soss-docs.js schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
+    "build:ldac-profile": "node generate-masp-docs.js profiles/ldac/profile-crate/ro-crate-metadata.json profiles/ldac/profile-text.md profiles/ldac/profile-crate/profile-documentation.md",
+    "build:ldac-schema": "node generate-masp-docs.js schemas/ldac/schema-crate/ro-crate-metadata.json schemas/ldac/schema-text.md schemas/ldac/schema-crate/schema-documentation.md",
+    "build:ro-crate-profile": "node generate-masp-docs.js profiles/ro-crate/profile-crate/ro-crate-metadata.json profiles/ro-crate/profile-text.md profiles/ro-crate/profile-crate/profile-documentation.md",
+    "build:ro-crate-masp-profile": "node generate-masp-docs.js profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json profiles/ro-crate-masp/profile-text.md profiles/ro-crate-masp/profile-crate/profile-documentation.md",
+    "build:workflow-profile": "node generate-masp-docs.js profiles/workflow/profile-crate/ro-crate-metadata.json profiles/workflow/profile-text.md profiles/workflow/profile-crate/profile-documentation.md",
+    "build:austalk-schema": "node generate-masp-docs.js schemas/austalk/schema-crate/ro-crate-metadata.json schemas/austalk/schema-text.md schemas/austalk/schema-crate/schema-documentation.md",
+    "build:template-schema": "node generate-masp-docs.js schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
+    "generate:schema-org-crate": "node scripts/generate-schema-org-crate.js",
+    "build:schema-org-schema": "node generate-masp-docs.js --multi-page schemas/schema-org/schema-crate/ro-crate-metadata.json schemas/schema-org/schema-text.md schemas/schema-org/schema-crate/schema-documentation.md",
     "validate:workflow": "node validate-crate.js profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json",
     "validate:workflow:json": "node validate-crate.js --json profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json"
   },
