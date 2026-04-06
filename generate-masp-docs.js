@@ -619,8 +619,8 @@ try {
   </style>`;
 
   if (multiPage) {
-    // --multi-page: generate one HTML page per class/property into ro-crate-preview.html/
-    const previewDir = path.join(outputDir, "ro-crate-preview.html");
+    // --multi-page: generate one HTML page per class/property into ro-crate-preview_files/
+    const previewDir = path.join(outputDir, "ro-crate-preview_files");
     if (!fs.existsSync(previewDir)) {
       fs.mkdirSync(previewDir, { recursive: true });
     }
@@ -746,7 +746,7 @@ try {
       const html = makePageHtml(
         label,
         body,
-        `<a href="./index.html">${clean(profileName)}</a> &rsaquo; Class: ${clean(label)}`
+        `<a href="../index.html">${clean(profileName)}</a> &rsaquo; Class: ${clean(label)}`
       );
       fs.writeFileSync(path.join(previewDir, filename), html, "utf8");
       pagesWritten++;
@@ -798,7 +798,7 @@ try {
       const html = makePageHtml(
         label,
         body,
-        `<a href="./index.html">${clean(profileName)}</a> &rsaquo; Property: ${clean(label)}`
+        `<a href="../index.html">${clean(profileName)}</a> &rsaquo; Property: ${clean(label)}`
       );
       fs.writeFileSync(path.join(previewDir, filename), html, "utf8");
       pagesWritten++;
@@ -813,14 +813,14 @@ try {
     );
 
     let indexBody = `<h1>${clean(profileName)}</h1>\n`;
-    indexBody += `<p><a href="../ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>\n`;
+    indexBody += `<p><a href="ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>\n`;
     indexBody += `<p>${classes.length} classes &middot; ${properties.length} properties</p>\n`;
 
     indexBody += `<h2>Classes</h2>\n<ul>\n`;
     for (const cls of classes) {
       const label = getLabel(cls);
       const filename = pageMap.get(cls["@id"]);
-      indexBody += `<li><a href="./${filename}">${clean(label)}</a></li>\n`;
+      indexBody += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a></li>\n`;
     }
     indexBody += `</ul>\n`;
 
@@ -828,7 +828,7 @@ try {
     for (const prop of properties) {
       const label = getLabel(prop);
       const filename = pageMap.get(prop["@id"]);
-      indexBody += `<li><a href="./${filename}">${clean(label)}</a></li>\n`;
+      indexBody += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a></li>\n`;
     }
     indexBody += `</ul>\n`;
 
@@ -838,7 +838,7 @@ try {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${clean(profileName)}</title>
-  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
   ${sharedStyles}
 </head>
 <body>
@@ -847,9 +847,12 @@ try {
   </div>
 </body>
 </html>`;
-    fs.writeFileSync(path.join(previewDir, "index.html"), indexHtml, "utf8");
+    // index.html sits at the crate root alongside ro-crate-metadata.json
+    const htmlOutputPath = path.join(outputDir, "index.html");
+    fs.writeFileSync(htmlOutputPath, indexHtml, "utf8");
+    console.log(`HTML index generated: ${clean(htmlOutputPath)}`);
     console.log(
-      `Multi-page HTML documentation generated: ${pagesWritten} entity pages + index in ${clean(previewDir)}`
+      `Multi-page HTML documentation generated: ${pagesWritten} entity pages in ${clean(previewDir)}`
     );
   } else {
     // Single-page HTML (default for profiles and small schemas)
