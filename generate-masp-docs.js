@@ -15,9 +15,13 @@ const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
 
 async function main() {
-// Parse command line arguments
+// Parse command line arguments — strip flags before positional args
+const rawArgs = process.argv.slice(2);
+const multiPage = rawArgs.includes("--multi-page");
+const positionalArgs = rawArgs.filter((a) => !a.startsWith("--"));
+
 const profilePath =
-  process.argv[2] ||
+  positionalArgs[0] ||
   path.join(
     __dirname,
     "profiles",
@@ -26,12 +30,12 @@ const profilePath =
     "ro-crate-metadata.json"
   );
 const templatePath =
-  process.argv[3] ||
+  positionalArgs[1] ||
   path.join(__dirname, "profiles", "ro-crate", "profile-text.md");
 // Save the output in the same directory as the profile crate
 const profileDir = path.dirname(profilePath);
 const outputPath =
-  process.argv[4] || path.join(profileDir, "profile-documentation.md");
+  positionalArgs[2] || path.join(profileDir, "profile-documentation.md");
 
 
 function clean(str) {
@@ -599,16 +603,10 @@ try {
   fs.writeFileSync(outputPath, output, "utf8");
   console.log(`Documentation generated successfully: ${clean(outputPath)}`);
 
-  // Write index.html — CommonMark HTML version with FAIR Signposting link header
-  const htmlBody = md.render(output);
   const profileName = profileCrate.rootDataset?.name || "Profile Documentation";
-  const htmlOutput = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${profileName}</title>
-  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+
+  // Shared CSS + Bootstrap used by all generated HTML pages
+  const sharedStyles = `
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body { padding: 2rem; }
@@ -616,8 +614,260 @@ try {
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
-  </style>
+  </style>`;
+
+  if (multiPage) {
+    // --multi-page: generate one HTML page per class/property into ro-crate-preview.html/
+    const previewDir = path.join(outputDir, "ro-crate-preview.html");
+    if (!fs.existsSync(previewDir)) {
+      fs.mkdirSync(previewDir, { recursive: true });
+    }
+
+    // Build a map from entity @id → page filename (based on rdfs:label or last URI segment)
+    const allSchemaEntities = [
+      ...(entitiesByType["rdfs:Class"] || []),
+      ...(entitiesByType["rdf:Property"] || []),
+    ];
+
+    // Helper to extract a plain string label from an entity (rdfs:label can be an object)
+    function getLabel(entity) {
+      const raw =
+        entity["name"] ||
+        entity["rdfs:label"] ||
+        entity["@id"].split(/[/#]/).pop() ||
+        "";
+      if (typeof raw === "object" && raw !== null) {
+        return raw["@value"] || raw["name"] || String(raw);
+      }
+      return String(raw);
+    }
+
+    const pageMap = new Map(); // @id → filename
+    const usedFilenames = new Set();
+    for (const entity of allSchemaEntities) {
+      const label = getLabel(entity);
+      let filename = label.replace(/[^a-zA-Z0-9_-]/g, "_") + ".html";
+      // Deduplicate if needed (e.g. same label used for class and property)
+      let i = 2;
+      while (usedFilenames.has(filename)) {
+        filename = label.replace(/[^a-zA-Z0-9_-]/g, "_") + `_${i}.html`;
+        i++;
+      }
+      usedFilenames.add(filename);
+      pageMap.set(entity["@id"], filename);
+    }
+
+    /** Resolve an entity @id to a relative link from inside the preview dir */
+    function entityLink(id, label) {
+      if (pageMap.has(id)) {
+        return `<a href="./${pageMap.get(id)}">${clean(label || id)}</a>`;
+      }
+      // External URI — link out directly
+      return `<a href="${id}" target="_blank" rel="noopener">${clean(label || id)}</a>`;
+    }
+
+    function makePageHtml(title, bodyHtml, breadcrumb) {
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${clean(title)} — ${clean(profileName)}</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  ${sharedStyles}
+</head>
+<body>
+  <div class="container-fluid">
+    <p>${breadcrumb}</p>
+    ${bodyHtml}
+  </div>
+</body>
+</html>`;
+    }
+
+    let pagesWritten = 0;
+
+    // Generate per-class pages
+    for (const classEntity of entitiesByType["rdfs:Class"] || []) {
+      const classId = classEntity["@id"];
+      const filename = pageMap.get(classId);
+      if (!filename) continue;
+
+      const label = getLabel(classEntity);
+      const desc = classEntity["rdfs:comment"] || classEntity["description"] || "";
+      const subClassOf = Array.isArray(classEntity["rdfs:subClassOf"])
+        ? classEntity["rdfs:subClassOf"]
+        : classEntity["rdfs:subClassOf"]
+        ? [classEntity["rdfs:subClassOf"]]
+        : [];
+
+      const props = classEntity["@reverse"]?.domainIncludes || [];
+
+      let body = `<h1>${clean(label)}</h1>\n`;
+      body += `<p><code>${clean(classId)}</code></p>\n`;
+      if (desc) body += `<p>${clean(desc)}</p>\n`;
+
+      if (subClassOf.length > 0) {
+        const links = subClassOf
+          .map((s) => {
+            const sid = typeof s === "object" ? s["@id"] : s;
+            const slabel = sid.split(/[/#]/).pop() || sid;
+            return entityLink(sid, slabel);
+          })
+          .join(", ");
+        body += `<p><strong>Subclass of:</strong> ${links}</p>\n`;
+      }
+
+      if (props.length > 0) {
+        body += `<h2>Properties</h2>\n`;
+        body += `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
+        for (const prop of props) {
+          const propId = prop["@id"];
+          const propLabel = getLabel(prop);
+          const propDesc = prop["rdfs:comment"] || prop["description"] || "";
+          const ranges = Array.isArray(prop["rangeIncludes"])
+            ? prop["rangeIncludes"]
+            : prop["rangeIncludes"]
+            ? [prop["rangeIncludes"]]
+            : [];
+          const rangeLinks = ranges
+            .map((r) => {
+              const rid = typeof r === "object" ? r["@id"] : r;
+              return entityLink(rid, rid.split(/[/#]/).pop() || rid);
+            })
+            .join(", ");
+          body += `<tr><td>${entityLink(propId, propLabel)}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+        }
+        body += `</tbody></table>\n`;
+      }
+
+      const html = makePageHtml(
+        label,
+        body,
+        `<a href="./index.html">${clean(profileName)}</a> &rsaquo; Class: ${clean(label)}`
+      );
+      fs.writeFileSync(path.join(previewDir, filename), html, "utf8");
+      pagesWritten++;
+    }
+
+    // Generate per-property pages
+    for (const propEntity of entitiesByType["rdf:Property"] || []) {
+      const propId = propEntity["@id"];
+      const filename = pageMap.get(propId);
+      if (!filename) continue;
+
+      const label = getLabel(propEntity);
+      const desc = propEntity["rdfs:comment"] || propEntity["description"] || "";
+
+      const domains = Array.isArray(propEntity["domainIncludes"])
+        ? propEntity["domainIncludes"]
+        : propEntity["domainIncludes"]
+        ? [propEntity["domainIncludes"]]
+        : [];
+      const ranges = Array.isArray(propEntity["rangeIncludes"])
+        ? propEntity["rangeIncludes"]
+        : propEntity["rangeIncludes"]
+        ? [propEntity["rangeIncludes"]]
+        : [];
+
+      let body = `<h1>${clean(label)}</h1>\n`;
+      body += `<p><code>${clean(propId)}</code></p>\n`;
+      if (desc) body += `<p>${clean(desc)}</p>\n`;
+
+      if (domains.length > 0) {
+        const links = domains
+          .map((d) => {
+            const did = typeof d === "object" ? d["@id"] : d;
+            return entityLink(did, did.split(/[/#]/).pop() || did);
+          })
+          .join(", ");
+        body += `<p><strong>Domain:</strong> ${links}</p>\n`;
+      }
+      if (ranges.length > 0) {
+        const links = ranges
+          .map((r) => {
+            const rid = typeof r === "object" ? r["@id"] : r;
+            return entityLink(rid, rid.split(/[/#]/).pop() || rid);
+          })
+          .join(", ");
+        body += `<p><strong>Range:</strong> ${links}</p>\n`;
+      }
+
+      const html = makePageHtml(
+        label,
+        body,
+        `<a href="./index.html">${clean(profileName)}</a> &rsaquo; Property: ${clean(label)}`
+      );
+      fs.writeFileSync(path.join(previewDir, filename), html, "utf8");
+      pagesWritten++;
+    }
+
+    // Generate the index page
+    const classes = (entitiesByType["rdfs:Class"] || []).sort((a, b) =>
+      getLabel(a).localeCompare(getLabel(b))
+    );
+    const properties = (entitiesByType["rdf:Property"] || []).sort((a, b) =>
+      getLabel(a).localeCompare(getLabel(b))
+    );
+
+    let indexBody = `<h1>${clean(profileName)}</h1>\n`;
+    indexBody += `<p><a href="../ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>\n`;
+    indexBody += `<p>${classes.length} classes &middot; ${properties.length} properties</p>\n`;
+
+    indexBody += `<h2>Classes</h2>\n<ul>\n`;
+    for (const cls of classes) {
+      const label = getLabel(cls);
+      const filename = pageMap.get(cls["@id"]);
+      indexBody += `<li><a href="./${filename}">${clean(label)}</a></li>\n`;
+    }
+    indexBody += `</ul>\n`;
+
+    indexBody += `<h2>Properties</h2>\n<ul>\n`;
+    for (const prop of properties) {
+      const label = getLabel(prop);
+      const filename = pageMap.get(prop["@id"]);
+      indexBody += `<li><a href="./${filename}">${clean(label)}</a></li>\n`;
+    }
+    indexBody += `</ul>\n`;
+
+    const indexHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${clean(profileName)}</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  ${sharedStyles}
+</head>
+<body>
+  <div class="container-fluid">
+    ${indexBody}
+  </div>
+</body>
+</html>`;
+    fs.writeFileSync(path.join(previewDir, "index.html"), indexHtml, "utf8");
+    console.log(
+      `Multi-page HTML documentation generated: ${pagesWritten} entity pages + index in ${clean(previewDir)}`
+    );
+  } else {
+    // Single-page HTML (default for profiles and small schemas)
+    const htmlBodyRaw = md.render(output);
+    // Convert markdown-it's <pre><code class="language-mermaid">...</code></pre>
+    // into <pre class="mermaid">...</pre> so Mermaid JS can render them.
+    const htmlBody = htmlBodyRaw.replace(
+      /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+      (_, diagram) => `<pre class="mermaid">${diagram}</pre>`
+    );
+    const htmlOutput = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${profileName}</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  ${sharedStyles}
 </head>
 <body>
   <div class="container-fluid">
@@ -627,11 +877,16 @@ try {
     </p>
     ${htmlBody}
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>`;
-  const htmlOutputPath = path.join(outputDir, "index.html");
-  fs.writeFileSync(htmlOutputPath, htmlOutput, "utf8");
-  console.log(`HTML documentation generated successfully: ${clean(htmlOutputPath)}`);
+    const htmlOutputPath = path.join(outputDir, "index.html");
+    fs.writeFileSync(htmlOutputPath, htmlOutput, "utf8");
+    console.log(`HTML documentation generated successfully: ${clean(htmlOutputPath)}`);
+  }
 } catch (error) {
   console.error(`Error generating documentation: ${error.message}`);
   console.error(error.stack);

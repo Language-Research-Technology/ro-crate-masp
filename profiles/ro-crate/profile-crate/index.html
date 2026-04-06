@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RO-Crate Machine Actionable Profile</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body { padding: 2rem; }
@@ -12,6 +13,7 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
   </style>
 </head>
@@ -301,5 +303,9 @@
 <p>This document was compiled using <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/generate-masp-docs.js">generate-masp-docs.js</a>, based on <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/ro-crate/profile-text.md">profiles/ro-crate/profile-text.md</a> using a MASP Schema defined in <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/ro-crate/profile-crate/ro-crate-metadata.json">profiles/ro-crate/profile-crate/ro-crate-metadata.json</a>.</p>
 
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>
