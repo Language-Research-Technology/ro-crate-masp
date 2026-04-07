@@ -506,27 +506,9 @@ try {
   }
   rules.all += propsSummary;
 
-  // Add provenance information
-  // Get the current Git branch by running git command
-  let gitBranch = "main"; // Default to main
-  try {
-    const gitCommand = "git rev-parse --abbrev-ref HEAD";
-    gitBranch = execSync(gitCommand, {
-      cwd: __dirname,
-      encoding: "utf8",
-    }).trim();
-    // Handle detached HEAD state
-    if (gitBranch === "HEAD") {
-      // Try to get the branch from CI environment variables
-      gitBranch =
-        process.env.GITHUB_REF_NAME ||
-        process.env.CI_COMMIT_REF_NAME ||
-        process.env.BRANCH_NAME ||
-        "main";
-    }
-  } catch (error) {
-    console.warn(`Warning: Could not determine Git branch: ${error.message}`);
-  }
+  // Generated files are committed and served from main after merge,
+  // so links always point to main regardless of the build branch.
+  const gitBranch = "main";
 
   let repoBaseUrl = "";
   try {
@@ -600,7 +582,13 @@ try {
   console.log(`Documentation generated successfully: ${clean(outputPath)}`);
 
   // Write index.html — CommonMark HTML version with FAIR Signposting link header
-  const htmlBody = md.render(output);
+  const htmlBodyRaw = md.render(output);
+  // Convert markdown-it's <pre><code class="language-mermaid">...</code></pre>
+  // into <pre class="mermaid">...</pre> so Mermaid JS can render them.
+  const htmlBody = htmlBodyRaw.replace(
+    /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+    (_, diagram) => `<pre class="mermaid">${diagram}</pre>`
+  );
   const profileName = profileCrate.rootDataset?.name || "Profile Documentation";
   const htmlOutput = `<!DOCTYPE html>
 <html lang="en">
@@ -616,6 +604,7 @@ try {
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
   </style>
 </head>
@@ -627,6 +616,10 @@ try {
     </p>
     ${htmlBody}
   </div>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>`;
   const htmlOutputPath = path.join(outputDir, "index.html");
