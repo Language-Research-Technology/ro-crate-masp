@@ -61,18 +61,27 @@ function normaliseArray(v) {
   return Array.isArray(v) ? v : [v];
 }
 
-/** Strip schema: prefix from property names to match MASP convention */
-function stripSchemaPrefix(key) {
-  if (typeof key === "string" && key.startsWith("schema:")) {
-    return key.slice("schema:".length);
-  }
-  return key;
+const SCHEMA_PREFIX = "schema:";
+const SCHEMA_BASE = "https://schema.org/";
+
+/** Expand a compact schema: CURIE to its full https://schema.org/ URI */
+function expandId(id) {
+  if (typeof id !== "string") return id;
+  if (id.startsWith(SCHEMA_PREFIX)) return SCHEMA_BASE + id.slice(SCHEMA_PREFIX.length);
+  return id;
+}
+
+/** Expand an @id object or string */
+function expandRef(ref) {
+  if (!ref) return ref;
+  if (typeof ref === "object" && ref["@id"]) return { "@id": expandId(ref["@id"]) };
+  return { "@id": expandId(ref) };
 }
 
 /** Convert a schema.org entity to MASP format */
 function convertEntity(entity) {
-  const id = entity["@id"];
-  if (!id) return null;
+  const rawId = entity["@id"];
+  if (!rawId) return null;
 
   const types = normaliseArray(entity["@type"]);
 
@@ -81,6 +90,12 @@ function convertEntity(entity) {
   const isProperty = types.includes("rdf:Property");
   if (!isClass && !isProperty) return null;
 
+  // Only keep schema.org native terms (compact schema: prefix).
+  // External vocabulary terms (unece:, fibo:, snomed:, etc.) are referenced by
+  // schema.org but are not part of the schema.org vocabulary itself.
+  if (!rawId.startsWith(SCHEMA_PREFIX)) return null;
+
+  const id = expandId(rawId);
   const out = {
     "@id": id,
     "@type": isClass ? "rdfs:Class" : "rdf:Property",
@@ -103,26 +118,25 @@ function convertEntity(entity) {
         : comment;
   }
 
-  // subClassOf (classes only)
+  // subClassOf (classes only) — expand compact CURIEs, store as @id reference objects
+  // so that ROCrate with link:true will resolve them to linked entities
   if (isClass) {
     const subClassOf = normaliseArray(entity["rdfs:subClassOf"]);
     if (subClassOf.length > 0) {
-      out["rdfs:subClassOf"] = subClassOf.map((s) =>
-        typeof s === "object" ? s["@id"] : s
-      );
+      out["rdfs:subClassOf"] = subClassOf.map((s) => ({
+        "@id": expandId(typeof s === "object" ? s["@id"] : s),
+      }));
     }
   }
 
-  // domainIncludes (properties only) — strip schema: prefix per MASP convention
+  // domainIncludes (properties only) — expand compact CURIEs
   if (isProperty) {
     const domain =
       normaliseArray(entity["schema:domainIncludes"]).length > 0
         ? normaliseArray(entity["schema:domainIncludes"])
         : normaliseArray(entity["http://schema.org/domainIncludes"]);
     if (domain.length > 0) {
-      out["domainIncludes"] = domain.map((d) =>
-        typeof d === "object" ? { "@id": d["@id"] } : { "@id": d }
-      );
+      out["domainIncludes"] = domain.map((d) => expandRef(d));
     }
 
     // rangeIncludes
@@ -131,8 +145,7 @@ function convertEntity(entity) {
         ? normaliseArray(entity["schema:rangeIncludes"])
         : normaliseArray(entity["http://schema.org/rangeIncludes"]);
     if (range.length > 0) {
-      out["rangeIncludes"] = range.map((r) =>
-        typeof r === "object" ? { "@id": r["@id"] } : { "@id": r }
+      out["rangeIncludes"] = range.map((r) => expandRef(r)
       );
     }
 
@@ -142,10 +155,48 @@ function convertEntity(entity) {
         ? normaliseArray(entity["schema:supersededBy"])
         : normaliseArray(entity["http://schema.org/supersededBy"]);
     if (supersededBy.length > 0) {
-      out["schema:supersededBy"] = supersededBy.map((s) =>
-        typeof s === "object" ? { "@id": s["@id"] } : { "@id": s }
-      );
+      out["schema:supersededBy"] = supersededBy.map((s) => expandRef(s));
     }
+  }
+
+  return out;
+}
+
+/** Convert a schema.org enumeration value entity to MASP format */
+function convertEnumValue(entity) {
+  const rawId = entity["@id"];
+  if (!rawId) return null;
+  if (!rawId.startsWith(SCHEMA_PREFIX)) return null;
+
+  const types = normaliseArray(entity["@type"]);
+  // Skip classes and properties — those are handled by convertEntity
+  if (types.includes("rdfs:Class") || types.includes("rdf:Property")) return null;
+
+  // Find the enum type: first @type value that starts with SCHEMA_PREFIX
+  const enumType = types.find((t) => typeof t === "string" && t.startsWith(SCHEMA_PREFIX));
+  if (!enumType) return null;
+
+  const id = expandId(rawId);
+  const out = {
+    "@id": id,
+    "@type": expandId(enumType),
+  };
+
+  // Label
+  const label = entity["rdfs:label"];
+  if (label) {
+    out["rdfs:label"] =
+      typeof label === "object" && label["@value"] ? label["@value"] : label;
+    out["name"] = out["rdfs:label"];
+  }
+
+  // Comment / description
+  const comment = entity["rdfs:comment"];
+  if (comment) {
+    out["rdfs:comment"] =
+      typeof comment === "object" && comment["@value"]
+        ? comment["@value"]
+        : comment;
   }
 
   return out;
@@ -177,8 +228,19 @@ async function main() {
   const properties = converted.filter((e) => e["@type"] === "rdf:Property");
   console.log(`Classes: ${classes.length}, Properties: ${properties.length}`);
 
-  // Build hasPart list for ResourceDescriptor
+  // Collect enumeration values
+  const enumValues = [];
+  for (const entity of graph) {
+    const out = convertEnumValue(entity);
+    if (out) enumValues.push(out);
+  }
+  console.log(`Enumeration values: ${enumValues.length}`);
+
+  // Build hasPart list for ResourceDescriptor (classes + properties only, not enum values)
   const hasPart = converted.map((e) => ({ "@id": e["@id"] }));
+
+  // Build hasPart list for the vocabulary ResourceDescriptor (enum values)
+  const enumHasPart = enumValues.map((e) => ({ "@id": e["@id"] }));
 
   const rootEntity = {
     "@id": "./",
@@ -188,7 +250,7 @@ async function main() {
       "The full schema.org vocabulary expressed as a MASP schema crate. " +
       "Generated from the official schema.org JSON-LD dump.",
     conformsTo: { "@id": "https://w3id.org/ro/profiles/schema/1.0" },
-    hasResource: [{ "@id": "#hasSpecializedSchema" }],
+    hasResource: [{ "@id": "#hasSpecializedSchema" }, { "@id": "#hasEnumerationValues" }],
     hasPart: [{ "@id": "schema-documentation.md" }],
   };
 
@@ -207,9 +269,17 @@ async function main() {
     hasPart: hasPart,
   };
 
+  const enumResourceDescriptor = {
+    "@id": "#hasEnumerationValues",
+    "@type": "ResourceDescriptor",
+    name: "Schema.org Enumeration Values",
+    hasRole: { "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary" },
+    hasPart: enumHasPart,
+  };
+
   const crate = {
     "@context": "https://w3id.org/ro/crate/1.2/context",
-    "@graph": [metadataDescriptor, rootEntity, resourceDescriptor, ...converted],
+    "@graph": [metadataDescriptor, rootEntity, resourceDescriptor, enumResourceDescriptor, ...converted, ...enumValues],
   };
 
   const outputDir = path.dirname(outputPath);
@@ -220,7 +290,7 @@ async function main() {
   fs.writeFileSync(outputPath, JSON.stringify(crate, null, 2), "utf8");
   console.log(`\nMAP schema crate written to: ${outputPath}`);
   console.log(
-    `Total entities in crate: ${crate["@graph"].length} (${classes.length} classes, ${properties.length} properties)`
+    `Total entities in crate: ${crate["@graph"].length} (${classes.length} classes, ${properties.length} properties, ${enumValues.length} enumeration values)`
   );
 }
 

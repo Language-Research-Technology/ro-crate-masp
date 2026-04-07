@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RO-Crate MASP Profile</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body { padding: 2rem; }
@@ -12,7 +13,17 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
   </style>
 </head>
 <body>
@@ -68,7 +79,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-mermaid">graph TD;
+<pre class="mermaid">graph TD;
     
     subgraph sc[&quot;Schemas: General purpose descriptions of a domain&quot;]
       
@@ -78,8 +89,8 @@
     end
  
 
-</code></pre>
-<pre><code class="language-mermaid">graph TD;
+</pre>
+<pre class="mermaid">graph TD;
     
     subgraph sc[&quot;Schemas: Example&quot;]
       schemao[&quot;Schema.org&quot;]
@@ -93,9 +104,9 @@
     ldacs --&gt;|Extends| schemao
     ldacp --&gt;|Specializes| ldacs
 
-</code></pre>
+</pre>
 <p>Both schemas and profiles can be expressed in RO-Crate MASP</p>
-<pre><code class="language-mermaid">graph TD;
+<pre class="mermaid">graph TD;
     
     
     subgraph sc[&quot;Schemas: Example&quot;]
@@ -127,7 +138,7 @@
     
    
 
-</code></pre>
+</pre>
 <h3>Background: extending Schema.org Style Schemas into a full &quot;RO-Crate Machine Actionable Schemas and Profiles Language&quot;</h3>
 <p>Schema.org describes its &quot;Schema&quot; using RDF Properties (rdf:Property) and RDF Schema Classes (rdfs:Class), the conventions are described in the Schema.org <a href="https://schema.org/docs/datamodel.html">Data Model</a>.</p>
 <p>For example here is the definition of Schema.org's Person class in the Schema.org Style Schema for Schema.org itself:</p>
@@ -352,7 +363,837 @@
 <li><strong>Fixed Value Validation</strong>: When a property has a <code>schema:value</code> constraint, the validator checks if the property value exactly matches the specified value:</li>
 <li><strong>Scalar Type Validation</strong>: The validator supports different scalar types including string, number, boolean, and date TODO: This needs to be extended, see REQ8.ii</li>
 </ol>
+<hr>
+<h1>Profile Reference</h1>
+<p>The following sections are generated automatically from the profile crate.</p>
+<p><strong>9</strong> classes &middot; <strong>22</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#class_Dataset" title="#class_Dataset">Dataset</a> <small style="color:#aaa">#class_Dataset</small></li>
+<li><a href="#class_DefinedTerm" title="#class_DefinedTerm">DefinedTerm</a> <small style="color:#aaa">#class_DefinedTerm</small></li>
+<li><a href="#class_DefinedTermSet" title="#class_DefinedTermSet">DefinedTermSet</a> <small style="color:#aaa">#class_DefinedTermSet</small></li>
+<li><a href="#class_EnumerationClass" title="#class_EnumerationClass">EnumerationClass</a> — An rdfs:Class that is (transitively) a subclass of schema:Enumeration <small style="color:#aaa">#class_EnumerationClass</small></li>
+<li><a href="#class_EnumerationValue" title="#class_EnumerationValue">EnumerationValue</a> — An individual value of an EnumerationClass <small style="color:#aaa">#class_EnumerationValue</small></li>
+<li><a href="#class_Organization" title="#class_Organization">Organization</a> <small style="color:#aaa">#class_Organization</small></li>
+<li><a href="#class_Person" title="#class_Person">Person</a> <small style="color:#aaa">#class_Person</small></li>
+<li><a href="#class_rdf:Property" title="#class_rdf:Property">rdf:Property</a> <small style="color:#aaa">#class_rdf:Property</small></li>
+<li><a href="#class_rdfs:Class" title="#class_rdfs:Class">rdfs:Class</a> <small style="color:#aaa">#class_rdfs:Class</small></li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#prop_affiliation_Person" title="#prop_affiliation_Person">affiliation</a> — The name the person <small style="color:#aaa">#prop_affiliation_Person</small></li>
+<li><a href="#prop_author_Dataset" title="#prop_author_Dataset">author</a> — The person or organization responsible for creating this collection of data <small style="color:#aaa">#prop_author_Dataset</small></li>
+<li><a href="#prop_Comment_rdf:Property" title="#prop_Comment_rdf:Property">Comment</a> — A description of the Class <small style="color:#aaa">#prop_Comment_rdf:Property</small></li>
+<li><a href="#prop_DefinedTermSet_rdf:Property" title="#prop_DefinedTermSet_rdf:Property">DefinedTermSet</a> — A set of defined terms that can be used for the range of values of this property <small style="color:#aaa">#prop_DefinedTermSet_rdf:Property</small></li>
+<li><a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> — An abstract of the collection <small style="color:#aaa">#prop_description_Dataset</small></li>
+<li><a href="#prop_domainIncludes_rdf:Property" title="#prop_domainIncludes_rdf:Property">domainIncludes</a> — What clasess use this property (ie what domain does this property occur in) <small style="color:#aaa">#prop_domainIncludes_rdf:Property</small></li>
+<li><a href="#prop_hasDefinedTerm_DefinedTermSet" title="#prop_hasDefinedTerm_DefinedTermSet">hasDefinedTerm</a> — A set of defined terms that can be used for the range of values of a property <small style="color:#aaa">#prop_hasDefinedTerm_DefinedTermSet</small></li>
+<li><a href="#prop_hasResource" title="#prop_hasResource">hasResource</a> — The Classes, Properties etc <small style="color:#aaa">#prop_hasResource</small></li>
+<li><a href="#prop_inDefinedTermSet_DefinedTerm" title="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet</a> — A set of defined terms that can be used for the range of values of a property <small style="color:#aaa">#prop_inDefinedTermSet_DefinedTerm</small></li>
+<li><a href="#prop_label_rdf:Property" title="#prop_label_rdf:Property">label</a> — The label for this property <small style="color:#aaa">#prop_label_rdf:Property</small></li>
+<li><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> — A license document that applies to this content, typically indicated by URL <small style="color:#aaa">#prop_license_Dataset</small></li>
+<li><a href="#prop_location_Organization" title="#prop_location_Organization">location</a> — A location for the organization (e <small style="color:#aaa">#prop_location_Organization</small></li>
+<li><a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a> — The name of this Schema <small style="color:#aaa">#prop_name_Dataset</small></li>
+<li><a href="#prop_publisher_Dataset" title="#prop_publisher_Dataset">publisher</a> — The organization responsible for releasing this collection of data <small style="color:#aaa">#prop_publisher_Dataset</small></li>
+<li><a href="#prop_rangeIncludes_rdf:Property" title="#prop_rangeIncludes_rdf:Property">rangeIncludes</a> — What clasess are expected values for this range <small style="color:#aaa">#prop_rangeIncludes_rdf:Property</small></li>
+<li><a href="#prop_rdfs:comment_rdfs:Class" title="#prop_rdfs:comment_rdfs:Class">rdfs:comment</a> — A description of the Class <small style="color:#aaa">#prop_rdfs:comment_rdfs:Class</small></li>
+<li><a href="#prop_comment_EnumerationValue" title="#prop_comment_EnumerationValue">rdfs:comment</a> — A description of the enumeration value <small style="color:#aaa">#prop_comment_EnumerationValue</small></li>
+<li><a href="#prop_rdfs:label_rdfs:Class" title="#prop_rdfs:label_rdfs:Class">rdfs:label</a> — The label for this class <small style="color:#aaa">#prop_rdfs:label_rdfs:Class</small></li>
+<li><a href="#prop_label_EnumerationValue" title="#prop_label_EnumerationValue">rdfs:label</a> — The label for this enumeration value <small style="color:#aaa">#prop_label_EnumerationValue</small></li>
+<li><a href="#prop_rdfs:subClassOf_rdfs:Class" title="#prop_rdfs:subClassOf_rdfs:Class">rdfs:subClassOf</a> — Parent Class (if any) <small style="color:#aaa">#prop_rdfs:subClassOf_rdfs:Class</small></li>
+<li><a href="#prop_sameAs_rdfs:Class" title="#prop_sameAs_rdfs:Class">sameAs</a> — URL of an equivalent term <small style="color:#aaa">#prop_sameAs_rdfs:Class</small></li>
+<li><a href="#prop_subPropertyOf_rdf:Property" title="#prop_subPropertyOf_rdf:Property">subPropertyOf</a> — Is this a sub-type of a more general property <small style="color:#aaa">#prop_subPropertyOf_rdf:Property</small></li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="class_Dataset"></a> Class: Dataset <small style="color:#aaa;font-weight:normal">#class_Dataset</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/Dataset</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_rdfs:Class"></a> Class: rdfs:Class <small style="color:#aaa;font-weight:normal">#class_rdfs:Class</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/rdfs:Class</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_rdf:Property"></a> Class: rdf:Property <small style="color:#aaa;font-weight:normal">#class_rdf:Property</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/rdf:Property</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_DefinedTerm"></a> Class: DefinedTerm <small style="color:#aaa;font-weight:normal">#class_DefinedTerm</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/DefinedTerm</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_DefinedTermSet"></a> Class: DefinedTermSet <small style="color:#aaa;font-weight:normal">#class_DefinedTermSet</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/DefinedTermSet</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/Person</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>https://schema.org/Organization</td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_EnumerationClass"></a> Class: EnumerationClass <small style="color:#aaa;font-weight:normal">#class_EnumerationClass</small></h3>
+<p>An rdfs:Class that is (transitively) a subclass of schema:Enumeration. Defines a fixed set of named values.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_EnumerationValue"></a> Class: EnumerationValue <small style="color:#aaa;font-weight:normal">#class_EnumerationValue</small></h3>
+<p>An individual value of an EnumerationClass. Its @type is the URI of the EnumerationClass it belongs to (e.g. schema:Monday has @type schema:DayOfWeek). Must have rdfs:label.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="prop_affiliation_Person"></a> Property: affiliation <a href="http://schema.org/affiliation" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_affiliation_Person</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The name the person.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_author_Dataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_author_Dataset</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The person or organization responsible for creating this collection of data.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_Comment_rdf:Property"></a> Property: Comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_Comment_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A description of the Class.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_DefinedTermSet_rdf:Property"></a> Property: DefinedTermSet <a href="http://schema.org/DefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_DefinedTermSet_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A set of defined terms that can be used for the range of values of this property.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An abstract of the collection. Include as much detail as possible about the motivation and use of the collection, including things that we do not yet have properties for.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_domainIncludes_rdf:Property"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What clasess use this property (ie what domain does this property occur in).</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasDefinedTerm_DefinedTermSet"></a> Property: hasDefinedTerm <a href="http://schema.org/hasDefinedTerm" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasDefinedTerm_DefinedTermSet</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A set of defined terms that can be used for the range of values of a property.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_hasResource"></a> Property: hasResource <a href="http://schema.org/hasResource" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasResource</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Classes, Properties etc.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A set of defined terms that can be used for the range of values of a property.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_label_rdf:Property"></a> Property: label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The label for this property.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A license document that applies to this content, typically indicated by URL.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_location_Organization"></a> Property: location <a href="http://schema.org/location" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_location_Organization</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A location for the organization (e.g. a city for a publisher).</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_name_Dataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The name of this Schema.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_publisher_Dataset"></a> Property: publisher <a href="http://schema.org/publisher" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_publisher_Dataset</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The organization responsible for releasing this collection of data.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_rangeIncludes_rdf:Property"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What clasess are expected values for this range.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_rdfs:comment_rdfs:Class"></a> Property: rdfs:comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:comment_rdfs:Class</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A description of the Class.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_comment_EnumerationValue"></a> Property: rdfs:comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_comment_EnumerationValue</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A description of the enumeration value.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_rdfs:label_rdfs:Class"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:label_rdfs:Class</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The label for this class.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_label_EnumerationValue"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_EnumerationValue</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The label for this enumeration value.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_rdfs:subClassOf_rdfs:Class"></a> Property: rdfs:subClassOf <a href="http://www.w3.org/2000/01/rdf-schema#subClassOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:subClassOf_rdfs:Class</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parent Class (if any).</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_sameAs_rdfs:Class"></a> Property: sameAs <a href="http://schema.org/sameAs" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_sameAs_rdfs:Class</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL of an equivalent term.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_subPropertyOf_rdf:Property"></a> Property: subPropertyOf <a href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_subPropertyOf_rdf:Property</small></h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is this a sub-type of a more general property.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Defined Term Sets</h2>
 
   </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

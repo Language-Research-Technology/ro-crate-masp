@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm install          # Install dependencies
-npm test             # Run all tests (Mocha, ~8 tests)
+npm test             # Run all tests (Mocha, ~38 tests)
 
 # Run a single test file
 npx mocha test/ldac-validator.test.js

@@ -346,3 +346,282 @@ This mapping between validation schema and editor configuration allows for dynam
 1. **ItemList Validation**: When a property's range includes an ItemList, the validator checks if the property value matches one of the items in the list:
 2. **Fixed Value Validation**: When a property has a `schema:value` constraint, the validator checks if the property value exactly matches the specified value:
 3. **Scalar Type Validation**: The validator supports different scalar types including string, number, boolean, and date TODO: This needs to be extended, see REQ8.ii
+
+---
+
+# Profile Reference
+
+The following sections are generated automatically from the profile crate.
+
+## Types of entities (specializations of Classes) and expected Properties
+
+
+### <a id="class_Dataset"></a> Class: Dataset <small style="color:#aaa;font-weight:normal">#class_Dataset</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/Dataset |
+*No properties defined for this class*
+
+
+
+### <a id="class_rdfs:Class"></a> Class: rdfs:Class <small style="color:#aaa;font-weight:normal">#class_rdfs:Class</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/rdfs:Class |
+*No properties defined for this class*
+
+
+
+### <a id="class_rdf:Property"></a> Class: rdf:Property <small style="color:#aaa;font-weight:normal">#class_rdf:Property</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/rdf:Property |
+*No properties defined for this class*
+
+
+
+### <a id="class_DefinedTerm"></a> Class: DefinedTerm <small style="color:#aaa;font-weight:normal">#class_DefinedTerm</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/DefinedTerm |
+*No properties defined for this class*
+
+
+
+### <a id="class_DefinedTermSet"></a> Class: DefinedTermSet <small style="color:#aaa;font-weight:normal">#class_DefinedTermSet</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/DefinedTermSet |
+*No properties defined for this class*
+
+
+
+### <a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/Person |
+*No properties defined for this class*
+
+
+
+### <a id="class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small>
+
+
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  | https://schema.org/Organization |
+*No properties defined for this class*
+
+
+
+### <a id="class_EnumerationClass"></a> Class: EnumerationClass <small style="color:#aaa;font-weight:normal">#class_EnumerationClass</small>
+
+An rdfs:Class that is (transitively) a subclass of schema:Enumeration. Defines a fixed set of named values.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  |  |
+*No properties defined for this class*
+
+
+
+### <a id="class_EnumerationValue"></a> Class: EnumerationValue <small style="color:#aaa;font-weight:normal">#class_EnumerationValue</small>
+
+An individual value of an EnumerationClass. Its @type is the URI of the EnumerationClass it belongs to (e.g. schema:Monday has @type schema:DayOfWeek). Must have rdfs:label.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| @type | Yes |  |  |  |
+*No properties defined for this class*
+
+
+## All Properties
+
+### <a id="prop_affiliation_Person"></a> Property: affiliation <a href="http://schema.org/affiliation" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_affiliation_Person</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The name the person. |  |  |
+### <a id="prop_author_Dataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_author_Dataset</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The person or organization responsible for creating this collection of data. |  |  |
+### <a id="prop_Comment_rdf:Property"></a> Property: Comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_Comment_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A description of the Class. |  |  |
+### <a id="prop_DefinedTermSet_rdf:Property"></a> Property: DefinedTermSet <a href="http://schema.org/DefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_DefinedTermSet_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A set of defined terms that can be used for the range of values of this property. |  |  |
+### <a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| An abstract of the collection. Include as much detail as possible about the motivation and use of the collection, including things that we do not yet have properties for. |  |  |
+### <a id="prop_domainIncludes_rdf:Property"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| What clasess use this property (ie what domain does this property occur in). |  |  |
+### <a id="prop_hasDefinedTerm_DefinedTermSet"></a> Property: hasDefinedTerm <a href="http://schema.org/hasDefinedTerm" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasDefinedTerm_DefinedTermSet</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A set of defined terms that can be used for the range of values of a property. |  |  |
+### <a id="prop_hasResource"></a> Property: hasResource <a href="http://schema.org/hasResource" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasResource</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The Classes, Properties etc. |  |  |
+### <a id="prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A set of defined terms that can be used for the range of values of a property. |  |  |
+### <a id="prop_label_rdf:Property"></a> Property: label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The label for this property. |  |  |
+### <a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A license document that applies to this content, typically indicated by URL. |  |  |
+### <a id="prop_location_Organization"></a> Property: location <a href="http://schema.org/location" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_location_Organization</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A location for the organization (e.g. a city for a publisher). |  |  |
+### <a id="prop_name_Dataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The name of this Schema. |  |  |
+### <a id="prop_publisher_Dataset"></a> Property: publisher <a href="http://schema.org/publisher" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_publisher_Dataset</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The organization responsible for releasing this collection of data. |  |  |
+### <a id="prop_rangeIncludes_rdf:Property"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| What clasess are expected values for this range. |  |  |
+### <a id="prop_rdfs:comment_rdfs:Class"></a> Property: rdfs:comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:comment_rdfs:Class</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A description of the Class. |  |  |
+### <a id="prop_comment_EnumerationValue"></a> Property: rdfs:comment <a href="http://www.w3.org/2000/01/rdf-schema#comment" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_comment_EnumerationValue</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| A description of the enumeration value. |  |  |
+### <a id="prop_rdfs:label_rdfs:Class"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:label_rdfs:Class</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The label for this class. |  |  |
+### <a id="prop_label_EnumerationValue"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_EnumerationValue</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| The label for this enumeration value. |  |  |
+### <a id="prop_rdfs:subClassOf_rdfs:Class"></a> Property: rdfs:subClassOf <a href="http://www.w3.org/2000/01/rdf-schema#subClassOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rdfs:subClassOf_rdfs:Class</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| Parent Class (if any). |  |  |
+### <a id="prop_sameAs_rdfs:Class"></a> Property: sameAs <a href="http://schema.org/sameAs" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_sameAs_rdfs:Class</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| URL of an equivalent term. |  |  |
+### <a id="prop_subPropertyOf_rdf:Property"></a> Property: subPropertyOf <a href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_subPropertyOf_rdf:Property</small>
+
+| Description | Range | Occurs in Domain(s) |
+| ----------- | ----------- | ----------- |
+| Is this a sub-type of a more general property. |  |  |
+
+
+## Defined Term Sets
+
+

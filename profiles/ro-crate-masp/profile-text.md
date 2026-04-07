@@ -346,3 +346,13 @@ This mapping between validation schema and editor configuration allows for dynam
 1. **ItemList Validation**: When a property's range includes an ItemList, the validator checks if the property value matches one of the items in the list:
 2. **Fixed Value Validation**: When a property has a `schema:value` constraint, the validator checks if the property value exactly matches the specified value:
 3. **Scalar Type Validation**: The validator supports different scalar types including string, number, boolean, and date TODO: This needs to be extended, see REQ8.ii
+
+---
+
+# Profile Reference
+
+The following sections are generated automatically from the profile crate.
+
+${rules.all}
+
+${rules.allDefinedTermSets}

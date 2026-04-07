@@ -30,8 +30,6 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="template%3ApropertyExample"></a> Property: propertyExample
 
-ID: template:propertyExample
-
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
 | This is an example of a property and its format. | schema:Text | <a href="#template%3AClassExample">ClassExample</a> |

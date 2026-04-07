@@ -317,7 +317,10 @@ try {
     const classDesc =
       classRule["description"] || classRule["rdfs:comment"] || "";
     const specialized = classRule["prov:specializationOf"] || [];
-    var classSummary = `\n### <a id="${classAnchorId}"></a> ${clean(className)}\n\n`;
+    const classInternalId = classId.startsWith("#")
+      ? ` <small style="color:#aaa;font-weight:normal">${clean(classId)}</small>`
+      : "";
+    var classSummary = `\n### <a id="${classAnchorId}"></a> ${clean(className)}${classInternalId}\n\n`;
 
     classSummary += `${clean(classDesc)}\n\n`;
 
@@ -419,9 +422,12 @@ try {
         // Get fixed value if specified
         const fixedValue = prop["schema:value"] || prop["value"] || "";
 
+        const propInternalId = prop["@id"].startsWith("#")
+          ? ` <small style="color:#aaa;font-weight:normal">${clean(prop["@id"])}</small>`
+          : "";
         classSummary += `| <a href="#${anchorGithubId}">${clean(
           propName
-        )}${clean(link)}</a> | ${clean(isRequired)} | ${clean(
+        )}${clean(link)}</a>${propInternalId} | ${clean(isRequired)} | ${clean(
           propDesc
         )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
       });
@@ -498,10 +504,12 @@ try {
       })
       .join(", ");
 
+    const propHeadingId = p["@id"].startsWith("#")
+      ? ` <small style="color:#aaa;font-weight:normal">${clean(p["@id"])}</small>`
+      : "";
     propsSummary += `### <a id="${anchorGithubId}"></a> ${clean(
       propName
-    )}${clean(link)}\n\n`;
-    propsSummary += `ID: ${clean(p["@id"])}\n\n`;
+    )}${clean(link)}${propHeadingId}\n\n`;
     propsSummary += `| Description | Range | Occurs in Domain(s) |\n`;
     propsSummary += `| ----------- | ----------- | ----------- |\n`;
     propsSummary += `| ${clean(propDesc)} | ${clean(
@@ -645,18 +653,34 @@ try {
     }
 
     const pageMap = new Map(); // @id → filename
-    const usedFilenames = new Set();
+    const usedFilenamesLower = new Set(); // case-insensitive dedup (macOS filesystem)
     for (const entity of allSchemaEntities) {
       const label = getLabel(entity);
       let filename = label.replace(/[^a-zA-Z0-9_-]/g, "_") + ".html";
-      // Deduplicate if needed (e.g. same label used for class and property)
+      // Deduplicate case-insensitively — macOS filesystems treat Text.html and text.html
+      // as the same file, causing class pages to be overwritten by property pages
       let i = 2;
-      while (usedFilenames.has(filename)) {
+      while (usedFilenamesLower.has(filename.toLowerCase())) {
         filename = label.replace(/[^a-zA-Z0-9_-]/g, "_") + `_${i}.html`;
         i++;
       }
-      usedFilenames.add(filename);
+      usedFilenamesLower.add(filename.toLowerCase());
       pageMap.set(entity["@id"], filename);
+    }
+
+    // Build reverse subclass map: parentId → [childEntity, ...]
+    const subclassMap = new Map(); // parentId → Array<classEntity>
+    for (const classEntity of entitiesByType["rdfs:Class"] || []) {
+      const parents = Array.isArray(classEntity["rdfs:subClassOf"])
+        ? classEntity["rdfs:subClassOf"]
+        : classEntity["rdfs:subClassOf"]
+        ? [classEntity["rdfs:subClassOf"]]
+        : [];
+      for (const p of parents) {
+        const pid = typeof p === "object" ? p["@id"] : p;
+        if (!subclassMap.has(pid)) subclassMap.set(pid, []);
+        subclassMap.get(pid).push(classEntity);
+      }
     }
 
     /** Resolve an entity @id to a relative link from inside the preview dir */
@@ -683,11 +707,48 @@ try {
     <p>${breadcrumb}</p>
     ${bodyHtml}
   </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
 </body>
 </html>`;
     }
 
     let pagesWritten = 0;
+
+    /** Render a properties table for a group of property entities */
+    function renderPropsTable(props) {
+      if (!props || props.length === 0) return "";
+      let t = `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
+      for (const prop of props) {
+        const propEntity = prop.entity || prop; // accept PropertyRule or raw entity
+        const propId = propEntity["@id"];
+        const propLabel = getLabel(propEntity);
+        const propDesc = propEntity["rdfs:comment"] || propEntity["description"] || "";
+        const ranges = Array.isArray(propEntity["rangeIncludes"])
+          ? propEntity["rangeIncludes"]
+          : propEntity["rangeIncludes"]
+          ? [propEntity["rangeIncludes"]]
+          : [];
+        const rangeLinks = ranges
+          .map((r) => {
+            const rid = typeof r === "object" ? r["@id"] : r;
+            return entityLink(rid, rid.split(/[/#]/).pop() || rid);
+          })
+          .join(", ");
+        t += `<tr><td>${entityLink(propId, propLabel)}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+      }
+      t += `</tbody></table>\n`;
+      return t;
+    }
 
     // Generate per-class pages
     for (const classEntity of entitiesByType["rdfs:Class"] || []) {
@@ -702,8 +763,6 @@ try {
         : classEntity["rdfs:subClassOf"]
         ? [classEntity["rdfs:subClassOf"]]
         : [];
-
-      const props = classEntity["@reverse"]?.domainIncludes || [];
 
       let body = `<h1>${clean(label)}</h1>\n`;
       body += `<p><code>${clean(classId)}</code></p>\n`;
@@ -720,27 +779,73 @@ try {
         body += `<p><strong>Subclass of:</strong> ${links}</p>\n`;
       }
 
-      if (props.length > 0) {
-        body += `<h2>Properties</h2>\n`;
-        body += `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
-        for (const prop of props) {
-          const propId = prop["@id"];
-          const propLabel = getLabel(prop);
-          const propDesc = prop["rdfs:comment"] || prop["description"] || "";
-          const ranges = Array.isArray(prop["rangeIncludes"])
-            ? prop["rangeIncludes"]
-            : prop["rangeIncludes"]
-            ? [prop["rangeIncludes"]]
-            : [];
-          const rangeLinks = ranges
-            .map((r) => {
-              const rid = typeof r === "object" ? r["@id"] : r;
-              return entityLink(rid, rid.split(/[/#]/).pop() || rid);
-            })
-            .join(", ");
-          body += `<tr><td>${entityLink(propId, propLabel)}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+      // Subclasses derived from this class
+      const directSubclasses = (subclassMap.get(classId) || [])
+        .slice()
+        .sort((a, b) => getLabel(a).localeCompare(getLabel(b)));
+      if (directSubclasses.length > 0) {
+        const subclassListId = `subclass-list-${clean(label).replace(/\s+/g, "-")}`;
+        let subItems = "";
+        for (const sub of directSubclasses) {
+          const subLabel = getLabel(sub);
+          const subDesc = sub["rdfs:comment"]
+            ? ` — ${clean(String(sub["rdfs:comment"]).split(/[.\n]/)[0])}`
+            : "";
+          subItems += `<li data-name="${clean(subLabel).toLowerCase()}">${entityLink(sub["@id"], subLabel)}${subDesc}</li>\n`;
         }
-        body += `</tbody></table>\n`;
+        body += `<h2>Subclasses (${directSubclasses.length})</h2>\n`;
+        body += `<input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="${subclassListId}" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">\n`;
+        body += `<ul id="${subclassListId}" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">\n${subItems}</ul>\n`;
+      }
+
+      // Inherited property sections using the validator's inheritance methods
+      const { own, inherited } = validator.inheritedPropertyRules(classId);
+
+      // Own properties
+      body += `<h2>Properties from ${clean(label)}</h2>\n`;
+      if (own.length > 0) {
+        body += renderPropsTable(own);
+      } else {
+        body += `<p><em>No properties defined directly on this class.</em></p>\n`;
+      }
+
+      // Inherited properties — one section per ancestor, in ancestry order
+      // (parentClasses returns paths root-ward; walk each unique ancestor in order)
+      const ancestorPaths = validator.parentClasses(classId);
+      // Flatten paths keeping first-occurrence order (breadth-first along each path)
+      const seen = new Set();
+      const orderedAncestors = [];
+      for (const path of ancestorPaths) {
+        for (const ancestorId of path) {
+          if (!seen.has(ancestorId)) {
+            seen.add(ancestorId);
+            orderedAncestors.push(ancestorId);
+          }
+        }
+      }
+
+      for (const ancestorId of orderedAncestors) {
+        const ancestorProps = inherited[ancestorId];
+        if (!ancestorProps || ancestorProps.length === 0) continue;
+        const ancestorEntity = profileCrate.getEntity(ancestorId);
+        const ancestorLabel = ancestorEntity ? getLabel(ancestorEntity) : (ancestorId.split(/[/#]/).pop() || ancestorId);
+        body += `<h2>Properties from ${entityLink(ancestorId, ancestorLabel)}</h2>\n`;
+        body += renderPropsTable(ancestorProps);
+      }
+
+      // Show enumeration values if this is an enumeration class
+      if (validator.isEnumerationClass(classId)) {
+        const enumVals = validator.getEnumerationValues(classId);
+        if (enumVals.length > 0) {
+          body += `<h2>Enumeration Values</h2>\n`;
+          body += `<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody>\n`;
+          for (const val of enumVals.sort((a, b) => getLabel(a).localeCompare(getLabel(b)))) {
+            const valLabel = getLabel(val);
+            const valDesc = val["rdfs:comment"] || val["description"] || "";
+            body += `<tr><td><code>${clean(val["@id"])}</code> ${clean(valLabel)}</td><td>${clean(valDesc)}</td></tr>\n`;
+          }
+          body += `</tbody></table>\n`;
+        }
       }
 
       const html = makePageHtml(
@@ -812,25 +917,51 @@ try {
       getLabel(a).localeCompare(getLabel(b))
     );
 
-    let indexBody = `<h1>${clean(profileName)}</h1>\n`;
-    indexBody += `<p><a href="ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>\n`;
-    indexBody += `<p>${classes.length} classes &middot; ${properties.length} properties</p>\n`;
-
-    indexBody += `<h2>Classes</h2>\n<ul>\n`;
+    // Build class list items
+    let classItems = "";
     for (const cls of classes) {
       const label = getLabel(cls);
       const filename = pageMap.get(cls["@id"]);
-      indexBody += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a></li>\n`;
+      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      classItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
-    indexBody += `</ul>\n`;
 
-    indexBody += `<h2>Properties</h2>\n<ul>\n`;
+    // Build property list items
+    let propItems = "";
     for (const prop of properties) {
       const label = getLabel(prop);
       const filename = pageMap.get(prop["@id"]);
-      indexBody += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a></li>\n`;
+      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      propItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
-    indexBody += `</ul>\n`;
+
+    // The filterable class/property panels — substituted in place of ${rules.all}
+    const entityPanelsHtml = `
+<p><strong>${classes.length}</strong> classes &middot; <strong>${properties.length}</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h2>Classes</h2>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+${classItems}    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h2>Properties</h2>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+${propItems}    </ul>
+  </div>
+</div>`;
+
+    // Render the template through the same substitution engine as for markdown output,
+    // but with rules.all replaced by the interactive panels. This preserves any content
+    // the template author placed between or after other ${rules.*} placeholders.
+    const indexRules = Object.assign({}, rules, { all: entityPanelsHtml });
+    const indexTemplate = template.replace(/\$\{rules\.([^}]+)\}/g, (match, key) => {
+      if (key.startsWith("#")) return indexRules[key] || "";
+      return indexRules[key] || "";
+    });
+    const indexBodyHtml = md.render(indexTemplate);
 
     const indexHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -840,11 +971,32 @@ try {
   <title>${clean(profileName)}</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
   ${sharedStyles}
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h2 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
 </head>
 <body>
   <div class="container-fluid">
-    ${indexBody}
+    <p><a href="ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>
+    ${indexBodyHtml}
   </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
 </body>
 </html>`;
     // index.html sits at the crate root alongside ro-crate-metadata.json
@@ -856,7 +1008,64 @@ try {
     );
   } else {
     // Single-page HTML (default for profiles and small schemas)
-    const htmlBodyRaw = md.render(output);
+    // Build filterable class/property panels that link to anchors within this page
+    const spClasses = (entitiesByType["rdfs:Class"] || []).slice().sort((a, b) => {
+      const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
+      const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
+      return aName.localeCompare(bName);
+    });
+    const spProps = (entitiesByType["rdf:Property"] || []).slice().sort((a, b) => {
+      const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
+      const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
+      return aName.localeCompare(bName);
+    });
+
+    let spClassItems = "";
+    for (const cls of spClasses) {
+      const label = String(cls["name"] || cls["rdfs:label"] || cls["@id"] || "");
+      const anchor = getAnchorId(cls["@id"]);
+      const internalId = cls["@id"].startsWith("#")
+        ? ` <small style="color:#aaa">${clean(cls["@id"])}</small>` : "";
+      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      spClassItems += `<li><a href="#${anchor}" title="${clean(cls["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
+    }
+    let spPropItems = "";
+    for (const prop of spProps) {
+      const label = String(prop["name"] || prop["rdfs:label"] || prop["@id"] || "");
+      const anchor = getAnchorId(prop["@id"]);
+      const internalId = prop["@id"].startsWith("#")
+        ? ` <small style="color:#aaa">${clean(prop["@id"])}</small>` : "";
+      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      spPropItems += `<li><a href="#${anchor}" title="${clean(prop["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
+    }
+
+    const spPanels = spClasses.length === 0 && spProps.length === 0 ? "" : `
+<p><strong>${spClasses.length}</strong> classes &middot; <strong>${spProps.length}</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+${spClassItems}    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+${spPropItems}    </ul>
+  </div>
+</div>
+
+`;
+
+    // Render through the same substitution engine with rules.all prepended by the panels
+    const spRules = Object.assign({}, rules, { all: spPanels + rules.all });
+    const spOutput = template.replace(/\$\{rules\.([^}]+)\}/g, (match, key) => {
+      if (key.startsWith("#")) return spRules[key] || "";
+      return spRules[key] || "";
+    });
+
+    const htmlBodyRaw = md.render(spOutput);
     // Convert markdown-it's <pre><code class="language-mermaid">...</code></pre>
     // into <pre class="mermaid">...</pre> so Mermaid JS can render them.
     const htmlBody = htmlBodyRaw.replace(
@@ -871,6 +1080,15 @@ try {
   <title>${profileName}</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
   ${sharedStyles}
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
 </head>
 <body>
   <div class="container-fluid">
@@ -880,6 +1098,17 @@ try {
     </p>
     ${htmlBody}
   </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });

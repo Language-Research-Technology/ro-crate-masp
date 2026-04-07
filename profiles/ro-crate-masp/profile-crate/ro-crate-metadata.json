@@ -545,6 +545,54 @@
         "@id": "schema:Text"
       },
       "sh:maxCount": 1
+    },
+    {
+      "@id": "#class_EnumerationClass",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EnumerationClass",
+      "name": "EnumerationClass",
+      "rdfs:comment": "An rdfs:Class that is (transitively) a subclass of schema:Enumeration. Defines a fixed set of named values.",
+      "rdfs:subClassOf": [{"@id": "https://schema.org/Enumeration"}]
+    },
+    {
+      "@id": "#class_EnumerationValue",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EnumerationValue",
+      "name": "EnumerationValue",
+      "rdfs:comment": "An individual value of an EnumerationClass. Its @type is the URI of the EnumerationClass it belongs to (e.g. schema:Monday has @type schema:DayOfWeek). Must have rdfs:label."
+    },
+    {
+      "@id": "#prop_label_EnumerationValue",
+      "@type": "rdf:Property",
+      "rdfs:label": "rdfs:label",
+      "name": "rdfs:label",
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#label"
+      },
+      "schema:domainIncludes": {
+        "@id": "#class_EnumerationValue"
+      },
+      "rdfs:comment": "The label for this enumeration value.",
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_comment_EnumerationValue",
+      "@type": "rdf:Property",
+      "rdfs:label": "rdfs:comment",
+      "name": "rdfs:comment",
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#comment"
+      },
+      "schema:domainIncludes": {
+        "@id": "#class_EnumerationValue"
+      },
+      "rdfs:comment": "A description of the enumeration value.",
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
     }
   ]
 }
