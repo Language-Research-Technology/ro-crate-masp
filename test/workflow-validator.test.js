@@ -3,7 +3,7 @@ const { expect } = require("chai");
 const path = require("path");
 const fs = require("fs");
 const { ROCrate } = require("ro-crate");
-const { SossValidator } = require("../lib/soss-validator");
+const { MaspValidator } = require("../lib/masp-validator");
 
 describe("Worlflow Profile Tests", function () {
   this.timeout(10000); // Allow enough time for file operations
@@ -45,7 +45,7 @@ describe("Worlflow Profile Tests", function () {
   });
  
   it("It should be able to validate the sample workflow crate", async function () {
-    const validator = new SossValidator(workflowProfileCrate);
+    const validator = new MaspValidator(workflowProfileCrate);
     workflowCrateJSON = JSON.parse(fs.readFileSync(sampleCratePath, "utf8"));
     const targetCrate = new ROCrate(workflowCrateJSON,  { array: true, link: true });
     const results = await validator.validateCrate(targetCrate);
@@ -56,7 +56,7 @@ describe("Worlflow Profile Tests", function () {
   
   it("It should be able to validate a workflow crate built up piece by piece", async function () {
     // Create a validator with the profile crate
-    const validator = new SossValidator(workflowProfileCrate);
+    const validator = new MaspValidator(workflowProfileCrate);
     const targetCrate = new ROCrate({ array: true, link: true });
 
   

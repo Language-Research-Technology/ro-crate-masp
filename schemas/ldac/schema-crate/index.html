@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Language Data Commons Schema Terms</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body { padding: 2rem; }
@@ -12,7 +13,17 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
   </style>
 </head>
 <body>
@@ -23,6 +34,80 @@
     </p>
     <h1>Language Data Commons Schema</h1>
 <p>This is a language data schema, in the style of the Schema.org schema. It is based on OLAC terms for use in the LDaCA project and is published at https://w3id.org/ldac/terms. This schema builds on Schema.org and is intended to be used with the Language Data Commons RO-Crate Profile: https://w3id.org/ldac/profile.</p>
+<p><strong>5</strong> classes &middot; <strong>54</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent">CollectionEvent</a> — A description of an event at which one or more PrimaryMaterials were captured, e</li>
+<li><a href="#CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol">CollectionProtocol</a> — A description of how this Object or Collection was obtained, such as the strategy used for selecting written source texts, or the prompts given to participants</li>
+<li><a href="#DataDepositLicense" title="https://w3id.org/ldac/terms#DataDepositLicense">DataDepositLicense</a> — A license document setting out terms for deposit into a repository</li>
+<li><a href="#DataLicense" title="https://w3id.org/ldac/terms#DataLicense">DataLicense</a> — A license document for data licensing</li>
+<li><a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> — A license document, setting out terms for reuse of data</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#access" title="https://w3id.org/ldac/terms#access">access</a> — Whether this is an open or restricted access license</li>
+<li><a href="#accessControlList" title="https://w3id.org/ldac/terms#accessControlList">accessControlList</a> — When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs</li>
+<li><a href="#age" title="https://w3id.org/ldac/terms#age">age</a> — The age or age range of a person, e</li>
+<li><a href="#annotationOf" title="https://w3id.org/ldac/terms#annotationOf">annotationOf</a> — This resource contains some kind of description that adds information to the resource it references</li>
+<li><a href="#annotationType" title="https://w3id.org/ldac/terms#annotationType">annotationType</a> — The type of annotation for Annotation resources</li>
+<li><a href="#annotator" title="https://w3id.org/ldac/terms#annotator">annotator</a> — The participant produced an annotation of this or a related resource</li>
+<li><a href="#authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow">authorizationWorkflow</a> — By what process a user is granted authorization to a license</li>
+<li><a href="#channels" title="https://w3id.org/ldac/terms#channels">channels</a> — The number of audio channels this resource contains (e</li>
+<li><a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> — A kind of CollectionEvent characterised by some specific procedures, e</li>
+<li><a href="#collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType">collectionProtocolType</a> — A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection</li>
+<li><a href="#communicationMode" title="https://w3id.org/ldac/terms#communicationMode">communicationMode</a> — The mode (spoken, written, signed etc</li>
+<li><a href="#compiler" title="https://w3id.org/ldac/terms#compiler">compiler</a> — The participant is responsible for collecting the sub-parts of the resource together</li>
+<li><a href="#consultant" title="https://w3id.org/ldac/terms#consultant">consultant</a> — The participant contributes expertise to the creation of a work, for example by contributing knowledge of their native language</li>
+<li><a href="#dataInputter" title="https://w3id.org/ldac/terms#dataInputter">dataInputter</a> — The participant was responsible for entering, re-typing, and/or structuring the data contained in the resource</li>
+<li><a href="#dateFreeText" title="https://w3id.org/ldac/terms#dateFreeText">dateFreeText</a> — Date information that cannot be put in one of the standard date formats, e</li>
+<li><a href="#depositor" title="https://w3id.org/ldac/terms#depositor">depositor</a> — The participant was responsible for depositing the resource in an archive</li>
+<li><a href="#derivationOf" title="https://w3id.org/ldac/terms#derivationOf">derivationOf</a> — This property references another resource from which the current resource is derived, e</li>
+<li><a href="#developer" title="https://w3id.org/ldac/terms#developer">developer</a> — The participant developed the methodology or tools (including software) that constitute the resource, or that were used to create the resource</li>
+<li><a href="#doi" title="https://w3id.org/ldac/terms#doi">doi</a> — A Digital Object Identifier</li>
+<li><a href="#editor" title="https://w3id.org/ldac/terms#editor">editor</a> — The participant reviewed, corrected, and/or tested the resource</li>
+<li><a href="#geoJSON" title="https://w3id.org/ldac/terms#geoJSON">geoJSON</a> — A valid GEOJson feature or feature collection as a string that can be parsed as JSON</li>
+<li><a href="#hasAnnotation" title="https://w3id.org/ldac/terms#hasAnnotation">hasAnnotation</a> — This resource is referenced by another resource that describes it such as a translation, transcription or other analysis</li>
+<li><a href="#hasCollectionProtocol" title="https://w3id.org/ldac/terms#hasCollectionProtocol">hasCollectionProtocol</a> — This resource was assembled or collected according to the linked protocol</li>
+<li><a href="#hasDerivation" title="https://w3id.org/ldac/terms#hasDerivation">hasDerivation</a> — This property references another resource that is derived from it such as a downsampled audio or video file, or text extracted from a PDF</li>
+<li><a href="#illustrator" title="https://w3id.org/ldac/terms#illustrator">illustrator</a> — The participant contributed drawings or other illustrations to the resource</li>
+<li><a href="#indexableText" title="https://w3id.org/ldac/terms#indexableText">indexableText</a> — One or more target File(s) that together contain the full text of an item – each file should indicate its language</li>
+<li><a href="#interpreter" title="https://w3id.org/ldac/terms#interpreter">interpreter</a> — The contributor renders the discourse recorded in the resource into another language in real time, or the contributor explains the discourse recorded in the resource</li>
+<li><a href="#interviewee" title="https://w3id.org/ldac/terms#interviewee">interviewee</a> — The participant was a respondent in an interview</li>
+<li><a href="#interviewer" title="https://w3id.org/ldac/terms#interviewer">interviewer</a> — The participant conducted an interview that forms part of the resource</li>
+<li><a href="#isDeIdentified" title="https://w3id.org/ldac/terms#isDeIdentified">isDeIdentified</a> — The data in this item has had potentially identifying information removed, which may include replacing names with pseudonyms</li>
+<li><a href="#itemLocation" title="https://w3id.org/ldac/terms#itemLocation">itemLocation</a> — Current location of the item, e</li>
+<li><a href="#linguisticGenre" title="https://w3id.org/ldac/terms#linguisticGenre">linguisticGenre</a> — A linguistic classification of the genre of this resource</li>
+<li><a href="#mainText" title="https://w3id.org/ldac/terms#mainText">mainText</a> — Identifies the most relevant sub-component for computational text analytics</li>
+<li><a href="#material" title="https://w3id.org/ldac/terms#material">material</a> — Description of the original media, e</li>
+<li><a href="#materialType" title="https://w3id.org/ldac/terms#materialType">materialType</a> — Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation</li>
+<li><a href="#openAccessIndex" title="https://w3id.org/ldac/terms#openAccessIndex">openAccessIndex</a> — One or more public index types allowed by a license, e</li>
+<li><a href="#orthographicNotes" title="https://w3id.org/ldac/terms#orthographicNotes">orthographicNotes</a> — A description of the specific orthographic writing system(s) used in the material (e</li>
+<li><a href="#participant" title="https://w3id.org/ldac/terms#participant">participant</a> — The participant was present during the creation of the resource, but did not contribute substantially to its content</li>
+<li><a href="#performer" title="https://w3id.org/ldac/terms#performer">performer</a> — The participant performed some portion of a recorded, filmed, or transcribed resource</li>
+<li><a href="#photographer" title="https://w3id.org/ldac/terms#photographer">photographer</a> — The participant took the photograph, or shot the film, that appears in or constitutes the resource</li>
+<li><a href="#recorder" title="https://w3id.org/ldac/terms#recorder">recorder</a> — The participant operated the recording machinery used to create the resource</li>
+<li><a href="#register" title="https://w3id.org/ldac/terms#register">register</a> — The type of register (any of the varieties of a language that a speaker uses in a particular social context [Merriam-Webster]) of the contents of a language resource</li>
+<li><a href="#researcher" title="https://w3id.org/ldac/terms#researcher">researcher</a> — The resource was created as part of the participant's research, or the research presents interim or final results from the participant's research</li>
+<li><a href="#researchParticipant" title="https://w3id.org/ldac/terms#researchParticipant">researchParticipant</a> — The participant acted as a research subject or responded to a questionnaire, the results of which study form the basis of the resource</li>
+<li><a href="#responder" title="https://w3id.org/ldac/terms#responder">responder</a> — The participant was an interlocutor in some sort of discourse event, but only reacted to the contributions of others</li>
+<li><a href="#reviewDate" title="https://w3id.org/ldac/terms#reviewDate">reviewDate</a> — The date that this license should be reviewed</li>
+<li><a href="#signer" title="https://w3id.org/ldac/terms#signer">signer</a> — The contributor was a principal signer in a resource that consists of a recording, a film, or a transcription of a recorded resource</li>
+<li><a href="#singer" title="https://w3id.org/ldac/terms#singer">singer</a> — The participant sang, either individually or as part of a group, in a resource that consists of a recording, a film, or a transcription of a recorded resource</li>
+<li><a href="#speaker" title="https://w3id.org/ldac/terms#speaker">speaker</a> — The contributor was a principal speaker in a resource that consists of a recording, a film, or a transcription of a recorded resource</li>
+<li><a href="#sponsor" title="https://w3id.org/ldac/terms#sponsor">sponsor</a> — The participant contributed financial support to the creation of the resource</li>
+<li><a href="#subjectLanguage" title="https://w3id.org/ldac/terms#subjectLanguage">subjectLanguage</a> — The language(s) that this annotation resource is about</li>
+<li><a href="#transcriber" title="https://w3id.org/ldac/terms#transcriber">transcriber</a> — The participant produced a transcription of this or a related resource</li>
+<li><a href="#translator" title="https://w3id.org/ldac/terms#translator">translator</a> — The participant produced a translation of this or a related resource</li>
+<li><a href="#writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat">writtenLanguageFormat</a> — The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten)</li>
+    </ul>
+  </div>
+</div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
 <h3><a id="CollectionEvent"></a> Class: CollectionEvent</h3>
 <p>A description of an event at which one or more PrimaryMaterials were captured, e.g. as video or audio.</p>
@@ -260,7 +345,6 @@
 </table>
 <h2>All Properties</h2>
 <h3><a id="access"></a> Property: access</h3>
-<p>ID: https://w3id.org/ldac/terms#access</p>
 <table>
 <thead>
 <tr>
@@ -278,7 +362,6 @@
 </tbody>
 </table>
 <h3><a id="accessControlList"></a> Property: accessControlList</h3>
-<p>ID: https://w3id.org/ldac/terms#accessControlList</p>
 <table>
 <thead>
 <tr>
@@ -296,7 +379,6 @@
 </tbody>
 </table>
 <h3><a id="age"></a> Property: age</h3>
-<p>ID: https://w3id.org/ldac/terms#age</p>
 <table>
 <thead>
 <tr>
@@ -314,7 +396,6 @@
 </tbody>
 </table>
 <h3><a id="annotationOf"></a> Property: annotationOf</h3>
-<p>ID: https://w3id.org/ldac/terms#annotationOf</p>
 <table>
 <thead>
 <tr>
@@ -332,7 +413,6 @@
 </tbody>
 </table>
 <h3><a id="annotationType"></a> Property: annotationType</h3>
-<p>ID: https://w3id.org/ldac/terms#annotationType</p>
 <table>
 <thead>
 <tr>
@@ -350,7 +430,6 @@
 </tbody>
 </table>
 <h3><a id="annotator"></a> Property: annotator</h3>
-<p>ID: https://w3id.org/ldac/terms#annotator</p>
 <table>
 <thead>
 <tr>
@@ -368,7 +447,6 @@
 </tbody>
 </table>
 <h3><a id="authorizationWorkflow"></a> Property: authorizationWorkflow</h3>
-<p>ID: https://w3id.org/ldac/terms#authorizationWorkflow</p>
 <table>
 <thead>
 <tr>
@@ -386,7 +464,6 @@
 </tbody>
 </table>
 <h3><a id="channels"></a> Property: channels</h3>
-<p>ID: https://w3id.org/ldac/terms#channels</p>
 <table>
 <thead>
 <tr>
@@ -404,7 +481,6 @@
 </tbody>
 </table>
 <h3><a id="collectionEventType"></a> Property: collectionEventType</h3>
-<p>ID: https://w3id.org/ldac/terms#collectionEventType</p>
 <table>
 <thead>
 <tr>
@@ -422,7 +498,6 @@
 </tbody>
 </table>
 <h3><a id="collectionProtocolType"></a> Property: collectionProtocolType</h3>
-<p>ID: https://w3id.org/ldac/terms#collectionProtocolType</p>
 <table>
 <thead>
 <tr>
@@ -440,7 +515,6 @@
 </tbody>
 </table>
 <h3><a id="communicationMode"></a> Property: communicationMode</h3>
-<p>ID: https://w3id.org/ldac/terms#communicationMode</p>
 <table>
 <thead>
 <tr>
@@ -458,7 +532,6 @@
 </tbody>
 </table>
 <h3><a id="compiler"></a> Property: compiler</h3>
-<p>ID: https://w3id.org/ldac/terms#compiler</p>
 <table>
 <thead>
 <tr>
@@ -476,7 +549,6 @@
 </tbody>
 </table>
 <h3><a id="consultant"></a> Property: consultant</h3>
-<p>ID: https://w3id.org/ldac/terms#consultant</p>
 <table>
 <thead>
 <tr>
@@ -494,7 +566,6 @@
 </tbody>
 </table>
 <h3><a id="dataInputter"></a> Property: dataInputter</h3>
-<p>ID: https://w3id.org/ldac/terms#dataInputter</p>
 <table>
 <thead>
 <tr>
@@ -512,7 +583,6 @@
 </tbody>
 </table>
 <h3><a id="dateFreeText"></a> Property: dateFreeText</h3>
-<p>ID: https://w3id.org/ldac/terms#dateFreeText</p>
 <table>
 <thead>
 <tr>
@@ -530,7 +600,6 @@
 </tbody>
 </table>
 <h3><a id="depositor"></a> Property: depositor</h3>
-<p>ID: https://w3id.org/ldac/terms#depositor</p>
 <table>
 <thead>
 <tr>
@@ -548,7 +617,6 @@
 </tbody>
 </table>
 <h3><a id="derivationOf"></a> Property: derivationOf</h3>
-<p>ID: https://w3id.org/ldac/terms#derivationOf</p>
 <table>
 <thead>
 <tr>
@@ -566,7 +634,6 @@
 </tbody>
 </table>
 <h3><a id="developer"></a> Property: developer</h3>
-<p>ID: https://w3id.org/ldac/terms#developer</p>
 <table>
 <thead>
 <tr>
@@ -584,7 +651,6 @@
 </tbody>
 </table>
 <h3><a id="doi"></a> Property: doi</h3>
-<p>ID: https://w3id.org/ldac/terms#doi</p>
 <table>
 <thead>
 <tr>
@@ -602,7 +668,6 @@
 </tbody>
 </table>
 <h3><a id="editor"></a> Property: editor</h3>
-<p>ID: https://w3id.org/ldac/terms#editor</p>
 <table>
 <thead>
 <tr>
@@ -620,7 +685,6 @@
 </tbody>
 </table>
 <h3><a id="geoJSON"></a> Property: geoJSON</h3>
-<p>ID: https://w3id.org/ldac/terms#geoJSON</p>
 <table>
 <thead>
 <tr>
@@ -638,7 +702,6 @@
 </tbody>
 </table>
 <h3><a id="hasAnnotation"></a> Property: hasAnnotation</h3>
-<p>ID: https://w3id.org/ldac/terms#hasAnnotation</p>
 <table>
 <thead>
 <tr>
@@ -656,7 +719,6 @@
 </tbody>
 </table>
 <h3><a id="hasCollectionProtocol"></a> Property: hasCollectionProtocol</h3>
-<p>ID: https://w3id.org/ldac/terms#hasCollectionProtocol</p>
 <table>
 <thead>
 <tr>
@@ -674,7 +736,6 @@
 </tbody>
 </table>
 <h3><a id="hasDerivation"></a> Property: hasDerivation</h3>
-<p>ID: https://w3id.org/ldac/terms#hasDerivation</p>
 <table>
 <thead>
 <tr>
@@ -692,7 +753,6 @@
 </tbody>
 </table>
 <h3><a id="illustrator"></a> Property: illustrator</h3>
-<p>ID: https://w3id.org/ldac/terms#illustrator</p>
 <table>
 <thead>
 <tr>
@@ -710,7 +770,6 @@
 </tbody>
 </table>
 <h3><a id="indexableText"></a> Property: indexableText</h3>
-<p>ID: https://w3id.org/ldac/terms#indexableText</p>
 <table>
 <thead>
 <tr>
@@ -728,7 +787,6 @@
 </tbody>
 </table>
 <h3><a id="interpreter"></a> Property: interpreter</h3>
-<p>ID: https://w3id.org/ldac/terms#interpreter</p>
 <table>
 <thead>
 <tr>
@@ -746,7 +804,6 @@
 </tbody>
 </table>
 <h3><a id="interviewee"></a> Property: interviewee</h3>
-<p>ID: https://w3id.org/ldac/terms#interviewee</p>
 <table>
 <thead>
 <tr>
@@ -764,7 +821,6 @@
 </tbody>
 </table>
 <h3><a id="interviewer"></a> Property: interviewer</h3>
-<p>ID: https://w3id.org/ldac/terms#interviewer</p>
 <table>
 <thead>
 <tr>
@@ -782,7 +838,6 @@
 </tbody>
 </table>
 <h3><a id="isDeIdentified"></a> Property: isDeIdentified</h3>
-<p>ID: https://w3id.org/ldac/terms#isDeIdentified</p>
 <table>
 <thead>
 <tr>
@@ -800,7 +855,6 @@
 </tbody>
 </table>
 <h3><a id="itemLocation"></a> Property: itemLocation</h3>
-<p>ID: https://w3id.org/ldac/terms#itemLocation</p>
 <table>
 <thead>
 <tr>
@@ -818,7 +872,6 @@
 </tbody>
 </table>
 <h3><a id="linguisticGenre"></a> Property: linguisticGenre</h3>
-<p>ID: https://w3id.org/ldac/terms#linguisticGenre</p>
 <table>
 <thead>
 <tr>
@@ -836,7 +889,6 @@
 </tbody>
 </table>
 <h3><a id="mainText"></a> Property: mainText</h3>
-<p>ID: https://w3id.org/ldac/terms#mainText</p>
 <table>
 <thead>
 <tr>
@@ -854,7 +906,6 @@
 </tbody>
 </table>
 <h3><a id="material"></a> Property: material</h3>
-<p>ID: https://w3id.org/ldac/terms#material</p>
 <table>
 <thead>
 <tr>
@@ -872,7 +923,6 @@
 </tbody>
 </table>
 <h3><a id="materialType"></a> Property: materialType</h3>
-<p>ID: https://w3id.org/ldac/terms#materialType</p>
 <table>
 <thead>
 <tr>
@@ -890,7 +940,6 @@
 </tbody>
 </table>
 <h3><a id="openAccessIndex"></a> Property: openAccessIndex</h3>
-<p>ID: https://w3id.org/ldac/terms#openAccessIndex</p>
 <table>
 <thead>
 <tr>
@@ -908,7 +957,6 @@
 </tbody>
 </table>
 <h3><a id="orthographicNotes"></a> Property: orthographicNotes</h3>
-<p>ID: https://w3id.org/ldac/terms#orthographicNotes</p>
 <table>
 <thead>
 <tr>
@@ -926,7 +974,6 @@
 </tbody>
 </table>
 <h3><a id="participant"></a> Property: participant</h3>
-<p>ID: https://w3id.org/ldac/terms#participant</p>
 <table>
 <thead>
 <tr>
@@ -944,7 +991,6 @@
 </tbody>
 </table>
 <h3><a id="performer"></a> Property: performer</h3>
-<p>ID: https://w3id.org/ldac/terms#performer</p>
 <table>
 <thead>
 <tr>
@@ -962,7 +1008,6 @@
 </tbody>
 </table>
 <h3><a id="photographer"></a> Property: photographer</h3>
-<p>ID: https://w3id.org/ldac/terms#photographer</p>
 <table>
 <thead>
 <tr>
@@ -980,7 +1025,6 @@
 </tbody>
 </table>
 <h3><a id="recorder"></a> Property: recorder</h3>
-<p>ID: https://w3id.org/ldac/terms#recorder</p>
 <table>
 <thead>
 <tr>
@@ -998,7 +1042,6 @@
 </tbody>
 </table>
 <h3><a id="register"></a> Property: register</h3>
-<p>ID: https://w3id.org/ldac/terms#register</p>
 <table>
 <thead>
 <tr>
@@ -1016,7 +1059,6 @@
 </tbody>
 </table>
 <h3><a id="researcher"></a> Property: researcher</h3>
-<p>ID: https://w3id.org/ldac/terms#researcher</p>
 <table>
 <thead>
 <tr>
@@ -1034,7 +1076,6 @@
 </tbody>
 </table>
 <h3><a id="researchParticipant"></a> Property: researchParticipant</h3>
-<p>ID: https://w3id.org/ldac/terms#researchParticipant</p>
 <table>
 <thead>
 <tr>
@@ -1052,7 +1093,6 @@
 </tbody>
 </table>
 <h3><a id="responder"></a> Property: responder</h3>
-<p>ID: https://w3id.org/ldac/terms#responder</p>
 <table>
 <thead>
 <tr>
@@ -1070,7 +1110,6 @@
 </tbody>
 </table>
 <h3><a id="reviewDate"></a> Property: reviewDate</h3>
-<p>ID: https://w3id.org/ldac/terms#reviewDate</p>
 <table>
 <thead>
 <tr>
@@ -1088,7 +1127,6 @@
 </tbody>
 </table>
 <h3><a id="signer"></a> Property: signer</h3>
-<p>ID: https://w3id.org/ldac/terms#signer</p>
 <table>
 <thead>
 <tr>
@@ -1106,7 +1144,6 @@
 </tbody>
 </table>
 <h3><a id="singer"></a> Property: singer</h3>
-<p>ID: https://w3id.org/ldac/terms#singer</p>
 <table>
 <thead>
 <tr>
@@ -1124,7 +1161,6 @@
 </tbody>
 </table>
 <h3><a id="speaker"></a> Property: speaker</h3>
-<p>ID: https://w3id.org/ldac/terms#speaker</p>
 <table>
 <thead>
 <tr>
@@ -1142,7 +1178,6 @@
 </tbody>
 </table>
 <h3><a id="sponsor"></a> Property: sponsor</h3>
-<p>ID: https://w3id.org/ldac/terms#sponsor</p>
 <table>
 <thead>
 <tr>
@@ -1160,7 +1195,6 @@
 </tbody>
 </table>
 <h3><a id="subjectLanguage"></a> Property: subjectLanguage</h3>
-<p>ID: https://w3id.org/ldac/terms#subjectLanguage</p>
 <table>
 <thead>
 <tr>
@@ -1178,7 +1212,6 @@
 </tbody>
 </table>
 <h3><a id="transcriber"></a> Property: transcriber</h3>
-<p>ID: https://w3id.org/ldac/terms#transcriber</p>
 <table>
 <thead>
 <tr>
@@ -1196,7 +1229,6 @@
 </tbody>
 </table>
 <h3><a id="translator"></a> Property: translator</h3>
-<p>ID: https://w3id.org/ldac/terms#translator</p>
 <table>
 <thead>
 <tr>
@@ -1214,7 +1246,6 @@
 </tbody>
 </table>
 <h3><a id="writtenLanguageFormat"></a> Property: writtenLanguageFormat</h3>
-<p>ID: https://w3id.org/ldac/terms#writtenLanguageFormat</p>
 <table>
 <thead>
 <tr>
@@ -1576,5 +1607,20 @@
 </table>
 
   </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template RO-Crate Schema</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body { padding: 2rem; }
@@ -12,7 +13,17 @@
     th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
     th { background-color: #f8f9fa; }
     pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
     code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
   </style>
 </head>
 <body>
@@ -26,6 +37,23 @@
 <h1>Template Schema</h1>
 <p>The template schema is used as a basis for creating new schemas.</p>
 <br>
+<p><strong>1</strong> classes &middot; <strong>1</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a> — This is an example of a class and its format</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> — This is an example of a property and its format</li>
+    </ul>
+  </div>
+</div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
 <h3><a id="template%3AClassExample"></a> Class: ClassExample</h3>
 <p>This is an example of a class and its format.</p>
@@ -73,7 +101,6 @@
 </table>
 <h2>All Properties</h2>
 <h3><a id="template%3ApropertyExample"></a> Property: propertyExample</h3>
-<p>ID: template:propertyExample</p>
 <table>
 <thead>
 <tr>
@@ -92,5 +119,20 @@
 </table>
 
   </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

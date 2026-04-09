@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm install          # Install dependencies
-npm test             # Run all tests (Mocha, ~8 tests)
+npm test             # Run all tests (Mocha, ~38 tests)
 
 # Run a single test file
 npx mocha test/ldac-validator.test.js
@@ -33,8 +33,8 @@ node validate-crate.js --json <target-crate.json> <profile-crate.json>  # JSON o
 
 ### Core Engine
 
-**`lib/soss-validator.js`** — the entire validation engine (~1,100 lines):
-- `SossValidator` — loads a Profile/Schema crate, parses its rules, and validates target crates
+**`lib/masp-validator.js`** — the entire validation engine (~1,100 lines):
+- `MaspValidator` — loads a Profile/Schema crate, parses its rules, and validates target crates
 - `ClassRule` — validates entity `@type` and cardinality constraints (`sh:minCount`/`sh:maxCount`)
 - `PropertyRule` — validates property constraints (cardinality, `rangeIncludes`, fixed `value`)
 - `ItemListRule` — validates properties against enumerated value sets
@@ -71,7 +71,7 @@ profile-crate/
 
 ### Documentation Generation
 
-**`generate-soss-docs.js`** combines `ro-crate-metadata.json` + `profile-text.md` → `profile-documentation.md`. The template uses `${rules.all}`, `${rules.allItemLists}`, etc. as placeholders for auto-generated rule summaries.
+**`generate-masp-docs.js`** combines `ro-crate-metadata.json` + `profile-text.md` → `profile-documentation.md`. The template uses `${rules.all}`, `${rules.allItemLists}`, etc. as placeholders for auto-generated rule summaries. Pass `--multi-page` to generate a multi-page HTML site (used for schema-org).
 
 ### Tests
 

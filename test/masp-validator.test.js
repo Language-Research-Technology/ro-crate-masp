@@ -3,7 +3,7 @@
  *
  * These tests validate:
  * - The MASP profile crate is structurally correct
- * - The SossValidator correctly parses the MASP profile's schema entities
+ * - The MaspValidator correctly parses the MASP profile's schema entities
  * - Class and property rules work correctly for profile crates
  * - Cardinality constraints (sh:minCount, sh:maxCount) are enforced
  * - Required properties (isProfileOf, name, license, hasResource) are validated
@@ -17,7 +17,7 @@ const { expect } = require("chai");
 const path = require("path");
 const fs = require("fs");
 const { ROCrate } = require("ro-crate");
-const { SossValidator } = require("../lib/soss-validator");
+const { MaspValidator } = require("../lib/masp-validator");
 
 describe("MASP Profile Tests", function () {
   this.timeout(10000);
@@ -154,7 +154,7 @@ describe("MASP Profile Tests", function () {
     let validator;
 
     before(async function () {
-      validator = new SossValidator(maspProfileCrate);
+      validator = new MaspValidator(maspProfileCrate);
       const targetCrate = new ROCrate(makeMinimalCrate(), {
         array: true,
         link: true,
@@ -262,7 +262,7 @@ describe("MASP Profile Tests", function () {
     let validator;
 
     before(async function () {
-      validator = new SossValidator(maspProfileCrate);
+      validator = new MaspValidator(maspProfileCrate);
       const targetCrate = new ROCrate(makeMinimalCrate(), {
         array: true,
         link: true,
@@ -313,7 +313,7 @@ describe("MASP Profile Tests", function () {
     // sh:maxCount: 1 is set on #prop_name_ProfileDataset.
     // If the profile Dataset has two name values, the validator should report an error.
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -373,7 +373,7 @@ describe("MASP Profile Tests", function () {
     // This test uses a root entity that is only a Dataset (not Profile),
     // so the MASP validator finds 0 valid ProfileDataset instances.
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -427,7 +427,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -480,7 +480,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -523,7 +523,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -575,7 +575,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -628,7 +628,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const crateJson = {
         "@context": [
           "https://w3id.org/ro/crate/1.2/context",
@@ -681,7 +681,7 @@ describe("MASP Profile Tests", function () {
     let results;
 
     before(async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       results = await validator.validateCrate(maspProfileCrate);
       console.log(
         "MASP self-validation results:",
@@ -712,7 +712,7 @@ describe("MASP Profile Tests", function () {
 
   describe("Incremental profile crate build-up", function () {
     it("starts with errors on an empty crate and clears them as fields are added", async function () {
-      const validator = new SossValidator(maspProfileCrate);
+      const validator = new MaspValidator(maspProfileCrate);
       const targetCrate = new ROCrate({ array: true, link: true });
 
       // Empty crate: missing both required class instances
