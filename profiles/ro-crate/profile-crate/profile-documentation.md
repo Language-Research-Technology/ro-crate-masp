@@ -113,4 +113,4 @@ Instances of this type MAY be present in the crate.
 
 ## Provenance
 
-This document was compiled using [generate-masp-docs.js](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/generate-masp-docs.js), based on [profiles/ro-crate/profile-text.md](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/ro-crate/profile-text.md) using a MASP Schema defined in [profiles/ro-crate/profile-crate/ro-crate-metadata.json](https://github.com/Language-Research-Technology/ro-crate-masp/blob/schema-org-schema/profiles/ro-crate/profile-crate/ro-crate-metadata.json).
+This document was compiled using [generate-masp-docs.js](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/generate-masp-docs.js), based on [profiles/ro-crate/profile-text.md](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/ro-crate/profile-text.md) using a MASP Schema defined in [profiles/ro-crate/profile-crate/ro-crate-metadata.json](https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/ro-crate/profile-crate/ro-crate-metadata.json).

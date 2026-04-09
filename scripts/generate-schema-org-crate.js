@@ -288,7 +288,7 @@ async function main() {
   }
 
   fs.writeFileSync(outputPath, JSON.stringify(crate, null, 2), "utf8");
-  console.log(`\nMAP schema crate written to: ${outputPath}`);
+  console.log(`\nMASP schema crate written to: ${outputPath}`);
   console.log(
     `Total entities in crate: ${crate["@graph"].length} (${classes.length} classes, ${properties.length} properties, ${enumValues.length} enumeration values)`
   );

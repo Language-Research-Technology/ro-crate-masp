@@ -528,12 +528,12 @@ Set of defined terms for austalk:channel.
 
 | Term | Description |
 | ---- | ----------- |
-| <a id="austalk%3ABoundaryDeskMic" href="https://w3id.org/ldac/terms#BoundaryDeskMic" target="_blank" rel="noopener">BoundaryDeskMic</a> | Boundary / desk mic - Shure MX391/O. On table, ~ 60cm from speaker. |
-| <a id="austalk%3ALeftC2Mic" href="https://w3id.org/ldac/terms#LeftC2Mic" target="_blank" rel="noopener">LeftC2Mic</a> | Left C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions. |
-| <a id="austalk%3AMainSpeakerMic" href="https://w3id.org/ldac/terms#MainSpeakerMic" target="_blank" rel="noopener">MainSpeakerMic</a> | Main speaker mic - a head-worn AudioTechnica AT892c microphone used to record the main speaker in the recordings. This is the primary audio channel for most analyses of the data. |
-| <a id="austalk%3AMaptaskRAMic" href="https://w3id.org/ldac/terms#MaptaskRAMic" target="_blank" rel="noopener">MaptaskRAMic</a> | Maptask / RA mic - a head-worn AudioTechnica AT892c microphone used to record the research assistant. |
-| <a id="austalk%3ARightC2Mic" href="https://w3id.org/ldac/terms#RightC2Mic" target="_blank" rel="noopener">RightC2Mic</a> | Right C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions. |
-| <a id="austalk%3AStrobeChannel" href="https://w3id.org/ldac/terms#StrobeChannel" target="_blank" rel="noopener">StrobeChannel</a> | Strobe channel - contains GPIO sync signal for aligning recordings. |
+| <a id="austalk%3ABoundaryDeskMic">BoundaryDeskMic</a> | Boundary / desk mic - Shure MX391/O. On table, ~ 60cm from speaker. |
+| <a id="austalk%3ALeftC2Mic">LeftC2Mic</a> | Left C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions. |
+| <a id="austalk%3AMainSpeakerMic">MainSpeakerMic</a> | Main speaker mic - a head-worn AudioTechnica AT892c microphone used to record the main speaker in the recordings. This is the primary audio channel for most analyses of the data. |
+| <a id="austalk%3AMaptaskRAMic">MaptaskRAMic</a> | Maptask / RA mic - a head-worn AudioTechnica AT892c microphone used to record the research assistant. |
+| <a id="austalk%3ARightC2Mic">RightC2Mic</a> | Right C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions. |
+| <a id="austalk%3AStrobeChannel">StrobeChannel</a> | Strobe channel - contains GPIO sync signal for aligning recordings. |
 
 
 

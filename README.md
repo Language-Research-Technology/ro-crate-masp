@@ -69,6 +69,17 @@ dgs -up-> psd : Generate Documentation
 
 ![alt text](image.png)
 
+## Running the tests
+
+```bash
+npm test                                   # run all tests (~38)
+npx mocha test/ldac-validator.test.js      # run a single test file
+```
+
+Tests use real profile crates from `profiles/` and sample crates from `test_data/`, so changes to either will affect test results.
+
+## Building documentation
+
 To run this, choose one of the examples from the implementations section below. E.g. to generate the documentation for the RO-Crate Workflow profile example, run:
 
 ```javascript

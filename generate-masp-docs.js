@@ -222,8 +222,9 @@ try {
         const termId = t["@id"];
         const termName = t["name"] || t["rdfs:label"] || t["@id"];
         const termAnchorId = getAnchorId(termId);
-        const termBaseId = `https://w3id.org/ldac/terms#${t?.name}`;
-        const termLink = termBaseId.match(/^http(s)?:/i)
+        // Use the term's own @id as the link if it's an absolute URL, otherwise no href
+        const termBaseId = termId && termId.match(/^https?:/i) ? termId : null;
+        const termLink = termBaseId
           ? `<a id="${termAnchorId}" href="${clean(termBaseId)}" target="_blank" rel="noopener">${clean(termName)}</a>`
           : `<a id="${termAnchorId}">${clean(termName)}</a>`;
         const termDesc = t["description"] || t["rdfs:comment"] || "";
@@ -519,26 +520,8 @@ try {
   rules.all += propsSummary;
 
   // Add provenance information
-  // Get the current Git branch by running git command
-  let gitBranch = "main"; // Default to main
-  try {
-    const gitCommand = "git rev-parse --abbrev-ref HEAD";
-    gitBranch = execSync(gitCommand, {
-      cwd: __dirname,
-      encoding: "utf8",
-    }).trim();
-    // Handle detached HEAD state
-    if (gitBranch === "HEAD") {
-      // Try to get the branch from CI environment variables
-      gitBranch =
-        process.env.GITHUB_REF_NAME ||
-        process.env.CI_COMMIT_REF_NAME ||
-        process.env.BRANCH_NAME ||
-        "main";
-    }
-  } catch (error) {
-    console.warn(`Warning: Could not determine Git branch: ${error.message}`);
-  }
+  // Always link to main in committed output so links don't break after branch merge
+  const gitBranch = "main";
 
   let repoBaseUrl = "";
   try {
