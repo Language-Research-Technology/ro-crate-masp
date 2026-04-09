@@ -14,6 +14,19 @@ Now that the work is more advanced, I'm moving it to this repository as a "clean
 
 If this work goes forward then this repository will probably turn into the home of a javascript/Node implementation of an RO-Crate based *RO-Crate Machine Actionable Profiles and Schemas* spec.
 
+## Published Profiles and Schemas
+
+These are the published GitHub Pages versions of the current profiles and schemas:
+
+- Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
+- Profile: RO-Crate Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/index.html
+- Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
+- Profile: LDAC Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ldac/profile-crate/index.html
+- Schema: Schema.org Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/schema-org/schema-crate/index.html
+- Schema: LDAC Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/ldac/schema-crate/index.html
+- Schema: AusTalk Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html
+- Schema: Template Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/template/schema-crate/index.html
+
 
 ## What is here
 
