@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "name": "RO-Crate Machine Actionable Profile",
+    "description": "This is a mini-profile for RO-Crate itself",
+    "version": "0.1.0",
+    "author": "University of Queensland",
+    "license": "GPL-3.0"
+  },
+  "rootDataset": {
+    "type": [
+      "Dataset"
+    ]
+  },
+  "inputGroups": [],
+  "lookup": {},
+  "enabledClasses": []
+}

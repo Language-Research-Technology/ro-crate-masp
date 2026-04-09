@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "RO-Crate MASP Profile",
+    "description": "Profile for RO-Crate Machine Actionable Profiles and Schemas (MASP). Defines what a valid MASP profile crate must contain.",
+    "version": "0.1.0",
+    "author": "University of Queensland",
+    "license": "Apache-2.0"
+  },
+  "conformsToUri": [
+    "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+  ],
+  "rootDataset": {
+    "type": [
+      "Dataset"
+    ]
+  },
+  "inputGroups": [],
+  "lookup": {},
+  "enabledClasses": []
+}
