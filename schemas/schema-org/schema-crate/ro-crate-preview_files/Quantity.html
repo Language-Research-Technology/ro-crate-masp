@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantity — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: Quantity</p>
+    <h1>Quantity</h1>
+<p><code>https://schema.org/Quantity</code></p>
+<p>Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are strings like '3 kg' or '4 milligrams'.</p>
+<h2>Subclasses (4)</h2>
+<input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-Quantity" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
+<ul id="subclass-list-Quantity" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
+<li data-name="distance"><a href="./Distance.html">Distance</a> — Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'</li>
+<li data-name="duration"><a href="./Duration.html">Duration</a> — Quantity: Duration (use [ISO 8601 duration format](http://en</li>
+<li data-name="energy"><a href="./Energy.html">Energy</a> — Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'</li>
+<li data-name="mass"><a href="./Mass.html">Mass</a> — Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'</li>
+</ul>
+<h2>Properties from Quantity</h2>
+<p><em>No properties defined directly on this class.</em></p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

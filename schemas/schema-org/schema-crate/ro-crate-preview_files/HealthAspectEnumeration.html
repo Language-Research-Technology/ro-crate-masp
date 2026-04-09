@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthAspectEnumeration — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: HealthAspectEnumeration</p>
+    <h1>HealthAspectEnumeration</h1>
+<p><code>https://schema.org/HealthAspectEnumeration</code></p>
+<p>HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]].</p>
+<p><strong>Subclass of:</strong> <a href="./Enumeration.html">Enumeration</a></p>
+<h2>Properties from HealthAspectEnumeration</h2>
+<p><em>No properties defined directly on this class.</em></p>
+<h2>Properties from <a href="./Enumeration.html">Enumeration</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./supersededBy.html">supersededBy</a></td><td>Relates a term (i.e. a property, class or enumeration) to one that supersedes it.</td><td><a href="./Enumeration.html">Enumeration</a>, <a href="./Property.html">Property</a>, <a href="./Class.html">Class</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./potentialAction.html">potentialAction</a></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><a href="./image.html">image</a></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./URL.html">URL</a>, <a href="./ImageObject.html">ImageObject</a></td></tr>
+<tr><td><a href="./sameAs.html">sameAs</a></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./owner.html">owner</a></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./description.html">description</a></td><td>A description of the item.</td><td><a href="./TextObject.html">TextObject</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./subjectOf.html">subjectOf</a></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./Event.html">Event</a>, <a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./url_2.html">url</a></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./additionalType.html">additionalType</a></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./disambiguatingDescription.html">disambiguatingDescription</a></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./alternateName.html">alternateName</a></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./name.html">name</a></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./identifier.html">identifier</a></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./PropertyValue.html">PropertyValue</a></td></tr>
+<tr><td><a href="./mainEntityOfPage.html">mainEntityOfPage</a></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+</tbody></table>
+<h2>Enumeration Values</h2>
+<table><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>https://schema.org/AllergiesHealthAspect</code> AllergiesHealthAspect</td><td>Content about the allergy-related aspects of a health topic.</td></tr>
+<tr><td><code>https://schema.org/BenefitsHealthAspect</code> BenefitsHealthAspect</td><td>Content about the benefits and advantages of usage or utilization of topic.</td></tr>
+<tr><td><code>https://schema.org/CausesHealthAspect</code> CausesHealthAspect</td><td>Information about the causes and main actions that gave rise to the topic.</td></tr>
+<tr><td><code>https://schema.org/ContagiousnessHealthAspect</code> ContagiousnessHealthAspect</td><td>Content about contagion mechanisms and contagiousness information over the topic.</td></tr>
+<tr><td><code>https://schema.org/EffectivenessHealthAspect</code> EffectivenessHealthAspect</td><td>Content about the effectiveness-related aspects of a health topic.</td></tr>
+<tr><td><code>https://schema.org/GettingAccessHealthAspect</code> GettingAccessHealthAspect</td><td>Content that discusses practical and policy aspects for getting access to specific kinds of healthcare (e.g. distribution mechanisms for vaccines).</td></tr>
+<tr><td><code>https://schema.org/HowItWorksHealthAspect</code> HowItWorksHealthAspect</td><td>Content that discusses and explains how a particular health-related topic works, e.g. in terms of mechanisms and underlying science.</td></tr>
+<tr><td><code>https://schema.org/HowOrWhereHealthAspect</code> HowOrWhereHealthAspect</td><td>Information about how or where to find a topic. Also may contain location data that can be used for where to look for help if the topic is observed.</td></tr>
+<tr><td><code>https://schema.org/IngredientsHealthAspect</code> IngredientsHealthAspect</td><td>Content discussing ingredients-related aspects of a health topic.</td></tr>
+<tr><td><code>https://schema.org/LivingWithHealthAspect</code> LivingWithHealthAspect</td><td>Information about coping or life related to the topic.</td></tr>
+<tr><td><code>https://schema.org/MayTreatHealthAspect</code> MayTreatHealthAspect</td><td>Related topics may be treated by a Topic.</td></tr>
+<tr><td><code>https://schema.org/MisconceptionsHealthAspect</code> MisconceptionsHealthAspect</td><td>Content about common misconceptions and myths that are related to a topic.</td></tr>
+<tr><td><code>https://schema.org/OverviewHealthAspect</code> OverviewHealthAspect</td><td>Overview of the content. Contains a summarized view of the topic with the most relevant information for an introduction.</td></tr>
+<tr><td><code>https://schema.org/PatientExperienceHealthAspect</code> PatientExperienceHealthAspect</td><td>Content about the real life experience of patients or people that have lived a similar experience about the topic. May be forums, topics, Q-and-A and related material.</td></tr>
+<tr><td><code>https://schema.org/PregnancyHealthAspect</code> PregnancyHealthAspect</td><td>Content discussing pregnancy-related aspects of a health topic.</td></tr>
+<tr><td><code>https://schema.org/PreventionHealthAspect</code> PreventionHealthAspect</td><td>Information about actions or measures that can be taken to avoid getting the topic or reaching a critical situation related to the topic.</td></tr>
+<tr><td><code>https://schema.org/PrognosisHealthAspect</code> PrognosisHealthAspect</td><td>Typical progression and happenings of life course of the topic.</td></tr>
+<tr><td><code>https://schema.org/RelatedTopicsHealthAspect</code> RelatedTopicsHealthAspect</td><td>Other prominent or relevant topics tied to the main topic.</td></tr>
+<tr><td><code>https://schema.org/RisksOrComplicationsHealthAspect</code> RisksOrComplicationsHealthAspect</td><td>Information about the risk factors and possible complications that may follow a topic.</td></tr>
+<tr><td><code>https://schema.org/SafetyHealthAspect</code> SafetyHealthAspect</td><td>Content about the safety-related aspects of a health topic.</td></tr>
+<tr><td><code>https://schema.org/ScreeningHealthAspect</code> ScreeningHealthAspect</td><td>Content about how to screen or further filter a topic.</td></tr>
+<tr><td><code>https://schema.org/SeeDoctorHealthAspect</code> SeeDoctorHealthAspect</td><td>Information about questions that may be asked, when to see a professional, measures before seeing a doctor or content about the first consultation.</td></tr>
+<tr><td><code>https://schema.org/SelfCareHealthAspect</code> SelfCareHealthAspect</td><td>Self care actions or measures that can be taken to sooth, health or avoid a topic. This may be carried at home and can be carried/managed by the person itself.</td></tr>
+<tr><td><code>https://schema.org/SideEffectsHealthAspect</code> SideEffectsHealthAspect</td><td>Side effects that can be observed from the usage of the topic.</td></tr>
+<tr><td><code>https://schema.org/StagesHealthAspect</code> StagesHealthAspect</td><td>Stages that can be observed from a topic.</td></tr>
+<tr><td><code>https://schema.org/SymptomsHealthAspect</code> SymptomsHealthAspect</td><td>Symptoms or related symptoms of a Topic.</td></tr>
+<tr><td><code>https://schema.org/TreatmentsHealthAspect</code> TreatmentsHealthAspect</td><td>Treatments or related therapies for a Topic.</td></tr>
+<tr><td><code>https://schema.org/TypesHealthAspect</code> TypesHealthAspect</td><td>Categorization and other types related to a topic.</td></tr>
+<tr><td><code>https://schema.org/UsageOrScheduleHealthAspect</code> UsageOrScheduleHealthAspect</td><td>Content about how, when, frequency and dosage of a topic.</td></tr>
+</tbody></table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

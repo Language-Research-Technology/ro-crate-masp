@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobPosting — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: JobPosting</p>
+    <h1>JobPosting</h1>
+<p><code>https://schema.org/JobPosting</code></p>
+<p>A listing that describes a job opening in a certain organization.</p>
+<p><strong>Subclass of:</strong> <a href="./Intangible.html">Intangible</a></p>
+<h2>Properties from JobPosting</h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./qualifications.html">qualifications</a></td><td>Specific qualifications required for this role or Occupation.</td><td><a href="./Credential.html">Credential</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./datePosted.html">datePosted</a></td><td>Publication date of an online listing.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./jobDuration.html">jobDuration</a></td><td>The expected duration of an employment offer as advertised by the employer. Relevant for job postings that have a clearly defined period in mind such as seasonal work, substitutes for maternal leave or any other temporary employment.</td><td><a href="./QuantitativeValue.html">QuantitativeValue</a>, <a href="./Duration.html">Duration</a></td></tr>
+<tr><td><a href="./applicantLocationRequirements.html">applicantLocationRequirements</a></td><td>The location(s) applicants can apply from. This is usually used for telecommuting jobs where the applicant does not need to be in a physical office. Note: This should not be used for citizenship or work visa requirements.</td><td><a href="./AdministrativeArea.html">AdministrativeArea</a></td></tr>
+<tr><td><a href="./incentiveCompensation.html">incentiveCompensation</a></td><td>Description of bonus and commission compensation aspects of the job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./jobBenefits.html">jobBenefits</a></td><td>Description of benefits associated with the job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./securityClearanceRequirement.html">securityClearanceRequirement</a></td><td>A description of any security clearance requirements of the job.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./baseSalary.html">baseSalary</a></td><td>The base salary of the job or of an employee in an EmployeeRole.</td><td><a href="./PriceSpecification.html">PriceSpecification</a>, <a href="./Number.html">Number</a>, <a href="./MonetaryAmount.html">MonetaryAmount</a></td></tr>
+<tr><td><a href="./validThrough.html">validThrough</a></td><td>The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./responsibilities.html">responsibilities</a></td><td>Responsibilities associated with this role or Occupation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./specialCommitments.html">specialCommitments</a></td><td>Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./directApply.html">directApply</a></td><td>Indicates whether an [[url]] that is associated with a [[JobPosting]] enables direct application for the job, via the posting website. A job posting is considered to have directApply of [[True]] if an application process for the specified job can be directly initiated via the url(s) given (noting that e.g. multiple internet domains might nevertheless be involved at an implementation level). A value of [[False]] is appropriate if there is no clear path to applying directly online for the specified job, navigating directly from the JobPosting url(s) supplied.</td><td><a href="./Boolean.html">Boolean</a></td></tr>
+<tr><td><a href="./jobLocation.html">jobLocation</a></td><td>A (typically single) geographic location associated with the job position.</td><td><a href="./Place.html">Place</a></td></tr>
+<tr><td><a href="./employmentType.html">employmentType</a></td><td>Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./jobStartDate.html">jobStartDate</a></td><td>The date on which a successful applicant for this job would be expected to start work. Choose a specific date in the future or use the jobImmediateStart property to indicate the position is to be filled as soon as possible.</td><td><a href="./Date.html">Date</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./estimatedSalary.html">estimatedSalary</a></td><td>An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.</td><td><a href="./MonetaryAmountDistribution.html">MonetaryAmountDistribution</a>, <a href="./MonetaryAmount.html">MonetaryAmount</a>, <a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./educationRequirements.html">educationRequirements</a></td><td>Educational background needed for the position or Occupation.</td><td><a href="./EducationalOccupationalCredential.html">EducationalOccupationalCredential</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./experienceInPlaceOfEducation.html">experienceInPlaceOfEducation</a></td><td>Indicates whether a [[JobPosting]] will accept experience (as indicated by [[OccupationalExperienceRequirements]]) in place of its formal educational qualifications (as indicated by [[educationRequirements]]). If true, indicates that satisfying one of these requirements is sufficient.</td><td><a href="./Boolean.html">Boolean</a></td></tr>
+<tr><td><a href="./hiringOrganization.html">hiringOrganization</a></td><td>Organization or Person offering the job position.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./relevantOccupation.html">relevantOccupation</a></td><td>The Occupation for the JobPosting.</td><td><a href="./Occupation.html">Occupation</a></td></tr>
+<tr><td><a href="./benefits.html">benefits</a></td><td>Description of benefits associated with the job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./physicalRequirement.html">physicalRequirement</a></td><td>A description of the types of physical activity associated with the job. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./DefinedTerm.html">DefinedTerm</a></td></tr>
+<tr><td><a href="./employerOverview.html">employerOverview</a></td><td>A description of the employer, career opportunities and work environment for this position.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./title.html">title</a></td><td>The title of the job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./jobImmediateStart.html">jobImmediateStart</a></td><td>An indicator as to whether a position is available for an immediate start.</td><td><a href="./Boolean.html">Boolean</a></td></tr>
+<tr><td><a href="./industry.html">industry</a></td><td>The industry associated with the job position.</td><td><a href="./DefinedTerm.html">DefinedTerm</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./experienceRequirements.html">experienceRequirements</a></td><td>Description of skills and experience needed for the position or Occupation.</td><td><a href="./Text.html">Text</a>, <a href="./OccupationalExperienceRequirements.html">OccupationalExperienceRequirements</a></td></tr>
+<tr><td><a href="./occupationalCategory.html">occupationalCategory</a></td><td>A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html), [ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.\n Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC.</td><td><a href="./CategoryCode.html">CategoryCode</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./skills.html">skills</a></td><td>A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is either claimed by a person, an organization or desired or required to fulfill a role or to work in an occupation.</td><td><a href="./Text.html">Text</a>, <a href="./DefinedTerm.html">DefinedTerm</a></td></tr>
+<tr><td><a href="./sensoryRequirement.html">sensoryRequirement</a></td><td>A description of any sensory requirements and levels necessary to function on the job, including hearing and vision. Defined terms such as those in O*net may be used, but note that there is no way to specify the level of ability as well as its nature when using a defined term.</td><td><a href="./DefinedTerm.html">DefinedTerm</a>, <a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./applicationContact.html">applicationContact</a></td><td>Contact details for further information relevant to this job posting.</td><td><a href="./ContactPoint.html">ContactPoint</a></td></tr>
+<tr><td><a href="./workHours.html">workHours</a></td><td>The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./jobLocationType.html">jobLocationType</a></td><td>A description of the job location (e.g. TELECOMMUTE for telecommute jobs).</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./salaryCurrency.html">salaryCurrency</a></td><td>The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)) used for the main salary information in this job posting or for this employee.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./eligibilityToWorkRequirement.html">eligibilityToWorkRequirement</a></td><td>The legal requirements such as citizenship, visa and other documentation required for an applicant to this job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./incentives.html">incentives</a></td><td>Description of bonus and commission compensation aspects of the job.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./employmentUnit.html">employmentUnit</a></td><td>Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed.</td><td><a href="./Organization.html">Organization</a></td></tr>
+<tr><td><a href="./totalJobOpenings.html">totalJobOpenings</a></td><td>The number of positions open for this job posting. Use a positive integer. Do not use if the number of positions is unclear or not known.</td><td><a href="./Integer.html">Integer</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./potentialAction.html">potentialAction</a></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><a href="./image.html">image</a></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./URL.html">URL</a>, <a href="./ImageObject.html">ImageObject</a></td></tr>
+<tr><td><a href="./sameAs.html">sameAs</a></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./owner.html">owner</a></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./description.html">description</a></td><td>A description of the item.</td><td><a href="./TextObject.html">TextObject</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./subjectOf.html">subjectOf</a></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./Event.html">Event</a>, <a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./url_2.html">url</a></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./additionalType.html">additionalType</a></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./disambiguatingDescription.html">disambiguatingDescription</a></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./alternateName.html">alternateName</a></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./name.html">name</a></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./identifier.html">identifier</a></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./PropertyValue.html">PropertyValue</a></td></tr>
+<tr><td><a href="./mainEntityOfPage.html">mainEntityOfPage</a></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+</tbody></table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

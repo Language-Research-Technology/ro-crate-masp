@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnitPriceSpecification — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: UnitPriceSpecification</p>
+    <h1>UnitPriceSpecification</h1>
+<p><code>https://schema.org/UnitPriceSpecification</code></p>
+<p>The price asked for a given offer by the respective organization or person.</p>
+<p><strong>Subclass of:</strong> <a href="./PriceSpecification.html">PriceSpecification</a></p>
+<h2>Properties from UnitPriceSpecification</h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./unitCode.html">unitCode</a></td><td>The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./billingStart.html">billingStart</a></td><td>Specifies after how much time this price (or price component) becomes valid and billing starts. Can be used, for example, to model a price increase after the first year of a subscription. The unit of measurement is specified by the unitCode property.</td><td><a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./referenceQuantity.html">referenceQuantity</a></td><td>The reference quantity for which a certain price applies, e.g. 1 EUR per 4 kWh of electricity. This property is a replacement for unitOfMeasurement for the advanced cases where the price does not relate to a standard unit.</td><td><a href="./QuantitativeValue.html">QuantitativeValue</a></td></tr>
+<tr><td><a href="./unitText.html">unitText</a></td><td>A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for <a href='unitCode'>unitCode</a>.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./billingIncrement.html">billingIncrement</a></td><td>This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.</td><td><a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./priceType.html">priceType</a></td><td>Defines the type of a price specified for an offered product, for example a list price, a (temporary) sale price or a manufacturer suggested retail price. If multiple prices are specified for an offer the [[priceType]] property can be used to identify the type of each such specified price. The value of priceType can be specified as a value from enumeration PriceTypeEnumeration or, a UN/EDIFACT 5387 code, or as a free form text string for price types that are not already predefined in PriceTypeEnumeration.</td><td><a href="./Text.html">Text</a>, <a href="./PriceTypeEnumeration.html">PriceTypeEnumeration</a></td></tr>
+<tr><td><a href="./billingDuration.html">billingDuration</a></td><td>Specifies for how long this price (or price component) will be billed. Can be used, for example, to model the contractual duration of a subscription or payment plan. Type can be either a Duration or a Number (in which case the unit of measurement, for example month, is specified by the unitCode property).</td><td><a href="./QuantitativeValue.html">QuantitativeValue</a>, <a href="./Number.html">Number</a>, <a href="./Duration.html">Duration</a></td></tr>
+<tr><td><a href="./priceComponentType.html">priceComponentType</a></td><td>Identifies a price component (for example, a line item on an invoice), part of the total price for an offer.</td><td><a href="./PriceComponentTypeEnumeration.html">PriceComponentTypeEnumeration</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./PriceSpecification.html">PriceSpecification</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./minPrice.html">minPrice</a></td><td>The lowest price if the price is a range.</td><td><a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./valueAddedTaxIncluded.html">valueAddedTaxIncluded</a></td><td>Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.</td><td><a href="./Boolean.html">Boolean</a></td></tr>
+<tr><td><a href="./validForMemberTier.html">validForMemberTier</a></td><td>The membership program tier(s) an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for.</td><td><a href="./MemberProgramTier.html">MemberProgramTier</a></td></tr>
+<tr><td><a href="./validThrough.html">validThrough</a></td><td>The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./maxPrice.html">maxPrice</a></td><td>The highest price if the price is a range.</td><td><a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./membershipPointsEarned.html">membershipPointsEarned</a></td><td>The number of membership points earned by the member. If necessary, the unitText can be used to express the units the points are issued in. (E.g. stars, miles, etc.)</td><td><a href="./Number.html">Number</a>, <a href="./QuantitativeValue.html">QuantitativeValue</a></td></tr>
+<tr><td><a href="./priceCurrency.html">priceCurrency</a></td><td>The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR".</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./eligibleTransactionVolume.html">eligibleTransactionVolume</a></td><td>The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.</td><td><a href="./PriceSpecification.html">PriceSpecification</a></td></tr>
+<tr><td><a href="./validFrom.html">validFrom</a></td><td>The date when the item becomes valid.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./price.html">price</a></td><td>The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n\nUsage guidelines:\n\n* Use the [[priceCurrency]] property (with standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR") instead of including [ambiguous symbols](http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as '$' in the value.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n* Note that both [RDFa](http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols. </td><td><a href="./Text.html">Text</a>, <a href="./Number.html">Number</a></td></tr>
+<tr><td><a href="./eligibleQuantity.html">eligibleQuantity</a></td><td>The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.</td><td><a href="./QuantitativeValue.html">QuantitativeValue</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./potentialAction.html">potentialAction</a></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><a href="./image.html">image</a></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./URL.html">URL</a>, <a href="./ImageObject.html">ImageObject</a></td></tr>
+<tr><td><a href="./sameAs.html">sameAs</a></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./owner.html">owner</a></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./description.html">description</a></td><td>A description of the item.</td><td><a href="./TextObject.html">TextObject</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./subjectOf.html">subjectOf</a></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./Event.html">Event</a>, <a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./url_2.html">url</a></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./additionalType.html">additionalType</a></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./disambiguatingDescription.html">disambiguatingDescription</a></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./alternateName.html">alternateName</a></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./name.html">name</a></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./identifier.html">identifier</a></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./PropertyValue.html">PropertyValue</a></td></tr>
+<tr><td><a href="./mainEntityOfPage.html">mainEntityOfPage</a></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+</tbody></table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrependAction — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: PrependAction</p>
+    <h1>PrependAction</h1>
+<p><code>https://schema.org/PrependAction</code></p>
+<p>The act of inserting at the beginning if an ordered collection.</p>
+<p><strong>Subclass of:</strong> <a href="./InsertAction.html">InsertAction</a></p>
+<h2>Properties from PrependAction</h2>
+<p><em>No properties defined directly on this class.</em></p>
+<h2>Properties from <a href="./InsertAction.html">InsertAction</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./toLocation.html">toLocation</a></td><td>A sub property of location. The final location of the object or the agent after the action.</td><td><a href="./Place.html">Place</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./UpdateAction.html">UpdateAction</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./targetCollection.html">targetCollection</a></td><td>A sub property of object. The collection target of the action.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./collection_2.html">collection</a></td><td>A sub property of object. The collection target of the action.</td><td><a href="./Thing.html">Thing</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Action.html">Action</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./target.html">target</a></td><td>Indicates a target EntryPoint, or url, for an Action.</td><td><a href="./URL.html">URL</a>, <a href="./EntryPoint.html">EntryPoint</a></td></tr>
+<tr><td><a href="./endTime.html">endTime</a></td><td>The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. E.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Time.html">Time</a></td></tr>
+<tr><td><a href="./result.html">result</a></td><td>The result produced in the action. E.g. John wrote *a book*.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./error_2.html">error</a></td><td>For failed actions, more information on the cause of the failure. Consider using the Error type.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./instrument.html">instrument</a></td><td>The object that helped the agent perform the action. E.g. John wrote a book with *a pen*.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./location.html">location</a></td><td>The location of, for example, where an event is happening, where an organization is located, or where an action takes place.</td><td><a href="./Text.html">Text</a>, <a href="./PostalAddress.html">PostalAddress</a>, <a href="./VirtualLocation.html">VirtualLocation</a>, <a href="./Place.html">Place</a></td></tr>
+<tr><td><a href="./actionProcess.html">actionProcess</a></td><td>Description of the process by which the action was performed.</td><td><a href="./HowTo.html">HowTo</a></td></tr>
+<tr><td><a href="./object.html">object</a></td><td>The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). E.g. John read *a book*.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./agent.html">agent</a></td><td>The direct performer or driver of the action (animate or inanimate). E.g. *John* wrote a book.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./provider.html">provider</a></td><td>The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./actionStatus.html">actionStatus</a></td><td>Indicates the current disposition of the Action.</td><td><a href="./ActionStatusType.html">ActionStatusType</a></td></tr>
+<tr><td><a href="./startTime.html">startTime</a></td><td>The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. E.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Time.html">Time</a></td></tr>
+<tr><td><a href="./participant.html">participant</a></td><td>Other co-agents that participated in the action indirectly. E.g. John wrote a book with *Steve*.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./potentialAction.html">potentialAction</a></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><a href="./image.html">image</a></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./URL.html">URL</a>, <a href="./ImageObject.html">ImageObject</a></td></tr>
+<tr><td><a href="./sameAs.html">sameAs</a></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./owner.html">owner</a></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./description.html">description</a></td><td>A description of the item.</td><td><a href="./TextObject.html">TextObject</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./subjectOf.html">subjectOf</a></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./Event.html">Event</a>, <a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./url_2.html">url</a></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./additionalType.html">additionalType</a></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./disambiguatingDescription.html">disambiguatingDescription</a></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./alternateName.html">alternateName</a></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./name.html">name</a></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./identifier.html">identifier</a></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./PropertyValue.html">PropertyValue</a></td></tr>
+<tr><td><a href="./mainEntityOfPage.html">mainEntityOfPage</a></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+</tbody></table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

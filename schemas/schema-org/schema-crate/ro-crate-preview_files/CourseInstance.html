@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseInstance — Schema.org Vocabulary</title>
+  <link rel="describedby" href="../ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p><a href="../index.html">Schema.org Vocabulary</a> &rsaquo; Class: CourseInstance</p>
+    <h1>CourseInstance</h1>
+<p><code>https://schema.org/CourseInstance</code></p>
+<p>An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.</p>
+<p><strong>Subclass of:</strong> <a href="./Event.html">Event</a></p>
+<h2>Properties from CourseInstance</h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./courseSchedule.html">courseSchedule</a></td><td>Represents the length and pace of a course, expressed as a [[Schedule]].</td><td><a href="./Schedule.html">Schedule</a></td></tr>
+<tr><td><a href="./courseWorkload.html">courseWorkload</a></td><td>The amount of work expected of students taking the course, often provided as a figure per week or per month, and may be broken down by type. For example, "2 hours of lectures, 1 hour of lab work and 3 hours of independent study per week".</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./courseMode.html">courseMode</a></td><td>The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous).</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./instructor.html">instructor</a></td><td>A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].</td><td><a href="./Person.html">Person</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Event.html">Event</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./sponsor.html">sponsor</a></td><td>A person or organization that supports a thing through a pledge, promise, or financial contribution. E.g. a sponsor of a Medical Study or a corporate sponsor of an event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./contributor.html">contributor</a></td><td>A secondary contributor to the CreativeWork or Event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./typicalAgeRange.html">typicalAgeRange</a></td><td>The typical expected age range, e.g. '7-9', '11-'.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./funder.html">funder</a></td><td>A person or organization that supports (sponsors) something through some kind of financial contribution.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./maximumAttendeeCapacity.html">maximumAttendeeCapacity</a></td><td>The total number of individuals that may attend an event or venue.</td><td><a href="./Integer.html">Integer</a></td></tr>
+<tr><td><a href="./previousStartDate.html">previousStartDate</a></td><td>Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./actor.html">actor</a></td><td>An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.</td><td><a href="./Person.html">Person</a>, <a href="./PerformingGroup.html">PerformingGroup</a></td></tr>
+<tr><td><a href="./organizer.html">organizer</a></td><td>An organizer of an Event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./keywords.html">keywords</a></td><td>Keywords or tags used to describe some item. Multiple textual entries in a keywords list are typically delimited by commas, or by repeating the property.</td><td><a href="./DefinedTerm.html">DefinedTerm</a>, <a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./composer.html">composer</a></td><td>The person or organization who wrote a composition, or who is the composer of a work performed at some event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./funding.html">funding</a></td><td>A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].</td><td><a href="./Grant.html">Grant</a></td></tr>
+<tr><td><a href="./location.html">location</a></td><td>The location of, for example, where an event is happening, where an organization is located, or where an action takes place.</td><td><a href="./Text.html">Text</a>, <a href="./PostalAddress.html">PostalAddress</a>, <a href="./VirtualLocation.html">VirtualLocation</a>, <a href="./Place.html">Place</a></td></tr>
+<tr><td><a href="./attendee.html">attendee</a></td><td>A person or organization attending the event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./review_2.html">review</a></td><td>A review of the item.</td><td><a href="./Review.html">Review</a></td></tr>
+<tr><td><a href="./eventAttendanceMode.html">eventAttendanceMode</a></td><td>The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix.</td><td><a href="./EventAttendanceModeEnumeration.html">EventAttendanceModeEnumeration</a></td></tr>
+<tr><td><a href="./maximumVirtualAttendeeCapacity.html">maximumVirtualAttendeeCapacity</a></td><td>The maximum virtual attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]). </td><td><a href="./Integer.html">Integer</a></td></tr>
+<tr><td><a href="./subEvent.html">subEvent</a></td><td>An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference.</td><td><a href="./Event.html">Event</a></td></tr>
+<tr><td><a href="./workFeatured.html">workFeatured</a></td><td>A work featured in some event, e.g. exhibited in an ExhibitionEvent. Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).</td><td><a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./doorTime.html">doorTime</a></td><td>The time admission will commence.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Time.html">Time</a></td></tr>
+<tr><td><a href="./performers.html">performers</a></td><td>The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./eventStatus.html">eventStatus</a></td><td>An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.</td><td><a href="./EventStatusType.html">EventStatusType</a></td></tr>
+<tr><td><a href="./remainingAttendeeCapacity.html">remainingAttendeeCapacity</a></td><td>The number of attendee places for an event that remain unallocated.</td><td><a href="./Integer.html">Integer</a></td></tr>
+<tr><td><a href="./workPerformed.html">workPerformed</a></td><td>A work performed in some event, for example a play performed in a TheaterEvent.</td><td><a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./offers.html">offers</a></td><td>An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer. </td><td><a href="./Offer.html">Offer</a>, <a href="./Demand.html">Demand</a></td></tr>
+<tr><td><a href="./eventSchedule.html">eventSchedule</a></td><td>Associates an [[Event]] with a [[Schedule]]. There are circumstances where it is preferable to share a schedule for a series of repeating events rather than data on the individual events themselves. For example, a website or application might prefer to publish a schedule for a weekly gym class rather than provide data on every event. A schedule could be processed by applications to add forthcoming events to a calendar. An [[Event]] that is associated with a [[Schedule]] using this property should not have [[startDate]] or [[endDate]] properties. These are instead defined within the associated [[Schedule]], this avoids any ambiguity for clients using the data. The property might have repeated values to specify different schedules, e.g. for different months or seasons.</td><td><a href="./Schedule.html">Schedule</a></td></tr>
+<tr><td><a href="./maximumPhysicalAttendeeCapacity.html">maximumPhysicalAttendeeCapacity</a></td><td>The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]] is [[OfflineEventAttendanceMode]] (or the offline aspects, in the case of a [[MixedEventAttendanceMode]]). </td><td><a href="./Integer.html">Integer</a></td></tr>
+<tr><td><a href="./endDate.html">endDate</a></td><td>The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Date.html">Date</a></td></tr>
+<tr><td><a href="./about.html">about</a></td><td>The subject matter of an object.</td><td><a href="./Thing.html">Thing</a></td></tr>
+<tr><td><a href="./aggregateRating_2.html">aggregateRating</a></td><td>The overall rating, based on a collection of reviews or ratings, of the item.</td><td><a href="./AggregateRating.html">AggregateRating</a></td></tr>
+<tr><td><a href="./recordedIn.html">recordedIn</a></td><td>The CreativeWork that captured all or part of this Event.</td><td><a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./superEvent.html">superEvent</a></td><td>An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.</td><td><a href="./Event.html">Event</a></td></tr>
+<tr><td><a href="./startDate.html">startDate</a></td><td>The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).</td><td><a href="./Date.html">Date</a>, <a href="./DateTime.html">DateTime</a></td></tr>
+<tr><td><a href="./hasSponsorshipOffer.html">hasSponsorshipOffer</a></td><td>An offer to sponsor the event, for example, Sponsorship Prospectus, Sponsorship Opportunities, or Sponsor Packages.</td><td><a href="./Offer.html">Offer</a></td></tr>
+<tr><td><a href="./audience_2.html">audience</a></td><td>An intended audience, i.e. a group for whom something was created.</td><td><a href="./Audience.html">Audience</a></td></tr>
+<tr><td><a href="./director.html">director</a></td><td>A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.</td><td><a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./subEvents.html">subEvents</a></td><td>Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.</td><td><a href="./Event.html">Event</a></td></tr>
+<tr><td><a href="./duration_2.html">duration</a></td><td>The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).</td><td><a href="./Duration.html">Duration</a>, <a href="./QuantitativeValue.html">QuantitativeValue</a></td></tr>
+<tr><td><a href="./hasParticipationOffer.html">hasParticipationOffer</a></td><td>An offer to participate in the event, for example, Call for Proposals, Call for Speakers, or Call for Performers.</td><td><a href="./Offer.html">Offer</a></td></tr>
+<tr><td><a href="./attendees.html">attendees</a></td><td>A person attending the event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./performer.html">performer</a></td><td>A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./isAccessibleForFree.html">isAccessibleForFree</a></td><td>A flag to signal that the item, event, or place is accessible for free.</td><td><a href="./Boolean.html">Boolean</a></td></tr>
+<tr><td><a href="./inLanguage.html">inLanguage</a></td><td>The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].</td><td><a href="./Text.html">Text</a>, <a href="./Language.html">Language</a></td></tr>
+<tr><td><a href="./translator.html">translator</a></td><td>Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><a href="./potentialAction.html">potentialAction</a></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><a href="./image.html">image</a></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./URL.html">URL</a>, <a href="./ImageObject.html">ImageObject</a></td></tr>
+<tr><td><a href="./sameAs.html">sameAs</a></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./owner.html">owner</a></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><a href="./description.html">description</a></td><td>A description of the item.</td><td><a href="./TextObject.html">TextObject</a>, <a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./subjectOf.html">subjectOf</a></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./Event.html">Event</a>, <a href="./CreativeWork.html">CreativeWork</a></td></tr>
+<tr><td><a href="./url_2.html">url</a></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./additionalType.html">additionalType</a></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><a href="./disambiguatingDescription.html">disambiguatingDescription</a></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./alternateName.html">alternateName</a></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./name.html">name</a></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><a href="./identifier.html">identifier</a></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a>, <a href="./PropertyValue.html">PropertyValue</a></td></tr>
+<tr><td><a href="./mainEntityOfPage.html">mainEntityOfPage</a></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+</tbody></table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.subclass-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.style.display = q.length > 0 && !li.dataset.name.includes(q) ? 'none' : '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
