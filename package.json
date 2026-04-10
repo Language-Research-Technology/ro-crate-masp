@@ -17,7 +17,7 @@
     "build:template-schema": "node generate-masp-docs.js schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
     "generate:schema-org-crate": "node scripts/generate-schema-org-crate.js",
     "build:schema-org-schema": "node generate-masp-docs.js --multi-page schemas/schema-org/schema-crate/ro-crate-metadata.json schemas/schema-org/schema-text.md schemas/schema-org/schema-crate/schema-documentation.md",
-    "generate:mode:ldac-profile": "node scripts/generate-mode-file.js --input test_data/modes/ldac/language-data-commons-collection.json --output profiles/ldac/profile-crate/crate-o-mode.json --update-profile profiles/ldac/profile-crate/ro-crate-metadata.json",
+    "generate:mode:ldac-profile": "node scripts/generate-mode-file.js --input test_data/modes/ldac/comprehensive-ldac.json --output profiles/ldac/profile-crate/crate-o-mode.json --update-profile profiles/ldac/profile-crate/ro-crate-metadata.json",
     "generate:mode:ro-crate-profile": "node scripts/generate-mode-file.js --output profiles/ro-crate/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate/profile-crate/ro-crate-metadata.json",
     "generate:mode:ro-crate-masp-profile": "node scripts/generate-mode-file.js --output profiles/ro-crate-masp/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json",
     "generate:mode:workflow-profile": "node scripts/generate-mode-file.js --output profiles/workflow/profile-crate/crate-o-mode.json --update-profile profiles/workflow/profile-crate/ro-crate-metadata.json",

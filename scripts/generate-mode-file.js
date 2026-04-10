@@ -19,7 +19,7 @@
  * Usage:
  *   # Strip an existing Crate-O mode file and write the mini version:
  *   node scripts/generate-mode-file.js \
- *     --input  test_data/modes/ldac/language-data-commons-collection.json \
+ *     --input  test_data/modes/ldac/comprehensive-ldac.json \
  *     --output profiles/ldac/profile-crate/crate-o-mode.json \
  *     --update-profile profiles/ldac/profile-crate/ro-crate-metadata.json
  *
@@ -87,7 +87,7 @@ Options:
 Examples:
   # Strip an existing mode file:
   node scripts/generate-mode-file.js \\
-    --input  test_data/modes/ldac/language-data-commons-collection.json \\
+    --input  test_data/modes/ldac/comprehensive-ldac.json \\
     --output profiles/ldac/profile-crate/crate-o-mode.json \\
     --update-profile profiles/ldac/profile-crate/ro-crate-metadata.json
 

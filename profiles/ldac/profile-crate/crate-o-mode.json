@@ -1,11 +1,15 @@
 {
   "metadata": {
-    "name": "Language Data Commons top-level Collection (corpus)",
-    "description": "Implements the language data commons RO-Crate Metadata Profile for top-level collection.",
+    "name": "Language Data Commons Comprehensive Collection",
+    "description": "Implements the language data commons RO-Crate Metadata Profile for the top-level, objects and files.",
     "version": 0.3,
     "author": "University of Queensland",
     "license": "GPL-3.0"
   },
+  "contextPrefixes": {
+    "ldac": "https://w3id.org/ldac/terms#"
+  },
+  "context": [],
   "conformsToUri": [
     "https://w3id.org/ldac/profile#Collection"
   ],
@@ -34,7 +38,23 @@
         "http://schema.org/about",
         "http://schema.org/mentions",
         "http://schema.org/mainEntity",
-        "https://w3id.org/ldac/terms#doi"
+        "https://w3id.org/ldac/terms#age",
+        "https://w3id.org/ldac/terms#doi",
+        "https://w3id.org/ldac/terms#indexableText",
+        "https://w3id.org/ldac/terms#itemLocation",
+        "https://w3id.org/ldac/terms#mainText",
+        "https://w3id.org/ldac/terms#materialType"
+      ]
+    },
+    {
+      "name": "Access",
+      "help": "",
+      "inputs": [
+        "https://w3id.org/ldac/terms#access",
+        "https://w3id.org/ldac/terms#accessControlList",
+        "https://w3id.org/ldac/terms#authorizationWorkflow",
+        "https://w3id.org/ldac/terms#openAccessIndex",
+        "https://w3id.org/ldac/terms#reviewDate"
       ]
     },
     {
@@ -57,6 +77,7 @@
         "https://w3id.org/ldac/terms#developer",
         "https://w3id.org/ldac/terms#editor",
         "https://w3id.org/ldac/terms#illustrator",
+        "https://w3id.org/ldac/terms#interpreter",
         "https://w3id.org/ldac/terms#interviewee",
         "https://w3id.org/ldac/terms#interviewer",
         "https://w3id.org/ldac/terms#participant",
@@ -82,9 +103,12 @@
         "http://pcdm.org/models#hasMember",
         "http://schema.org/isPartOf",
         "http://schema.org/hasPart",
+        "https://w3id.org/ldac/terms#annotationOf",
+        "https://w3id.org/ldac/terms#hasAnnotation",
+        "https://w3id.org/ldac/terms#derivationOf",
+        "https://w3id.org/ldac/terms#hasDerivation",
         "http://schema.org/inDefinedTermSet",
-        "http://schema.org/hasDefinedTerm",
-        "https://w3id.org/ldac/terms#annotationOf"
+        "http://schema.org/hasDefinedTerm"
       ]
     },
     {
@@ -96,7 +120,13 @@
         "http://schema.org/instrument",
         "http://schema.org/result",
         "http://schema.org/participant",
-        "http://schema.org/target"
+        "http://schema.org/target",
+        "https://w3id.org/ldac/terms#collectionEventType",
+        "https://w3id.org/ldac/terms#collectionProtocolType",
+        "https://w3id.org/ldac/terms#hasCollectionProtocol",
+        "https://w3id.org/ldac/terms#isDeIdentified",
+        "https://w3id.org/ldac/terms#material",
+        "https://w3id.org/ldac/terms#writtenLanguageFormat"
       ]
     },
     {
@@ -104,7 +134,12 @@
       "help": "Metadata related to the languages used, modes of communication and other linguistic classifications.",
       "inputs": [
         "http://schema.org/inLanguage",
-        "https://w3id.org/ldac/terms#subjectLanguage"
+        "https://w3id.org/ldac/terms#subjectLanguage",
+        "https://w3id.org/ldac/terms#communicationMode",
+        "https://w3id.org/ldac/terms#linguisticGenre",
+        "https://w3id.org/ldac/terms#orthographicNotes",
+        "https://w3id.org/ldac/terms#annotationType",
+        "https://w3id.org/ldac/terms#register"
       ]
     },
     {
@@ -142,7 +177,8 @@
         "http://schema.org/softwareRequirements",
         "http://schema.org/softwareVersion",
         "http://schema.org/storageRequirements",
-        "http://schema.org/supportingData"
+        "http://schema.org/supportingData",
+        "https://w3id.org/ldac/terms#channels"
       ]
     }
   ],
@@ -167,15 +203,21 @@
     "Dataset",
     "Person",
     "Place",
+    "Geometry",
     "GeoCoordinates",
     "GeoShape",
+    "Language",
     "Organization",
     "Book",
     "ScholarlyArticle",
     "RepositoryCollection",
+    "RepositoryObject",
     "CreativeWork",
-    "CollectionProtocol",
-    "File",
-    "Language"
+    "ldac:CollectionEvent",
+    "ldac:CollectionProtocol",
+    "ldac:DataDepositLicense",
+    "ldac:DataLicense",
+    "ldac:DataReuseLicense",
+    "File"
   ]
 }
