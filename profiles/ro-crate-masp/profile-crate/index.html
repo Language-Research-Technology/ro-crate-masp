@@ -330,7 +330,7 @@
   </div>
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="class_MetadataDescriptor"></a> Class: RO-Crate Metadata Descriptor <small style="color:#aaa;font-weight:normal">#class_MetadataDescriptor</small></h3>
+<h3><a id="class_MetadataDescriptor"></a><a id="user-content-class_MetadataDescriptor"></a> Class: RO-Crate Metadata Descriptor <small style="color:#aaa;font-weight:normal">#class_MetadataDescriptor</small></h3>
 <p>The ro-crate-metadata.json file entity that describes the profile crate.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -367,24 +367,24 @@
 <td>http://schema.org/CreativeWork</td>
 </tr>
 <tr>
-<td><a href="#prop_id_MetadataDescriptor">@id</a> <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small></td>
+<td><a href="#user-content-prop_id_MetadataDescriptor">@id</a> <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small></td>
 <td>Yes</td>
 <td></td>
 <td>Text</td>
 <td>ro-crate-metadata.json</td>
 </tr>
 <tr>
-<td><a href="#prop_about_MetadataDescriptor">about <a href="#prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small></td>
+<td><a href="#user-content-prop_about_MetadataDescriptor">about <a href="#user-content-prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small></td>
 <td>Yes</td>
 <td>MUST reference the root profile Dataset entity.</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_conformsTo_MetadataDescriptor">conformsTo <a href="#prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small></td>
+<td><a href="#user-content-prop_conformsTo_MetadataDescriptor">conformsTo <a href="#user-content-prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small></td>
 <td>Yes</td>
 <td>MUST reference the RO-Crate specification the crate conforms to.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -392,9 +392,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
+<li><a href="#user-content-ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
 </ul>
-<h3><a id="class_ProfileDataset"></a> Class: Profile Dataset <small style="color:#aaa;font-weight:normal">#class_ProfileDataset</small></h3>
+<h3><a id="class_ProfileDataset"></a><a id="user-content-class_ProfileDataset"></a> Class: Profile Dataset <small style="color:#aaa;font-weight:normal">#class_ProfileDataset</small></h3>
 <p>The root entity of a MASP profile crate. Must have @type [Dataset, Profile].</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -431,56 +431,56 @@
 <td>http://schema.org/Dataset, http://www.w3.org/ns/dx/prof/Profile</td>
 </tr>
 <tr>
-<td><a href="#prop_hasResource_ProfileDataset">hasResource <a href="#prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small></td>
+<td><a href="#user-content-prop_hasResource_ProfileDataset">hasResource <a href="#user-content-prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small></td>
 <td>Yes</td>
 <td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#user-content-class_ResourceDescriptor">ResourceDescriptor</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_isProfileOf_ProfileDataset">isProfileOf <a href="#prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small></td>
+<td><a href="#user-content-prop_isProfileOf_ProfileDataset">isProfileOf <a href="#user-content-prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small></td>
 <td>Yes</td>
 <td>MUST reference the base RO-Crate specification this profile extends.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_license_ProfileDataset">license <a href="#prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small></td>
+<td><a href="#user-content-prop_license_ProfileDataset">license <a href="#user-content-prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small></td>
 <td>Yes</td>
 <td>License for this profile.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a>, Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_name_ProfileDataset">name <a href="#prop_name_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small></td>
+<td><a href="#user-content-prop_name_ProfileDataset">name <a href="#user-content-prop_name_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small></td>
 <td>Yes</td>
 <td>A human-readable name for the profile.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_author_ProfileDataset">author <a href="#prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small></td>
+<td><a href="#user-content-prop_author_ProfileDataset">author <a href="#user-content-prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small></td>
 <td>No</td>
 <td>The person or organization responsible for creating this profile.</td>
-<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
+<td><a href="#user-content-class_Person">Person</a>, <a href="#user-content-class_Organization">Organization</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_description_ProfileDataset">description <a href="#prop_description_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small></td>
+<td><a href="#user-content-prop_description_ProfileDataset">description <a href="#user-content-prop_description_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small></td>
 <td>No</td>
 <td>A description of the profile and its intended use.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_hasPart_ProfileDataset">hasPart <a href="#prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small></td>
+<td><a href="#user-content-prop_hasPart_ProfileDataset">hasPart <a href="#user-content-prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small></td>
 <td>No</td>
 <td>Files that are part of this profile crate.</td>
-<td><a href="#class_File">File</a></td>
+<td><a href="#user-content-class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_version_ProfileDataset">version <a href="#prop_version_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small></td>
+<td><a href="#user-content-prop_version_ProfileDataset">version <a href="#user-content-prop_version_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small></td>
 <td>No</td>
 <td>The version of this profile using semantic versioning (MAJOR.MINOR.PATCH).</td>
 <td>Text</td>
@@ -491,9 +491,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F">Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</a></li>
+<li><a href="#user-content-https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F">Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</a></li>
 </ul>
-<h3><a id="class_ResourceDescriptor"></a> Class: ResourceDescriptor <small style="color:#aaa;font-weight:normal">#class_ResourceDescriptor</small></h3>
+<h3><a id="class_ResourceDescriptor"></a><a id="user-content-class_ResourceDescriptor"></a> Class: ResourceDescriptor <small style="color:#aaa;font-weight:normal">#class_ResourceDescriptor</small></h3>
 <p>Describes a resource that is part of a profile, using the W3C Profiles Vocabulary.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -529,21 +529,21 @@
 <td>http://www.w3.org/ns/dx/prof/ResourceDescriptor</td>
 </tr>
 <tr>
-<td><a href="#prop_hasRole_ResourceDescriptor">hasRole <a href="#prop_hasRole_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small></td>
+<td><a href="#user-content-prop_hasRole_ResourceDescriptor">hasRole <a href="#user-content-prop_hasRole_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small></td>
 <td>Yes</td>
 <td>The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_hasArtifact_ResourceDescriptor">hasArtifact <a href="#prop_hasArtifact_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small></td>
+<td><a href="#user-content-prop_hasArtifact_ResourceDescriptor">hasArtifact <a href="#user-content-prop_hasArtifact_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small></td>
 <td>No</td>
 <td>The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_hasPart_ResourceDescriptor">hasPart <a href="#prop_hasPart_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small></td>
+<td><a href="#user-content-prop_hasPart_ResourceDescriptor">hasPart <a href="#user-content-prop_hasPart_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small></td>
 <td>No</td>
 <td>For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema.</td>
 <td></td>
@@ -554,9 +554,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#hasSpecializedSchema">Example-1: #hasSpecializedSchema</a></li>
+<li><a href="#user-content-hasSpecializedSchema">Example-1: #hasSpecializedSchema</a></li>
 </ul>
-<h3><a id="class_rdfsClass"></a> Class: rdfs:Class <small style="color:#aaa;font-weight:normal">#class_rdfsClass</small></h3>
+<h3><a id="class_rdfsClass"></a><a id="user-content-class_rdfsClass"></a> Class: rdfs:Class <small style="color:#aaa;font-weight:normal">#class_rdfsClass</small></h3>
 <p>A class definition in a MASP schema. Defines a type of entity and its cardinality constraints.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -592,28 +592,28 @@
 <td>http://www.w3.org/2000/01/rdf-schema#Class</td>
 </tr>
 <tr>
-<td><a href="#prop_specializationOf_rdfsClass">prov:specializationOf <a href="#prop_specializationOf_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small></td>
+<td><a href="#user-content-prop_specializationOf_rdfsClass">prov:specializationOf <a href="#user-content-prop_specializationOf_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small></td>
 <td>No</td>
 <td>The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_label_rdfsClass">rdfs:label <a href="#prop_label_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small></td>
+<td><a href="#user-content-prop_label_rdfsClass">rdfs:label <a href="#user-content-prop_label_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small></td>
 <td>No</td>
 <td>An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_maxCount_rdfsClass">sh:maxCount <a href="#prop_maxCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small></td>
+<td><a href="#user-content-prop_maxCount_rdfsClass">sh:maxCount <a href="#user-content-prop_maxCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small></td>
 <td>No</td>
 <td>Maximum number of instances of this class allowed in a conforming crate.</td>
 <td>Integer</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_minCount_rdfsClass">sh:minCount <a href="#prop_minCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfsClass</small></td>
+<td><a href="#user-content-prop_minCount_rdfsClass">sh:minCount <a href="#user-content-prop_minCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfsClass</small></td>
 <td>No</td>
 <td>Minimum number of instances of this class that MUST appear in a conforming crate.</td>
 <td>Integer</td>
@@ -625,13 +625,13 @@
 <h4>Examples</h4>
 <ul>
 <li>
-<p><a href="#class_ProfileDataset">Example-1: #class_ProfileDataset</a></p>
+<p><a href="#user-content-class_ProfileDataset">Example-1: #class_ProfileDataset</a></p>
 </li>
 <li>
-<p><a href="#class_MetadataDescriptor">Example-1: #class_MetadataDescriptor</a></p>
+<p><a href="#user-content-class_MetadataDescriptor">Example-1: #class_MetadataDescriptor</a></p>
 </li>
 </ul>
-<h3><a id="class_rdfProperty"></a> Class: rdf:Property <small style="color:#aaa;font-weight:normal">#class_rdfProperty</small></h3>
+<h3><a id="class_rdfProperty"></a><a id="user-content-class_rdfProperty"></a> Class: rdf:Property <small style="color:#aaa;font-weight:normal">#class_rdfProperty</small></h3>
 <p>A property definition in a MASP schema. Defines a property, its domain class, range, and cardinality constraints.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -667,49 +667,49 @@
 <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</td>
 </tr>
 <tr>
-<td><a href="#prop_domainIncludes_rdfProperty">domainIncludes <a href="#prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small></td>
+<td><a href="#user-content-prop_domainIncludes_rdfProperty">domainIncludes <a href="#user-content-prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small></td>
 <td>Yes</td>
 <td>The class(es) that this property applies to.</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_label_rdfProperty">rdfs:label <a href="#prop_label_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small></td>
+<td><a href="#user-content-prop_label_rdfProperty">rdfs:label <a href="#user-content-prop_label_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small></td>
 <td>Yes</td>
 <td>A human-readable label for the property, usually matching the property name.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_specializationOf_rdfProperty">prov:specializationOf <a href="#prop_specializationOf_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small></td>
+<td><a href="#user-content-prop_specializationOf_rdfProperty">prov:specializationOf <a href="#user-content-prop_specializationOf_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small></td>
 <td>No</td>
 <td>The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_rangeIncludes_rdfProperty">rangeIncludes <a href="#prop_rangeIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small></td>
+<td><a href="#user-content-prop_rangeIncludes_rdfProperty">rangeIncludes <a href="#user-content-prop_rangeIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small></td>
 <td>No</td>
 <td>The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_maxCount_rdfProperty">sh:maxCount <a href="#prop_maxCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfProperty</small></td>
+<td><a href="#user-content-prop_maxCount_rdfProperty">sh:maxCount <a href="#user-content-prop_maxCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfProperty</small></td>
 <td>No</td>
 <td>Maximum number of times this property MAY appear on entities of the domain class.</td>
 <td>Integer</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_minCount_rdfProperty">sh:minCount <a href="#prop_minCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfProperty</small></td>
+<td><a href="#user-content-prop_minCount_rdfProperty">sh:minCount <a href="#user-content-prop_minCount_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfProperty</small></td>
 <td>No</td>
 <td>Minimum number of times this property MUST appear on entities of the domain class.</td>
 <td>Integer</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_value_rdfProperty">value <a href="#prop_value_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_value_rdfProperty</small></td>
+<td><a href="#user-content-prop_value_rdfProperty">value <a href="#user-content-prop_value_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_value_rdfProperty</small></td>
 <td>No</td>
 <td>A fixed value that this property MUST have on conforming entities.</td>
 <td>Text</td>
@@ -721,16 +721,16 @@
 <h4>Examples</h4>
 <ul>
 <li>
-<p><a href="#prop_name_ProfileDataset">Example-1: #prop_name_ProfileDataset</a></p>
+<p><a href="#user-content-prop_name_ProfileDataset">Example-1: #prop_name_ProfileDataset</a></p>
 </li>
 <li>
-<p><a href="#prop_isProfileOf_ProfileDataset">Example-1: #prop_isProfileOf_ProfileDataset</a></p>
+<p><a href="#user-content-prop_isProfileOf_ProfileDataset">Example-1: #prop_isProfileOf_ProfileDataset</a></p>
 </li>
 <li>
-<p><a href="#prop_id_MetadataDescriptor">Example-1: #prop_id_MetadataDescriptor</a></p>
+<p><a href="#user-content-prop_id_MetadataDescriptor">Example-1: #prop_id_MetadataDescriptor</a></p>
 </li>
 </ul>
-<h3><a id="class_ItemList"></a> Class: ItemList <small style="color:#aaa;font-weight:normal">#class_ItemList</small></h3>
+<h3><a id="class_ItemList"></a><a id="user-content-class_ItemList"></a> Class: ItemList <small style="color:#aaa;font-weight:normal">#class_ItemList</small></h3>
 <p>A list of allowed values for a property. When a property's rangeIncludes is an ItemList, values MUST be drawn from the list.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -766,7 +766,7 @@
 <td>http://schema.org/ItemList</td>
 </tr>
 <tr>
-<td><a href="#prop_itemListElement_ItemList">itemListElement <a href="#prop_itemListElement_ItemList" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small></td>
+<td><a href="#user-content-prop_itemListElement_ItemList">itemListElement <a href="#user-content-prop_itemListElement_ItemList" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small></td>
 <td>Yes</td>
 <td>The items in this list. Each item is an entity whose @id is an allowed value.</td>
 <td></td>
@@ -774,7 +774,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_DefinedTermSet"></a> Class: DefinedTermSet <small style="color:#aaa;font-weight:normal">#class_DefinedTermSet</small></h3>
+<h3><a id="class_DefinedTermSet"></a><a id="user-content-class_DefinedTermSet"></a> Class: DefinedTermSet <small style="color:#aaa;font-weight:normal">#class_DefinedTermSet</small></h3>
 <p>A set of defined vocabulary terms.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -810,7 +810,7 @@
 <td>http://schema.org/DefinedTermSet</td>
 </tr>
 <tr>
-<td><a href="#prop_name_DefinedTermSet">name <a href="#prop_name_DefinedTermSet" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small></td>
+<td><a href="#user-content-prop_name_DefinedTermSet">name <a href="#user-content-prop_name_DefinedTermSet" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small></td>
 <td>Yes</td>
 <td>The name of this term set.</td>
 <td>Text</td>
@@ -818,7 +818,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_DefinedTerm"></a> Class: DefinedTerm <small style="color:#aaa;font-weight:normal">#class_DefinedTerm</small></h3>
+<h3><a id="class_DefinedTerm"></a><a id="user-content-class_DefinedTerm"></a> Class: DefinedTerm <small style="color:#aaa;font-weight:normal">#class_DefinedTerm</small></h3>
 <p>A single vocabulary term within a DefinedTermSet.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -854,14 +854,14 @@
 <td>http://schema.org/DefinedTerm</td>
 </tr>
 <tr>
-<td><a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></td>
+<td><a href="#user-content-prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#user-content-prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></td>
 <td>Yes</td>
 <td>The DefinedTermSet this term belongs to.</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+<td><a href="#user-content-class_DefinedTermSet">DefinedTermSet</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_name_DefinedTerm">name <a href="#prop_name_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small></td>
+<td><a href="#user-content-prop_name_DefinedTerm">name <a href="#user-content-prop_name_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small></td>
 <td>Yes</td>
 <td>The name of this term.</td>
 <td>Text</td>
@@ -869,7 +869,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small></h3>
+<h3><a id="class_Person"></a><a id="user-content-class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small></h3>
 <p>A person, used as an author or contributor.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -913,7 +913,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small></h3>
+<h3><a id="class_Organization"></a><a id="user-content-class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small></h3>
 <p>An organization, used as an author, publisher, or contributor.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -957,7 +957,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_File"></a> Class: File <small style="color:#aaa;font-weight:normal">#class_File</small></h3>
+<h3><a id="class_File"></a><a id="user-content-class_File"></a> Class: File <small style="color:#aaa;font-weight:normal">#class_File</small></h3>
 <p>A file that is part of a profile crate.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1001,7 +1001,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="class_CreativeWork"></a> Class: CreativeWork <small style="color:#aaa;font-weight:normal">#class_CreativeWork</small></h3>
+<h3><a id="class_CreativeWork"></a><a id="user-content-class_CreativeWork"></a> Class: CreativeWork <small style="color:#aaa;font-weight:normal">#class_CreativeWork</small></h3>
 <p>A creative work, used for licenses and specification references.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1048,9 +1048,9 @@
 <h3>Examples of Type</h3>
 <h4>Examples</h4>
 <ul>
-<li><a href="#ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
+<li><a href="#user-content-ro-crate-metadata.json">Example-1: ro-crate-metadata.json</a></li>
 </ul>
-<h3><a id="class_ResourceRole"></a> Class: ResourceRole <small style="color:#aaa;font-weight:normal">#class_ResourceRole</small></h3>
+<h3><a id="class_ResourceRole"></a><a id="user-content-class_ResourceRole"></a> Class: ResourceRole <small style="color:#aaa;font-weight:normal">#class_ResourceRole</small></h3>
 <p>A role URI from the W3C Profiles Vocabulary (http://www.w3.org/ns/dx/prof/role/).</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1095,7 +1095,7 @@
 </tbody>
 </table>
 <h2>All Properties</h2>
-<h3><a id="prop_id_MetadataDescriptor"></a> Property: @id <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small></h3>
+<h3><a id="prop_id_MetadataDescriptor"></a><a id="user-content-prop_id_MetadataDescriptor"></a> Property: @id <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1108,11 +1108,11 @@
 <tr>
 <td></td>
 <td>Text</td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#user-content-class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_about_MetadataDescriptor"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small></h3>
+<h3><a id="prop_about_MetadataDescriptor"></a><a id="user-content-prop_about_MetadataDescriptor"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1124,12 +1124,12 @@
 <tbody>
 <tr>
 <td>MUST reference the root profile Dataset entity.</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_author_ProfileDataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small></h3>
+<h3><a id="prop_author_ProfileDataset"></a><a id="user-content-prop_author_ProfileDataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1141,12 +1141,12 @@
 <tbody>
 <tr>
 <td>The person or organization responsible for creating this profile.</td>
-<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_Person">Person</a>, <a href="#user-content-class_Organization">Organization</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_conformsTo_MetadataDescriptor"></a> Property: conformsTo <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small></h3>
+<h3><a id="prop_conformsTo_MetadataDescriptor"></a><a id="user-content-prop_conformsTo_MetadataDescriptor"></a> Property: conformsTo <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1158,12 +1158,12 @@
 <tbody>
 <tr>
 <td>MUST reference the RO-Crate specification the crate conforms to.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a></td>
+<td><a href="#user-content-class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_description_ProfileDataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small></h3>
+<h3><a id="prop_description_ProfileDataset"></a><a id="user-content-prop_description_ProfileDataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1176,11 +1176,11 @@
 <tr>
 <td>A description of the profile and its intended use.</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_domainIncludes_rdfProperty"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small></h3>
+<h3><a id="prop_domainIncludes_rdfProperty"></a><a id="user-content-prop_domainIncludes_rdfProperty"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1192,12 +1192,12 @@
 <tbody>
 <tr>
 <td>The class(es) that this property applies to.</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_hasArtifact_ResourceDescriptor"></a> Property: hasArtifact <a href="http://www.w3.org/ns/dx/prof/hasArtifact" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small></h3>
+<h3><a id="prop_hasArtifact_ResourceDescriptor"></a><a id="user-content-prop_hasArtifact_ResourceDescriptor"></a> Property: hasArtifact <a href="http://www.w3.org/ns/dx/prof/hasArtifact" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1210,11 +1210,11 @@
 <tr>
 <td>The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#user-content-class_ResourceDescriptor">ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_hasPart_ProfileDataset"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small></h3>
+<h3><a id="prop_hasPart_ProfileDataset"></a><a id="user-content-prop_hasPart_ProfileDataset"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1226,12 +1226,12 @@
 <tbody>
 <tr>
 <td>Files that are part of this profile crate.</td>
-<td><a href="#class_File">File</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_File">File</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_hasPart_ResourceDescriptor"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small></h3>
+<h3><a id="prop_hasPart_ResourceDescriptor"></a><a id="user-content-prop_hasPart_ResourceDescriptor"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1244,11 +1244,11 @@
 <tr>
 <td>For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#user-content-class_ResourceDescriptor">ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_hasResource_ProfileDataset"></a> Property: hasResource <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small></h3>
+<h3><a id="prop_hasResource_ProfileDataset"></a><a id="user-content-prop_hasResource_ProfileDataset"></a> Property: hasResource <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1260,12 +1260,12 @@
 <tbody>
 <tr>
 <td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_hasRole_ResourceDescriptor"></a> Property: hasRole <a href="http://www.w3.org/ns/dx/prof/hasRole" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small></h3>
+<h3><a id="prop_hasRole_ResourceDescriptor"></a><a id="user-content-prop_hasRole_ResourceDescriptor"></a> Property: hasRole <a href="http://www.w3.org/ns/dx/prof/hasRole" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small></h3>
 <table>
 <thead>
 <tr>
@@ -1278,11 +1278,11 @@
 <tr>
 <td>The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#user-content-class_ResourceDescriptor">ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></h3>
+<h3><a id="prop_inDefinedTermSet_DefinedTerm"></a><a id="user-content-prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></h3>
 <table>
 <thead>
 <tr>
@@ -1294,12 +1294,12 @@
 <tbody>
 <tr>
 <td>The DefinedTermSet this term belongs to.</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
-<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+<td><a href="#user-content-class_DefinedTermSet">DefinedTermSet</a></td>
+<td><a href="#user-content-class_DefinedTerm">DefinedTerm</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_isProfileOf_ProfileDataset"></a> Property: isProfileOf <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small></h3>
+<h3><a id="prop_isProfileOf_ProfileDataset"></a><a id="user-content-prop_isProfileOf_ProfileDataset"></a> Property: isProfileOf <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1311,12 +1311,12 @@
 <tbody>
 <tr>
 <td>MUST reference the base RO-Crate specification this profile extends.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_itemListElement_ItemList"></a> Property: itemListElement <a href="http://schema.org/itemListElement" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small></h3>
+<h3><a id="prop_itemListElement_ItemList"></a><a id="user-content-prop_itemListElement_ItemList"></a> Property: itemListElement <a href="http://schema.org/itemListElement" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small></h3>
 <table>
 <thead>
 <tr>
@@ -1329,11 +1329,11 @@
 <tr>
 <td>The items in this list. Each item is an entity whose @id is an allowed value.</td>
 <td></td>
-<td><a href="#class_ItemList">ItemList</a></td>
+<td><a href="#user-content-class_ItemList">ItemList</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_license_ProfileDataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small></h3>
+<h3><a id="prop_license_ProfileDataset"></a><a id="user-content-prop_license_ProfileDataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1345,12 +1345,12 @@
 <tbody>
 <tr>
 <td>License for this profile.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_CreativeWork">CreativeWork</a>, Text</td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_name_ProfileDataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small></h3>
+<h3><a id="prop_name_ProfileDataset"></a><a id="user-content-prop_name_ProfileDataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1363,11 +1363,11 @@
 <tr>
 <td>A human-readable name for the profile.</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_name_DefinedTermSet"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small></h3>
+<h3><a id="prop_name_DefinedTermSet"></a><a id="user-content-prop_name_DefinedTermSet"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small></h3>
 <table>
 <thead>
 <tr>
@@ -1380,11 +1380,11 @@
 <tr>
 <td>The name of this term set.</td>
 <td>Text</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+<td><a href="#user-content-class_DefinedTermSet">DefinedTermSet</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_name_DefinedTerm"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small></h3>
+<h3><a id="prop_name_DefinedTerm"></a><a id="user-content-prop_name_DefinedTerm"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small></h3>
 <table>
 <thead>
 <tr>
@@ -1397,11 +1397,11 @@
 <tr>
 <td>The name of this term.</td>
 <td>Text</td>
-<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+<td><a href="#user-content-class_DefinedTerm">DefinedTerm</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_specializationOf_rdfsClass"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small></h3>
+<h3><a id="prop_specializationOf_rdfsClass"></a><a id="user-content-prop_specializationOf_rdfsClass"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small></h3>
 <table>
 <thead>
 <tr>
@@ -1414,11 +1414,11 @@
 <tr>
 <td>The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs.</td>
 <td></td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_specializationOf_rdfProperty"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small></h3>
+<h3><a id="prop_specializationOf_rdfProperty"></a><a id="user-content-prop_specializationOf_rdfProperty"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1431,11 +1431,11 @@
 <tr>
 <td>The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted.</td>
 <td></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_rangeIncludes_rdfProperty"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small></h3>
+<h3><a id="prop_rangeIncludes_rdfProperty"></a><a id="user-content-prop_rangeIncludes_rdfProperty"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1448,11 +1448,11 @@
 <tr>
 <td>The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate.</td>
 <td></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_label_rdfsClass"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small></h3>
+<h3><a id="prop_label_rdfsClass"></a><a id="user-content-prop_label_rdfsClass"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small></h3>
 <table>
 <thead>
 <tr>
@@ -1465,11 +1465,11 @@
 <tr>
 <td>An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label.</td>
 <td>Text</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_label_rdfProperty"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small></h3>
+<h3><a id="prop_label_rdfProperty"></a><a id="user-content-prop_label_rdfProperty"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1482,11 +1482,11 @@
 <tr>
 <td>A human-readable label for the property, usually matching the property name.</td>
 <td>Text</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_maxCount_rdfsClass"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small></h3>
+<h3><a id="prop_maxCount_rdfsClass"></a><a id="user-content-prop_maxCount_rdfsClass"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small></h3>
 <table>
 <thead>
 <tr>
@@ -1499,11 +1499,11 @@
 <tr>
 <td>Maximum number of instances of this class allowed in a conforming crate.</td>
 <td>Integer</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_maxCount_rdfProperty"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfProperty</small></h3>
+<h3><a id="prop_maxCount_rdfProperty"></a><a id="user-content-prop_maxCount_rdfProperty"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1516,11 +1516,11 @@
 <tr>
 <td>Maximum number of times this property MAY appear on entities of the domain class.</td>
 <td>Integer</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_minCount_rdfsClass"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfsClass</small></h3>
+<h3><a id="prop_minCount_rdfsClass"></a><a id="user-content-prop_minCount_rdfsClass"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfsClass</small></h3>
 <table>
 <thead>
 <tr>
@@ -1533,11 +1533,11 @@
 <tr>
 <td>Minimum number of instances of this class that MUST appear in a conforming crate.</td>
 <td>Integer</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#user-content-class_rdfsClass">rdfs:Class</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_minCount_rdfProperty"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfProperty</small></h3>
+<h3><a id="prop_minCount_rdfProperty"></a><a id="user-content-prop_minCount_rdfProperty"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1550,11 +1550,11 @@
 <tr>
 <td>Minimum number of times this property MUST appear on entities of the domain class.</td>
 <td>Integer</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_value_rdfProperty"></a> Property: value <a href="http://schema.org/value" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_value_rdfProperty</small></h3>
+<h3><a id="prop_value_rdfProperty"></a><a id="user-content-prop_value_rdfProperty"></a> Property: value <a href="http://schema.org/value" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_value_rdfProperty</small></h3>
 <table>
 <thead>
 <tr>
@@ -1567,11 +1567,11 @@
 <tr>
 <td>A fixed value that this property MUST have on conforming entities.</td>
 <td>Text</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#user-content-class_rdfProperty">rdf:Property</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_version_ProfileDataset"></a> Property: version <a href="http://schema.org/version" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small></h3>
+<h3><a id="prop_version_ProfileDataset"></a><a id="user-content-prop_version_ProfileDataset"></a> Property: version <a href="http://schema.org/version" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small></h3>
 <table>
 <thead>
 <tr>
@@ -1584,15 +1584,15 @@
 <tr>
 <td>The version of this profile using semantic versioning (MAJOR.MINOR.PATCH).</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#user-content-class_ProfileDataset">Profile Dataset</a></td>
 </tr>
 </tbody>
 </table>
 <h2>Item Lists</h2>
 <h2>Examples</h2>
-<p><a id="hasExampleMASPProfile"></a></p>
+<p><a id="hasExampleMASPProfile"></a><a id="user-content-hasExampleMASPProfile"></a></p>
 <h2>Example-1: Example: A minimal MASP profile crate</h2>
-<h3><a id="MASPProfileExample"></a> Artifact: A minimal MASP profile crate</h3>
+<h3><a id="MASPProfileExample"></a><a id="user-content-MASPProfileExample"></a> Artifact: A minimal MASP profile crate</h3>
 <pre>
  {
   "@id": "#MASPProfileExample",
@@ -1627,7 +1627,7 @@
   ]
 }
 </pre>
-<h4><a id="ro-crate-metadata.json"></a>Example-1: ro-crate-metadata.json</h4>
+<h4><a id="ro-crate-metadata.json"></a><a id="user-content-ro-crate-metadata.json"></a>Example-1: ro-crate-metadata.json</h4>
 <pre>
  {
   "@id": "ro-crate-metadata.json",
@@ -1641,7 +1641,7 @@
   }
 }
 </pre>
-<h4><a id="https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F"></a>Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</h4>
+<h4><a id="https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F"></a><a id="user-content-https%3A%2F%2Flanguage-research-technology.github.io%2Fro-crate-masp%2Fprofiles%2Fro-crate-masp%2Fprofile-crate%2F"></a>Example-1: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</h4>
 <pre>
  {
   "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/",
@@ -1685,7 +1685,7 @@
   ]
 }
 </pre>
-<h4><a id="hasSpecializedSchema"></a>Example-1: #hasSpecializedSchema</h4>
+<h4><a id="hasSpecializedSchema"></a><a id="user-content-hasSpecializedSchema"></a>Example-1: #hasSpecializedSchema</h4>
 <pre>
  {
   "@id": "#hasSpecializedSchema",
@@ -1824,7 +1824,7 @@
   ]
 }
 </pre>
-<h4><a id="class_ProfileDataset"></a>Example-1: #class_ProfileDataset</h4>
+<h4><a id="class_ProfileDataset"></a><a id="user-content-class_ProfileDataset"></a>Example-1: #class_ProfileDataset</h4>
 <pre>
  {
   "@id": "#class_ProfileDataset",
@@ -1843,7 +1843,7 @@
   "sh:maxCount": 1
 }
 </pre>
-<h4><a id="prop_name_ProfileDataset"></a>Example-1: #prop_name_ProfileDataset</h4>
+<h4><a id="prop_name_ProfileDataset"></a><a id="user-content-prop_name_ProfileDataset"></a>Example-1: #prop_name_ProfileDataset</h4>
 <pre>
  {
   "@id": "#prop_name_ProfileDataset",
@@ -1864,7 +1864,7 @@
   "sh:maxCount": 1
 }
 </pre>
-<h4><a id="prop_isProfileOf_ProfileDataset"></a>Example-1: #prop_isProfileOf_ProfileDataset</h4>
+<h4><a id="prop_isProfileOf_ProfileDataset"></a><a id="user-content-prop_isProfileOf_ProfileDataset"></a>Example-1: #prop_isProfileOf_ProfileDataset</h4>
 <pre>
  {
   "@id": "#prop_isProfileOf_ProfileDataset",
@@ -1884,7 +1884,7 @@
   "sh:minCount": 1
 }
 </pre>
-<h4><a id="class_MetadataDescriptor"></a>Example-1: #class_MetadataDescriptor</h4>
+<h4><a id="class_MetadataDescriptor"></a><a id="user-content-class_MetadataDescriptor"></a>Example-1: #class_MetadataDescriptor</h4>
 <pre>
  {
   "@id": "#class_MetadataDescriptor",
@@ -1898,7 +1898,7 @@
   "sh:maxCount": 1
 }
 </pre>
-<h4><a id="prop_id_MetadataDescriptor"></a>Example-1: #prop_id_MetadataDescriptor</h4>
+<h4><a id="prop_id_MetadataDescriptor"></a><a id="user-content-prop_id_MetadataDescriptor"></a>Example-1: #prop_id_MetadataDescriptor</h4>
 <pre>
  {
   "@id": "#prop_id_MetadataDescriptor",
