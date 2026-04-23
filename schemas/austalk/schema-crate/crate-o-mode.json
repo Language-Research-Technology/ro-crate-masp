@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "AusTalk Vocabulary Terms",
+    "description": [
+      "This is a language data ontology based on the AusTalk ontology here: https://github.com/Alveo/bigasc-metadata/edit/master/schema/austalk.owl"
+    ],
+    "version": "0.1",
+    "author": "Unknown",
+    "license": ""
+  },
+  "rootDataset": {
+    "type": [
+      "Dataset"
+    ]
+  },
+  "inputGroups": [],
+  "lookup": {},
+  "enabledClasses": []
+}

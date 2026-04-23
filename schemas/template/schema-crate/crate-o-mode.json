@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "name": "Template RO-Crate Schema",
+    "description": "This is a template for an RO-Crate schema.",
+    "version": "0.1",
+    "author": "University of Queensland",
+    "license": "GPL-3.0"
+  },
+  "rootDataset": {
+    "type": [
+      "Dataset"
+    ]
+  },
+  "inputGroups": [],
+  "lookup": {},
+  "enabledClasses": []
+}

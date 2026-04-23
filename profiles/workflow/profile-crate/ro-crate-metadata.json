@@ -8,7 +8,10 @@
   "@graph": [
     {
       "@id": "https://w3id.org/ro/workflow-crate/",
-      "@type": ["Dataset", "Profile"],
+      "@type": [
+        "Dataset",
+        "Profile"
+      ],
       "name": "Workflow Profile",
       "description": "This is an experimental port of the RO-Crate Workflow Profile to a proposed 'RO-Crate Schema' format.",
       "version": "0.1.0",
@@ -33,6 +36,9 @@
         },
         {
           "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasEditorMode"
         }
       ],
       "hasPart": [
@@ -793,6 +799,30 @@
       "about": {
         "@id": "https://w3id.org/ro/workflow-crate/"
       }
+    },
+    {
+      "@id": "crate-o-mode.json",
+      "@type": "File",
+      "name": "Crate-O Editor Mode File",
+      "encodingFormat": "application/json",
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
+    },
+    {
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://purl.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
+    },
+    {
+      "@id": "https://purl.org/ro/mode",
+      "@type": "DefinedTerm",
+      "name": "Editor Mode",
+      "description": "Role indicating a resource is an editor configuration mode file."
     }
   ]
 }

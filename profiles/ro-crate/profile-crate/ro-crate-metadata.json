@@ -8,7 +8,10 @@
   "@graph": [
     {
       "@id": "./",
-      "@type": ["Dataset", "Profile"],
+      "@type": [
+        "Dataset",
+        "Profile"
+      ],
       "name": "RO-Crate Machine Actionable Profile",
       "description": "This is a mini-profile for RO-Crate itself",
       "version": "0.1.0",
@@ -30,6 +33,9 @@
         },
         {
           "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasEditorMode"
         }
       ],
       "hasPart": [
@@ -89,22 +95,41 @@
         "@id": "./"
       }
     },
-     { 
+    {
       "@id": "#hasSpecializedSchema",
       "@type": "ResourceDescriptor",
       "name": "Specialized Schema Terms",
-      "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/schema" },
-      "hasPart": 
-      [
-        { "@id": "#RO-Crate_Metadata_Descriptor" },
-        { "@id": "#RO-Crate_Metadata_Descriptor.id" },
-        { "@id": "#RO-Crate_Metadata_Descriptor.about" },
-        { "@id": "#Root_Data_Entity" },
-        { "@id": "http://schema.org/name" },
-        { "@id": "#prop_description_Dataset" },
-        { "@id": "#prop_datePublised_Dataset" },
-        { "@id": "#prop_license_Dataset" },
-        { "@id": "#class_CreativeWorkLicense" }
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.id"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.about"
+        },
+        {
+          "@id": "#Root_Data_Entity"
+        },
+        {
+          "@id": "http://schema.org/name"
+        },
+        {
+          "@id": "#prop_description_Dataset"
+        },
+        {
+          "@id": "#prop_datePublised_Dataset"
+        },
+        {
+          "@id": "#prop_license_Dataset"
+        },
+        {
+          "@id": "#class_CreativeWorkLicense"
+        }
       ]
     },
     {
@@ -123,18 +148,18 @@
       "@type": "Organization",
       "name": "University of Queensland"
     },
-   
     {
       "@id": "#RO-Crate_Metadata_Descriptor",
       "@type": "rdfs:Class",
       "name": "RO-Crate Metadadata Descriptor",
-      "prov:specializationOf": { "@id": "http://schema.org/CreativeWork" },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/CreativeWork"
+      },
       "Description": "An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.",
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
-
-        {
+    {
       "@id": "#RO-Crate_Metadata_Descriptor.id",
       "@type": "rdf:Property",
       "value": "ro-crate-metadata.json",
@@ -163,11 +188,12 @@
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
-  
     {
       "@id": "#Root_Data_Entity",
       "@type": "rdfs:Class",
-      "prov:specializationOf": { "@id": "http://schema.org/Dataset" },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      },
       "description": "The Root Data Entity for an RO-Crate. This is the main entity of the RO-Crate and is the one that is referenced by the RO-Crate Metadata Descriptor.",
       "name": "Root Data Entity",
       "sh:minCount": 0,
@@ -190,7 +216,6 @@
       },
       "sh:minCount": 1
     },
-   
     {
       "@id": "#prop_description_Dataset",
       "@type": "rdf:Property",
@@ -227,7 +252,6 @@
       ],
       "sh:minCount": 1
     },
-
     {
       "@id": "#prop_license_Dataset",
       "@type": "rdf:Property",
@@ -254,11 +278,37 @@
       "sh:minCount": 1
     },
     {
-          "@id": "#class_CreativeWorkLicense",
-          "@type": "rdfs:Class",
-          "prov:specializationOf": { "@id": "http://schema.org/CreativeWork" },
-          "name": "License (Creative Work)",
-          "description": "A license included as a Creative Work - with at least a name and description"
+      "@id": "#class_CreativeWorkLicense",
+      "@type": "rdfs:Class",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/CreativeWork"
+      },
+      "name": "License (Creative Work)",
+      "description": "A license included as a Creative Work - with at least a name and description"
+    },
+    {
+      "@id": "crate-o-mode.json",
+      "@type": "File",
+      "name": "Crate-O Editor Mode File",
+      "encodingFormat": "application/json",
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
+    },
+    {
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://purl.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
+    },
+    {
+      "@id": "https://purl.org/ro/mode",
+      "@type": "DefinedTerm",
+      "name": "Editor Mode",
+      "description": "Role indicating a resource is an editor configuration mode file."
     }
   ]
 }
