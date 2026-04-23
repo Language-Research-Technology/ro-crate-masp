@@ -72,6 +72,97 @@ try {
     rootDataEntity: ""  
   };
 
+  function setRuleDirect(key, value) {
+    if (key === undefined || key === null) return;
+    const k = String(key).trim();
+    if (!k) return;
+    rules[k] = value;
+  }
+
+  // Register aliases so templates can use either IDs/fragments or friendly names
+  // (for example ${rules.RepositoryCollection} and ${rules.#class_RepositoryCollection}).
+  function setRuleAliases(value, aliases) {
+    const candidateKeys = new Set();
+
+    for (const alias of aliases) {
+      if (alias === undefined || alias === null) continue;
+      const raw = String(alias).trim();
+      if (!raw) continue;
+      candidateKeys.add(raw);
+
+      if (raw.startsWith("#")) {
+        candidateKeys.add(raw.slice(1));
+      } else {
+        candidateKeys.add(`#${raw}`);
+      }
+
+      const anchor = getAnchorId(raw);
+      if (anchor) {
+        candidateKeys.add(anchor);
+        candidateKeys.add(`#${anchor}`);
+      }
+
+      if (raw.startsWith("Class: ")) {
+        candidateKeys.add(raw.slice("Class: ".length).trim());
+      }
+      if (raw.startsWith("Property: ")) {
+        candidateKeys.add(raw.slice("Property: ".length).trim());
+      }
+      if (raw.startsWith("Defined Term Set: ")) {
+        candidateKeys.add(raw.slice("Defined Term Set: ".length).trim());
+      }
+      if (raw.startsWith("Item List: ")) {
+        candidateKeys.add(raw.slice("Item List: ".length).trim());
+      }
+    }
+
+    for (const key of candidateKeys) {
+      if (!(key in rules)) {
+        rules[key] = value;
+      }
+    }
+  }
+
+  function resolveRuleValue(rulesMap, key) {
+    const lookupKey = String(key || "").trim();
+    if (!lookupKey) return "";
+
+    const candidates = [];
+    const seen = new Set();
+    const push = (k) => {
+      if (!k || seen.has(k)) return;
+      seen.add(k);
+      candidates.push(k);
+    };
+
+    push(lookupKey);
+    if (lookupKey.startsWith("#")) {
+      push(lookupKey.slice(1));
+    } else {
+      push(`#${lookupKey}`);
+    }
+
+    const anchor = getAnchorId(lookupKey);
+    if (anchor) {
+      push(anchor);
+      push(`#${anchor}`);
+    }
+
+    for (const candidate of candidates) {
+      if (Object.prototype.hasOwnProperty.call(rulesMap, candidate)) {
+        return rulesMap[candidate];
+      }
+    }
+
+    return "";
+  }
+
+  function renderTemplateWithRules(templateSource, rulesMap) {
+    return templateSource.replace(/\$\{rules\.([^}]+)\}/g, (match, key) =>
+      resolveRuleValue(rulesMap, key)
+    );
+  }
+
   // Index entities by @type using native RO-Crate methods
   const entitiesByType = {};
   for (let entity of profileCrate.entities()) {
@@ -237,7 +328,14 @@ try {
     termSetSummary += `\n`;
 
     // Add DefinedTermSet to rules structure
-    rules[termSetId] = termSetSummary;
+    setRuleDirect(termSetId, termSetSummary);
+    setRuleAliases(termSetSummary, [
+      termSetId,
+      termSet["name"],
+      termSet["rdfs:label"],
+      termSetName,
+      termSetAnchorId,
+    ]);
     rules.definedTermSets[termSetId] = termSetSummary;
     allDefinedTermSets += termSetSummary;
   });
@@ -294,7 +392,14 @@ try {
     }
 
     // Add DefinedTermSet to rules structure
-    rules[listId] = listSummary;
+    setRuleDirect(listId, listSummary);
+    setRuleAliases(listSummary, [
+      listId,
+      list["name"],
+      list["rdfs:label"],
+      listName,
+      listAnchorId,
+    ]);
     rules.itemLists[listId] = listSummary;
     allItemLists += listSummary;
   });
@@ -310,9 +415,8 @@ try {
   entitiesByType["rdfs:Class"].forEach((classRule) => {
     const classId = classRule["@id"];
     const classURI = classId;
-    const className = `Class: ${
-      classRule["name"] || classRule["rdfs:label"] || classId
-    }`;
+    const classLabel = classRule["name"] || classRule["rdfs:label"] || classId;
+    const className = `Class: ${classLabel}`;
     const classAnchorId = getAnchorId(classId);
 
     const classDesc =
@@ -443,7 +547,8 @@ try {
     }
 
     // Add class to rules structure
-    rules[className] = classSummary;
+    setRuleDirect(className, classSummary);
+    setRuleAliases(classSummary, [className, classLabel, classId, classAnchorId]);
     allClasses += classSummary;
   });
 
@@ -508,14 +613,19 @@ try {
     const propHeadingId = p["@id"].startsWith("#")
       ? ` <small style="color:#aaa;font-weight:normal">${clean(p["@id"])}</small>`
       : "";
-    propsSummary += `### <a id="${anchorGithubId}"></a> ${clean(
+    let propSummary = `### <a id="${anchorGithubId}"></a> ${clean(
       propName
     )}${clean(link)}${propHeadingId}\n\n`;
-    propsSummary += `| Description | Range | Occurs in Domain(s) |\n`;
-    propsSummary += `| ----------- | ----------- | ----------- |\n`;
-    propsSummary += `| ${clean(propDesc)} | ${clean(
+    propSummary += `| Description | Range | Occurs in Domain(s) |\n`;
+    propSummary += `| ----------- | ----------- | ----------- |\n`;
+    propSummary += `| ${clean(propDesc)} | ${clean(
       rangeLinks
     )} | ${propDomains} |\n`;
+
+    const propLabel = p["name"] || p["rdfs:label"] || p["@id"];
+    setRuleDirect(p["@id"], propSummary);
+    setRuleAliases(propSummary, [propName, propLabel, anchorGithubId]);
+    propsSummary += propSummary;
   }
   rules.all += propsSummary;
 
@@ -566,23 +676,7 @@ try {
   const template = fs.readFileSync(templatePath, "utf8");
 
   // Simple template engine - add support for including definedTermSets in the template
-  const output = template.replace(/\${rules\.([^}]+)}/g, (match, key) => {
-    // If the key starts with '#', look it up directly
-    if (key.startsWith("#")) {
-      return rules[key] || "";
-    }
-    // Special case for definedTermSets
-    if (key === "allDefinedTermSets") {
-      return rules.allDefinedTermSets || "";
-    }
-    // Special case for itemLists
-    if (key === "allItemLists") {
-      return rules.allItemLists || "";
-    }
-
-    // Otherwise, return the property from rules
-    return rules[key] || "";
-  });
+  const output = renderTemplateWithRules(template, rules);
 
   // Ensure output directory exists
   const outputDir = path.dirname(outputPath);
@@ -940,10 +1034,7 @@ ${propItems}    </ul>
     // but with rules.all replaced by the interactive panels. This preserves any content
     // the template author placed between or after other ${rules.*} placeholders.
     const indexRules = Object.assign({}, rules, { all: entityPanelsHtml });
-    const indexTemplate = template.replace(/\$\{rules\.([^}]+)\}/g, (match, key) => {
-      if (key.startsWith("#")) return indexRules[key] || "";
-      return indexRules[key] || "";
-    });
+    const indexTemplate = renderTemplateWithRules(template, indexRules);
     const indexBodyHtml = md.render(indexTemplate);
 
     const indexHtml = `<!DOCTYPE html>
@@ -1043,10 +1134,7 @@ ${spPropItems}    </ul>
 
     // Render through the same substitution engine with rules.all prepended by the panels
     const spRules = Object.assign({}, rules, { all: spPanels + rules.all });
-    const spOutput = template.replace(/\$\{rules\.([^}]+)\}/g, (match, key) => {
-      if (key.startsWith("#")) return spRules[key] || "";
-      return spRules[key] || "";
-    });
+    const spOutput = renderTemplateWithRules(template, spRules);
 
     const htmlBodyRaw = md.render(spOutput);
     // Convert markdown-it's <pre><code class="language-mermaid">...</code></pre>
