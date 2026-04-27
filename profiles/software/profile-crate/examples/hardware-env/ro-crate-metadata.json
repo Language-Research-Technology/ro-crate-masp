@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.1/context",
+    {
+      "@vocab": "http://schema.org/"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": [
+        "Dataset",
+        "SoftwareSourceCode",
+        "SoftwareApplication"
+      ],
+      "conformsTo": {
+        "@id": "https://purl.archive.org/language-data-commons/profile#Software"
+      },
+      "hasPart": {
+        "@id": "resources.yml"
+      },
+      "name": "Example crate with a hardware environment",
+      "description": "Illustrates how to link a software application to the virtualised environment used to execute it",
+      "datePublished": "2023-11-28"
+    },
+    {
+      "@id": "resources.yml",
+      "@type": "File",
+      "name": "Example hardware resources specification file",
+      "description": "This file describes the attributes of a virtual machine such as how many CPUs it has and how much RAM. The values in file should follow the format used by Binder to allocate resources in Kubernetes."
+    },
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      }
+    }
+  ]
+}

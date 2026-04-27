@@ -161,9 +161,12 @@ class ModeConverter {
 
     const metadata = this.modeData.metadata || {};
 
+    this.crate.rootDataset["@type"] = ["Dataset", "http://www.w3.org/ns/dx/prof/Profile"];
     this.crate.rootDataset.name = `${metadata.name || "Converted Mode"} Schema`;
     this.crate.rootDataset.description =
       `Schema derived from ${metadata.name || "mode file"}: ${metadata.description || ""}`;
+    this.crate.rootDataset.version = `${metadata.version || "0.1"}`;
+    this.crate.rootDataset.isProfileOf = [{ "@id": "https://w3id.org/ro/crate/1.2" }];
 
     if (metadata.author) {
       this.crate.rootDataset.author = [{ "@id": "#author" }];
@@ -184,6 +187,12 @@ class ModeConverter {
     this.crate.rootDataset.conformsTo = [{
       "@id": "https://language-research-technology.github.io/ro-crate-masp/"
     }];
+
+    // Preserve mode UI grouping metadata if present
+    if (this.modeData.propertyGroups) {
+      this.crate.rootDataset.propertyGroups = this.modeData.propertyGroups;
+      console.log("Preserved top-level propertyGroups from mode file");
+    }
     console.log("Added conformsTo reference to MASP profile");
 
     // Add RO-Crate Metadata Descriptor early so it appears at top of @graph
@@ -191,9 +200,97 @@ class ModeConverter {
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "identifier": "ro-crate-metadata.json",
-      "about": { "@id": "./" }
+      "about": { "@id": "./" },
+      "conformsTo": { "@id": "https://w3id.org/ro/crate/1.2" }
     });
     console.log("Added RO-Crate Metadata Descriptor at top level");
+
+    this.crate.addEntity({
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "encodingFormat": "text/markdown",
+      "about": { "@id": "./" },
+      "isPartOf": { "@id": "./" }
+    });
+
+    this.crate.addEntity({
+      "@id": "index.html",
+      "@type": "File",
+      "name": `${metadata.name || "Converted Mode"} profile description`,
+      "encodingFormat": "text/html",
+      "about": { "@id": "./" },
+      "isPartOf": { "@id": "./" }
+    });
+
+    this.crate.addEntity({
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/specification" },
+      "hasArtifact": { "@id": "index.html" }
+    });
+
+    this.crate.addEntity({
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/guidance" },
+      "hasArtifact": { "@id": "profile-documentation.md" }
+    });
+
+    this.crate.addEntity({
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/schema" },
+      "hasPart": []
+    });
+
+    this.crate.rootDataset.hasResource = [
+      { "@id": "#hasSpecification" },
+      { "@id": "#hasGuidance" },
+      { "@id": "#hasSpecializedSchema" }
+    ];
+
+    this.crate.rootDataset.hasPart = [
+      { "@id": "ro-crate-metadata.json" },
+      { "@id": "profile-documentation.md" },
+      { "@id": "index.html" },
+      { "@id": "#hasSpecification" },
+      { "@id": "#hasGuidance" },
+      { "@id": "#hasSpecializedSchema" }
+    ];
+  }
+
+  /**
+   * Populate the schema ResourceDescriptor with generated rule entity IDs
+   */
+  updateSchemaDescriptorParts() {
+    const schemaDescriptor = this.crate.getItem("#hasSpecializedSchema");
+    if (!schemaDescriptor) {
+      return;
+    }
+
+    const ruleTypeSet = new Set([
+      "rdfs:Class",
+      "rdf:Property",
+      "ItemList",
+      "DefinedTermSet",
+      "DefinedTerm"
+    ]);
+
+    const parts = [];
+    for (const entity of this.crate.entities()) {
+      const types = Array.isArray(entity["@type"]) ? entity["@type"] : [entity["@type"]];
+      if (types.some(t => ruleTypeSet.has(t))) {
+        parts.push({ "@id": entity["@id"] });
+      }
+    }
+
+    schemaDescriptor.hasPart = parts;
+    this.crate.addEntity(schemaDescriptor);
+    console.log(`Linked ${parts.length} schema entities in #hasSpecializedSchema`);
   }
 
   /**
@@ -281,6 +378,14 @@ class ModeConverter {
 
     if (inputData.help) {
       propertyEntity["rdfs:comment"] = inputData.help;
+    }
+
+    // Preserve UI grouping hints where present in mode files
+    if (inputData.propertyGroup) {
+      propertyEntity.propertyGroup = inputData.propertyGroup;
+    }
+    if (inputData.propertyGroups) {
+      propertyEntity.propertyGroups = inputData.propertyGroups;
     }
 
     if (inputData.values && inputData.values.length > 0) {
@@ -663,6 +768,8 @@ class ModeConverter {
         console.log(`Processing ${Object.keys(this.modeData.lookups).length} lookup definitions`);
         this.processLookups();
       }
+
+      this.updateSchemaDescriptorParts();
 
       const outputPath = path.join(this.outputDir, "ro-crate-metadata.json");
       fs.ensureDirSync(this.outputDir);
