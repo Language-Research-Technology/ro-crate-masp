@@ -1,0 +1,194 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.1/context",
+    {
+      "@vocab": "http://schema.org/"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": [
+        "Dataset",
+        "SoftwareSourceCode",
+        "SoftwareApplication"
+      ],
+      "conformsTo": {
+        "@id": "https://purl.archive.org/language-data-commons/profile#Software"
+      },
+      "name": "Liskov_example",
+      "description": "Liskov Substitution Principle example. Demonstrates an issue with inherited functions as per https://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf",
+      "datePublished": "2020-10-12",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0.html"
+      },
+      "hasPart": [
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "resources.yml"
+        },
+        {
+          "@id": "Liskov_substitution_demo.ipynb"
+        },
+        {
+          "@id": "environment.yml"
+        },
+        {
+          "@id": "CITATION.cff"
+        },
+        {
+          "@id": "liskov_conformance/__main__.py"
+        },
+        {
+          "@id": "liskov_conformance/polygon.py"
+        },
+        {
+          "@id": "liskov_conformance/rectangle.py"
+        },
+        {
+          "@id": "liskov_conformance/square.py"
+        },
+        {
+          "@id": "liskov_conformance/__init__.py"
+        },
+        {
+          "@id": "liskov_badness/__main__.py"
+        },
+        {
+          "@id": "liskov_badness/rectangle.py"
+        },
+        {
+          "@id": "liskov_badness/square.py"
+        },
+        {
+          "@id": "liskov_badness/__init__.py"
+        }
+      ],
+      "usageInfo": "README.md",
+      "mainEntity": {
+        "@id": "Liskov_substitution_demo.ipynb"
+      },
+      "creator": {
+        "@id": "https://orcid.org/0000-0001-8937-8904"
+      },
+      "funder": {
+        "@id": "https://ror.org/03j2gem75"
+      },
+      "codeRepository": "https://github.com/alex-ip/Liskov_example",
+      "identifier": "https://github.com/alex-ip/Liskov_example",
+      "releaseNotes": {
+        "@id": "README.md"
+      },
+      "runtime": "Python 3.X",
+      "softwareVersion": "0.0.1",
+      "programmingLanguage": {
+        "@id": "https://www.python.org/"
+      },
+      "downloadUrl": "https://github.com/alex-ip/Liskov_example/archive/refs/heads/main.zip",
+      "softwareHelp": {
+        "@id": "README.md"
+      },
+      "availableOnDevice": {
+        "@id": "resources.yml"
+      },
+      "softwareRequirements": {
+        "@id": "environment.yml"
+      }
+    },
+    {
+      "@id": "https://spdx.org/licenses/Apache-2.0.html",
+      "@type": "CreativeWork",
+      "name": "Apache 2.0 License",
+      "datePublished": "January 2004"
+    },
+    {
+      "@id": "README.md",
+      "@type": "File"
+    },
+    {
+      "@id": "resources.yml",
+      "@type": "File",
+      "description": "Hardware requirements for Jupyter notebook"
+    },
+    {
+      "@id": "Liskov_substitution_demo.ipynb",
+      "@type": "File",
+      "description": "A Jupyter notebook demonstrating the Liskov substitution principle"
+    },
+    {
+      "@id": "environment.yml",
+      "@type": "File",
+      "description": "Software dependencies for conda Python environment"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": "File",
+      "description": "Citation details"
+    },
+    {
+      "@id": "liskov_conformance/__main__.py",
+      "@type": "File",
+      "description": "Main routines to allow command line execution of liskov_conformance examples"
+    },
+    {
+      "@id": "liskov_conformance/polygon.py",
+      "@type": "File"
+    },
+    {
+      "@id": "liskov_conformance/rectangle.py",
+      "@type": "File"
+    },
+    {
+      "@id": "liskov_conformance/square.py",
+      "@type": "File"
+    },
+    {
+      "@id": "liskov_conformance/__init__.py",
+      "@type": "File",
+      "description": "Class implementation for a framework which conforms to the Liskov substitution principle"
+    },
+    {
+      "@id": "liskov_badness/__main__.py",
+      "@type": "File",
+      "description": "Main routines to allow command line execution of liskov_badness examples"
+    },
+    {
+      "@id": "liskov_badness/rectangle.py",
+      "@type": "File"
+    },
+    {
+      "@id": "liskov_badness/square.py",
+      "@type": "File"
+    },
+    {
+      "@id": "liskov_badness/__init__.py",
+      "@type": "File",
+      "description": "Class implementation for a framework which violates the Liskov substitution principle"
+    },
+    {
+      "@id": "https://orcid.org/0000-0001-8937-8904",
+      "@type": "Person",
+      "name": "Alex Ip"
+    },
+    {
+      "@id": "https://ror.org/03j2gem75",
+      "@type": "Organization",
+      "name": "AARNet Pty Ltd"
+    },
+    {
+      "@id": "https://www.python.org/",
+      "@type": "ComputerLanguage",
+      "name": "Python 3.X"
+    },
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      }
+    }
+  ]
+}

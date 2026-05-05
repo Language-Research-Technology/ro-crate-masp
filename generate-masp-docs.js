@@ -53,6 +53,35 @@ function getAnchorId(id) {
   return encodeURIComponent(id);
 }
 
+function extractLabelFromUri(uri) {
+  if (!uri) return 'Text';
+  // Extract just the label part after # or /
+  return uri.split(/[/#]/).pop() || uri;
+}
+
+function isValidUri(str) {
+  // Check if string is a valid HTTP/HTTPS URI or fragment ID
+  return str && (str.startsWith('#') || str.match(/^https?:\/\//) || str.match(/^[a-z]+:\/\//));
+}
+
+function makeTypeLink(typeId, isInternal = false) {
+  if (!typeId) return 'Text';
+  const label = extractLabelFromUri(typeId);
+  
+  // For non-URI types (like "Text", "Date", "URL"), just return the label without a link
+  if (!isValidUri(typeId)) {
+    return label;
+  }
+  
+  if (isInternal || typeId.startsWith('#')) {
+    // Internal link to anchor on this page
+    return `[${label}](#${getAnchorId(typeId)})`;
+  } else {
+    // External link (full HTTP/HTTPS URI)
+    return `[${label}](${typeId})`;
+  }
+}
+
 try {
   const profileData = fs.readFileSync(profilePath, "utf8");
   const profileJson = JSON.parse(profileData);
@@ -410,6 +439,15 @@ try {
   // Generate class documentation
   let allClasses =
     "## Types of entities (specializations of Classes) and expected Properties\n\n";
+  let rootDataEntitySummary = "";
+  let rootDataEntityId = "";
+
+  const explicitRootEntity = profileCrate.getEntity("#Root_Data_Entity");
+  if (explicitRootEntity) {
+    rootDataEntityId = "#Root_Data_Entity";
+  } else if (rootDataEntityClassRule && rootDataEntityClassRule.id) {
+    rootDataEntityId = rootDataEntityClassRule.id;
+  }
 
   // TODO: Chage this to use validator.rules.classes
   entitiesByType["rdfs:Class"].forEach((classRule) => {
@@ -467,7 +505,11 @@ try {
         ? specialized
         : [specialized];
       const specializedStr = specializedArray
-        .map((s) => (typeof s === "object" ? s["@id"] : s))
+        .map((s) => {
+          const typeId = typeof s === "object" ? s["@id"] : s;
+          const def = profileCrate.getEntity(typeId);
+          return makeTypeLink(typeId, !!def);
+        })
         .join(", ");
       classSummary += `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
     }
@@ -513,19 +555,28 @@ try {
             const rangeId = typeof r === "object" ? r["@id"] : r;
             if (!rangeId) return "Text"; // Default to Text if no range is specified
             const rangeDefiniton = profileCrate.getEntity(rangeId);
-            if (rangeDefiniton) {
-              const rangeName =
-                rangeDefiniton["name"] ||
-                rangeDefiniton["rdfs:label"] ||
-                rangeId;
-              return `<a href="#${getAnchorId(rangeId)}">${clean(rangeName)}</a>`;
-            }
-            return `${clean(rangeId)}`;
+            const isInternal = !!rangeDefiniton;
+            return makeTypeLink(rangeId, isInternal);
           })
           .join(", ");
 
-        // Get fixed value if specified
-        const fixedValue = prop["schema:value"] || prop["value"] || "";
+        // Get fixed value if specified — resolve URI to label
+        const rawFixedValue = prop["schema:value"] || prop["value"] || "";
+        const fixedValue = rawFixedValue
+          ? String(rawFixedValue)
+              .split(",")
+              .map((v) => {
+                const val = v.trim();
+                // If it looks like a URI, resolve to a label
+                if (isValidUri(val)) {
+                  const def = profileCrate.getEntity(val);
+                  const isInternal = !!def;
+                  return makeTypeLink(val, isInternal);
+                }
+                return val;
+              })
+              .join(", ")
+          : "";
 
         const propInternalId = prop["@id"].startsWith("#")
           ? ` <small style="color:#aaa;font-weight:normal">${clean(prop["@id"])}</small>`
@@ -549,11 +600,18 @@ try {
     // Add class to rules structure
     setRuleDirect(className, classSummary);
     setRuleAliases(classSummary, [className, classLabel, classId, classAnchorId]);
+    if (rootDataEntityId && classId === rootDataEntityId) {
+      rootDataEntitySummary = classSummary;
+    }
     allClasses += classSummary;
   });
 
   // Store all classes summary
   rules.all = allClasses;
+  rules.allClasses = allClasses;
+  if (rootDataEntitySummary) {
+    rules.RootDataEntity = rootDataEntitySummary;
+  }
 
   // Add a properties table
   let propsSummary = "## All Properties\n\n";
@@ -586,12 +644,8 @@ try {
         const rangeId = typeof r === "object" ? r["@id"] : r;
         if (!rangeId) return "Text";
         const rangeDefinition = profileCrate.getEntity(rangeId);
-        if (rangeDefinition) {
-          const rangeName =
-            rangeDefinition["name"] || rangeDefinition["rdfs:label"] || rangeId;
-          return `<a href="#${getAnchorId(rangeId)}">${clean(rangeName)}</a>`;
-        }
-        return `${clean(rangeId)}`;
+        const isInternal = !!rangeDefinition;
+        return makeTypeLink(rangeId, isInternal);
       })
       .join(", ");
 
@@ -601,12 +655,8 @@ try {
         const domainId = typeof domain === "object" ? domain["@id"] : domain;
         if (!domainId) return "";
         const domainDef = profileCrate.getEntity(domainId);
-        if (domainDef) {
-          const domainName =
-            domainDef["name"] || domainDef["rdfs:label"] || domainId;
-          return `<a href="#${getAnchorId(domainId)}">${clean(domainName)}</a>`;
-        }
-        return clean(domainId);
+        const isInternal = !!domainDef;
+        return makeTypeLink(domainId, isInternal);
       })
       .join(", ");
 
@@ -628,6 +678,36 @@ try {
     propsSummary += propSummary;
   }
   rules.all += propsSummary;
+
+  // Backward-compatible template variables used by some profile-text.md files
+  if (rootDataEntityId) {
+    const rootEntity = profileCrate.getEntity(rootDataEntityId);
+    const rootProps = (rootEntity && rootEntity["@reverse"] && rootEntity["@reverse"].domainIncludes)
+      ? rootEntity["@reverse"].domainIncludes
+      : [];
+
+    let rootPropsSummary = "## Root Data Entity Properties\n\n";
+    if (rootProps.length === 0) {
+      rootPropsSummary += "No Root Data Entity properties are defined.\n\n";
+    } else {
+      const sortedRootProps = rootProps.slice().sort((a, b) => {
+        const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
+        const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
+        return aName.localeCompare(bName);
+      });
+
+      for (const rp of sortedRootProps) {
+        const rpId = rp["@id"];
+        if (rpId && rules[rpId]) {
+          rootPropsSummary += `${rules[rpId]}\n`;
+        }
+      }
+    }
+
+    rules.RootDataEntityProperties = rootPropsSummary;
+  } else {
+    rules.RootDataEntityProperties = "## Root Data Entity Properties\n\nNo Root Data Entity class was found.\n\n";
+  }
 
   // Add provenance information
   // Always link to main in committed output so links don't break after branch merge

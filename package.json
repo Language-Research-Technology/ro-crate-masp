@@ -5,7 +5,8 @@
   "main": "index.js",
   "bin": {
     "generate-masp-docs": "./generate-masp-docs.js",
-    "generate-mode-file": "./scripts/generate-mode-file.js"
+    "generate-mode-file": "./scripts/generate-mode-file.js",
+    "mode-to-masp": "./scripts/mode-to-masp.js"
   },
   "scripts": {
     "test": "mocha",
@@ -14,6 +15,7 @@
     "build:ro-crate-profile": "npm exec -- generate-masp-docs -- profiles/ro-crate/profile-crate/ro-crate-metadata.json profiles/ro-crate/profile-text.md profiles/ro-crate/profile-crate/profile-documentation.md",
     "build:ro-crate-masp-profile": "npm exec -- generate-masp-docs -- profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json profiles/ro-crate-masp/profile-text.md profiles/ro-crate-masp/profile-crate/profile-documentation.md",
     "build:workflow-profile": "npm exec -- generate-masp-docs -- profiles/workflow/profile-crate/ro-crate-metadata.json profiles/workflow/profile-text.md profiles/workflow/profile-crate/profile-documentation.md",
+    "build:software-profile": "npm exec -- generate-masp-docs -- profiles/software/profile-crate/ro-crate-metadata.json profiles/software/profile-text.md profiles/software/profile-crate/profile-documentation.md",
     "build:austalk-schema": "npm exec -- generate-masp-docs -- schemas/austalk/schema-crate/ro-crate-metadata.json schemas/austalk/schema-text.md schemas/austalk/schema-crate/schema-documentation.md",
     "build:template-schema": "npm exec -- generate-masp-docs -- schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
     "generate:schema-org-crate": "node scripts/generate-schema-org-crate.js",
@@ -22,11 +24,12 @@
     "generate:mode:ro-crate-profile": "npm exec -- generate-mode-file --output profiles/ro-crate/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate/profile-crate/ro-crate-metadata.json",
     "generate:mode:ro-crate-masp-profile": "npm exec -- generate-mode-file --output profiles/ro-crate-masp/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json",
     "generate:mode:workflow-profile": "npm exec -- generate-mode-file --output profiles/workflow/profile-crate/crate-o-mode.json --update-profile profiles/workflow/profile-crate/ro-crate-metadata.json",
+    "generate:mode:software-profile": "npm exec -- generate-mode-file --output profiles/software/profile-crate/crate-o-mode.json --update-profile profiles/software/profile-crate/ro-crate-metadata.json",
     "generate:mode:ldac-schema": "npm exec -- generate-mode-file --output schemas/ldac/schema-crate/crate-o-mode.json --update-profile schemas/ldac/schema-crate/ro-crate-metadata.json",
     "generate:mode:austalk-schema": "npm exec -- generate-mode-file --output schemas/austalk/schema-crate/crate-o-mode.json --update-profile schemas/austalk/schema-crate/ro-crate-metadata.json",
     "generate:mode:template-schema": "npm exec -- generate-mode-file --output schemas/template/schema-crate/crate-o-mode.json --update-profile schemas/template/schema-crate/ro-crate-metadata.json",
-    "generate:modes": "npm run generate:mode:ldac-profile && npm run generate:mode:ro-crate-profile && npm run generate:mode:ro-crate-masp-profile && npm run generate:mode:workflow-profile && npm run generate:mode:ldac-schema && npm run generate:mode:austalk-schema && npm run generate:mode:template-schema",
-    "build": "npm run build:ldac-profile && npm run build:ldac-schema && npm run build:ro-crate-profile && npm run build:ro-crate-masp-profile && npm run build:workflow-profile && npm run build:austalk-schema && npm run build:template-schema && npm run build:schema-org-schema",
+    "generate:modes": "npm run generate:mode:ldac-profile && npm run generate:mode:ro-crate-profile && npm run generate:mode:ro-crate-masp-profile && npm run generate:mode:workflow-profile && npm run generate:mode:software-profile && npm run generate:mode:ldac-schema && npm run generate:mode:austalk-schema && npm run generate:mode:template-schema",
+    "build": "npm run build:ldac-profile && npm run build:ldac-schema && npm run build:ro-crate-profile && npm run build:ro-crate-masp-profile && npm run build:workflow-profile && npm run build:software-profile && npm run build:austalk-schema && npm run build:template-schema && npm run build:schema-org-schema",
     "validate:workflow": "node validate-crate.js profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json",
     "validate:workflow:json": "node validate-crate.js --json profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json"
   },
@@ -41,8 +44,10 @@
   },
   "homepage": "https://github.com/Language-Research-Technology/ro-crate-maps#readme",
   "dependencies": {
+    "fs-extra": "^11.3.4",
     "markdown-it": "^14.1.1",
-    "ro-crate": "^3.6.1"
+    "ro-crate": "^3.6.1",
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "chai": "^6.2.1",

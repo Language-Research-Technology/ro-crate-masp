@@ -1,0 +1,896 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": [
+        "Dataset",
+        "http://www.w3.org/ns/dx/prof/Profile"
+      ],
+      "name": "DEMO ONLY: Research Software Description Profile Schema",
+      "description": "Schema derived from DEMO ONLY: Research Software Description Profile: A draft Crate-O Mode for describing research software source code / notebooks / workflows",
+      "version": "0.1",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
+      "author": [
+        {
+          "@id": "#author"
+        }
+      ],
+      "license": "GPL-3.0",
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/"
+        }
+      ],
+      "hasResource": [
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "ro-crate-metadata.json"
+        },
+        {
+          "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ]
+    },
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      }
+    },
+    {
+      "@id": "#author",
+      "@type": "Organization",
+      "name": "University of Queensland"
+    },
+    {
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "encodingFormat": "text/markdown",
+      "about": {
+        "@id": "./"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "DEMO ONLY: Research Software Description Profile profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "./"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.id"
+        },
+        {
+          "@id": "#Root_Data_Entity"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.about"
+        },
+        {
+          "@id": "#prop_name_Dataset"
+        },
+        {
+          "@id": "#prop_description_Dataset"
+        },
+        {
+          "@id": "#prop_datePublished_Dataset"
+        },
+        {
+          "@id": "#prop_license_Dataset"
+        },
+        {
+          "@id": "#class_CreativeWork"
+        },
+        {
+          "@id": "#class_Dataset"
+        },
+        {
+          "@id": "#prop_mainEntity_Dataset"
+        },
+        {
+          "@id": "#class_File"
+        },
+        {
+          "@id": "#prop_creator_Dataset"
+        },
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#prop_publisher_Dataset"
+        },
+        {
+          "@id": "#class_Organization"
+        },
+        {
+          "@id": "#prop_downloadUrl_Dataset"
+        },
+        {
+          "@id": "#prop_installUrl_Dataset"
+        },
+        {
+          "@id": "#prop_releaseNotes_Dataset"
+        },
+        {
+          "@id": "#prop_screenshot_Dataset"
+        },
+        {
+          "@id": "#prop_softwareVersion_Dataset"
+        },
+        {
+          "@id": "#prop_softwareRequirements_Dataset"
+        },
+        {
+          "@id": "#prop_softwareHelp_Dataset"
+        },
+        {
+          "@id": "#prop_programmingLanguage_Dataset"
+        },
+        {
+          "@id": "#class_ComputerLanguage"
+        },
+        {
+          "@id": "#prop_codeRepository_Dataset"
+        },
+        {
+          "@id": "#prop_funder_Dataset"
+        },
+        {
+          "@id": "#prop_citation_Dataset"
+        },
+        {
+          "@id": "#prop_usageInfo_Dataset"
+        },
+        {
+          "@id": "#prop_hasPart_Dataset"
+        },
+        {
+          "@id": "#prop_supportingData_Dataset"
+        },
+        {
+          "@id": "#prop_runtime_Dataset"
+        },
+        {
+          "@id": "#prop_availableOnDevice_Dataset"
+        },
+        {
+          "@id": "#prop_identifier_Dataset"
+        },
+        {
+          "@id": "#prop_about_Dataset"
+        },
+        {
+          "@id": "#class_SoftwareApplication"
+        },
+        {
+          "@id": "#class_SoftwareSourceCode"
+        }
+      ]
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor",
+      "@type": "rdfs:Class",
+      "name": "RO-Crate Metadata Descriptor",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/CreativeWork"
+      },
+      "description": "An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor.id",
+      "@type": "rdf:Property",
+      "value": "ro-crate-metadata.json",
+      "description": "The RO-Crate Metadata file identifier",
+      "rdfs:label": "@id",
+      "domainIncludes": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#Root_Data_Entity",
+      "@type": "rdfs:Class",
+      "description": "The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and SoftwareSourceCode and SoftwareApplication.",
+      "name": "Root Data Entity",
+      "sh:minCount": 1,
+      "sh:maxCount": 1,
+      "prov:specializationOf": [
+        {
+          "@id": "http://schema.org/Dataset"
+        },
+        {
+          "@id": "http://schema.org/SoftwareSourceCode"
+        },
+        {
+          "@id": "http://schema.org/SoftwareApplication"
+        }
+      ]
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor.about",
+      "@type": "rdf:Property",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
+      },
+      "description": "This property on the RO-Crate Metadata Descriptor references the Root Data Entity.",
+      "name": "about",
+      "domainIncludes": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_name_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "name",
+      "name": "name",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "The name of this data collection.",
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_description_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "description",
+      "name": "description",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/description"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "An abstract of the collection.",
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_datePublished_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "datePublished",
+      "name": "datePublished",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/datePublished"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "A date that this collection was published.",
+      "rangeIncludes": [
+        {
+          "@id": "Date"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_license_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "license",
+      "name": "license",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/license"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "A license document that applies to this content, typically indicated by URL.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        },
+        {
+          "@id": "URL"
+        },
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#class_CreativeWork",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CreativeWork",
+      "name": "CreativeWork",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/CreativeWork"
+      }
+    },
+    {
+      "@id": "#class_Dataset",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Dataset",
+      "name": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      }
+    },
+    {
+      "@id": "#prop_mainEntity_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "mainEntity",
+      "name": "mainEntity",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/mainEntity"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Indicates the primary entry.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#class_File",
+      "@type": "rdfs:Class",
+      "rdfs:label": "File",
+      "name": "File",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/File"
+      }
+    },
+    {
+      "@id": "#prop_creator_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "creator",
+      "name": "creator",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/creator"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#class_Person",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Person",
+      "name": "Person",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Person"
+      }
+    },
+    {
+      "@id": "#prop_publisher_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "publisher",
+      "name": "publisher",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/publisher"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The publisher of the creative work.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ]
+    },
+    {
+      "@id": "#class_Organization",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Organization",
+      "name": "Organization",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Organization"
+      }
+    },
+    {
+      "@id": "#prop_downloadUrl_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "downloadUrl",
+      "name": "downloadUrl",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/downloadUrl"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "If the file can be downloaded, URL to download the binary.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_installUrl_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "installUrl",
+      "name": "installUrl",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/installUrl"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "URL at which the app may be installed, if different from the URL of the item.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_releaseNotes_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "releaseNotes",
+      "name": "releaseNotes",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/releaseNotes"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Description of what changed in this version.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_screenshot_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "screenshot",
+      "name": "screenshot",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/screenshot"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A link to a screenshot image of the app.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_ImageObject"
+        },
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_softwareVersion_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "softwareVersion",
+      "name": "softwareVersion",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/softwareVersion"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Version of the software instance.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_softwareRequirements_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "softwareRequirements",
+      "name": "softwareRequirements",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/softwareRequirements"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_softwareHelp_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "softwareHelp",
+      "name": "softwareHelp",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/softwareHelp"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Software application help.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_programmingLanguage_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "programmingLanguage",
+      "name": "programmingLanguage",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/programmingLanguage"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The computer programming language.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_ComputerLanguage"
+        }
+      ]
+    },
+    {
+      "@id": "#class_ComputerLanguage",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ComputerLanguage",
+      "name": "ComputerLanguage",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/ComputerLanguage"
+      }
+    },
+    {
+      "@id": "#prop_codeRepository_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "codeRepository",
+      "name": "codeRepository",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/codeRepository"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Link to the repository where the un-compiled, human-readable code and related code is located (SVN, GitHub, CodePlex).",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_funder_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "funder",
+      "name": "funder",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/funder"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_citation_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "citation",
+      "name": "citation",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/citation"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_usageInfo_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "usageInfo",
+      "name": "usageInfo",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/usageInfo"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.\n\nThis property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_hasPart_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasPart",
+      "name": "hasPart",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_supportingData_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "supportingData",
+      "name": "supportingData",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/supportingData"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Supporting data for a SoftwareApplication.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_runtime_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "runtime",
+      "name": "runtime",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/runtime"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_availableOnDevice_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "availableOnDevice",
+      "name": "availableOnDevice",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/availableOnDevice"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Device required to run the application. Used in cases where a specific make/model is required to run the application.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_identifier_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "identifier",
+      "name": "identifier",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/identifier"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_about_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "about",
+      "name": "about",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The subject matter of the content.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Dataset"
+        },
+        {
+          "@id": "#class_SoftwareApplication"
+        },
+        {
+          "@id": "#class_SoftwareSourceCode"
+        }
+      ]
+    },
+    {
+      "@id": "#class_SoftwareApplication",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SoftwareApplication",
+      "name": "SoftwareApplication",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/terms#SoftwareApplication"
+      }
+    },
+    {
+      "@id": "#class_SoftwareSourceCode",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SoftwareSourceCode",
+      "name": "SoftwareSourceCode",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/terms#SoftwareSourceCode"
+      }
+    }
+  ]
+}
