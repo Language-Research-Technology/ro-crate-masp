@@ -1220,7 +1220,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
-| <a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small> | Yes | The RO-Crate Metadata file identifier | [Root_Data_Entity](#Root_Data_Entity) | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small> | Yes | This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | [Root_Data_Entity](#Root_Data_Entity) | ro-crate-metadata.json |
 | <a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. In a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Entity with different @type arrays or `@conformsTo` references (or other specializations). | [Root_Data_Entity](#Root_Data_Entity) |  |
 
 
@@ -1273,7 +1273,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The RO-Crate Metadata file identifier | [Root_Data_Entity](#Root_Data_Entity) | [RO-Crate_Metadata_Descriptor](#RO-Crate_Metadata_Descriptor) |
+| This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | [Root_Data_Entity](#Root_Data_Entity) | [RO-Crate_Metadata_Descriptor](#RO-Crate_Metadata_Descriptor) |
 ### <a id="RO-Crate_Metadata_Descriptor.about"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small>
 
 | Description | Range | Occurs in Domain(s) |

@@ -238,10 +238,10 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
+| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
 | <a href="#prop_id_MetadataDescriptor">@id</a> <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small> | Yes |  | Text | ro-crate-metadata.json |
-| <a href="#prop_about_MetadataDescriptor">about <a href="#prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small> | Yes | MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset">Profile Dataset</a> |  |
-| <a href="#prop_conformsTo_MetadataDescriptor">conformsTo <a href="#prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_about_MetadataDescriptor">about <a href="#prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small> | Yes | MUST reference the root profile Dataset entity. | [class_ProfileDataset](#class_ProfileDataset) |  |
+| <a href="#prop_conformsTo_MetadataDescriptor">conformsTo <a href="#prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small> | Yes | MUST reference the RO-Crate specification the crate conforms to. | [class_CreativeWork](#class_CreativeWork) |  |
 
 ### Examples of Type
 #### Examples
@@ -263,14 +263,14 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Dataset, http://www.w3.org/ns/dx/prof/Profile |
-| <a href="#prop_hasResource_ProfileDataset">hasResource <a href="#prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small> | Yes | Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | <a href="#class_ResourceDescriptor">ResourceDescriptor</a> |  |
-| <a href="#prop_isProfileOf_ProfileDataset">isProfileOf <a href="#prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small> | Yes | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork">CreativeWork</a> |  |
-| <a href="#prop_license_ProfileDataset">license <a href="#prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small> | Yes | License for this profile. | <a href="#class_CreativeWork">CreativeWork</a>, Text |  |
+| @type | Yes |  |  | [Dataset](http://schema.org/Dataset), [Profile](http://www.w3.org/ns/dx/prof/Profile) |
+| <a href="#prop_hasResource_ProfileDataset">hasResource <a href="#prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small> | Yes | Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | [class_ResourceDescriptor](#class_ResourceDescriptor) |  |
+| <a href="#prop_isProfileOf_ProfileDataset">isProfileOf <a href="#prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small> | Yes | MUST reference the base RO-Crate specification this profile extends. | [class_CreativeWork](#class_CreativeWork) |  |
+| <a href="#prop_license_ProfileDataset">license <a href="#prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small> | Yes | License for this profile. | [class_CreativeWork](#class_CreativeWork), Text |  |
 | <a href="#prop_name_ProfileDataset">name <a href="#prop_name_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small> | Yes | A human-readable name for the profile. | Text |  |
-| <a href="#prop_author_ProfileDataset">author <a href="#prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small> | No | The person or organization responsible for creating this profile. | <a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a> |  |
+| <a href="#prop_author_ProfileDataset">author <a href="#prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small> | No | The person or organization responsible for creating this profile. | [class_Person](#class_Person), [class_Organization](#class_Organization) |  |
 | <a href="#prop_description_ProfileDataset">description <a href="#prop_description_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small> | No | A description of the profile and its intended use. | Text |  |
-| <a href="#prop_hasPart_ProfileDataset">hasPart <a href="#prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small> | No | Files that are part of this profile crate. | <a href="#class_File">File</a> |  |
+| <a href="#prop_hasPart_ProfileDataset">hasPart <a href="#prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small> | No | Files that are part of this profile crate. | [class_File](#class_File) |  |
 | <a href="#prop_version_ProfileDataset">version <a href="#prop_version_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small> | No | The version of this profile using semantic versioning (MAJOR.MINOR.PATCH). | Text |  |
 
 ### Examples of Type
@@ -291,7 +291,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://www.w3.org/ns/dx/prof/ResourceDescriptor |
+| @type | Yes |  |  | [ResourceDescriptor](http://www.w3.org/ns/dx/prof/ResourceDescriptor) |
 | <a href="#prop_hasRole_ResourceDescriptor">hasRole <a href="#prop_hasRole_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small> | Yes | The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary. |  |  |
 | <a href="#prop_hasArtifact_ResourceDescriptor">hasArtifact <a href="#prop_hasArtifact_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small> | No | The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type. |  |  |
 | <a href="#prop_hasPart_ResourceDescriptor">hasPart <a href="#prop_hasPart_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small> | No | For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema. |  |  |
@@ -314,7 +314,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://www.w3.org/2000/01/rdf-schema#Class |
+| @type | Yes |  |  | [Class](http://www.w3.org/2000/01/rdf-schema#Class) |
 | <a href="#prop_specializationOf_rdfsClass">prov:specializationOf <a href="#prop_specializationOf_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small> | No | The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs. |  |  |
 | <a href="#prop_label_rdfsClass">rdfs:label <a href="#prop_label_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small> | No | An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label. | Text |  |
 | <a href="#prop_maxCount_rdfsClass">sh:maxCount <a href="#prop_maxCount_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small> | No | Maximum number of instances of this class allowed in a conforming crate. | Integer |  |
@@ -340,8 +340,8 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://www.w3.org/1999/02/22-rdf-syntax-ns#Property |
-| <a href="#prop_domainIncludes_rdfProperty">domainIncludes <a href="#prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small> | Yes | The class(es) that this property applies to. | <a href="#class_rdfsClass">rdfs:Class</a> |  |
+| @type | Yes |  |  | [Property](http://www.w3.org/1999/02/22-rdf-syntax-ns#Property) |
+| <a href="#prop_domainIncludes_rdfProperty">domainIncludes <a href="#prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small> | Yes | The class(es) that this property applies to. | [class_rdfsClass](#class_rdfsClass) |  |
 | <a href="#prop_label_rdfProperty">rdfs:label <a href="#prop_label_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small> | Yes | A human-readable label for the property, usually matching the property name. | Text |  |
 | <a href="#prop_specializationOf_rdfProperty">prov:specializationOf <a href="#prop_specializationOf_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small> | No | The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted. |  |  |
 | <a href="#prop_rangeIncludes_rdfProperty">rangeIncludes <a href="#prop_rangeIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small> | No | The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate. |  |  |
@@ -371,7 +371,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/ItemList |
+| @type | Yes |  |  | [ItemList](http://schema.org/ItemList) |
 | <a href="#prop_itemListElement_ItemList">itemListElement <a href="#prop_itemListElement_ItemList" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small> | Yes | The items in this list. Each item is an entity whose @id is an allowed value. |  |  |
 
 
@@ -387,7 +387,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/DefinedTermSet |
+| @type | Yes |  |  | [DefinedTermSet](http://schema.org/DefinedTermSet) |
 | <a href="#prop_name_DefinedTermSet">name <a href="#prop_name_DefinedTermSet" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small> | Yes | The name of this term set. | Text |  |
 
 
@@ -403,9 +403,9 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/DefinedTerm |
-| <a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small> | Yes | The DefinedTermSet this term belongs to. | <a href="#class_DefinedTermSet">DefinedTermSet</a> |  |
+| @type | Yes |  |  | [DefinedTerm](http://schema.org/DefinedTerm) |
 | <a href="#prop_name_DefinedTerm">name <a href="#prop_name_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small> | Yes | The name of this term. | Text |  |
+| <a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small> | No | The DefinedTermSet this term belongs to. | [class_DefinedTermSet](#class_DefinedTermSet) |  |
 
 
 ### <a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small>
@@ -420,7 +420,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Person |
+| @type | Yes |  |  | [Person](http://schema.org/Person) |
 *No properties defined for this class*
 
 
@@ -437,7 +437,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Organization |
+| @type | Yes |  |  | [Organization](http://schema.org/Organization) |
 *No properties defined for this class*
 
 
@@ -454,7 +454,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/MediaObject |
+| @type | Yes |  |  | [MediaObject](http://schema.org/MediaObject) |
 *No properties defined for this class*
 
 
@@ -471,7 +471,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
+| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
 *No properties defined for this class*
 
 
@@ -493,7 +493,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://www.w3.org/ns/dx/prof/ResourceRole |
+| @type | Yes |  |  | [ResourceRole](http://www.w3.org/ns/dx/prof/ResourceRole) |
 *No properties defined for this class*
 
 
@@ -503,147 +503,147 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-|  | Text | <a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+|  | Text | [class_MetadataDescriptor](#class_MetadataDescriptor) |
 ### <a id="prop_about_MetadataDescriptor"></a> Property: about <a href="http://schema.org/about" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset">Profile Dataset</a> | <a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| MUST reference the root profile Dataset entity. | [class_ProfileDataset](#class_ProfileDataset) | [class_MetadataDescriptor](#class_MetadataDescriptor) |
 ### <a id="prop_author_ProfileDataset"></a> Property: author <a href="http://schema.org/author" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The person or organization responsible for creating this profile. | <a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a> | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| The person or organization responsible for creating this profile. | [class_Person](#class_Person), [class_Organization](#class_Organization) | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_conformsTo_MetadataDescriptor"></a> Property: conformsTo <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork">CreativeWork</a> | <a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| MUST reference the RO-Crate specification the crate conforms to. | [class_CreativeWork](#class_CreativeWork) | [class_MetadataDescriptor](#class_MetadataDescriptor) |
 ### <a id="prop_description_ProfileDataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A description of the profile and its intended use. | Text | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| A description of the profile and its intended use. | Text | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_domainIncludes_rdfProperty"></a> Property: domainIncludes <a href="http://schema.org/domainIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The class(es) that this property applies to. | <a href="#class_rdfsClass">rdfs:Class</a> | <a href="#class_rdfProperty">rdf:Property</a> |
+| The class(es) that this property applies to. | [class_rdfsClass](#class_rdfsClass) | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_hasArtifact_ResourceDescriptor"></a> Property: hasArtifact <a href="http://www.w3.org/ns/dx/prof/hasArtifact" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasArtifact_ResourceDescriptor</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type. |  | <a href="#class_ResourceDescriptor">ResourceDescriptor</a> |
+| The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type. |  | [class_ResourceDescriptor](#class_ResourceDescriptor) |
 ### <a id="prop_hasPart_ProfileDataset"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Files that are part of this profile crate. | <a href="#class_File">File</a> | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| Files that are part of this profile crate. | [class_File](#class_File) | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_hasPart_ResourceDescriptor"></a> Property: hasPart <a href="http://schema.org/hasPart" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ResourceDescriptor</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema. |  | <a href="#class_ResourceDescriptor">ResourceDescriptor</a> |
+| For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema. |  | [class_ResourceDescriptor](#class_ResourceDescriptor) |
 ### <a id="prop_hasResource_ProfileDataset"></a> Property: hasResource <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | <a href="#class_ResourceDescriptor">ResourceDescriptor</a> | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | [class_ResourceDescriptor](#class_ResourceDescriptor) | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_hasRole_ResourceDescriptor"></a> Property: hasRole <a href="http://www.w3.org/ns/dx/prof/hasRole" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary. |  | <a href="#class_ResourceDescriptor">ResourceDescriptor</a> |
+| The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary. |  | [class_ResourceDescriptor](#class_ResourceDescriptor) |
 ### <a id="prop_inDefinedTermSet_DefinedTerm"></a> Property: inDefinedTermSet <a href="http://schema.org/inDefinedTermSet" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The DefinedTermSet this term belongs to. | <a href="#class_DefinedTermSet">DefinedTermSet</a> | <a href="#class_DefinedTerm">DefinedTerm</a> |
+| The DefinedTermSet this term belongs to. | [class_DefinedTermSet](#class_DefinedTermSet) | [class_DefinedTerm](#class_DefinedTerm) |
 ### <a id="prop_isProfileOf_ProfileDataset"></a> Property: isProfileOf <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork">CreativeWork</a> | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| MUST reference the base RO-Crate specification this profile extends. | [class_CreativeWork](#class_CreativeWork) | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_itemListElement_ItemList"></a> Property: itemListElement <a href="http://schema.org/itemListElement" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The items in this list. Each item is an entity whose @id is an allowed value. |  | <a href="#class_ItemList">ItemList</a> |
+| The items in this list. Each item is an entity whose @id is an allowed value. |  | [class_ItemList](#class_ItemList) |
 ### <a id="prop_license_ProfileDataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| License for this profile. | <a href="#class_CreativeWork">CreativeWork</a>, Text | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| License for this profile. | [class_CreativeWork](#class_CreativeWork), Text | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_name_ProfileDataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A human-readable name for the profile. | Text | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| A human-readable name for the profile. | Text | [class_ProfileDataset](#class_ProfileDataset) |
 ### <a id="prop_name_DefinedTermSet"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The name of this term set. | Text | <a href="#class_DefinedTermSet">DefinedTermSet</a> |
+| The name of this term set. | Text | [class_DefinedTermSet](#class_DefinedTermSet) |
 ### <a id="prop_name_DefinedTerm"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The name of this term. | Text | <a href="#class_DefinedTerm">DefinedTerm</a> |
+| The name of this term. | Text | [class_DefinedTerm](#class_DefinedTerm) |
 ### <a id="prop_specializationOf_rdfsClass"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs. |  | <a href="#class_rdfsClass">rdfs:Class</a> |
+| The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs. |  | [class_rdfsClass](#class_rdfsClass) |
 ### <a id="prop_specializationOf_rdfProperty"></a> Property: prov:specializationOf <a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted. |  | <a href="#class_rdfProperty">rdf:Property</a> |
+| The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted. |  | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_rangeIncludes_rdfProperty"></a> Property: rangeIncludes <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_rangeIncludes_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate. |  | <a href="#class_rdfProperty">rdf:Property</a> |
+| The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate. |  | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_label_rdfsClass"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfsClass</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label. | Text | <a href="#class_rdfsClass">rdfs:Class</a> |
+| An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label. | Text | [class_rdfsClass](#class_rdfsClass) |
 ### <a id="prop_label_rdfProperty"></a> Property: rdfs:label <a href="http://www.w3.org/2000/01/rdf-schema#label" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_label_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A human-readable label for the property, usually matching the property name. | Text | <a href="#class_rdfProperty">rdf:Property</a> |
+| A human-readable label for the property, usually matching the property name. | Text | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_maxCount_rdfsClass"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfsClass</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Maximum number of instances of this class allowed in a conforming crate. | Integer | <a href="#class_rdfsClass">rdfs:Class</a> |
+| Maximum number of instances of this class allowed in a conforming crate. | Integer | [class_rdfsClass](#class_rdfsClass) |
 ### <a id="prop_maxCount_rdfProperty"></a> Property: sh:maxCount <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_maxCount_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Maximum number of times this property MAY appear on entities of the domain class. | Integer | <a href="#class_rdfProperty">rdf:Property</a> |
+| Maximum number of times this property MAY appear on entities of the domain class. | Integer | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_minCount_rdfsClass"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfsClass</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Minimum number of instances of this class that MUST appear in a conforming crate. | Integer | <a href="#class_rdfsClass">rdfs:Class</a> |
+| Minimum number of instances of this class that MUST appear in a conforming crate. | Integer | [class_rdfsClass](#class_rdfsClass) |
 ### <a id="prop_minCount_rdfProperty"></a> Property: sh:minCount <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_minCount_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Minimum number of times this property MUST appear on entities of the domain class. | Integer | <a href="#class_rdfProperty">rdf:Property</a> |
+| Minimum number of times this property MUST appear on entities of the domain class. | Integer | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_value_rdfProperty"></a> Property: value <a href="http://schema.org/value" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_value_rdfProperty</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A fixed value that this property MUST have on conforming entities. | Text | <a href="#class_rdfProperty">rdf:Property</a> |
+| A fixed value that this property MUST have on conforming entities. | Text | [class_rdfProperty](#class_rdfProperty) |
 ### <a id="prop_version_ProfileDataset"></a> Property: version <a href="http://schema.org/version" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_version_ProfileDataset</small>
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The version of this profile using semantic versioning (MAJOR.MINOR.PATCH). | Text | <a href="#class_ProfileDataset">Profile Dataset</a> |
+| The version of this profile using semantic versioning (MAJOR.MINOR.PATCH). | Text | [class_ProfileDataset](#class_ProfileDataset) |
 
 
 ## Item Lists
@@ -756,6 +756,14 @@ Instances of this type MAY be present in the crate.
     },
     {
       "@id": "profile-documentation.md"
+    }
+  ],
+  "datePublished": [
+    "2026-05-08"
+  ],
+  "conformsTo": [
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     }
   ]
 }

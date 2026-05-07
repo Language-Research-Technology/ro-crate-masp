@@ -205,7 +205,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Dataset, http://schema.org/SoftwareSourceCode, http://schema.org/SoftwareApplication |
+| @type | Yes |  |  | [Dataset](http://schema.org/Dataset), [SoftwareSourceCode](http://schema.org/SoftwareSourceCode), [SoftwareApplication](http://schema.org/SoftwareApplication) |
 | <a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small> | Yes | A date that this collection was published. | Date |  |
 | <a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small> | Yes | An abstract of the collection. | Text |  |
 | <a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small> | Yes | A license document that applies to this content, typically indicated by URL. | [class_CreativeWork](#class_CreativeWork), URL, Text |  |
@@ -258,7 +258,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
+| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
 | <a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small> | Yes | The RO-Crate Metadata file identifier | [Root_Data_Entity](#Root_Data_Entity) | ro-crate-metadata.json |
 | <a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | [Root_Data_Entity](#Root_Data_Entity) |  |
 
@@ -277,7 +277,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Dataset, http://schema.org/SoftwareSourceCode, http://schema.org/SoftwareApplication |
+| @type | Yes |  |  | [Dataset](http://schema.org/Dataset), [SoftwareSourceCode](http://schema.org/SoftwareSourceCode), [SoftwareApplication](http://schema.org/SoftwareApplication) |
 | <a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small> | Yes | A date that this collection was published. | Date |  |
 | <a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small> | Yes | An abstract of the collection. | Text |  |
 | <a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small> | Yes | A license document that applies to this content, typically indicated by URL. | [class_CreativeWork](#class_CreativeWork), URL, Text |  |
@@ -296,7 +296,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/CreativeWork |
+| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
 *No properties defined for this class*
 
 
@@ -313,7 +313,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Dataset |
+| @type | Yes |  |  | [Dataset](http://schema.org/Dataset) |
 | <a href="#prop_mainEntity_Dataset">mainEntity <a href="#prop_mainEntity_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_mainEntity_Dataset</small> | Yes | Indicates the primary entry. | [class_File](#class_File) |  |
 | <a href="#prop_about_Dataset">about <a href="#prop_about_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_Dataset</small> | No | The subject matter of the content. | [class_Dataset](#class_Dataset), [class_SoftwareApplication](#class_SoftwareApplication), [class_SoftwareSourceCode](#class_SoftwareSourceCode) |  |
 | <a href="#prop_availableOnDevice_Dataset">availableOnDevice <a href="#prop_availableOnDevice_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_availableOnDevice_Dataset</small> | No | Device required to run the application. Used in cases where a specific make/model is required to run the application. | [class_File](#class_File) |  |
@@ -349,7 +349,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/File |
+| @type | Yes |  |  | [File](http://schema.org/File) |
 *No properties defined for this class*
 
 
@@ -366,7 +366,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Person |
+| @type | Yes |  |  | [Person](http://schema.org/Person) |
 *No properties defined for this class*
 
 
@@ -383,7 +383,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/Organization |
+| @type | Yes |  |  | [Organization](http://schema.org/Organization) |
 *No properties defined for this class*
 
 
@@ -400,7 +400,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/ComputerLanguage |
+| @type | Yes |  |  | [ComputerLanguage](http://schema.org/ComputerLanguage) |
 *No properties defined for this class*
 
 
@@ -417,7 +417,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/terms#SoftwareApplication |
+| @type | Yes |  |  | [SoftwareApplication](http://schema.org/terms#SoftwareApplication) |
 *No properties defined for this class*
 
 
@@ -434,7 +434,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | http://schema.org/terms#SoftwareSourceCode |
+| @type | Yes |  |  | [SoftwareSourceCode](http://schema.org/terms#SoftwareSourceCode) |
 *No properties defined for this class*
 
 

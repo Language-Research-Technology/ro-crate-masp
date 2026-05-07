@@ -364,7 +364,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/CreativeWork</td>
+<td><a href="http://schema.org/CreativeWork">CreativeWork</a></td>
 </tr>
 <tr>
 <td><a href="#prop_id_MetadataDescriptor">@id</a> <small style="color:#aaa;font-weight:normal">#prop_id_MetadataDescriptor</small></td>
@@ -377,14 +377,14 @@
 <td><a href="#prop_about_MetadataDescriptor">about <a href="#prop_about_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_MetadataDescriptor</small></td>
 <td>Yes</td>
 <td>MUST reference the root profile Dataset entity.</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#prop_conformsTo_MetadataDescriptor">conformsTo <a href="#prop_conformsTo_MetadataDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_MetadataDescriptor</small></td>
 <td>Yes</td>
 <td>MUST reference the RO-Crate specification the crate conforms to.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -428,27 +428,27 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Dataset, http://www.w3.org/ns/dx/prof/Profile</td>
+<td><a href="http://schema.org/Dataset">Dataset</a>, <a href="http://www.w3.org/ns/dx/prof/Profile">Profile</a></td>
 </tr>
 <tr>
 <td><a href="#prop_hasResource_ProfileDataset">hasResource <a href="#prop_hasResource_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasResource_ProfileDataset</small></td>
 <td>Yes</td>
 <td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#class_ResourceDescriptor">class_ResourceDescriptor</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#prop_isProfileOf_ProfileDataset">isProfileOf <a href="#prop_isProfileOf_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_isProfileOf_ProfileDataset</small></td>
 <td>Yes</td>
 <td>MUST reference the base RO-Crate specification this profile extends.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#prop_license_ProfileDataset">license <a href="#prop_license_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_ProfileDataset</small></td>
 <td>Yes</td>
 <td>License for this profile.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a>, Text</td>
 <td></td>
 </tr>
 <tr>
@@ -462,7 +462,7 @@
 <td><a href="#prop_author_ProfileDataset">author <a href="#prop_author_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_author_ProfileDataset</small></td>
 <td>No</td>
 <td>The person or organization responsible for creating this profile.</td>
-<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
+<td><a href="#class_Person">class_Person</a>, <a href="#class_Organization">class_Organization</a></td>
 <td></td>
 </tr>
 <tr>
@@ -476,7 +476,7 @@
 <td><a href="#prop_hasPart_ProfileDataset">hasPart <a href="#prop_hasPart_ProfileDataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_ProfileDataset</small></td>
 <td>No</td>
 <td>Files that are part of this profile crate.</td>
-<td><a href="#class_File">File</a></td>
+<td><a href="#class_File">class_File</a></td>
 <td></td>
 </tr>
 <tr>
@@ -526,7 +526,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://www.w3.org/ns/dx/prof/ResourceDescriptor</td>
+<td><a href="http://www.w3.org/ns/dx/prof/ResourceDescriptor">ResourceDescriptor</a></td>
 </tr>
 <tr>
 <td><a href="#prop_hasRole_ResourceDescriptor">hasRole <a href="#prop_hasRole_ResourceDescriptor" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasRole_ResourceDescriptor</small></td>
@@ -589,7 +589,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://www.w3.org/2000/01/rdf-schema#Class</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Class">Class</a></td>
 </tr>
 <tr>
 <td><a href="#prop_specializationOf_rdfsClass">prov:specializationOf <a href="#prop_specializationOf_rdfsClass" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_specializationOf_rdfsClass</small></td>
@@ -664,13 +664,13 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</td>
+<td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">Property</a></td>
 </tr>
 <tr>
 <td><a href="#prop_domainIncludes_rdfProperty">domainIncludes <a href="#prop_domainIncludes_rdfProperty" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_domainIncludes_rdfProperty</small></td>
 <td>Yes</td>
 <td>The class(es) that this property applies to.</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
 <td></td>
 </tr>
 <tr>
@@ -763,7 +763,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/ItemList</td>
+<td><a href="http://schema.org/ItemList">ItemList</a></td>
 </tr>
 <tr>
 <td><a href="#prop_itemListElement_ItemList">itemListElement <a href="#prop_itemListElement_ItemList" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_itemListElement_ItemList</small></td>
@@ -807,7 +807,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/DefinedTermSet</td>
+<td><a href="http://schema.org/DefinedTermSet">DefinedTermSet</a></td>
 </tr>
 <tr>
 <td><a href="#prop_name_DefinedTermSet">name <a href="#prop_name_DefinedTermSet" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTermSet</small></td>
@@ -851,20 +851,20 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/DefinedTerm</td>
-</tr>
-<tr>
-<td><a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></td>
-<td>Yes</td>
-<td>The DefinedTermSet this term belongs to.</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
-<td></td>
+<td><a href="http://schema.org/DefinedTerm">DefinedTerm</a></td>
 </tr>
 <tr>
 <td><a href="#prop_name_DefinedTerm">name <a href="#prop_name_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_DefinedTerm</small></td>
 <td>Yes</td>
 <td>The name of this term.</td>
 <td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_inDefinedTermSet_DefinedTerm">inDefinedTermSet <a href="#prop_inDefinedTermSet_DefinedTerm" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_inDefinedTermSet_DefinedTerm</small></td>
+<td>No</td>
+<td>The DefinedTermSet this term belongs to.</td>
+<td><a href="#class_DefinedTermSet">class_DefinedTermSet</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -902,7 +902,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Person</td>
+<td><a href="http://schema.org/Person">Person</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -946,7 +946,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Organization</td>
+<td><a href="http://schema.org/Organization">Organization</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -990,7 +990,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/MediaObject</td>
+<td><a href="http://schema.org/MediaObject">MediaObject</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -1034,7 +1034,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/CreativeWork</td>
+<td><a href="http://schema.org/CreativeWork">CreativeWork</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -1083,7 +1083,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://www.w3.org/ns/dx/prof/ResourceRole</td>
+<td><a href="http://www.w3.org/ns/dx/prof/ResourceRole">ResourceRole</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -1108,7 +1108,7 @@
 <tr>
 <td></td>
 <td>Text</td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#class_MetadataDescriptor">class_MetadataDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1124,8 +1124,8 @@
 <tbody>
 <tr>
 <td>MUST reference the root profile Dataset entity.</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
+<td><a href="#class_MetadataDescriptor">class_MetadataDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1141,8 +1141,8 @@
 <tbody>
 <tr>
 <td>The person or organization responsible for creating this profile.</td>
-<td><a href="#class_Person">Person</a>, <a href="#class_Organization">Organization</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_Person">class_Person</a>, <a href="#class_Organization">class_Organization</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1158,8 +1158,8 @@
 <tbody>
 <tr>
 <td>MUST reference the RO-Crate specification the crate conforms to.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
-<td><a href="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
+<td><a href="#class_MetadataDescriptor">class_MetadataDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1176,7 +1176,7 @@
 <tr>
 <td>A description of the profile and its intended use.</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1192,8 +1192,8 @@
 <tbody>
 <tr>
 <td>The class(es) that this property applies to.</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1210,7 +1210,7 @@
 <tr>
 <td>The artifact for this resource descriptor — a File, LearningResource, or other entity. Range validation intentionally omitted as artifacts can be any type.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#class_ResourceDescriptor">class_ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1226,8 +1226,8 @@
 <tbody>
 <tr>
 <td>Files that are part of this profile crate.</td>
-<td><a href="#class_File">File</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1244,7 +1244,7 @@
 <tr>
 <td>For schema ResourceDescriptors: the individual schema entities (classes, properties, item lists) that make up the schema.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#class_ResourceDescriptor">class_ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1260,8 +1260,8 @@
 <tbody>
 <tr>
 <td>Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification.</td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_ResourceDescriptor">class_ResourceDescriptor</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1278,7 +1278,7 @@
 <tr>
 <td>The role of this resource within the profile (e.g. role/specification, role/schema, role/guidance). Value is a URI from the W3C PROF vocabulary.</td>
 <td></td>
-<td><a href="#class_ResourceDescriptor">ResourceDescriptor</a></td>
+<td><a href="#class_ResourceDescriptor">class_ResourceDescriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -1294,8 +1294,8 @@
 <tbody>
 <tr>
 <td>The DefinedTermSet this term belongs to.</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
-<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+<td><a href="#class_DefinedTermSet">class_DefinedTermSet</a></td>
+<td><a href="#class_DefinedTerm">class_DefinedTerm</a></td>
 </tr>
 </tbody>
 </table>
@@ -1311,8 +1311,8 @@
 <tbody>
 <tr>
 <td>MUST reference the base RO-Crate specification this profile extends.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a></td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1329,7 +1329,7 @@
 <tr>
 <td>The items in this list. Each item is an entity whose @id is an allowed value.</td>
 <td></td>
-<td><a href="#class_ItemList">ItemList</a></td>
+<td><a href="#class_ItemList">class_ItemList</a></td>
 </tr>
 </tbody>
 </table>
@@ -1345,8 +1345,8 @@
 <tbody>
 <tr>
 <td>License for this profile.</td>
-<td><a href="#class_CreativeWork">CreativeWork</a>, Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a>, Text</td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1363,7 +1363,7 @@
 <tr>
 <td>A human-readable name for the profile.</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1380,7 +1380,7 @@
 <tr>
 <td>The name of this term set.</td>
 <td>Text</td>
-<td><a href="#class_DefinedTermSet">DefinedTermSet</a></td>
+<td><a href="#class_DefinedTermSet">class_DefinedTermSet</a></td>
 </tr>
 </tbody>
 </table>
@@ -1397,7 +1397,7 @@
 <tr>
 <td>The name of this term.</td>
 <td>Text</td>
-<td><a href="#class_DefinedTerm">DefinedTerm</a></td>
+<td><a href="#class_DefinedTerm">class_DefinedTerm</a></td>
 </tr>
 </tbody>
 </table>
@@ -1414,7 +1414,7 @@
 <tr>
 <td>The base schema.org (or other vocabulary) type this class specializes. Value is a URI reference; range validation is intentionally omitted as these are external vocab URIs.</td>
 <td></td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
 </tr>
 </tbody>
 </table>
@@ -1431,7 +1431,7 @@
 <tr>
 <td>The base vocabulary property this property specializes. Value is an external URI reference; range validation intentionally omitted.</td>
 <td></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1448,7 +1448,7 @@
 <tr>
 <td>The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate.</td>
 <td></td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1465,7 +1465,7 @@
 <tr>
 <td>An optional rdfs:label for the class. In practice, class entities typically use 'name' as their human-readable label.</td>
 <td>Text</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
 </tr>
 </tbody>
 </table>
@@ -1482,7 +1482,7 @@
 <tr>
 <td>A human-readable label for the property, usually matching the property name.</td>
 <td>Text</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1499,7 +1499,7 @@
 <tr>
 <td>Maximum number of instances of this class allowed in a conforming crate.</td>
 <td>Integer</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
 </tr>
 </tbody>
 </table>
@@ -1516,7 +1516,7 @@
 <tr>
 <td>Maximum number of times this property MAY appear on entities of the domain class.</td>
 <td>Integer</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1533,7 +1533,7 @@
 <tr>
 <td>Minimum number of instances of this class that MUST appear in a conforming crate.</td>
 <td>Integer</td>
-<td><a href="#class_rdfsClass">rdfs:Class</a></td>
+<td><a href="#class_rdfsClass">class_rdfsClass</a></td>
 </tr>
 </tbody>
 </table>
@@ -1550,7 +1550,7 @@
 <tr>
 <td>Minimum number of times this property MUST appear on entities of the domain class.</td>
 <td>Integer</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1567,7 +1567,7 @@
 <tr>
 <td>A fixed value that this property MUST have on conforming entities.</td>
 <td>Text</td>
-<td><a href="#class_rdfProperty">rdf:Property</a></td>
+<td><a href="#class_rdfProperty">class_rdfProperty</a></td>
 </tr>
 </tbody>
 </table>
@@ -1584,7 +1584,7 @@
 <tr>
 <td>The version of this profile using semantic versioning (MAJOR.MINOR.PATCH).</td>
 <td>Text</td>
-<td><a href="#class_ProfileDataset">Profile Dataset</a></td>
+<td><a href="#class_ProfileDataset">class_ProfileDataset</a></td>
 </tr>
 </tbody>
 </table>
@@ -1684,6 +1684,14 @@
     },
     {
       "@id": "profile-documentation.md"
+    }
+  ],
+  "datePublished": [
+    "2026-05-08"
+  ],
+  "conformsTo": [
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     }
   ]
 }

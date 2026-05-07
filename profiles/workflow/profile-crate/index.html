@@ -177,7 +177,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/CreativeWork</td>
+<td><a href="http://schema.org/CreativeWork">CreativeWork</a></td>
 </tr>
 <tr>
 <td><a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small></td>
@@ -190,7 +190,7 @@
 <td><a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small></td>
 <td>Yes</td>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -234,13 +234,13 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Dataset</td>
+<td><a href="http://schema.org/Dataset">Dataset</a></td>
 </tr>
 <tr>
 <td><a href="#prop_conformsTo_Root_Data_Entity">conformsTo</a> <small style="color:#aaa;font-weight:normal">#prop_conformsTo_Root_Data_Entity</small></td>
 <td>Yes</td>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
+<td><a href="#Root_Data_Entity_profile_itemList">Root_Data_Entity_profile_itemList</a></td>
 <td></td>
 </tr>
 <tr>
@@ -261,14 +261,14 @@
 <td><a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small></td>
 <td>Yes</td>
 <td>TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
-<td>#class_CreativeWork, schema:URL, schema:Text</td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a>, schema:URL, schema:Text</td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#Property_mainEntity_Workflow">mainEntity <a href="#Property_mainEntity_Workflow" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#Property_mainEntity_Workflow</small></td>
 <td>Yes</td>
 <td>Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow.</td>
-<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
+<td><a href="#Class_MainWorkflow">Class_MainWorkflow</a></td>
 <td></td>
 </tr>
 <tr>
@@ -318,27 +318,27 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/MediaObject, http://schema.org/SoftwareSourceCode, https://bioschemas.org/ComputationalWorkflow</td>
+<td><a href="http://schema.org/MediaObject">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode">SoftwareSourceCode</a>, <a href="https://bioschemas.org/ComputationalWorkflow">ComputationalWorkflow</a></td>
 </tr>
 <tr>
 <td><a href="#Property_programmingLanguage_Workflow">programmingLanguage <a href="#Property_programmingLanguage_Workflow" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#Property_programmingLanguage_Workflow</small></td>
 <td>Yes</td>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#programmingLanguages">Programming Languages</a></td>
+<td><a href="#programmingLanguages">programmingLanguages</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#Property_MainWorkflow_image">image <a href="#Property_MainWorkflow_image" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#Property_MainWorkflow_image</small></td>
 <td>No</td>
 <td>If <em>Main Workflow Diagram</em> is present, the <em>Main Workflow</em> MUST refer to it via <code>image</code>.</td>
-<td><a href="#Class_ImageObject_Diagram">Main Workflow Diagram</a></td>
+<td><a href="#Class_ImageObject_Diagram">Class_ImageObject_Diagram</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#Property_MainWorkflow_subjectOf">subjectOf <a href="#Property_MainWorkflow_subjectOf" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#Property_MainWorkflow_subjectOf</small></td>
 <td>No</td>
 <td>Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description.</td>
-<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
+<td><a href="#Class_MainWorkflow_Description">Class_MainWorkflow_Description</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -382,13 +382,13 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/MediaObject, http://schema.org/SoftwareSourceCode, http://schema.org/HowTo</td>
+<td><a href="http://schema.org/MediaObject">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode">SoftwareSourceCode</a>, <a href="http://schema.org/HowTo">HowTo</a></td>
 </tr>
 <tr>
 <td><a href="#Property_programmingLanguage_WorkflowDescription">programmingLanguage <a href="#Property_programmingLanguage_WorkflowDescription" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#Property_programmingLanguage_WorkflowDescription</small></td>
 <td>Yes</td>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#programmingLanguageCWLList">Common Workflow Language</a></td>
+<td><a href="#programmingLanguageCWLList">programmingLanguageCWLList</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -426,7 +426,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/CreativeWork, http://schema.org/MediaObject</td>
+<td><a href="http://schema.org/CreativeWork">CreativeWork</a>, <a href="http://schema.org/MediaObject">MediaObject</a></td>
 </tr>
 <tr>
 <td><a href="#property_CreativeWork_README.id">@id</a> <small style="color:#aaa;font-weight:normal">#property_CreativeWork_README.id</small></td>
@@ -439,7 +439,7 @@
 <td><a href="#property_CreativeWork_README.about">about <a href="#property_CreativeWork_README.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#property_CreativeWork_README.about</small></td>
 <td>Yes</td>
 <td>The README.md file SHOULD have an about property referencing the Root Data Entity.</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 <td></td>
 </tr>
 <tr>
@@ -484,7 +484,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Dataset</td>
+<td><a href="http://schema.org/Dataset">Dataset</a></td>
 </tr>
 <tr>
 <td><a href="#property_Dataset_Test_Directory.id">@id</a> <small style="color:#aaa;font-weight:normal">#property_Dataset_Test_Directory.id</small></td>
@@ -533,7 +533,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/Dataset</td>
+<td><a href="http://schema.org/Dataset">Dataset</a></td>
 </tr>
 <tr>
 <td><a href="#property_Dataset_Examples_Directory.id">@id</a> <small style="color:#aaa;font-weight:normal">#property_Dataset_Examples_Directory.id</small></td>
@@ -581,7 +581,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td>http://schema.org/ImageObject, http://schema.org/MediaObject</td>
+<td><a href="http://schema.org/ImageObject">ImageObject</a>, <a href="http://schema.org/MediaObject">MediaObject</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -611,7 +611,7 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate_Metadata_Descriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -628,7 +628,7 @@
 <tr>
 <td>README file must have @id of <code>README.md</code>.</td>
 <td></td>
-<td><a href="#class_CreativeWork_README">README File</a></td>
+<td><a href="#class_CreativeWork_README">class_CreativeWork_README</a></td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +645,7 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class_Dataset_Test_Directory">Test Directory</a></td>
+<td><a href="#class_Dataset_Test_Directory">class_Dataset_Test_Directory</a></td>
 </tr>
 </tbody>
 </table>
@@ -662,7 +662,7 @@
 <tr>
 <td>The RO-Crate Metadata</td>
 <td></td>
-<td><a href="#class_Dataset_Examples_Directory">Examples Directory</a></td>
+<td><a href="#class_Dataset_Examples_Directory">class_Dataset_Examples_Directory</a></td>
 </tr>
 </tbody>
 </table>
@@ -678,8 +678,8 @@
 <tbody>
 <tr>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
-<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor">RO-Crate_Metadata_Descriptor</a></td>
 </tr>
 </tbody>
 </table>
@@ -695,8 +695,8 @@
 <tbody>
 <tr>
 <td>The README.md file SHOULD have an about property referencing the Root Data Entity.</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
-<td><a href="#class_CreativeWork_README">README File</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#class_CreativeWork_README">class_CreativeWork_README</a></td>
 </tr>
 </tbody>
 </table>
@@ -712,8 +712,8 @@
 <tbody>
 <tr>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity_profile_itemList">Root_Data_Entity_profile_itemList</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -730,7 +730,7 @@
 <tr>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -747,7 +747,7 @@
 <tr>
 <td>(In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important.</td>
 <td>Text</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -764,7 +764,7 @@
 <tr>
 <td>Readme file must have an encodingFormat of <code>text/markdown</code>.</td>
 <td></td>
-<td><a href="#class_CreativeWork_README">README File</a></td>
+<td><a href="#class_CreativeWork_README">class_CreativeWork_README</a></td>
 </tr>
 </tbody>
 </table>
@@ -780,8 +780,8 @@
 <tbody>
 <tr>
 <td>If <em>Main Workflow Diagram</em> is present, the <em>Main Workflow</em> MUST refer to it via <code>image</code>.</td>
-<td><a href="#Class_ImageObject_Diagram">Main Workflow Diagram</a></td>
-<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
+<td><a href="#Class_ImageObject_Diagram">Class_ImageObject_Diagram</a></td>
+<td><a href="#Class_MainWorkflow">Class_MainWorkflow</a></td>
 </tr>
 </tbody>
 </table>
@@ -797,8 +797,8 @@
 <tbody>
 <tr>
 <td>TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used</td>
-<td>#class_CreativeWork, schema:URL, schema:Text</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#class_CreativeWork">class_CreativeWork</a>, schema:URL, schema:Text</td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -814,8 +814,8 @@
 <tbody>
 <tr>
 <td>Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow.</td>
-<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Class_MainWorkflow">Class_MainWorkflow</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -832,7 +832,7 @@
 <tr>
 <td>SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</td>
 <td>Text</td>
-<td><a href="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
 </tr>
 </tbody>
 </table>
@@ -848,8 +848,8 @@
 <tbody>
 <tr>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#programmingLanguages">Programming Languages</a></td>
-<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
+<td><a href="#programmingLanguages">programmingLanguages</a></td>
+<td><a href="#Class_MainWorkflow">Class_MainWorkflow</a></td>
 </tr>
 </tbody>
 </table>
@@ -865,8 +865,8 @@
 <tbody>
 <tr>
 <td>The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name.</td>
-<td><a href="#programmingLanguageCWLList">Common Workflow Language</a></td>
-<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
+<td><a href="#programmingLanguageCWLList">programmingLanguageCWLList</a></td>
+<td><a href="#Class_MainWorkflow_Description">Class_MainWorkflow_Description</a></td>
 </tr>
 </tbody>
 </table>
@@ -882,8 +882,8 @@
 <tbody>
 <tr>
 <td>Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description.</td>
-<td><a href="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
-<td><a href="#Class_MainWorkflow">Main Workflow</a></td>
+<td><a href="#Class_MainWorkflow_Description">Class_MainWorkflow_Description</a></td>
+<td><a href="#Class_MainWorkflow">Class_MainWorkflow</a></td>
 </tr>
 </tbody>
 </table>

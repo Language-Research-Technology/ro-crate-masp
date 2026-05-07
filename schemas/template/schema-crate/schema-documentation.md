@@ -32,7 +32,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| This is an example of a property and its format. | schema:Text | <a href="#template%3AClassExample">ClassExample</a> |
+| This is an example of a property and its format. | schema:Text | template:ClassExample |
 
 
 

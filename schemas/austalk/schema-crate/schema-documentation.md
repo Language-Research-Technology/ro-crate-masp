@@ -35,7 +35,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#austalk%3Abasename">basename</a> | No |  The base name of a media file without path, comprised of the speaker, session, component and prompt numbers. | schema:Text |  |
 | <a href="#austalk%3AcameraSN0">cameraSN0</a> | No | The serial number of camera 0. | schema:Text |  |
 | <a href="#austalk%3AcameraSN1">cameraSN1</a> | No | The serial number of camera 1. | schema:Text |  |
-| <a href="#austalk%3Achannel">channel</a> | No | The channel name of the media file. | <a href="#austalk%3AChannelTerms">ChannelTerms</a> |  |
+| <a href="#austalk%3Achannel">channel</a> | No | The channel name of the media file. | austalk:ChannelTerms |  |
 | <a href="#austalk%3Achecksum">checksum</a> | No | The checksum of the media file for integrity verification. | schema:Text |  |
 | <a href="#austalk%3Acity">city</a> | No | The city of the recording site. | schema:Text |  |
 | <a href="#austalk%3Acountry">country</a> | No | The country in which this person has residential history. | schema:Text |  |
@@ -49,7 +49,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#austalk%3Amaptaskcomment">maptaskcomment</a> | No | A comment on the map task. | schema:Text |  |
 | <a href="#austalk%3Amother_pob_state">mothers birth state</a> | No | The state where the mother of this person was born. | schema:Text |  |
 | <a href="#austalk%3Aprompt">prompt</a> | No | The prompt text shown when recording an item. | schema:Text |  |
-| <a href="#austalk%3Arecording_site">recording site</a> | No | A URI of the recording site where the recording was made. | <a href="#austalk%3ARecordingSite">RecordingSite</a> |  |
+| <a href="#austalk%3Arecording_site">recording site</a> | No | A URI of the recording site where the recording was made. | austalk:RecordingSite |  |
 | <a href="#austalk%3Aresearch_assistant">research assistant</a> | No | The research assistant who ran the recording session. | schema:Person |  |
 | <a href="#austalk%3Ashortname">shortname</a> | No | The short name for a component. | schema:Text |  |
 | <a href="#austalk%3Astate">state</a> | No | The state in which this person has residential history. | schema:Text |  |
@@ -98,22 +98,22 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The age from which this person has resided in the specified town. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The age from which this person has resided in the specified town. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Aage_to"></a> Property: age to
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The age to which this person has resided in the specified town. If still residing there, use null. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The age to which this person has resided in the specified town. If still residing there, use null. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Aaudiorating"></a> Property: audio rating
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A rating of audio quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing). | schema:Text | <a href="#austalk%3ARecordedComponent">Recorded Component</a> |
+| A rating of audio quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing). | schema:Text | austalk:RecordedComponent |
 ### <a id="austalk%3Abasename"></a> Property: basename
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-|  The base name of a media file without path, comprised of the speaker, session, component and prompt numbers. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+|  The base name of a media file without path, comprised of the speaker, session, component and prompt numbers. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3AbirthPlace"></a> Property: birthPlace
 
 | Description | Range | Occurs in Domain(s) |
@@ -123,32 +123,32 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The serial number of camera 0. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The serial number of camera 0. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3AcameraSN1"></a> Property: cameraSN1
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The serial number of camera 1. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The serial number of camera 1. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Achannel"></a> Property: channel
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The channel name of the media file. | <a href="#austalk%3AChannelTerms">ChannelTerms</a> | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The channel name of the media file. | austalk:ChannelTerms | ausnc:AusNCObject |
 ### <a id="austalk%3Achecksum"></a> Property: checksum
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The checksum of the media file for integrity verification. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The checksum of the media file for integrity verification. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Acity"></a> Property: city
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The city of the recording site. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The city of the recording site. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Acomment"></a> Property: comment
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A comment on the recording quality. | schema:Text | <a href="#austalk%3ARecordedComponent">Recorded Component</a> |
+| A comment on the recording quality. | schema:Text | austalk:RecordedComponent |
 ### <a id="austalk%3Aconsent"></a> Property: consent
 
 | Description | Range | Occurs in Domain(s) |
@@ -158,7 +158,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The country in which this person has residential history. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The country in which this person has residential history. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Apob_country"></a> Property: country of birth
 
 | Description | Range | Occurs in Domain(s) |
@@ -218,7 +218,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The frequency of use of a language by this person, on a scale of 1-100. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The frequency of use of a language by this person, on a scale of 1-100. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Ahas_dentures"></a> Property: has dentures
 
 | Description | Range | Occurs in Domain(s) |
@@ -278,22 +278,22 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The numerical identifier for a session/component/item. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The numerical identifier for a session/component/item. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Ainformation_follower"></a> Property: information follower
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The participant whose role was information follower in the map task. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The participant whose role was information follower in the map task. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Ainformation_giver"></a> Property: information giver
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The participant whose role was information giver in the map task. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The participant whose role was information giver in the map task. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Ainstitution"></a> Property: institution
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The institution associated with the recording site. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The institution associated with the recording site. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Ais_left_handed"></a> Property: is left handed
 
 | Description | Range | Occurs in Domain(s) |
@@ -318,17 +318,17 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| Boolean value true if this person has resided less than a year in the specified town. | schema:Boolean | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| Boolean value true if this person has resided less than a year in the specified town. | schema:Boolean | ausnc:AusNCObject |
 ### <a id="austalk%3Amap"></a> Property: map
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The map being used in the map task. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The map being used in the map task. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Amaptaskcomment"></a> Property: maptaskcomment
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A comment on the map task. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| A comment on the map task. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Amother_accent"></a> Property: mother accent
 
 | Description | Range | Occurs in Domain(s) |
@@ -368,7 +368,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The state where the mother of this person was born. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The state where the mother of this person was born. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Aname"></a> Property: name
 
 | Description | Range | Occurs in Domain(s) |
@@ -413,7 +413,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The prompt text shown when recording an item. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The prompt text shown when recording an item. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Aprototype"></a> Property: prototype
 
 | Description | Range | Occurs in Domain(s) |
@@ -428,12 +428,12 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A URI of the recording site where the recording was made. | <a href="#austalk%3ARecordingSite">RecordingSite</a> | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| A URI of the recording site where the recording was made. | austalk:RecordingSite | ausnc:AusNCObject |
 ### <a id="austalk%3Aresearch_assistant"></a> Property: research assistant
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The research assistant who ran the recording session. | schema:Person | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The research assistant who ran the recording session. | schema:Person | ausnc:AusNCObject |
 ### <a id="austalk%3Aresidential_history"></a> Property: residential history
 
 | Description | Range | Occurs in Domain(s) |
@@ -453,7 +453,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The short name for a component. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The short name for a component. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Asituation"></a> Property: situation
 
 | Description | Range | Occurs in Domain(s) |
@@ -468,7 +468,7 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The state in which this person has residential history. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The state in which this person has residential history. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Afather_pob_state"></a> Property: state of birth of Father
 
 | Description | Range | Occurs in Domain(s) |
@@ -493,22 +493,22 @@ Instances of this type MAY be present in the crate.
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The town in which this person has residential history. | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The town in which this person has residential history. | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Atype"></a> Property: type
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The type of the media file (e.g. audio or video). | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The type of the media file (e.g. audio or video). | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Aversion"></a> Property: version
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| The version number differentiating between sets of recordings for an item (default 1, incremented for additional recordings). | schema:Text | <a href="#ausnc%3AAusNCObject">AusNCObject</a> |
+| The version number differentiating between sets of recordings for an item (default 1, incremented for additional recordings). | schema:Text | ausnc:AusNCObject |
 ### <a id="austalk%3Avideorating"></a> Property: video rating
 
 | Description | Range | Occurs in Domain(s) |
 | ----------- | ----------- | ----------- |
-| A rating of video quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing). | schema:Text | <a href="#austalk%3ARecordedComponent">Recorded Component</a> |
+| A rating of video quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing). | schema:Text | austalk:RecordedComponent |
 ### <a id="austalk%3Avocal_training_details"></a> Property: vocal training details
 
 | Description | Range | Occurs in Domain(s) |
