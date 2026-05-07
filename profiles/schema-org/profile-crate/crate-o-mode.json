@@ -1,14 +1,11 @@
 {
   "metadata": {
-    "name": "RO-Crate MASP Profile",
-    "description": "Profile for RO-Crate Machine Actionable Profiles and Schemas (MASP). Defines what a valid MASP profile crate must contain.",
+    "name": "RO-Crate + Schema.org Profile",
+    "description": "A minimal RO-Crate profile combined with the Schema.org MASP schema crate.",
     "version": "0.1.0",
     "author": "University of Queensland",
-    "license": "Apache-2.0"
+    "license": "GPL-3.0"
   },
-  "conformsToUri": [
-    "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-  ],
   "rootDataset": {
     "type": [
       "Dataset"
@@ -23,10 +20,6 @@
         "@type",
         "http://purl.org/dc/terms/conformsTo",
         "http://schema.org/name",
-        "http://schema.org/version",
-        "#prop_description_Dataset",
-        "#prop_datePublised_Dataset",
-        "#prop_license_Dataset",
         "http://schema.org/description",
         "http://schema.org/conformsTo",
         "http://schema.org/datePublished",
@@ -56,10 +49,6 @@
       "name": "Structure",
       "help": "How the parts of this RO-Crate relate, such as collection and object relationships.",
       "inputs": [
-        "http://www.w3.org/ns/dx/prof/isProfileOf",
-        "https://www.w3.org/ns/dx/prof/isProfileOf",
-        "http://www.w3.org/ns/dx/prof/hasResource",
-        "https://www.w3.org/ns/dx/prof/hasResource",
         "http://pcdm.org/models#memberOf",
         "http://pcdm.org/models#hasMember",
         "http://schema.org/isPartOf",

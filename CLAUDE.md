@@ -10,6 +10,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. **Documentation generation** — generate markdown docs from a Profile crate
 3. **Editor configuration** — (planned)
 
+## Team Working Principles
+
+### 1) Validator-first architecture
+
+- Put validation semantics in `MaspValidator` (and related rule classes), not in consuming apps.
+- If a rule interpretation changes (for example datatype handling), implement it here first.
+- Treat this repository as the reusable validation source for Crate-O and other projects.
+
+### 2) Reuse over app-specific patches
+
+- Avoid requiring downstream projects to add custom validation workarounds.
+- Expose behavior through stable validator methods so multiple clients can consume the same logic.
+- Keep project-agnostic logic in `lib/masp-validator.js`; avoid UI-specific assumptions.
+
+### 3) Keep profile selection concerns out of validator internals
+
+- Profile picker UX and "which profile is active" decisions belong to clients like Crate-O.
+- The validator should focus on parsing profile crates and validating target crates consistently.
+
 ## Commands
 
 ```bash
@@ -44,6 +63,8 @@ node validate-crate.js --json <target-crate.json> <profile-crate.json>  # JSON o
 ```js
 { error: [{message, rule, entity}], success: [{message, rule}], rules: { [ruleId]: { [entityId]: {...} } } }
 ```
+
+When adding new validation capability, update `MaspValidator` and tests in this repo so downstream tools receive the behavior automatically.
 
 ### Profile/Schema Crate Format
 

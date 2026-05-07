@@ -7,7 +7,7 @@
 <script type="application/ld+json"> 
   {
   "@context": [
-    "https://w3id.org/ro/crate/1.1/context",
+    "https://w3id.org/ro/crate/1.2/context",
     {
       "@vocab": "http://schema.org/",
       "ldac": "https://w3id.org/ldac/terms#"
@@ -18,50 +18,61 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "identifier": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
       "about": {
-        "@id": "./"
+        "@id": "https://w3id.org/ldac/profile"
       }
     },
     {
-      "@id": "./",
-      "@type": "Dataset",
+      "@id": "https://w3id.org/ldac/profile",
+      "@type": [
+        "Dataset",
+        "Profile"
+      ],
       "name": "Language Data Commons Comprehensive Collection Profile",
       "description": "Profile derived from Language Data Commons Comprehensive Collection: Implements the language data commons RO-Crate Metadata Profile for the top-level, objects and files.",
+      "version": "0.1.0",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
       "author": {
         "@id": "#author"
       },
       "license": "GPL-3.0",
-      "conformsTo": {
-        "@id": "https://w3id.org/ldac/profile"
-      },
-      "hasResource": {
-        "@id": "#hasSpecializedSchema"
-      },
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        },
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasEditorMode"
+        }
+      ],
       "hasPart": [
         {
+          "@id": "index.html"
+        },
+        {
           "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "media/"
+        }
+      ],
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
         }
       ]
-    },
-    {
-      "@id": "profile-documentation.md",
-      "@type": "File",
-      "name": "profile-documentation.md",
-      "dateModified": "2025-12-04T16:01:29+11:00",
-      "encodingFormat": [
-        {
-          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
-        },
-        "text/markdown"
-      ],
-      "isPartOf": {
-        "@id": "./"
-      }
-    },
-    {
-      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
-      "@type": "DigitalFormat",
-      "name": "Markdown"
     },
     {
       "@id": "#author",
@@ -159,6 +170,12 @@
         },
         {
           "@id": "#RO-Crate_Metadata_Descriptor"
+        },
+        {
+          "@id": "#README_Entity"
+        },
+        {
+          "@id": "#README.id"
         },
         {
           "@id": "#Root_Data_Entity"
@@ -634,6 +651,75 @@
       ]
     },
     {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://purl.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "Language Data Commons Comprehensive Collection Profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "https://w3id.org/ldac/profile"
+      }
+    },
+    {
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "dateModified": "2025-12-04T16:01:29+11:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ],
+      "about": {
+        "@id": "https://w3id.org/ldac/profile"
+      },
+      "isPartOf": {
+        "@id": "https://w3id.org/ldac/profile"
+      }
+    },
+    {
+      "@id": "media/",
+      "@type": "Dataset",
+      "name": "Profile diagrams",
+      "description": "SVG diagrams used in the profile documentation",
+      "isPartOf": {
+        "@id": "https://w3id.org/ldac/profile"
+      }
+    },
+    {
       "@id": "#class_CollectionEvent",
       "@type": "rdfs:Class",
       "rdfs:label": "CollectionEvent",
@@ -1019,6 +1105,34 @@
       },
       "sh:minCount": "1",
       "sh:maxCount": "1"
+    },
+    {
+      "@id": "#README_Entity",
+      "@type": "rdfs:Class",
+      "rdfs:label": "README_Entity",
+      "name": "README Entity",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/MediaObject"
+      },
+      "rdfs:comment": "An Data Package MUST contain a README file that describes the contents of the package. This entity represents the README.html file.",
+      "sh:minCount": "1",
+      "sh:maxCount": "1"
+    },
+    {
+      "@id": "#README.id",
+      "@type": "rdf:Property",
+      "rdfs:label": "@id",
+      "domainIncludes": {
+        "@id": "#README_Entity"
+      },
+      "rdfs:comment": "README file",
+      "rangeIncludes": {
+        "@id": "#README_Entity"
+      },
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
+      "description": "There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`.",
+      "value": "README.html"
     },
     {
       "@id": "#Root_Data_Entity",
@@ -1447,8 +1561,12 @@
         {
           "@id": "http://schema.org/Text"
         },
-        "\"#class_WebPage\"",
-        "\"#class_Standard\""
+        {
+          "@id": "http://schema.org/WebPage"
+        },
+        {
+          "@id": "http://schema.org/CreativeWork"
+        }
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -1600,7 +1718,9 @@
       },
       "rdfs:comment": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
       "rangeIncludes": [
-        "\"#class_PropertyValue\"",
+        {
+          "@id": "http://schema.org/PropertyValue"
+        },
         {
           "@id": "http://schema.org/Text"
         },
@@ -1819,7 +1939,9 @@
         "@id": "#class_Dataset"
       },
       "rdfs:comment": "This resource contains some kind of description that adds information to the resource it references.",
-      "rangeIncludes": "\"#class_PrimaryMaterial\"",
+      "rangeIncludes": {
+        "@id": "ldac:PrimaryMaterial"
+      },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2093,8 +2215,12 @@
       },
       "rdfs:comment": "This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF.",
       "rangeIncludes": [
-        "\"#class_Annotation\"",
-        "\"#class_PrimaryMaterial\""
+        {
+          "@id": "ldac:Annotation"
+        },
+        {
+          "@id": "ldac:PrimaryMaterial"
+        }
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -2180,7 +2306,9 @@
         "@id": "#class_RepositoryObject"
       },
       "rdfs:comment": "This resource is referenced by another resource that adds information to it such as a translation, transcription or other analysis.",
-      "rangeIncludes": "\"#class_Annotation\"",
+      "rangeIncludes": {
+        "@id": "ldac:Annotation"
+      },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2217,7 +2345,9 @@
         "@id": "#class_File"
       },
       "rdfs:comment": "This property references another resource that is derived from it, such as a downsampled audio or video file, or text extracted from a PDF.",
-      "rangeIncludes": "\"#class_DerivedMaterial\"",
+      "rangeIncludes": {
+        "@id": "ldac:DerivedMaterial"
+      },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -2258,7 +2388,9 @@
         "@id": "#class_CreativeWork"
       },
       "rdfs:comment": "One or more target File(s) that together contain the full text of an item – each file should indicate its language.",
-      "rangeIncludes": "\"#class_MediaObject\"",
+      "rangeIncludes": {
+        "@id": "http://schema.org/MediaObject"
+      },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -3159,7 +3291,7 @@
       "domainIncludes": {
         "@id": "#RO-Crate_Metadata_Descriptor"
       },
-      "rdfs:comment": "The RO-Crate Metadata file identifier",
+      "rdfs:comment": "The RO-Crate Metadata Descriptor",
       "rangeIncludes": {
         "@id": "#Root_Data_Entity"
       },
@@ -3168,7 +3300,7 @@
         "@id": "#hasSpecializedSchema"
       },
       "sh:maxCount": "1",
-      "description": "The RO-Crate Metadata file identifier",
+      "description": "This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'.",
       "value": "ro-crate-metadata.json"
     },
     {
@@ -3983,8 +4115,30 @@
       }
     },
     {
+      "@id": "https://purl.org/ro/mode",
+      "@type": "DefinedTerm",
+      "name": "Editor Mode",
+      "description": "Role indicating a resource is an editor configuration mode file."
+    },
+    {
+      "@id": "crate-o-mode.json",
+      "@type": "File",
+      "name": "Crate-O Editor Mode File",
+      "encodingFormat": "application/json",
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
+    },
+    {
       "@id": "https://w3id.org/ldac/profile#Collection",
-      "@type": "Thing"
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "Language Data Commons RO-Crate Profile: Collection"
     }
   ]
 }
@@ -4036,23 +4190,27 @@ table.table {
 <div id="summary">
 <div class='all-meta'>
             <div>
-                <h3> Language Data Commons Comprehensive Collection Profile</h3>
+                <h3><a href="https://w3id.org/ldac/profile">Go to: </a> Language Data Commons Comprehensive Collection Profile</h3>
                 
                 
                 
                 
-        <div id="./">
+        <div id="https://w3id.org/ldac/profile">
             
             <table class="table metadata table-striped" >
                 <tbody><tr>
             <th style="text-align:left;" class="prop">@id</th>
-            <td style='text-align:left'><span>./</span></td>
+            <td style='text-align:left'><a href="https://w3id.org/ldac/profile">https://w3id.org/ldac/profile</a></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
             <td style='text-align:left'><span>Language Data Commons Comprehensive Collection Profile</span></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">@type</th>
-            <td style='text-align:left'><span>Dataset</span></td>
+            <td style='text-align:left'><ul>
+                        <li><span>Dataset</span></li>
+                        
+                        <li><span>Profile</span></li>
+                        </ul></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
             <td style='text-align:left'><span>Profile derived from Language Data Commons Comprehensive Collection: Implements the language data commons RO-Crate Metadata Profile for the top-level, objects and files.</span></td>
@@ -4060,23 +4218,53 @@ table.table {
             <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
             <td style='text-align:left'><a href="#%23author">University of Queensland</a></td>
             </tr><tr>
+            <th style="text-align:left;" class="prop">version<span>&nbsp;</span><a href="http://schema.org/version">[?]</a></th>
+            <td style='text-align:left'><span>0.1.0</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">isProfileOf<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/isProfileOf">[?]</a></th>
+            <td style='text-align:left'><a href="https://w3id.org/ro/crate/1.2">https://w3id.org/ro/crate/1.2</a></td>
+            </tr><tr>
             <th style="text-align:left;" class="prop">license<span>&nbsp;</span><a href="http://schema.org/license">[?]</a></th>
             <td style='text-align:left'><span>GPL-3.0</span></td>
             </tr><tr>
-            <th style="text-align:left;" class="prop">conformsTo<span>&nbsp;</span><a href="http://purl.org/dc/terms/conformsTo">[?]</a></th>
-            <td style='text-align:left'><a href="https://w3id.org/ldac/profile">https://w3id.org/ldac/profile</a></td>
-            </tr><tr>
-            <th style="text-align:left;" class="prop">hasResource</th>
-            <td style='text-align:left'><a href="#%23hasSpecializedSchema">Specialized Schema Terms</a></td>
+            <th style="text-align:left;" class="prop">hasResource<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasResource">[?]</a></th>
+            <td style='text-align:left'><ul>
+                        <li><a href="#%23hasSpecializedSchema">Specialized Schema Terms</a></li>
+                        
+                        <li><a href="#%23hasSpecification">Profile Description</a></li>
+                        
+                        <li><a href="#%23hasGuidance">Profile Documentation (Markdown source)</a></li>
+                        
+                        <li><a href="#%23hasEditorMode">Crate-O Editor Mode</a></li>
+                        </ul></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
-            <td style='text-align:left'><a href="#profile-documentation.md">profile-documentation.md</a></td>
+            <td style='text-align:left'><ul>
+                        <li><a href="#index.html">Language Data Commons Comprehensive Collection Profile description</a></li>
+                        
+                        <li><a href="#profile-documentation.md">profile-documentation.md</a></li>
+                        
+                        <li><a href="#media/">Profile diagrams</a></li>
+                        </ul></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">conformsTo<span>&nbsp;</span><a href="http://purl.org/dc/terms/conformsTo">[?]</a></th>
+            <td style='text-align:left'><a href="https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/">https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/</a></td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
             <th style="text-align:left;" class="prop">about<span>&nbsp;</span><a href="http://schema.org/about">[?]</a></th>
-            <td style='text-align:left'><a href="#ro-crate-metadata.json">ro-crate-metadata.json</a></td>
+            <td style='text-align:left'><ul>
+                        <li><a href="#ro-crate-metadata.json">ro-crate-metadata.json</a></li>
+                        
+                        <li><a href="#index.html">Language Data Commons Comprehensive Collection Profile description</a></li>
+                        
+                        <li><a href="#profile-documentation.md">profile-documentation.md</a></li>
+                        </ul></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">isPartOf<span>&nbsp;</span><a href="http://schema.org/isPartOf">[?]</a></th>
-            <td style='text-align:left'><a href="#profile-documentation.md">profile-documentation.md</a></td>
+            <td style='text-align:left'><ul>
+                        <li><a href="#profile-documentation.md">profile-documentation.md</a></li>
+                        
+                        <li><a href="#media/">Profile diagrams</a></li>
+                        </ul></td>
             </tr></tbody>
             </table>
         </div>
@@ -4102,7 +4290,7 @@ table.table {
             <td style='text-align:left'><span>Organization</span></td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
             <th style="text-align:left;" class="prop">author<span>&nbsp;</span><a href="http://schema.org/author">[?]</a></th>
-            <td style='text-align:left'><a href="#./">Language Data Commons Comprehensive Collection Profile</a></td>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
             </tr></tbody>
             </table>
         </div>
@@ -4127,14 +4315,14 @@ table.table {
             <th style="text-align:left;" class="prop">@type</th>
             <td style='text-align:left'><span>ResourceDescriptor</span></td>
             </tr><tr>
-            <th style="text-align:left;" class="prop">hasRole</th>
+            <th style="text-align:left;" class="prop">hasRole<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasRole">[?]</a></th>
             <td style='text-align:left'><a href="http://www.w3.org/ns/dx/prof/role/schema">http://www.w3.org/ns/dx/prof/role/schema</a></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
             <td style='text-align:left'>
                         <details style='margin-left: 3%'>
                             <summary>
-                                <a href="#%23class_CollectionEvent">CollectionEvent</a> -to- <a href="#%23prop_funder_Dataset">funder</a>
+                                <a href="#%23class_CollectionEvent">CollectionEvent</a> -to- <a href="#%23prop_description_RepositoryObject">description</a>
                             </summary>
                             <ul>
                         <li><a href="#%23class_CollectionEvent">CollectionEvent</a></li>
@@ -4193,6 +4381,10 @@ table.table {
                         
                         <li><a href="#%23RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a></li>
                         
+                        <li><a href="#%23README_Entity">README Entity</a></li>
+                        
+                        <li><a href="#%23README.id">README.html</a></li>
+                        
                         <li><a href="#%23Root_Data_Entity">Root Data Entity</a></li>
                         
                         <li><a href="#%23itemlist_conformsTo_RepositoryCollection">Values for conformsTo</a></li>
@@ -4232,18 +4424,18 @@ table.table {
                         <li><a href="#%23prop_description_Dataset">description</a></li>
                         
                         <li><a href="#%23prop_description_RepositoryObject">description</a></li>
-                        
-                        <li><a href="#%23prop_encodingFormat_File">encodingFormat</a></li>
-                        
-                        <li><a href="#%23prop_funder_Dataset">funder</a></li>
                         </ul>
                         </details>
                 
                         <details style='margin-left: 3%'>
                             <summary>
-                                <a href="#%23prop_geo_Place">geo</a> -to- <a href="#%23prop_ldac%3Arecorder_Dataset">ldac:recorder</a>
+                                <a href="#%23prop_encodingFormat_File">encodingFormat</a> -to- <a href="#%23prop_ldac%3Aperformer_Dataset">ldac:performer</a>
                             </summary>
                             <ul>
+                        <li><a href="#%23prop_encodingFormat_File">encodingFormat</a></li>
+                        
+                        <li><a href="#%23prop_funder_Dataset">funder</a></li>
+                        
                         <li><a href="#%23prop_geo_Place">geo</a></li>
                         
                         <li><a href="#%23prop_geosparql%3AasWKT_Geometry">geosparql:asWKT</a></li>
@@ -4339,18 +4531,18 @@ table.table {
                         <li><a href="#%23prop_ldac%3Aparticipant_Dataset">ldac:participant</a></li>
                         
                         <li><a href="#%23prop_ldac%3Aperformer_Dataset">ldac:performer</a></li>
-                        
-                        <li><a href="#%23prop_ldac%3Aphotographer_Dataset">ldac:photographer</a></li>
-                        
-                        <li><a href="#%23prop_ldac%3Arecorder_Dataset">ldac:recorder</a></li>
                         </ul>
                         </details>
                 
                         <details style='margin-left: 3%'>
                             <summary>
-                                <a href="#%23prop_ldac%3Aregister_CreativeWork">ldac:register</a> -to- <a href="#ldac%3ANarrative">Narrative</a>
+                                <a href="#%23prop_ldac%3Aphotographer_Dataset">ldac:photographer</a> -to- <a href="#ldac%3ALudic">Ludic</a>
                             </summary>
                             <ul>
+                        <li><a href="#%23prop_ldac%3Aphotographer_Dataset">ldac:photographer</a></li>
+                        
+                        <li><a href="#%23prop_ldac%3Arecorder_Dataset">ldac:recorder</a></li>
+                        
                         <li><a href="#%23prop_ldac%3Aregister_CreativeWork">ldac:register</a></li>
                         
                         <li><a href="#%23prop_ldac%3Aresearcher_Dataset">ldac:researcher</a></li>
@@ -4446,18 +4638,18 @@ table.table {
                         <li><a href="#ldac%3ALexicon">Lexicon</a></li>
                         
                         <li><a href="#ldac%3ALudic">Ludic</a></li>
-                        
-                        <li><a href="#ldac%3AMaterialSelectionCriteria">MaterialSelectionCriteria</a></li>
-                        
-                        <li><a href="#ldac%3ANarrative">Narrative</a></li>
                         </ul>
                         </details>
                 
                         <details style='margin-left: 3%'>
                             <summary>
-                                <a href="#ldac%3AOpenAccess">OpenAccess</a> -to- <a href="#ldac%3AWrittenLanguageTypeTerms">WrittenLanguageTypeTerms</a>
+                                <a href="#ldac%3AMaterialSelectionCriteria">MaterialSelectionCriteria</a> -to- <a href="#ldac%3AWrittenLanguageTypeTerms">WrittenLanguageTypeTerms</a>
                             </summary>
                             <ul>
+                        <li><a href="#ldac%3AMaterialSelectionCriteria">MaterialSelectionCriteria</a></li>
+                        
+                        <li><a href="#ldac%3ANarrative">Narrative</a></li>
+                        
                         <li><a href="#ldac%3AOpenAccess">OpenAccess</a></li>
                         
                         <li><a href="#ldac%3AOratory">Oratory</a></li>
@@ -4531,6 +4723,9 @@ table.table {
                         </details>
                 </td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasResource">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr><tr>
             <th style="text-align:left;" class="prop">isPartOf<span>&nbsp;</span><a href="http://schema.org/isPartOf">[?]</a></th>
             <td style='text-align:left'>
                         <details style='margin-left: 3%'>
@@ -4931,9 +5126,137 @@ table.table {
                         </ul>
                         </details>
                 </td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3> Profile Description</h3>
+                
+                
+                
+                
+        <div id="#hasSpecification">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>#hasSpecification</span></td>
             </tr><tr>
-            <th style="text-align:left;" class="prop">hasResource</th>
-            <td style='text-align:left'><a href="#./">Language Data Commons Comprehensive Collection Profile</a></td>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Profile Description</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ResourceDescriptor</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasRole<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasRole">[?]</a></th>
+            <td style='text-align:left'><a href="http://www.w3.org/ns/dx/prof/role/specification">http://www.w3.org/ns/dx/prof/role/specification</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasArtifact">[?]</a></th>
+            <td style='text-align:left'><a href="#index.html">Language Data Commons Comprehensive Collection Profile description</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasResource">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3> Profile Documentation (Markdown source)</h3>
+                
+                
+                
+                
+        <div id="#hasGuidance">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>#hasGuidance</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Profile Documentation (Markdown source)</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ResourceDescriptor</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasRole<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasRole">[?]</a></th>
+            <td style='text-align:left'><a href="http://www.w3.org/ns/dx/prof/role/guidance">http://www.w3.org/ns/dx/prof/role/guidance</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasArtifact">[?]</a></th>
+            <td style='text-align:left'><a href="#profile-documentation.md">profile-documentation.md</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasResource">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3> Crate-O Editor Mode</h3>
+                
+                
+                
+                
+        <div id="#hasEditorMode">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>#hasEditorMode</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Crate-O Editor Mode</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ResourceDescriptor</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasRole<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasRole">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//purl.org/ro/mode">Editor Mode</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasArtifact">[?]</a></th>
+            <td style='text-align:left'><a href="#crate-o-mode.json">Crate-O Editor Mode File</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasResource">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3><a href="index.html">⬇️ Download: </a> Language Data Commons Comprehensive Collection Profile description</h3>
+                
+                <iframe src='index.html' width='100%' height='500'></iframe>
+                
+                
+        <div id="index.html">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>index.html</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Language Data Commons Comprehensive Collection Profile description</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>File</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat<span>&nbsp;</span><a href="http://schema.org/encodingFormat">[?]</a></th>
+            <td style='text-align:left'><span>text/html</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">about<span>&nbsp;</span><a href="http://schema.org/about">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasArtifact">[?]</a></th>
+            <td style='text-align:left'><a href="#%23hasSpecification">Profile Description</a></td>
             </tr></tbody>
             </table>
         </div>
@@ -4959,7 +5282,7 @@ table.table {
             <td style='text-align:left'><span>File</span></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">isPartOf<span>&nbsp;</span><a href="http://schema.org/isPartOf">[?]</a></th>
-            <td style='text-align:left'><a href="#./">Language Data Commons Comprehensive Collection Profile</a></td>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">encodingFormat<span>&nbsp;</span><a href="http://schema.org/encodingFormat">[?]</a></th>
             <td style='text-align:left'><ul>
@@ -4970,14 +5293,52 @@ table.table {
             </tr><tr>
             <th style="text-align:left;" class="prop">dateModified<span>&nbsp;</span><a href="http://schema.org/dateModified">[?]</a></th>
             <td style='text-align:left'><span>2025-12-04T16:01:29+11:00</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">about<span>&nbsp;</span><a href="http://schema.org/about">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
             <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
-            <td style='text-align:left'><a href="#./">Language Data Commons Comprehensive Collection Profile</a></td>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact<span>&nbsp;</span><a href="http://www.w3.org/ns/dx/prof/hasArtifact">[?]</a></th>
+            <td style='text-align:left'><a href="#%23hasGuidance">Profile Documentation (Markdown source)</a></td>
             </tr></tbody>
             </table>
         </div>
             </div>
-        <hr/><br/><br/></div>
+        <hr/><br/><br/>
+            <div>
+                <h3> Profile diagrams</h3>
+                
+                
+                
+                
+        <div id="media/">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>media/</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Profile diagrams</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>Dataset</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">description<span>&nbsp;</span><a href="http://schema.org/description">[?]</a></th>
+            <td style='text-align:left'><span>SVG diagrams used in the profile documentation</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">isPartOf<span>&nbsp;</span><a href="http://schema.org/isPartOf">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/ldac/profile">Language Data Commons Comprehensive Collection Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/><hr/><br/><br/></div>
 </div>
 
 
