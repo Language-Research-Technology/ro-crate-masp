@@ -204,6 +204,12 @@ describe("MASP Profile Tests", function () {
       expect(properties).to.include("#prop_hasPart_ResourceDescriptor");
     });
 
+    it("flags metadata descriptor conformsTo rule for suppression", function () {
+      const flags =
+        validator.rules.ruleFlags["#prop_conformsTo_MetadataDescriptor"];
+      expect(flags?.metadataDescriptorRule).to.equal(true);
+    });
+
     it("#class_MetadataDescriptor has minCount=1, maxCount=1", function () {
       const rule = validator.rules.classes["#class_MetadataDescriptor"];
       expect(rule.minCount).to.equal(1);
