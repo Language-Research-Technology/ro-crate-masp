@@ -3224,7 +3224,7 @@
       "domainIncludes": {
         "@id": "#RO-Crate_Metadata_Descriptor"
       },
-      "rdfs:comment": "The RO-Crate Metadata file identifier",
+      "rdfs:comment": "The RO-Crate Metadata Descriptor",
       "rangeIncludes": {
         "@id": "#Root_Data_Entity"
       },
@@ -3233,7 +3233,7 @@
         "@id": "#hasSpecializedSchema"
       },
       "sh:maxCount": "1",
-      "description": "The RO-Crate Metadata file identifier",
+      "description": "This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'.",
       "value": "ro-crate-metadata.json"
     },
     {
@@ -4049,7 +4049,8 @@
     },
     {
       "@id": "https://w3id.org/ldac/profile#Collection",
-      "@type": "Thing"
+      "@type": ["CreativeWork", "Profile"],
+      "name": "Language Data Commons RO-Crate Profile: Collection"
     },
     {
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
