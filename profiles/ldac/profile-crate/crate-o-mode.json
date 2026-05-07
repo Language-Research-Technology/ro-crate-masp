@@ -19,7 +19,45 @@
       "RepositoryCollection"
     ]
   },
-  "inputGroups": [
+  "lookup": {
+    "Language": {
+      "module": "datapack",
+      "fields": [
+        "@id",
+        "name",
+        "alternateName",
+        "iso639-3",
+        "austlangCode",
+        "glottologCode",
+        "languageCode"
+      ]
+    },
+    "Organization": {
+      "module": "ror"
+    }
+  },
+  "enabledClasses": [
+    "Dataset",
+    "Person",
+    "Place",
+    "Geometry",
+    "GeoCoordinates",
+    "GeoShape",
+    "Language",
+    "Organization",
+    "Book",
+    "ScholarlyArticle",
+    "RepositoryCollection",
+    "RepositoryObject",
+    "CreativeWork",
+    "ldac:CollectionEvent",
+    "ldac:CollectionProtocol",
+    "ldac:DataDepositLicense",
+    "ldac:DataLicense",
+    "ldac:DataReuseLicense",
+    "File"
+  ],
+  "propertyGroups": [
     {
       "name": "About",
       "help": "The core metadata for this RO-Crate and its subject matter.",
@@ -99,6 +137,10 @@
       "name": "Structure",
       "help": "For groups of elements, such as DefinedTerms.",
       "inputs": [
+        "http://www.w3.org/ns/dx/prof/isProfileOf",
+        "https://www.w3.org/ns/dx/prof/isProfileOf",
+        "http://www.w3.org/ns/dx/prof/hasResource",
+        "https://www.w3.org/ns/dx/prof/hasResource",
         "http://pcdm.org/models#memberOf",
         "http://pcdm.org/models#hasMember",
         "http://schema.org/isPartOf",
@@ -181,43 +223,5 @@
         "https://w3id.org/ldac/terms#channels"
       ]
     }
-  ],
-  "lookup": {
-    "Language": {
-      "module": "datapack",
-      "fields": [
-        "@id",
-        "name",
-        "alternateName",
-        "iso639-3",
-        "austlangCode",
-        "glottologCode",
-        "languageCode"
-      ]
-    },
-    "Organization": {
-      "module": "ror"
-    }
-  },
-  "enabledClasses": [
-    "Dataset",
-    "Person",
-    "Place",
-    "Geometry",
-    "GeoCoordinates",
-    "GeoShape",
-    "Language",
-    "Organization",
-    "Book",
-    "ScholarlyArticle",
-    "RepositoryCollection",
-    "RepositoryObject",
-    "CreativeWork",
-    "ldac:CollectionEvent",
-    "ldac:CollectionProtocol",
-    "ldac:DataDepositLicense",
-    "ldac:DataLicense",
-    "ldac:DataReuseLicense",
-    "File"
   ]
 }

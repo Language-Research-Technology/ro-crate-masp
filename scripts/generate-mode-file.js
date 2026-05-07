@@ -9,7 +9,7 @@
  *   - metadata:      name, description, version, author, license
  *   - conformsToUri: the profile URIs this mode file conforms to
  *   - rootDataset:   the expected @type(s) of the root dataset
- *   - inputGroups:   property-group information for display in the editor
+ *   - propertyGroups: property-group information for display in the editor
  *   - lookup:        name-authority lookup configuration (Language, Org, etc.)
  *   - enabledClasses: which classes the editor should expose
  *
@@ -193,7 +193,7 @@ function buildMinimalModeFromProfile(profileCrateJson) {
     rootDataset: {
       type: datasetTypes.length > 0 ? datasetTypes : ["Dataset"],
     },
-    inputGroups: [],
+    propertyGroups: [],
     lookup: {},
     enabledClasses: [],
   };
@@ -255,7 +255,7 @@ function updateProfileCrate(profileCratePath, modeFilePath) {
     name: "Crate-O Editor Mode File",
     encodingFormat: "application/json",
     description:
-      "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
+      "Mini Crate-O mode file for this profile (metadata, property groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
   };
 
   // Create the ResourceDescriptor

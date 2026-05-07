@@ -100,9 +100,9 @@ describe("Crate-O Mode File Tests", function () {
         expect(modeData).to.not.have.property("classes");
       });
 
-      it('should have an "inputGroups" array', function () {
-        expect(modeData).to.have.property("inputGroups");
-        expect(modeData.inputGroups).to.be.an("array");
+      it('should have a "propertyGroups" array', function () {
+        expect(modeData).to.have.property("propertyGroups");
+        expect(modeData.propertyGroups).to.be.an("array");
       });
 
       it('should have an "enabledClasses" array', function () {
@@ -185,7 +185,7 @@ describe("Crate-O Mode File Tests", function () {
       expect(result).to.not.have.property("classes");
       // Should have other sections preserved
       expect(result).to.have.property("metadata");
-      expect(result).to.have.property("inputGroups");
+      expect(result).to.have.property("propertyGroups");
       expect(result).to.have.property("lookup");
       expect(result).to.have.property("enabledClasses");
     });
@@ -195,7 +195,7 @@ describe("Crate-O Mode File Tests", function () {
         metadata: { name: "Test" },
         conformsToUri: ["http://example.com/profile"],
         rootDataset: { type: ["Dataset"] },
-        inputGroups: [{ name: "About", inputs: [] }],
+        propertyGroups: [{ name: "About", inputs: [] }],
         lookup: { Language: { module: "datapack" } },
         enabledClasses: ["Dataset"],
         classes: { Dataset: { inputs: [] } }, // this should be stripped
@@ -218,7 +218,7 @@ describe("Crate-O Mode File Tests", function () {
       expect(result).to.not.have.property("classes");
       expect(result).to.have.property("metadata");
       expect(result.metadata.name).to.equal("RO-Crate Machine Actionable Profile");
-      expect(result).to.have.property("inputGroups").that.is.an("array");
+      expect(result).to.have.property("propertyGroups").that.is.an("array");
       expect(result).to.have.property("lookup").that.is.an("object");
       expect(result).to.have.property("enabledClasses").that.is.an("array");
     });

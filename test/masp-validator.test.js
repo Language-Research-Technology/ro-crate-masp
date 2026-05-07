@@ -251,6 +251,11 @@ describe("MASP Profile Tests", function () {
       expect(rule.minCount).to.equal(1);
       expect(rule.maxCount).to.equal(1);
     });
+
+    it("accepts string-encoded integers for Integer ranges", function () {
+      const failReason = validator.validatePropertyValue("1", [{ "@id": "Integer" }]);
+      expect(failReason).to.equal(null);
+    });
   });
 
   // -----------------------------------------------------------------
