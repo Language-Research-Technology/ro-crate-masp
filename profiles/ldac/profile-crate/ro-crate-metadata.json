@@ -63,9 +63,18 @@
       ],
       "conformsTo": [
         {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
         }
       ]
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#author",
@@ -4132,6 +4141,15 @@
         "Profile"
       ],
       "name": "Language Data Commons RO-Crate Profile: Collection"
+    },
+    {
+      "@id": "https://w3id.org/ldac/profile#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "Ldac Profile",
+      "url": "https://w3id.org/ldac/profile/"
     }
   ]
 }

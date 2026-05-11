@@ -16,9 +16,14 @@
       "@type": "Dataset",
       "name": "Schema.org Vocabulary",
       "description": "The full schema.org vocabulary expressed as a MASP schema crate. Generated from the official schema.org JSON-LD dump.",
-      "conformsTo": {
-        "@id": "https://w3id.org/ro/profiles/schema/1.0"
-      },
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        },
+        {
+          "@id": "https://w3id.org/ro/profiles/schema/1.0"
+        }
+      ],
       "hasResource": [
         {
           "@id": "#hasSpecializedSchema"
@@ -54456,6 +54461,15 @@
       "rdfs:label": "Nursing",
       "name": "Nursing",
       "rdfs:comment": "A health profession of a person formally educated and trained in the care of the sick or infirm person."
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     }
   ]
 }

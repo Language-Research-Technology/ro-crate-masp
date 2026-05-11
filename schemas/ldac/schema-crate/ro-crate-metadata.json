@@ -47,9 +47,14 @@
       "@type": "Dataset",
       "name": "Language Data Commons Schema Terms",
       "description": "This is a language data schema, in the style of the Schema.org schema. It is based on OLAC terms for use in the LDaCA project and is published at <https://w3id.org/ldac/terms>. This schema builds on Schema.org and is intended to be used with the Language Data Commons RO-Crate Profile: <https://w3id.org/ldac/profile>.",
-      "conformsTo": {
-        "@id": "https://w3id.org/ro/profiles/schema/1.0"
-      },
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        },
+        {
+          "@id": "https://w3id.org/ro/profiles/schema/1.0"
+        }
+      ],
       "hasResource": [
         {
           "@id": "#hasEditorMode"
@@ -2109,6 +2114,15 @@
       "@type": "DefinedTerm",
       "name": "Editor Mode",
       "description": "Role indicating a resource is an editor configuration mode file."
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     }
   ]
 }

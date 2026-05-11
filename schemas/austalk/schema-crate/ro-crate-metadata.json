@@ -31,6 +31,11 @@
       "description": [
         "This is a language data ontology based on the AusTalk ontology here: https://github.com/Alveo/bigasc-metadata/edit/master/schema/austalk.owl"
       ],
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        }
+      ],
       "mentions": [],
       "hasResource": [
         {
@@ -45,6 +50,15 @@
           "@id": "schema-documentation.md"
         }
       ]
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#hasSpecializedSchema",

@@ -24,6 +24,11 @@
         "@id": "#author"
       },
       "license": "GPL-3.0",
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        }
+      ],
       "hasResource": [
         {
           "@id": "#hasSpecializedSchema"
@@ -49,6 +54,15 @@
           "@id": "profile-documentation.md"
         }
       ]
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#hasSpecification",
@@ -661,9 +675,14 @@
       "@id": "./",
       "@type": "Dataset",
       "name": "Example Workflow",
-      "conformsTo": {
-        "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
-      },
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
+        }
+      ],
       "description": "An example workflow RO-Crate",
       "license": "Apache-2.0",
       "datePublished": "2025-10-15",
@@ -823,6 +842,15 @@
       "@type": "DefinedTerm",
       "name": "Editor Mode",
       "description": "Role indicating a resource is an editor configuration mode file."
+    },
+    {
+      "@id": "https://w3id.org/ro/workflow-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "Workflow Profile",
+      "url": "https://w3id.org/ro/workflow-crate/"
     }
   ]
 }

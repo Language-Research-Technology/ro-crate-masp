@@ -28,7 +28,7 @@
       "license": "GPL-3.0",
       "conformsTo": [
         {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/"
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
         }
       ],
       "hasResource": [
@@ -73,6 +73,15 @@
       "conformsTo": {
         "@id": "https://w3id.org/ro/crate/1.2"
       }
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#author",
@@ -891,6 +900,15 @@
       "prov:specializationOf": {
         "@id": "http://schema.org/terms#SoftwareSourceCode"
       }
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/software/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "Software Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/software/profile-crate/"
     }
   ]
 }
