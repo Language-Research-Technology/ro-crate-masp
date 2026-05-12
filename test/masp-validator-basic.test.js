@@ -207,4 +207,39 @@ describe("MASP Validator Tests", function () {
     //console.log("Results:", JSON.stringify(results, null, 2));
     expect(results.error.length).to.equal(0);
   });
+
+  it("should derive absolute profile URI from root @id when base URL is set", function () {
+    const validator = new MaspValidator(rocrateProfileCrate)
+      .setProfileBaseUrl(
+        "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/ro-crate-metadata.json"
+      );
+
+    expect(validator.getProfileUri()).to.equal(
+      "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
+    );
+  });
+
+  it("should return editor hints conformsToUri when provided", function () {
+    const validator = new MaspValidator(rocrateProfileCrate)
+      .setProfileBaseUrl(
+        "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/ro-crate-metadata.json"
+      )
+      .setEditorHints({
+        conformsToUri: ["https://example.org/custom-profile#v1"],
+      });
+
+    expect(validator.getConformsToUris()).to.deep.equal([
+      "https://example.org/custom-profile#v1",
+    ]);
+  });
+
+  it("should fall back to profile URI when editor hints conformsToUri is missing", function () {
+    const validator = new MaspValidator(rocrateProfileCrate).setProfileBaseUrl(
+      "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/ro-crate-metadata.json"
+    );
+
+    expect(validator.getConformsToUris()).to.deep.equal([
+      "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/",
+    ]);
+  });
 });

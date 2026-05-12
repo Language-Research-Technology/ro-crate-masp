@@ -6,9 +6,6 @@
     "author": "University of Queensland",
     "license": "GPL-3.0"
   },
-  "conformsToUri": [
-    "https://w3id.org/ro/workflow-crate/"
-  ],
   "rootDataset": {
     "type": [
       "Dataset"

@@ -10,9 +10,6 @@
     "ldac": "https://w3id.org/ldac/terms#"
   },
   "context": [],
-  "conformsToUri": [
-    "https://w3id.org/ldac/profile#Collection"
-  ],
   "rootDataset": {
     "type": [
       "Dataset",

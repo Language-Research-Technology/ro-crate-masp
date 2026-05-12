@@ -136,6 +136,12 @@
           "@id": "#Root_Data_Entity"
         },
         {
+          "@id": "#itemlist_conformsTo_RootDataEntity"
+        },
+        {
+          "@id": "#prop_conformsTo_RootDataEntity"
+        },
+        {
           "@id": "http://schema.org/name"
         },
         {
@@ -7580,6 +7586,41 @@
       "name": "Root Data Entity",
       "sh:minCount": 0,
       "sh:maxCount": 1
+    },
+    {
+      "@id": "#itemlist_conformsTo_RootDataEntity",
+      "@type": "ItemList",
+      "name": "Values for conformsTo",
+      "description": "Predefined values for the conformsTo property",
+      "itemListElement": {
+        "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/"
+      },
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
+    },
+    {
+      "@id": "#prop_conformsTo_RootDataEntity",
+      "@type": "rdf:Property",
+      "rdfs:label": "conformsTo",
+      "name": "conformsTo",
+      "prov:specializationOf": {
+        "@id": "http://purl.org/dc/terms/conformsTo"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "A link to the RO-Crate + Schema.org profile.",
+      "rangeIncludes": {
+        "@id": "#itemlist_conformsTo_RootDataEntity"
+      },
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "itemListElement": {
+        "@id": "#itemlist_conformsTo_RootDataEntity"
+      },
+      "sh:maxCount": "1"
     },
     {
       "@id": "http://schema.org/name",

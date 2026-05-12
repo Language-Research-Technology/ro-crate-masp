@@ -6,9 +6,6 @@
     "author": "University of Queensland",
     "license": "Apache-2.0"
   },
-  "conformsToUri": [
-    "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-  ],
   "rootDataset": {
     "type": [
       "Dataset"

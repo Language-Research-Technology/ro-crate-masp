@@ -6,9 +6,6 @@
     "author": "University of Queensland",
     "license": "GPL-3.0"
   },
-  "conformsToUri": [
-    "https://purl.archive.org/language-data-commons/profile#Software"
-  ],
   "rootDataset": {
     "type": [
       "Dataset",
