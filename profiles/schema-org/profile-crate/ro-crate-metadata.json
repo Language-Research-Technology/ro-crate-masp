@@ -46,6 +46,9 @@
           "@id": "#hasEditorMode"
         },
         {
+          "@id": "#hasConformanceIndicators"
+        },
+        {
           "@id": "#hasEnumerationValuesSchemaOrg"
         }
       ],
@@ -7721,17 +7724,45 @@
       "@type": "ResourceDescriptor",
       "name": "Crate-O Editor Mode",
       "hasRole": {
-        "@id": "https://purl.org/ro/mode"
+        "@id": "https://w3id.org/ro/mode"
       },
       "hasArtifact": {
         "@id": "crate-o-mode.json"
       }
     },
     {
-      "@id": "https://purl.org/ro/mode",
+      "@id": "#hasConformanceIndicators",
+      "@type": "ResourceDescriptor",
+      "name": "Conformance Indicators",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/conformance-indicators"
+      },
+      "hasArtifact": {
+        "@id": "#conformanceIndicators"
+      }
+    },
+    {
+      "@id": "#conformanceIndicators",
+      "@type": "ItemList",
+      "name": "Supported conformsTo identifiers",
+      "description": "Canonical identifiers that indicate conformance to this profile.",
+      "itemListElement": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/ro/mode",
       "@type": "DefinedTerm",
       "name": "Editor Mode",
       "description": "Role indicating a resource is an editor configuration mode file."
+    },
+    {
+      "@id": "https://w3id.org/ro/conformance-indicators",
+      "@type": "DefinedTerm",
+      "name": "Conformance Indicators",
+      "description": "Role indicating a resource enumerates identifiers that are accepted as conformance indicators for the profile."
     },
     {
       "@id": "#hasEnumerationValuesSchemaOrg",

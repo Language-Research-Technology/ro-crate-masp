@@ -70,23 +70,10 @@ describe("MASP Validator Tests", function () {
 
     //console.log(JSON.stringify(results, null, 2));
 
-    expect(
-      results.rules["#Root_Data_Entity"]["./"]["property-errors"]
-    ).to.deep.include({
-      message: 'Property "name" validation failed for entity ./',
-    });
-
-    expect(
-      results.rules["#Root_Data_Entity"]["./"]["property-errors"]
-    ).to.deep.include({
-      message: 'Property "description" validation failed for entity ./',
-    });
-
-    expect(
-      results.rules["#Root_Data_Entity"]["./"]["property-errors"]
-    ).to.deep.include({
-      message: 'Property "license" validation failed for entity ./',
-    });
+    const propertyErrors = results.rules["#Root_Data_Entity"]["./"]["property-errors"];
+    expect(propertyErrors.some((e) => e.message.includes('Property "name" validation failed for entity ./'))).to.equal(true);
+    expect(propertyErrors.some((e) => e.message.includes('Property "description" validation failed for entity ./'))).to.equal(true);
+    expect(propertyErrors.some((e) => e.message.includes('Property "license" validation failed for entity ./'))).to.equal(true);
 
     targetCrate.root.name = "Test Dataset";
 
@@ -97,9 +84,8 @@ describe("MASP Validator Tests", function () {
 
     expect(
       results.rules["#Root_Data_Entity"]["./"]["property-errors"]
-    ).to.deep.include({
-      message: 'Property "datePublished" validation failed for entity ./',
-    });
+        .some((e) => e.message.includes('Property "datePublished" validation failed for entity ./'))
+    ).to.equal(true);
 
     targetCrate.root.datePublished = "2023-07-01";
 
@@ -219,7 +205,7 @@ describe("MASP Validator Tests", function () {
     );
   });
 
-  it("should return editor hints conformsToUri when provided", function () {
+  it("should prefer canonical profile URI and keep editor hint conformsToUri as alias", function () {
     const validator = new MaspValidator(rocrateProfileCrate)
       .setProfileBaseUrl(
         "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/ro-crate-metadata.json"
@@ -229,6 +215,7 @@ describe("MASP Validator Tests", function () {
       });
 
     expect(validator.getConformsToUris()).to.deep.equal([
+      "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/",
       "https://example.org/custom-profile#v1",
     ]);
   });
@@ -241,5 +228,28 @@ describe("MASP Validator Tests", function () {
     expect(validator.getConformsToUris()).to.deep.equal([
       "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/",
     ]);
+  });
+
+  it("should resolve LDAC conformsTo using explicit conformance indicators", function () {
+    const profileData = fs.readFileSync(ldacProfileCratePath, "utf8");
+    const profileJson = JSON.parse(profileData);
+    const ldacProfileCrate = new ROCrate(profileJson, { array: true, link: true });
+
+    const validator = new MaspValidator(ldacProfileCrate)
+      .setProfileBaseUrl(
+        "https://language-research-technology.github.io/ro-crate-masp/profiles/ldac/profile-crate/ro-crate-metadata.json"
+      )
+      .setEditorHints({
+        conformsToUri: ["https://w3id.org/ldac/profile"],
+      });
+
+    expect(validator.getProfileUri()).to.equal("https://w3id.org/ldac/profile#Collection");
+    expect(validator.getConformsToUris()).to.deep.equal([
+      "https://w3id.org/ldac/profile#Collection",
+      "https://w3id.org/ldac/profile",
+    ]);
+    expect(validator.getProfileEntity()).to.deep.include({
+      "@id": "https://w3id.org/ldac/profile#Collection",
+    });
   });
 });

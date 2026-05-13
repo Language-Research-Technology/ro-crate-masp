@@ -94,14 +94,14 @@
       "@type": "ResourceDescriptor",
       "name": "Crate-O Editor Mode",
       "hasRole": {
-        "@id": "https://purl.org/ro/mode"
+        "@id": "https://w3id.org/ro/mode"
       },
       "hasArtifact": {
         "@id": "crate-o-mode.json"
       }
     },
     {
-      "@id": "https://purl.org/ro/mode",
+      "@id": "https://w3id.org/ro/mode",
       "@type": "DefinedTerm",
       "name": "Editor Mode",
       "description": "Role indicating a resource is an editor configuration mode file."

@@ -35,7 +35,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Role URI used in profile crate ResourceDescriptors to identify mode files
-const MODE_ROLE_URI = "https://purl.org/ro/mode";
+const MODE_ROLE_URI = "https://w3id.org/ro/mode";
 
 // ─── CLI argument parsing ─────────────────────────────────────────────────────
 

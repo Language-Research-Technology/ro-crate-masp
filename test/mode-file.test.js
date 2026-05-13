@@ -6,7 +6,7 @@
  * - All mode files are valid JSON with expected structure
  * - Mode files do NOT contain a "classes" section (MASP covers that)
  * - Each profile/schema crate's ro-crate-metadata.json references the mode
- *   file via a ResourceDescriptor with role https://purl.org/ro/mode
+ *   file via a ResourceDescriptor with role https://w3id.org/ro/mode
  * - The generate-mode-file.js script strips "classes" correctly
  * - The generate-mode-file.js script generates minimal mode files correctly
  */
