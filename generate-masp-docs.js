@@ -10,15 +10,17 @@ const { ROCrate } = require("ro-crate");
 const fs = require("fs");
 const path = require("path");
 const { MaspValidator } = require("./lib/masp-validator");
-const { execSync } = require("child_process");
+const { execSync, execFileSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
+const { Workbook } = require("ro-crate-excel");
 
 async function main() {
 // Parse command line arguments — strip flags before positional args
 const rawArgs = process.argv.slice(2);
 const multiPage = rawArgs.includes("--multi-page");
-const positionalArgs = rawArgs.filter((a) => !a.startsWith("--"));
+const syncWithRocxl = rawArgs.includes("-x") || rawArgs.includes("--rocxl");
+const positionalArgs = rawArgs.filter((a) => !a.startsWith("-"));
 
 const profilePath =
   positionalArgs[0] ||
@@ -36,6 +38,56 @@ const templatePath =
 const profileDir = path.dirname(profilePath);
 const outputPath =
   positionalArgs[2] || path.join(profileDir, "profile-documentation.md");
+
+// Rocxl synchronisation function - if the crate contains both JSON and XLSX metadata, choose the most recently modified one as the source of truth for synchronisation, otherwise use whichever one exists. If neither exists, throw an error.
+function syncProfileCrateWithRocxl(targetDir) {
+  const metadataPath = path.join(targetDir, "ro-crate-metadata.json");
+  const spreadsheetPath = path.join(targetDir, "ro-crate-metadata.xlsx");
+  const rocxlBin = path.join(
+    __dirname,
+    "node_modules",
+    ".bin",
+    process.platform === "win32" ? "rocxl.cmd" : "rocxl"
+  );
+
+  if (!fs.existsSync(rocxlBin)) {
+    throw new Error(`rocxl command not found at ${rocxlBin}`);
+  }
+
+  const metadataExists = fs.existsSync(metadataPath);
+  const spreadsheetExists = fs.existsSync(spreadsheetPath);
+
+  if (!metadataExists && !spreadsheetExists) {
+    throw new Error(
+      `Cannot run rocxl because neither ${metadataPath} nor ${spreadsheetPath} exists`
+    );
+  }
+
+  let rocxlArgs = [targetDir];
+  let syncSource = "XLSX";
+
+  if (metadataExists && !spreadsheetExists) {
+    rocxlArgs = ["--JSON", targetDir];
+    syncSource = "JSON";
+  } else if (metadataExists && spreadsheetExists) {
+    const metadataStats = fs.statSync(metadataPath);
+    const spreadsheetStats = fs.statSync(spreadsheetPath);
+    const jsonIsNewer = metadataStats.mtimeMs >= spreadsheetStats.mtimeMs;
+
+    if (jsonIsNewer) {
+      rocxlArgs = ["--JSON", targetDir];
+      syncSource = "JSON";
+    }
+  }
+
+  console.log(
+    `Synchronising RO-Crate metadata with rocxl from ${syncSource}: ${targetDir}`
+  );
+  execFileSync(rocxlBin, rocxlArgs, {
+    cwd: __dirname,
+    stdio: "inherit",
+  });
+}
 
 
 function clean(str) {
@@ -83,6 +135,10 @@ function makeTypeLink(typeId, isInternal = false) {
 }
 
 try {
+  if (syncWithRocxl) {
+    syncProfileCrateWithRocxl(profileDir);
+  }
+
   const profileData = fs.readFileSync(profilePath, "utf8");
   const profileJson = JSON.parse(profileData);
   const profileCrate = new ROCrate(profileJson, { array: true, link: true });
@@ -1244,7 +1300,8 @@ ${spPropItems}    </ul>
 <body>
   <div class="container-fluid">
     <p>
-      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
       ${crateTreeUrl ? `&nbsp;|&nbsp; <a href="${crateTreeUrl}">📁 View whole crate on GitHub</a>` : ""}
     </p>
     ${htmlBody}
