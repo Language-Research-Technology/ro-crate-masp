@@ -1,0 +1,1539 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "cca": "https://w3id.org/ro/terms/cca/"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "https://w3id.org/cc-crate-profile/0.9"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
+      "name": "RO-Crate Metadata File Descriptor",
+      "description": "Metadata file descriptor for the Climate Change Adaptation RO-Crate Profile."
+    },
+    {
+      "@id": "https://w3id.org/cc-crate-profile/0.9",
+      "@type": [
+        "Dataset",
+        "Profile"
+      ],
+      "name": "Climate Change Adaptation RO-Crate Profile",
+      "description": "A RO-Crate Profile defining conventions, contextual entities, and semantic terms for representing FAIR Digital Objects for Climate Change Adaptation research in FAIR2Adapt.",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "version": "0.9.0",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://fair2adapt.github.io/cca-crate-profile/"
+        },
+        {
+          "@id": "http://www.w3.org/ns/adms#"
+        },
+        {
+          "@id": "http://purl.org/ontology/bibo/"
+        },
+        {
+          "@id": "https://w3id.org/citedcat-ap/"
+        },
+        {
+          "@id": "http://www.w3.org/ns/dcat#"
+        },
+        {
+          "@id": "https://w3id.org/dcso/ns/core#"
+        },
+        {
+          "@id": "http://purl.org/dc/terms/"
+        },
+        {
+          "@id": "https://w3id.org/dpv#"
+        },
+        {
+          "@id": "http://purl.org/spar/fabio/"
+        },
+        {
+          "@id": "http://xmlns.com/foaf/0.1/"
+        },
+        {
+          "@id": "https://w3id.org/iadopt/ont/"
+        },
+        {
+          "@id": "http://www.w3.org/2000/01/rdf-schema#"
+        },
+        {
+          "@id": "http://www.w3.org/ns/sosa/"
+        },
+        {
+          "@id": "https://w3id.org/dpv/tech#"
+        },
+        {
+          "@id": "http://data.europa.eu/930/"
+        },
+        {
+          "@id": "https://schema.org/"
+        },
+        {
+          "@id": "https://w3id.org/ro/terms/cca/"
+        }
+      ],
+      "hasResource": [
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#vocab-adms"
+        },
+        {
+          "@id": "#vocab-bibo"
+        },
+        {
+          "@id": "#vocab-citedcat"
+        },
+        {
+          "@id": "#vocab-dcat"
+        },
+        {
+          "@id": "#vocab-dcso"
+        },
+        {
+          "@id": "#vocab-dct"
+        },
+        {
+          "@id": "#vocab-dpv"
+        },
+        {
+          "@id": "#vocab-fabio"
+        },
+        {
+          "@id": "#vocab-foaf"
+        },
+        {
+          "@id": "#vocab-iadopt"
+        },
+        {
+          "@id": "#vocab-rdfs"
+        },
+        {
+          "@id": "#vocab-sosa"
+        },
+        {
+          "@id": "#vocab-tech"
+        },
+        {
+          "@id": "#vocab-geodcat"
+        },
+        {
+          "@id": "#vocab-schema"
+        },
+        {
+          "@id": "#vocab-cca"
+        }
+      ],
+      "publisher": {
+        "@id": "https://fair2adapt-eosc.eu/"
+      }
+    },
+    {
+      "@id": "https://fair2adapt.github.io/cca-crate-profile/",
+      "@type": "CreativeWork",
+      "name": "CCA RO-Crate Profile Documentation",
+      "description": "Human-readable documentation for the Climate Change Adaptation RO-Crate Profile.",
+      "encodingFormat": "text/html",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "https://fair2adapt.github.io/cca-crate-profile/"
+      }
+    },
+    {
+      "@id": "#vocab-adms",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://www.w3.org/ns/adms#"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/adms#",
+      "@type": "DefinedTermSet",
+      "name": "ADMS vocabulary",
+      "url": "http://www.w3.org/ns/adms#"
+    },
+    {
+      "@id": "#vocab-bibo",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://purl.org/ontology/bibo/"
+      }
+    },
+    {
+      "@id": "http://purl.org/ontology/bibo/",
+      "@type": "DefinedTermSet",
+      "name": "BIBO ontology",
+      "url": "http://purl.org/ontology/bibo/"
+    },
+    {
+      "@id": "#vocab-citedcat",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/citedcat-ap/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/citedcat-ap/",
+      "@type": "DefinedTermSet",
+      "name": "Citedcat application profile vocabulary",
+      "url": "https://w3id.org/citedcat-ap/"
+    },
+    {
+      "@id": "#vocab-dcat",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://www.w3.org/ns/dcat#"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/dcat#",
+      "@type": "DefinedTermSet",
+      "name": "DCAT vocabulary",
+      "url": "http://www.w3.org/ns/dcat#"
+    },
+    {
+      "@id": "#vocab-dcso",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/dcso/ns/core#"
+      }
+    },
+    {
+      "@id": "https://w3id.org/dcso/ns/core#",
+      "@type": "DefinedTermSet",
+      "name": "DCSO core vocabulary",
+      "url": "https://w3id.org/dcso/ns/core#"
+    },
+    {
+      "@id": "#vocab-dct",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://purl.org/dc/terms/"
+      }
+    },
+    {
+      "@id": "http://purl.org/dc/terms/",
+      "@type": "DefinedTermSet",
+      "name": "Dublin Core Terms",
+      "url": "http://purl.org/dc/terms/"
+    },
+    {
+      "@id": "#vocab-dpv",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/dpv#"
+      }
+    },
+    {
+      "@id": "https://w3id.org/dpv#",
+      "@type": "DefinedTermSet",
+      "name": "Data Privacy Vocabulary (DPV)",
+      "url": "https://w3id.org/dpv#"
+    },
+    {
+      "@id": "#vocab-fabio",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://purl.org/spar/fabio/"
+      }
+    },
+    {
+      "@id": "http://purl.org/spar/fabio/",
+      "@type": "DefinedTermSet",
+      "name": "FaBiO ontology",
+      "url": "http://purl.org/spar/fabio/"
+    },
+    {
+      "@id": "#vocab-foaf",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://xmlns.com/foaf/0.1/"
+      }
+    },
+    {
+      "@id": "http://xmlns.com/foaf/0.1/",
+      "@type": "DefinedTermSet",
+      "name": "FOAF vocabulary",
+      "url": "http://xmlns.com/foaf/0.1/"
+    },
+    {
+      "@id": "#vocab-iadopt",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/iadopt/ont/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/iadopt/ont/",
+      "@type": "DefinedTermSet",
+      "name": "I-ADOPT ontology",
+      "url": "https://w3id.org/iadopt/ont/"
+    },
+    {
+      "@id": "#vocab-rdfs",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#",
+      "@type": "DefinedTermSet",
+      "name": "RDFS vocabulary",
+      "url": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "@id": "#vocab-sosa",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://www.w3.org/ns/sosa/"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/sosa/",
+      "@type": "DefinedTermSet",
+      "name": "SOSA/SSN vocabulary",
+      "url": "http://www.w3.org/ns/sosa/"
+    },
+    {
+      "@id": "#vocab-tech",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/dpv/tech#"
+      }
+    },
+    {
+      "@id": "https://w3id.org/dpv/tech#",
+      "@type": "DefinedTermSet",
+      "name": "DPV Technology extension",
+      "url": "https://w3id.org/dpv/tech#"
+    },
+    {
+      "@id": "#vocab-geodcat",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "http://data.europa.eu/930/"
+      }
+    },
+    {
+      "@id": "http://data.europa.eu/930/",
+      "@type": "DefinedTermSet",
+      "name": "GeoDCAT-AP vocabulary",
+      "url": "http://data.europa.eu/930/"
+    },
+    {
+      "@id": "#vocab-schema",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://schema.org/"
+      }
+    },
+    {
+      "@id": "https://schema.org/",
+      "@type": "DefinedTermSet",
+      "name": "Schema.org vocabulary",
+      "url": "https://schema.org/"
+    },
+    {
+      "@id": "#vocab-cca",
+      "@type": "ResourceDescriptor",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+      },
+      "hasArtifact": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/",
+      "@type": "DefinedTermSet",
+      "name": "RO Terms: CCA extension vocabulary",
+      "url": "https://w3id.org/ro/terms/cca/",
+      "hasDefinedTerm": [
+        { "@id": "https://w3id.org/ro/terms/cca/Network" },
+        { "@id": "https://w3id.org/ro/terms/cca/Campaign" },
+        { "@id": "https://w3id.org/ro/terms/cca/Satellite" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/scenarioId" },
+        { "@id": "https://w3id.org/ro/terms/cca/dmp_id" },
+        { "@id": "https://w3id.org/ro/terms/cca/expectedDeliverable" },
+        { "@id": "https://w3id.org/ro/terms/cca/reusedData" },
+        { "@id": "https://w3id.org/ro/terms/cca/generalWPProgram" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/hasNetwork" },
+        { "@id": "https://w3id.org/ro/terms/cca/networkManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/IlicoIntegrationYear" },
+        { "@id": "https://w3id.org/ro/terms/cca/scientificIssues" },
+        { "@id": "https://w3id.org/ro/terms/cca/averageNetworkCost" },
+        { "@id": "https://w3id.org/ro/terms/cca/averageDataCost" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/dataNature" },
+        { "@id": "https://w3id.org/ro/terms/cca/stability" },
+        { "@id": "https://w3id.org/ro/terms/cca/acquisitionMethod" },
+        { "@id": "https://w3id.org/ro/terms/cca/acquisitionFrequency" },
+        { "@id": "https://w3id.org/ro/terms/cca/surveyAutomation" },
+        { "@id": "https://w3id.org/ro/terms/cca/dataRecoveryDelay" },
+        { "@id": "https://w3id.org/ro/terms/cca/validationApproach" },
+        { "@id": "https://w3id.org/ro/terms/cca/qualityApproach" },
+        { "@id": "https://w3id.org/ro/terms/cca/stationsStudied" },
+        { "@id": "https://w3id.org/ro/terms/cca/datasetNumber" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/processingManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/processingAutomation" },
+        { "@id": "https://w3id.org/ro/terms/cca/processingMethod" },
+        { "@id": "https://w3id.org/ro/terms/cca/preProcessingLevel" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/analysisAutomation" },
+        { "@id": "https://w3id.org/ro/terms/cca/analysisMethod" },
+        { "@id": "https://w3id.org/ro/terms/cca/preAnalysisLevel" },
+        { "@id": "https://w3id.org/ro/terms/cca/postAnalysisLevel" },
+        { "@id": "https://w3id.org/ro/terms/cca/hasProductNames" },
+        { "@id": "https://w3id.org/ro/terms/cca/reuseData" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/conservationManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/dataSelectionMethod" },
+        { "@id": "https://w3id.org/ro/terms/cca/fileNamingConvention" },
+        { "@id": "https://w3id.org/ro/terms/cca/supportType" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/dataAccessManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/databaseAvailability" },
+        { "@id": "https://w3id.org/ro/terms/cca/repositoryName" },
+        { "@id": "https://w3id.org/ro/terms/cca/organisationName" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/dataDissimiationManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/integrityMethods" },
+        { "@id": "https://w3id.org/ro/terms/cca/traceabilityMethods" },
+        { "@id": "https://w3id.org/ro/terms/cca/relatedPublications" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/hasCampaign" },
+        { "@id": "https://w3id.org/ro/terms/cca/equipmentUsed" },
+        { "@id": "https://w3id.org/ro/terms/cca/metadataFormat" },
+        { "@id": "https://w3id.org/ro/terms/cca/equipmentFailure" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/climateConsidered" },
+        { "@id": "https://w3id.org/ro/terms/cca/modelFailure" },
+
+        { "@id": "https://w3id.org/ro/terms/cca/hasSatellite" },
+        { "@id": "https://w3id.org/ro/terms/cca/hasMission" }
+      ]
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/Network",
+      "@type": [
+        "DefinedTerm",
+        "rdfs:Class"
+      ],
+      "name": "Network",
+      "description": "Defines the Network contextual entity in the metadata model.",
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/Campaign",
+      "@type": [
+        "DefinedTerm",
+        "rdfs:Class"
+      ],
+      "name": "Campaign",
+      "description": "Defines the Campaign contextual entity in the metadata model.",
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/Satellite",
+      "@type": [
+        "DefinedTerm",
+        "rdfs:Class"
+      ],
+      "name": "Satellite",
+      "description": "Defines the Satellite contextual entity in the metadata model.",
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/scenarioId",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "scenarioId",
+      "description": "Scenario/run id of the model output.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Product"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/Identifier"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dmp_id",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dmp_id",
+      "description": "Identifies data managers for each type of data.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Project"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/URL"
+        },
+        {
+          "@id": "https://schema.org/CreativeWork"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/expectedDeliverable",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "expectedDeliverable",
+      "description": "Lists planned outputs with timeline codes.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Project"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/reusedData",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "reusedData",
+      "description": "Identifies external data sources.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Project"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Dataset"
+        },
+        {
+          "@id": "https://schema.org/CreativeWork"
+        },
+        {
+          "@id": "https://schema.org/URL"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/generalWPProgram",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "generalWPProgram",
+      "description": "Overview of data collection activities.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Project"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/hasNetwork",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "hasNetwork",
+      "description": "Defines a relationship with a Network contextual entity.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/networkManager",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "networkManager",
+      "description": "Defines a relationship for Network Manager between metadata entities.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Person"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/IlicoIntegrationYear",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "IlicoIntegrationYear",
+      "description": "ILICO integration year.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Integer"
+        },
+        {
+          "@id": "https://schema.org/Date"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/scientificIssues",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "scientificIssues",
+      "description": "Research questions and objectives.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/averageNetworkCost",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "averageNetworkCost",
+      "description": "Average infrastructure costs.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Number"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/averageDataCost",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "averageDataCost",
+      "description": "Average data costs.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Network"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Number"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dataNature",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dataNature",
+      "description": "Data nature (textual/numerical/audiovisual/modeled/discipline-specific).",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/stability",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "stability",
+      "description": "Data stability (fixed/growing/revisable).",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/acquisitionMethod",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "acquisitionMethod",
+      "description": "Collection/creation methods.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/acquisitionFrequency",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "acquisitionFrequency",
+      "description": "Average acquisition frequency.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/Duration"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/surveyAutomation",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "surveyAutomation",
+      "description": "Automatic/manual collection.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dataRecoveryDelay",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dataRecoveryDelay",
+      "description": "Average data recovery delays.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Duration"
+        },
+        {
+          "@id": "https://schema.org/Text"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/validationApproach",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "validationApproach",
+      "description": "Data validation approach.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/qualityApproach",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "qualityApproach",
+      "description": "Data quality approach.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/stationsStudied",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "stationsStudied",
+      "description": "Number of stations studied.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Integer"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/datasetNumber",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "datasetNumber",
+      "description": "Number of datasets.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Integer"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/processingManager",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "processingManager",
+      "description": "Processing/Analysis responsible.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Processing"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Person"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/processingAutomation",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "processingAutomation",
+      "description": "Automatic/manual processing.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Processing"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/processingMethod",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "processingMethod",
+      "description": "Processing methods/tools/protocols.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Processing"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/SoftwareApplication"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/preProcessingLevel",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "preProcessingLevel",
+      "description": "Data levels before processing.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Processing"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/analysisAutomation",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "analysisAutomation",
+      "description": "Automatic/manual analysis.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/analysisMethod",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "analysisMethod",
+      "description": "Analysis methods/tools/protocols.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/SoftwareApplication"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/preAnalysisLevel",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "preAnalysisLevel",
+      "description": "Data levels before analysis.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/postAnalysisLevel",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "postAnalysisLevel",
+      "description": "Data levels after analysis.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/hasProductNames",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "hasProductNames",
+      "description": "Product names.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/reuseData",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "reuseData",
+      "description": "Reuse of existing data.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Analyse"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/Boolean"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/conservationManager",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "conservationManager",
+      "description": "Storage/Archiving responsible.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Store"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Person"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dataSelectionMethod",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dataSelectionMethod",
+      "description": "Data selection method.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Store"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/fileNamingConvention",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "fileNamingConvention",
+      "description": "File naming convention.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Store"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/supportType",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "supportType",
+      "description": "Storage/archiving support type.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Store"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dataAccessManager",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dataAccessManager",
+      "description": "Data access responsible.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Access"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Person"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/databaseAvailability",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "databaseAvailability",
+      "description": "Database availability.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Access"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/repositoryName",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "repositoryName",
+      "description": "Repository name.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Access"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/organisationName",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "organisationName",
+      "description": "Repository and organization name.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Access"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "https://schema.org/Text"
+        },
+        {
+          "@id": "https://schema.org/Organization"
+        }
+      ],
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/dataDissimiationManager",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "dataDissimiationManager",
+      "description": "Dissemination/Reuse responsible.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Disseminate"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Person"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/integrityMethods",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "integrityMethods",
+      "description": "Data integrity methods.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Disseminate"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/traceabilityMethods",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "traceabilityMethods",
+      "description": "Data traceability methods.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Disseminate"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/relatedPublications",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "relatedPublications",
+      "description": "Average number of associated publications.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv#Disseminate"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Integer"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/hasCampaign",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "hasCampaign",
+      "description": "Defines the relationship with the Campaign contextual entity.",
+      "domainIncludes": {
+        "@id": "https://schema.org/Dataset"
+      },
+      "rangeIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Campaign"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/equipmentUsed",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "equipmentUsed",
+      "description": "For example: glider, mooring, mastodon, CTD, coring.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Campaign"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/metadataFormat",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "metadataFormat",
+      "description": "Metadata format.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Campaign"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/equipmentFailure",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "equipmentFailure",
+      "description": "Justifications (sensor failures, etc.).",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Campaign"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/climateConsidered",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "climateConsidered",
+      "description": "Current, future (period).",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv/tech#Model"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/modelFailure",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "modelFailure",
+      "description": "Justifications (simulation crashes, etc.).",
+      "domainIncludes": {
+        "@id": "https://w3id.org/dpv/tech#Model"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://w3id.org/ro/terms/cca/hasSatellite",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "hasSatellite",
+      "description": "Defines the relationship with the Satellite contextual entity in the metadata model.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Campaign"
+      },
+      "rangeIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Satellite"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ro/terms/cca/hasMission",
+      "@type": [
+        "DefinedTerm",
+        "rdf:Property"
+      ],
+      "name": "hasMission",
+      "description": "Campaign with DOI, mission name (e.g., Sentinel).",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ro/terms/cca/Satellite"
+      },
+      "rangeIncludes": {
+        "@id": "https://schema.org/Text"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ro/terms/cca/"
+      }
+    },
+
+    {
+      "@id": "https://fair2adapt-eosc.eu/",
+      "@type": "Project",
+      "name": "FAIR2Adapt",
+      "funding": {
+        "@id": "https://doi.org/10.3030/101188256"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.3030/101188256",
+      "@type": "Grant",
+      "name": "FAIR2Adapt: FAIR to Adapt to Climate Change",
+      "funder": {
+        "@id": "https://ror.org/00k4n6c32"
+      }
+    },
+    {
+      "@id": "https://ror.org/00k4n6c32",
+      "@type": "Organization",
+      "name": "European Commission"
+    }
+  ]
+}

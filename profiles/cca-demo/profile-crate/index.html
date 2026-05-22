@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Change Adaptation RO-Crate Profile</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
+      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/main/profiles/cca-demo/profile-crate">📁 View whole crate on GitHub</a>
+    </p>
+    <h1>Climate Change Adaptation RO-Crate Profile (Demo)</h1>
+<blockquote>
+<p><strong>Note:</strong> This is a demo/work-in-progress adaptation of Stian Soiland-Reyes'
+<a href="https://github.com/FAIR2Adapt/cca-crate-profile/pull/2">&quot;Scruffy&quot; CCA profile</a>
+for use as a MASP profile. See <a href="https://github.com/Language-Research-Technology/ro-crate-masp/issues/17">issue #17</a>.</p>
+</blockquote>
+<p>Fair2Adapt project uses RO-Crates for implementing and exchanging FAIR Digital
+Objects (FDOs) for Climate Change Adaptation (CCA) research, and defines the CCA
+RO-Crate profile to define the set of conventions, types and properties that one
+can minimally require and expect to be present in that subset of RO-Crates.</p>
+<p>The CCA RO-Crates are a specialization of RO-Crate for packaging key common data
+and contextual entities used/produced during the research lifecycle in climate
+change adaptation domain. This includes all the metadata properties expected to
+be captured and exposed about these resources to enable FAIR discovery, access
+and reuse.</p>
+<p>Profile URI: <a href="https://w3id.org/cc-crate-profile/0.9">https://w3id.org/cc-crate-profile/0.9</a></p>
+<p>Source: <a href="https://github.com/FAIR2Adapt/cca-crate-profile">https://github.com/FAIR2Adapt/cca-crate-profile</a></p>
+<h2>Introduction</h2>
+<p>The FAIR2Adapt is a multidisciplinary project geared towards transforming data
+into actionable knowledge to shape climate adaptation strategies. We adopt FAIR
+Digital Objects (FDOs) by using RO-Crate and other complementary technologies
+(like nanopublications, I-Adopt framework) and use tailored FDO services to
+build a collaborative, user-friendly FAIR and open data sharing framework.</p>
+<h2>Conformance</h2>
+<p>RO-Crates conforming to (or intending to conform to) the CCA profile <strong>SHOULD</strong>
+declare this using <code>conformsTo</code> on the Root Data Entity:</p>
+<pre><code class="language-json">{
+    &quot;@id&quot;: &quot;./&quot;,
+    &quot;@type&quot;: &quot;Dataset&quot;,
+    &quot;conformsTo&quot;: {
+        &quot;@id&quot;: &quot;https://w3id.org/cc-crate-profile/0.9&quot;
+    }
+}
+</code></pre>
+<h2>CCA-Specific Terms</h2>
+<p>The profile defines a CCA extension vocabulary at
+<a href="https://w3id.org/ro/terms/cca/">https://w3id.org/ro/terms/cca/</a> with the following classes and properties:</p>
+<p><strong>3</strong> classes &middot; <strong>51</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign" title="https://w3id.org/ro/terms/cca/Campaign">Campaign</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork" title="https://w3id.org/ro/terms/cca/Network">Network</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FSatellite" title="https://w3id.org/ro/terms/cca/Satellite">Satellite</a></li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FacquisitionFrequency" title="https://w3id.org/ro/terms/cca/acquisitionFrequency">acquisitionFrequency</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FacquisitionMethod" title="https://w3id.org/ro/terms/cca/acquisitionMethod">acquisitionMethod</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FanalysisAutomation" title="https://w3id.org/ro/terms/cca/analysisAutomation">analysisAutomation</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FanalysisMethod" title="https://w3id.org/ro/terms/cca/analysisMethod">analysisMethod</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageDataCost" title="https://w3id.org/ro/terms/cca/averageDataCost">averageDataCost</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageNetworkCost" title="https://w3id.org/ro/terms/cca/averageNetworkCost">averageNetworkCost</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FclimateConsidered" title="https://w3id.org/ro/terms/cca/climateConsidered">climateConsidered</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FconservationManager" title="https://w3id.org/ro/terms/cca/conservationManager">conservationManager</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataAccessManager" title="https://w3id.org/ro/terms/cca/dataAccessManager">dataAccessManager</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdatabaseAvailability" title="https://w3id.org/ro/terms/cca/databaseAvailability">databaseAvailability</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataDissimiationManager" title="https://w3id.org/ro/terms/cca/dataDissimiationManager">dataDissimiationManager</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataNature" title="https://w3id.org/ro/terms/cca/dataNature">dataNature</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataRecoveryDelay" title="https://w3id.org/ro/terms/cca/dataRecoveryDelay">dataRecoveryDelay</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataSelectionMethod" title="https://w3id.org/ro/terms/cca/dataSelectionMethod">dataSelectionMethod</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdatasetNumber" title="https://w3id.org/ro/terms/cca/datasetNumber">datasetNumber</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2Fdmp_id" title="https://w3id.org/ro/terms/cca/dmp_id">dmp_id</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentFailure" title="https://w3id.org/ro/terms/cca/equipmentFailure">equipmentFailure</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentUsed" title="https://w3id.org/ro/terms/cca/equipmentUsed">equipmentUsed</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FexpectedDeliverable" title="https://w3id.org/ro/terms/cca/expectedDeliverable">expectedDeliverable</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FfileNamingConvention" title="https://w3id.org/ro/terms/cca/fileNamingConvention">fileNamingConvention</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FgeneralWPProgram" title="https://w3id.org/ro/terms/cca/generalWPProgram">generalWPProgram</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasCampaign" title="https://w3id.org/ro/terms/cca/hasCampaign">hasCampaign</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasMission" title="https://w3id.org/ro/terms/cca/hasMission">hasMission</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasNetwork" title="https://w3id.org/ro/terms/cca/hasNetwork">hasNetwork</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasProductNames" title="https://w3id.org/ro/terms/cca/hasProductNames">hasProductNames</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasSatellite" title="https://w3id.org/ro/terms/cca/hasSatellite">hasSatellite</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FIlicoIntegrationYear" title="https://w3id.org/ro/terms/cca/IlicoIntegrationYear">IlicoIntegrationYear</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FintegrityMethods" title="https://w3id.org/ro/terms/cca/integrityMethods">integrityMethods</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FmetadataFormat" title="https://w3id.org/ro/terms/cca/metadataFormat">metadataFormat</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FmodelFailure" title="https://w3id.org/ro/terms/cca/modelFailure">modelFailure</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FnetworkManager" title="https://w3id.org/ro/terms/cca/networkManager">networkManager</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2ForganisationName" title="https://w3id.org/ro/terms/cca/organisationName">organisationName</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpostAnalysisLevel" title="https://w3id.org/ro/terms/cca/postAnalysisLevel">postAnalysisLevel</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpreAnalysisLevel" title="https://w3id.org/ro/terms/cca/preAnalysisLevel">preAnalysisLevel</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpreProcessingLevel" title="https://w3id.org/ro/terms/cca/preProcessingLevel">preProcessingLevel</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingAutomation" title="https://w3id.org/ro/terms/cca/processingAutomation">processingAutomation</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingManager" title="https://w3id.org/ro/terms/cca/processingManager">processingManager</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingMethod" title="https://w3id.org/ro/terms/cca/processingMethod">processingMethod</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FqualityApproach" title="https://w3id.org/ro/terms/cca/qualityApproach">qualityApproach</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FrelatedPublications" title="https://w3id.org/ro/terms/cca/relatedPublications">relatedPublications</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FrepositoryName" title="https://w3id.org/ro/terms/cca/repositoryName">repositoryName</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FreuseData" title="https://w3id.org/ro/terms/cca/reuseData">reuseData</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FreusedData" title="https://w3id.org/ro/terms/cca/reusedData">reusedData</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FscenarioId" title="https://w3id.org/ro/terms/cca/scenarioId">scenarioId</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FscientificIssues" title="https://w3id.org/ro/terms/cca/scientificIssues">scientificIssues</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2Fstability" title="https://w3id.org/ro/terms/cca/stability">stability</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FstationsStudied" title="https://w3id.org/ro/terms/cca/stationsStudied">stationsStudied</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FsupportType" title="https://w3id.org/ro/terms/cca/supportType">supportType</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FsurveyAutomation" title="https://w3id.org/ro/terms/cca/surveyAutomation">surveyAutomation</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FtraceabilityMethods" title="https://w3id.org/ro/terms/cca/traceabilityMethods">traceabilityMethods</a></li>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FvalidationApproach" title="https://w3id.org/ro/terms/cca/validationApproach">validationApproach</a></li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork"></a> Class: Network</h3>
+<p>Defines the Network contextual entity in the metadata model.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageDataCost">averageDataCost</a></td>
+<td>No</td>
+<td>Average data costs.</td>
+<td><a href="https://schema.org/Number">Number</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageNetworkCost">averageNetworkCost</a></td>
+<td>No</td>
+<td>Average infrastructure costs.</td>
+<td><a href="https://schema.org/Number">Number</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FIlicoIntegrationYear">IlicoIntegrationYear</a></td>
+<td>No</td>
+<td>ILICO integration year.</td>
+<td><a href="https://schema.org/Integer">Integer</a>, <a href="https://schema.org/Date">Date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FnetworkManager">networkManager</a></td>
+<td>No</td>
+<td>Defines a relationship for Network Manager between metadata entities.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FscientificIssues">scientificIssues</a></td>
+<td>No</td>
+<td>Research questions and objectives.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign"></a> Class: Campaign</h3>
+<p>Defines the Campaign contextual entity in the metadata model.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentFailure">equipmentFailure</a></td>
+<td>No</td>
+<td>Justifications (sensor failures, etc.).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentUsed">equipmentUsed</a></td>
+<td>No</td>
+<td>For example: glider, mooring, mastodon, CTD, coring.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasSatellite">hasSatellite</a></td>
+<td>No</td>
+<td>Defines the relationship with the Satellite contextual entity in the metadata model.</td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FSatellite">Satellite</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FmetadataFormat">metadataFormat</a></td>
+<td>No</td>
+<td>Metadata format.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FSatellite"></a> Class: Satellite</h3>
+<p>Defines the Satellite contextual entity in the metadata model.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasMission">hasMission</a></td>
+<td>No</td>
+<td>Campaign with DOI, mission name (e.g., Sentinel).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FacquisitionFrequency"></a> Property: acquisitionFrequency</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average acquisition frequency.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/Duration">Duration</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FacquisitionMethod"></a> Property: acquisitionMethod</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collection/creation methods.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FanalysisAutomation"></a> Property: analysisAutomation</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatic/manual analysis.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FanalysisMethod"></a> Property: analysisMethod</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analysis methods/tools/protocols.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/SoftwareApplication">SoftwareApplication</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageDataCost"></a> Property: averageDataCost</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average data costs.</td>
+<td><a href="https://schema.org/Number">Number</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FaverageNetworkCost"></a> Property: averageNetworkCost</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average infrastructure costs.</td>
+<td><a href="https://schema.org/Number">Number</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FclimateConsidered"></a> Property: climateConsidered</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current, future (period).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv/tech#Model">Model</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FconservationManager"></a> Property: conservationManager</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage/Archiving responsible.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td><a href="https://w3id.org/dpv#Store">Store</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataAccessManager"></a> Property: dataAccessManager</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data access responsible.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td><a href="https://w3id.org/dpv#Access">Access</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdatabaseAvailability"></a> Property: databaseAvailability</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database availability.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Access">Access</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataDissimiationManager"></a> Property: dataDissimiationManager</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissemination/Reuse responsible.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td><a href="https://w3id.org/dpv#Disseminate">Disseminate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataNature"></a> Property: dataNature</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data nature (textual/numerical/audiovisual/modeled/discipline-specific).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataRecoveryDelay"></a> Property: dataRecoveryDelay</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average data recovery delays.</td>
+<td><a href="https://schema.org/Duration">Duration</a>, <a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdataSelectionMethod"></a> Property: dataSelectionMethod</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data selection method.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Store">Store</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FdatasetNumber"></a> Property: datasetNumber</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of datasets.</td>
+<td><a href="https://schema.org/Integer">Integer</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2Fdmp_id"></a> Property: dmp_id</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifies data managers for each type of data.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/URL">URL</a>, <a href="https://schema.org/CreativeWork">CreativeWork</a></td>
+<td><a href="https://schema.org/Project">Project</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentFailure"></a> Property: equipmentFailure</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Justifications (sensor failures, etc.).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign">Campaign</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FequipmentUsed"></a> Property: equipmentUsed</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>For example: glider, mooring, mastodon, CTD, coring.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign">Campaign</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FexpectedDeliverable"></a> Property: expectedDeliverable</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lists planned outputs with timeline codes.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Project">Project</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FfileNamingConvention"></a> Property: fileNamingConvention</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File naming convention.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Store">Store</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FgeneralWPProgram"></a> Property: generalWPProgram</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overview of data collection activities.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Project">Project</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasCampaign"></a> Property: hasCampaign</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defines the relationship with the Campaign contextual entity.</td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign">Campaign</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasMission"></a> Property: hasMission</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Campaign with DOI, mission name (e.g., Sentinel).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FSatellite">Satellite</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasNetwork"></a> Property: hasNetwork</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defines a relationship with a Network contextual entity.</td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasProductNames"></a> Property: hasProductNames</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product names.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FhasSatellite"></a> Property: hasSatellite</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defines the relationship with the Satellite contextual entity in the metadata model.</td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FSatellite">Satellite</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign">Campaign</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FIlicoIntegrationYear"></a> Property: IlicoIntegrationYear</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ILICO integration year.</td>
+<td><a href="https://schema.org/Integer">Integer</a>, <a href="https://schema.org/Date">Date</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FintegrityMethods"></a> Property: integrityMethods</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data integrity methods.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Disseminate">Disseminate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FmetadataFormat"></a> Property: metadataFormat</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metadata format.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FCampaign">Campaign</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FmodelFailure"></a> Property: modelFailure</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Justifications (simulation crashes, etc.).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv/tech#Model">Model</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FnetworkManager"></a> Property: networkManager</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defines a relationship for Network Manager between metadata entities.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2ForganisationName"></a> Property: organisationName</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository and organization name.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/Organization">Organization</a></td>
+<td><a href="https://w3id.org/dpv#Access">Access</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpostAnalysisLevel"></a> Property: postAnalysisLevel</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data levels after analysis.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpreAnalysisLevel"></a> Property: preAnalysisLevel</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data levels before analysis.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FpreProcessingLevel"></a> Property: preProcessingLevel</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data levels before processing.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Processing">Processing</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingAutomation"></a> Property: processingAutomation</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatic/manual processing.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Processing">Processing</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingManager"></a> Property: processingManager</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processing/Analysis responsible.</td>
+<td><a href="https://schema.org/Person">Person</a></td>
+<td><a href="https://w3id.org/dpv#Processing">Processing</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FprocessingMethod"></a> Property: processingMethod</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processing methods/tools/protocols.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/SoftwareApplication">SoftwareApplication</a></td>
+<td><a href="https://w3id.org/dpv#Processing">Processing</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FqualityApproach"></a> Property: qualityApproach</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data quality approach.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FrelatedPublications"></a> Property: relatedPublications</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average number of associated publications.</td>
+<td><a href="https://schema.org/Integer">Integer</a></td>
+<td><a href="https://w3id.org/dpv#Disseminate">Disseminate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FrepositoryName"></a> Property: repositoryName</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository name.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Access">Access</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FreuseData"></a> Property: reuseData</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reuse of existing data.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/Boolean">Boolean</a></td>
+<td><a href="https://w3id.org/dpv#Analyse">Analyse</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FreusedData"></a> Property: reusedData</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifies external data sources.</td>
+<td><a href="https://schema.org/Dataset">Dataset</a>, <a href="https://schema.org/CreativeWork">CreativeWork</a>, <a href="https://schema.org/URL">URL</a></td>
+<td><a href="https://schema.org/Project">Project</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FscenarioId"></a> Property: scenarioId</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scenario/run id of the model output.</td>
+<td><a href="https://schema.org/Text">Text</a>, <a href="https://schema.org/Identifier">Identifier</a></td>
+<td><a href="https://schema.org/Product">Product</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FscientificIssues"></a> Property: scientificIssues</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research questions and objectives.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="#https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FNetwork">Network</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2Fstability"></a> Property: stability</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data stability (fixed/growing/revisable).</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FstationsStudied"></a> Property: stationsStudied</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of stations studied.</td>
+<td><a href="https://schema.org/Integer">Integer</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FsupportType"></a> Property: supportType</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage/archiving support type.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Store">Store</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FsurveyAutomation"></a> Property: surveyAutomation</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatic/manual collection.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FtraceabilityMethods"></a> Property: traceabilityMethods</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data traceability methods.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://w3id.org/dpv#Disseminate">Disseminate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="https%3A%2F%2Fw3id.org%2Fro%2Fterms%2Fcca%2FvalidationApproach"></a> Property: validationApproach</h3>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data validation approach.</td>
+<td><a href="https://schema.org/Text">Text</a></td>
+<td><a href="https://schema.org/Dataset">Dataset</a></td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>
