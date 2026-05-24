@@ -148,7 +148,7 @@ try {
   // Find all the rules in the profile crate -- TODO we will use this in this script rather than parsing them again
   validator.parseRules();
 
-  // Create rules data structure for use by the t    semplate
+  // Create rules data structure for use by the template
   const rules = { 
     objects: {},
     all: "", // Will contain all classes summary
@@ -441,42 +441,40 @@ try {
     )}\n\n`;
     listSummary += `${clean(listDescription)}\n\n`;
 
-    // Add terms table if there are terms in this set
-    const items = list.itemListElement || [];
+    // Add items table if there are items in this list
+    const items = Array.isArray(list.itemListElement)
+      ? list.itemListElement
+      : list.itemListElement
+      ? [list.itemListElement]
+      : [];
     if (items.length > 0) {
-      // Sort terms alphabetically by name
+      // Sort items alphabetically by name
       items.sort((a, b) => {
         const aName = String(a["name"] || a["@id"] || "");
         const bName = String(b["name"] || b["@id"] || "");
         return aName.localeCompare(bName);
       });
 
-      // For items within the list:
-      items.forEach((item) => {
-        const itemId = item["@id"];
-        const itemAnchorId = getAnchorId(itemId);
-        const itemName = item["name"] || item["@id"];
-        const ItemDesc = item["description"] || "";
-        listSummary += `-  [${clean(itemName)}](#${itemAnchorId})\n `;
-      });
-
-      listSummary += "<hr/>\n\n";
+      listSummary += `| Item | Description |\n`;
+      listSummary += `| ---- | ----------- |\n`;
 
       items.forEach((item) => {
         const itemId = item["@id"];
         const itemAnchorId = getAnchorId(itemId);
-        listSummary += `### <a id="${itemAnchorId}"></a><pre>\n ${JSON.stringify(
-          item,
-          null,
-          2
-        )}\n</pre>\n\n`;
-        listSummary += `ID: ${clean(itemId)}\n\n`;
+        const itemName = item["name"] || item["rdfs:label"] || itemId;
+        const itemDesc = item["description"] || item["rdfs:comment"] || "";
+        const itemLink = itemId
+          ? `<a id="${itemAnchorId}" href="${clean(itemId)}" target="_blank" rel="noopener">${clean(itemName)}</a>`
+          : `<a id="${itemAnchorId}">${clean(itemName)}</a>`;
+        listSummary += `| ${itemLink} | ${clean(itemDesc)} |\n`;
       });
+
+      listSummary += `\n`;
     } else {
-      listSummary += `*No terms defined for this term set*\n\n`;
+      listSummary += `*No items defined for this item list*\n\n`;
     }
 
-    // Add DefinedTermSet to rules structure
+    // Add ItemList to rules structure
     setRuleDirect(listId, listSummary);
     setRuleAliases(listSummary, [
       listId,
@@ -489,7 +487,7 @@ try {
     allItemLists += listSummary;
   });
 
-  // Add all defined term sets summary to rules
+  // Add all item lists summary to rules
   rules.allItemLists = allItemLists;
 
   // Generate class documentation
