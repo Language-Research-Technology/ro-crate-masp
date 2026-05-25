@@ -119,19 +119,19 @@ function isValidUri(str) {
 function makeTypeLink(typeId, isInternal = false) {
   if (!typeId) return 'Text';
   const label = extractLabelFromUri(typeId);
-  
+
+  if (isInternal || typeId.startsWith('#')) {
+    // Internal link to anchor on this page
+    return `[${label}](#${getAnchorId(typeId)})`;
+  }
+
   // For non-URI types (like "Text", "Date", "URL"), just return the label without a link
   if (!isValidUri(typeId)) {
     return label;
   }
-  
-  if (isInternal || typeId.startsWith('#')) {
-    // Internal link to anchor on this page
-    return `[${label}](#${getAnchorId(typeId)})`;
-  } else {
-    // External link (full HTTP/HTTPS URI)
-    return `[${label}](${typeId})`;
-  }
+
+  // External link (full HTTP/HTTPS URI)
+  return `[${label}](${typeId})`;
 }
 
 try {
