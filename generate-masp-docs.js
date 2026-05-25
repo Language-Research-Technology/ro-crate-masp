@@ -999,9 +999,7 @@ try {
         let subItems = "";
         for (const sub of directSubclasses) {
           const subLabel = getLabel(sub);
-          const subDesc = sub["rdfs:comment"]
-            ? ` — ${clean(String(sub["rdfs:comment"]).split(/[.\n]/)[0])}`
-            : "";
+          const subDesc = sub["rdfs:comment"] ? ` — ${clean(sub["rdfs:comment"])}` : "";
           subItems += `<li data-name="${clean(subLabel).toLowerCase()}">${entityLink(sub["@id"], subLabel)}${subDesc}</li>\n`;
         }
         body += `<h2>Subclasses (${directSubclasses.length})</h2>\n`;
@@ -1133,7 +1131,7 @@ try {
     for (const cls of classes) {
       const label = getLabel(cls);
       const filename = pageMap.get(cls["@id"]);
-      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = cls["rdfs:comment"] ? ` — ${clean(cls["rdfs:comment"])}` : "";
       classItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
 
@@ -1142,7 +1140,7 @@ try {
     for (const prop of properties) {
       const label = getLabel(prop);
       const filename = pageMap.get(prop["@id"]);
-      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = prop["rdfs:comment"] ? ` — ${clean(prop["rdfs:comment"])}` : "";
       propItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
 
@@ -1234,7 +1232,7 @@ ${propItems}    </ul>
       const anchor = getAnchorId(cls["@id"]);
       const internalId = cls["@id"].startsWith("#")
         ? ` <small style="color:#aaa">${clean(cls["@id"])}</small>` : "";
-      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = cls["rdfs:comment"] ? ` — ${clean(cls["rdfs:comment"])}` : "";
       spClassItems += `<li><a href="#${anchor}" title="${clean(cls["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
     }
     let spPropItems = "";
@@ -1243,7 +1241,7 @@ ${propItems}    </ul>
       const anchor = getAnchorId(prop["@id"]);
       const internalId = prop["@id"].startsWith("#")
         ? ` <small style="color:#aaa">${clean(prop["@id"])}</small>` : "";
-      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = prop["rdfs:comment"] ? ` — ${clean(prop["rdfs:comment"])}` : "";
       spPropItems += `<li><a href="#${anchor}" title="${clean(prop["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
     }
 
