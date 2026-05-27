@@ -10,15 +10,17 @@ const { ROCrate } = require("ro-crate");
 const fs = require("fs");
 const path = require("path");
 const { MaspValidator } = require("./lib/masp-validator");
-const { execSync } = require("child_process");
+const { execSync, execFileSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
+const { Workbook } = require("ro-crate-excel");
 
 async function main() {
 // Parse command line arguments — strip flags before positional args
 const rawArgs = process.argv.slice(2);
 const multiPage = rawArgs.includes("--multi-page");
-const positionalArgs = rawArgs.filter((a) => !a.startsWith("--"));
+const syncWithRocxl = rawArgs.includes("-x") || rawArgs.includes("--rocxl");
+const positionalArgs = rawArgs.filter((a) => !a.startsWith("-"));
 
 const profilePath =
   positionalArgs[0] ||
@@ -36,6 +38,56 @@ const templatePath =
 const profileDir = path.dirname(profilePath);
 const outputPath =
   positionalArgs[2] || path.join(profileDir, "profile-documentation.md");
+
+// Rocxl synchronisation function - if the crate contains both JSON and XLSX metadata, choose the most recently modified one as the source of truth for synchronisation, otherwise use whichever one exists. If neither exists, throw an error.
+function syncProfileCrateWithRocxl(targetDir) {
+  const metadataPath = path.join(targetDir, "ro-crate-metadata.json");
+  const spreadsheetPath = path.join(targetDir, "ro-crate-metadata.xlsx");
+  const rocxlBin = path.join(
+    __dirname,
+    "node_modules",
+    ".bin",
+    process.platform === "win32" ? "rocxl.cmd" : "rocxl"
+  );
+
+  if (!fs.existsSync(rocxlBin)) {
+    throw new Error(`rocxl command not found at ${rocxlBin}`);
+  }
+
+  const metadataExists = fs.existsSync(metadataPath);
+  const spreadsheetExists = fs.existsSync(spreadsheetPath);
+
+  if (!metadataExists && !spreadsheetExists) {
+    throw new Error(
+      `Cannot run rocxl because neither ${metadataPath} nor ${spreadsheetPath} exists`
+    );
+  }
+
+  let rocxlArgs = [targetDir];
+  let syncSource = "XLSX";
+
+  if (metadataExists && !spreadsheetExists) {
+    rocxlArgs = ["--JSON", targetDir];
+    syncSource = "JSON";
+  } else if (metadataExists && spreadsheetExists) {
+    const metadataStats = fs.statSync(metadataPath);
+    const spreadsheetStats = fs.statSync(spreadsheetPath);
+    const jsonIsNewer = metadataStats.mtimeMs >= spreadsheetStats.mtimeMs;
+
+    if (jsonIsNewer) {
+      rocxlArgs = ["--JSON", targetDir];
+      syncSource = "JSON";
+    }
+  }
+
+  console.log(
+    `Synchronising RO-Crate metadata with rocxl from ${syncSource}: ${targetDir}`
+  );
+  execFileSync(rocxlBin, rocxlArgs, {
+    cwd: __dirname,
+    stdio: "inherit",
+  });
+}
 
 
 function clean(str) {
@@ -59,30 +111,81 @@ function extractLabelFromUri(uri) {
   return uri.split(/[/#]/).pop() || uri;
 }
 
+function formatSpecializationOf(specialization) {
+  if (!specialization) return "";
+  const values = Array.isArray(specialization) ? specialization : [specialization];
+  return values
+    .map((value) => {
+      const specializationId = typeof value === "object" ? value["@id"] : value;
+      if (!specializationId) return "";
+      if (isValidUri(specializationId)) {
+        return `<a href="${clean(specializationId)}" target="_blank" rel="noopener">${clean(
+          specializationId
+        )}</a>`;
+      }
+      return clean(specializationId);
+    })
+    .filter(Boolean)
+    .join(", ");
+}
+
+  function getCrateEntity(crate, id) {
+    if (!crate || !id) return null;
+    return (
+      crate.getEntity(id) ||
+      (String(id).startsWith("#") ? crate.getEntity(String(id).slice(1)) : null) ||
+      crate.getEntity(`#${String(id).replace(/^#/, "")}`)
+    );
+  }
+
 function isValidUri(str) {
   // Check if string is a valid HTTP/HTTPS URI or fragment ID
   return str && (str.startsWith('#') || str.match(/^https?:\/\//) || str.match(/^[a-z]+:\/\//));
 }
 
-function makeTypeLink(typeId, isInternal = false) {
+function makeTypeLink(typeId, isInternal = false, crate = null) {
   if (!typeId) return 'Text';
   const label = extractLabelFromUri(typeId);
-  
+  // Prefer HTML anchors so we can include a hover title with the full id.
+  if (isInternal || typeId.startsWith('#')) {
+    // Try to resolve an internal entity's human-readable label from the profile crate
+    let displayLabel = label;
+    try {
+      if (crate) {
+        const def = getCrateEntity(crate, typeId);
+        if (def) {
+          displayLabel = def.name || def["rdfs:label"] || displayLabel;
+        }
+      }
+    } catch (e) {
+      // ignore lookup errors and fall back to the derived label
+    }
+    // If label looks like a CURIE (prefix:LocalName), use the LocalName for display
+    if (!displayLabel || String(displayLabel).includes(":")) {
+      const s = String(displayLabel || label);
+      displayLabel = s.includes(":") ? s.split(":").pop() : displayLabel;
+    }
+    return `<a href="#${getAnchorId(typeId)}" title="${clean(typeId)}">${clean(
+      displayLabel
+    )}</a>`;
+  }
+
   // For non-URI types (like "Text", "Date", "URL"), just return the label without a link
   if (!isValidUri(typeId)) {
-    return label;
+    return clean(label);
   }
-  
-  if (isInternal || typeId.startsWith('#')) {
-    // Internal link to anchor on this page
-    return `[${label}](#${getAnchorId(typeId)})`;
-  } else {
-    // External link (full HTTP/HTTPS URI)
-    return `[${label}](${typeId})`;
-  }
+
+  // External link (full HTTP/HTTPS URI) with hover title
+  return `<a href="${clean(typeId)}" title="${clean(typeId)}" target="_blank" rel="noopener">${clean(
+    label
+  )}</a>`;
 }
 
 try {
+  if (syncWithRocxl) {
+    syncProfileCrateWithRocxl(profileDir);
+  }
+
   const profileData = fs.readFileSync(profilePath, "utf8");
   const profileJson = JSON.parse(profileData);
   const profileCrate = new ROCrate(profileJson, { array: true, link: true });
@@ -92,7 +195,7 @@ try {
   // Find all the rules in the profile crate -- TODO we will use this in this script rather than parsing them again
   validator.parseRules();
 
-  // Create rules data structure for use by the t    semplate
+  // Create rules data structure for use by the template
   const rules = { 
     objects: {},
     all: "", // Will contain all classes summary
@@ -238,8 +341,6 @@ try {
       });
     }
   }
-
-  // Generate Examples
   let exampleSummary = "";
   const exampleLinks = {};
   const examplesOfType = {};
@@ -385,42 +486,40 @@ try {
     )}\n\n`;
     listSummary += `${clean(listDescription)}\n\n`;
 
-    // Add terms table if there are terms in this set
-    const items = list.itemListElement || [];
+    // Add items table if there are items in this list
+    const items = Array.isArray(list.itemListElement)
+      ? list.itemListElement
+      : list.itemListElement
+      ? [list.itemListElement]
+      : [];
     if (items.length > 0) {
-      // Sort terms alphabetically by name
+      // Sort items alphabetically by name
       items.sort((a, b) => {
         const aName = String(a["name"] || a["@id"] || "");
         const bName = String(b["name"] || b["@id"] || "");
         return aName.localeCompare(bName);
       });
 
-      // For items within the list:
-      items.forEach((item) => {
-        const itemId = item["@id"];
-        const itemAnchorId = getAnchorId(itemId);
-        const itemName = item["name"] || item["@id"];
-        const ItemDesc = item["description"] || "";
-        listSummary += `-  [${clean(itemName)}](#${itemAnchorId})\n `;
-      });
-
-      listSummary += "<hr/>\n\n";
+      listSummary += `| Item | Description |\n`;
+      listSummary += `| ---- | ----------- |\n`;
 
       items.forEach((item) => {
         const itemId = item["@id"];
         const itemAnchorId = getAnchorId(itemId);
-        listSummary += `### <a id="${itemAnchorId}"></a><pre>\n ${JSON.stringify(
-          item,
-          null,
-          2
-        )}\n</pre>\n\n`;
-        listSummary += `ID: ${clean(itemId)}\n\n`;
+        const itemName = item["name"] || item["rdfs:label"] || itemId;
+        const itemDesc = item["description"] || item["rdfs:comment"] || "";
+        const itemLink = itemId
+          ? `<a id="${itemAnchorId}" href="${clean(itemId)}" target="_blank" rel="noopener">${clean(itemName)}</a>`
+          : `<a id="${itemAnchorId}">${clean(itemName)}</a>`;
+        listSummary += `| ${itemLink} | ${clean(itemDesc)} |\n`;
       });
+
+      listSummary += `\n`;
     } else {
-      listSummary += `*No terms defined for this term set*\n\n`;
+      listSummary += `*No items defined for this item list*\n\n`;
     }
 
-    // Add DefinedTermSet to rules structure
+    // Add ItemList to rules structure
     setRuleDirect(listId, listSummary);
     setRuleAliases(listSummary, [
       listId,
@@ -433,7 +532,7 @@ try {
     allItemLists += listSummary;
   });
 
-  // Add all defined term sets summary to rules
+  // Add all item lists summary to rules
   rules.allItemLists = allItemLists;
 
   // Generate class documentation
@@ -460,10 +559,7 @@ try {
     const classDesc =
       classRule["description"] || classRule["rdfs:comment"] || "";
     const specialized = classRule["prov:specializationOf"] || [];
-    const classInternalId = classId.startsWith("#")
-      ? ` <small style="color:#aaa;font-weight:normal">${clean(classId)}</small>`
-      : "";
-    var classSummary = `\n### <a id="${classAnchorId}"></a> ${clean(className)}${classInternalId}\n\n`;
+    var classSummary = `\n### <a id="${classAnchorId}" title="${clean(classId)}"></a> ${clean(className)}\n\n`;
 
     classSummary += `${clean(classDesc)}\n\n`;
 
@@ -497,8 +593,8 @@ try {
       max !== undefined ? max : "N/A"
     } |\n\n`;
 
-    classSummary += `| Property | Required | Description | Range | Value |\n`;
-    classSummary += `| -------- | -------- | ----------- | ----- | ----- |\n`;
+    classSummary += `| Property | Specialization Of | Required | Description | Range | Value |\n`;
+    classSummary += `| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`;
 
     if (specialized) {
       const specializedArray = Array.isArray(specialized)
@@ -507,11 +603,11 @@ try {
       const specializedStr = specializedArray
         .map((s) => {
           const typeId = typeof s === "object" ? s["@id"] : s;
-          const def = profileCrate.getEntity(typeId);
-          return makeTypeLink(typeId, !!def);
+          const def = getCrateEntity(profileCrate, typeId);
+          return makeTypeLink(typeId, !!def, profileCrate);
         })
         .join(", ");
-      classSummary += `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
+      classSummary += `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`;
     }
 
     // Get all properties for this class (no inheritence support ATM)
@@ -534,18 +630,12 @@ try {
 
       props.forEach((prop) => {
         const propName = prop["name"] || prop["rdfs:label"] || prop["@id"];
-        const anchorGithubId = getAnchorId(prop["@id"]);
-        // Make a link to the 'main' definition of the property
-        const propBaseId = prop?.["prov:specializationOf"]?.[0]?.["@id"];
-        const link =
-          propBaseId && propBaseId.match(/^http(s)?:/i)
-            ? ` <a href="#${anchorGithubId}" target="_blank" rel="noopener">ⓘ</a>`
-            : "";
         const isRequired =
           prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0
             ? "Yes"
             : "No";
         const propDesc = prop["description"] || prop["rdfs:comment"] || "";
+        const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
 
         const rangesArray = prop["rangeIncludes"] || [];
 
@@ -554,9 +644,9 @@ try {
           .map((r) => {
             const rangeId = typeof r === "object" ? r["@id"] : r;
             if (!rangeId) return "Text"; // Default to Text if no range is specified
-            const rangeDefiniton = profileCrate.getEntity(rangeId);
+            const rangeDefiniton = getCrateEntity(profileCrate, rangeId);
             const isInternal = !!rangeDefiniton;
-            return makeTypeLink(rangeId, isInternal);
+            return makeTypeLink(rangeId, isInternal, profileCrate);
           })
           .join(", ");
 
@@ -569,21 +659,20 @@ try {
                 const val = v.trim();
                 // If it looks like a URI, resolve to a label
                 if (isValidUri(val)) {
-                  const def = profileCrate.getEntity(val);
+                  const def = getCrateEntity(profileCrate, val);
                   const isInternal = !!def;
-                  return makeTypeLink(val, isInternal);
+                  return makeTypeLink(val, isInternal, profileCrate);
                 }
                 return val;
               })
               .join(", ")
           : "";
 
-        const propInternalId = prop["@id"].startsWith("#")
-          ? ` <small style="color:#aaa;font-weight:normal">${clean(prop["@id"])}</small>`
-          : "";
-        classSummary += `| <a href="#${anchorGithubId}">${clean(
+        const propAnchorId = getAnchorId(prop["@id"]);
+        const propSpecializationCell = propSpecializationOf || "";
+        classSummary += `| <a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
           propName
-        )}${clean(link)}</a>${propInternalId} | ${clean(isRequired)} | ${clean(
+        )}</a> | ${propSpecializationCell} | ${clean(isRequired)} | ${clean(
           propDesc
         )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
       });
@@ -630,22 +719,15 @@ try {
 
     const propDesc = p["description"] || p["rdfs:comment"] || ""; // Add this line
 
-    // Make a link to the 'main' definition of the property
-    const propBaseId = p?.["prov:specializationOf"]?.[0]?.["@id"];
-    const link =
-      propBaseId && propBaseId.match(/^http(s)?:/i)
-        ? ` <a href="${clean(propBaseId)}" target="_blank" rel="noopener">ⓘ</a>`
-        : "";
-
     // Create range links
     const rangesArray = p["rangeIncludes"] || [];
     const rangeLinks = rangesArray
       .map((r) => {
         const rangeId = typeof r === "object" ? r["@id"] : r;
         if (!rangeId) return "Text";
-        const rangeDefinition = profileCrate.getEntity(rangeId);
+        const rangeDefinition = getCrateEntity(profileCrate, rangeId);
         const isInternal = !!rangeDefinition;
-        return makeTypeLink(rangeId, isInternal);
+        return makeTypeLink(rangeId, isInternal, profileCrate);
       })
       .join(", ");
 
@@ -654,21 +736,22 @@ try {
       .map((domain) => {
         const domainId = typeof domain === "object" ? domain["@id"] : domain;
         if (!domainId) return "";
-        const domainDef = profileCrate.getEntity(domainId);
+        const domainDef = getCrateEntity(profileCrate, domainId);
         const isInternal = !!domainDef;
-        return makeTypeLink(domainId, isInternal);
+        return makeTypeLink(domainId, isInternal, profileCrate);
       })
       .join(", ");
 
-    const propHeadingId = p["@id"].startsWith("#")
-      ? ` <small style="color:#aaa;font-weight:normal">${clean(p["@id"])}</small>`
-      : "";
-    let propSummary = `### <a id="${anchorGithubId}"></a> ${clean(
-      propName
-    )}${clean(link)}${propHeadingId}\n\n`;
-    propSummary += `| Description | Range | Occurs in Domain(s) |\n`;
-    propSummary += `| ----------- | ----------- | ----------- |\n`;
-    propSummary += `| ${clean(propDesc)} | ${clean(
+    let propSummary = `### <a id="${anchorGithubId}" title="${clean(
+      p["@id"]
+    )}"></a> ${clean(propName)}\n\n`;
+    const propSpecializationOf = formatSpecializationOf(p["prov:specializationOf"]);
+    const propSpecializationCell = propSpecializationOf || "";
+    propSummary += `| Property | Specialization Of | Description | Range | Occurs in Domain(s) |\n`;
+    propSummary += `| -------- | ----------------- | ----------- | ----------- | ----------- |\n`;
+    propSummary += `| <a href="#${anchorGithubId}" title="${clean(p["@id"])}">${clean(
+      p["name"] || p["rdfs:label"] || p["@id"]
+    )}</a> | ${propSpecializationCell} | ${clean(propDesc)} | ${clean(
       rangeLinks
     )} | ${propDomains} |\n`;
 
@@ -841,12 +924,25 @@ try {
     }
 
     /** Resolve an entity @id to a relative link from inside the preview dir */
+    function resolveEntityLabel(id, fallback) {
+      if (!id) return fallback || "";
+      const entity = getCrateEntity(profileCrate, id);
+      if (entity) {
+        return entity.name || entity["rdfs:label"] || fallback || id;
+      }
+      return fallback || id;
+    }
+
     function entityLink(id, label) {
+      const resolvedLabel = resolveEntityLabel(
+        id,
+        label || (id.split(/[/#]/).pop() || id)
+      );
       if (pageMap.has(id)) {
-        return `<a href="./${pageMap.get(id)}">${clean(label || id)}</a>`;
+        return `<a href="./${pageMap.get(id)}">${clean(resolvedLabel)}</a>`;
       }
       // External URI — link out directly
-      return `<a href="${id}" target="_blank" rel="noopener">${clean(label || id)}</a>`;
+      return `<a href="${id}" target="_blank" rel="noopener">${clean(resolvedLabel)}</a>`;
     }
 
     function makePageHtml(title, bodyHtml, breadcrumb) {
@@ -884,12 +980,13 @@ try {
     /** Render a properties table for a group of property entities */
     function renderPropsTable(props) {
       if (!props || props.length === 0) return "";
-      let t = `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
+      let t = `<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
       for (const prop of props) {
         const propEntity = prop.entity || prop; // accept PropertyRule or raw entity
         const propId = propEntity["@id"];
         const propLabel = getLabel(propEntity);
         const propDesc = propEntity["rdfs:comment"] || propEntity["description"] || "";
+        const propSpecializationOf = formatSpecializationOf(propEntity["prov:specializationOf"]);
         const ranges = Array.isArray(propEntity["rangeIncludes"])
           ? propEntity["rangeIncludes"]
           : propEntity["rangeIncludes"]
@@ -898,10 +995,10 @@ try {
         const rangeLinks = ranges
           .map((r) => {
             const rid = typeof r === "object" ? r["@id"] : r;
-            return entityLink(rid, rid.split(/[/#]/).pop() || rid);
+            return entityLink(rid, resolveEntityLabel(rid, rid.split(/[/#]/).pop() || rid));
           })
           .join(", ");
-        t += `<tr><td>${entityLink(propId, propLabel)}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+        t += `<tr><td><span title="${clean(propId)}">${clean(propLabel)}</span></td><td>${propSpecializationOf}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
       }
       t += `</tbody></table>\n`;
       return t;
@@ -945,9 +1042,7 @@ try {
         let subItems = "";
         for (const sub of directSubclasses) {
           const subLabel = getLabel(sub);
-          const subDesc = sub["rdfs:comment"]
-            ? ` — ${clean(String(sub["rdfs:comment"]).split(/[.\n]/)[0])}`
-            : "";
+          const subDesc = sub["rdfs:comment"] ? ` — ${clean(sub["rdfs:comment"])}` : "";
           subItems += `<li data-name="${clean(subLabel).toLowerCase()}">${entityLink(sub["@id"], subLabel)}${subDesc}</li>\n`;
         }
         body += `<h2>Subclasses (${directSubclasses.length})</h2>\n`;
@@ -984,7 +1079,7 @@ try {
       for (const ancestorId of orderedAncestors) {
         const ancestorProps = inherited[ancestorId];
         if (!ancestorProps || ancestorProps.length === 0) continue;
-        const ancestorEntity = profileCrate.getEntity(ancestorId);
+        const ancestorEntity = getCrateEntity(profileCrate, ancestorId);
         const ancestorLabel = ancestorEntity ? getLabel(ancestorEntity) : (ancestorId.split(/[/#]/).pop() || ancestorId);
         body += `<h2>Properties from ${entityLink(ancestorId, ancestorLabel)}</h2>\n`;
         body += renderPropsTable(ancestorProps);
@@ -1079,7 +1174,7 @@ try {
     for (const cls of classes) {
       const label = getLabel(cls);
       const filename = pageMap.get(cls["@id"]);
-      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = cls["rdfs:comment"] ? ` — ${clean(cls["rdfs:comment"])}` : "";
       classItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
 
@@ -1088,7 +1183,7 @@ try {
     for (const prop of properties) {
       const label = getLabel(prop);
       const filename = pageMap.get(prop["@id"]);
-      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = prop["rdfs:comment"] ? ` — ${clean(prop["rdfs:comment"])}` : "";
       propItems += `<li><a href="./ro-crate-preview_files/${filename}">${clean(label)}</a>${desc}</li>\n`;
     }
 
@@ -1137,7 +1232,10 @@ ${propItems}    </ul>
 </head>
 <body>
   <div class="container-fluid">
-    <p><a href="ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
     ${indexBodyHtml}
   </div>
   <script>
@@ -1150,6 +1248,10 @@ ${propItems}    </ul>
         });
       });
     });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
   </script>
 </body>
 </html>`;
@@ -1180,7 +1282,7 @@ ${propItems}    </ul>
       const anchor = getAnchorId(cls["@id"]);
       const internalId = cls["@id"].startsWith("#")
         ? ` <small style="color:#aaa">${clean(cls["@id"])}</small>` : "";
-      const desc = cls["rdfs:comment"] ? ` — ${clean(String(cls["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = cls["rdfs:comment"] ? ` — ${clean(cls["rdfs:comment"])}` : "";
       spClassItems += `<li><a href="#${anchor}" title="${clean(cls["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
     }
     let spPropItems = "";
@@ -1189,7 +1291,7 @@ ${propItems}    </ul>
       const anchor = getAnchorId(prop["@id"]);
       const internalId = prop["@id"].startsWith("#")
         ? ` <small style="color:#aaa">${clean(prop["@id"])}</small>` : "";
-      const desc = prop["rdfs:comment"] ? ` — ${clean(String(prop["rdfs:comment"]).split(/[.\n]/)[0])}` : "";
+      const desc = prop["rdfs:comment"] ? ` — ${clean(prop["rdfs:comment"])}` : "";
       spPropItems += `<li><a href="#${anchor}" title="${clean(prop["@id"])}">${clean(label)}</a>${desc}${internalId}</li>\n`;
     }
 
@@ -1244,8 +1346,8 @@ ${spPropItems}    </ul>
 <body>
   <div class="container-fluid">
     <p>
-      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
-      ${crateTreeUrl ? `&nbsp;|&nbsp; <a href="${crateTreeUrl}">📁 View whole crate on GitHub</a>` : ""}
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
     </p>
     ${htmlBody}
   </div>

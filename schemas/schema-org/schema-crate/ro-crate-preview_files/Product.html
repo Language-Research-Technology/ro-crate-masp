@@ -27,14 +27,14 @@
 <h2>Subclasses (8)</h2>
 <input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-Product" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
 <ul id="subclass-list-Product" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
-<li data-name="dietarysupplement"><a href="./DietarySupplement.html">DietarySupplement</a> — A product taken by mouth that contains a dietary ingredient intended to supplement the diet</li>
-<li data-name="drug"><a href="./Drug.html">Drug</a> — A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism</li>
-<li data-name="individualproduct"><a href="./IndividualProduct.html">IndividualProduct</a> — A single, identifiable product instance (e</li>
-<li data-name="productcollection"><a href="./ProductCollection.html">ProductCollection</a> — A set of products (either [[ProductGroup]]s or specific variants) that are listed together e</li>
-<li data-name="productgroup"><a href="./ProductGroup.html">ProductGroup</a> — A ProductGroup represents a group of [[Product]]s that vary only in certain well-described ways, such as by [[size]], [[color]], [[material]] etc</li>
-<li data-name="productmodel"><a href="./ProductModel.html">ProductModel</a> — A datasheet or vendor specification of a product (in the sense of a prototypical description)</li>
-<li data-name="someproducts"><a href="./SomeProducts.html">SomeProducts</a> — A placeholder for multiple similar products of the same kind</li>
-<li data-name="vehicle"><a href="./Vehicle.html">Vehicle</a> — A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space</li>
+<li data-name="dietarysupplement"><a href="./DietarySupplement.html">DietarySupplement</a> — A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.</li>
+<li data-name="drug"><a href="./Drug.html">Drug</a> — A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism. Here the term drug is used interchangeably with the term medicine although clinical knowledge makes a clear difference between them.</li>
+<li data-name="individualproduct"><a href="./IndividualProduct.html">IndividualProduct</a> — A single, identifiable product instance (e.g. a laptop with a particular serial number).</li>
+<li data-name="productcollection"><a href="./ProductCollection.html">ProductCollection</a> — A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]].</li>
+<li data-name="productgroup"><a href="./ProductGroup.html">ProductGroup</a> — A ProductGroup represents a group of [[Product]]s that vary only in certain well-described ways, such as by [[size]], [[color]], [[material]] etc. While a ProductGroup itself is not directly offered for sale, the various varying products that it represents can be. The ProductGroup serves as a prototype or template, standing in for all of the products who have an [[isVariantOf]] relationship to it. As such, properties (including additional types) can be applied to the ProductGroup to represent characteristics shared by each of the (possibly very many) variants. Properties that reference a ProductGroup are not included in this mechanism; neither are the following specific properties [[variesBy]], [[hasVariant]], [[url]]. </li>
+<li data-name="productmodel"><a href="./ProductModel.html">ProductModel</a> — A datasheet or vendor specification of a product (in the sense of a prototypical description).</li>
+<li data-name="someproducts"><a href="./SomeProducts.html">SomeProducts</a> — A placeholder for multiple similar products of the same kind.</li>
+<li data-name="vehicle"><a href="./Vehicle.html">Vehicle</a> — A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.</li>
 </ul>
 <h2>Properties from Product</h2>
 <table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
