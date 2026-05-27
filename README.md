@@ -194,6 +194,16 @@ Documentation generated successfully: profiles/workflow/profile-crate/profile-do
 
 See the result of this profile generation [here](./profiles/workflow/profile-crate/profile-documentation.md) this is the result of combining [the profile crate document](./profiles/workflow/profile-crate/ro-crate-metadata.json) with a [document](./profiles/workflow/profile-text.md).
 
+### Usage note: rocxl synchronisation
+
+- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to run `rocxl` first and ensure `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` are synchronised. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual.
+
+Example:
+
+```bash
+npm exec -- generate-masp-docs -- profiles/ldac/profile-crate/ro-crate-metadata.json profiles/ldac/profile-text.md profiles/ldac/profile-crate/profile-documentation.md -x
+```
+
 
 Each build command runs the `generate-soss-docs.js` script with three arguments:
 1. Path to the `ro-crate-metadata.json` file

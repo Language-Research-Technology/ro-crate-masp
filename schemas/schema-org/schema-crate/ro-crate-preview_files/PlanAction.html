@@ -27,9 +27,9 @@
 <h2>Subclasses (3)</h2>
 <input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-PlanAction" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
 <ul id="subclass-list-PlanAction" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
-<li data-name="cancelaction"><a href="./CancelAction.html">CancelAction</a> — The act of asserting that a future event/action is no longer going to happen</li>
-<li data-name="reserveaction"><a href="./ReserveAction.html">ReserveAction</a> — Reserving a concrete object</li>
-<li data-name="scheduleaction"><a href="./ScheduleAction.html">ScheduleAction</a> — Scheduling future actions, events, or tasks</li>
+<li data-name="cancelaction"><a href="./CancelAction.html">CancelAction</a> — The act of asserting that a future event/action is no longer going to happen.\n\nRelated actions:\n\n* [[ConfirmAction]]: The antonym of CancelAction.</li>
+<li data-name="reserveaction"><a href="./ReserveAction.html">ReserveAction</a> — Reserving a concrete object.\n\nRelated actions:\n\n* [[ScheduleAction]]: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.</li>
+<li data-name="scheduleaction"><a href="./ScheduleAction.html">ScheduleAction</a> — Scheduling future actions, events, or tasks.\n\nRelated actions:\n\n* [[ReserveAction]]: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.</li>
 </ul>
 <h2>Properties from PlanAction</h2>
 <table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
