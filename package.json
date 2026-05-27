@@ -11,6 +11,7 @@
   "scripts": {
     "test": "mocha",
     "build:ldac-profile": "npm exec -- generate-masp-docs -- profiles/ldac/profile-crate/ro-crate-metadata.json profiles/ldac/profile-text.md profiles/ldac/profile-crate/profile-documentation.md",
+    "build:cca-profile": "node generate-masp-docs.js -x --multi-page profiles/cca-demo/profile-crate/ro-crate-metadata.json profiles/cca-demo/profile-text.md",
     "build:ldac-schema": "npm exec -- generate-masp-docs -- schemas/ldac/schema-crate/ro-crate-metadata.json schemas/ldac/schema-text.md schemas/ldac/schema-crate/schema-documentation.md",
     "build:ro-crate-profile": "npm exec -- generate-masp-docs -- profiles/ro-crate/profile-crate/ro-crate-metadata.json profiles/ro-crate/profile-text.md profiles/ro-crate/profile-crate/profile-documentation.md",
     "build:ro-crate-masp-profile": "npm exec -- generate-masp-docs -- profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json profiles/ro-crate-masp/profile-text.md profiles/ro-crate-masp/profile-crate/profile-documentation.md",
