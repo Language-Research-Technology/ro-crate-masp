@@ -1232,7 +1232,10 @@ ${propItems}    </ul>
 </head>
 <body>
   <div class="container-fluid">
-    <p><a href="ro-crate-metadata.json">⬇️ Download schema metadata (JSON-LD)</a></p>
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
     ${indexBodyHtml}
   </div>
   <script>
@@ -1245,6 +1248,10 @@ ${propItems}    </ul>
         });
       });
     });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
   </script>
 </body>
 </html>`;
@@ -1341,7 +1348,6 @@ ${spPropItems}    </ul>
     <p>
       <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
       <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
-      ${crateTreeUrl ? `&nbsp;|&nbsp; <a href="${crateTreeUrl}">📁 View whole crate on GitHub</a>` : ""}
     </p>
     ${htmlBody}
   </div>
