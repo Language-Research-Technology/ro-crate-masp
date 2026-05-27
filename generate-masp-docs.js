@@ -111,27 +111,74 @@ function extractLabelFromUri(uri) {
   return uri.split(/[/#]/).pop() || uri;
 }
 
+function formatSpecializationOf(specialization) {
+  if (!specialization) return "";
+  const values = Array.isArray(specialization) ? specialization : [specialization];
+  return values
+    .map((value) => {
+      const specializationId = typeof value === "object" ? value["@id"] : value;
+      if (!specializationId) return "";
+      if (isValidUri(specializationId)) {
+        return `<a href="${clean(specializationId)}" target="_blank" rel="noopener">${clean(
+          specializationId
+        )}</a>`;
+      }
+      return clean(specializationId);
+    })
+    .filter(Boolean)
+    .join(", ");
+}
+
+  function getCrateEntity(crate, id) {
+    if (!crate || !id) return null;
+    return (
+      crate.getEntity(id) ||
+      (String(id).startsWith("#") ? crate.getEntity(String(id).slice(1)) : null) ||
+      crate.getEntity(`#${String(id).replace(/^#/, "")}`)
+    );
+  }
+
 function isValidUri(str) {
   // Check if string is a valid HTTP/HTTPS URI or fragment ID
   return str && (str.startsWith('#') || str.match(/^https?:\/\//) || str.match(/^[a-z]+:\/\//));
 }
 
-function makeTypeLink(typeId, isInternal = false) {
+function makeTypeLink(typeId, isInternal = false, crate = null) {
   if (!typeId) return 'Text';
   const label = extractLabelFromUri(typeId);
-
+  // Prefer HTML anchors so we can include a hover title with the full id.
   if (isInternal || typeId.startsWith('#')) {
-    // Internal link to anchor on this page
-    return `[${label}](#${getAnchorId(typeId)})`;
+    // Try to resolve an internal entity's human-readable label from the profile crate
+    let displayLabel = label;
+    try {
+      if (crate) {
+        const def = getCrateEntity(crate, typeId);
+        if (def) {
+          displayLabel = def.name || def["rdfs:label"] || displayLabel;
+        }
+      }
+    } catch (e) {
+      // ignore lookup errors and fall back to the derived label
+    }
+    // If label looks like a CURIE (prefix:LocalName), use the LocalName for display
+    if (!displayLabel || String(displayLabel).includes(":")) {
+      const s = String(displayLabel || label);
+      displayLabel = s.includes(":") ? s.split(":").pop() : displayLabel;
+    }
+    return `<a href="#${getAnchorId(typeId)}" title="${clean(typeId)}">${clean(
+      displayLabel
+    )}</a>`;
   }
 
   // For non-URI types (like "Text", "Date", "URL"), just return the label without a link
   if (!isValidUri(typeId)) {
-    return label;
+    return clean(label);
   }
 
-  // External link (full HTTP/HTTPS URI)
-  return `[${label}](${typeId})`;
+  // External link (full HTTP/HTTPS URI) with hover title
+  return `<a href="${clean(typeId)}" title="${clean(typeId)}" target="_blank" rel="noopener">${clean(
+    label
+  )}</a>`;
 }
 
 try {
@@ -294,8 +341,6 @@ try {
       });
     }
   }
-
-  // Generate Examples
   let exampleSummary = "";
   const exampleLinks = {};
   const examplesOfType = {};
@@ -514,10 +559,7 @@ try {
     const classDesc =
       classRule["description"] || classRule["rdfs:comment"] || "";
     const specialized = classRule["prov:specializationOf"] || [];
-    const classInternalId = classId.startsWith("#")
-      ? ` <small style="color:#aaa;font-weight:normal">${clean(classId)}</small>`
-      : "";
-    var classSummary = `\n### <a id="${classAnchorId}"></a> ${clean(className)}${classInternalId}\n\n`;
+    var classSummary = `\n### <a id="${classAnchorId}" title="${clean(classId)}"></a> ${clean(className)}\n\n`;
 
     classSummary += `${clean(classDesc)}\n\n`;
 
@@ -551,8 +593,8 @@ try {
       max !== undefined ? max : "N/A"
     } |\n\n`;
 
-    classSummary += `| Property | Required | Description | Range | Value |\n`;
-    classSummary += `| -------- | -------- | ----------- | ----- | ----- |\n`;
+    classSummary += `| Property | Specialization Of | Required | Description | Range | Value |\n`;
+    classSummary += `| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`;
 
     if (specialized) {
       const specializedArray = Array.isArray(specialized)
@@ -561,11 +603,11 @@ try {
       const specializedStr = specializedArray
         .map((s) => {
           const typeId = typeof s === "object" ? s["@id"] : s;
-          const def = profileCrate.getEntity(typeId);
-          return makeTypeLink(typeId, !!def);
+          const def = getCrateEntity(profileCrate, typeId);
+          return makeTypeLink(typeId, !!def, profileCrate);
         })
         .join(", ");
-      classSummary += `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
+      classSummary += `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`;
     }
 
     // Get all properties for this class (no inheritence support ATM)
@@ -588,18 +630,12 @@ try {
 
       props.forEach((prop) => {
         const propName = prop["name"] || prop["rdfs:label"] || prop["@id"];
-        const anchorGithubId = getAnchorId(prop["@id"]);
-        // Make a link to the 'main' definition of the property
-        const propBaseId = prop?.["prov:specializationOf"]?.[0]?.["@id"];
-        const link =
-          propBaseId && propBaseId.match(/^http(s)?:/i)
-            ? ` <a href="#${anchorGithubId}" target="_blank" rel="noopener">ⓘ</a>`
-            : "";
         const isRequired =
           prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0
             ? "Yes"
             : "No";
         const propDesc = prop["description"] || prop["rdfs:comment"] || "";
+        const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
 
         const rangesArray = prop["rangeIncludes"] || [];
 
@@ -608,9 +644,9 @@ try {
           .map((r) => {
             const rangeId = typeof r === "object" ? r["@id"] : r;
             if (!rangeId) return "Text"; // Default to Text if no range is specified
-            const rangeDefiniton = profileCrate.getEntity(rangeId);
+            const rangeDefiniton = getCrateEntity(profileCrate, rangeId);
             const isInternal = !!rangeDefiniton;
-            return makeTypeLink(rangeId, isInternal);
+            return makeTypeLink(rangeId, isInternal, profileCrate);
           })
           .join(", ");
 
@@ -623,21 +659,20 @@ try {
                 const val = v.trim();
                 // If it looks like a URI, resolve to a label
                 if (isValidUri(val)) {
-                  const def = profileCrate.getEntity(val);
+                  const def = getCrateEntity(profileCrate, val);
                   const isInternal = !!def;
-                  return makeTypeLink(val, isInternal);
+                  return makeTypeLink(val, isInternal, profileCrate);
                 }
                 return val;
               })
               .join(", ")
           : "";
 
-        const propInternalId = prop["@id"].startsWith("#")
-          ? ` <small style="color:#aaa;font-weight:normal">${clean(prop["@id"])}</small>`
-          : "";
-        classSummary += `| <a href="#${anchorGithubId}">${clean(
+        const propAnchorId = getAnchorId(prop["@id"]);
+        const propSpecializationCell = propSpecializationOf || "";
+        classSummary += `| <a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
           propName
-        )}${clean(link)}</a>${propInternalId} | ${clean(isRequired)} | ${clean(
+        )}</a> | ${propSpecializationCell} | ${clean(isRequired)} | ${clean(
           propDesc
         )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
       });
@@ -684,22 +719,15 @@ try {
 
     const propDesc = p["description"] || p["rdfs:comment"] || ""; // Add this line
 
-    // Make a link to the 'main' definition of the property
-    const propBaseId = p?.["prov:specializationOf"]?.[0]?.["@id"];
-    const link =
-      propBaseId && propBaseId.match(/^http(s)?:/i)
-        ? ` <a href="${clean(propBaseId)}" target="_blank" rel="noopener">ⓘ</a>`
-        : "";
-
     // Create range links
     const rangesArray = p["rangeIncludes"] || [];
     const rangeLinks = rangesArray
       .map((r) => {
         const rangeId = typeof r === "object" ? r["@id"] : r;
         if (!rangeId) return "Text";
-        const rangeDefinition = profileCrate.getEntity(rangeId);
+        const rangeDefinition = getCrateEntity(profileCrate, rangeId);
         const isInternal = !!rangeDefinition;
-        return makeTypeLink(rangeId, isInternal);
+        return makeTypeLink(rangeId, isInternal, profileCrate);
       })
       .join(", ");
 
@@ -708,21 +736,22 @@ try {
       .map((domain) => {
         const domainId = typeof domain === "object" ? domain["@id"] : domain;
         if (!domainId) return "";
-        const domainDef = profileCrate.getEntity(domainId);
+        const domainDef = getCrateEntity(profileCrate, domainId);
         const isInternal = !!domainDef;
-        return makeTypeLink(domainId, isInternal);
+        return makeTypeLink(domainId, isInternal, profileCrate);
       })
       .join(", ");
 
-    const propHeadingId = p["@id"].startsWith("#")
-      ? ` <small style="color:#aaa;font-weight:normal">${clean(p["@id"])}</small>`
-      : "";
-    let propSummary = `### <a id="${anchorGithubId}"></a> ${clean(
-      propName
-    )}${clean(link)}${propHeadingId}\n\n`;
-    propSummary += `| Description | Range | Occurs in Domain(s) |\n`;
-    propSummary += `| ----------- | ----------- | ----------- |\n`;
-    propSummary += `| ${clean(propDesc)} | ${clean(
+    let propSummary = `### <a id="${anchorGithubId}" title="${clean(
+      p["@id"]
+    )}"></a> ${clean(propName)}\n\n`;
+    const propSpecializationOf = formatSpecializationOf(p["prov:specializationOf"]);
+    const propSpecializationCell = propSpecializationOf || "";
+    propSummary += `| Property | Specialization Of | Description | Range | Occurs in Domain(s) |\n`;
+    propSummary += `| -------- | ----------------- | ----------- | ----------- | ----------- |\n`;
+    propSummary += `| <a href="#${anchorGithubId}" title="${clean(p["@id"])}">${clean(
+      p["name"] || p["rdfs:label"] || p["@id"]
+    )}</a> | ${propSpecializationCell} | ${clean(propDesc)} | ${clean(
       rangeLinks
     )} | ${propDomains} |\n`;
 
@@ -895,12 +924,25 @@ try {
     }
 
     /** Resolve an entity @id to a relative link from inside the preview dir */
+    function resolveEntityLabel(id, fallback) {
+      if (!id) return fallback || "";
+      const entity = getCrateEntity(profileCrate, id);
+      if (entity) {
+        return entity.name || entity["rdfs:label"] || fallback || id;
+      }
+      return fallback || id;
+    }
+
     function entityLink(id, label) {
+      const resolvedLabel = resolveEntityLabel(
+        id,
+        label || (id.split(/[/#]/).pop() || id)
+      );
       if (pageMap.has(id)) {
-        return `<a href="./${pageMap.get(id)}">${clean(label || id)}</a>`;
+        return `<a href="./${pageMap.get(id)}">${clean(resolvedLabel)}</a>`;
       }
       // External URI — link out directly
-      return `<a href="${id}" target="_blank" rel="noopener">${clean(label || id)}</a>`;
+      return `<a href="${id}" target="_blank" rel="noopener">${clean(resolvedLabel)}</a>`;
     }
 
     function makePageHtml(title, bodyHtml, breadcrumb) {
@@ -938,12 +980,13 @@ try {
     /** Render a properties table for a group of property entities */
     function renderPropsTable(props) {
       if (!props || props.length === 0) return "";
-      let t = `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
+      let t = `<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
       for (const prop of props) {
         const propEntity = prop.entity || prop; // accept PropertyRule or raw entity
         const propId = propEntity["@id"];
         const propLabel = getLabel(propEntity);
         const propDesc = propEntity["rdfs:comment"] || propEntity["description"] || "";
+        const propSpecializationOf = formatSpecializationOf(propEntity["prov:specializationOf"]);
         const ranges = Array.isArray(propEntity["rangeIncludes"])
           ? propEntity["rangeIncludes"]
           : propEntity["rangeIncludes"]
@@ -952,10 +995,10 @@ try {
         const rangeLinks = ranges
           .map((r) => {
             const rid = typeof r === "object" ? r["@id"] : r;
-            return entityLink(rid, rid.split(/[/#]/).pop() || rid);
+            return entityLink(rid, resolveEntityLabel(rid, rid.split(/[/#]/).pop() || rid));
           })
           .join(", ");
-        t += `<tr><td>${entityLink(propId, propLabel)}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+        t += `<tr><td><span title="${clean(propId)}">${clean(propLabel)}</span></td><td>${propSpecializationOf}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
       }
       t += `</tbody></table>\n`;
       return t;
@@ -1036,7 +1079,7 @@ try {
       for (const ancestorId of orderedAncestors) {
         const ancestorProps = inherited[ancestorId];
         if (!ancestorProps || ancestorProps.length === 0) continue;
-        const ancestorEntity = profileCrate.getEntity(ancestorId);
+        const ancestorEntity = getCrateEntity(profileCrate, ancestorId);
         const ancestorLabel = ancestorEntity ? getLabel(ancestorEntity) : (ancestorId.split(/[/#]/).pop() || ancestorId);
         body += `<h2>Properties from ${entityLink(ancestorId, ancestorLabel)}</h2>\n`;
         body += renderPropsTable(ancestorProps);
