@@ -27,16 +27,16 @@
 <h2>Subclasses (10)</h2>
 <input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-TransferAction" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
 <ul id="subclass-list-TransferAction" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
-<li data-name="borrowaction"><a href="./BorrowAction.html">BorrowAction</a> — The act of obtaining an object under an agreement to return it at a later date</li>
-<li data-name="donateaction"><a href="./DonateAction.html">DonateAction</a> — The act of providing goods, services, or money without compensation, often for philanthropic reasons</li>
-<li data-name="downloadaction"><a href="./DownloadAction.html">DownloadAction</a> — The act of downloading an object</li>
-<li data-name="giveaction"><a href="./GiveAction.html">GiveAction</a> — The act of transferring ownership of an object to a destination</li>
-<li data-name="lendaction"><a href="./LendAction.html">LendAction</a> — The act of providing an object under an agreement that it will be returned at a later date</li>
-<li data-name="moneytransfer"><a href="./MoneyTransfer.html">MoneyTransfer</a> — The act of transferring money from one place to another place</li>
-<li data-name="receiveaction"><a href="./ReceiveAction.html">ReceiveAction</a> — The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination</li>
-<li data-name="returnaction"><a href="./ReturnAction.html">ReturnAction</a> — The act of returning to the origin that which was previously received (concrete objects) or taken (ownership)</li>
-<li data-name="sendaction"><a href="./SendAction.html">SendAction</a> — The act of physically/electronically dispatching an object for transfer from an origin to a destination</li>
-<li data-name="takeaction"><a href="./TakeAction.html">TakeAction</a> — The act of gaining ownership of an object from an origin</li>
+<li data-name="borrowaction"><a href="./BorrowAction.html">BorrowAction</a> — The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\n\nRelated actions:\n\n* [[LendAction]]: Reciprocal of BorrowAction.</li>
+<li data-name="donateaction"><a href="./DonateAction.html">DonateAction</a> — The act of providing goods, services, or money without compensation, often for philanthropic reasons.</li>
+<li data-name="downloadaction"><a href="./DownloadAction.html">DownloadAction</a> — The act of downloading an object.</li>
+<li data-name="giveaction"><a href="./GiveAction.html">GiveAction</a> — The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\n\nRelated actions:\n\n* [[TakeAction]]: Reciprocal of GiveAction.\n* [[SendAction]]: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).</li>
+<li data-name="lendaction"><a href="./LendAction.html">LendAction</a> — The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.\n\nRelated actions:\n\n* [[BorrowAction]]: Reciprocal of LendAction.</li>
+<li data-name="moneytransfer"><a href="./MoneyTransfer.html">MoneyTransfer</a> — The act of transferring money from one place to another place. This may occur electronically or physically.</li>
+<li data-name="receiveaction"><a href="./ReceiveAction.html">ReceiveAction</a> — The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\n\nRelated actions:\n\n* [[SendAction]]: The reciprocal of ReceiveAction.\n* [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).</li>
+<li data-name="returnaction"><a href="./ReturnAction.html">ReturnAction</a> — The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).</li>
+<li data-name="sendaction"><a href="./SendAction.html">SendAction</a> — The act of physically/electronically dispatching an object for transfer from an origin to a destination. Related actions:\n\n* [[ReceiveAction]]: The reciprocal of SendAction.\n* [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).</li>
+<li data-name="takeaction"><a href="./TakeAction.html">TakeAction</a> — The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.\n\nRelated actions:\n\n* [[GiveAction]]: The reciprocal of TakeAction.\n* [[ReceiveAction]]: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.</li>
 </ul>
 <h2>Properties from TransferAction</h2>
 <table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>

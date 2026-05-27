@@ -27,14 +27,14 @@
 <h2>Subclasses (8)</h2>
 <input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-CommunicateAction" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
 <ul id="subclass-list-CommunicateAction" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
-<li data-name="askaction"><a href="./AskAction.html">AskAction</a> — The act of posing a question / favor to someone</li>
-<li data-name="checkinaction"><a href="./CheckInAction.html">CheckInAction</a> — The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e</li>
-<li data-name="checkoutaction"><a href="./CheckOutAction.html">CheckOutAction</a> — The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e</li>
-<li data-name="commentaction"><a href="./CommentAction.html">CommentAction</a> — The act of generating a comment about a subject</li>
-<li data-name="informaction"><a href="./InformAction.html">InformAction</a> — The act of notifying someone of information pertinent to them, with no expectation of a response</li>
-<li data-name="inviteaction"><a href="./InviteAction.html">InviteAction</a> — The act of asking someone to attend an event</li>
-<li data-name="replyaction"><a href="./ReplyAction.html">ReplyAction</a> — The act of responding to a question/message asked/sent by the object</li>
-<li data-name="shareaction"><a href="./ShareAction.html">ShareAction</a> — The act of distributing content to people for their amusement or edification</li>
+<li data-name="askaction"><a href="./AskAction.html">AskAction</a> — The act of posing a question / favor to someone.\n\nRelated actions:\n\n* [[ReplyAction]]: Appears generally as a response to AskAction.</li>
+<li data-name="checkinaction"><a href="./CheckInAction.html">CheckInAction</a> — The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check-in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).\n\nRelated actions:\n\n* [[CheckOutAction]]: The antonym of CheckInAction.\n* [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\n* [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.</li>
+<li data-name="checkoutaction"><a href="./CheckOutAction.html">CheckOutAction</a> — The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check-in) or place (e.g. hotel).\n\nRelated actions:\n\n* [[CheckInAction]]: The antonym of CheckOutAction.\n* [[DepartAction]]: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.\n* [[CancelAction]]: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li>
+<li data-name="commentaction"><a href="./CommentAction.html">CommentAction</a> — The act of generating a comment about a subject.</li>
+<li data-name="informaction"><a href="./InformAction.html">InformAction</a> — The act of notifying someone of information pertinent to them, with no expectation of a response.</li>
+<li data-name="inviteaction"><a href="./InviteAction.html">InviteAction</a> — The act of asking someone to attend an event. Reciprocal of RsvpAction.</li>
+<li data-name="replyaction"><a href="./ReplyAction.html">ReplyAction</a> — The act of responding to a question/message asked/sent by the object. Related to [[AskAction]].\n\nRelated actions:\n\n* [[AskAction]]: Appears generally as an origin of a ReplyAction.</li>
+<li data-name="shareaction"><a href="./ShareAction.html">ShareAction</a> — The act of distributing content to people for their amusement or edification.</li>
 </ul>
 <h2>Properties from CommunicateAction</h2>
 <table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>

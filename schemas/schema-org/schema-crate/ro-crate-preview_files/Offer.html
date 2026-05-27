@@ -27,9 +27,9 @@
 <h2>Subclasses (3)</h2>
 <input type="search" class="subclass-filter" placeholder="Filter subclasses…" data-target="subclass-list-Offer" style="margin-bottom:0.5rem;width:100%;max-width:400px;padding:0.3rem 0.5rem;border:1px solid #ced4da;border-radius:4px;">
 <ul id="subclass-list-Offer" class="subclass-list" style="max-height:300px;overflow-y:auto;border:1px solid #dee2e6;border-radius:4px;padding:0.5rem 1rem;list-style:none;background:#fff;">
-<li data-name="aggregateoffer"><a href="./AggregateOffer.html">AggregateOffer</a> — When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used</li>
-<li data-name="offerforlease"><a href="./OfferForLease.html">OfferForLease</a> — An [[OfferForLease]] in Schema</li>
-<li data-name="offerforpurchase"><a href="./OfferForPurchase.html">OfferForPurchase</a> — An [[OfferForPurchase]] in Schema</li>
+<li data-name="aggregateoffer"><a href="./AggregateOffer.html">AggregateOffer</a> — When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.\n\nNote: AggregateOffers are normally expected to associate multiple offers that all share the same defined [[businessFunction]] value, or default to http://purl.org/goodrelations/v1#Sell if businessFunction is not explicitly defined.</li>
+<li data-name="offerforlease"><a href="./OfferForLease.html">OfferForLease</a> — An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out something, i.e. an [[Offer]] whose [[businessFunction]] is [lease out](http://purl.org/goodrelations/v1#LeaseOut.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for background on the underlying concepts. </li>
+<li data-name="offerforpurchase"><a href="./OfferForPurchase.html">OfferForPurchase</a> — An [[OfferForPurchase]] in Schema.org represents an [[Offer]] to sell something, i.e. an [[Offer]] whose [[businessFunction]] is [sell](http://purl.org/goodrelations/v1#Sell.). See [Good Relations](https://en.wikipedia.org/wiki/GoodRelations) for background on the underlying concepts. </li>
 </ul>
 <h2>Properties from Offer</h2>
 <table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>
