@@ -29,8 +29,8 @@
 <body>
   <div class="container-fluid">
     <p>
-      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
-      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/main/profiles/software/profile-crate">📁 View whole crate on GitHub</a>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
     </p>
     <hr>
 <h2>title: Software Source Code</h2>
@@ -196,7 +196,7 @@ limits:
   cpu: 1.0
 </code></pre>
 <h2>Requirements</h2>
-<h3><a id="Root_Data_Entity"></a> Class: Root Data Entity <small style="color:#aaa;font-weight:normal">#Root_Data_Entity</small></h3>
+<h3><a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity</h3>
 <p>The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and SoftwareSourceCode and SoftwareApplication.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -218,6 +218,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -227,34 +228,39 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/Dataset">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication">SoftwareApplication</a></td>
+<td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a></td>
 </tr>
 <tr>
-<td><a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small></td>
+<td><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a></td>
+<td><a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a></td>
 <td>Yes</td>
 <td>A date that this collection was published.</td>
 <td>Date</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small></td>
+<td><a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a></td>
+<td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>Yes</td>
 <td>An abstract of the collection.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small></td>
+<td><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a></td>
+<td><a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a></td>
 <td>Yes</td>
 <td>A license document that applies to this content, typically indicated by URL.</td>
-<td><a href="#class_CreativeWork">class_CreativeWork</a>, URL, Text</td>
+<td><a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_name_Dataset">name <a href="#prop_name_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small></td>
+<td><a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The name of this data collection.</td>
 <td>Text</td>
@@ -263,10 +269,12 @@ limits:
 </tbody>
 </table>
 <h2>Root Data Entity Properties</h2>
-<h3><a id="prop_datePublished_Dataset"></a> Property: datePublished <a href="http://schema.org/datePublished" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small></h3>
+<h3><a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished</h3>
 <table>
 <thead>
 <tr>
+<th>Property</th>
+<th>Specialization Of</th>
 <th>Description</th>
 <th>Range</th>
 <th>Occurs in Domain(s)</th>
@@ -274,16 +282,20 @@ limits:
 </thead>
 <tbody>
 <tr>
+<td><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a></td>
+<td><a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a></td>
 <td>A date that this collection was published.</td>
 <td>Date</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small></h3>
+<h3><a id="prop_description_Dataset" title="#prop_description_Dataset"></a> Property: description</h3>
 <table>
 <thead>
 <tr>
+<th>Property</th>
+<th>Specialization Of</th>
 <th>Description</th>
 <th>Range</th>
 <th>Occurs in Domain(s)</th>
@@ -291,16 +303,20 @@ limits:
 </thead>
 <tbody>
 <tr>
+<td><a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a></td>
+<td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>An abstract of the collection.</td>
 <td>Text</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small></h3>
+<h3><a id="prop_license_Dataset" title="#prop_license_Dataset"></a> Property: license</h3>
 <table>
 <thead>
 <tr>
+<th>Property</th>
+<th>Specialization Of</th>
 <th>Description</th>
 <th>Range</th>
 <th>Occurs in Domain(s)</th>
@@ -308,16 +324,20 @@ limits:
 </thead>
 <tbody>
 <tr>
+<td><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a></td>
+<td><a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a></td>
 <td>A license document that applies to this content, typically indicated by URL.</td>
-<td><a href="#class_CreativeWork">class_CreativeWork</a>, URL, Text</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text</td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_name_Dataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small></h3>
+<h3><a id="prop_name_Dataset" title="#prop_name_Dataset"></a> Property: name</h3>
 <table>
 <thead>
 <tr>
+<th>Property</th>
+<th>Specialization Of</th>
 <th>Description</th>
 <th>Range</th>
 <th>Occurs in Domain(s)</th>
@@ -325,14 +345,16 @@ limits:
 </thead>
 <tbody>
 <tr>
+<td><a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>The name of this data collection.</td>
 <td>Text</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
 </table>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor</small></h3>
+<h3><a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor</h3>
 <p>An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -354,6 +376,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -363,28 +386,31 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/CreativeWork">CreativeWork</a></td>
+<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a></td>
 </tr>
 <tr>
-<td><a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
+<td></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata file identifier</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 <td>ro-crate-metadata.json</td>
 </tr>
 <tr>
-<td><a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small></td>
+<td><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a></td>
+<td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>Yes</td>
 <td>This property on the RO-Crate Metadata Descriptor references the Root Data Entity.</td>
-<td><a href="#Root_Data_Entity">Root_Data_Entity</a></td>
+<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="Root_Data_Entity"></a> Class: Root Data Entity <small style="color:#aaa;font-weight:normal">#Root_Data_Entity</small></h3>
+<h3><a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity</h3>
 <p>The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and SoftwareSourceCode and SoftwareApplication.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -406,6 +432,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -415,34 +442,39 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/Dataset">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication">SoftwareApplication</a></td>
+<td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a></td>
 </tr>
 <tr>
-<td><a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small></td>
+<td><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a></td>
+<td><a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a></td>
 <td>Yes</td>
 <td>A date that this collection was published.</td>
 <td>Date</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small></td>
+<td><a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a></td>
+<td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>Yes</td>
 <td>An abstract of the collection.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small></td>
+<td><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a></td>
+<td><a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a></td>
 <td>Yes</td>
 <td>A license document that applies to this content, typically indicated by URL.</td>
-<td><a href="#class_CreativeWork">class_CreativeWork</a>, URL, Text</td>
+<td><a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_name_Dataset">name <a href="#prop_name_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small></td>
+<td><a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The name of this data collection.</td>
 <td>Text</td>
@@ -450,7 +482,7 @@ limits:
 </tr>
 </tbody>
 </table>
-<h3><a id="class_CreativeWork"></a> Class: CreativeWork <small style="color:#aaa;font-weight:normal">#class_CreativeWork</small></h3>
+<h3><a id="class_CreativeWork" title="#class_CreativeWork"></a> Class: CreativeWork</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -470,6 +502,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -479,10 +512,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/CreativeWork">CreativeWork</a></td>
+<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -490,10 +524,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_Dataset"></a> Class: Dataset <small style="color:#aaa;font-weight:normal">#class_Dataset</small></h3>
+<h3><a id="class_Dataset" title="#class_Dataset"></a> Class: Dataset</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -513,6 +548,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -522,153 +558,175 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/Dataset">Dataset</a></td>
+<td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a></td>
 </tr>
 <tr>
-<td><a href="#prop_mainEntity_Dataset">mainEntity <a href="#prop_mainEntity_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_mainEntity_Dataset</small></td>
+<td><a href="#prop_mainEntity_Dataset" title="#prop_mainEntity_Dataset">mainEntity</a></td>
+<td><a href="http://schema.org/mainEntity" target="_blank" rel="noopener">http://schema.org/mainEntity</a></td>
 <td>Yes</td>
 <td>Indicates the primary entry.</td>
-<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_about_Dataset">about <a href="#prop_about_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_Dataset</small></td>
+<td><a href="#prop_about_Dataset" title="#prop_about_Dataset">about</a></td>
+<td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>No</td>
 <td>The subject matter of the content.</td>
-<td><a href="#class_Dataset">class_Dataset</a>, <a href="#class_SoftwareApplication">class_SoftwareApplication</a>, <a href="#class_SoftwareSourceCode">class_SoftwareSourceCode</a></td>
+<td><a href="#class_Dataset" title="#class_Dataset">Dataset</a>, <a href="#class_SoftwareApplication" title="#class_SoftwareApplication">SoftwareApplication</a>, <a href="#class_SoftwareSourceCode" title="#class_SoftwareSourceCode">SoftwareSourceCode</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_availableOnDevice_Dataset">availableOnDevice <a href="#prop_availableOnDevice_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_availableOnDevice_Dataset</small></td>
+<td><a href="#prop_availableOnDevice_Dataset" title="#prop_availableOnDevice_Dataset">availableOnDevice</a></td>
+<td><a href="http://schema.org/availableOnDevice" target="_blank" rel="noopener">http://schema.org/availableOnDevice</a></td>
 <td>No</td>
 <td>Device required to run the application. Used in cases where a specific make/model is required to run the application.</td>
-<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_citation_Dataset">citation <a href="#prop_citation_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_citation_Dataset</small></td>
+<td><a href="#prop_citation_Dataset" title="#prop_citation_Dataset">citation</a></td>
+<td><a href="http://schema.org/citation" target="_blank" rel="noopener">http://schema.org/citation</a></td>
 <td>No</td>
 <td>A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.</td>
-<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
+<td><a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_codeRepository_Dataset">codeRepository <a href="#prop_codeRepository_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_codeRepository_Dataset</small></td>
+<td><a href="#prop_codeRepository_Dataset" title="#prop_codeRepository_Dataset">codeRepository</a></td>
+<td><a href="http://schema.org/codeRepository" target="_blank" rel="noopener">http://schema.org/codeRepository</a></td>
 <td>No</td>
 <td>Link to the repository where the un-compiled, human-readable code and related code is located (SVN, GitHub, CodePlex).</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_creator_Dataset">creator <a href="#prop_creator_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_creator_Dataset</small></td>
+<td><a href="#prop_creator_Dataset" title="#prop_creator_Dataset">creator</a></td>
+<td><a href="http://schema.org/creator" target="_blank" rel="noopener">http://schema.org/creator</a></td>
 <td>No</td>
 <td>The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.</td>
-<td><a href="#class_Person">class_Person</a></td>
+<td><a href="#class_Person" title="#class_Person">Person</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_downloadUrl_Dataset">downloadUrl <a href="#prop_downloadUrl_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_downloadUrl_Dataset</small></td>
+<td><a href="#prop_downloadUrl_Dataset" title="#prop_downloadUrl_Dataset">downloadUrl</a></td>
+<td><a href="http://schema.org/downloadUrl" target="_blank" rel="noopener">http://schema.org/downloadUrl</a></td>
 <td>No</td>
 <td>If the file can be downloaded, URL to download the binary.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_funder_Dataset">funder <a href="#prop_funder_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_funder_Dataset</small></td>
+<td><a href="#prop_funder_Dataset" title="#prop_funder_Dataset">funder</a></td>
+<td><a href="http://schema.org/funder" target="_blank" rel="noopener">http://schema.org/funder</a></td>
 <td>No</td>
 <td>A person or organization that supports (sponsors) something through some kind of financial contribution.</td>
-<td><a href="#class_Organization">class_Organization</a></td>
+<td><a href="#class_Organization" title="#class_Organization">Organization</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_hasPart_Dataset">hasPart <a href="#prop_hasPart_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_Dataset</small></td>
+<td><a href="#prop_hasPart_Dataset" title="#prop_hasPart_Dataset">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
 <td>No</td>
 <td>Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).</td>
-<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_identifier_Dataset">identifier <a href="#prop_identifier_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_identifier_Dataset</small></td>
+<td><a href="#prop_identifier_Dataset" title="#prop_identifier_Dataset">identifier</a></td>
+<td><a href="http://schema.org/identifier" target="_blank" rel="noopener">http://schema.org/identifier</a></td>
 <td>No</td>
 <td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href="/docs/datamodel.html#identifierBg">background notes</a> for more details.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_installUrl_Dataset">installUrl <a href="#prop_installUrl_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_installUrl_Dataset</small></td>
+<td><a href="#prop_installUrl_Dataset" title="#prop_installUrl_Dataset">installUrl</a></td>
+<td><a href="http://schema.org/installUrl" target="_blank" rel="noopener">http://schema.org/installUrl</a></td>
 <td>No</td>
 <td>URL at which the app may be installed, if different from the URL of the item.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_programmingLanguage_Dataset">programmingLanguage <a href="#prop_programmingLanguage_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_programmingLanguage_Dataset</small></td>
+<td><a href="#prop_programmingLanguage_Dataset" title="#prop_programmingLanguage_Dataset">programmingLanguage</a></td>
+<td><a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">http://schema.org/programmingLanguage</a></td>
 <td>No</td>
 <td>The computer programming language.</td>
-<td><a href="#class_ComputerLanguage">class_ComputerLanguage</a></td>
+<td><a href="#class_ComputerLanguage" title="#class_ComputerLanguage">ComputerLanguage</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_publisher_Dataset">publisher <a href="#prop_publisher_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_publisher_Dataset</small></td>
+<td><a href="#prop_publisher_Dataset" title="#prop_publisher_Dataset">publisher</a></td>
+<td><a href="http://schema.org/publisher" target="_blank" rel="noopener">http://schema.org/publisher</a></td>
 <td>No</td>
 <td>The publisher of the creative work.</td>
-<td><a href="#class_Organization">class_Organization</a></td>
+<td><a href="#class_Organization" title="#class_Organization">Organization</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_releaseNotes_Dataset">releaseNotes <a href="#prop_releaseNotes_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_releaseNotes_Dataset</small></td>
+<td><a href="#prop_releaseNotes_Dataset" title="#prop_releaseNotes_Dataset">releaseNotes</a></td>
+<td><a href="http://schema.org/releaseNotes" target="_blank" rel="noopener">http://schema.org/releaseNotes</a></td>
 <td>No</td>
 <td>Description of what changed in this version.</td>
-<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_runtime_Dataset">runtime <a href="#prop_runtime_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_runtime_Dataset</small></td>
+<td><a href="#prop_runtime_Dataset" title="#prop_runtime_Dataset">runtime</a></td>
+<td><a href="http://schema.org/runtime" target="_blank" rel="noopener">http://schema.org/runtime</a></td>
 <td>No</td>
 <td>Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0).</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_screenshot_Dataset">screenshot <a href="#prop_screenshot_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_screenshot_Dataset</small></td>
+<td><a href="#prop_screenshot_Dataset" title="#prop_screenshot_Dataset">screenshot</a></td>
+<td><a href="http://schema.org/screenshot" target="_blank" rel="noopener">http://schema.org/screenshot</a></td>
 <td>No</td>
 <td>A link to a screenshot image of the app.</td>
-<td><a href="#class_ImageObject">class_ImageObject</a>, <a href="#class_File">class_File</a></td>
+<td><a href="#class_ImageObject" title="#class_ImageObject">class_ImageObject</a>, <a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_softwareHelp_Dataset">softwareHelp <a href="#prop_softwareHelp_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareHelp_Dataset</small></td>
+<td><a href="#prop_softwareHelp_Dataset" title="#prop_softwareHelp_Dataset">softwareHelp</a></td>
+<td><a href="http://schema.org/softwareHelp" target="_blank" rel="noopener">http://schema.org/softwareHelp</a></td>
 <td>No</td>
 <td>Software application help.</td>
-<td><a href="#class_CreativeWork">class_CreativeWork</a></td>
+<td><a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_softwareRequirements_Dataset">softwareRequirements <a href="#prop_softwareRequirements_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareRequirements_Dataset</small></td>
+<td><a href="#prop_softwareRequirements_Dataset" title="#prop_softwareRequirements_Dataset">softwareRequirements</a></td>
+<td><a href="http://schema.org/softwareRequirements" target="_blank" rel="noopener">http://schema.org/softwareRequirements</a></td>
 <td>No</td>
 <td>Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).</td>
-<td><a href="#class_File">class_File</a></td>
+<td><a href="#class_File" title="#class_File">File</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_softwareVersion_Dataset">softwareVersion <a href="#prop_softwareVersion_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareVersion_Dataset</small></td>
+<td><a href="#prop_softwareVersion_Dataset" title="#prop_softwareVersion_Dataset">softwareVersion</a></td>
+<td><a href="http://schema.org/softwareVersion" target="_blank" rel="noopener">http://schema.org/softwareVersion</a></td>
 <td>No</td>
 <td>Version of the software instance.</td>
 <td>Text</td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_supportingData_Dataset">supportingData <a href="#prop_supportingData_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_supportingData_Dataset</small></td>
+<td><a href="#prop_supportingData_Dataset" title="#prop_supportingData_Dataset">supportingData</a></td>
+<td><a href="http://schema.org/supportingData" target="_blank" rel="noopener">http://schema.org/supportingData</a></td>
 <td>No</td>
 <td>Supporting data for a SoftwareApplication.</td>
-<td><a href="#class_Dataset">class_Dataset</a></td>
+<td><a href="#class_Dataset" title="#class_Dataset">Dataset</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_usageInfo_Dataset">usageInfo <a href="#prop_usageInfo_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_usageInfo_Dataset</small></td>
+<td><a href="#prop_usageInfo_Dataset" title="#prop_usageInfo_Dataset">usageInfo</a></td>
+<td><a href="http://schema.org/usageInfo" target="_blank" rel="noopener">http://schema.org/usageInfo</a></td>
 <td>No</td>
 <td>The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options. This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.</td>
 <td>Text</td>
@@ -676,7 +734,7 @@ limits:
 </tr>
 </tbody>
 </table>
-<h3><a id="class_File"></a> Class: File <small style="color:#aaa;font-weight:normal">#class_File</small></h3>
+<h3><a id="class_File" title="#class_File"></a> Class: File</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -696,6 +754,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -705,10 +764,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/File">File</a></td>
+<td><a href="http://schema.org/File" title="http://schema.org/File" target="_blank" rel="noopener">File</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -716,10 +776,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small></h3>
+<h3><a id="class_Person" title="#class_Person"></a> Class: Person</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -739,6 +800,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -748,10 +810,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/Person">Person</a></td>
+<td><a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -759,10 +822,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small></h3>
+<h3><a id="class_Organization" title="#class_Organization"></a> Class: Organization</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -782,6 +846,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -791,10 +856,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/Organization">Organization</a></td>
+<td><a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -802,10 +868,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_ComputerLanguage"></a> Class: ComputerLanguage <small style="color:#aaa;font-weight:normal">#class_ComputerLanguage</small></h3>
+<h3><a id="class_ComputerLanguage" title="#class_ComputerLanguage"></a> Class: ComputerLanguage</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -825,6 +892,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -834,10 +902,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/ComputerLanguage">ComputerLanguage</a></td>
+<td><a href="http://schema.org/ComputerLanguage" title="http://schema.org/ComputerLanguage" target="_blank" rel="noopener">ComputerLanguage</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -845,10 +914,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_SoftwareApplication"></a> Class: SoftwareApplication <small style="color:#aaa;font-weight:normal">#class_SoftwareApplication</small></h3>
+<h3><a id="class_SoftwareApplication" title="#class_SoftwareApplication"></a> Class: SoftwareApplication</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -868,6 +938,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -877,10 +948,11 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/terms#SoftwareApplication">SoftwareApplication</a></td>
+<td><a href="http://schema.org/terms#SoftwareApplication" title="http://schema.org/terms#SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
@@ -888,10 +960,11 @@ limits:
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="class_SoftwareSourceCode"></a> Class: SoftwareSourceCode <small style="color:#aaa;font-weight:normal">#class_SoftwareSourceCode</small></h3>
+<h3><a id="class_SoftwareSourceCode" title="#class_SoftwareSourceCode"></a> Class: SoftwareSourceCode</h3>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -911,6 +984,7 @@ limits:
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -920,13 +994,15 @@ limits:
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/terms#SoftwareSourceCode">SoftwareSourceCode</a></td>
+<td><a href="http://schema.org/terms#SoftwareSourceCode" title="http://schema.org/terms#SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a></td>
 </tr>
 <tr>
 <td><em>No properties defined for this class</em></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>

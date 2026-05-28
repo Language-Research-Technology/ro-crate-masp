@@ -18,14 +18,15 @@ If this work goes forward then this repository will probably turn into the home 
 
 These are the published GitHub Pages versions of the current profiles and schemas:
 
-- Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
-- Profile: RO-Crate Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/index.html
-- Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
-- Profile: LDAC Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ldac/profile-crate/index.html
-- Schema: Schema.org Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/schema-org/schema-crate/index.html
-- Schema: LDAC Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/ldac/schema-crate/index.html
-- Schema: AusTalk Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html
-- Schema: Template Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/template/schema-crate/index.html
+  - Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
+  - Profile: RO-Crate Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/index.html
+  - Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
+  - Profile: LDAC Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ldac/profile-crate/index.html
+  - Profile: CCA Demo Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/cca-demo/profile-crate/index.html
+  - Schema: Schema.org Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/schema-org/schema-crate/index.html
+  - Schema: LDAC Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/ldac/schema-crate/index.html
+  - Schema: AusTalk Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html
+  - Schema: Template Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/template/schema-crate/index.html
 
 
 ## What is here
@@ -139,23 +140,6 @@ dgs -down-> vr : Generate Report
 ![alt text](image-1.png)
 
 
-## Draft ROC-MASP Implementations
-
-The following RO-Crate Machine Actionable Profiles and Schemas are available to try.
-
-- Workflow Crate Profile
-  Generate docs: `npm run build:workflow-profile`
-  Run a validator: 
-
-## TODO: (these are all partially implemented in the [SoSS+ Branch])
-- ROC-MASP profile for RO-Crate (the minimal requirements for the RO-Crate Metadata Descriptor and properties for the RO-Crate Root Data Entity)
-- ROC-MASP for ROC-MASP itself (extensions to the RO-Crate Profile chapter)
-- Language Data Commons Schemas an 
-
-
-[Soss+ Branch]: https://github.com/Language-Research-Technology/ro-crate-schema-tools/tree/sossplus
-
-
 ## Building Profile and Schema documentation
 
 This repository includes several profiles and schemas that can be built using npm scripts. Each build command generates documentation from the RO-Crate metadata.
@@ -169,30 +153,7 @@ This repository includes several profiles and schemas that can be built using np
 - **AusTalk Schema**: `npm run build:austalk-schema`
 
 
-#### COMING SOON!!
 
-- **Generic RepositoryCollection Profile**: `npm run build:generic-profile`
-- **SOA Profile**: `npm run build:soa-profile`
-
-### Examples
-
-Build a specific profile:
-```bash
-npm run build:workflow-profile
-```
-> 
-
-
-Build all profiles (if you want to build multiple):
-```bash
-> npm run build:ldac-profile && npm run build:ro-crate-profile && npm run build:generic-profile
-
-
-Reading template from: profiles/workflow/profile-text.md
-Documentation generated successfully: profiles/workflow/profile-crate/profile-documentation.md
-```
-
-See the result of this profile generation [here](./profiles/workflow/profile-crate/profile-documentation.md) this is the result of combining [the profile crate document](./profiles/workflow/profile-crate/ro-crate-metadata.json) with a [document](./profiles/workflow/profile-text.md).
 
 ### Usage note: rocxl synchronisation
 

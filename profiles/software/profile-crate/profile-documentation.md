@@ -191,7 +191,7 @@ limits:
 ## Requirements 
 
 
-### <a id="Root_Data_Entity"></a> Class: Root Data Entity <small style="color:#aaa;font-weight:normal">#Root_Data_Entity</small>
+### <a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity
 
 The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and SoftwareSourceCode and SoftwareApplication.
 
@@ -203,48 +203,48 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [Dataset](http://schema.org/Dataset), [SoftwareSourceCode](http://schema.org/SoftwareSourceCode), [SoftwareApplication](http://schema.org/SoftwareApplication) |
-| <a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small> | Yes | A date that this collection was published. | Date |  |
-| <a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small> | Yes | An abstract of the collection. | Text |  |
-| <a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small> | Yes | A license document that applies to this content, typically indicated by URL. | [class_CreativeWork](#class_CreativeWork), URL, Text |  |
-| <a href="#prop_name_Dataset">name <a href="#prop_name_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small> | Yes | The name of this data collection. | Text |  |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a> | Yes | A date that this collection was published. | Date |  |
+| <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | Yes | An abstract of the collection. | Text |  |
+| <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | A license document that applies to this content, typically indicated by URL. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text |  |
+| <a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | The name of this data collection. | Text |  |
 
 
 
 ## Root Data Entity Properties
 
-### <a id="prop_datePublished_Dataset"></a> Property: datePublished <a href="http://schema.org/datePublished" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small>
+### <a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished
 
-| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| A date that this collection was published. | Date | [Root_Data_Entity](#Root_Data_Entity) |
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a> | A date that this collection was published. | Date | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 
-### <a id="prop_description_Dataset"></a> Property: description <a href="http://schema.org/description" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small>
+### <a id="prop_description_Dataset" title="#prop_description_Dataset"></a> Property: description
 
-| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| An abstract of the collection. | Text | [Root_Data_Entity](#Root_Data_Entity) |
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | An abstract of the collection. | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 
-### <a id="prop_license_Dataset"></a> Property: license <a href="http://schema.org/license" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small>
+### <a id="prop_license_Dataset" title="#prop_license_Dataset"></a> Property: license
 
-| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| A license document that applies to this content, typically indicated by URL. | [class_CreativeWork](#class_CreativeWork), URL, Text | [Root_Data_Entity](#Root_Data_Entity) |
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | A license document that applies to this content, typically indicated by URL. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 
-### <a id="prop_name_Dataset"></a> Property: name <a href="http://schema.org/name" target="_blank" rel="noopener">ⓘ</a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small>
+### <a id="prop_name_Dataset" title="#prop_name_Dataset"></a> Property: name
 
-| Description | Range | Occurs in Domain(s) |
-| ----------- | ----------- | ----------- |
-| The name of this data collection. | Text | [Root_Data_Entity](#Root_Data_Entity) |
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | The name of this data collection. | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 
 
 
 ## Types of entities (specializations of Classes) and expected Properties
 
 
-### <a id="RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor</small>
+### <a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor
 
 An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.
 
@@ -256,14 +256,14 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
-| <a href="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.id</small> | Yes | The RO-Crate Metadata file identifier | [Root_Data_Entity](#Root_Data_Entity) | ro-crate-metadata.json |
-| <a href="#RO-Crate_Metadata_Descriptor.about">about <a href="#RO-Crate_Metadata_Descriptor.about" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#RO-Crate_Metadata_Descriptor.about</small> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | [Root_Data_Entity](#Root_Data_Entity) |  |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata file identifier | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
 
 
-### <a id="Root_Data_Entity"></a> Class: Root Data Entity <small style="color:#aaa;font-weight:normal">#Root_Data_Entity</small>
+### <a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity
 
 The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and SoftwareSourceCode and SoftwareApplication.
 
@@ -275,16 +275,16 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [Dataset](http://schema.org/Dataset), [SoftwareSourceCode](http://schema.org/SoftwareSourceCode), [SoftwareApplication](http://schema.org/SoftwareApplication) |
-| <a href="#prop_datePublished_Dataset">datePublished <a href="#prop_datePublished_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_datePublished_Dataset</small> | Yes | A date that this collection was published. | Date |  |
-| <a href="#prop_description_Dataset">description <a href="#prop_description_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_description_Dataset</small> | Yes | An abstract of the collection. | Text |  |
-| <a href="#prop_license_Dataset">license <a href="#prop_license_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_license_Dataset</small> | Yes | A license document that applies to this content, typically indicated by URL. | [class_CreativeWork](#class_CreativeWork), URL, Text |  |
-| <a href="#prop_name_Dataset">name <a href="#prop_name_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_name_Dataset</small> | Yes | The name of this data collection. | Text |  |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePublished" target="_blank" rel="noopener">http://schema.org/datePublished</a> | Yes | A date that this collection was published. | Date |  |
+| <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | Yes | An abstract of the collection. | Text |  |
+| <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | A license document that applies to this content, typically indicated by URL. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, URL, Text |  |
+| <a href="#prop_name_Dataset" title="#prop_name_Dataset">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | The name of this data collection. | Text |  |
 
 
-### <a id="class_CreativeWork"></a> Class: CreativeWork <small style="color:#aaa;font-weight:normal">#class_CreativeWork</small>
+### <a id="class_CreativeWork" title="#class_CreativeWork"></a> Class: CreativeWork
 
 
 
@@ -294,14 +294,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [CreativeWork](http://schema.org/CreativeWork) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_Dataset"></a> Class: Dataset <small style="color:#aaa;font-weight:normal">#class_Dataset</small>
+### <a id="class_Dataset" title="#class_Dataset"></a> Class: Dataset
 
 
 
@@ -311,33 +311,33 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [Dataset](http://schema.org/Dataset) |
-| <a href="#prop_mainEntity_Dataset">mainEntity <a href="#prop_mainEntity_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_mainEntity_Dataset</small> | Yes | Indicates the primary entry. | [class_File](#class_File) |  |
-| <a href="#prop_about_Dataset">about <a href="#prop_about_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_about_Dataset</small> | No | The subject matter of the content. | [class_Dataset](#class_Dataset), [class_SoftwareApplication](#class_SoftwareApplication), [class_SoftwareSourceCode](#class_SoftwareSourceCode) |  |
-| <a href="#prop_availableOnDevice_Dataset">availableOnDevice <a href="#prop_availableOnDevice_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_availableOnDevice_Dataset</small> | No | Device required to run the application. Used in cases where a specific make/model is required to run the application. | [class_File](#class_File) |  |
-| <a href="#prop_citation_Dataset">citation <a href="#prop_citation_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_citation_Dataset</small> | No | A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. | [class_CreativeWork](#class_CreativeWork) |  |
-| <a href="#prop_codeRepository_Dataset">codeRepository <a href="#prop_codeRepository_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_codeRepository_Dataset</small> | No | Link to the repository where the un-compiled, human-readable code and related code is located (SVN, GitHub, CodePlex). | Text |  |
-| <a href="#prop_creator_Dataset">creator <a href="#prop_creator_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_creator_Dataset</small> | No | The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork. | [class_Person](#class_Person) |  |
-| <a href="#prop_downloadUrl_Dataset">downloadUrl <a href="#prop_downloadUrl_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_downloadUrl_Dataset</small> | No | If the file can be downloaded, URL to download the binary. | Text |  |
-| <a href="#prop_funder_Dataset">funder <a href="#prop_funder_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_funder_Dataset</small> | No | A person or organization that supports (sponsors) something through some kind of financial contribution. | [class_Organization](#class_Organization) |  |
-| <a href="#prop_hasPart_Dataset">hasPart <a href="#prop_hasPart_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_hasPart_Dataset</small> | No | Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense). | [class_File](#class_File) |  |
-| <a href="#prop_identifier_Dataset">identifier <a href="#prop_identifier_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_identifier_Dataset</small> | No | The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | Text |  |
-| <a href="#prop_installUrl_Dataset">installUrl <a href="#prop_installUrl_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_installUrl_Dataset</small> | No | URL at which the app may be installed, if different from the URL of the item. | Text |  |
-| <a href="#prop_programmingLanguage_Dataset">programmingLanguage <a href="#prop_programmingLanguage_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_programmingLanguage_Dataset</small> | No | The computer programming language. | [class_ComputerLanguage](#class_ComputerLanguage) |  |
-| <a href="#prop_publisher_Dataset">publisher <a href="#prop_publisher_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_publisher_Dataset</small> | No | The publisher of the creative work. | [class_Organization](#class_Organization) |  |
-| <a href="#prop_releaseNotes_Dataset">releaseNotes <a href="#prop_releaseNotes_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_releaseNotes_Dataset</small> | No | Description of what changed in this version. | [class_File](#class_File) |  |
-| <a href="#prop_runtime_Dataset">runtime <a href="#prop_runtime_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_runtime_Dataset</small> | No | Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0). | Text |  |
-| <a href="#prop_screenshot_Dataset">screenshot <a href="#prop_screenshot_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_screenshot_Dataset</small> | No | A link to a screenshot image of the app. | [class_ImageObject](#class_ImageObject), [class_File](#class_File) |  |
-| <a href="#prop_softwareHelp_Dataset">softwareHelp <a href="#prop_softwareHelp_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareHelp_Dataset</small> | No | Software application help. | [class_CreativeWork](#class_CreativeWork) |  |
-| <a href="#prop_softwareRequirements_Dataset">softwareRequirements <a href="#prop_softwareRequirements_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareRequirements_Dataset</small> | No | Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime). | [class_File](#class_File) |  |
-| <a href="#prop_softwareVersion_Dataset">softwareVersion <a href="#prop_softwareVersion_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_softwareVersion_Dataset</small> | No | Version of the software instance. | Text |  |
-| <a href="#prop_supportingData_Dataset">supportingData <a href="#prop_supportingData_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_supportingData_Dataset</small> | No | Supporting data for a SoftwareApplication. | [class_Dataset](#class_Dataset) |  |
-| <a href="#prop_usageInfo_Dataset">usageInfo <a href="#prop_usageInfo_Dataset" target="_blank" rel="noopener">ⓘ</a></a> <small style="color:#aaa;font-weight:normal">#prop_usageInfo_Dataset</small> | No | The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options. This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses. | Text |  |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
+| <a href="#prop_mainEntity_Dataset" title="#prop_mainEntity_Dataset">mainEntity</a> | <a href="http://schema.org/mainEntity" target="_blank" rel="noopener">http://schema.org/mainEntity</a> | Yes | Indicates the primary entry. | <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_about_Dataset" title="#prop_about_Dataset">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | No | The subject matter of the content. | <a href="#class_Dataset" title="#class_Dataset">Dataset</a>, <a href="#class_SoftwareApplication" title="#class_SoftwareApplication">SoftwareApplication</a>, <a href="#class_SoftwareSourceCode" title="#class_SoftwareSourceCode">SoftwareSourceCode</a> |  |
+| <a href="#prop_availableOnDevice_Dataset" title="#prop_availableOnDevice_Dataset">availableOnDevice</a> | <a href="http://schema.org/availableOnDevice" target="_blank" rel="noopener">http://schema.org/availableOnDevice</a> | No | Device required to run the application. Used in cases where a specific make/model is required to run the application. | <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_citation_Dataset" title="#prop_citation_Dataset">citation</a> | <a href="http://schema.org/citation" target="_blank" rel="noopener">http://schema.org/citation</a> | No | A citation or reference to another creative work, such as another publication, web page, scholarly article, etc. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_codeRepository_Dataset" title="#prop_codeRepository_Dataset">codeRepository</a> | <a href="http://schema.org/codeRepository" target="_blank" rel="noopener">http://schema.org/codeRepository</a> | No | Link to the repository where the un-compiled, human-readable code and related code is located (SVN, GitHub, CodePlex). | Text |  |
+| <a href="#prop_creator_Dataset" title="#prop_creator_Dataset">creator</a> | <a href="http://schema.org/creator" target="_blank" rel="noopener">http://schema.org/creator</a> | No | The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork. | <a href="#class_Person" title="#class_Person">Person</a> |  |
+| <a href="#prop_downloadUrl_Dataset" title="#prop_downloadUrl_Dataset">downloadUrl</a> | <a href="http://schema.org/downloadUrl" target="_blank" rel="noopener">http://schema.org/downloadUrl</a> | No | If the file can be downloaded, URL to download the binary. | Text |  |
+| <a href="#prop_funder_Dataset" title="#prop_funder_Dataset">funder</a> | <a href="http://schema.org/funder" target="_blank" rel="noopener">http://schema.org/funder</a> | No | A person or organization that supports (sponsors) something through some kind of financial contribution. | <a href="#class_Organization" title="#class_Organization">Organization</a> |  |
+| <a href="#prop_hasPart_Dataset" title="#prop_hasPart_Dataset">hasPart</a> | <a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a> | No | Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense). | <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_identifier_Dataset" title="#prop_identifier_Dataset">identifier</a> | <a href="http://schema.org/identifier" target="_blank" rel="noopener">http://schema.org/identifier</a> | No | The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.  | Text |  |
+| <a href="#prop_installUrl_Dataset" title="#prop_installUrl_Dataset">installUrl</a> | <a href="http://schema.org/installUrl" target="_blank" rel="noopener">http://schema.org/installUrl</a> | No | URL at which the app may be installed, if different from the URL of the item. | Text |  |
+| <a href="#prop_programmingLanguage_Dataset" title="#prop_programmingLanguage_Dataset">programmingLanguage</a> | <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">http://schema.org/programmingLanguage</a> | No | The computer programming language. | <a href="#class_ComputerLanguage" title="#class_ComputerLanguage">ComputerLanguage</a> |  |
+| <a href="#prop_publisher_Dataset" title="#prop_publisher_Dataset">publisher</a> | <a href="http://schema.org/publisher" target="_blank" rel="noopener">http://schema.org/publisher</a> | No | The publisher of the creative work. | <a href="#class_Organization" title="#class_Organization">Organization</a> |  |
+| <a href="#prop_releaseNotes_Dataset" title="#prop_releaseNotes_Dataset">releaseNotes</a> | <a href="http://schema.org/releaseNotes" target="_blank" rel="noopener">http://schema.org/releaseNotes</a> | No | Description of what changed in this version. | <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_runtime_Dataset" title="#prop_runtime_Dataset">runtime</a> | <a href="http://schema.org/runtime" target="_blank" rel="noopener">http://schema.org/runtime</a> | No | Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0). | Text |  |
+| <a href="#prop_screenshot_Dataset" title="#prop_screenshot_Dataset">screenshot</a> | <a href="http://schema.org/screenshot" target="_blank" rel="noopener">http://schema.org/screenshot</a> | No | A link to a screenshot image of the app. | <a href="#class_ImageObject" title="#class_ImageObject">class_ImageObject</a>, <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_softwareHelp_Dataset" title="#prop_softwareHelp_Dataset">softwareHelp</a> | <a href="http://schema.org/softwareHelp" target="_blank" rel="noopener">http://schema.org/softwareHelp</a> | No | Software application help. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_softwareRequirements_Dataset" title="#prop_softwareRequirements_Dataset">softwareRequirements</a> | <a href="http://schema.org/softwareRequirements" target="_blank" rel="noopener">http://schema.org/softwareRequirements</a> | No | Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime). | <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_softwareVersion_Dataset" title="#prop_softwareVersion_Dataset">softwareVersion</a> | <a href="http://schema.org/softwareVersion" target="_blank" rel="noopener">http://schema.org/softwareVersion</a> | No | Version of the software instance. | Text |  |
+| <a href="#prop_supportingData_Dataset" title="#prop_supportingData_Dataset">supportingData</a> | <a href="http://schema.org/supportingData" target="_blank" rel="noopener">http://schema.org/supportingData</a> | No | Supporting data for a SoftwareApplication. | <a href="#class_Dataset" title="#class_Dataset">Dataset</a> |  |
+| <a href="#prop_usageInfo_Dataset" title="#prop_usageInfo_Dataset">usageInfo</a> | <a href="http://schema.org/usageInfo" target="_blank" rel="noopener">http://schema.org/usageInfo</a> | No | The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options. This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses. | Text |  |
 
 
-### <a id="class_File"></a> Class: File <small style="color:#aaa;font-weight:normal">#class_File</small>
+### <a id="class_File" title="#class_File"></a> Class: File
 
 
 
@@ -347,14 +347,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [File](http://schema.org/File) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/File" title="http://schema.org/File" target="_blank" rel="noopener">File</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_Person"></a> Class: Person <small style="color:#aaa;font-weight:normal">#class_Person</small>
+### <a id="class_Person" title="#class_Person"></a> Class: Person
 
 
 
@@ -364,14 +364,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [Person](http://schema.org/Person) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_Organization"></a> Class: Organization <small style="color:#aaa;font-weight:normal">#class_Organization</small>
+### <a id="class_Organization" title="#class_Organization"></a> Class: Organization
 
 
 
@@ -381,14 +381,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [Organization](http://schema.org/Organization) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_ComputerLanguage"></a> Class: ComputerLanguage <small style="color:#aaa;font-weight:normal">#class_ComputerLanguage</small>
+### <a id="class_ComputerLanguage" title="#class_ComputerLanguage"></a> Class: ComputerLanguage
 
 
 
@@ -398,14 +398,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [ComputerLanguage](http://schema.org/ComputerLanguage) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/ComputerLanguage" title="http://schema.org/ComputerLanguage" target="_blank" rel="noopener">ComputerLanguage</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_SoftwareApplication"></a> Class: SoftwareApplication <small style="color:#aaa;font-weight:normal">#class_SoftwareApplication</small>
+### <a id="class_SoftwareApplication" title="#class_SoftwareApplication"></a> Class: SoftwareApplication
 
 
 
@@ -415,14 +415,14 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [SoftwareApplication](http://schema.org/terms#SoftwareApplication) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareApplication" title="http://schema.org/terms#SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
 *No properties defined for this class*
 
 
 
-### <a id="class_SoftwareSourceCode"></a> Class: SoftwareSourceCode <small style="color:#aaa;font-weight:normal">#class_SoftwareSourceCode</small>
+### <a id="class_SoftwareSourceCode" title="#class_SoftwareSourceCode"></a> Class: SoftwareSourceCode
 
 
 
@@ -432,9 +432,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-| @type | Yes |  |  | [SoftwareSourceCode](http://schema.org/terms#SoftwareSourceCode) |
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareSourceCode" title="http://schema.org/terms#SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a> |
 *No properties defined for this class*
 
 

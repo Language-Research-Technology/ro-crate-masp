@@ -20,7 +20,7 @@
     "build:austalk-schema": "npm exec -- generate-masp-docs -- schemas/austalk/schema-crate/ro-crate-metadata.json schemas/austalk/schema-text.md schemas/austalk/schema-crate/schema-documentation.md",
     "build:template-schema": "npm exec -- generate-masp-docs -- schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
     "generate:schema-org-crate": "node scripts/generate-schema-org-crate.js",
-    "build:schema-org-schema": "npm exec -- generate-masp-docs --multi-page schemas/schema-org/schema-crate/ro-crate-metadata.json schemas/schema-org/schema-text.md schemas/schema-org/schema-crate/schema-documentation.md",
+    "build:schema-org-schema": "npm exec -- generate-masp-docs -x --multi-page schemas/schema-org/schema-crate/ro-crate-metadata.json schemas/schema-org/schema-text.md schemas/schema-org/schema-crate/schema-documentation.md",
     "generate:mode:ldac-profile": "npm exec -- generate-mode-file --input test_data/modes/ldac/comprehensive-ldac.json --output profiles/ldac/profile-crate/crate-o-mode.json --update-profile profiles/ldac/profile-crate/ro-crate-metadata.json",
     "generate:mode:ro-crate-profile": "npm exec -- generate-mode-file --output profiles/ro-crate/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate/profile-crate/ro-crate-metadata.json",
     "generate:mode:ro-crate-masp-profile": "npm exec -- generate-mode-file --output profiles/ro-crate-masp/profile-crate/crate-o-mode.json --update-profile profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json",
@@ -48,7 +48,7 @@
     "fs-extra": "^11.3.4",
     "markdown-it": "^14.1.1",
     "ro-crate": "^3.6.1",
-    "ro-crate-excel": "^1.2.0",
+    "ro-crate-excel": "^1.1.3",
     "yargs": "^18.0.0"
   },
   "devDependencies": {

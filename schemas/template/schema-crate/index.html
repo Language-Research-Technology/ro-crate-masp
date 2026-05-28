@@ -29,8 +29,8 @@
 <body>
   <div class="container-fluid">
     <p>
-      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a>
-      &nbsp;|&nbsp; <a href="https://github.com/Language-Research-Technology/ro-crate-masp/tree/main/schemas/template/schema-crate">📁 View whole crate on GitHub</a>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
     </p>
     <hr>
 <h2>title: Template Schema</h2>
@@ -43,19 +43,19 @@
     <h3>Classes</h3>
     <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
     <ul id="class-list" class="entity-list">
-<li><a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a> — This is an example of a class and its format</li>
+<li><a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a> — This is an example of a class and its format.</li>
     </ul>
   </div>
   <div class="col-md-6 col-panel">
     <h3>Properties</h3>
     <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
     <ul id="prop-list" class="entity-list">
-<li><a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> — This is an example of a property and its format</li>
+<li><a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> — This is an example of a property and its format.</li>
     </ul>
   </div>
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="template%3AClassExample"></a> Class: ClassExample</h3>
+<h3><a id="template%3AClassExample" title="template:ClassExample"></a> Class: ClassExample</h3>
 <p>This is an example of a class and its format.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -76,6 +76,7 @@
 <thead>
 <tr>
 <th>Property</th>
+<th>Specialization Of</th>
 <th>Required</th>
 <th>Description</th>
 <th>Range</th>
@@ -85,13 +86,15 @@
 <tbody>
 <tr>
 <td>@type</td>
+<td></td>
 <td>Yes</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#template%3ApropertyExample">propertyExample</a></td>
+<td><a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a></td>
+<td></td>
 <td>No</td>
 <td>This is an example of a property and its format.</td>
 <td>schema:Text</td>
@@ -100,10 +103,12 @@
 </tbody>
 </table>
 <h2>All Properties</h2>
-<h3><a id="template%3ApropertyExample"></a> Property: propertyExample</h3>
+<h3><a id="template%3ApropertyExample" title="template:propertyExample"></a> Property: propertyExample</h3>
 <table>
 <thead>
 <tr>
+<th>Property</th>
+<th>Specialization Of</th>
 <th>Description</th>
 <th>Range</th>
 <th>Occurs in Domain(s)</th>
@@ -111,9 +116,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a></td>
+<td></td>
 <td>This is an example of a property and its format.</td>
 <td>schema:Text</td>
-<td>template:ClassExample</td>
+<td><a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a></td>
 </tr>
 </tbody>
 </table>
