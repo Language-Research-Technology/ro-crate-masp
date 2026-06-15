@@ -43,16 +43,7 @@ const outputPath =
 function syncProfileCrateWithRocxl(targetDir) {
   const metadataPath = path.join(targetDir, "ro-crate-metadata.json");
   const spreadsheetPath = path.join(targetDir, "ro-crate-metadata.xlsx");
-  const rocxlBin = path.join(
-    __dirname,
-    "node_modules",
-    ".bin",
-    process.platform === "win32" ? "rocxl.cmd" : "rocxl"
-  );
-
-  if (!fs.existsSync(rocxlBin)) {
-    throw new Error(`rocxl command not found at ${rocxlBin}`);
-  }
+  const rocxlCommand = process.platform === "win32" ? "rocxl.cmd" : "rocxl";
 
   const metadataExists = fs.existsSync(metadataPath);
   const spreadsheetExists = fs.existsSync(spreadsheetPath);
@@ -83,7 +74,7 @@ function syncProfileCrateWithRocxl(targetDir) {
   console.log(
     `Synchronising RO-Crate metadata with rocxl from ${syncSource}: ${targetDir}`
   );
-  execFileSync(rocxlBin, rocxlArgs, {
+  execFileSync(rocxlCommand, rocxlArgs, {
     cwd: __dirname,
     stdio: "inherit",
   });

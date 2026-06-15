@@ -28,6 +28,18 @@ function copyFixtureScenario(scenarioName) {
 	return targetDir;
 }
 
+function setScenarioMtimes(jsonPath, xlsxPath, scenarioName) {
+	const base = new Date(Date.now() - 5000);
+
+	if (scenarioName === "json-newer") {
+		fs.utimesSync(xlsxPath, base, new Date(base.getTime() + 1000));
+		fs.utimesSync(jsonPath, base, new Date(base.getTime() + 2000));
+	} else if (scenarioName === "xlsx-newer") {
+		fs.utimesSync(jsonPath, base, new Date(base.getTime() + 1000));
+		fs.utimesSync(xlsxPath, base, new Date(base.getTime() + 2000));
+	}
+}
+
 function readJsonCrate(jsonPath) {
 	const json = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 	return new ROCrate(json, { array: true, link: true });
@@ -55,6 +67,8 @@ async function assertScenarioSync(scenarioName, expectedDirection) {
 	const jsonPath = path.join(workDir, "ro-crate-metadata.json");
 	const xlsxPath = path.join(workDir, "ro-crate-metadata.xlsx");
 	const outputPath = path.join(workDir, "profile-documentation.md");
+
+	setScenarioMtimes(jsonPath, xlsxPath, scenarioName);
 
 	const jsonBefore = fs.existsSync(jsonPath) ? fs.statSync(jsonPath) : null;
 	const xlsxBefore = fs.existsSync(xlsxPath) ? fs.statSync(xlsxPath) : null;
