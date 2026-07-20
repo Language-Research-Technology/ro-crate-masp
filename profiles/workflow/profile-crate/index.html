@@ -103,7 +103,7 @@
 <p>This section uses terminology from the <a href="https://w3id.org/ro/crate/1.1">RO-Crate 1.1 specification</a>.</p>
 <h3>Context</h3>
 <p>The <em>Crate</em> JSON-LD MUST be valid according to <a href="https://w3id.org/ro/crate/1.1">RO-Crate 1.1</a> and SHOULD use the RO-Crate 1.1 <code>@context</code> <a href="https://w3id.org/ro/crate/1.1/context">https://w3id.org/ro/crate/1.1/context</a></p>
-<p><strong>8</strong> classes &middot; <strong>17</strong> properties</p>
+<p><strong>9</strong> classes &middot; <strong>19</strong> properties</p>
 <div class="row">
   <div class="col-md-6 col-panel">
     <h3>Classes</h3>
@@ -113,6 +113,7 @@
 <li><a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> <small style="color:#aaa">#Class_MainWorkflow</small></li>
 <li><a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a> <small style="color:#aaa">#Class_MainWorkflow_Description</small></li>
 <li><a href="#Class_ImageObject_Diagram" title="#Class_ImageObject_Diagram">Main Workflow Diagram</a> <small style="color:#aaa">#Class_ImageObject_Diagram</small></li>
+<li><a href="#classProfile" title="#classProfile">Profile</a> <small style="color:#aaa">#classProfile</small></li>
 <li><a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> <small style="color:#aaa">#class_CreativeWork_README</small></li>
 <li><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> <small style="color:#aaa">#RO-Crate_Metadata_Descriptor</small></li>
 <li><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> <small style="color:#aaa">#Root_Data_Entity</small></li>
@@ -137,9 +138,11 @@
 <li><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> — TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used <small style="color:#aaa">#prop_license_Dataset</small></li>
 <li><a href="#Property_mainEntity_Workflow" title="#Property_mainEntity_Workflow">mainEntity</a> <small style="color:#aaa">#Property_mainEntity_Workflow</small></li>
 <li><a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> — SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</li>
+<li><a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> <small style="color:#aaa">#prop_name_classProfile</small></li>
 <li><a href="#Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow">programmingLanguage</a> <small style="color:#aaa">#Property_programmingLanguage_Workflow</small></li>
 <li><a href="#Property_programmingLanguage_WorkflowDescription" title="#Property_programmingLanguage_WorkflowDescription">programmingLanguage</a> <small style="color:#aaa">#Property_programmingLanguage_WorkflowDescription</small></li>
 <li><a href="#Property_MainWorkflow_subjectOf" title="#Property_MainWorkflow_subjectOf">subjectOf</a> <small style="color:#aaa">#Property_MainWorkflow_subjectOf</small></li>
+<li><a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> <small style="color:#aaa">#prop_version_classProfile</small></li>
     </ul>
   </div>
 </div>
@@ -247,7 +250,7 @@
 <td></td>
 <td>Yes</td>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
+<td><a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a></td>
 <td></td>
 </tr>
 <tr>
@@ -631,6 +634,62 @@
 <ul>
 <li><a href="#diagram.svg">Example-1: diagram.svg</a></li>
 </ul>
+<h3><a id="classProfile" title="#classProfile"></a> Class: Profile</h3>
+<p>A generic profile entity.</p>
+<p>At least 1 instances of this type MUST be present in the crate.</p>
+<p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Profile" title="http://schema.org/Profile" target="_blank" rel="noopener">Profile</a></td>
+</tr>
+<tr>
+<td><a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a></td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td>Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2>All Properties</h2>
 <h3><a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id</h3>
 <table>
@@ -774,7 +833,7 @@
 <td><a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a></td>
 <td></td>
 <td>The RO-Crate conforms to this profile. This is a link to to the profile entity</td>
-<td><a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a></td>
+<td><a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a></td>
 <td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
 </tr>
 </tbody>
@@ -926,6 +985,27 @@
 </tr>
 </tbody>
 </table>
+<h3><a id="prop_name_classProfile" title="#prop_name_classProfile"></a> Property: name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a></td>
+<td></td>
+<td></td>
+<td>Text</td>
+<td><a href="#classProfile" title="#classProfile">Profile</a></td>
+</tr>
+</tbody>
+</table>
 <h3><a id="Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow"></a> Property: programmingLanguage</h3>
 <table>
 <thead>
@@ -986,6 +1066,27 @@
 <td>Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description.</td>
 <td><a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a></td>
 <td><a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_version_classProfile" title="#prop_version_classProfile"></a> Property: version</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a></td>
+<td></td>
+<td></td>
+<td>Text</td>
+<td><a href="#classProfile" title="#classProfile">Profile</a></td>
 </tr>
 </tbody>
 </table>

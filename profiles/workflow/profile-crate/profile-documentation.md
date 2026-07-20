@@ -123,7 +123,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
-| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | Yes | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a> |  |
+| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | Yes | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> |  |
 | <a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
 | <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
 | <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWork" title="#class_CreativeWork">class_CreativeWork</a>, schema:URL, schema:Text |  |
@@ -264,6 +264,25 @@ Instances of this type MAY be present in the crate.
 -  [Example-1: diagram.svg](#diagram.svg)
 
 
+
+### <a id="classProfile" title="#classProfile"></a> Class: Profile
+
+A generic profile entity.
+
+At least 1 instances of this type MUST be present in the crate.
+
+ A maximum of 1 instances of this type  MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| 1 | 1 |
+
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Profile" title="http://schema.org/Profile" target="_blank" rel="noopener">Profile</a> |
+| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  | Yes |  | Text |  |
+| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  | Yes |  | Text |  |
+
 ## All Properties
 
 ### <a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id
@@ -300,7 +319,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 ### <a id="prop_datePublised_Dataset" title="#prop_datePublised_Dataset"></a> Property: datePublished
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -336,6 +355,11 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="prop_name_classProfile" title="#prop_name_classProfile"></a> Property: name
+
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
 ### <a id="Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow"></a> Property: programmingLanguage
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -351,6 +375,11 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#Property_MainWorkflow_subjectOf" title="#Property_MainWorkflow_subjectOf">subjectOf</a> | <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">http://schema.org/subjectOf</a> | Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description. | <a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a> | <a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> |
+### <a id="prop_version_classProfile" title="#prop_version_classProfile"></a> Property: version
+
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
 
 
 
