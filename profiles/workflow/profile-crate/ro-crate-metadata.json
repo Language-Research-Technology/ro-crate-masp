@@ -8,10 +8,7 @@
   "@graph": [
     {
       "@id": "https://w3id.org/ro/workflow-crate/",
-      "@type": [
-        "Dataset",
-        "Profile"
-      ],
+      "@type": ["Dataset", "Profile"],
       "name": "Workflow Profile",
       "description": "This is an experimental port of the RO-Crate Workflow Profile to a proposed 'RO-Crate Schema' format.",
       "version": "0.1.0",
@@ -60,10 +57,7 @@
     },
     {
       "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
+      "@type": ["CreativeWork", "Profile"],
       "name": "RO-Crate MASP Profile",
       "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
@@ -163,6 +157,9 @@
           "@id": "#prop_conformsTo_Root_Data_Entity"
         },
         {
+          "@id": "#Root_Data_Entity_conformsTo_value"
+        },
+        {
           "@id": "#Root_Data_Entity_profile_itemList"
         },
         {
@@ -188,6 +185,15 @@
         },
         {
           "@id": "#Property_MainWorkflow_image"
+        },
+        {
+          "@id": "#classProfile"
+        },
+        {
+          "@id": "#prop_name_classProfile"
+        },
+        {
+          "@id": "#prop_version_classProfile"
         },
         {
           "@id": "#programmingLanguages"
@@ -482,11 +488,24 @@
       "name": "conformsTo",
       "rdfs:label": "conformsTo",
       "description": "The RO-Crate conforms to this profile. This is a link to to the profile entity",
-      "rangeIncludes": {
-        "@id": "#Root_Data_Entity_profile_itemList"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "#Root_Data_Entity_conformsTo_value"
+        },
+        { "@id": "#classProfile" }
+      ],
       "domainIncludes": {
         "@id": "#Root_Data_Entity"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#Root_Data_Entity_conformsTo_value",
+      "@type": "PropertyValue",
+      "name": "Required Workflow Profile Value",
+      "description": "A constrained conformsTo value that must appear exactly once.",
+      "value": {
+        "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
       },
       "sh:minCount": 1,
       "sh:maxCount": 1
@@ -709,21 +728,56 @@
     },
     {
       "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
+      "@type": ["CreativeWork", "Profile"],
       "name": "Workflow RO-Crate Profile (experimental)",
       "version": "0.4.0",
       "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2"
     },
     {
-      "@id": "example_workflow.cwl",
-      "@type": [
-        "File",
-        "SoftwareSourceCode",
-        "ComputationalWorkflow"
+      "@id": "#classProfile",
+      "@type": "rdfs:Class",
+      "name": "Profile",
+      "prov:specializationOf": [
+        {
+          "@id": "http://schema.org/CreativeWork"
+        },
+        {
+          "@id": "http://schema.org/Profile"
+        }
       ],
+      "description": "A generic profile entity.",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_name_classProfile",
+      "@type": "rdf:Property",
+      "rdfs:label": "name",
+      "name": "name",
+      "domainIncludes": {
+        "@id": "#classProfile"
+      },
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_version_classProfile",
+      "@type": "rdf:Property",
+      "rdfs:label": "version",
+      "name": "version",
+      "domainIncludes": {
+        "@id": "#classProfile"
+      },
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "example_workflow.cwl",
+      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
       "programmingLanguage": {
         "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
       },
@@ -735,10 +789,7 @@
     {
       "@id": "diagram.svg",
       "name": "Example Workflow Diagram",
-      "@type": [
-        "File",
-        "ImageObject"
-      ]
+      "@type": ["File", "ImageObject"]
     },
     {
       "@id": "README.md",
@@ -876,10 +927,7 @@
     },
     {
       "@id": "https://w3id.org/ro/workflow-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
+      "@type": ["CreativeWork", "Profile"],
       "name": "Workflow Profile",
       "url": "https://w3id.org/ro/workflow-crate/"
     }

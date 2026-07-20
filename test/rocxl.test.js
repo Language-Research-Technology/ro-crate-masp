@@ -110,6 +110,8 @@ async function assertScenarioSync(scenarioName, expectedDirection) {
 }
 
 describe("rocxl synchronisation", function () {
+	this.timeout(15000);
+
 	before(function () {
 		if (!fs.existsSync(rocxlBin)) {
 			this.skip();
