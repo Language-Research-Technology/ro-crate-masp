@@ -620,7 +620,7 @@ try {
       });
 
       props.forEach((prop) => {
-        const propName = prop["name"] || prop["rdfs:label"] || prop["@id"];
+        const propName = prop["rdfs:label"] || prop["name"] || prop["@id"];
         const isRequired =
           prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0
             ? "Yes"
@@ -741,7 +741,7 @@ try {
     propSummary += `| Property | Specialization Of | Description | Range | Occurs in Domain(s) |\n`;
     propSummary += `| -------- | ----------------- | ----------- | ----------- | ----------- |\n`;
     propSummary += `| <a href="#${anchorGithubId}" title="${clean(p["@id"])}">${clean(
-      p["name"] || p["rdfs:label"] || p["@id"]
+      p["rdfs:label"] || p["name"] || p["@id"]
     )}</a> | ${propSpecializationCell} | ${clean(propDesc)} | ${clean(
       rangeLinks
     )} | ${propDomains} |\n`;
