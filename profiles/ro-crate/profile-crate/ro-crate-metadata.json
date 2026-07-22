@@ -52,56 +52,25 @@
         },
         {
           "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "crate-o-mode.json"
         }
       ]
     },
     {
-      "@id": "#hasSpecification",
-      "@type": "ResourceDescriptor",
-      "name": "Profile Description",
-      "hasRole": {
-        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
-      },
-      "hasArtifact": {
-        "@id": "index.html"
-      }
+      "@id": "#author",
+      "@type": "Organization",
+      "name": "University of Queensland"
     },
     {
-      "@id": "#hasGuidance",
-      "@type": "ResourceDescriptor",
-      "name": "Profile Documentation (Markdown source)",
-      "hasRole": {
-        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
-      },
-      "hasArtifact": {
-        "@id": "profile-documentation.md"
-      }
-    },
-    {
-      "@id": "index.html",
-      "@type": "File",
-      "name": "RO-Crate Machine Actionable Profile description",
-      "encodingFormat": "text/html",
-      "about": {
-        "@id": "./"
-      }
-    },
-    {
-      "@id": "profile-documentation.md",
-      "@type": "File",
-      "name": "profile-documentation.md",
-      "encodingFormat": [
-        {
-          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
-        },
-        "text/markdown"
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
       ],
-      "about": {
-        "@id": "./"
-      },
-      "isPartOf": {
-        "@id": "./"
-      }
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#hasSpecializedSchema",
@@ -144,29 +113,86 @@
       ]
     },
     {
-      "@id": "ro-crate-metadata.json",
-      "@type": "CreativeWork",
-      "identifier": "ro-crate-metadata.json",
-      "conformsTo": {
-        "@id": "https://w3id.org/ro/crate/1.2"
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
       },
-      "about": {
-        "@id": "./"
+      "hasArtifact": {
+        "@id": "index.html"
       }
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
-      "name": "RO-Crate MASP Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
     },
     {
-      "@id": "#author",
-      "@type": "Organization",
-      "name": "University of Queensland"
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
+    },
+    {
+      "@id": "#hasConformanceIndicators",
+      "@type": "ResourceDescriptor",
+      "name": "Conformance Indicators",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/conformance-indicators"
+      },
+      "hasArtifact": {
+        "@id": "#conformanceIndicators"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "RO-Crate Machine Actionable Profile description",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
+      ],
+      "about": {
+        "@id": "./"
+      },
+      "dateModified": "2026-07-22T15:33:35+10:00"
+    },
+    {
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ],
+      "about": {
+        "@id": "./"
+      },
+      "isPartOf": {
+        "@id": "./"
+      },
+      "dateModified": "2026-07-22T15:33:35+10:00"
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
     },
     {
       "@id": "#RO-Crate_Metadata_Descriptor",
@@ -309,44 +335,37 @@
       "description": "A license included as a Creative Work - with at least a name and description"
     },
     {
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
       "@id": "crate-o-mode.json",
       "@type": "File",
       "name": "Crate-O Editor Mode File",
-      "encodingFormat": "application/json",
-      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
-    },
-    {
-      "@id": "#hasEditorMode",
-      "@type": "ResourceDescriptor",
-      "name": "Crate-O Editor Mode",
-      "hasRole": {
-        "@id": "https://w3id.org/ro/mode"
-      },
-      "hasArtifact": {
-        "@id": "crate-o-mode.json"
-      }
-    },
-    {
-      "@id": "#hasConformanceIndicators",
-      "@type": "ResourceDescriptor",
-      "name": "Conformance Indicators",
-      "hasRole": {
-        "@id": "https://w3id.org/ro/conformance-indicators"
-      },
-      "hasArtifact": {
-        "@id": "#conformanceIndicators"
-      }
-    },
-    {
-      "@id": "#conformanceIndicators",
-      "@type": "ItemList",
-      "name": "Supported conformsTo identifiers",
-      "description": "Canonical identifiers that indicate conformance to this profile.",
-      "itemListElement": [
+      "encodingFormat": [
         {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
-        }
-      ]
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817"
+        },
+        "application/json"
+      ],
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
+      "dateModified": "2026-05-22T08:29:17+10:00"
     },
     {
       "@id": "https://w3id.org/ro/mode",
@@ -361,6 +380,17 @@
       "description": "Role indicating a resource enumerates identifiers that are accepted as conformance indicators for the profile."
     },
     {
+      "@id": "#conformanceIndicators",
+      "@type": "ItemList",
+      "name": "Supported conformsTo identifiers",
+      "description": "Canonical identifiers that indicate conformance to this profile.",
+      "itemListElement": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
+        }
+      ]
+    },
+    {
       "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/#profile",
       "@type": [
         "CreativeWork",
@@ -370,13 +400,14 @@
       "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
     },
     {
-      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
-      "@type": "PropertyValue",
-      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
-      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
-      "value": "ro-crate-metadata.json",
-      "sh:minCount": 1,
-      "sh:maxCount": 1
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
+      "@type": "DigitalFormat",
+      "name": "JSON Data Interchange Format"
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
     }
   ]
 }

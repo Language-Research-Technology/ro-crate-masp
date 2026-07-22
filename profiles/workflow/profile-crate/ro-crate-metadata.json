@@ -59,6 +59,11 @@
       ]
     },
     {
+      "@id": "#author",
+      "@type": "Organization",
+      "name": "University of Queensland"
+    },
+    {
       "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
       "@type": [
         "CreativeWork",
@@ -66,42 +71,6 @@
       ],
       "name": "RO-Crate MASP Profile",
       "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-    },
-    {
-      "@id": "#hasSpecification",
-      "@type": "ResourceDescriptor",
-      "name": "Profile Description",
-      "hasRole": {
-        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
-      },
-      "hasArtifact": {
-        "@id": "index.html"
-      }
-    },
-    {
-      "@id": "#hasGuidance",
-      "@type": "ResourceDescriptor",
-      "name": "Profile Documentation (Markdown source)",
-      "hasRole": {
-        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
-      },
-      "hasArtifact": {
-        "@id": "profile-documentation.md"
-      }
-    },
-    {
-      "@id": "index.html",
-      "@type": "File",
-      "name": "Workflow Profile description",
-      "encodingFormat": "text/html",
-      "about": {
-        "@id": "https://w3id.org/ro/workflow-crate/"
-      }
-    },
-    {
-      "@id": "#author",
-      "@type": "Organization",
-      "name": "University of Queensland"
     },
     {
       "@id": "#hasSpecializedSchema",
@@ -233,11 +202,70 @@
       }
     },
     {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
+    },
+    {
+      "@id": "#hasConformanceIndicators",
+      "@type": "ResourceDescriptor",
+      "name": "Conformance Indicators",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/conformance-indicators"
+      },
+      "hasArtifact": {
+        "@id": "#conformanceIndicators"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "Workflow Profile description",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
+      ],
+      "about": {
+        "@id": "https://w3id.org/ro/workflow-crate/"
+      },
+      "dateModified": "2026-07-22T15:33:37+10:00"
+    },
+    {
       "@id": "profile-documentation.md",
       "@type": "File",
       "name": "profile-documentation.md",
       "description": "",
-      "dateModified": "2025-11-28T06:15:09+11:00",
+      "dateModified": "2026-07-22T15:33:37+10:00",
       "encodingFormat": [
         {
           "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
@@ -683,102 +711,6 @@
       "sh:maxCount": 1
     },
     {
-      "@id": "#programmingLanguages",
-      "@type": "ItemList",
-      "name": "Programming Languages",
-      "description": "A list of programming languages that can be used to implement the Main Workflow",
-      "itemListElement": [
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#galaxy"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#knime"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#nextflow"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake"
-        }
-      ]
-    },
-    {
-      "@id": "#WorkflowExample",
-      "@type": "LearningResource",
-      "name": "An example workflow RO-Crate",
-      "mainEntity": {
-        "@id": "./"
-      },
-      "hasPart": [
-        {
-          "@id": "./"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
-        },
-        {
-          "@id": "example_workflow.cwl"
-        },
-        {
-          "@id": "diagram.svg"
-        },
-        {
-          "@id": "README.md"
-        }
-      ]
-    },
-    {
-      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
-      "@type": "DigitalFormat",
-      "name": "Markdown"
-    },
-    {
-      "@id": "./",
-      "@type": "Dataset",
-      "name": "Example Workflow",
-      "conformsTo": [
-        {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
-        },
-        {
-          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
-        }
-      ],
-      "description": "An example workflow RO-Crate",
-      "license": "Apache-2.0",
-      "datePublished": "2025-10-15",
-      "mainEntity": {
-        "@id": "example_workflow.cwl"
-      },
-      "hasPart": [
-        {
-          "@id": "example_workflow.cwl"
-        },
-        {
-          "@id": "diagram.svg"
-        },
-        {
-          "@id": "README.md"
-        },
-        {
-          "@id": "profile-documentation.md"
-        }
-      ]
-    },
-    {
-      "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
-      "name": "Workflow RO-Crate Profile (experimental)",
-      "version": "0.4.0",
-      "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2"
-    },
-    {
       "@id": "#classProfile",
       "@type": "rdfs:Class",
       "name": "Profile",
@@ -821,33 +753,112 @@
       "sh:minCount": 1
     },
     {
-      "@id": "example_workflow.cwl",
-      "@type": [
-        "File",
-        "SoftwareSourceCode",
-        "ComputationalWorkflow"
-      ],
-      "programmingLanguage": {
-        "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
-      },
-      "name": "Example Workflow",
-      "image": {
-        "@id": "diagram.svg"
-      }
-    },
-    {
-      "@id": "diagram.svg",
-      "name": "Example Workflow Diagram",
-      "@type": [
-        "File",
-        "ImageObject"
+      "@id": "#programmingLanguages",
+      "@type": "ItemList",
+      "name": "Programming Languages",
+      "description": "A list of programming languages that can be used to implement the Main Workflow",
+      "itemListElement": [
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#galaxy"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#knime"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#nextflow"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake"
+        }
       ]
     },
     {
-      "@id": "README.md",
-      "@type": "File",
-      "about": "./",
-      "encodingFormat": "text/markdown"
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#propertyValue_property_CreativeWork_README.encodingFormat",
+      "@type": "PropertyValue",
+      "name": "README File encodingFormat Constraint",
+      "description": "Allowed value constraint for README File property encodingFormat.",
+      "value": "text/markdown",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#propertyValue_property_Dataset_Test_Directory.id",
+      "@type": "PropertyValue",
+      "name": "Test Directory Identifier Constraint",
+      "description": "Allowed identifier value constraint for Test Directory.",
+      "value": "test/",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#propertyValue_property_Dataset_Examples_Directory.id",
+      "@type": "PropertyValue",
+      "name": "Examples Directory Identifier Constraint",
+      "description": "Allowed identifier value constraint for Examples Directory.",
+      "value": "examples/",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#WorkflowExample",
+      "@type": "LearningResource",
+      "name": "An example workflow RO-Crate",
+      "mainEntity": {
+        "@id": "./"
+      },
+      "hasPart": [
+        {
+          "@id": "./"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
+        },
+        {
+          "@id": "example_workflow.cwl"
+        },
+        {
+          "@id": "diagram.svg"
+        },
+        {
+          "@id": "README.md"
+        }
+      ]
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
+    },
+    {
+      "@id": "#programmingLanguageCWLList",
+      "@type": "ItemList",
+      "name": "Common Workflow Language",
+      "description": "A list containing only the Common Workflow Language (CWL) as a programming language for the Workflow Description.",
+      "itemListElement": {
+        "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
+      }
+    },
+    {
+      "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "Workflow RO-Crate Profile (experimental)",
+      "version": "0.4.0",
+      "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2"
     },
     {
       "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl",
@@ -906,13 +917,72 @@
       }
     },
     {
-      "@id": "#programmingLanguageCWLList",
-      "@type": "ItemList",
-      "name": "Common Workflow Language",
-      "description": "A list containing only the Common Workflow Language (CWL) as a programming language for the Workflow Description.",
-      "itemListElement": {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Example Workflow",
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
+        }
+      ],
+      "description": "An example workflow RO-Crate",
+      "license": "Apache-2.0",
+      "datePublished": "2025-10-15",
+      "mainEntity": {
+        "@id": "example_workflow.cwl"
+      },
+      "hasPart": [
+        {
+          "@id": "example_workflow.cwl"
+        },
+        {
+          "@id": "diagram.svg"
+        },
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "crate-o-mode.json"
+        },
+        {
+          "@id": "index.html"
+        }
+      ]
+    },
+    {
+      "@id": "example_workflow.cwl",
+      "@type": [
+        "File",
+        "SoftwareSourceCode",
+        "ComputationalWorkflow"
+      ],
+      "programmingLanguage": {
         "@id": "https://w3id.org/workflowhub/workflow-ro-crate#cwl"
+      },
+      "name": "Example Workflow",
+      "image": {
+        "@id": "diagram.svg"
       }
+    },
+    {
+      "@id": "diagram.svg",
+      "name": "Example Workflow Diagram",
+      "@type": [
+        "File",
+        "ImageObject"
+      ]
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "about": "./",
+      "encodingFormat": "text/markdown"
     },
     {
       "@id": "ro-crate-metadata.json",
@@ -929,41 +999,14 @@
       "@id": "crate-o-mode.json",
       "@type": "File",
       "name": "Crate-O Editor Mode File",
-      "encodingFormat": "application/json",
-      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
-    },
-    {
-      "@id": "#hasEditorMode",
-      "@type": "ResourceDescriptor",
-      "name": "Crate-O Editor Mode",
-      "hasRole": {
-        "@id": "https://w3id.org/ro/mode"
-      },
-      "hasArtifact": {
-        "@id": "crate-o-mode.json"
-      }
-    },
-    {
-      "@id": "#hasConformanceIndicators",
-      "@type": "ResourceDescriptor",
-      "name": "Conformance Indicators",
-      "hasRole": {
-        "@id": "https://w3id.org/ro/conformance-indicators"
-      },
-      "hasArtifact": {
-        "@id": "#conformanceIndicators"
-      }
-    },
-    {
-      "@id": "#conformanceIndicators",
-      "@type": "ItemList",
-      "name": "Supported conformsTo identifiers",
-      "description": "Canonical identifiers that indicate conformance to this profile.",
-      "itemListElement": [
+      "encodingFormat": [
         {
-          "@id": "https://w3id.org/ro/workflow-crate/1.0"
-        }
-      ]
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817"
+        },
+        "application/json"
+      ],
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
+      "dateModified": "2026-05-22T08:29:17+10:00"
     },
     {
       "@id": "https://w3id.org/ro/mode",
@@ -978,6 +1021,17 @@
       "description": "Role indicating a resource enumerates identifiers that are accepted as conformance indicators for the profile."
     },
     {
+      "@id": "#conformanceIndicators",
+      "@type": "ItemList",
+      "name": "Supported conformsTo identifiers",
+      "description": "Canonical identifiers that indicate conformance to this profile.",
+      "itemListElement": [
+        {
+          "@id": "https://w3id.org/ro/workflow-crate/1.0"
+        }
+      ]
+    },
+    {
       "@id": "https://w3id.org/ro/workflow-crate/1.0",
       "@type": [
         "CreativeWork",
@@ -987,40 +1041,14 @@
       "url": "https://w3id.org/ro/workflow-crate/1.0"
     },
     {
-      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
-      "@type": "PropertyValue",
-      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
-      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
-      "value": "ro-crate-metadata.json",
-      "sh:minCount": 1,
-      "sh:maxCount": 1
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
+      "@type": "DigitalFormat",
+      "name": "JSON Data Interchange Format"
     },
     {
-      "@id": "#propertyValue_property_CreativeWork_README.encodingFormat",
-      "@type": "PropertyValue",
-      "name": "README File encodingFormat Constraint",
-      "description": "Allowed value constraint for README File property encodingFormat.",
-      "value": "text/markdown",
-      "sh:minCount": 1,
-      "sh:maxCount": 1
-    },
-    {
-      "@id": "#propertyValue_property_Dataset_Test_Directory.id",
-      "@type": "PropertyValue",
-      "name": "Test Directory Identifier Constraint",
-      "description": "Allowed identifier value constraint for Test Directory.",
-      "value": "test/",
-      "sh:minCount": 1,
-      "sh:maxCount": 1
-    },
-    {
-      "@id": "#propertyValue_property_Dataset_Examples_Directory.id",
-      "@type": "PropertyValue",
-      "name": "Examples Directory Identifier Constraint",
-      "description": "Allowed identifier value constraint for Examples Directory.",
-      "value": "examples/",
-      "sh:minCount": 1,
-      "sh:maxCount": 1
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
     }
   ]
 }

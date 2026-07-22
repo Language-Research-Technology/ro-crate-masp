@@ -59,7 +59,38 @@
         {
           "@id": "#hasEditorMode"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "crate-o-mode.json"
+        },
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "schema-documentation.md"
+        }
       ]
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+    },
+    {
+      "@id": "#hasEditorMode",
+      "@type": "ResourceDescriptor",
+      "name": "Crate-O Editor Mode",
+      "hasRole": {
+        "@id": "https://w3id.org/ro/mode"
+      },
+      "hasArtifact": {
+        "@id": "crate-o-mode.json"
+      }
     },
     {
       "@id": "#hasSpecializedSchema",
@@ -420,6 +451,20 @@
       "coded": "The resource contains a written or coded annotation(s) which has data aligning the annotation(s) with a PrimaryMaterial item"
     },
     {
+      "@id": "https://w3id.org/ldac/terms#AccessTypes",
+      "@type": "DefinedTermSet",
+      "name": "AccessTypes",
+      "description": "A set of defined terms to specify whether a DataReuseLicense allows open or restricted (authorised) access.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#AuthorizedAccess"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#OpenAccess"
+        }
+      ]
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#Annotation",
       "@type": "DefinedTerm",
       "name": "Annotation",
@@ -433,6 +478,70 @@
       }
     },
     {
+      "@id": "https://w3id.org/ldac/terms#AnnotationTypeTerms",
+      "@type": "DefinedTermSet",
+      "name": "AnnotationTypeTerms",
+      "description": "The set of expected values for annotation types.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#Gestural"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Orthographic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#PartOfSpeech"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Phonemic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Phonetic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Phonological"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Prosodic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Semantic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Syntactic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Transcription"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Translation"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#AuthorizationWorkflows",
+      "@type": "DefinedTermSet",
+      "name": "AuthorizationWorkflows",
+      "description": "A set of DefinedTerms for access authorization mechanisms - some of these may be combined, e.g. AccessControlList and AgreeToTerms, but SelfAuthorization and AgreeToTerms would be redundant.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#AgreeToTerms"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#AuthorizationByApplication"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#AuthorizationByInvitation"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#SelfAuthorization"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#AccessControlList"
+        }
+      ]
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#CollectionEvent",
       "@type": "rdfs:Class",
       "name": "CollectionEvent",
@@ -444,6 +553,15 @@
       ]
     },
     {
+      "@id": "https://w3id.org/ldac/terms#CollectionEventTypeTerms",
+      "@type": "DefinedTermSet",
+      "name": "CollectionEventTypeTerms",
+      "description": "A set of terms which are expected values for CollectionEvent types.",
+      "hasDefinedTerm": {
+        "@id": "https://w3id.org/ldac/terms#Session"
+      }
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#CollectionProtocol",
       "@type": "rdfs:Class",
       "name": "CollectionProtocol",
@@ -452,6 +570,46 @@
       "rdfs:subClassOf": {
         "@id": "http://schema.org/CreativeWork"
       }
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#CollectionProtocolTypeTerms",
+      "@type": "DefinedTermSet",
+      "name": "CollectionProtocolTypeTerms",
+      "description": "A set of terms which are expected values for CollectionProtocol types.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#ElicitationTask"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#MaterialSelectionCriteria"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#CommunicationModeTerms",
+      "@type": "DefinedTermSet",
+      "name": "CommunicationModeTerms",
+      "description": "A set of expected values for the property communicationMode.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#Gesture"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#SignedLanguage"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Song"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#SpokenLanguage"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#WhistledLanguage"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#WrittenLanguage"
+        }
+      ]
     },
     {
       "@id": "https://w3id.org/ldac/terms#DataDepositLicense",
@@ -577,29 +735,6 @@
       }
     },
     {
-      "@id": "https://w3id.org/ldac/terms#itemLocation",
-      "@type": "rdf:Property",
-      "name": "itemLocation",
-      "rdfs:comment": "Current location of the item, e.g. where a set of audio tapes are stored.",
-      "rdfs:label": "itemLocation",
-      "domainIncludes": [
-        {
-          "@id": "http://pcdm.org/models#Object"
-        },
-        {
-          "@id": "http://schema.org/Collection"
-        }
-      ],
-      "rangeIncludes": [
-        {
-          "@id": "http://schema.org/Organization"
-        },
-        {
-          "@id": "http://schema.org/Place"
-        }
-      ]
-    },
-    {
       "@id": "https://w3id.org/ldac/terms#Lexicon",
       "@type": "DefinedTerm",
       "name": "Lexicon",
@@ -612,6 +747,50 @@
       }
     },
     {
+      "@id": "https://w3id.org/ldac/terms#LinguisticGenreTerms",
+      "@type": "DefinedTermSet",
+      "name": "LinguisticGenreTerms",
+      "description": "A set of expected values for the linguistic genre of a resource.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#Dialogue"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Drama"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Formulaic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Informational"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Interview"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Ludic"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Narrative"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Procedural"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Report"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Thesaurus"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Oratory"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Lexicon"
+        }
+      ]
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#Ludic",
       "@type": "DefinedTerm",
       "name": "Ludic",
@@ -622,6 +801,23 @@
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ldac/terms#LinguisticGenreTerms"
       }
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#MaterialTypes",
+      "@type": "DefinedTermSet",
+      "name": "MaterialTypes",
+      "description": "A set of terms describing the relationship of a resource to the original data source.",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#PrimaryMaterial"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Annotation"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#DerivedMaterial"
+        }
+      ]
     },
     {
       "@id": "https://w3id.org/ldac/terms#Narrative",
@@ -883,6 +1079,36 @@
       }
     },
     {
+      "@id": "https://w3id.org/ldac/terms#WrittenLanguageTypeTerms",
+      "@type": "DefinedTermSet",
+      "name": "WrittenLanguageTypeTerms",
+      "description": "A set of expected types for WrittenLanguage communication mode (this set is incomplete - more work needed).",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://w3id.org/ldac/terms#Handwritten"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Typeset"
+        },
+        {
+          "@id": "https://w3id.org/ldac/terms#Typewritten"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#access",
+      "@type": "rdf:Property",
+      "name": "access",
+      "rdfs:label": "access",
+      "rdfs:comment": "Whether this is an open or restricted access license.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ldac/terms#DataReuseLicense"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ldac/terms#AccessTypes"
+      }
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#accessControlList",
       "@type": "rdf:Property",
       "name": "accessControlList",
@@ -1008,6 +1234,19 @@
       }
     },
     {
+      "@id": "https://w3id.org/ldac/terms#communicationMode",
+      "@type": "rdf:Property",
+      "name": "communicationMode",
+      "rdfs:label": "communicationMode",
+      "rdfs:comment": "The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property.",
+      "domainIncludes": {
+        "@id": "http://schema.org/CreativeWork"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ldac/terms#CommunicationModeTerms"
+      }
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#compiler",
       "@type": "rdf:Property",
       "name": "compiler",
@@ -1070,6 +1309,16 @@
           "@id": "http://schema.org/Person"
         }
       ]
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#dateFreeText",
+      "@type": "rdf:Property",
+      "name": "dateFreeText",
+      "rdfs:label": "dateFreeText",
+      "rdfs:comment": "Date information that cannot be put in one of the standard date formats, e.g. \"mid-1970s\", or it is not clear, for example, if it is a creation or publication date.",
+      "domainIncludes": {
+        "@id": "http://schema.org/CreativeWork"
+      }
     },
     {
       "@id": "https://w3id.org/ldac/terms#depositor",
@@ -1328,29 +1577,52 @@
       "rdfs:comment": "The data in this item has had potentially identifying information removed, which may include replacing names with pseudonyms."
     },
     {
-      "@id": "https://w3id.org/ldac/terms#subjectLanguage",
+      "@id": "https://w3id.org/ldac/terms#itemLocation",
       "@type": "rdf:Property",
-      "name": "subjectLanguage",
-      "rdfs:label": "subjectLanguage",
-      "rdfs:comment": "The language(s) that this annotation resource is about.",
+      "name": "itemLocation",
+      "rdfs:comment": "Current location of the item, e.g. where a set of audio tapes are stored.",
+      "rdfs:label": "itemLocation",
+      "domainIncludes": [
+        {
+          "@id": "http://pcdm.org/models#Object"
+        },
+        {
+          "@id": "http://schema.org/Collection"
+        }
+      ],
+      "rangeIncludes": [
+        {
+          "@id": "http://schema.org/Organization"
+        },
+        {
+          "@id": "http://schema.org/Place"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#linguisticGenre",
+      "@type": "rdf:Property",
+      "name": "linguisticGenre",
+      "rdfs:comment": "A linguistic classification of the genre of this resource.",
+      "rdfs:label": "linguisticGenre",
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ldac/terms#LinguisticGenreTerms"
+      },
       "domainIncludes": {
         "@id": "http://schema.org/CreativeWork"
-      },
-      "rangeIncludes": {
-        "@id": "http://schema.org/Language"
       }
     },
     {
-      "@id": "https://w3id.org/ldac/terms#communicationMode",
+      "@id": "https://w3id.org/ldac/terms#mainText",
       "@type": "rdf:Property",
-      "name": "communicationMode",
-      "rdfs:label": "communicationMode",
-      "rdfs:comment": "The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property.",
+      "name": "mainText",
+      "rdfs:label": "mainText",
+      "rangeIncludes": {
+        "@id": "http://schema.org/MediaObject"
+      },
+      "rdfs:comment": "Identifies the most relevant sub-component for computational text analytics.",
       "domainIncludes": {
         "@id": "http://schema.org/CreativeWork"
-      },
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ldac/terms#CommunicationModeTerms"
       }
     },
     {
@@ -1361,6 +1633,19 @@
       "rdfs:comment": "Description of the original media, e.g. audio cassette tapes, participant questionnaires, field notes.",
       "domainIncludes": {
         "@id": "http://schema.org/CreativeWork"
+      }
+    },
+    {
+      "@id": "https://w3id.org/ldac/terms#materialType",
+      "@type": "rdf:Property",
+      "name": "materialType",
+      "rdfs:label": "materialType",
+      "rdfs:comment": "Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation.",
+      "domainIncludes": {
+        "@id": "http://schema.org/MediaObject"
+      },
+      "inDefinedTermSet": {
+        "@id": "https://w3id.org/ldac/terms#MaterialTypes"
       }
     },
     {
@@ -1551,6 +1836,16 @@
       ]
     },
     {
+      "@id": "https://w3id.org/ldac/terms#reviewDate",
+      "@type": "rdf:Property",
+      "name": "reviewDate",
+      "rdfs:label": "reviewDate",
+      "rdfs:comment": "The date that this license should be reviewed.",
+      "domainIncludes": {
+        "@id": "https://w3id.org/ldac/terms#DataLicense"
+      }
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#signer",
       "@type": "rdf:Property",
       "name": "signer",
@@ -1637,6 +1932,19 @@
       ]
     },
     {
+      "@id": "https://w3id.org/ldac/terms#subjectLanguage",
+      "@type": "rdf:Property",
+      "name": "subjectLanguage",
+      "rdfs:label": "subjectLanguage",
+      "rdfs:comment": "The language(s) that this annotation resource is about.",
+      "domainIncludes": {
+        "@id": "http://schema.org/CreativeWork"
+      },
+      "rangeIncludes": {
+        "@id": "http://schema.org/Language"
+      }
+    },
+    {
       "@id": "https://w3id.org/ldac/terms#transcriber",
       "@type": "rdf:Property",
       "name": "transcriber",
@@ -1679,156 +1987,6 @@
       }
     },
     {
-      "@id": "https://w3id.org/ldac/terms#dateFreeText",
-      "@type": "rdf:Property",
-      "name": "dateFreeText",
-      "rdfs:label": "dateFreeText",
-      "rdfs:comment": "Date information that cannot be put in one of the standard date formats, e.g. \"mid-1970s\", or it is not clear, for example, if it is a creation or publication date.",
-      "domainIncludes": {
-        "@id": "http://schema.org/CreativeWork"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#mainText",
-      "@type": "rdf:Property",
-      "name": "mainText",
-      "rdfs:label": "mainText",
-      "rangeIncludes": {
-        "@id": "http://schema.org/MediaObject"
-      },
-      "rdfs:comment": "Identifies the most relevant sub-component for computational text analytics.",
-      "domainIncludes": {
-        "@id": "http://schema.org/CreativeWork"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#MaterialTypes",
-      "@type": "DefinedTermSet",
-      "name": "MaterialTypes",
-      "description": "A set of terms describing the relationship of a resource to the original data source.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#PrimaryMaterial"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Annotation"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#DerivedMaterial"
-        }
-      ]
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#materialType",
-      "@type": "rdf:Property",
-      "name": "materialType",
-      "rdfs:label": "materialType",
-      "rdfs:comment": "Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation.",
-      "domainIncludes": {
-        "@id": "http://schema.org/MediaObject"
-      },
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ldac/terms#MaterialTypes"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#linguisticGenre",
-      "@type": "rdf:Property",
-      "name": "linguisticGenre",
-      "rdfs:comment": "A linguistic classification of the genre of this resource.",
-      "rdfs:label": "linguisticGenre",
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ldac/terms#LinguisticGenreTerms"
-      },
-      "domainIncludes": {
-        "@id": "http://schema.org/CreativeWork"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#CommunicationModeTerms",
-      "@type": "DefinedTermSet",
-      "name": "CommunicationModeTerms",
-      "description": "A set of expected values for the property communicationMode.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#Gesture"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#SignedLanguage"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Song"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#SpokenLanguage"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#WhistledLanguage"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#WrittenLanguage"
-        }
-      ]
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#LinguisticGenreTerms",
-      "@type": "DefinedTermSet",
-      "name": "LinguisticGenreTerms",
-      "description": "A set of expected values for the linguistic genre of a resource.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#Dialogue"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Drama"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Formulaic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Informational"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Interview"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Ludic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Narrative"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Procedural"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Report"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Thesaurus"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Oratory"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Lexicon"
-        }
-      ]
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#CollectionProtocolTypeTerms",
-      "@type": "DefinedTermSet",
-      "name": "CollectionProtocolTypeTerms",
-      "description": "A set of terms which are expected values for CollectionProtocol types.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#ElicitationTask"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#MaterialSelectionCriteria"
-        }
-      ]
-    },
-    {
       "@id": "https://w3id.org/ldac/terms#writtenLanguageFormat",
       "@type": "rdf:Property",
       "name": "writtenLanguageFormat",
@@ -1842,79 +2000,12 @@
       }
     },
     {
-      "@id": "https://w3id.org/ldac/terms#WrittenLanguageTypeTerms",
-      "@type": "DefinedTermSet",
-      "name": "WrittenLanguageTypeTerms",
-      "description": "A set of expected types for WrittenLanguage communication mode (this set is incomplete - more work needed).",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#Handwritten"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Typeset"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Typewritten"
-        }
-      ]
-    },
-    {
       "@id": "https://w3id.org/ldac/terms#FullText",
       "@type": "DefinedTerm",
       "name": "FullText",
       "description": "A text index that makes the full text of a data resource findable via a search interface.",
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ldac/terms#IndexTypes"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#AnnotationTypeTerms",
-      "@type": "DefinedTermSet",
-      "name": "AnnotationTypeTerms",
-      "description": "The set of expected values for annotation types.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#Gestural"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Orthographic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#PartOfSpeech"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Phonemic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Phonetic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Phonological"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Prosodic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Semantic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Syntactic"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Transcription"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#Translation"
-        }
-      ]
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#CollectionEventTypeTerms",
-      "@type": "DefinedTermSet",
-      "name": "CollectionEventTypeTerms",
-      "description": "A set of terms which are expected values for CollectionEvent types.",
-      "hasDefinedTerm": {
-        "@id": "https://w3id.org/ldac/terms#Session"
       }
     },
     {
@@ -1929,29 +2020,6 @@
       "sameAs": {
         "@id": "https://creativecommons.org/ns#License"
       }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#AuthorizationWorkflows",
-      "@type": "DefinedTermSet",
-      "name": "AuthorizationWorkflows",
-      "description": "A set of DefinedTerms for access authorization mechanisms - some of these may be combined, e.g. AccessControlList and AgreeToTerms, but SelfAuthorization and AgreeToTerms would be redundant.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#AgreeToTerms"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#AuthorizationByApplication"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#AuthorizationByInvitation"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#SelfAuthorization"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#AccessControlList"
-        }
-      ]
     },
     {
       "@id": "https://w3id.org/ldac/terms#WhistledLanguage",
@@ -2037,33 +2105,6 @@
       "name": []
     },
     {
-      "@id": "https://w3id.org/ldac/terms#access",
-      "@type": "rdf:Property",
-      "name": "access",
-      "rdfs:label": "access",
-      "rdfs:comment": "Whether this is an open or restricted access license.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/ldac/terms#DataReuseLicense"
-      },
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ldac/terms#AccessTypes"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ldac/terms#AccessTypes",
-      "@type": "DefinedTermSet",
-      "name": "AccessTypes",
-      "description": "A set of defined terms to specify whether a DataReuseLicense allows open or restricted (authorised) access.",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://w3id.org/ldac/terms#AuthorizedAccess"
-        },
-        {
-          "@id": "https://w3id.org/ldac/terms#OpenAccess"
-        }
-      ]
-    },
-    {
       "@id": "https://w3id.org/ldac/terms#AuthorizedAccess",
       "@type": "DefinedTerm",
       "name": "AuthorizedAccess",
@@ -2082,32 +2123,17 @@
       }
     },
     {
-      "@id": "https://w3id.org/ldac/terms#reviewDate",
-      "@type": "rdf:Property",
-      "name": "reviewDate",
-      "rdfs:label": "reviewDate",
-      "rdfs:comment": "The date that this license should be reviewed.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/ldac/terms#DataLicense"
-      }
-    },
-    {
       "@id": "crate-o-mode.json",
       "@type": "File",
       "name": "Crate-O Editor Mode File",
-      "encodingFormat": "application/json",
-      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
-    },
-    {
-      "@id": "#hasEditorMode",
-      "@type": "ResourceDescriptor",
-      "name": "Crate-O Editor Mode",
-      "hasRole": {
-        "@id": "https://w3id.org/ro/mode"
-      },
-      "hasArtifact": {
-        "@id": "crate-o-mode.json"
-      }
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817"
+        },
+        "application/json"
+      ],
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
+      "dateModified": "2026-05-22T08:29:17+10:00"
     },
     {
       "@id": "https://w3id.org/ro/mode",
@@ -2116,13 +2142,47 @@
       "description": "Role indicating a resource is an editor configuration mode file."
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
-      "name": "RO-Crate MASP Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
+      "@type": "DigitalFormat",
+      "name": "JSON Data Interchange Format"
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "index.html",
+      "description": "",
+      "contentSize": 82115,
+      "dateModified": "2026-07-22T15:33:34+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
+      ]
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
+    },
+    {
+      "@id": "schema-documentation.md",
+      "@type": "File",
+      "name": "schema-documentation.md",
+      "description": "",
+      "contentSize": 59763,
+      "dateModified": "2026-07-22T15:33:34+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ]
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
     }
   ]
 }
