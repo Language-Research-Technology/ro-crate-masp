@@ -18,6 +18,7 @@ If this work goes forward then this repository will probably turn into the home 
 
 These are the published GitHub Pages versions of the current profiles and schemas:
 
+  - Profile: RO-Crate 2 Profile (NEW): https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-2/profile-crate/index.html
   - Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
   - Profile: RO-Crate Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/index.html
   - Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
