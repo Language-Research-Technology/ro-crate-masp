@@ -124,7 +124,7 @@ Example class and property rules for a hypothetical scholarly profile:
 
 ### Linking the Metadata Descriptor
 
-Every MASP profile must define how to find the root class rule which describes the RO-Crate [Root Data Entity](https://www.researchobject.org/ro-crate/specification/1.2/terminology.html). This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `value` is `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
+Every MASP profile must define how to find the root class rule which describes the RO-Crate [Root Data Entity](https://www.researchobject.org/ro-crate/specification/1.2/terminology.html). This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `rangeIncludes` points to a `PropertyValue` containing `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
  
 ```json
 {
@@ -138,8 +138,16 @@ Every MASP profile must define how to find the root class rule which describes t
   "@id": "#prop_id_MetadataDescriptor",
   "@type": "rdf:Property",
   "rdfs:label": "@id",
-  "value": "ro-crate-metadata.json",
+  "rangeIncludes": {"@id": "#propertyValue_prop_id_MetadataDescriptor"},
   "domainIncludes": {"@id": "#class_MetadataDescriptor"},
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+},
+{
+  "@id": "#propertyValue_prop_id_MetadataDescriptor",
+  "@type": "PropertyValue",
+  "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+  "value": "ro-crate-metadata.json",
   "sh:minCount": 1,
   "sh:maxCount": 1
 },
@@ -155,7 +163,7 @@ Every MASP profile must define how to find the root class rule which describes t
 }
 ```
 
-The validator uses the `#prop_id_MetadataDescriptor` pattern (`rdfs:label: "@id"` + `value: "ro-crate-metadata.json"`) to locate the root class rule at parse time.
+The validator uses the `#prop_id_MetadataDescriptor` pattern (`rdfs:label: "@id"` + `rangeIncludes` to a `PropertyValue` containing `"ro-crate-metadata.json"`) to locate the root class rule at parse time.
 
 ### How the Validator Finds Schema Rules
 
@@ -185,11 +193,12 @@ The validator (`soss-validator.js`) works as follows:
 
 2. **Parse rules** — for each entity in `hasPart`:
    - `rdfs:Class` → `ClassRule` (type matching + cardinality)
-   - `rdf:Property` → `PropertyRule` (presence, cardinality, range, fixed value)
+  - `rdf:Property` → `PropertyRule` (presence, cardinality, range, PropertyValue constraints)
    - `ItemList` → `ItemListRule` (enumerated allowed values)
+  - `PropertyValue` → value constraint wrappers referenced from property `rangeIncludes`
    - `DefinedTermSet` → `TermRule` (term documentation; currently pass-through)
 
-3. **Detect root class rule** — the property rule with `rdfs:label: "@id"` and `value: "ro-crate-metadata.json"` identifies the Metadata Descriptor class rule. This sets the starting point for validation.
+3. **Detect root class rule** — the property rule with `rdfs:label: "@id"` and a `rangeIncludes` reference to a `PropertyValue` containing `"ro-crate-metadata.json"` identifies the Metadata Descriptor class rule. This sets the starting point for validation.
 
 4. **Validate the target crate** — for each class rule, iterate all entities in the target crate:
    - Resolve the entity's `@type` values through the target crate's JSON-LD context
@@ -198,8 +207,8 @@ The validator (`soss-validator.js`) works as follows:
    - Count valid instances and check against `sh:minCount`/`sh:maxCount`
 
 5. **Property rule validation** — for each matching entity:
-   - If the property has a `value` constraint, check for exact match
-   - Otherwise check cardinality (`sh:minCount`, `sh:maxCount`)
+  - Check cardinality (`sh:minCount`, `sh:maxCount`)
+  - If `rangeIncludes` references one or more `PropertyValue` entities, apply those literal/object/regex constraints
    - If `rangeIncludes` is set, validate each value: primitive types (Text, Number, Boolean, Date) are checked by JS type; entity references are looked up in the crate and validated recursively against the referenced class rule; `ItemList` values are checked against the list's `itemListElement` entries
 
 6. **Results** — the validator returns `{ error, success, rules }` where `rules` contains per-entity property success/error details keyed by rule ID and entity ID.
@@ -213,9 +222,13 @@ The validator (`soss-validator.js`) works as follows:
 | On an `rdfs:Class` entity | How many instances of this type must exist in the whole crate |
 | On an `rdf:Property` entity | How many values this property must/may have on each matching entity |
 
-### Fixed-Value Properties
+### PropertyValue Constraints
 
-A property rule with a `value` field asserts that the property must have exactly that value. This is most commonly used for the metadata descriptor's `@id`, which must always be `"ro-crate-metadata.json"`. It is also used for entities like fixed dataset directory identifiers (e.g. `"@id": "examples/"`).
+Literal and pattern-based constraints are expressed with `PropertyValue` entities that are referenced from property `rangeIncludes`.
+
+- Use a `PropertyValue` with a literal `value` for exact matches (for example the metadata descriptor `@id`).
+- Use a `PropertyValue` with regex literal strings (for example `/^readme\\.md$/i`) for pattern-based checks.
+- Keep `rdf:Property` rules focused on domain, cardinality, and linkage to constraints via `rangeIncludes`.
 
 ### ItemList Validation
 
@@ -239,7 +252,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | Text | ro-crate-metadata.json |
+| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |  |
 | <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 
@@ -347,7 +360,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_rangeIncludes_rdfProperty" title="#prop_rangeIncludes_rdfProperty">rangeIncludes</a> | <a href="http://schema.org/rangeIncludes" target="_blank" rel="noopener">http://schema.org/rangeIncludes</a> | No | The expected value type(s) for this property. Range validation is intentionally omitted because these reference external schema types (Text, URL, Integer, etc.) that are not entities in the crate. |  |  |
 | <a href="#prop_maxCount_rdfProperty" title="#prop_maxCount_rdfProperty">sh:maxCount</a> | <a href="http://www.w3.org/ns/shacl#maxCount" target="_blank" rel="noopener">http://www.w3.org/ns/shacl#maxCount</a> | No | Maximum number of times this property MAY appear on entities of the domain class. | Integer |  |
 | <a href="#prop_minCount_rdfProperty" title="#prop_minCount_rdfProperty">sh:minCount</a> | <a href="http://www.w3.org/ns/shacl#minCount" target="_blank" rel="noopener">http://www.w3.org/ns/shacl#minCount</a> | No | Minimum number of times this property MUST appear on entities of the domain class. | Integer |  |
-| <a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a> | <a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a> | No | A fixed value that this property MUST have on conforming entities. | Text |  |
+| <a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a> | <a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a> | No | Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property. | Text |  |
 
 ### Examples of Type
 #### Examples
@@ -503,7 +516,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  |  | Text | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  |  | Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -638,12 +651,24 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a> | <a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a> | A fixed value that this property MUST have on conforming entities. | Text | <a href="#class_rdfProperty" title="#class_rdfProperty">Property</a> |
+| <a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a> | <a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a> | Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property. | Text | <a href="#class_rdfProperty" title="#class_rdfProperty">Property</a> |
 ### <a id="prop_version_ProfileDataset" title="#prop_version_ProfileDataset"></a> Property: version
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#prop_version_ProfileDataset" title="#prop_version_ProfileDataset">version</a> | <a href="http://schema.org/version" target="_blank" rel="noopener">http://schema.org/version</a> | The version of this profile using semantic versioning (MAJOR.MINOR.PATCH). | Text | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |
+## Property Values
+
+### <a id="propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor"></a> Property Value: RO-Crate Metadata Descriptor Identifier Constraint
+
+ID: #propertyValue_prop_id_MetadataDescriptor
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
 
 
 ## Item Lists
@@ -652,9 +677,19 @@ Instances of this type MAY be present in the crate.
 
 Canonical identifiers that indicate conformance to this profile.
 
-| Item | Description |
-| ---- | ----------- |
-| <a id="profile" href="https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile" target="_blank" rel="noopener">RO-Crate MASP Profile</a> |  |
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>RO-Crate MASP Profile</td><td><a id="profile" href="https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile" target="_blank" rel="noopener">https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;RO-Crate MASP Profile&quot;,
+  &quot;url&quot;: &quot;https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/&quot;
+}</code></pre></td></tr>
+</tbody></table>
 
 
 
@@ -917,6 +952,9 @@ Canonical identifiers that indicate conformance to this profile.
     },
     {
       "@id": "#class_ResourceRole"
+    },
+    {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor"
     }
   ]
 }
@@ -1017,13 +1055,17 @@ Canonical identifiers that indicate conformance to this profile.
   "@type": "rdf:Property",
   "name": "@id",
   "rdfs:label": "@id",
-  "value": "ro-crate-metadata.json",
   "domainIncludes": {
     "@id": "#class_MetadataDescriptor"
   },
-  "rangeIncludes": {
-    "@id": "Text"
-  },
+  "rangeIncludes": [
+    {
+      "@id": "Text"
+    },
+    {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor"
+    }
+  ],
   "sh:minCount": 1,
   "sh:maxCount": 1
 }

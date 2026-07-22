@@ -1218,7 +1218,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a>, <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. In a SoSS+ profile there may be Schemas present for more than one 'flavour' of Root Data Entity with different @type arrays or `@conformsTo` references (or other specializations). | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
 
 
@@ -1237,7 +1237,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
-| <a href="#README.id" title="#README.id">@id</a> |  | Yes | There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#README_Entity" title="#README_Entity">README Entity</a> | README.html |
+| <a href="#README.id" title="#README.id">@id</a> |  | Yes | There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#README_Entity" title="#README_Entity">README Entity</a>, <a href="#propertyValue_README.id" title="#propertyValue_README.id">README Entity Identifier Constraint</a> |  |
 
 
 ### <a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity
@@ -1267,12 +1267,12 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#README.id" title="#README.id">@id</a> |  | There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#README_Entity" title="#README_Entity">README Entity</a> | <a href="#README_Entity" title="#README_Entity">README Entity</a> |
+| <a href="#README.id" title="#README.id">@id</a> |  | There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`. | <a href="#README_Entity" title="#README_Entity">README Entity</a>, <a href="#propertyValue_README.id" title="#propertyValue_README.id">README Entity Identifier Constraint</a> | <a href="#README_Entity" title="#README_Entity">README Entity</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a>, <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -1758,3 +1758,25 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#prop_usageInfo_Dataset" title="#prop_usageInfo_Dataset">usageInfo</a> | <a href="http://schema.org/usageInfo" target="_blank" rel="noopener">http://schema.org/usageInfo</a> | Additional information on licensing options for using the data, e.g. 'Contact the Data Steward to discuss license terms'. | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> | <a href="#class_Dataset" title="#class_Dataset">Dataset</a> |
+## Property Values
+
+### <a id="propertyValue_README.id" title="#propertyValue_README.id"></a> Property Value: README Entity Identifier Constraint
+
+ID: #propertyValue_README.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_README.id" title="#propertyValue_README.id">README Entity Identifier Constraint</a></td><td>Allowed identifier value constraint for README Entity.</td><td><div><strong>Literal String</strong><pre><code>README.html</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadata Descriptor Identifier Constraint
+
+ID: #propertyValue_RO-Crate_Metadata_Descriptor.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+

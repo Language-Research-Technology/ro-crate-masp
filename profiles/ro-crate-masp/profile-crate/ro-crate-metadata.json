@@ -227,6 +227,9 @@
         },
         {
           "@id": "#class_ResourceRole"
+        },
+        {
+          "@id": "#propertyValue_prop_id_MetadataDescriptor"
         }
       ]
     },
@@ -444,13 +447,17 @@
       "@type": "rdf:Property",
       "name": "@id",
       "rdfs:label": "@id",
-      "value": "ro-crate-metadata.json",
       "domainIncludes": {
         "@id": "#class_MetadataDescriptor"
       },
-      "rangeIncludes": {
-        "@id": "Text"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "#propertyValue_prop_id_MetadataDescriptor"
+        }
+      ],
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
@@ -835,7 +842,7 @@
       "@type": "rdf:Property",
       "name": "value",
       "rdfs:label": "value",
-      "description": "A fixed value that this property MUST have on conforming entities.",
+      "description": "Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property.",
       "prov:specializationOf": {
         "@id": "http://schema.org/value"
       },
@@ -973,6 +980,15 @@
       "name": "Crate-O Editor Mode File",
       "encodingFormat": "application/json",
       "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
+    },
+    {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
     }
   ]
 }

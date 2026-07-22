@@ -652,6 +652,12 @@
         },
         {
           "@id": "ldac:WrittenLanguageTypeTerms"
+        },
+        {
+          "@id": "#propertyValue_README.id"
+        },
+        {
+          "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
         }
       ]
     },
@@ -1153,13 +1159,17 @@
         "@id": "#README_Entity"
       },
       "rdfs:comment": "README file",
-      "rangeIncludes": {
-        "@id": "#README_Entity"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "#README_Entity"
+        },
+        {
+          "@id": "#propertyValue_README.id"
+        }
+      ],
       "sh:minCount": "1",
       "sh:maxCount": "1",
-      "description": "There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`.",
-      "value": "README.html"
+      "description": "There must with the path `README.html` in the root of the RO-Crate, and it must be described by an entity of type README_Entity with an @id of `README.html`."
     },
     {
       "@id": "#Root_Data_Entity",
@@ -3318,16 +3328,20 @@
         "@id": "#RO-Crate_Metadata_Descriptor"
       },
       "rdfs:comment": "The RO-Crate Metadata Descriptor",
-      "rangeIncludes": {
-        "@id": "#Root_Data_Entity"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "#Root_Data_Entity"
+        },
+        {
+          "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
+        }
+      ],
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
       "sh:maxCount": "1",
-      "description": "This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'.",
-      "value": "ro-crate-metadata.json"
+      "description": "This is the 'magic' entity that identifies the RO-Crate Metadata Descriptor, which is the root of the graph and the entry point for validation. It must have a @type of RO-Crate_Metadata_Descriptor and its @id must be 'ro-crate-metadata.json'."
     },
     {
       "@id": "ldac:AccessControlList",
@@ -4180,6 +4194,24 @@
       ],
       "name": "Ldac Profile",
       "url": "https://w3id.org/ldac/profile/"
+    },
+    {
+      "@id": "#propertyValue_README.id",
+      "@type": "PropertyValue",
+      "name": "README Entity Identifier Constraint",
+      "description": "Allowed identifier value constraint for README Entity.",
+      "value": "README.html",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
     }
   ]
 }

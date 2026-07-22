@@ -31,7 +31,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> |  |
 | <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
 
 
@@ -50,7 +50,7 @@ Instances of this type SHOULD be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
-| <a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
 | <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
 | <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWorkLicense" title="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text |  |
 | <a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text |  |
@@ -78,17 +78,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  |  | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
-### <a id="prop_datePublised_Dataset" title="#prop_datePublised_Dataset"></a> Property: datePublished
+### <a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 ### <a id="prop_description_Dataset" title="#prop_description_Dataset"></a> Property: description
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -104,6 +104,18 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+## Property Values
+
+### <a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadadata Descriptor Identifier Constraint
+
+ID: #propertyValue_RO-Crate_Metadata_Descriptor.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
 
 
 ## Defined Term Sets

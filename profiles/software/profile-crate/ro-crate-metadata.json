@@ -298,6 +298,9 @@
         },
         {
           "@id": "#class_SoftwareSourceCode"
+        },
+        {
+          "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
         }
       ]
     },
@@ -315,7 +318,6 @@
     {
       "@id": "#RO-Crate_Metadata_Descriptor.id",
       "@type": "rdf:Property",
-      "value": "ro-crate-metadata.json",
       "description": "The RO-Crate Metadata file identifier",
       "rdfs:label": "@id",
       "domainIncludes": [
@@ -323,9 +325,14 @@
           "@id": "#RO-Crate_Metadata_Descriptor"
         }
       ],
-      "rangeIncludes": {
-        "@id": "#Root_Data_Entity"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "#Root_Data_Entity"
+        },
+        {
+          "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
+        }
+      ],
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
@@ -967,6 +974,15 @@
       ],
       "name": "Software Profile",
       "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/software/profile-crate/"
+    },
+    {
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
     }
   ]
 }

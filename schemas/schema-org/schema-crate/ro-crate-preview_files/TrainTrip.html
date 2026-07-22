@@ -25,7 +25,41 @@
 <p>A trip on a commercial train line.</p>
 <p><strong>Subclass of:</strong> <a href="./Trip.html">Trip</a></p>
 <h2>Properties from TrainTrip</h2>
-<p><em>No properties defined directly on this class.</em></p>
+<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><span title="https://schema.org/arrivalPlatform">arrivalPlatform</span></td><td></td><td>The platform where the train arrives.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/arrivalStation">arrivalStation</span></td><td></td><td>The station where the train trip ends.</td><td><a href="./TrainStation.html">TrainStation</a></td></tr>
+<tr><td><span title="https://schema.org/departurePlatform">departurePlatform</span></td><td></td><td>The platform from which the train departs.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/departureStation">departureStation</span></td><td></td><td>The station from which the train departs.</td><td><a href="./TrainStation.html">TrainStation</a></td></tr>
+<tr><td><span title="https://schema.org/trainName">trainName</span></td><td></td><td>The name of the train (e.g. The Orient Express).</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/trainNumber">trainNumber</span></td><td></td><td>The unique identifier for the train.</td><td><a href="./Text.html">Text</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Trip.html">Trip</a></h2>
+<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><span title="https://schema.org/arrivalTime">arrivalTime</span></td><td></td><td>The expected arrival time.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Time.html">Time</a></td></tr>
+<tr><td><span title="https://schema.org/departureTime">departureTime</span></td><td></td><td>The expected departure time.</td><td><a href="./DateTime.html">DateTime</a>, <a href="./Time.html">Time</a></td></tr>
+<tr><td><span title="https://schema.org/itinerary">itinerary</span></td><td></td><td>Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is important use [[ItemList]] to specify that order (see examples).</td><td><a href="./ItemList.html">ItemList</a>, <a href="./Place.html">Place</a></td></tr>
+<tr><td><span title="https://schema.org/offers">offers</span></td><td></td><td>An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]] to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a [[Demand]]. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer. </td><td><a href="./Demand.html">Demand</a>, <a href="./Offer.html">Offer</a></td></tr>
+<tr><td><span title="https://schema.org/partOfTrip">partOfTrip</span></td><td></td><td>Identifies that this [[Trip]] is a subTrip of another Trip. For example Day 1, Day 2, etc. of a multi-day trip.</td><td><a href="./Trip.html">Trip</a></td></tr>
+<tr><td><span title="https://schema.org/provider">provider</span></td><td></td><td>The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><span title="https://schema.org/subTrip">subTrip</span></td><td></td><td>Identifies a [[Trip]] that is a subTrip of this Trip. For example Day 1, Day 2, etc. of a multi-day trip.</td><td><a href="./Trip.html">Trip</a></td></tr>
+<tr><td><span title="https://schema.org/tripOrigin">tripOrigin</span></td><td></td><td>The location of origin of the trip, prior to any destination(s).</td><td><a href="./Place.html">Place</a></td></tr>
+</tbody></table>
+<h2>Properties from <a href="./Thing.html">Thing</a></h2>
+<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>
+<tr><td><span title="https://schema.org/additionalType">additionalType</span></td><td></td><td>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. Typically the value is a URI-identified RDF class, and in this case corresponds to the use of rdf:type in RDF. Text values can be used sparingly, for cases where useful information can be added without their being an appropriate schema to reference. In the case of text values, the class label should follow the schema.org <a href="https://schema.org/docs/styleguide.html">style guide</a>.</td><td><a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><span title="https://schema.org/alternateName">alternateName</span></td><td></td><td>An alias for the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/description">description</span></td><td></td><td>A description of the item.</td><td><a href="./Text.html">Text</a>, <a href="./TextObject.html">TextObject</a></td></tr>
+<tr><td><span title="https://schema.org/disambiguatingDescription">disambiguatingDescription</span></td><td></td><td>A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/identifier">identifier</span></td><td></td><td>The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details. </td><td><a href="./PropertyValue.html">PropertyValue</a>, <a href="./Text.html">Text</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><span title="https://schema.org/image">image</span></td><td></td><td>An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].</td><td><a href="./ImageObject.html">ImageObject</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><span title="https://schema.org/mainEntityOfPage">mainEntityOfPage</span></td><td></td><td>Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./URL.html">URL</a></td></tr>
+<tr><td><span title="https://schema.org/name">name</span></td><td></td><td>The name of the item.</td><td><a href="./Text.html">Text</a></td></tr>
+<tr><td><span title="https://schema.org/owner">owner</span></td><td></td><td>A person or organization who owns this Thing.</td><td><a href="./Organization.html">Organization</a>, <a href="./Person.html">Person</a></td></tr>
+<tr><td><span title="https://schema.org/potentialAction">potentialAction</span></td><td></td><td>Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.</td><td><a href="./Action.html">Action</a></td></tr>
+<tr><td><span title="https://schema.org/sameAs">sameAs</span></td><td></td><td>URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.</td><td><a href="./URL.html">URL</a></td></tr>
+<tr><td><span title="https://schema.org/subjectOf">subjectOf</span></td><td></td><td>A CreativeWork or Event about this Thing.</td><td><a href="./CreativeWork.html">CreativeWork</a>, <a href="./Event.html">Event</a></td></tr>
+<tr><td><span title="https://schema.org/url">url</span></td><td></td><td>URL of the item.</td><td><a href="./URL.html">URL</a></td></tr>
+</tbody></table>
 
   </div>
   <script>

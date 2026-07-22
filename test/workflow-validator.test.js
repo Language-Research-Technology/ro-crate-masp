@@ -42,6 +42,19 @@ describe("Workflow Profile Tests", function () {
     };
   }
 
+  function updateEntityId(crate, oldId, newId) {
+    if (typeof crate.updateEntityId === "function") {
+      crate.updateEntityId(oldId, newId);
+      return;
+    }
+
+    const entity = crate.getEntity(oldId);
+    if (!entity) {
+      return;
+    }
+    entity["@id"] = newId;
+  }
+
   it("fails when conformsTo is missing", async function () {
     const validator = new MaspValidator(workflowProfileCrate);
     const targetCrate = loadTargetCrate();
@@ -102,6 +115,50 @@ describe("Workflow Profile Tests", function () {
     expect(results.rules["#classProfile"]?.[freshProfile["@id"]]?.["property-success"]).to.deep.include({
       message: `Property "name" validation succeeded for entity ${freshProfile["@id"]}`,
     });
+  });
+
+  it("accepts README @id matching /^readme\\.md$/i", async function () {
+    const validator = new MaspValidator(workflowProfileCrate);
+    const targetCrate = loadTargetCrate();
+    const oldReadmeId = "README.md";
+    const newReadmeId = "ReAdMe.Md";
+
+    updateEntityId(targetCrate, oldReadmeId, newReadmeId);
+    const readmeEntity = targetCrate.getEntity(newReadmeId);
+    readmeEntity["@type"] = ["File", "CreativeWork", "MediaObject"];
+    readmeEntity.about = { "@id": "./" };
+
+    const results = await validator.validateCrate(targetCrate);
+    const readmeRule = results.rules["#class_CreativeWork_README"]?.[newReadmeId] || {};
+    const propertySuccess = readmeRule["property-success"] || [];
+
+    expect(
+      propertySuccess.some((x) =>
+        x.message.includes(`Property "@id" validation succeeded for entity ${newReadmeId}`)
+      )
+    ).to.equal(true);
+  });
+
+  it("fails README @id that does not match /^readme\\.md$/i", async function () {
+    const validator = new MaspValidator(workflowProfileCrate);
+    const targetCrate = loadTargetCrate();
+    const oldReadmeId = "README.md";
+    const newReadmeId = "readme.txt";
+
+    updateEntityId(targetCrate, oldReadmeId, newReadmeId);
+    const readmeEntity = targetCrate.getEntity(newReadmeId);
+    readmeEntity["@type"] = ["File", "CreativeWork", "MediaObject"];
+    readmeEntity.about = { "@id": "./" };
+
+    const results = await validator.validateCrate(targetCrate);
+    const readmeRule = results.rules["#class_CreativeWork_README"]?.[newReadmeId] || {};
+    const propertyErrors = readmeRule["property-errors"] || [];
+
+    expect(
+      propertyErrors.some((x) =>
+        x.message.includes(`Property "@id" validation failed for entity ${newReadmeId}`)
+      )
+    ).to.equal(true);
   });
 
 });

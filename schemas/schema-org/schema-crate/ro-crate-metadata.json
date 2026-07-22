@@ -1,5 +1,7 @@
 {
-  "@context": "https://w3id.org/ro/crate/1.2/context",
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context"
+  ],
   "@graph": [
     {
       "@id": "ro-crate-metadata.json",
@@ -30,6 +32,12 @@
       "hasPart": [
         {
           "@id": "schema-documentation.md"
+        },
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "ro-crate-preview_files"
         }
       ]
     },
@@ -9012,6 +9020,32 @@
         {
           "@id": "https://schema.org/ZoneBoardingPolicy"
         }
+      ]
+    },
+    {
+      "@id": "schema-documentation.md",
+      "@type": "File",
+      "name": "schema-documentation.md",
+      "description": "",
+      "dateModified": "2026-07-22T15:32:19+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ]
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "index.html",
+      "description": "",
+      "dateModified": "2026-07-22T15:32:25+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
       ]
     },
     {
@@ -54456,6 +54490,16 @@
       "rdfs:label": "ZoneBoardingPolicy",
       "name": "ZoneBoardingPolicy",
       "rdfs:comment": "The airline boards by zones of the plane."
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
     }
   ]
 }

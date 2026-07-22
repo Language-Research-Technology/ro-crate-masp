@@ -124,7 +124,7 @@ Example class and property rules for a hypothetical scholarly profile:
 
 ### Linking the Metadata Descriptor
 
-Every MASP profile must define how to find the root class rule which describes the RO-Crate [Root Data Entity](https://www.researchobject.org/ro-crate/specification/1.2/terminology.html). This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `value` is `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
+Every MASP profile must define how to find the root class rule which describes the RO-Crate [Root Data Entity](https://www.researchobject.org/ro-crate/specification/1.2/terminology.html). This is done via a special property rule whose `rdfs:label` is `"@id"` and whose `rangeIncludes` points to a `PropertyValue` containing `"ro-crate-metadata.json"`. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows `about` to find the Root Data Entity class:
  
 ```json
 {
@@ -138,8 +138,16 @@ Every MASP profile must define how to find the root class rule which describes t
   "@id": "#prop_id_MetadataDescriptor",
   "@type": "rdf:Property",
   "rdfs:label": "@id",
-  "value": "ro-crate-metadata.json",
+  "rangeIncludes": {"@id": "#propertyValue_prop_id_MetadataDescriptor"},
   "domainIncludes": {"@id": "#class_MetadataDescriptor"},
+  "sh:minCount": 1,
+  "sh:maxCount": 1
+},
+{
+  "@id": "#propertyValue_prop_id_MetadataDescriptor",
+  "@type": "PropertyValue",
+  "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+  "value": "ro-crate-metadata.json",
   "sh:minCount": 1,
   "sh:maxCount": 1
 },
@@ -155,7 +163,7 @@ Every MASP profile must define how to find the root class rule which describes t
 }
 ```
 
-The validator uses the `#prop_id_MetadataDescriptor` pattern (`rdfs:label: "@id"` + `value: "ro-crate-metadata.json"`) to locate the root class rule at parse time.
+The validator uses the `#prop_id_MetadataDescriptor` pattern (`rdfs:label: "@id"` + `rangeIncludes` to a `PropertyValue` containing `"ro-crate-metadata.json"`) to locate the root class rule at parse time.
 
 ### How the Validator Finds Schema Rules
 
@@ -185,11 +193,12 @@ The validator (`soss-validator.js`) works as follows:
 
 2. **Parse rules** — for each entity in `hasPart`:
    - `rdfs:Class` → `ClassRule` (type matching + cardinality)
-   - `rdf:Property` → `PropertyRule` (presence, cardinality, range, fixed value)
+  - `rdf:Property` → `PropertyRule` (presence, cardinality, range, PropertyValue constraints)
    - `ItemList` → `ItemListRule` (enumerated allowed values)
+  - `PropertyValue` → value constraint wrappers referenced from property `rangeIncludes`
    - `DefinedTermSet` → `TermRule` (term documentation; currently pass-through)
 
-3. **Detect root class rule** — the property rule with `rdfs:label: "@id"` and `value: "ro-crate-metadata.json"` identifies the Metadata Descriptor class rule. This sets the starting point for validation.
+3. **Detect root class rule** — the property rule with `rdfs:label: "@id"` and a `rangeIncludes` reference to a `PropertyValue` containing `"ro-crate-metadata.json"` identifies the Metadata Descriptor class rule. This sets the starting point for validation.
 
 4. **Validate the target crate** — for each class rule, iterate all entities in the target crate:
    - Resolve the entity's `@type` values through the target crate's JSON-LD context
@@ -198,8 +207,8 @@ The validator (`soss-validator.js`) works as follows:
    - Count valid instances and check against `sh:minCount`/`sh:maxCount`
 
 5. **Property rule validation** — for each matching entity:
-   - If the property has a `value` constraint, check for exact match
-   - Otherwise check cardinality (`sh:minCount`, `sh:maxCount`)
+  - Check cardinality (`sh:minCount`, `sh:maxCount`)
+  - If `rangeIncludes` references one or more `PropertyValue` entities, apply those literal/object/regex constraints
    - If `rangeIncludes` is set, validate each value: primitive types (Text, Number, Boolean, Date) are checked by JS type; entity references are looked up in the crate and validated recursively against the referenced class rule; `ItemList` values are checked against the list's `itemListElement` entries
 
 6. **Results** — the validator returns `{ error, success, rules }` where `rules` contains per-entity property success/error details keyed by rule ID and entity ID.
@@ -213,9 +222,13 @@ The validator (`soss-validator.js`) works as follows:
 | On an `rdfs:Class` entity | How many instances of this type must exist in the whole crate |
 | On an `rdf:Property` entity | How many values this property must/may have on each matching entity |
 
-### Fixed-Value Properties
+### PropertyValue Constraints
 
-A property rule with a `value` field asserts that the property must have exactly that value. This is most commonly used for the metadata descriptor's `@id`, which must always be `"ro-crate-metadata.json"`. It is also used for entities like fixed dataset directory identifiers (e.g. `"@id": "examples/"`).
+Literal and pattern-based constraints are expressed with `PropertyValue` entities that are referenced from property `rangeIncludes`.
+
+- Use a `PropertyValue` with a literal `value` for exact matches (for example the metadata descriptor `@id`).
+- Use a `PropertyValue` with regex literal strings (for example `/^readme\\.md$/i`) for pattern-based checks.
+- Keep `rdf:Property` rules focused on domain, cardinality, and linkage to constraints via `rangeIncludes`.
 
 ### ItemList Validation
 

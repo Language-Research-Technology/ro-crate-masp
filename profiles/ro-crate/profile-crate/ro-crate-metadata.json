@@ -130,13 +130,16 @@
           "@id": "#prop_description_Dataset"
         },
         {
-          "@id": "#prop_datePublised_Dataset"
+          "@id": "#prop_datePublished_Dataset"
         },
         {
           "@id": "#prop_license_Dataset"
         },
         {
           "@id": "#class_CreativeWorkLicense"
+        },
+        {
+          "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
         }
       ]
     },
@@ -179,14 +182,16 @@
     {
       "@id": "#RO-Crate_Metadata_Descriptor.id",
       "@type": "rdf:Property",
-      "value": "ro-crate-metadata.json",
       "description": "The RO-Crate Metadata ",
       "rdfs:label": "@id",
       "domainIncludes": {
         "@id": "#RO-Crate_Metadata_Descriptor"
       },
       "sh:minCount": 1,
-      "sh:maxCount": 1
+      "sh:maxCount": 1,
+      "rangeIncludes": {
+        "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
+      }
     },
     {
       "@id": "#RO-Crate_Metadata_Descriptor.about",
@@ -251,7 +256,7 @@
       "sh:minCount": 1
     },
     {
-      "@id": "#prop_datePublised_Dataset",
+      "@id": "#prop_datePublished_Dataset",
       "@type": "rdf:Property",
       "rdfs:label": "datePublished",
       "name": "datePublished",
@@ -363,6 +368,15 @@
       ],
       "name": "Ro Crate Profile",
       "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
+    },
+    {
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
     }
   ]
 }

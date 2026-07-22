@@ -83,6 +83,16 @@ dgs -up-> psd : Generate Documentation
 
 ![alt text](image.png)
 
+## Constraint Modeling Note
+
+Rule constraints that assert literal values are modeled via `PropertyValue` entities referenced from a property's `rangeIncludes`.
+
+- Do not put constraint literals directly on `rdf:Property` rules using a `value` field.
+- Define a `PropertyValue` entity with a clear name and its `value` (literal, `@id` object, or regex literal string).
+- Reference that `PropertyValue` from the relevant property rule through `rangeIncludes`.
+
+This pattern is now the canonical way to express fixed and pattern-based value constraints in this repository.
+
 ## Running the tests
 
 ```bash
