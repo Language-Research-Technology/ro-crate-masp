@@ -165,7 +165,7 @@
 </code></pre>
 <p><strong>Important</strong>: use <code>domainIncludes</code> (not <code>schema:domainIncludes</code>) — the validator resolves property names through the RO-Crate JSON-LD context, where the <code>schema:</code> prefix is not defined by default.</p>
 <h3>Linking the Metadata Descriptor</h3>
-<p>Every MASP profile must define how to find the root class rule which describes the RO-Crate <a href="https://www.researchobject.org/ro-crate/specification/1.2/terminology.html">Root Data Entity</a>. This is done via a special property rule whose <code>rdfs:label</code> is <code>&quot;@id&quot;</code> and whose <code>value</code> is <code>&quot;ro-crate-metadata.json&quot;</code>. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows <code>about</code> to find the Root Data Entity class:</p>
+<p>Every MASP profile must define how to find the root class rule which describes the RO-Crate <a href="https://www.researchobject.org/ro-crate/specification/1.2/terminology.html">Root Data Entity</a>. This is done via a special property rule whose <code>rdfs:label</code> is <code>&quot;@id&quot;</code> and whose <code>rangeIncludes</code> points to a <code>PropertyValue</code> containing <code>&quot;ro-crate-metadata.json&quot;</code>. The validator detects this pattern to identify which class rule is the Metadata Descriptor — and from there, follows <code>about</code> to find the Root Data Entity class:</p>
 <pre><code class="language-json">{
   &quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;,
   &quot;@type&quot;: &quot;rdfs:Class&quot;,
@@ -177,8 +177,16 @@
   &quot;@id&quot;: &quot;#prop_id_MetadataDescriptor&quot;,
   &quot;@type&quot;: &quot;rdf:Property&quot;,
   &quot;rdfs:label&quot;: &quot;@id&quot;,
-  &quot;value&quot;: &quot;ro-crate-metadata.json&quot;,
+  &quot;rangeIncludes&quot;: {&quot;@id&quot;: &quot;#propertyValue_prop_id_MetadataDescriptor&quot;},
   &quot;domainIncludes&quot;: {&quot;@id&quot;: &quot;#class_MetadataDescriptor&quot;},
+  &quot;sh:minCount&quot;: 1,
+  &quot;sh:maxCount&quot;: 1
+},
+{
+  &quot;@id&quot;: &quot;#propertyValue_prop_id_MetadataDescriptor&quot;,
+  &quot;@type&quot;: &quot;PropertyValue&quot;,
+  &quot;name&quot;: &quot;RO-Crate Metadata Descriptor Identifier Constraint&quot;,
+  &quot;value&quot;: &quot;ro-crate-metadata.json&quot;,
   &quot;sh:minCount&quot;: 1,
   &quot;sh:maxCount&quot;: 1
 },
@@ -193,7 +201,7 @@
   &quot;sh:maxCount&quot;: 1
 }
 </code></pre>
-<p>The validator uses the <code>#prop_id_MetadataDescriptor</code> pattern (<code>rdfs:label: &quot;@id&quot;</code> + <code>value: &quot;ro-crate-metadata.json&quot;</code>) to locate the root class rule at parse time.</p>
+<p>The validator uses the <code>#prop_id_MetadataDescriptor</code> pattern (<code>rdfs:label: &quot;@id&quot;</code> + <code>rangeIncludes</code> to a <code>PropertyValue</code> containing <code>&quot;ro-crate-metadata.json&quot;</code>) to locate the root class rule at parse time.</p>
 <h3>How the Validator Finds Schema Rules</h3>
 <p>The validator locates schema rules by inspecting the profile's <code>hasResource</code> array for a <code>ResourceDescriptor</code> entity with <code>hasRole</code> pointing to <code>http://www.w3.org/ns/dx/prof/role/schema</code>. The <code>hasPart</code> array of that descriptor lists all the schema entities (<code>rdfs:Class</code>, <code>rdf:Property</code>, <code>ItemList</code>, <code>DefinedTermSet</code>):</p>
 <pre><code class="language-json">{
@@ -219,13 +227,18 @@
 <p><strong>Parse rules</strong> — for each entity in <code>hasPart</code>:</p>
 <ul>
 <li><code>rdfs:Class</code> → <code>ClassRule</code> (type matching + cardinality)</li>
-<li><code>rdf:Property</code> → <code>PropertyRule</code> (presence, cardinality, range, fixed value)</li>
-<li><code>ItemList</code> → <code>ItemListRule</code> (enumerated allowed values)</li>
-<li><code>DefinedTermSet</code> → <code>TermRule</code> (term documentation; currently pass-through)</li>
 </ul>
 </li>
+</ol>
+<ul>
+<li><code>rdf:Property</code> → <code>PropertyRule</code> (presence, cardinality, range, PropertyValue constraints)</li>
+<li><code>ItemList</code> → <code>ItemListRule</code> (enumerated allowed values)</li>
+<li><code>PropertyValue</code> → value constraint wrappers referenced from property <code>rangeIncludes</code></li>
+<li><code>DefinedTermSet</code> → <code>TermRule</code> (term documentation; currently pass-through)</li>
+</ul>
+<ol start="3">
 <li>
-<p><strong>Detect root class rule</strong> — the property rule with <code>rdfs:label: &quot;@id&quot;</code> and <code>value: &quot;ro-crate-metadata.json&quot;</code> identifies the Metadata Descriptor class rule. This sets the starting point for validation.</p>
+<p><strong>Detect root class rule</strong> — the property rule with <code>rdfs:label: &quot;@id&quot;</code> and a <code>rangeIncludes</code> reference to a <code>PropertyValue</code> containing <code>&quot;ro-crate-metadata.json&quot;</code> identifies the Metadata Descriptor class rule. This sets the starting point for validation.</p>
 </li>
 <li>
 <p><strong>Validate the target crate</strong> — for each class rule, iterate all entities in the target crate:</p>
@@ -238,15 +251,15 @@
 </li>
 <li>
 <p><strong>Property rule validation</strong> — for each matching entity:</p>
+</li>
+</ol>
 <ul>
-<li>If the property has a <code>value</code> constraint, check for exact match</li>
-<li>Otherwise check cardinality (<code>sh:minCount</code>, <code>sh:maxCount</code>)</li>
+<li>Check cardinality (<code>sh:minCount</code>, <code>sh:maxCount</code>)</li>
+<li>If <code>rangeIncludes</code> references one or more <code>PropertyValue</code> entities, apply those literal/object/regex constraints</li>
 <li>If <code>rangeIncludes</code> is set, validate each value: primitive types (Text, Number, Boolean, Date) are checked by JS type; entity references are looked up in the crate and validated recursively against the referenced class rule; <code>ItemList</code> values are checked against the list's <code>itemListElement</code> entries</li>
 </ul>
-</li>
-<li>
-<p><strong>Results</strong> — the validator returns <code>{ error, success, rules }</code> where <code>rules</code> contains per-entity property success/error details keyed by rule ID and entity ID.</p>
-</li>
+<ol start="6">
+<li><strong>Results</strong> — the validator returns <code>{ error, success, rules }</code> where <code>rules</code> contains per-entity property success/error details keyed by rule ID and entity ID.</li>
 </ol>
 <h3>Cardinality on Classes vs Properties</h3>
 <p><code>sh:minCount</code>/<code>sh:maxCount</code> mean different things depending on where they appear:</p>
@@ -268,8 +281,13 @@
 </tr>
 </tbody>
 </table>
-<h3>Fixed-Value Properties</h3>
-<p>A property rule with a <code>value</code> field asserts that the property must have exactly that value. This is most commonly used for the metadata descriptor's <code>@id</code>, which must always be <code>&quot;ro-crate-metadata.json&quot;</code>. It is also used for entities like fixed dataset directory identifiers (e.g. <code>&quot;@id&quot;: &quot;examples/&quot;</code>).</p>
+<h3>PropertyValue Constraints</h3>
+<p>Literal and pattern-based constraints are expressed with <code>PropertyValue</code> entities that are referenced from property <code>rangeIncludes</code>.</p>
+<ul>
+<li>Use a <code>PropertyValue</code> with a literal <code>value</code> for exact matches (for example the metadata descriptor <code>@id</code>).</li>
+<li>Use a <code>PropertyValue</code> with regex literal strings (for example <code>/^readme\\.md$/i</code>) for pattern-based checks.</li>
+<li>Keep <code>rdf:Property</code> rules focused on domain, cardinality, and linkage to constraints via <code>rangeIncludes</code>.</li>
+</ul>
 <h3>ItemList Validation</h3>
 <p>When a property's <code>rangeIncludes</code> references an <code>ItemList</code> entity, the value must match one of the <code>itemListElement</code> entries by <code>@id</code>. Item elements can include additional properties that must also match, allowing for constrained contextual entity definitions within a profile.</p>
 <p><strong>13</strong> classes &middot; <strong>29</strong> properties</p>
@@ -373,8 +391,8 @@
 <td></td>
 <td>Yes</td>
 <td></td>
-<td>Text</td>
-<td>ro-crate-metadata.json</td>
+<td>Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="#prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor">about</a></td>
@@ -746,7 +764,7 @@
 <td><a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a></td>
 <td><a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a></td>
 <td>No</td>
-<td>A fixed value that this property MUST have on conforming entities.</td>
+<td>Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property.</td>
 <td>Text</td>
 <td></td>
 </tr>
@@ -1171,7 +1189,7 @@
 <td><a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a></td>
 <td></td>
 <td></td>
-<td>Text</td>
+<td>Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a></td>
 <td><a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a></td>
 </tr>
 </tbody>
@@ -1737,7 +1755,7 @@
 <tr>
 <td><a href="#prop_value_rdfProperty" title="#prop_value_rdfProperty">value</a></td>
 <td><a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a></td>
-<td>A fixed value that this property MUST have on conforming entities.</td>
+<td>Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property.</td>
 <td>Text</td>
 <td><a href="#class_rdfProperty" title="#class_rdfProperty">Property</a></td>
 </tr>
@@ -1764,23 +1782,30 @@
 </tr>
 </tbody>
 </table>
+<h2>Property Values</h2>
+<h3><a id="propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor"></a> Property Value: RO-Crate Metadata Descriptor Identifier Constraint</h3>
+<p>ID: #propertyValue_prop_id_MetadataDescriptor</p>
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
 <h2>Item Lists</h2>
 <h3><a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers</h3>
 <p>Canonical identifiers that indicate conformance to this profile.</p>
 <table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Description</th>
-</tr>
-</thead>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
 <tbody>
-<tr>
-<td><a id="profile" href="https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile" target="_blank" rel="noopener">RO-Crate MASP Profile</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<tr><td>RO-Crate MASP Profile</td><td><a id="profile" href="https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile" target="_blank" rel="noopener">https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;RO-Crate MASP Profile&quot;,
+  &quot;url&quot;: &quot;https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/&quot;
+}</code></pre></td></tr>
+</tbody></table>
 <h2>Examples</h2>
 <p><a id="hasExampleMASPProfile"></a></p>
 <h2>Example-1: Example: A minimal MASP profile crate</h2>
@@ -2026,6 +2051,9 @@
     },
     {
       "@id": "#class_ResourceRole"
+    },
+    {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor"
     }
   ]
 }
@@ -2111,13 +2139,17 @@
   "@type": "rdf:Property",
   "name": "@id",
   "rdfs:label": "@id",
-  "value": "ro-crate-metadata.json",
   "domainIncludes": {
     "@id": "#class_MetadataDescriptor"
   },
-  "rangeIncludes": {
-    "@id": "Text"
-  },
+  "rangeIncludes": [
+    {
+      "@id": "Text"
+    },
+    {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor"
+    }
+  ],
   "sh:minCount": 1,
   "sh:maxCount": 1
 }

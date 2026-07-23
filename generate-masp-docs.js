@@ -86,6 +86,53 @@ function clean(str) {
   return str.toString().replace(/\s+/g, " ");
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function isRegexLiteralString(value) {
+  if (typeof value !== "string" || value.length < 2 || value[0] !== "/") {
+    return false;
+  }
+
+  const lastSlash = value.lastIndexOf("/");
+  if (lastSlash <= 0) {
+    return false;
+  }
+
+  const pattern = value.slice(1, lastSlash);
+  const flags = value.slice(lastSlash + 1);
+
+  try {
+    new RegExp(pattern, flags);
+    return true;
+  } catch (_error) {
+    return false;
+  }
+}
+
+function renderPropertyValueCell(value, profileCrate) {
+  if (typeof value === "object" && value !== null && value["@id"]) {
+    const resolved = getCrateEntity(profileCrate, value["@id"]) || value;
+    return `<pre><code>${escapeHtml(JSON.stringify(resolved, null, 2))}</code></pre>`;
+  }
+
+  if (isRegexLiteralString(value)) {
+    return `<div><strong>Regex Pattern</strong><pre><code>${escapeHtml(value)}</code></pre></div>`;
+  }
+
+  if (typeof value === "string") {
+    return `<div><strong>Literal String</strong><pre><code>${escapeHtml(value)}</code></pre></div>`;
+  }
+
+  return `<pre><code>${escapeHtml(JSON.stringify(value, null, 2))}</code></pre>`;
+}
+
 function getAnchorId(id) {
   if (!id) return '';
   // For fragment identifiers (#foo), strip the #
@@ -491,21 +538,25 @@ try {
         return aName.localeCompare(bName);
       });
 
-      listSummary += `| Item | Description |\n`;
-      listSummary += `| ---- | ----------- |\n`;
+      listSummary += `<table>\n`;
+      listSummary += `<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>\n`;
+      listSummary += `<tbody>\n`;
 
       items.forEach((item) => {
         const itemId = item["@id"];
         const itemAnchorId = getAnchorId(itemId);
         const itemName = item["name"] || item["rdfs:label"] || itemId;
-        const itemDesc = item["description"] || item["rdfs:comment"] || "";
-        const itemLink = itemId
-          ? `<a id="${itemAnchorId}" href="${clean(itemId)}" target="_blank" rel="noopener">${clean(itemName)}</a>`
-          : `<a id="${itemAnchorId}">${clean(itemName)}</a>`;
-        listSummary += `| ${itemLink} | ${clean(itemDesc)} |\n`;
+        const itemIdCell = itemId
+          ? `<a id="${itemAnchorId}" href="${clean(itemId)}" target="_blank" rel="noopener">${clean(itemId)}</a>`
+          : "";
+        const itemEntityJson = `<pre><code>${escapeHtml(
+          JSON.stringify(item, null, 2)
+        )}</code></pre>`;
+        listSummary += `<tr><td>${clean(itemName)}</td><td>${itemIdCell}</td><td>${itemEntityJson}</td></tr>\n`;
       });
 
-      listSummary += `\n`;
+      listSummary += `</tbody></table>\n\n`;
+
     } else {
       listSummary += `*No items defined for this item list*\n\n`;
     }
@@ -752,6 +803,68 @@ try {
     propsSummary += propSummary;
   }
   rules.all += propsSummary;
+
+  // Add a property values table
+  let propertyValuesSummary = "## Property Values\n\n";
+
+  const propertyValues = (entitiesByType["PropertyValue"] || [])
+    .slice()
+    .sort((a, b) => {
+      const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
+      const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
+      return aName.localeCompare(bName);
+    });
+
+  if (propertyValues.length === 0) {
+    propertyValuesSummary += "No PropertyValue entities are defined.\n\n";
+  }
+
+  for (const pv of propertyValues) {
+    const pvId = pv["@id"];
+    const pvLabel = pv["name"] || pv["rdfs:label"] || pvId;
+    const pvName = `Property Value: ${pvLabel}`;
+    const pvAnchorId = getAnchorId(pvId);
+    const pvDesc = pv["description"] || pv["rdfs:comment"] || "";
+
+    let valueCell = "";
+    const rawValueField = pv["value"];
+    const rawValues = Array.isArray(rawValueField)
+      ? rawValueField
+      : rawValueField !== undefined && rawValueField !== null
+      ? [rawValueField]
+      : [];
+    if (rawValues.length > 0) {
+      valueCell = rawValues
+        .map((v) => renderPropertyValueCell(v, profileCrate))
+        .join("<hr />");
+    }
+
+    const min =
+      pv["sh:minCount"] !== undefined ? String(pv["sh:minCount"]) : "N/A";
+    const max =
+      pv["sh:maxCount"] !== undefined ? String(pv["sh:maxCount"]) : "N/A";
+
+    let pvSummary = `### <a id="${pvAnchorId}" title="${clean(
+      pvId
+    )}"></a> ${clean(pvName)}\n\n`;
+    pvSummary += `ID: ${clean(pvId)}\n\n`;
+    pvSummary += `<table>\n`;
+    pvSummary += `<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>\n`;
+    pvSummary += `<tbody>\n`;
+    pvSummary += `<tr><td><a href="#${pvAnchorId}" title="${clean(pvId)}">${clean(
+      pvLabel
+    )}</a></td><td>${clean(pvDesc)}</td><td>${valueCell}</td><td>${clean(min)}</td><td>${clean(
+      max
+    )}</td></tr>\n`;
+    pvSummary += `</tbody></table>\n\n`;
+
+    setRuleDirect(pvId, pvSummary);
+    setRuleAliases(pvSummary, [pvName, pvLabel, pvId, pvAnchorId]);
+    propertyValuesSummary += pvSummary;
+  }
+
+  rules.allPropertyValues = propertyValuesSummary;
+  rules.all += propertyValuesSummary;
 
   // Backward-compatible template variables used by some profile-text.md files
   if (rootDataEntityId) {

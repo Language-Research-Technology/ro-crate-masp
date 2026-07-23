@@ -26,15 +26,6 @@
       "name": "RO-Crate Metadata Specification 1.2"
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
-      "name": "RO-Crate MASP Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-    },
-    {
       "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/",
       "@type": [
         "Dataset",
@@ -88,6 +79,15 @@
           "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
         }
       ]
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#author",
@@ -227,6 +227,9 @@
         },
         {
           "@id": "#class_ResourceRole"
+        },
+        {
+          "@id": "#propertyValue_prop_id_MetadataDescriptor"
         }
       ]
     },
@@ -286,24 +289,19 @@
       }
     },
     {
-      "@id": "#conformanceIndicators",
-      "@type": "ItemList",
-      "name": "Supported conformsTo identifiers",
-      "description": "Canonical identifiers that indicate conformance to this profile.",
-      "itemListElement": [
-        {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
-        }
-      ]
-    },
-    {
       "@id": "index.html",
       "@type": "File",
       "name": "RO-Crate MASP Profile description",
-      "encodingFormat": "text/html",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
+      ],
       "about": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-      }
+      },
+      "dateModified": "2026-07-22T15:37:00+10:00"
     },
     {
       "@id": "profile-documentation.md",
@@ -320,7 +318,8 @@
       },
       "isPartOf": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-      }
+      },
+      "dateModified": "2026-07-22T15:37:00+10:00"
     },
     {
       "@id": "#class_MetadataDescriptor",
@@ -444,13 +443,17 @@
       "@type": "rdf:Property",
       "name": "@id",
       "rdfs:label": "@id",
-      "value": "ro-crate-metadata.json",
       "domainIncludes": {
         "@id": "#class_MetadataDescriptor"
       },
-      "rangeIncludes": {
-        "@id": "Text"
-      },
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "#propertyValue_prop_id_MetadataDescriptor"
+        }
+      ],
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
@@ -835,7 +838,7 @@
       "@type": "rdf:Property",
       "name": "value",
       "rdfs:label": "value",
-      "description": "A fixed value that this property MUST have on conforming entities.",
+      "description": "Constraint content carried by a PropertyValue entity. Property rules SHOULD reference PropertyValue via rangeIncludes rather than storing literal constraints directly on rdf:Property.",
       "prov:specializationOf": {
         "@id": "http://schema.org/value"
       },
@@ -924,6 +927,15 @@
       }
     },
     {
+      "@id": "#propertyValue_prop_id_MetadataDescriptor",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
       "@id": "#MASPProfileExample",
       "@type": "LearningResource",
       "name": "A minimal MASP profile crate",
@@ -962,17 +974,66 @@
       "description": "Role indicating a resource is an editor configuration mode file."
     },
     {
+      "@id": "crate-o-mode.json",
+      "@type": "File",
+      "name": "Crate-O Editor Mode File",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817"
+        },
+        "application/json"
+      ],
+      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
+      "dateModified": "2026-05-22T08:29:17+10:00"
+    },
+    {
       "@id": "https://w3id.org/ro/conformance-indicators",
       "@type": "DefinedTerm",
       "name": "Conformance Indicators",
       "description": "Role indicating a resource enumerates identifiers that are accepted as conformance indicators for the profile."
     },
     {
-      "@id": "crate-o-mode.json",
-      "@type": "File",
-      "name": "Crate-O Editor Mode File",
-      "encodingFormat": "application/json",
-      "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself)."
+      "@id": "#conformanceIndicators",
+      "@type": "ItemList",
+      "name": "Supported conformsTo identifiers",
+      "description": "Canonical identifiers that indicate conformance to this profile.",
+      "itemListElement": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile"
+        }
+      ]
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
+      "@type": "DigitalFormat",
+      "name": "Markdown"
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
+      "@type": "DigitalFormat",
+      "name": "JSON Data Interchange Format"
+    },
+    {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": ".",
+      "description": "",
+      "hasPart": [
+        {
+          "@id": "crate-o-mode.json"
+        },
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "profile-documentation.md"
+        }
+      ]
     }
   ]
 }

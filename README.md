@@ -18,6 +18,7 @@ If this work goes forward then this repository will probably turn into the home 
 
 These are the published GitHub Pages versions of the current profiles and schemas:
 
+  - Profile: RO-Crate 2 Profile (NEW): https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-2/profile-crate/index.html
   - Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
   - Profile: RO-Crate Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/index.html
   - Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
@@ -82,6 +83,16 @@ dgs -up-> psd : Generate Documentation
 -->
 
 ![alt text](image.png)
+
+## Constraint Modeling Note
+
+Rule constraints that assert literal values are modeled via `PropertyValue` entities referenced from a property's `rangeIncludes`.
+
+- Do not put constraint literals directly on `rdf:Property` rules using a `value` field.
+- Define a `PropertyValue` entity with a clear name and its `value` (literal, `@id` object, or regex literal string).
+- Reference that `PropertyValue` from the relevant property rule through `rangeIncludes`.
+
+This pattern is now the canonical way to express fixed and pattern-based value constraints in this repository.
 
 ## Running the tests
 

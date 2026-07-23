@@ -99,7 +99,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  |  | ro-crate-metadata.json |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> |  |
 | <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
 
 ### Examples of Type
@@ -123,8 +123,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
-| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | Yes | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a> |  |
-| <a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
+| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | Yes | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> |  |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | Yes | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date |  |
 | <a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> | <a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a> | Yes | (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. | Text |  |
 | <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWork" title="#class_CreativeWork">class_CreativeWork</a>, schema:URL, schema:Text |  |
 | <a href="#Property_mainEntity_Workflow" title="#Property_mainEntity_Workflow">mainEntity</a> | <a href="http://schema.org/mainEntity" target="_blank" rel="noopener">http://schema.org/mainEntity</a> | Yes | Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow. | <a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> |  |
@@ -192,9 +192,9 @@ Instances of this type SHOULD be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
-| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> |  | Yes | README file must have @id of `README.md`. |  | README.md |
+| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> |  | Yes | README file must have an @id matching /^readme\.md$/i. | <a href="#propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id">README ID Pattern</a> |  |
 | <a href="#property_CreativeWork_README.about" title="#property_CreativeWork_README.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | The README.md file SHOULD have an about property referencing the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
-| <a href="#property_CreativeWork_README.encodingFormat" title="#property_CreativeWork_README.encodingFormat">encodingFormat</a> | <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">http://schema.org/encodingFormat</a> | Yes | Readme file must have an encodingFormat of `text/markdown`. |  | text/markdown |
+| <a href="#property_CreativeWork_README.encodingFormat" title="#property_CreativeWork_README.encodingFormat">encodingFormat</a> | <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">http://schema.org/encodingFormat</a> | Yes | Readme file must have an encodingFormat of `text/markdown`. | <a href="#propertyValue_property_CreativeWork_README.encodingFormat" title="#propertyValue_property_CreativeWork_README.encodingFormat">README File encodingFormat Constraint</a> |  |
 
 
 ### <a id="class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory"></a> Class: Test Directory
@@ -212,7 +212,7 @@ Instances of this type SHOULD be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
-| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> |  | Yes | The RO-Crate Metadata  |  | test/ |
+| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id">Test Directory Identifier Constraint</a> |  |
 
 ### Examples of Type
 #### Examples
@@ -235,7 +235,7 @@ Instances of this type SHOULD be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
-| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> |  | Yes | The RO-Crate Metadata  |  | examples/ |
+| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id">Examples Directory Identifier Constraint</a> |  |
 
 ### Examples of Type
 #### Examples
@@ -264,28 +264,47 @@ Instances of this type MAY be present in the crate.
 -  [Example-1: diagram.svg](#diagram.svg)
 
 
+
+### <a id="classProfile" title="#classProfile"></a> Class: Profile
+
+A generic profile entity.
+
+At least 1 instances of this type MUST be present in the crate.
+
+ A maximum of 1 instances of this type  MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| 1 | 1 |
+
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Profile" title="http://schema.org/Profile" target="_blank" rel="noopener">Profile</a> |
+| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  | Yes |  | Text |  |
+| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  | Yes |  | Text |  |
+
 ## All Properties
 
 ### <a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  |  | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="property_CreativeWork_README.id" title="#property_CreativeWork_README.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> |  | README file must have @id of `README.md`. |  | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
+| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> |  | README file must have an @id matching /^readme\.md$/i. | <a href="#propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id">README ID Pattern</a> | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
 ### <a id="property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> |  | The RO-Crate Metadata  |  | <a href="#class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory">Test Directory</a> |
+| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id">Test Directory Identifier Constraint</a> | <a href="#class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory">Test Directory</a> |
 ### <a id="property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> |  | The RO-Crate Metadata  |  | <a href="#class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory">Examples Directory</a> |
+| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id">Examples Directory Identifier Constraint</a> | <a href="#class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory">Examples Directory</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -300,12 +319,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_profile_itemList" title="#Root_Data_Entity_profile_itemList">Profile Item List</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
-### <a id="prop_datePublised_Dataset" title="#prop_datePublised_Dataset"></a> Property: datePublished
+| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+| <a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> | <a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a> | MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. | schema:Date | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 ### <a id="prop_description_Dataset" title="#prop_description_Dataset"></a> Property: description
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -315,7 +334,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_CreativeWork_README.encodingFormat" title="#property_CreativeWork_README.encodingFormat">encodingFormat</a> | <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">http://schema.org/encodingFormat</a> | Readme file must have an encodingFormat of `text/markdown`. |  | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
+| <a href="#property_CreativeWork_README.encodingFormat" title="#property_CreativeWork_README.encodingFormat">encodingFormat</a> | <a href="http://schema.org/encodingFormat" target="_blank" rel="noopener">http://schema.org/encodingFormat</a> | Readme file must have an encodingFormat of `text/markdown`. | <a href="#propertyValue_property_CreativeWork_README.encodingFormat" title="#propertyValue_property_CreativeWork_README.encodingFormat">README File encodingFormat Constraint</a> | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
 ### <a id="Property_MainWorkflow_image" title="#Property_MainWorkflow_image"></a> Property: image
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -336,6 +355,11 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+### <a id="prop_name_classProfile" title="#prop_name_classProfile"></a> Property: name
+
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
 ### <a id="Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow"></a> Property: programmingLanguage
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -351,6 +375,82 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#Property_MainWorkflow_subjectOf" title="#Property_MainWorkflow_subjectOf">subjectOf</a> | <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">http://schema.org/subjectOf</a> | Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description. | <a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a> | <a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> |
+### <a id="prop_version_classProfile" title="#prop_version_classProfile"></a> Property: version
+
+| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
+| -------- | ----------------- | ----------- | ----------- | ----------- |
+| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
+## Property Values
+
+### <a id="propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id"></a> Property Value: Examples Directory Identifier Constraint
+
+ID: #propertyValue_property_Dataset_Examples_Directory.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id">Examples Directory Identifier Constraint</a></td><td>Allowed identifier value constraint for Examples Directory.</td><td><div><strong>Literal String</strong><pre><code>examples/</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="propertyValue_property_CreativeWork_README.encodingFormat" title="#propertyValue_property_CreativeWork_README.encodingFormat"></a> Property Value: README File encodingFormat Constraint
+
+ID: #propertyValue_property_CreativeWork_README.encodingFormat
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_property_CreativeWork_README.encodingFormat" title="#propertyValue_property_CreativeWork_README.encodingFormat">README File encodingFormat Constraint</a></td><td>Allowed value constraint for README File property encodingFormat.</td><td><div><strong>Literal String</strong><pre><code>text/markdown</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id"></a> Property Value: README ID Pattern
+
+ID: #propertyValue_property_CreativeWork_README.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id">README ID Pattern</a></td><td>README file must have an @id of README.md (case-insensitive).</td><td><div><strong>Regex Pattern</strong><pre><code>/^readme\.md$/i</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value"></a> Property Value: Required Workflow Profile Value
+
+ID: #Root_Data_Entity_conformsTo_value
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a></td><td>A constrained conformsTo value that must appear exactly once.</td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate/1.0&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;Workflow RO-Crate Profile (experimental)&quot;,
+  &quot;version&quot;: &quot;0.4.0&quot;,
+  &quot;description&quot;: &quot;This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2&quot;
+}</code></pre></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadadata Descriptor Identifier Constraint
+
+ID: #propertyValue_RO-Crate_Metadata_Descriptor.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
+### <a id="propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id"></a> Property Value: Test Directory Identifier Constraint
+
+ID: #propertyValue_property_Dataset_Test_Directory.id
+
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id">Test Directory Identifier Constraint</a></td><td>Allowed identifier value constraint for Test Directory.</td><td><div><strong>Literal String</strong><pre><code>test/</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
+
 
 
 
@@ -360,37 +460,124 @@ Instances of this type MAY be present in the crate.
 
 A list of valid profile values for this RO-Crate Profile
 
-| Item | Description |
-| ---- | ----------- |
-| <a id="https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0" href="https://w3id.org/workflowhub/workflow-ro-crate/1.0" target="_blank" rel="noopener">Workflow RO-Crate Profile (experimental)</a> | This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity as per RO-Crate 1.2 |
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Workflow RO-Crate Profile (experimental)</td><td><a id="https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0" href="https://w3id.org/workflowhub/workflow-ro-crate/1.0" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate/1.0</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate/1.0&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;Workflow RO-Crate Profile (experimental)&quot;,
+  &quot;version&quot;: &quot;0.4.0&quot;,
+  &quot;description&quot;: &quot;This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2&quot;
+}</code></pre></td></tr>
+</tbody></table>
 
 ### <a id="programmingLanguages"></a>Item List: Programming Languages
 
 A list of programming languages that can be used to implement the Main Workflow
 
-| Item | Description |
-| ---- | ----------- |
-| <a id="cwl" href="https://w3id.org/workflowhub/workflow-ro-crate#cwl" target="_blank" rel="noopener">Common Workflow Language</a> |  |
-| <a id="galaxy" href="https://w3id.org/workflowhub/workflow-ro-crate#galaxy" target="_blank" rel="noopener">Galaxy</a> |  |
-| <a id="knime" href="https://w3id.org/workflowhub/workflow-ro-crate#knime" target="_blank" rel="noopener">KNIME</a> |  |
-| <a id="nextflow" href="https://w3id.org/workflowhub/workflow-ro-crate#nextflow" target="_blank" rel="noopener">Nextflow</a> |  |
-| <a id="snakemake" href="https://w3id.org/workflowhub/workflow-ro-crate#snakemake" target="_blank" rel="noopener">Snakemake</a> |  |
-
-### <a id="programmingLanguageCWLList"></a>Item List: Common Workflow Language
-
-A list containing only the Common Workflow Language (CWL) as a programming language for the WWorkflow Description.
-
-| Item | Description |
-| ---- | ----------- |
-| <a id="cwl" href="https://w3id.org/workflowhub/workflow-ro-crate#cwl" target="_blank" rel="noopener">Common Workflow Language</a> |  |
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Common Workflow Language</td><td><a id="cwl" href="https://w3id.org/workflowhub/workflow-ro-crate#cwl" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#cwl</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#cwl&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;Common Workflow Language&quot;,
+  &quot;alternateName&quot;: &quot;CWL&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://w3id.org/cwl/v1.2/&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://www.commonwl.org/&quot;
+  }
+}</code></pre></td></tr>
+<tr><td>Galaxy</td><td><a id="galaxy" href="https://w3id.org/workflowhub/workflow-ro-crate#galaxy" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#galaxy</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#galaxy&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;Galaxy&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://galaxyproject.org/&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://galaxyproject.org/&quot;
+  }
+}</code></pre></td></tr>
+<tr><td>KNIME</td><td><a id="knime" href="https://w3id.org/workflowhub/workflow-ro-crate#knime" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#knime</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#knime&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;KNIME&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://www.knime.com/&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://www.knime.com/&quot;
+  }
+}</code></pre></td></tr>
+<tr><td>Nextflow</td><td><a id="nextflow" href="https://w3id.org/workflowhub/workflow-ro-crate#nextflow" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#nextflow</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#nextflow&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;Nextflow&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://www.nextflow.io/&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://www.nextflow.io/&quot;
+  }
+}</code></pre></td></tr>
+<tr><td>Snakemake</td><td><a id="snakemake" href="https://w3id.org/workflowhub/workflow-ro-crate#snakemake" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#snakemake</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#snakemake&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;Snakemake&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://doi.org/10.1093/bioinformatics/bts480&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://snakemake.readthedocs.io&quot;
+  }
+}</code></pre></td></tr>
+</tbody></table>
 
 ### <a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers
 
 Canonical identifiers that indicate conformance to this profile.
 
-| Item | Description |
-| ---- | ----------- |
-| <a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F" href="https://w3id.org/ro/workflow-crate/" target="_blank" rel="noopener">Workflow Profile</a> | This is an experimental port of the RO-Crate Workflow Profile to a proposed 'RO-Crate Schema' format. |
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Workflow Profile</td><td><a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F1.0" href="https://w3id.org/ro/workflow-crate/1.0" target="_blank" rel="noopener">https://w3id.org/ro/workflow-crate/1.0</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;Workflow Profile&quot;,
+  &quot;url&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;
+}</code></pre></td></tr>
+</tbody></table>
+
+### <a id="programmingLanguageCWLList"></a>Item List: Common Workflow Language
+
+A list containing only the Common Workflow Language (CWL) as a programming language for the Workflow Description.
+
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Common Workflow Language</td><td><a id="cwl" href="https://w3id.org/workflowhub/workflow-ro-crate#cwl" target="_blank" rel="noopener">https://w3id.org/workflowhub/workflow-ro-crate#cwl</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/workflowhub/workflow-ro-crate#cwl&quot;,
+  &quot;@type&quot;: &quot;ComputerLanguage&quot;,
+  &quot;name&quot;: &quot;Common Workflow Language&quot;,
+  &quot;alternateName&quot;: &quot;CWL&quot;,
+  &quot;identifier&quot;: {
+    &quot;@id&quot;: &quot;https://w3id.org/cwl/v1.2/&quot;
+  },
+  &quot;url&quot;: {
+    &quot;@id&quot;: &quot;https://www.commonwl.org/&quot;
+  }
+}</code></pre></td></tr>
+</tbody></table>
 
 
 
@@ -463,6 +650,12 @@ Canonical identifiers that indicate conformance to this profile.
     },
     {
       "@id": "profile-documentation.md"
+    },
+    {
+      "@id": "crate-o-mode.json"
+    },
+    {
+      "@id": "index.html"
     }
   ]
 }

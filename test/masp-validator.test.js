@@ -73,6 +73,78 @@ describe("MASP Profile Tests", function () {
     };
   }
 
+  function makePropertyValueProfileCrate() {
+    return {
+      "@context": [
+        "https://w3id.org/ro/crate/1.2/context",
+        { "@vocab": "http://schema.org/" },
+      ],
+      "@graph": [
+        {
+          "@id": "ro-crate-metadata.json",
+          "@type": "CreativeWork",
+          "conformsTo": { "@id": "https://w3id.org/ro/crate/1.2" },
+          "about": { "@id": "./" },
+        },
+        {
+          "@id": "./",
+          "@type": ["Dataset", "Profile"],
+          "name": "PropertyValue Profile",
+          "description": "Minimal profile for PropertyValue rangeIncludes tests",
+          "version": "0.1.0",
+          "isProfileOf": [{ "@id": "https://w3id.org/ro/crate/1.2" }],
+          "hasResource": [{ "@id": "#hasSchema" }],
+        },
+        {
+          "@id": "#hasSchema",
+          "@type": "ResourceDescriptor",
+          "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/schema" },
+          "hasPart": [
+            { "@id": "#Root_Data_Entity" },
+            { "@id": "#prop_conformsTo_Root_Data_Entity" },
+            { "@id": "#Root_Data_Entity_profile_value" },
+            { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" },
+          ],
+        },
+        {
+          "@id": "#Root_Data_Entity",
+          "@type": "rdfs:Class",
+          "name": "Root Data Entity",
+          "prov:specializationOf": { "@id": "http://schema.org/Dataset" },
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+        },
+        {
+          "@id": "#prop_conformsTo_Root_Data_Entity",
+          "@type": "rdf:Property",
+          "name": "conformsTo",
+          "rdfs:label": "conformsTo",
+          "domainIncludes": { "@id": "#Root_Data_Entity" },
+          "rangeIncludes": [
+            { "@id": "#Root_Data_Entity_profile_value" },
+            { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" },
+          ],
+          "sh:minCount": 1,
+        },
+        {
+          "@id": "#Root_Data_Entity_profile_value",
+          "@type": "PropertyValue",
+          "name": "Required profile identifier",
+          "value": { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" },
+          "sh:minCount": 1,
+          "sh:maxCount": 1,
+        },
+        {
+          "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
+          "@type": ["CreativeWork", "Profile"],
+          "name": "Workflow RO-Crate Profile (experimental)",
+          "version": "0.4.0",
+          "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2",
+        },
+      ],
+    };
+  }
+
   // -----------------------------------------------------------------
   // Structural tests for the MASP profile crate itself
   // -----------------------------------------------------------------
@@ -245,10 +317,17 @@ describe("MASP Profile Tests", function () {
       expect(rule.minCount).to.equal(1);
     });
 
-    it("#prop_id_MetadataDescriptor has fixed value 'ro-crate-metadata.json'", function () {
+    it("#prop_id_MetadataDescriptor uses PropertyValue constraint for 'ro-crate-metadata.json'", function () {
       const rule = validator.rules.properties["#prop_id_MetadataDescriptor"];
-      expect(rule.fixedValue).to.not.be.undefined;
-      expect(rule.fixedValue).to.include("ro-crate-metadata.json");
+      const ranges = Array.isArray(rule.rangeIncludes)
+        ? rule.rangeIncludes
+        : [rule.rangeIncludes];
+      const pvRef = ranges.find((r) => r && r["@id"] === "#propertyValue_prop_id_MetadataDescriptor");
+      expect(pvRef).to.not.be.undefined;
+
+      const pvRule = validator.rules.propertyValues["#propertyValue_prop_id_MetadataDescriptor"];
+      expect(pvRule).to.not.be.undefined;
+      expect(pvRule.value).to.include("ro-crate-metadata.json");
     });
 
     it("#prop_hasRole_ResourceDescriptor has minCount=1, maxCount=1", function () {
@@ -760,6 +839,155 @@ describe("MASP Profile Tests", function () {
       expect(results).to.have.property("error");
       expect(results).to.have.property("success");
       expect(results).to.have.property("rules");
+    });
+  });
+
+  describe("PropertyValue rangeIncludes handling", function () {
+    it("accepts a required PropertyValue and a matching profile entity", async function () {
+      const profileCrate = new ROCrate(makePropertyValueProfileCrate(), {
+        array: true,
+        link: true,
+      });
+      const validator = new MaspValidator(profileCrate);
+      const targetCrate = new ROCrate({ array: true, link: true });
+      targetCrate.root["@type"] = ["Dataset", "Profile"];
+      targetCrate.addEntity({
+        "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0",
+        "@type": ["CreativeWork", "Profile"],
+        "name": "Workflow RO-Crate Profile (experimental)",
+        "version": "0.4.0",
+        "description": "This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2",
+      });
+      targetCrate.root.conformsTo = [
+        { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" },
+      ];
+
+      const results = await validator.validateCrate(targetCrate);
+      expect(results.error).to.have.length(0);
+    });
+
+    it("fails when the required PropertyValue is missing", async function () {
+      const profileCrate = new ROCrate(makePropertyValueProfileCrate(), {
+        array: true,
+        link: true,
+      });
+      const validator = new MaspValidator(profileCrate);
+      const targetCrate = new ROCrate({ array: true, link: true });
+      targetCrate.root["@type"] = ["Dataset", "Profile"];
+      targetCrate.addEntity({
+        "@id": "https://example.org/other-profile",
+        "@type": ["CreativeWork", "Profile"],
+        "name": "Other Profile",
+        "version": "1.0.0",
+      });
+      targetCrate.root.conformsTo = [
+        { "@id": "https://example.org/other-profile" },
+      ];
+
+      const results = await validator.validateCrate(targetCrate);
+      expect(results.error.length).to.be.greaterThan(0);
+      expect(
+        JSON.stringify(results.rules["#prop_conformsTo_Root_Data_Entity"])
+      ).to.include("value constraint #Root_Data_Entity_profile_value");
+    });
+
+    it("supports regex flags on PropertyValue constraints", async function () {
+      const regexProfile = {
+        "@context": [
+          "https://w3id.org/ro/crate/1.2/context",
+          { "@vocab": "http://schema.org/" },
+        ],
+        "@graph": [
+          {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "conformsTo": { "@id": "https://w3id.org/ro/crate/1.2" },
+            "about": { "@id": "./" },
+          },
+          {
+            "@id": "./",
+            "@type": ["Dataset", "Profile"],
+            "name": "Regex Profile",
+            "description": "Profile for regex PropertyValue flag tests",
+            "version": "0.1.0",
+            "isProfileOf": [{ "@id": "https://w3id.org/ro/crate/1.2" }],
+            "hasResource": [{ "@id": "#schema" }],
+          },
+          {
+            "@id": "#schema",
+            "@type": "ResourceDescriptor",
+            "hasRole": { "@id": "http://www.w3.org/ns/dx/prof/role/schema" },
+            "hasPart": [
+              { "@id": "#class_ReadmeEntity" },
+              { "@id": "#prop_ReadmeEntity.id" },
+              { "@id": "#value_ReadmePattern" },
+            ],
+          },
+          {
+            "@id": "#class_ReadmeEntity",
+            "@type": "rdfs:Class",
+            "name": "Readme Entity",
+            "prov:specializationOf": [
+              { "@id": "http://schema.org/CreativeWork" },
+              { "@id": "http://schema.org/MediaObject" }
+            ],
+            "sh:minCount": 0,
+            "sh:maxCount": 1,
+          },
+          {
+            "@id": "#prop_ReadmeEntity.id",
+            "@type": "rdf:Property",
+            "rdfs:label": "@id",
+            "domainIncludes": { "@id": "#class_ReadmeEntity" },
+            "rangeIncludes": { "@id": "#value_ReadmePattern" },
+            "sh:minCount": 1,
+            "sh:maxCount": 1,
+          },
+          {
+            "@id": "#value_ReadmePattern",
+            "@type": "PropertyValue",
+            "name": "README Pattern",
+            "value": "/^readme\\.md$/i",
+            "sh:minCount": 1,
+            "sh:maxCount": 1,
+          }
+        ]
+      };
+
+      const profileCrate = new ROCrate(regexProfile, { array: true, link: true });
+      const validator = new MaspValidator(profileCrate);
+
+      const validTarget = new ROCrate({ array: true, link: true });
+      validTarget.root["@type"] = ["Dataset", "Profile"];
+      validTarget.addEntity({
+        "@id": "ReAdMe.Md",
+        "@type": ["File", "CreativeWork", "MediaObject"],
+        "name": "README",
+      });
+
+      const validResults = await validator.validateCrate(validTarget);
+      const validRule = validResults.rules["#class_ReadmeEntity"]?.["ReAdMe.Md"] || {};
+      expect(
+        (validRule["property-success"] || []).some((x) =>
+          x.message.includes('Property "@id" validation succeeded for entity ReAdMe.Md')
+        )
+      ).to.equal(true);
+
+      const invalidTarget = new ROCrate({ array: true, link: true });
+      invalidTarget.root["@type"] = ["Dataset", "Profile"];
+      invalidTarget.addEntity({
+        "@id": "readme.txt",
+        "@type": ["File", "CreativeWork", "MediaObject"],
+        "name": "Not README",
+      });
+
+      const invalidResults = await validator.validateCrate(invalidTarget);
+      const invalidRule = invalidResults.rules["#class_ReadmeEntity"]?.["readme.txt"] || {};
+      expect(
+        (invalidRule["property-errors"] || []).some((x) =>
+          x.message.includes('Property "@id" validation failed for entity readme.txt')
+        )
+      ).to.equal(true);
     });
   });
 });

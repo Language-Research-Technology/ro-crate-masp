@@ -514,6 +514,10 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#austalk%3Avocal_training_details" title="austalk:vocal_training_details">vocal training details</a> |  | Details of the vocal training of this person. | schema:Text | schema:Person |
+## Property Values
+
+No PropertyValue entities are defined.
+
 
 
 <br>

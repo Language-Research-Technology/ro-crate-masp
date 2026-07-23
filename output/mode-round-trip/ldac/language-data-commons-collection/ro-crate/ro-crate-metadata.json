@@ -1,0 +1,2014 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": [
+        "Dataset",
+        "http://www.w3.org/ns/dx/prof/Profile"
+      ],
+      "name": "Language Data Commons top-level Collection (corpus) Schema",
+      "description": "Schema derived from Language Data Commons top-level Collection (corpus): Implements the language data commons RO-Crate Metadata Profile for top-level collection.",
+      "version": "0.3",
+      "isProfileOf": [
+        {
+          "@id": "https://w3id.org/ro/crate/1.2"
+        }
+      ],
+      "author": [
+        {
+          "@id": "#author"
+        }
+      ],
+      "license": "GPL-3.0",
+      "conformsTo": [
+        {
+          "@id": "https://language-research-technology.github.io/ro-crate-masp/"
+        }
+      ],
+      "hasResource": [
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "ro-crate-metadata.json"
+        },
+        {
+          "@id": "profile-documentation.md"
+        },
+        {
+          "@id": "index.html"
+        },
+        {
+          "@id": "#hasSpecification"
+        },
+        {
+          "@id": "#hasGuidance"
+        },
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ]
+    },
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "identifier": "ro-crate-metadata.json",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.2"
+      }
+    },
+    {
+      "@id": "#author",
+      "@type": "Organization",
+      "name": "University of Queensland"
+    },
+    {
+      "@id": "profile-documentation.md",
+      "@type": "File",
+      "name": "profile-documentation.md",
+      "encodingFormat": "text/markdown",
+      "about": {
+        "@id": "./"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "Language Data Commons top-level Collection (corpus) profile description",
+      "encodingFormat": "text/html",
+      "about": {
+        "@id": "./"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "#hasSpecification",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Description",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+      },
+      "hasArtifact": {
+        "@id": "index.html"
+      }
+    },
+    {
+      "@id": "#hasGuidance",
+      "@type": "ResourceDescriptor",
+      "name": "Profile Documentation (Markdown source)",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/guidance"
+      },
+      "hasArtifact": {
+        "@id": "profile-documentation.md"
+      }
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.id"
+        },
+        {
+          "@id": "#Root_Data_Entity"
+        },
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor.about"
+        },
+        {
+          "@id": "#prop_name_Dataset"
+        },
+        {
+          "@id": "#prop_description_Dataset"
+        },
+        {
+          "@id": "#prop_datePublished_Dataset"
+        },
+        {
+          "@id": "#prop_license_Dataset"
+        },
+        {
+          "@id": "#class_CreativeWork"
+        },
+        {
+          "@id": "#class_Dataset"
+        },
+        {
+          "@id": "#prop_isAccessibleForFree_Dataset"
+        },
+        {
+          "@id": "#prop_annotationOf_Dataset"
+        },
+        {
+          "@id": "#prop_rightsHolder_Dataset"
+        },
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#class_Organization"
+        },
+        {
+          "@id": "#prop_isBasedOn_Dataset"
+        },
+        {
+          "@id": "#prop_creditText_Dataset"
+        },
+        {
+          "@id": "#prop_usageInfo_Dataset"
+        },
+        {
+          "@id": "#prop_author_Dataset"
+        },
+        {
+          "@id": "#prop_accountablePerson_Dataset"
+        },
+        {
+          "@id": "#prop_publisher_Dataset"
+        },
+        {
+          "@id": "#prop_funder_Dataset"
+        },
+        {
+          "@id": "#prop_citation_Dataset"
+        },
+        {
+          "@id": "#prop_doi_Dataset"
+        },
+        {
+          "@id": "#prop_temporalCoverage_Dataset"
+        },
+        {
+          "@id": "#prop_spatialCoverage_Dataset"
+        },
+        {
+          "@id": "#class_Place"
+        },
+        {
+          "@id": "#prop_hasCollectionProtocol_Dataset"
+        },
+        {
+          "@id": "#class_CollectionProtocol"
+        },
+        {
+          "@id": "#prop_hasMember_Dataset"
+        },
+        {
+          "@id": "#class_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_hasPart_Dataset"
+        },
+        {
+          "@id": "#class_File"
+        },
+        {
+          "@id": "#prop_isPartOf_Dataset"
+        },
+        {
+          "@id": "#prop_memberOf_Dataset"
+        },
+        {
+          "@id": "#class_RepositoryObject"
+        },
+        {
+          "@id": "#prop_annotator_Dataset"
+        },
+        {
+          "@id": "#prop_compiler_Dataset"
+        },
+        {
+          "@id": "#prop_consultant_Dataset"
+        },
+        {
+          "@id": "#prop_dataInputter_Dataset"
+        },
+        {
+          "@id": "#prop_depositor_Dataset"
+        },
+        {
+          "@id": "#prop_developer_Dataset"
+        },
+        {
+          "@id": "#prop_editor_Dataset"
+        },
+        {
+          "@id": "#prop_illustrator_Dataset"
+        },
+        {
+          "@id": "#prop_interviewee_Dataset"
+        },
+        {
+          "@id": "#prop_interviewer_Dataset"
+        },
+        {
+          "@id": "#prop_participant_Dataset"
+        },
+        {
+          "@id": "#prop_performer_Dataset"
+        },
+        {
+          "@id": "#prop_photographer_Dataset"
+        },
+        {
+          "@id": "#prop_recorder_Dataset"
+        },
+        {
+          "@id": "#prop_researcher_Dataset"
+        },
+        {
+          "@id": "#prop_researchParticipant_Dataset"
+        },
+        {
+          "@id": "#prop_responder_Dataset"
+        },
+        {
+          "@id": "#prop_signer_Dataset"
+        },
+        {
+          "@id": "#prop_singer_Dataset"
+        },
+        {
+          "@id": "#prop_speaker_Dataset"
+        },
+        {
+          "@id": "#prop_sponsor_Dataset"
+        },
+        {
+          "@id": "#prop_transcriber_Dataset"
+        },
+        {
+          "@id": "#prop_translator_Dataset"
+        },
+        {
+          "@id": "#prop_contentLocation_RepositoryCollection"
+        },
+        {
+          "@id": "#itemlist_conformsTo_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_conformsTo_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_inLanguage_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_ldac:subjectLanguage_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_dateCreated_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_dateFreeText_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_holdingArchive_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_isBasedOn_RepositoryCollection"
+        },
+        {
+          "@id": "#prop_author_CreativeWork"
+        },
+        {
+          "@id": "#prop_datePublished_CreativeWork"
+        },
+        {
+          "@id": "#prop_publisher_CreativeWork"
+        },
+        {
+          "@id": "#prop_isbn_CreativeWork"
+        },
+        {
+          "@id": "#prop_issn_CreativeWork"
+        },
+        {
+          "@id": "txc:ElicitationTask"
+        },
+        {
+          "@id": "txc:CollectionProtocolTypeTerms"
+        },
+        {
+          "@id": "txc:TextSelectionCriteria"
+        },
+        {
+          "@id": "#prop_collectionProtocolType_CollectionProtocol"
+        },
+        {
+          "@id": "#prop_address_Place"
+        },
+        {
+          "@id": "#prop_geo_Place"
+        },
+        {
+          "@id": "#class_Geometry"
+        },
+        {
+          "@id": "#prop_asWKT_Geometry"
+        },
+        {
+          "@id": "#prop_affiliation_Person"
+        },
+        {
+          "@id": "#prop_location_Organization"
+        },
+        {
+          "@id": "#prop_encodingFormat_File"
+        },
+        {
+          "@id": "#prop_size_File"
+        },
+        {
+          "@id": "#prop_communicationMode_File"
+        }
+      ]
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor",
+      "@type": "rdfs:Class",
+      "name": "RO-Crate Metadata Descriptor",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/CreativeWork"
+      },
+      "description": "An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.",
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor.id",
+      "@type": "rdf:Property",
+      "value": "ro-crate-metadata.json",
+      "description": "The RO-Crate Metadata file identifier",
+      "rdfs:label": "@id",
+      "domainIncludes": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#Root_Data_Entity",
+      "@type": "rdfs:Class",
+      "description": "The Root Data Entity for an RO-Crate. In this profile, it is a Dataset and RepositoryCollection.",
+      "name": "Root Data Entity",
+      "sh:minCount": 1,
+      "sh:maxCount": 1,
+      "prov:specializationOf": [
+        {
+          "@id": "http://schema.org/Dataset"
+        },
+        {
+          "@id": "http://pcdm.org/models#Collection"
+        }
+      ]
+    },
+    {
+      "@id": "#RO-Crate_Metadata_Descriptor.about",
+      "@type": "rdf:Property",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
+      },
+      "description": "This property on the RO-Crate Metadata Descriptor references the Root Data Entity.",
+      "name": "about",
+      "domainIncludes": [
+        {
+          "@id": "#RO-Crate_Metadata_Descriptor"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_name_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "name",
+      "name": "name",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "The name of this data collection.",
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_description_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "description",
+      "name": "description",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/description"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "An abstract of the collection.",
+      "rangeIncludes": {
+        "@id": "Text"
+      },
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_datePublished_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "datePublished",
+      "name": "datePublished",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/datePublished"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "A date that this collection was published.",
+      "rangeIncludes": [
+        {
+          "@id": "Date"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_license_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "license",
+      "name": "license",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/license"
+      },
+      "domainIncludes": {
+        "@id": "#Root_Data_Entity"
+      },
+      "rdfs:comment": "A license document that applies to this content, typically indicated by URL.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        },
+        {
+          "@id": "URL"
+        },
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#class_CreativeWork",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CreativeWork",
+      "name": "CreativeWork",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#CreativeWork"
+      }
+    },
+    {
+      "@id": "#class_Dataset",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Dataset",
+      "name": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      }
+    },
+    {
+      "@id": "#prop_isAccessibleForFree_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "isAccessibleForFree",
+      "name": "isAccessibleForFree",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/isAccessibleForFree"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This is available under an Open Access license.",
+      "rangeIncludes": [
+        {
+          "@id": "Boolean"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_annotationOf_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "annotationOf",
+      "name": "annotationOf",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#annotationOf"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This resource contains some kind of description that adds information to the resource it references.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_rightsHolder_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "rightsHolder",
+      "name": "rightsHolder",
+      "prov:specializationOf": {
+        "@id": "http://purl.org/dc/terms/rightsHolder"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A person or organisation owning or managing rights over the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#class_Person",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Person",
+      "name": "Person",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#Person"
+      }
+    },
+    {
+      "@id": "#class_Organization",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Organization",
+      "name": "Organization",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#Organization"
+      }
+    },
+    {
+      "@id": "#prop_isBasedOn_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "isBasedOn",
+      "name": "isBasedOn",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/isBasedOn"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Link to or description of an original resource at an institution that holds it.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "URL"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_creditText_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "creditText",
+      "name": "creditText",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/creditText"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A free text bibliographic citation for this material, e.g. 'Cite as: Musgrave (2023). Title of work. DOI'.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_usageInfo_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "usageInfo",
+      "name": "usageInfo",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/usageInfo"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Additional information on licensing options for using the data, e.g. 'Contact the Data Steward to discuss license terms'.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_author_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "author",
+      "name": "author",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/author"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The person or organisation responsible for creating this collection of data. Authors should be identified using URIs such as ORCiD or ROR.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_accountablePerson_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "accountablePerson",
+      "name": "accountablePerson",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/accountablePerson"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The person or organisation who is the data steward for this resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_publisher_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "publisher",
+      "name": "publisher",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/publisher"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The organisation responsible for releasing this dataset.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_funder_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "funder",
+      "name": "funder",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/funder"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The organisation(s) responsible for funding the creation or collection of this dataset.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_citation_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "citation",
+      "name": "citation",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/citation"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Associated publications.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_doi_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "doi",
+      "name": "doi",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#doi"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A Digital Object Identifier, e.g. https://doi.org/10.1000/182.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_temporalCoverage_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "temporalCoverage",
+      "name": "temporalCoverage",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/temporalCoverage"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The range of years of creation for items in this dataset using a slash, e.g. 1900/1945. If there are sub-collections with different coverages put this on the sub-collections not the top-level.",
+      "rangeIncludes": [
+        {
+          "@id": "DateTime"
+        },
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_spatialCoverage_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "spatialCoverage",
+      "name": "spatialCoverage",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/spatialCoverage"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The place(s) that are the focus of the content. It is a sub-property of contentLocation intended primarily for more technical and detailed materials. For example, with a dataset, it indicates areas that the dataset describes: a dataset Cape York languages would have spatialCoverage which was the place: the outline of the Cape.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Place"
+        }
+      ]
+    },
+    {
+      "@id": "#class_Place",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Place",
+      "name": "Place",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#Place"
+      }
+    },
+    {
+      "@id": "#prop_hasCollectionProtocol_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasCollectionProtocol",
+      "name": "hasCollectionProtocol",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasCollectionProtocol"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A link to a CollectionProtocol object with (at least) a summary of how resources were selected or elicited for this collection/sub-collection.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_CollectionProtocol"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#class_CollectionProtocol",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CollectionProtocol",
+      "name": "CollectionProtocol",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#CollectionProtocol"
+      }
+    },
+    {
+      "@id": "#prop_hasMember_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasMember",
+      "name": "hasMember",
+      "prov:specializationOf": {
+        "@id": "http://pcdm.org/models#hasMember"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The sub-collections, if any, associated with this collection.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ]
+    },
+    {
+      "@id": "#class_RepositoryCollection",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RepositoryCollection",
+      "name": "RepositoryCollection",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#RepositoryCollection"
+      }
+    },
+    {
+      "@id": "#prop_hasPart_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasPart",
+      "name": "hasPart",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "An item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ]
+    },
+    {
+      "@id": "#class_File",
+      "@type": "rdfs:Class",
+      "rdfs:label": "File",
+      "name": "File",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#File"
+      }
+    },
+    {
+      "@id": "#prop_isPartOf_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "isPartOf",
+      "name": "isPartOf",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/isPartOf"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
+      "rangeIncludes": [
+        {
+          "@id": "URL"
+        },
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_memberOf_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "memberOf",
+      "name": "memberOf",
+      "prov:specializationOf": {
+        "@id": "http://pcdm.org/models#memberOf"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Links from a Repository Object or Collection to a containing Repository Object or Collection.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        },
+        {
+          "@id": "#class_RepositoryObject"
+        }
+      ]
+    },
+    {
+      "@id": "#class_RepositoryObject",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RepositoryObject",
+      "name": "RepositoryObject",
+      "prov:specializationOf": {
+        "@id": "https://language-research-technology.github.io/terms#RepositoryObject"
+      }
+    },
+    {
+      "@id": "#prop_annotator_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "annotator",
+      "name": "annotator",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#annotator"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant produced an annotation of this or a related resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_compiler_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "compiler",
+      "name": "compiler",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#compiler"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This refers to someone who creates a single resource with multiple parts, such as a book of short stories, or a person who produces a corpus of resources, which may be archived separately.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_consultant_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "consultant",
+      "name": "consultant",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#consultant"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This term is commonly used by field linguists for the native speakers who work with them in describing and analysing a language. They contribute their expertise in their native language to the resource, although their speech, sign, or writing may not appear directly in the resource. In some parts of the world, the preferred term for this role is 'informant'.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_dataInputter_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "dataInputter",
+      "name": "dataInputter",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#dataInputter"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant was responsible for entering, re-typing, and/or structuring the data contained in the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_depositor_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "depositor",
+      "name": "depositor",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#depositor"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant was responsible for depositing the resource in an archive.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_developer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "developer",
+      "name": "developer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#developer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "A software programmer, designer, or analyst; a designer of a questionnaire or research task.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_editor_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "editor",
+      "name": "editor",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#editor"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This role includes anyone whose role was editorial in nature, such as proofreaders, debuggers, testers, etc. It may overlap the Compiler role in some cases.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_illustrator_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "illustrator",
+      "name": "illustrator",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#illustrator"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant contributed drawings or other illustrations to the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_interviewee_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "interviewee",
+      "name": "interviewee",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#interviewee"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant was a respondent in an interview.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_interviewer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "interviewer",
+      "name": "interviewer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#interviewer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant conducted an interview that forms part of the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_participant_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "participant",
+      "name": "participant",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#participant"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This role is intended for minor participants such as audience members or other peripherally-involved participants in the event. These interlocutors need not have been physically present.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_performer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "performer",
+      "name": "performer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#performer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "It is recommended that this term be used only for creative participants whose role is not better indicated by a more specific term, such as 'speaker', 'signer', or 'singer'.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_photographer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "photographer",
+      "name": "photographer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#photographer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant took the photograph, or shot the film, that appears in or constitutes the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_recorder_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "recorder",
+      "name": "recorder",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#recorder"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant operated the recording machinery used to create the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_researcher_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "researcher",
+      "name": "researcher",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#researcher"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The resource was created as part of the participant's research, or the research presents interim or final results from the participant's research.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_researchParticipant_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "researchParticipant",
+      "name": "researchParticipant",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#researchParticipant"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant acted as a research subject or responded to a questionnaire, the results of which study form the basis of the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_responder_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "responder",
+      "name": "responder",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#responder"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "This person's voice can be heard (or their words can be read) in the resource, typically saying the language-appropriate equivalent of \"uh-huh\", \"amen\", \"you don't say\", etc. This role is sometimes referred to as a \"yes-sayer\", \"backchanneler\", or \"co-conversant\".",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_signer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "signer",
+      "name": "signer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#signer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Those whose gestures predominate in a recorded or filmed resource. (This resource may be a transcription of that recording).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_singer_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "singer",
+      "name": "singer",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#singer"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant sang, either individually or as part of a group, in a resource that consists of a recording, a film, or a transcription of a recorded resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_speaker_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "speaker",
+      "name": "speaker",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#speaker"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "Those whose voices predominate in a recorded or filmed resource. (This resource may be a transcription of that recording).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_sponsor_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "sponsor",
+      "name": "sponsor",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#sponsor"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant contributed financial support to the creation of the resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_transcriber_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "transcriber",
+      "name": "transcriber",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#transcriber"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant produced a transcription of this or a related resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_translator_Dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "translator",
+      "name": "translator",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#translator"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Dataset"
+        }
+      ],
+      "rdfs:comment": "The participant produced a translation of this or a related resource.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_contentLocation_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "contentLocation",
+      "name": "contentLocation",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/contentLocation"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "The location depicted or described in the content. For example, the location in a photograph or painting.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Place"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "https://purl.archive.org/language-data-commons/profile#Collection",
+      "@type": "Thing"
+    },
+    {
+      "@id": "#itemlist_conformsTo_RepositoryCollection",
+      "@type": "ItemList",
+      "name": "Values for conformsTo",
+      "description": "Predefined values for the conformsTo property",
+      "itemListElement": [
+        {
+          "@id": "https://purl.archive.org/language-data-commons/profile#Collection"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_conformsTo_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "conformsTo",
+      "name": "conformsTo",
+      "prov:specializationOf": {
+        "@id": "http://purl.org/dc/terms/conformsTo"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "A link to the Text Commons RO-Crate profile for collections.",
+      "itemListElement": {
+        "@id": "#itemlist_conformsTo_RepositoryCollection"
+      },
+      "rangeIncludes": {
+        "@id": "#itemlist_conformsTo_RepositoryCollection"
+      },
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_inLanguage_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "inLanguage",
+      "name": "inLanguage",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/inLanguage"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "The language in which the resource is written.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Language"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_ldac:subjectLanguage_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "ldac:subjectLanguage",
+      "name": "ldac:subjectLanguage",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#subjectLanguage"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "The languages that the materials in the collection are about (not the language that it is in).",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Language"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_dateCreated_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "dateCreated",
+      "name": "dateCreated",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/dateCreated"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "The (earliest) date the data in this dataset were created.",
+      "rangeIncludes": [
+        {
+          "@id": "Date"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_dateFreeText_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "dateFreeText",
+      "name": "dateFreeText",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/terms#dateFreeText"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "Date information which cannot be put in one of that standard date formats, e.g. 'mid-1970s', or it is not clear, for example if it is a creation or publication date.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_holdingArchive_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "holdingArchive",
+      "name": "holdingArchive",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/holdingArchive"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "Organisation where the original of this work or collection is housed.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        },
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_isBasedOn_RepositoryCollection",
+      "@type": "rdf:Property",
+      "rdfs:label": "isBasedOn",
+      "name": "isBasedOn",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/isBasedOn"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_RepositoryCollection"
+        }
+      ],
+      "rdfs:comment": "Link to a version of this data in an online archival repository.",
+      "rangeIncludes": [
+        {
+          "@id": "URL"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_author_CreativeWork",
+      "@type": "rdf:Property",
+      "rdfs:label": "author",
+      "name": "author",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/author"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ],
+      "rdfs:comment": "The person or organisation responsible for creating this work. Authors should be identified using URIs such as ORCiD or ROR.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "#class_Person"
+        },
+        {
+          "@id": "#class_Organization"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_datePublished_CreativeWork",
+      "@type": "rdf:Property",
+      "rdfs:label": "datePublished",
+      "name": "datePublished",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/datePublished"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ],
+      "rdfs:comment": "The (earliest) date this work was created.",
+      "rangeIncludes": [
+        {
+          "@id": "Date"
+        }
+      ],
+      "sh:minCount": 1,
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_publisher_CreativeWork",
+      "@type": "rdf:Property",
+      "rdfs:label": "publisher",
+      "name": "publisher",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/publisher"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ],
+      "rdfs:comment": "The organisation that published this work.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        },
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_isbn_CreativeWork",
+      "@type": "rdf:Property",
+      "rdfs:label": "isbn",
+      "name": "isbn",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/isbn"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ],
+      "rdfs:comment": "The ISBN for this work, if applicable.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_issn_CreativeWork",
+      "@type": "rdf:Property",
+      "rdfs:label": "issn",
+      "name": "issn",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/issn"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CreativeWork"
+        }
+      ],
+      "rdfs:comment": "The ISSN for this publication.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "txc:ElicitationTask",
+      "@type": "DefinedTerm",
+      "description": "The collection protocol includes a task-based prompt to participants.",
+      "inDefinedTermSet": {
+        "@id": "txc:CollectionProtocolTypeTerms"
+      },
+      "name": "ElicitationTask"
+    },
+    {
+      "@id": "txc:CollectionProtocolTypeTerms",
+      "@type": "DefinedTermSet",
+      "name": "CollectionProtocolTypeTerms",
+      "description": "Set of defined terms for collectionProtocolType",
+      "hasDefinedTerm": [
+        {
+          "@id": "txc:ElicitationTask"
+        },
+        {
+          "@id": "txc:TextSelectionCriteria"
+        }
+      ]
+    },
+    {
+      "@id": "txc:TextSelectionCriteria",
+      "@type": "DefinedTerm",
+      "description": "A description of the criteria used to select texts in a collection.",
+      "inDefinedTermSet": {
+        "@id": "txc:CollectionProtocolTypeTerms"
+      },
+      "name": "TextSelectionCriteria"
+    },
+    {
+      "@id": "#prop_collectionProtocolType_CollectionProtocol",
+      "@type": "rdf:Property",
+      "rdfs:label": "collectionProtocolType",
+      "name": "collectionProtocolType",
+      "prov:specializationOf": {
+        "@id": "http://purl.archive.org/language-data-commons/terms#CollectionProtocolType"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_CollectionProtocol"
+        }
+      ],
+      "rdfs:comment": "The kind of collection protocol this is.",
+      "rangeIncludes": {
+        "@id": "txc:CollectionProtocolTypeTerms"
+      },
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_address_Place",
+      "@type": "rdf:Property",
+      "rdfs:label": "address",
+      "name": "address",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/address"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Place"
+        }
+      ],
+      "rdfs:comment": "The physical address of the place.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_geo_Place",
+      "@type": "rdf:Property",
+      "rdfs:label": "geo",
+      "name": "geo",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/geo"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Place"
+        }
+      ],
+      "rdfs:comment": "The geo-coordinates of the place.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Geometry"
+        }
+      ]
+    },
+    {
+      "@id": "#class_Geometry",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Geometry",
+      "name": "Geometry",
+      "prov:specializationOf": {
+        "@id": "http://www.opengis.net/ont/geosparql#Geometry"
+      }
+    },
+    {
+      "@id": "#prop_asWKT_Geometry",
+      "@type": "rdf:Property",
+      "rdfs:label": "asWKT",
+      "name": "asWKT",
+      "prov:specializationOf": {
+        "@id": "http://www.opengis.net/ont/geosparql#asWKT"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Geometry"
+        }
+      ],
+      "rdfs:comment": "The WKT serialisation of the geometry.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:minCount": 1
+    },
+    {
+      "@id": "#prop_affiliation_Person",
+      "@type": "rdf:Property",
+      "rdfs:label": "affiliation",
+      "name": "affiliation",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/affiliation"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Person"
+        }
+      ],
+      "rdfs:comment": "The organisation that this person is affiliated with. For example, a university or school.",
+      "rangeIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_location_Organization",
+      "@type": "rdf:Property",
+      "rdfs:label": "location",
+      "name": "location",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/location"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_Organization"
+        }
+      ],
+      "rdfs:comment": "A location for the organisation, e.g. a city for a publisher.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ],
+      "sh:maxCount": 1
+    },
+    {
+      "@id": "#prop_encodingFormat_File",
+      "@type": "rdf:Property",
+      "rdfs:label": "encodingFormat",
+      "name": "encodingFormat",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/encodingFormat"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ],
+      "rdfs:comment": "The media type typically expressed using a MIME format.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_size_File",
+      "@type": "rdf:Property",
+      "rdfs:label": "size",
+      "name": "size",
+      "prov:specializationOf": {
+        "@id": "https://purl.archive.org/language-data-commons/terms#size"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ],
+      "rdfs:comment": "The size in bytes.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    },
+    {
+      "@id": "#prop_communicationMode_File",
+      "@type": "rdf:Property",
+      "rdfs:label": "communicationMode",
+      "name": "communicationMode",
+      "prov:specializationOf": {
+        "@id": "https://purl.archive.org/language-data-commons/terms#communicationMode"
+      },
+      "domainIncludes": [
+        {
+          "@id": "#class_File"
+        }
+      ],
+      "rdfs:comment": "The mode(s) (spoken, written, signed, etc.) used in the interaction represented by this resource.",
+      "rangeIncludes": [
+        {
+          "@id": "Text"
+        }
+      ]
+    }
+  ]
+}

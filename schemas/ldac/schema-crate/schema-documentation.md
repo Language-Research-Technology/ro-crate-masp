@@ -359,6 +359,10 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat">writtenLanguageFormat</a> |  | The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten). |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+## Property Values
+
+No PropertyValue entities are defined.
+
 
 
 ## Defined Term Sets

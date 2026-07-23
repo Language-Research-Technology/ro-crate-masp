@@ -183,11 +183,12 @@ describe("Crate-O Mode File Tests", function () {
 
       // Should not have classes
       expect(result).to.not.have.property("classes");
-      // Should have other sections preserved
-      expect(result).to.have.property("metadata");
-      expect(result).to.have.property("propertyGroups");
-      expect(result).to.have.property("lookup");
-      expect(result).to.have.property("enabledClasses");
+
+      // Every non-classes key from the source should be preserved verbatim.
+      for (const key of Object.keys(sourceMode)) {
+        if (key === "classes") continue;
+        expect(result).to.have.property(key);
+      }
     });
 
     it('should preserve all non-"classes" keys (stripClassesFromMode)', function () {

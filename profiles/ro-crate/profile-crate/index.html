@@ -53,7 +53,7 @@
     <ul id="prop-list" class="entity-list">
 <li><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> <small style="color:#aaa">#RO-Crate_Metadata_Descriptor.id</small></li>
 <li><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> <small style="color:#aaa">#RO-Crate_Metadata_Descriptor.about</small></li>
-<li><a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a> — MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. <small style="color:#aaa">#prop_datePublised_Dataset</small></li>
+<li><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a> — MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond. <small style="color:#aaa">#prop_datePublished_Dataset</small></li>
 <li><a href="#prop_description_Dataset" title="#prop_description_Dataset">description</a> — (In addition to the name) SHOULD further elaborate on the name to provide a summary of the context in which the dataset is important. <small style="color:#aaa">#prop_description_Dataset</small></li>
 <li><a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> — SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used <small style="color:#aaa">#prop_license_Dataset</small></li>
 <li><a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> — SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates</li>
@@ -103,8 +103,8 @@
 <td></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td>
 <td></td>
-<td>ro-crate-metadata.json</td>
 </tr>
 <tr>
 <td><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a></td>
@@ -155,7 +155,7 @@
 <td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a></td>
 </tr>
 <tr>
-<td><a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a></td>
+<td><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a></td>
 <td><a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a></td>
 <td>Yes</td>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
@@ -252,7 +252,7 @@
 <td><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
 <td></td>
 <td>The RO-Crate Metadata</td>
-<td></td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td>
 <td><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
@@ -278,7 +278,7 @@
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_datePublised_Dataset" title="#prop_datePublised_Dataset"></a> Property: datePublished</h3>
+<h3><a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished</h3>
 <table>
 <thead>
 <tr>
@@ -291,7 +291,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="#prop_datePublised_Dataset" title="#prop_datePublised_Dataset">datePublished</a></td>
+<td><a href="#prop_datePublished_Dataset" title="#prop_datePublished_Dataset">datePublished</a></td>
 <td><a href="http://schema.org/datePubished" target="_blank" rel="noopener">http://schema.org/datePubished</a></td>
 <td>MUST be a string in ISO 8601 date format and SHOULD be specified to at least the precision of a day, MAY be a timestamp down to the millisecond.</td>
 <td>schema:Date</td>
@@ -362,6 +362,14 @@
 </tr>
 </tbody>
 </table>
+<h2>Property Values</h2>
+<h3><a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadadata Descriptor Identifier Constraint</h3>
+<p>ID: #propertyValue_RO-Crate_Metadata_Descriptor.id</p>
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
 <h2>Defined Term Sets</h2>
 <h2>Provenance</h2>
 <p>This document was compiled using <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/generate-masp-docs.js">generate-masp-docs.js</a>, based on <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/ro-crate/profile-text.md">profiles/ro-crate/profile-text.md</a> using a MASP Schema defined in <a href="https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/profiles/ro-crate/profile-crate/ro-crate-metadata.json">profiles/ro-crate/profile-crate/ro-crate-metadata.json</a>.</p>
