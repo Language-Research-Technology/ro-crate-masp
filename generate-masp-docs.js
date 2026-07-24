@@ -167,6 +167,28 @@ function formatSpecializationOf(specialization) {
     .join(", ");
 }
 
+// Schemas (as opposed to profiles) generally don't use prov:specializationOf at
+// all, so a "Specialization Of" column would be blank in every row. The same
+// generator runs for both without any config, so tables decide per-render
+// whether any of their rows actually have a value worth a column for.
+function hasSpecializationValue(specialization) {
+  return !!formatSpecializationOf(specialization);
+}
+
+function isFullUri(id) {
+  return typeof id === "string" && /^https?:\/\//i.test(id);
+}
+
+// Full-URI @ids (as opposed to profile-local "#Fragment" ids) are worth
+// showing to the reader, since they're the term's actual, dereferenceable
+// identity -- append them in brackets next to the heading they label, styled
+// the same muted grey already used elsewhere in this file for internal ids.
+function headingWithUri(label, id) {
+  return isFullUri(id)
+    ? `${label} <small style="color:#aaa">(${clean(id)})</small>`
+    : label;
+}
+
   function getCrateEntity(crate, id) {
     if (!crate || !id) return null;
     return (
@@ -595,7 +617,7 @@ try {
     const classId = classRule["@id"];
     const classURI = classId;
     const classLabel = classRule["name"] || classRule["rdfs:label"] || classId;
-    const className = `Class: ${classLabel}`;
+    const className = `Class: ${headingWithUri(classLabel, classId)}`;
     const classAnchorId = getAnchorId(classId);
 
     const classDesc =
@@ -635,10 +657,26 @@ try {
       max !== undefined ? max : "N/A"
     } |\n\n`;
 
-    classSummary += `| Property | Specialization Of | Required | Description | Range | Value |\n`;
-    classSummary += `| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`;
+    // Get all properties for this class (no inheritence support ATM)
+    const props = classRule["@reverse"].domainIncludes;
 
-    if (specialized) {
+    // Note: `specialized` always defaults to [] above, which is truthy in JS --
+    // check whether it actually resolves to a non-empty value, not just whether
+    // the variable itself is truthy.
+    const classHasSpecialization = hasSpecializationValue(specialized);
+    const showSpecializationColumn =
+      classHasSpecialization ||
+      props.some((prop) => hasSpecializationValue(prop["prov:specializationOf"]));
+
+    if (showSpecializationColumn) {
+      classSummary += `| Property | Specialization Of | Required | Description | Range | Value |\n`;
+      classSummary += `| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`;
+    } else {
+      classSummary += `| Property | Required | Description | Range | Value |\n`;
+      classSummary += `| -------- | -------- | ----------- | ----- | ----- |\n`;
+    }
+
+    if (classHasSpecialization) {
       const specializedArray = Array.isArray(specialized)
         ? specialized
         : [specialized];
@@ -649,11 +687,10 @@ try {
           return makeTypeLink(typeId, !!def, profileCrate);
         })
         .join(", ");
-      classSummary += `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`;
+      classSummary += showSpecializationColumn
+        ? `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`
+        : `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
     }
-
-    // Get all properties for this class (no inheritence support ATM)
-    const props = classRule["@reverse"].domainIncludes;
 
     if (props.length > 0) {
       // Sort properties: required first, then alphabetically
@@ -677,7 +714,6 @@ try {
             ? "Yes"
             : "No";
         const propDesc = prop["description"] || prop["rdfs:comment"] || "";
-        const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
 
         const rangesArray = prop["rangeIncludes"] || [];
 
@@ -711,12 +747,19 @@ try {
           : "";
 
         const propAnchorId = getAnchorId(prop["@id"]);
-        const propSpecializationCell = propSpecializationOf || "";
-        classSummary += `| <a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
+        const propLink = `<a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
           propName
-        )}</a> | ${propSpecializationCell} | ${clean(isRequired)} | ${clean(
-          propDesc
-        )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
+        )}</a>`;
+        if (showSpecializationColumn) {
+          const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
+          classSummary += `| ${propLink} | ${propSpecializationOf} | ${clean(isRequired)} | ${clean(
+            propDesc
+          )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
+        } else {
+          classSummary += `| ${propLink} | ${clean(isRequired)} | ${clean(
+            propDesc
+          )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
+        }
       });
     } else {
       classSummary += `*No properties defined for this class*\n\n`;
@@ -756,7 +799,7 @@ try {
     });
 
   for (let p of properties) {
-    const propName = `Property: ${p["name"] || p["rdfs:label"] || p["@id"]}`;
+    const propName = `Property: ${headingWithUri(p["name"] || p["rdfs:label"] || p["@id"], p["@id"])}`;
     const anchorGithubId = getAnchorId(p["@id"]);
 
     const propDesc = p["description"] || p["rdfs:comment"] || ""; // Add this line
@@ -788,14 +831,22 @@ try {
       p["@id"]
     )}"></a> ${clean(propName)}\n\n`;
     const propSpecializationOf = formatSpecializationOf(p["prov:specializationOf"]);
-    const propSpecializationCell = propSpecializationOf || "";
-    propSummary += `| Property | Specialization Of | Description | Range | Occurs in Domain(s) |\n`;
-    propSummary += `| -------- | ----------------- | ----------- | ----------- | ----------- |\n`;
-    propSummary += `| <a href="#${anchorGithubId}" title="${clean(p["@id"])}">${clean(
+    const propLink = `<a href="#${anchorGithubId}" title="${clean(p["@id"])}">${clean(
       p["rdfs:label"] || p["name"] || p["@id"]
-    )}</a> | ${propSpecializationCell} | ${clean(propDesc)} | ${clean(
-      rangeLinks
-    )} | ${propDomains} |\n`;
+    )}</a>`;
+    if (propSpecializationOf) {
+      propSummary += `| Property | Specialization Of | Description | Range | Occurs in Domain(s) |\n`;
+      propSummary += `| -------- | ----------------- | ----------- | ----------- | ----------- |\n`;
+      propSummary += `| ${propLink} | ${propSpecializationOf} | ${clean(propDesc)} | ${clean(
+        rangeLinks
+      )} | ${propDomains} |\n`;
+    } else {
+      propSummary += `| Property | Description | Range | Occurs in Domain(s) |\n`;
+      propSummary += `| -------- | ----------- | ----------- | ----------- |\n`;
+      propSummary += `| ${propLink} | ${clean(propDesc)} | ${clean(
+        rangeLinks
+      )} | ${propDomains} |\n`;
+    }
 
     const propLabel = p["name"] || p["rdfs:label"] || p["@id"];
     setRuleDirect(p["@id"], propSummary);
@@ -1084,13 +1135,20 @@ try {
     /** Render a properties table for a group of property entities */
     function renderPropsTable(props) {
       if (!props || props.length === 0) return "";
-      let t = `<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
-      for (const prop of props) {
+      const specializationOfByProp = props.map((prop) => {
+        const propEntity = prop.entity || prop; // accept PropertyRule or raw entity
+        return formatSpecializationOf(propEntity["prov:specializationOf"]);
+      });
+      const showSpecializationColumn = specializationOfByProp.some(Boolean);
+
+      let t = showSpecializationColumn
+        ? `<table><thead><tr><th>Property</th><th>Specialization Of</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`
+        : `<table><thead><tr><th>Property</th><th>Description</th><th>Range</th></tr></thead><tbody>\n`;
+      props.forEach((prop, index) => {
         const propEntity = prop.entity || prop; // accept PropertyRule or raw entity
         const propId = propEntity["@id"];
         const propLabel = getLabel(propEntity);
         const propDesc = propEntity["rdfs:comment"] || propEntity["description"] || "";
-        const propSpecializationOf = formatSpecializationOf(propEntity["prov:specializationOf"]);
         const ranges = Array.isArray(propEntity["rangeIncludes"])
           ? propEntity["rangeIncludes"]
           : propEntity["rangeIncludes"]
@@ -1102,8 +1160,11 @@ try {
             return entityLink(rid, resolveEntityLabel(rid, rid.split(/[/#]/).pop() || rid));
           })
           .join(", ");
-        t += `<tr><td><span title="${clean(propId)}">${clean(propLabel)}</span></td><td>${propSpecializationOf}</td><td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
-      }
+        const specializationCell = showSpecializationColumn
+          ? `<td>${specializationOfByProp[index]}</td>`
+          : "";
+        t += `<tr><td><span title="${clean(propId)}">${clean(propLabel)}</span></td>${specializationCell}<td>${clean(propDesc)}</td><td>${rangeLinks}</td></tr>\n`;
+      });
       t += `</tbody></table>\n`;
       return t;
     }
@@ -1122,7 +1183,7 @@ try {
         ? [classEntity["rdfs:subClassOf"]]
         : [];
 
-      let body = `<h1>${clean(label)}</h1>\n`;
+      let body = `<h1>${clean(headingWithUri(label, classId))}</h1>\n`;
       body += `<p><code>${clean(classId)}</code></p>\n`;
       if (desc) body += `<p>${clean(desc)}</p>\n`;
 
@@ -1233,7 +1294,7 @@ try {
         ? [propEntity["rangeIncludes"]]
         : [];
 
-      let body = `<h1>${clean(label)}</h1>\n`;
+      let body = `<h1>${clean(headingWithUri(label, propId))}</h1>\n`;
       body += `<p><code>${clean(propId)}</code></p>\n`;
       if (desc) body += `<p>${clean(desc)}</p>\n`;
 

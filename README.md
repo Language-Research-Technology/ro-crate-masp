@@ -162,6 +162,7 @@ This repository includes several profiles and schemas that can be built using np
 - **Language Data Commons (LDAC) Profile**: `npm run build:ldac-profile`
 - **Language Data Commons (LDAC) Schema**: `npm run build:ldac-schema`
 - **AusTalk Schema**: `npm run build:austalk-schema`
+- **Records in Context (RiC-O) Schema**: `npm run build:ric-schema`
 
 
 
@@ -182,6 +183,28 @@ Each build command runs the `generate-soss-docs.js` script with three arguments:
 2. Path to the profile/schema text markdown file
 3. Path to the output documentation markdown file
 
+
+## Converting an OWL ontology to a MASP schema
+
+`scripts/owl-to-masp.py` converts an OWL ontology (RDF/XML, Turtle, or JSON-LD) into a MASP schema crate — see [`scripts/owl-to-masp.spec.md`](scripts/owl-to-masp.spec.md) for the full design spec and mapping rules. It's a Python script run via [`uv`](https://docs.astral.sh/uv/) rather than Node, since OWL/RDF parsing is much better supported there (`rdflib`) than in the JS ecosystem the rest of this repo uses.
+
+This is a one-off, manually-run tool — it's deliberately **not** wired into `package.json` (there's no `build:*`/`generate:*` script for it), since converting a new ontology is a rare, deliberate action you review by hand afterwards, not something that should re-run on every `npm run build`.
+
+To convert an ontology, point it at the source file (a path or URL) and an output directory under `schemas/`:
+
+```bash
+uv run scripts/owl-to-masp.py \
+  --input https://www.ica.org/standards/RiC/RiC-O_1-1.rdf \
+  --output-dir schemas/ric \
+  --namespace "https://www.ica.org/standards/RiC/ontology#" \
+  --name "Records in Context Ontology"
+```
+
+This is exactly the command used to generate [`schemas/ric`](schemas/ric) (the Records in Context Ontology, RiC-O) from its published OWL source. `--namespace` restricts conversion to terms defined by the ontology itself, excluding anything it imports from other vocabularies (SKOS, Dublin Core, etc.) — without it, the converter would also try to re-mint schema entities for every imported term. The generated `schema-crate/` directory bundles the original OWL file alongside `ro-crate-metadata.json`, along with a `CreateAction` recording that this script produced the crate from that file, so the result is self-contained and its provenance is traceable without depending on the source URL remaining live.
+
+After conversion, review the generated `schema-text.md` stub and fill in a proper description, then build documentation as usual — for RiC-O that's `npm run build:ric-schema` (see [Available Build Commands](#available-build-commands) above), which also runs `rocxl` (`-x`) to produce an Excel copy of the rules alongside the JSON.
+
+The converter's own test suite (`test/owl-to-masp/test_owl_to_masp.py`, run via `npm run test:owl-to-masp`) runs against a small fixture ontology, not the full RiC-O file — see the spec for why, and for the workflow used to extend it when converting a new ontology surfaces a construct the fixture doesn't yet cover.
 
 ## Validating RO-Crates from the Command Line
 
