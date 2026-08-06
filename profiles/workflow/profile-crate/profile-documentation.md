@@ -287,24 +287,24 @@ At least 1 instances of this type MUST be present in the crate.
 
 ### <a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="property_CreativeWork_README.id" title="#property_CreativeWork_README.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> |  | README file must have an @id matching /^readme\.md$/i. | <a href="#propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id">README ID Pattern</a> | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#property_CreativeWork_README.id" title="#property_CreativeWork_README.id">@id</a> | README file must have an @id matching /^readme\.md$/i. | <a href="#propertyValue_property_CreativeWork_README.id" title="#propertyValue_property_CreativeWork_README.id">README ID Pattern</a> | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
 ### <a id="property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id">Test Directory Identifier Constraint</a> | <a href="#class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory">Test Directory</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#property_Dataset_Test_Directory.id" title="#property_Dataset_Test_Directory.id">@id</a> | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id">Test Directory Identifier Constraint</a> | <a href="#class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory">Test Directory</a> |
 ### <a id="property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id">Examples Directory Identifier Constraint</a> | <a href="#class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory">Examples Directory</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#property_Dataset_Examples_Directory.id" title="#property_Dataset_Examples_Directory.id">@id</a> | The RO-Crate Metadata  | <a href="#propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id">Examples Directory Identifier Constraint</a> | <a href="#class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory">Examples Directory</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -317,9 +317,9 @@ At least 1 instances of this type MUST be present in the crate.
 | <a href="#property_CreativeWork_README.about" title="#property_CreativeWork_README.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | The README.md file SHOULD have an about property referencing the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> | <a href="#class_CreativeWork_README" title="#class_CreativeWork_README">README File</a> |
 ### <a id="prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity"></a> Property: conformsTo
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> |  | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#prop_conformsTo_Root_Data_Entity" title="#prop_conformsTo_Root_Data_Entity">conformsTo</a> | The RO-Crate conforms to this profile. This is a link to to the profile entity | <a href="#Root_Data_Entity_conformsTo_value" title="#Root_Data_Entity_conformsTo_value">Required Workflow Profile Value</a>, <a href="#classProfile" title="#classProfile">Profile</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 ### <a id="prop_datePublished_Dataset" title="#prop_datePublished_Dataset"></a> Property: datePublished
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -350,16 +350,16 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#Property_mainEntity_Workflow" title="#Property_mainEntity_Workflow">mainEntity</a> | <a href="http://schema.org/mainEntity" target="_blank" rel="noopener">http://schema.org/mainEntity</a> | Links the Root Data Entity to the Main Workflow. The RO-Crate MUST contain exactly one Main Workflow. | <a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
-### <a id="http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name"></a> Property: name
+### <a id="http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name"></a> Property: name <small style="color:#aaa">(http://schema.org/name)</small>
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | SHOULD identify the dataset to humans well enough to disambiguate it from other RO-Crates | Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
 ### <a id="prop_name_classProfile" title="#prop_name_classProfile"></a> Property: name
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
 ### <a id="Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow"></a> Property: programmingLanguage
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -377,9 +377,9 @@ At least 1 instances of this type MUST be present in the crate.
 | <a href="#Property_MainWorkflow_subjectOf" title="#Property_MainWorkflow_subjectOf">subjectOf</a> | <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">http://schema.org/subjectOf</a> | Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description. | <a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a> | <a href="#Class_MainWorkflow" title="#Class_MainWorkflow">Main Workflow</a> |
 ### <a id="prop_version_classProfile" title="#prop_version_classProfile"></a> Property: version
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  | Text | <a href="#classProfile" title="#classProfile">Profile</a> |
 ## Property Values
 
 ### <a id="propertyValue_property_Dataset_Examples_Directory.id" title="#propertyValue_property_Dataset_Examples_Directory.id"></a> Property Value: Examples Directory Identifier Constraint

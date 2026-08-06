@@ -92,14 +92,14 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="property_File.id" title="#property_File.id"></a> Property: @id
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#property_File.id" title="#property_File.id">@id</a> |  | The File identifier MUST satisfy all regular expressions listed in #File_id_constraints. | <a href="#File_id_constraints" title="#File_id_constraints">File ID Constraints</a> | <a href="#class_File" title="#class_File">File</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#property_File.id" title="#property_File.id">@id</a> | The File identifier MUST satisfy all regular expressions listed in #File_id_constraints. | <a href="#File_id_constraints" title="#File_id_constraints">File ID Constraints</a> | <a href="#class_File" title="#class_File">File</a> |
 ### <a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -120,7 +120,7 @@ Instances of this type MAY be present in the crate.
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
 | <a href="#prop_license_Dataset" title="#prop_license_Dataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used | <a href="#class_CreativeWorkLicense" title="#class_CreativeWorkLicense">License (Creative Work)</a>, schema:URL, schema:Text | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |
-### <a id="http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name"></a> Property: name
+### <a id="http%3A%2F%2Fschema.org%2Fname" title="http://schema.org/name"></a> Property: name <small style="color:#aaa">(http://schema.org/name)</small>
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |

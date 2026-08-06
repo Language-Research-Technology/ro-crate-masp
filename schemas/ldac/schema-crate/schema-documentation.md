@@ -5,7 +5,7 @@ This is a language data schema, in the style of the Schema.org schema. It is bas
 ## Types of entities (specializations of Classes) and expected Properties
 
 
-### <a id="CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent"></a> Class: CollectionEvent
+### <a id="CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent"></a> Class: CollectionEvent <small style="color:#aaa">(https://w3id.org/ldac/terms#CollectionEvent)</small>
 
 A description of an event at which one or more PrimaryMaterials were captured, e.g. as video or audio.
 
@@ -15,13 +15,12 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
-| <a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> |  | No | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. | <a href="#Session" title="https://w3id.org/ldac/terms#Session">Session</a> |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> | No | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. | <a href="#Session" title="https://w3id.org/ldac/terms#Session">Session</a> |  |
 
 
-### <a id="CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol"></a> Class: CollectionProtocol
+### <a id="CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol"></a> Class: CollectionProtocol <small style="color:#aaa">(https://w3id.org/ldac/terms#CollectionProtocol)</small>
 
 A description of how this Object or Collection was obtained, such as the strategy used for selecting written source texts, or the prompts given to participants.
 
@@ -31,13 +30,12 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
-| <a href="#collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType">collectionProtocolType</a> |  | No | A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection. |  |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType">collectionProtocolType</a> | No | A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection. |  |  |
 
 
-### <a id="DataDepositLicense" title="https://w3id.org/ldac/terms#DataDepositLicense"></a> Class: DataDepositLicense
+### <a id="DataDepositLicense" title="https://w3id.org/ldac/terms#DataDepositLicense"></a> Class: DataDepositLicense <small style="color:#aaa">(https://w3id.org/ldac/terms#DataDepositLicense)</small>
 
 A license document setting out terms for deposit into a repository.
 
@@ -47,14 +45,13 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
 *No properties defined for this class*
 
 
 
-### <a id="DataLicense" title="https://w3id.org/ldac/terms#DataLicense"></a> Class: DataLicense
+### <a id="DataLicense" title="https://w3id.org/ldac/terms#DataLicense"></a> Class: DataLicense <small style="color:#aaa">(https://w3id.org/ldac/terms#DataLicense)</small>
 
 A license document for data licensing. This is a superclass of DataReuseLicense and DataDepositLicense.
 
@@ -64,13 +61,12 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
-| <a href="#reviewDate" title="https://w3id.org/ldac/terms#reviewDate">reviewDate</a> |  | No | The date that this license should be reviewed. |  |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#reviewDate" title="https://w3id.org/ldac/terms#reviewDate">reviewDate</a> | No | The date that this license should be reviewed. |  |  |
 
 
-### <a id="DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense"></a> Class: DataReuseLicense
+### <a id="DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense"></a> Class: DataReuseLicense <small style="color:#aaa">(https://w3id.org/ldac/terms#DataReuseLicense)</small>
 
 A license document, setting out terms for reuse of data.
 
@@ -80,285 +76,284 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
-| <a href="#access" title="https://w3id.org/ldac/terms#access">access</a> |  | No | Whether this is an open or restricted access license. |  |  |
-| <a href="#accessControlList" title="https://w3id.org/ldac/terms#accessControlList">accessControlList</a> |  | No | When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs. | <a href="http://schema.org/URL" title="http://schema.org/URL" target="_blank" rel="noopener">URL</a> |  |
-| <a href="#authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow">authorizationWorkflow</a> |  | No | By what process a user is granted authorization to a license. |  |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#access" title="https://w3id.org/ldac/terms#access">access</a> | No | Whether this is an open or restricted access license. |  |  |
+| <a href="#accessControlList" title="https://w3id.org/ldac/terms#accessControlList">accessControlList</a> | No | When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs. | <a href="http://schema.org/URL" title="http://schema.org/URL" target="_blank" rel="noopener">URL</a> |  |
+| <a href="#authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow">authorizationWorkflow</a> | No | By what process a user is granted authorization to a license. |  |  |
 
 ## All Properties
 
-### <a id="access" title="https://w3id.org/ldac/terms#access"></a> Property: access
+### <a id="access" title="https://w3id.org/ldac/terms#access"></a> Property: access <small style="color:#aaa">(https://w3id.org/ldac/terms#access)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#access" title="https://w3id.org/ldac/terms#access">access</a> |  | Whether this is an open or restricted access license. |  | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
-### <a id="accessControlList" title="https://w3id.org/ldac/terms#accessControlList"></a> Property: accessControlList
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#access" title="https://w3id.org/ldac/terms#access">access</a> | Whether this is an open or restricted access license. |  | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
+### <a id="accessControlList" title="https://w3id.org/ldac/terms#accessControlList"></a> Property: accessControlList <small style="color:#aaa">(https://w3id.org/ldac/terms#accessControlList)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#accessControlList" title="https://w3id.org/ldac/terms#accessControlList">accessControlList</a> |  | When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs. | <a href="http://schema.org/URL" title="http://schema.org/URL" target="_blank" rel="noopener">URL</a> | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
-### <a id="age" title="https://w3id.org/ldac/terms#age"></a> Property: age
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#accessControlList" title="https://w3id.org/ldac/terms#accessControlList">accessControlList</a> | When a license has an authorizationWorkflow property with a value of the DefinedTerm AcessControlList this property has a URI value that points to a list of userIDs. | <a href="http://schema.org/URL" title="http://schema.org/URL" target="_blank" rel="noopener">URL</a> | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
+### <a id="age" title="https://w3id.org/ldac/terms#age"></a> Property: age <small style="color:#aaa">(https://w3id.org/ldac/terms#age)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#age" title="https://w3id.org/ldac/terms#age">age</a> |  | The age or age range of a person, e.g. 25, 30-50, >50. If an age is specified, a specializationOf pointing to a 'canonical' ageless version of that Person can also be included. | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> | <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
-### <a id="annotationOf" title="https://w3id.org/ldac/terms#annotationOf"></a> Property: annotationOf
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#age" title="https://w3id.org/ldac/terms#age">age</a> | The age or age range of a person, e.g. 25, 30-50, >50. If an age is specified, a specializationOf pointing to a 'canonical' ageless version of that Person can also be included. | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> | <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
+### <a id="annotationOf" title="https://w3id.org/ldac/terms#annotationOf"></a> Property: annotationOf <small style="color:#aaa">(https://w3id.org/ldac/terms#annotationOf)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#annotationOf" title="https://w3id.org/ldac/terms#annotationOf">annotationOf</a> |  | This resource contains some kind of description that adds information to the resource it references. | <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="annotationType" title="https://w3id.org/ldac/terms#annotationType"></a> Property: annotationType
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#annotationOf" title="https://w3id.org/ldac/terms#annotationOf">annotationOf</a> | This resource contains some kind of description that adds information to the resource it references. | <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="annotationType" title="https://w3id.org/ldac/terms#annotationType"></a> Property: annotationType <small style="color:#aaa">(https://w3id.org/ldac/terms#annotationType)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#annotationType" title="https://w3id.org/ldac/terms#annotationType">annotationType</a> |  | The type of annotation for Annotation resources. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="annotator" title="https://w3id.org/ldac/terms#annotator"></a> Property: annotator
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#annotationType" title="https://w3id.org/ldac/terms#annotationType">annotationType</a> | The type of annotation for Annotation resources. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="annotator" title="https://w3id.org/ldac/terms#annotator"></a> Property: annotator <small style="color:#aaa">(https://w3id.org/ldac/terms#annotator)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#annotator" title="https://w3id.org/ldac/terms#annotator">annotator</a> |  | The participant produced an annotation of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow"></a> Property: authorizationWorkflow
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#annotator" title="https://w3id.org/ldac/terms#annotator">annotator</a> | The participant produced an annotation of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow"></a> Property: authorizationWorkflow <small style="color:#aaa">(https://w3id.org/ldac/terms#authorizationWorkflow)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow">authorizationWorkflow</a> |  | By what process a user is granted authorization to a license. |  | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
-### <a id="channels" title="https://w3id.org/ldac/terms#channels"></a> Property: channels
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#authorizationWorkflow" title="https://w3id.org/ldac/terms#authorizationWorkflow">authorizationWorkflow</a> | By what process a user is granted authorization to a license. |  | <a href="#DataReuseLicense" title="https://w3id.org/ldac/terms#DataReuseLicense">DataReuseLicense</a> |
+### <a id="channels" title="https://w3id.org/ldac/terms#channels"></a> Property: channels <small style="color:#aaa">(https://w3id.org/ldac/terms#channels)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#channels" title="https://w3id.org/ldac/terms#channels">channels</a> |  | The number of audio channels this resource contains (e.g. 1, 2, 5.1). |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType"></a> Property: collectionEventType
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#channels" title="https://w3id.org/ldac/terms#channels">channels</a> | The number of audio channels this resource contains (e.g. 1, 2, 5.1). |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType"></a> Property: collectionEventType <small style="color:#aaa">(https://w3id.org/ldac/terms#collectionEventType)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> |  | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. | <a href="#Session" title="https://w3id.org/ldac/terms#Session">Session</a> | <a href="#CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent">CollectionEvent</a> |
-### <a id="collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType"></a> Property: collectionProtocolType
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. | <a href="#Session" title="https://w3id.org/ldac/terms#Session">Session</a> | <a href="#CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent">CollectionEvent</a> |
+### <a id="collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType"></a> Property: collectionProtocolType <small style="color:#aaa">(https://w3id.org/ldac/terms#collectionProtocolType)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType">collectionProtocolType</a> |  | A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection. |  | <a href="#CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol">CollectionProtocol</a> |
-### <a id="communicationMode" title="https://w3id.org/ldac/terms#communicationMode"></a> Property: communicationMode
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#collectionProtocolType" title="https://w3id.org/ldac/terms#collectionProtocolType">collectionProtocolType</a> | A description of the process used to collect or collate data, such as prompts given to participants, or how texts are selected for inclusion in a collection. |  | <a href="#CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol">CollectionProtocol</a> |
+### <a id="communicationMode" title="https://w3id.org/ldac/terms#communicationMode"></a> Property: communicationMode <small style="color:#aaa">(https://w3id.org/ldac/terms#communicationMode)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#communicationMode" title="https://w3id.org/ldac/terms#communicationMode">communicationMode</a> |  | The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="compiler" title="https://w3id.org/ldac/terms#compiler"></a> Property: compiler
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#communicationMode" title="https://w3id.org/ldac/terms#communicationMode">communicationMode</a> | The mode (spoken, written, signed etc.) of this resource. There may be more than one value for this property. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="compiler" title="https://w3id.org/ldac/terms#compiler"></a> Property: compiler <small style="color:#aaa">(https://w3id.org/ldac/terms#compiler)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#compiler" title="https://w3id.org/ldac/terms#compiler">compiler</a> |  | The participant is responsible for collecting the sub-parts of the resource together. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="consultant" title="https://w3id.org/ldac/terms#consultant"></a> Property: consultant
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#compiler" title="https://w3id.org/ldac/terms#compiler">compiler</a> | The participant is responsible for collecting the sub-parts of the resource together. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="consultant" title="https://w3id.org/ldac/terms#consultant"></a> Property: consultant <small style="color:#aaa">(https://w3id.org/ldac/terms#consultant)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#consultant" title="https://w3id.org/ldac/terms#consultant">consultant</a> |  | The participant contributes expertise to the creation of a work, for example by contributing knowledge of their native language. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="dataInputter" title="https://w3id.org/ldac/terms#dataInputter"></a> Property: dataInputter
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#consultant" title="https://w3id.org/ldac/terms#consultant">consultant</a> | The participant contributes expertise to the creation of a work, for example by contributing knowledge of their native language. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="dataInputter" title="https://w3id.org/ldac/terms#dataInputter"></a> Property: dataInputter <small style="color:#aaa">(https://w3id.org/ldac/terms#dataInputter)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#dataInputter" title="https://w3id.org/ldac/terms#dataInputter">dataInputter</a> |  | The participant was responsible for entering, re-typing, and/or structuring the data contained in the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="dateFreeText" title="https://w3id.org/ldac/terms#dateFreeText"></a> Property: dateFreeText
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#dataInputter" title="https://w3id.org/ldac/terms#dataInputter">dataInputter</a> | The participant was responsible for entering, re-typing, and/or structuring the data contained in the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="dateFreeText" title="https://w3id.org/ldac/terms#dateFreeText"></a> Property: dateFreeText <small style="color:#aaa">(https://w3id.org/ldac/terms#dateFreeText)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#dateFreeText" title="https://w3id.org/ldac/terms#dateFreeText">dateFreeText</a> |  | Date information that cannot be put in one of the standard date formats, e.g. "mid-1970s", or it is not clear, for example, if it is a creation or publication date. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="depositor" title="https://w3id.org/ldac/terms#depositor"></a> Property: depositor
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#dateFreeText" title="https://w3id.org/ldac/terms#dateFreeText">dateFreeText</a> | Date information that cannot be put in one of the standard date formats, e.g. "mid-1970s", or it is not clear, for example, if it is a creation or publication date. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="depositor" title="https://w3id.org/ldac/terms#depositor"></a> Property: depositor <small style="color:#aaa">(https://w3id.org/ldac/terms#depositor)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#depositor" title="https://w3id.org/ldac/terms#depositor">depositor</a> |  | The participant was responsible for depositing the resource in an archive. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="derivationOf" title="https://w3id.org/ldac/terms#derivationOf"></a> Property: derivationOf
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#depositor" title="https://w3id.org/ldac/terms#depositor">depositor</a> | The participant was responsible for depositing the resource in an archive. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="derivationOf" title="https://w3id.org/ldac/terms#derivationOf"></a> Property: derivationOf <small style="color:#aaa">(https://w3id.org/ldac/terms#derivationOf)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#derivationOf" title="https://w3id.org/ldac/terms#derivationOf">derivationOf</a> |  | This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | <a href="#Annotation" title="https://w3id.org/ldac/terms#Annotation">Annotation</a>, <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> | <a href="#DerivedMaterial" title="https://w3id.org/ldac/terms#DerivedMaterial">DerivedMaterial</a> |
-### <a id="developer" title="https://w3id.org/ldac/terms#developer"></a> Property: developer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#derivationOf" title="https://w3id.org/ldac/terms#derivationOf">derivationOf</a> | This property references another resource from which the current resource is derived, e.g. downsampling audio or video files, or extracting text from a PDF. | <a href="#Annotation" title="https://w3id.org/ldac/terms#Annotation">Annotation</a>, <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> | <a href="#DerivedMaterial" title="https://w3id.org/ldac/terms#DerivedMaterial">DerivedMaterial</a> |
+### <a id="developer" title="https://w3id.org/ldac/terms#developer"></a> Property: developer <small style="color:#aaa">(https://w3id.org/ldac/terms#developer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#developer" title="https://w3id.org/ldac/terms#developer">developer</a> |  | The participant developed the methodology or tools (including software) that constitute the resource, or that were used to create the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="doi" title="https://w3id.org/ldac/terms#doi"></a> Property: doi
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#developer" title="https://w3id.org/ldac/terms#developer">developer</a> | The participant developed the methodology or tools (including software) that constitute the resource, or that were used to create the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="doi" title="https://w3id.org/ldac/terms#doi"></a> Property: doi <small style="color:#aaa">(https://w3id.org/ldac/terms#doi)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#doi" title="https://w3id.org/ldac/terms#doi">doi</a> |  | A Digital Object Identifier. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="editor" title="https://w3id.org/ldac/terms#editor"></a> Property: editor
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#doi" title="https://w3id.org/ldac/terms#doi">doi</a> | A Digital Object Identifier. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="editor" title="https://w3id.org/ldac/terms#editor"></a> Property: editor <small style="color:#aaa">(https://w3id.org/ldac/terms#editor)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#editor" title="https://w3id.org/ldac/terms#editor">editor</a> |  | The participant reviewed, corrected, and/or tested the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="geoJSON" title="https://w3id.org/ldac/terms#geoJSON"></a> Property: geoJSON
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#editor" title="https://w3id.org/ldac/terms#editor">editor</a> | The participant reviewed, corrected, and/or tested the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="geoJSON" title="https://w3id.org/ldac/terms#geoJSON"></a> Property: geoJSON <small style="color:#aaa">(https://w3id.org/ldac/terms#geoJSON)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#geoJSON" title="https://w3id.org/ldac/terms#geoJSON">geoJSON</a> |  | A valid GEOJson feature or feature collection as a string that can be parsed as JSON. | Text | <a href="http://schema.org/GeoCoordinates" title="http://schema.org/GeoCoordinates" target="_blank" rel="noopener">GeoCoordinates</a>, <a href="http://schema.org/GeoShape" title="http://schema.org/GeoShape" target="_blank" rel="noopener">GeoShape</a>, <a href="http://schema.org/Language" title="http://schema.org/Language" target="_blank" rel="noopener">Language</a> |
-### <a id="hasAnnotation" title="https://w3id.org/ldac/terms#hasAnnotation"></a> Property: hasAnnotation
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#geoJSON" title="https://w3id.org/ldac/terms#geoJSON">geoJSON</a> | A valid GEOJson feature or feature collection as a string that can be parsed as JSON. | Text | <a href="http://schema.org/GeoCoordinates" title="http://schema.org/GeoCoordinates" target="_blank" rel="noopener">GeoCoordinates</a>, <a href="http://schema.org/GeoShape" title="http://schema.org/GeoShape" target="_blank" rel="noopener">GeoShape</a>, <a href="http://schema.org/Language" title="http://schema.org/Language" target="_blank" rel="noopener">Language</a> |
+### <a id="hasAnnotation" title="https://w3id.org/ldac/terms#hasAnnotation"></a> Property: hasAnnotation <small style="color:#aaa">(https://w3id.org/ldac/terms#hasAnnotation)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#hasAnnotation" title="https://w3id.org/ldac/terms#hasAnnotation">hasAnnotation</a> |  | This resource is referenced by another resource that describes it such as a translation, transcription or other analysis. | <a href="#Annotation" title="https://w3id.org/ldac/terms#Annotation">Annotation</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="hasCollectionProtocol" title="https://w3id.org/ldac/terms#hasCollectionProtocol"></a> Property: hasCollectionProtocol
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#hasAnnotation" title="https://w3id.org/ldac/terms#hasAnnotation">hasAnnotation</a> | This resource is referenced by another resource that describes it such as a translation, transcription or other analysis. | <a href="#Annotation" title="https://w3id.org/ldac/terms#Annotation">Annotation</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="hasCollectionProtocol" title="https://w3id.org/ldac/terms#hasCollectionProtocol"></a> Property: hasCollectionProtocol <small style="color:#aaa">(https://w3id.org/ldac/terms#hasCollectionProtocol)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#hasCollectionProtocol" title="https://w3id.org/ldac/terms#hasCollectionProtocol">hasCollectionProtocol</a> |  | This resource was assembled or collected according to the linked protocol. | <a href="#CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol">CollectionProtocol</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="hasDerivation" title="https://w3id.org/ldac/terms#hasDerivation"></a> Property: hasDerivation
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#hasCollectionProtocol" title="https://w3id.org/ldac/terms#hasCollectionProtocol">hasCollectionProtocol</a> | This resource was assembled or collected according to the linked protocol. | <a href="#CollectionProtocol" title="https://w3id.org/ldac/terms#CollectionProtocol">CollectionProtocol</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="hasDerivation" title="https://w3id.org/ldac/terms#hasDerivation"></a> Property: hasDerivation <small style="color:#aaa">(https://w3id.org/ldac/terms#hasDerivation)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#hasDerivation" title="https://w3id.org/ldac/terms#hasDerivation">hasDerivation</a> |  | This property references another resource that is derived from it such as a downsampled audio or video file, or text extracted from a PDF. | <a href="#DerivedMaterial" title="https://w3id.org/ldac/terms#DerivedMaterial">DerivedMaterial</a> | <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> |
-### <a id="illustrator" title="https://w3id.org/ldac/terms#illustrator"></a> Property: illustrator
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#hasDerivation" title="https://w3id.org/ldac/terms#hasDerivation">hasDerivation</a> | This property references another resource that is derived from it such as a downsampled audio or video file, or text extracted from a PDF. | <a href="#DerivedMaterial" title="https://w3id.org/ldac/terms#DerivedMaterial">DerivedMaterial</a> | <a href="#PrimaryMaterial" title="https://w3id.org/ldac/terms#PrimaryMaterial">PrimaryMaterial</a> |
+### <a id="illustrator" title="https://w3id.org/ldac/terms#illustrator"></a> Property: illustrator <small style="color:#aaa">(https://w3id.org/ldac/terms#illustrator)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#illustrator" title="https://w3id.org/ldac/terms#illustrator">illustrator</a> |  | The participant contributed drawings or other illustrations to the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="indexableText" title="https://w3id.org/ldac/terms#indexableText"></a> Property: indexableText
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#illustrator" title="https://w3id.org/ldac/terms#illustrator">illustrator</a> | The participant contributed drawings or other illustrations to the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="indexableText" title="https://w3id.org/ldac/terms#indexableText"></a> Property: indexableText <small style="color:#aaa">(https://w3id.org/ldac/terms#indexableText)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#indexableText" title="https://w3id.org/ldac/terms#indexableText">indexableText</a> |  | One or more target File(s) that together contain the full text of an item – each file should indicate its language. | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="interpreter" title="https://w3id.org/ldac/terms#interpreter"></a> Property: interpreter
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#indexableText" title="https://w3id.org/ldac/terms#indexableText">indexableText</a> | One or more target File(s) that together contain the full text of an item – each file should indicate its language. | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="interpreter" title="https://w3id.org/ldac/terms#interpreter"></a> Property: interpreter <small style="color:#aaa">(https://w3id.org/ldac/terms#interpreter)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#interpreter" title="https://w3id.org/ldac/terms#interpreter">interpreter</a> |  | The contributor renders the discourse recorded in the resource into another language in real time, or the contributor explains the discourse recorded in the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="interviewee" title="https://w3id.org/ldac/terms#interviewee"></a> Property: interviewee
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#interpreter" title="https://w3id.org/ldac/terms#interpreter">interpreter</a> | The contributor renders the discourse recorded in the resource into another language in real time, or the contributor explains the discourse recorded in the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="interviewee" title="https://w3id.org/ldac/terms#interviewee"></a> Property: interviewee <small style="color:#aaa">(https://w3id.org/ldac/terms#interviewee)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#interviewee" title="https://w3id.org/ldac/terms#interviewee">interviewee</a> |  | The participant was a respondent in an interview. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="interviewer" title="https://w3id.org/ldac/terms#interviewer"></a> Property: interviewer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#interviewee" title="https://w3id.org/ldac/terms#interviewee">interviewee</a> | The participant was a respondent in an interview. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="interviewer" title="https://w3id.org/ldac/terms#interviewer"></a> Property: interviewer <small style="color:#aaa">(https://w3id.org/ldac/terms#interviewer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#interviewer" title="https://w3id.org/ldac/terms#interviewer">interviewer</a> |  | The participant conducted an interview that forms part of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="isDeIdentified" title="https://w3id.org/ldac/terms#isDeIdentified"></a> Property: isDeIdentified
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#interviewer" title="https://w3id.org/ldac/terms#interviewer">interviewer</a> | The participant conducted an interview that forms part of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="isDeIdentified" title="https://w3id.org/ldac/terms#isDeIdentified"></a> Property: isDeIdentified <small style="color:#aaa">(https://w3id.org/ldac/terms#isDeIdentified)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#isDeIdentified" title="https://w3id.org/ldac/terms#isDeIdentified">isDeIdentified</a> |  | The data in this item has had potentially identifying information removed, which may include replacing names with pseudonyms. | <a href="http://schema.org/Boolean" title="http://schema.org/Boolean" target="_blank" rel="noopener">Boolean</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
-### <a id="itemLocation" title="https://w3id.org/ldac/terms#itemLocation"></a> Property: itemLocation
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isDeIdentified" title="https://w3id.org/ldac/terms#isDeIdentified">isDeIdentified</a> | The data in this item has had potentially identifying information removed, which may include replacing names with pseudonyms. | <a href="http://schema.org/Boolean" title="http://schema.org/Boolean" target="_blank" rel="noopener">Boolean</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
+### <a id="itemLocation" title="https://w3id.org/ldac/terms#itemLocation"></a> Property: itemLocation <small style="color:#aaa">(https://w3id.org/ldac/terms#itemLocation)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#itemLocation" title="https://w3id.org/ldac/terms#itemLocation">itemLocation</a> |  | Current location of the item, e.g. where a set of audio tapes are stored. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Place" title="http://schema.org/Place" target="_blank" rel="noopener">Place</a> | <a href="http://pcdm.org/models#Object" title="http://pcdm.org/models#Object" target="_blank" rel="noopener">Object</a>, <a href="http://schema.org/Collection" title="http://schema.org/Collection" target="_blank" rel="noopener">Collection</a> |
-### <a id="linguisticGenre" title="https://w3id.org/ldac/terms#linguisticGenre"></a> Property: linguisticGenre
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#itemLocation" title="https://w3id.org/ldac/terms#itemLocation">itemLocation</a> | Current location of the item, e.g. where a set of audio tapes are stored. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Place" title="http://schema.org/Place" target="_blank" rel="noopener">Place</a> | <a href="http://pcdm.org/models#Object" title="http://pcdm.org/models#Object" target="_blank" rel="noopener">Object</a>, <a href="http://schema.org/Collection" title="http://schema.org/Collection" target="_blank" rel="noopener">Collection</a> |
+### <a id="linguisticGenre" title="https://w3id.org/ldac/terms#linguisticGenre"></a> Property: linguisticGenre <small style="color:#aaa">(https://w3id.org/ldac/terms#linguisticGenre)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#linguisticGenre" title="https://w3id.org/ldac/terms#linguisticGenre">linguisticGenre</a> |  | A linguistic classification of the genre of this resource. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="mainText" title="https://w3id.org/ldac/terms#mainText"></a> Property: mainText
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#linguisticGenre" title="https://w3id.org/ldac/terms#linguisticGenre">linguisticGenre</a> | A linguistic classification of the genre of this resource. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="mainText" title="https://w3id.org/ldac/terms#mainText"></a> Property: mainText <small style="color:#aaa">(https://w3id.org/ldac/terms#mainText)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#mainText" title="https://w3id.org/ldac/terms#mainText">mainText</a> |  | Identifies the most relevant sub-component for computational text analytics. | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="material" title="https://w3id.org/ldac/terms#material"></a> Property: material
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#mainText" title="https://w3id.org/ldac/terms#mainText">mainText</a> | Identifies the most relevant sub-component for computational text analytics. | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="material" title="https://w3id.org/ldac/terms#material"></a> Property: material <small style="color:#aaa">(https://w3id.org/ldac/terms#material)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#material" title="https://w3id.org/ldac/terms#material">material</a> |  | Description of the original media, e.g. audio cassette tapes, participant questionnaires, field notes. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="materialType" title="https://w3id.org/ldac/terms#materialType"></a> Property: materialType
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#material" title="https://w3id.org/ldac/terms#material">material</a> | Description of the original media, e.g. audio cassette tapes, participant questionnaires, field notes. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="materialType" title="https://w3id.org/ldac/terms#materialType"></a> Property: materialType <small style="color:#aaa">(https://w3id.org/ldac/terms#materialType)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#materialType" title="https://w3id.org/ldac/terms#materialType">materialType</a> |  | Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation. |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
-### <a id="openAccessIndex" title="https://w3id.org/ldac/terms#openAccessIndex"></a> Property: openAccessIndex
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#materialType" title="https://w3id.org/ldac/terms#materialType">materialType</a> | Indicates whether the material in a file is the original (primary) source or is derived from it or describes it via annotation. |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
+### <a id="openAccessIndex" title="https://w3id.org/ldac/terms#openAccessIndex"></a> Property: openAccessIndex <small style="color:#aaa">(https://w3id.org/ldac/terms#openAccessIndex)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#openAccessIndex" title="https://w3id.org/ldac/terms#openAccessIndex">openAccessIndex</a> |  | One or more public index types allowed by a license, e.g. FullText indexing may be allowed for discovery even when an item is not. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="orthographicNotes" title="https://w3id.org/ldac/terms#orthographicNotes"></a> Property: orthographicNotes
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#openAccessIndex" title="https://w3id.org/ldac/terms#openAccessIndex">openAccessIndex</a> | One or more public index types allowed by a license, e.g. FullText indexing may be allowed for discovery even when an item is not. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="orthographicNotes" title="https://w3id.org/ldac/terms#orthographicNotes"></a> Property: orthographicNotes <small style="color:#aaa">(https://w3id.org/ldac/terms#orthographicNotes)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#orthographicNotes" title="https://w3id.org/ldac/terms#orthographicNotes">orthographicNotes</a> |  | A description of the specific orthographic writing system(s) used in the material (e.g. Latin, Cyrillic, Australian English, IPA), or particular conventions required to understand the material (e.g. O* = ø). | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="participant" title="https://w3id.org/ldac/terms#participant"></a> Property: participant
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#orthographicNotes" title="https://w3id.org/ldac/terms#orthographicNotes">orthographicNotes</a> | A description of the specific orthographic writing system(s) used in the material (e.g. Latin, Cyrillic, Australian English, IPA), or particular conventions required to understand the material (e.g. O* = ø). | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="participant" title="https://w3id.org/ldac/terms#participant"></a> Property: participant <small style="color:#aaa">(https://w3id.org/ldac/terms#participant)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#participant" title="https://w3id.org/ldac/terms#participant">participant</a> |  | The participant was present during the creation of the resource, but did not contribute substantially to its content. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="performer" title="https://w3id.org/ldac/terms#performer"></a> Property: performer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#participant" title="https://w3id.org/ldac/terms#participant">participant</a> | The participant was present during the creation of the resource, but did not contribute substantially to its content. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="performer" title="https://w3id.org/ldac/terms#performer"></a> Property: performer <small style="color:#aaa">(https://w3id.org/ldac/terms#performer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#performer" title="https://w3id.org/ldac/terms#performer">performer</a> |  | The participant performed some portion of a recorded, filmed, or transcribed resource. It is recommended that this term be used only for creative participants whose role is not better indicated by a more specific term, such as 'speaker', 'signer', or 'singer'. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="photographer" title="https://w3id.org/ldac/terms#photographer"></a> Property: photographer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#performer" title="https://w3id.org/ldac/terms#performer">performer</a> | The participant performed some portion of a recorded, filmed, or transcribed resource. It is recommended that this term be used only for creative participants whose role is not better indicated by a more specific term, such as 'speaker', 'signer', or 'singer'. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="photographer" title="https://w3id.org/ldac/terms#photographer"></a> Property: photographer <small style="color:#aaa">(https://w3id.org/ldac/terms#photographer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#photographer" title="https://w3id.org/ldac/terms#photographer">photographer</a> |  | The participant took the photograph, or shot the film, that appears in or constitutes the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="recorder" title="https://w3id.org/ldac/terms#recorder"></a> Property: recorder
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#photographer" title="https://w3id.org/ldac/terms#photographer">photographer</a> | The participant took the photograph, or shot the film, that appears in or constitutes the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="recorder" title="https://w3id.org/ldac/terms#recorder"></a> Property: recorder <small style="color:#aaa">(https://w3id.org/ldac/terms#recorder)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#recorder" title="https://w3id.org/ldac/terms#recorder">recorder</a> |  | The participant operated the recording machinery used to create the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="register" title="https://w3id.org/ldac/terms#register"></a> Property: register
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#recorder" title="https://w3id.org/ldac/terms#recorder">recorder</a> | The participant operated the recording machinery used to create the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="register" title="https://w3id.org/ldac/terms#register"></a> Property: register <small style="color:#aaa">(https://w3id.org/ldac/terms#register)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#register" title="https://w3id.org/ldac/terms#register">register</a> |  | The type of register (any of the varieties of a language that a speaker uses in a particular social context [Merriam-Webster]) of the contents of a language resource. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="researcher" title="https://w3id.org/ldac/terms#researcher"></a> Property: researcher
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#register" title="https://w3id.org/ldac/terms#register">register</a> | The type of register (any of the varieties of a language that a speaker uses in a particular social context [Merriam-Webster]) of the contents of a language resource. |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="researcher" title="https://w3id.org/ldac/terms#researcher"></a> Property: researcher <small style="color:#aaa">(https://w3id.org/ldac/terms#researcher)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#researcher" title="https://w3id.org/ldac/terms#researcher">researcher</a> |  | The resource was created as part of the participant's research, or the research presents interim or final results from the participant's research. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="researchParticipant" title="https://w3id.org/ldac/terms#researchParticipant"></a> Property: researchParticipant
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#researcher" title="https://w3id.org/ldac/terms#researcher">researcher</a> | The resource was created as part of the participant's research, or the research presents interim or final results from the participant's research. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="researchParticipant" title="https://w3id.org/ldac/terms#researchParticipant"></a> Property: researchParticipant <small style="color:#aaa">(https://w3id.org/ldac/terms#researchParticipant)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#researchParticipant" title="https://w3id.org/ldac/terms#researchParticipant">researchParticipant</a> |  | The participant acted as a research subject or responded to a questionnaire, the results of which study form the basis of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="responder" title="https://w3id.org/ldac/terms#responder"></a> Property: responder
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#researchParticipant" title="https://w3id.org/ldac/terms#researchParticipant">researchParticipant</a> | The participant acted as a research subject or responded to a questionnaire, the results of which study form the basis of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="responder" title="https://w3id.org/ldac/terms#responder"></a> Property: responder <small style="color:#aaa">(https://w3id.org/ldac/terms#responder)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#responder" title="https://w3id.org/ldac/terms#responder">responder</a> |  | The participant was an interlocutor in some sort of discourse event, but only reacted to the contributions of others. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="reviewDate" title="https://w3id.org/ldac/terms#reviewDate"></a> Property: reviewDate
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#responder" title="https://w3id.org/ldac/terms#responder">responder</a> | The participant was an interlocutor in some sort of discourse event, but only reacted to the contributions of others. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="reviewDate" title="https://w3id.org/ldac/terms#reviewDate"></a> Property: reviewDate <small style="color:#aaa">(https://w3id.org/ldac/terms#reviewDate)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#reviewDate" title="https://w3id.org/ldac/terms#reviewDate">reviewDate</a> |  | The date that this license should be reviewed. |  | <a href="#DataLicense" title="https://w3id.org/ldac/terms#DataLicense">DataLicense</a> |
-### <a id="signer" title="https://w3id.org/ldac/terms#signer"></a> Property: signer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#reviewDate" title="https://w3id.org/ldac/terms#reviewDate">reviewDate</a> | The date that this license should be reviewed. |  | <a href="#DataLicense" title="https://w3id.org/ldac/terms#DataLicense">DataLicense</a> |
+### <a id="signer" title="https://w3id.org/ldac/terms#signer"></a> Property: signer <small style="color:#aaa">(https://w3id.org/ldac/terms#signer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#signer" title="https://w3id.org/ldac/terms#signer">signer</a> |  | The contributor was a principal signer in a resource that consists of a recording, a film, or a transcription of a recorded resource. Signers are those whose gestures predominate in a recorded or filmed resource. (The resource may be a transcription of that recording). | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="singer" title="https://w3id.org/ldac/terms#singer"></a> Property: singer
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#signer" title="https://w3id.org/ldac/terms#signer">signer</a> | The contributor was a principal signer in a resource that consists of a recording, a film, or a transcription of a recorded resource. Signers are those whose gestures predominate in a recorded or filmed resource. (The resource may be a transcription of that recording). | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="singer" title="https://w3id.org/ldac/terms#singer"></a> Property: singer <small style="color:#aaa">(https://w3id.org/ldac/terms#singer)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#singer" title="https://w3id.org/ldac/terms#singer">singer</a> |  | The participant sang, either individually or as part of a group, in a resource that consists of a recording, a film, or a transcription of a recorded resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="speaker" title="https://w3id.org/ldac/terms#speaker"></a> Property: speaker
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#singer" title="https://w3id.org/ldac/terms#singer">singer</a> | The participant sang, either individually or as part of a group, in a resource that consists of a recording, a film, or a transcription of a recorded resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="speaker" title="https://w3id.org/ldac/terms#speaker"></a> Property: speaker <small style="color:#aaa">(https://w3id.org/ldac/terms#speaker)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#speaker" title="https://w3id.org/ldac/terms#speaker">speaker</a> |  | The contributor was a principal speaker in a resource that consists of a recording, a film, or a transcription of a recorded resource. Speakers are those whose voices predominate in a recorded or filmed resource. (The resource may be a transcription of that recording). | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="sponsor" title="https://w3id.org/ldac/terms#sponsor"></a> Property: sponsor
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#speaker" title="https://w3id.org/ldac/terms#speaker">speaker</a> | The contributor was a principal speaker in a resource that consists of a recording, a film, or a transcription of a recorded resource. Speakers are those whose voices predominate in a recorded or filmed resource. (The resource may be a transcription of that recording). | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="sponsor" title="https://w3id.org/ldac/terms#sponsor"></a> Property: sponsor <small style="color:#aaa">(https://w3id.org/ldac/terms#sponsor)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#sponsor" title="https://w3id.org/ldac/terms#sponsor">sponsor</a> |  | The participant contributed financial support to the creation of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="subjectLanguage" title="https://w3id.org/ldac/terms#subjectLanguage"></a> Property: subjectLanguage
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#sponsor" title="https://w3id.org/ldac/terms#sponsor">sponsor</a> | The participant contributed financial support to the creation of the resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="subjectLanguage" title="https://w3id.org/ldac/terms#subjectLanguage"></a> Property: subjectLanguage <small style="color:#aaa">(https://w3id.org/ldac/terms#subjectLanguage)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#subjectLanguage" title="https://w3id.org/ldac/terms#subjectLanguage">subjectLanguage</a> |  | The language(s) that this annotation resource is about. | <a href="http://schema.org/Language" title="http://schema.org/Language" target="_blank" rel="noopener">Language</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="transcriber" title="https://w3id.org/ldac/terms#transcriber"></a> Property: transcriber
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#subjectLanguage" title="https://w3id.org/ldac/terms#subjectLanguage">subjectLanguage</a> | The language(s) that this annotation resource is about. | <a href="http://schema.org/Language" title="http://schema.org/Language" target="_blank" rel="noopener">Language</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="transcriber" title="https://w3id.org/ldac/terms#transcriber"></a> Property: transcriber <small style="color:#aaa">(https://w3id.org/ldac/terms#transcriber)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#transcriber" title="https://w3id.org/ldac/terms#transcriber">transcriber</a> |  | The participant produced a transcription of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="translator" title="https://w3id.org/ldac/terms#translator"></a> Property: translator
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#transcriber" title="https://w3id.org/ldac/terms#transcriber">transcriber</a> | The participant produced a transcription of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="translator" title="https://w3id.org/ldac/terms#translator"></a> Property: translator <small style="color:#aaa">(https://w3id.org/ldac/terms#translator)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#translator" title="https://w3id.org/ldac/terms#translator">translator</a> |  | The participant produced a translation of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-### <a id="writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat"></a> Property: writtenLanguageFormat
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#translator" title="https://w3id.org/ldac/terms#translator">translator</a> | The participant produced a translation of this or a related resource. | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a>, <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+### <a id="writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat"></a> Property: writtenLanguageFormat <small style="color:#aaa">(https://w3id.org/ldac/terms#writtenLanguageFormat)</small>
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat">writtenLanguageFormat</a> |  | The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten). |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#writtenLanguageFormat" title="https://w3id.org/ldac/terms#writtenLanguageFormat">writtenLanguageFormat</a> | The format of the resource resulting from the way the text was produced (handwritten, typeset, typewritten). |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
 ## Property Values
 
 No PropertyValue entities are defined.
