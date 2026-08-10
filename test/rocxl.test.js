@@ -51,12 +51,15 @@ async function readXlsxCrate(xlsxPath) {
 	return workbook.crate;
 }
 
-function runGenerator(profilePath, outputPath) {
+function runGenerator(profilePath, outputPath, options = {}) {
+	const runCwd = options.cwd || repoRoot;
+	const runTemplatePath = options.templatePath || templatePath;
+
 	execFileSync(
 		process.execPath,
-		[generatorPath, profilePath, templatePath, outputPath, "-x"],
+		[generatorPath, profilePath, runTemplatePath, outputPath, "-x"],
 		{
-			cwd: repoRoot,
+			cwd: runCwd,
 			stdio: "pipe",
 		}
 	);
@@ -136,5 +139,28 @@ describe("rocxl synchronisation", function () {
 
 	it("updates JSON when XLSX is newer", async function () {
 		await assertScenarioSync("xlsx-newer", "xlsx-newer-to-json");
+	});
+
+	it("syncs XLSX-only crates when invoked from nested cwd with relative paths", async function () {
+		const workDir = copyFixtureScenario("xlsx-only");
+		const jsonPath = path.join(workDir, "ro-crate-metadata.json");
+		const xlsxPath = path.join(workDir, "ro-crate-metadata.xlsx");
+		const outputPath = path.join(workDir, "profile-documentation.md");
+		const nestedCwd = path.join(repoRoot, "schemas");
+
+		expect(fs.existsSync(jsonPath), "fixture should start without json").to.equal(false);
+		expect(fs.existsSync(xlsxPath), "fixture should start with xlsx").to.equal(true);
+
+		runGenerator(
+			path.relative(nestedCwd, jsonPath),
+			path.relative(nestedCwd, outputPath),
+			{
+				cwd: nestedCwd,
+				templatePath: path.relative(nestedCwd, templatePath),
+			}
+		);
+
+		expect(fs.existsSync(jsonPath), "JSON should be created from XLSX").to.equal(true);
+		expect(fs.existsSync(outputPath), "documentation should be generated").to.equal(true);
 	});
 });
