@@ -252,7 +252,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
+| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |  |
 | <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 
@@ -516,7 +516,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  |  | Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  |  | <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -1059,9 +1059,6 @@ Canonical identifiers that indicate conformance to this profile.
     "@id": "#class_MetadataDescriptor"
   },
   "rangeIncludes": [
-    {
-      "@id": "Text"
-    },
     {
       "@id": "#propertyValue_prop_id_MetadataDescriptor"
     }
