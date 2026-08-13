@@ -516,7 +516,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Text, <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor"></a> Property: about
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |

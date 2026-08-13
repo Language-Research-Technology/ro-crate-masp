@@ -292,7 +292,7 @@
       "about": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
       },
-      "dateModified": "2026-08-13T17:08:55+02:00"
+      "dateModified": "2026-08-13T17:18:39+02:00"
     },
     {
       "@id": "profile-documentation.md",
@@ -310,7 +310,7 @@
       "isPartOf": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
       },
-      "dateModified": "2026-08-13T17:08:55+02:00"
+      "dateModified": "2026-08-13T17:18:39+02:00"
     },
     {
       "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
