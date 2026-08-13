@@ -99,7 +99,7 @@ At least 1 instances of this type MUST be present in the crate.
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> |  |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | Yes | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | This property on the RO-Crate Metadata Descriptor references the Root Data Entity. | <a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> |  |
 
 ### Examples of Type
@@ -148,15 +148,10 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="https://bioschemas.org/ComputationalWorkflow" title="https://bioschemas.org/ComputationalWorkflow" target="_blank" rel="noopener">ComputationalWorkflow</a> |
+| @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="https://bioschemas.org/terms/ComputationalWorkflow" title="https://bioschemas.org/terms/ComputationalWorkflow" target="_blank" rel="noopener">ComputationalWorkflow</a> |
 | <a href="#Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow">programmingLanguage</a> | <a href="http://schema.org/programmingLanguage" target="_blank" rel="noopener">http://schema.org/programmingLanguage</a> | Yes | The programming language used to implement the Main Workflow. This is a string that should be a valid programming language name. | <a href="#programmingLanguages" title="#programmingLanguages">Programming Languages</a> |  |
 | <a href="#Property_MainWorkflow_image" title="#Property_MainWorkflow_image">image</a> | <a href="http://schema.org/image" target="_blank" rel="noopener">http://schema.org/image</a> | No | If _Main Workflow Diagram_ is present, the _Main Workflow_ MUST refer to it via `image`. | <a href="#Class_ImageObject_Diagram" title="#Class_ImageObject_Diagram">Main Workflow Diagram</a> |  |
 | <a href="#Property_MainWorkflow_subjectOf" title="#Property_MainWorkflow_subjectOf">subjectOf</a> | <a href="http://schema.org/subjectOf" target="_blank" rel="noopener">http://schema.org/subjectOf</a> | No | Main Workflow to a workflow description. The RO-Crate MUST contain exactly one Main Workflow Description. | <a href="#Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description">Main Workflow Description</a> |  |
-
-### Examples of Type
-#### Examples
--  [Example-1: example_workflow.cwl](#example_workflow.cwl)
-
 
 
 ### <a id="Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description"></a> Class: Main Workflow Description
@@ -269,19 +264,24 @@ Instances of this type MAY be present in the crate.
 
 A generic profile entity.
 
-At least 1 instances of this type MUST be present in the crate.
+Instances of this type SHOULD be present in the crate.
 
  A maximum of 1 instances of this type  MAY be present in the crate.
 
 | Min Count | Max Count |
 | --------- | --------- |
-| 1 | 1 |
+| 0 | 1 |
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Profile" title="http://schema.org/Profile" target="_blank" rel="noopener">Profile</a> |
+| @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://www.w3.org/ns/dx/prof/Profile" title="http://www.w3.org/ns/dx/prof/Profile" target="_blank" rel="noopener">Profile</a> |
 | <a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a> |  | Yes |  | Text |  |
 | <a href="#prop_version_classProfile" title="#prop_version_classProfile">version</a> |  | Yes |  | Text |  |
+
+### Examples of Type
+#### Examples
+-  [Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0](#https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0)
+
 
 ## All Properties
 
@@ -289,7 +289,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
+| <a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> |  | The RO-Crate Metadata  | <a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a> | <a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a> |
 ### <a id="property_CreativeWork_README.id" title="#property_CreativeWork_README.id"></a> Property: @id
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -431,14 +431,14 @@ ID: #Root_Data_Entity_conformsTo_value
 }</code></pre></td><td>1</td><td>1</td></tr>
 </tbody></table>
 
-### <a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadadata Descriptor Identifier Constraint
+### <a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadata Descriptor Identifier Constraint
 
 ID: #propertyValue_RO-Crate_Metadata_Descriptor.id
 
 <table>
 <thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
 <tbody>
-<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
 </tbody></table>
 
 ### <a id="propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id"></a> Property Value: Test Directory Identifier Constraint

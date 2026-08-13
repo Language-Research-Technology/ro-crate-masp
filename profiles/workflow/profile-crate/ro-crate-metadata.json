@@ -312,7 +312,7 @@
           "@id": "http://schema.org/SoftwareSourceCode"
         },
         {
-          "@id": "https://bioschemas.org/ComputationalWorkflow"
+          "@id": "https://bioschemas.org/terms/ComputationalWorkflow"
         }
       ],
       "description": "The Main Workflow is the primary workflow of the RO-Crate. It represents the computational process that is described by the RO-Crate.",
@@ -410,6 +410,7 @@
         "@id": "http://schema.org/about"
       },
       "description": "This property on the RO-Crate Metadata Descriptor references the Root Data Entity.",
+      "rdfs:label": "about",
       "name": "about",
       "domainIncludes": {
         "@id": "#RO-Crate_Metadata_Descriptor"
@@ -620,6 +621,7 @@
       },
       "description": "The README.md file SHOULD have an about property referencing the Root Data Entity.",
       "name": "about",
+      "rdfs:label": "about",
       "domainIncludes": {
         "@id": "#class_CreativeWork_README"
       },
@@ -719,11 +721,11 @@
           "@id": "http://schema.org/CreativeWork"
         },
         {
-          "@id": "http://schema.org/Profile"
+          "@id": "http://www.w3.org/ns/dx/prof/Profile"
         }
       ],
       "description": "A generic profile entity.",
-      "sh:minCount": 1,
+      "sh:minCount": 0,
       "sh:maxCount": 1
     },
     {
@@ -778,8 +780,8 @@
     {
       "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
       "@type": "PropertyValue",
-      "name": "RO-Crate Metadadata Descriptor Identifier Constraint",
-      "description": "Allowed identifier value constraint for RO-Crate Metadadata Descriptor.",
+      "name": "RO-Crate Metadata Descriptor Identifier Constraint",
+      "description": "Allowed identifier value constraint for RO-Crate Metadata Descriptor.",
       "value": "ro-crate-metadata.json",
       "sh:minCount": 1,
       "sh:maxCount": 1
