@@ -1,0 +1,74 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/ns#> .
+@prefix ext: <http://example.org/external#> .
+
+# Minimal fixture ontology exercising every construct scripts/owl-to-masp.py
+# is expected to handle. See scripts/owl-to-masp.spec.md ("Test plan") for
+# what each part of this fixture is here to prove.
+
+<http://example.org/ns> a owl:Ontology ;
+    rdfs:label "Fixture Ontology"@en ;
+    rdfs:comment "A tiny ontology used only to test scripts/owl-to-masp.py."@en .
+
+# In-namespace classes, related by a named rdfs:subClassOf plus one
+# anonymous owl:Restriction superclass (which must be dropped, not crash).
+ex:Widget a owl:Class ;
+    rdfs:label "Widget"@en ;
+    rdfs:comment "A basic fixture class."@en .
+
+# rdfs:label deliberately differs from the IRI's local name ("Gadget") to
+# exercise the rdfs:label-becomes-local-name / name-becomes-expanded-phrase
+# split (see scripts/owl-to-masp.spec.md, "Label vs. name").
+ex:Gadget a owl:Class ;
+    rdfs:label "Gadget Class"@en ;
+    rdfs:comment "A fixture class that specialises Widget."@en ;
+    rdfs:subClassOf ex:Widget ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ex:hasWidget ;
+        owl:someValuesFrom ex:Widget
+    ] .
+
+# Object property: domain/range both in-namespace classes.
+ex:hasWidget a owl:ObjectProperty ;
+    rdfs:label "has widget"@en ;
+    rdfs:comment "Relates a Gadget to the Widget it contains."@en ;
+    rdfs:domain ex:Gadget ;
+    rdfs:range ex:Widget .
+
+# Datatype property: proves the xsd:string -> schema:Text mapping.
+ex:widgetName a owl:DatatypeProperty ;
+    rdfs:label "widget name"@en ;
+    rdfs:comment "The name of a Widget."@en ;
+    rdfs:domain ex:Widget ;
+    rdfs:range xsd:string .
+
+# Property whose range is a class outside --namespace: the range
+# reference itself must still be emitted (as a full IRI), even though
+# ext:Thing does not get its own generated rdfs:Class entity.
+ex:refersTo a owl:ObjectProperty ;
+    rdfs:label "refers to"@en ;
+    rdfs:comment "Points at something outside the fixture namespace."@en ;
+    rdfs:domain ex:Widget ;
+    rdfs:range ext:Thing .
+
+# Out-of-namespace class: must be excluded from conversion entirely.
+ext:Thing a owl:Class ;
+    rdfs:label "Thing"@en ;
+    rdfs:comment "An external class that should not be converted."@en .
+
+# Property whose domain is an owl:unionOf of two named classes -- the
+# real-world idiom RiC-O uses instead of multiple rdfs:domain triples.
+# Must expand to domainIncludes: [ex:Widget, ex:Gadget], not be dropped
+# as an unsupported blank node.
+ex:describedBy a owl:ObjectProperty ;
+    rdfs:label "described by"@en ;
+    rdfs:comment "Relates either a Widget or a Gadget to its describer."@en ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( ex:Widget ex:Gadget )
+    ] ;
+    rdfs:range ex:Widget .

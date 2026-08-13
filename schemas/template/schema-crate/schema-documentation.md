@@ -21,18 +21,17 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Specialization Of | Required | Description | Range | Value |
-| -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  |  |
-| <a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> |  | No | This is an example of a property and its format. | schema:Text |  |
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> | No | This is an example of a property and its format. | schema:Text |  |
 
 ## All Properties
 
 ### <a id="template%3ApropertyExample" title="template:propertyExample"></a> Property: propertyExample
 
-| Property | Specialization Of | Description | Range | Occurs in Domain(s) |
-| -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> |  | This is an example of a property and its format. | schema:Text | <a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a> |
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> | This is an example of a property and its format. | schema:Text | <a href="#template%3AClassExample" title="template:ClassExample">ClassExample</a> |
 ## Property Values
 
 No PropertyValue entities are defined.
