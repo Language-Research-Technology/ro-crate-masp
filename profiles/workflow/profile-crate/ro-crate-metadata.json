@@ -258,14 +258,14 @@
       "about": {
         "@id": "https://w3id.org/ro/workflow-crate/"
       },
-      "dateModified": "2026-08-13T17:34:50+02:00"
+      "dateModified": "2026-08-13T17:35:11+02:00"
     },
     {
       "@id": "profile-documentation.md",
       "@type": "File",
       "name": "profile-documentation.md",
       "description": "",
-      "dateModified": "2026-08-13T17:34:57+02:00",
+      "dateModified": "2026-08-13T17:35:11+02:00",
       "encodingFormat": [
         {
           "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
@@ -286,7 +286,7 @@
       "prov:specializationOf": {
         "@id": "http://schema.org/CreativeWork"
       },
-      "Description": "An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.",
+      "description": "An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.",
       "sh:minCount": 1,
       "sh:maxCount": 1
     },
@@ -349,7 +349,7 @@
           "@id": "http://schema.org/MediaObject"
         }
       ],
-      "Description": "The _Crate_ SHOULD contain a File README.md at the root level. If present, it SHOULD have an about property referencing the Root Data Entity and SHOULD have `text/markdown` as its `encodingFormat`.",
+      "description": "The _Crate_ SHOULD contain a File README.md at the root level. If present, it SHOULD have an about property referencing the Root Data Entity and SHOULD have `text/markdown` as its `encodingFormat`.",
       "sh:minCount": 0,
       "sh:maxCount": 1
     },
@@ -360,7 +360,7 @@
       "prov:specializationOf": {
         "@id": "http://schema.org/Dataset"
       },
-      "Description": "The Crate SHOULD contain a directory for test files at the root level.",
+      "description": "The Crate SHOULD contain a directory for test files at the root level.",
       "sh:minCount": 0,
       "sh:maxCount": 1
     },
@@ -371,7 +371,7 @@
       "prov:specializationOf": {
         "@id": "http://schema.org/Dataset"
       },
-      "Description": "The Crate SHOULD contain a directory for example files at the root level.",
+      "description": "The Crate SHOULD contain a directory for example files at the root level.",
       "sh:minCount": 0,
       "sh:maxCount": 1
     },
@@ -387,7 +387,7 @@
           "@id": "http://schema.org/MediaObject"
         }
       ],
-      "Description": "The _Crate_ COULD contain a _Main Workflow Diagram_, indicated as a data entity of type `[\"File\", \"ImageObject\"]"
+      "description": "The _Crate_ COULD contain a _Main Workflow Diagram_, indicated as a data entity of type `[\"File\", \"ImageObject\"]"
     },
     {
       "@id": "#RO-Crate_Metadata_Descriptor.id",

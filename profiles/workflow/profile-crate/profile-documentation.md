@@ -86,7 +86,7 @@ The _Crate_ JSON-LD MUST be valid according to [RO-Crate 1.1](https://w3id.org/r
 
 ### <a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor
 
-
+An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.
 
 At least 1 instances of this type MUST be present in the crate.
 
@@ -174,7 +174,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_CreativeWork_README" title="#class_CreativeWork_README"></a> Class: README File
 
-
+The _Crate_ SHOULD contain a File README.md at the root level. If present, it SHOULD have an about property referencing the Root Data Entity and SHOULD have `text/markdown` as its `encodingFormat`.
 
 Instances of this type SHOULD be present in the crate.
 
@@ -194,7 +194,7 @@ Instances of this type SHOULD be present in the crate.
 
 ### <a id="class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory"></a> Class: Test Directory
 
-
+The Crate SHOULD contain a directory for test files at the root level.
 
 Instances of this type SHOULD be present in the crate.
 
@@ -217,7 +217,7 @@ Instances of this type SHOULD be present in the crate.
 
 ### <a id="class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory"></a> Class: Examples Directory
 
-
+The Crate SHOULD contain a directory for example files at the root level.
 
 Instances of this type SHOULD be present in the crate.
 
@@ -240,7 +240,7 @@ Instances of this type SHOULD be present in the crate.
 
 ### <a id="Class_ImageObject_Diagram" title="#Class_ImageObject_Diagram"></a> Class: Main Workflow Diagram
 
-
+The _Crate_ COULD contain a _Main Workflow Diagram_, indicated as a data entity of type `["File", "ImageObject"]
 
 Instances of this type MAY be present in the crate.
 

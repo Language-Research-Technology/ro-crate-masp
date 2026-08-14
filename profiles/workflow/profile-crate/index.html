@@ -148,6 +148,7 @@
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
 <h3><a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
+<p>An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -412,6 +413,7 @@
 </tbody>
 </table>
 <h3><a id="class_CreativeWork_README" title="#class_CreativeWork_README"></a> Class: README File</h3>
+<p>The <em>Crate</em> SHOULD contain a File README.md at the root level. If present, it SHOULD have an about property referencing the Root Data Entity and SHOULD have <code>text/markdown</code> as its <code>encodingFormat</code>.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -475,6 +477,7 @@
 </tbody>
 </table>
 <h3><a id="class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory"></a> Class: Test Directory</h3>
+<p>The Crate SHOULD contain a directory for test files at the root level.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -527,6 +530,7 @@
 <li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
 <h3><a id="class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory"></a> Class: Examples Directory</h3>
+<p>The Crate SHOULD contain a directory for example files at the root level.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -579,6 +583,7 @@
 <li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
 <h3><a id="Class_ImageObject_Diagram" title="#Class_ImageObject_Diagram"></a> Class: Main Workflow Diagram</h3>
+<p>The <em>Crate</em> COULD contain a <em>Main Workflow Diagram</em>, indicated as a data entity of type `[&quot;File&quot;, &quot;ImageObject&quot;]</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
