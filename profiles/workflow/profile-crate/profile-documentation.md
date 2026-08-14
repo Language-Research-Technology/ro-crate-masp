@@ -540,24 +540,6 @@ A list of programming languages that can be used to implement the Main Workflow
 }</code></pre></td></tr>
 </tbody></table>
 
-### <a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers
-
-Canonical identifiers that indicate conformance to this profile.
-
-<table>
-<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
-<tbody>
-<tr><td>Workflow Profile</td><td><a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F1.0" href="https://w3id.org/ro/workflow-crate/1.0" target="_blank" rel="noopener">https://w3id.org/ro/workflow-crate/1.0</a></td><td><pre><code>{
-  &quot;@id&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;,
-  &quot;@type&quot;: [
-    &quot;CreativeWork&quot;,
-    &quot;Profile&quot;
-  ],
-  &quot;name&quot;: &quot;Workflow Profile&quot;,
-  &quot;url&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;
-}</code></pre></td></tr>
-</tbody></table>
-
 ### <a id="programmingLanguageCWLList"></a>Item List: Common Workflow Language
 
 A list containing only the Common Workflow Language (CWL) as a programming language for the Workflow Description.
@@ -576,6 +558,24 @@ A list containing only the Common Workflow Language (CWL) as a programming langu
   &quot;url&quot;: {
     &quot;@id&quot;: &quot;https://www.commonwl.org/&quot;
   }
+}</code></pre></td></tr>
+</tbody></table>
+
+### <a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers
+
+Canonical identifiers that indicate conformance to this profile.
+
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Workflow Profile</td><td><a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F1.0" href="https://w3id.org/ro/workflow-crate/1.0" target="_blank" rel="noopener">https://w3id.org/ro/workflow-crate/1.0</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;Workflow Profile&quot;,
+  &quot;url&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;
 }</code></pre></td></tr>
 </tbody></table>
 
