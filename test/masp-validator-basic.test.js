@@ -93,7 +93,35 @@ describe("MASP Validator Tests", function () {
     results = await validator.validateCrate(targetCrate);
     //console.log("Metadata Descriptor:", JSON.stringify(targetCrate.getEntity("ro-crate-metadata.json"), null, 2));
     expect(results.error.length).to.equal(0);
- 
+
+  });
+
+  it("reports progress once per class rule and yields to the event loop", async function () {
+    setup();
+    const validator = new MaspValidator(rocrateProfileCrate);
+    validator.parseRules();
+
+    const expectedTotal = Object.keys(validator.rules.classes).length;
+    expect(expectedTotal).to.be.greaterThan(0);
+
+    const events = [];
+    const targetCrate = new ROCrate({ array: true, link: true });
+    await validator.validateCrate(targetCrate, {
+      onProgress: (event) => events.push(event),
+    });
+
+    expect(events.length).to.equal(expectedTotal);
+    events.forEach((event, i) => {
+      expect(event.phase).to.equal("validating");
+      expect(event.current).to.equal(i + 1);
+      expect(event.total).to.equal(expectedTotal);
+      expect(event.ratio).to.be.closeTo((i + 1) / expectedTotal, 1e-9);
+      expect(event.classRule).to.be.a("string");
+    });
+
+    // Omitting onProgress must not change behaviour or throw.
+    const resultsWithoutCallback = await validator.validateCrate(targetCrate);
+    expect(resultsWithoutCallback).to.have.property("error");
   });
 
   it("should be able to deal with multiple required types on Root Data Entity", async function () {
