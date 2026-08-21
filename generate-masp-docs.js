@@ -34,10 +34,14 @@ const profilePath =
 const templatePath =
   positionalArgs[1] ||
   path.join(__dirname, "profiles", "ro-crate", "profile-text.md");
+// Normalize user-provided paths once so every later file operation agrees on location.
+const resolvedProfilePath = path.resolve(profilePath);
+const resolvedTemplatePath = path.resolve(templatePath);
 // Save the output in the same directory as the profile crate
-const profileDir = path.dirname(profilePath);
+const profileDir = path.dirname(resolvedProfilePath);
 const outputPath =
   positionalArgs[2] || path.join(profileDir, "profile-documentation.md");
+const resolvedOutputPath = path.resolve(outputPath);
 
 // Rocxl synchronisation function - if the crate contains both JSON and XLSX metadata, choose the most recently modified one as the source of truth for synchronisation, otherwise use whichever one exists. If neither exists, throw an error.
 function syncProfileCrateWithRocxl(targetDir) {
@@ -246,7 +250,7 @@ try {
     syncProfileCrateWithRocxl(profileDir);
   }
 
-  const profileData = fs.readFileSync(profilePath, "utf8");
+  const profileData = fs.readFileSync(resolvedProfilePath, "utf8");
   const profileJson = JSON.parse(profileData);
   const profileCrate = new ROCrate(profileJson, { array: true, link: true });
 
@@ -971,8 +975,8 @@ try {
     __dirname,
     path.resolve(__dirname, "generate-masp-docs.js")
   );
-  const templateRelPath = path.relative(__dirname, templatePath);
-  const profileRelPath = path.relative(__dirname, profilePath);
+  const templateRelPath = path.relative(__dirname, resolvedTemplatePath);
+  const profileRelPath = path.relative(__dirname, resolvedProfilePath);
 
   // Add examples
 
@@ -990,21 +994,21 @@ try {
     )}/${clean(profileRelPath)}).`;
 
   // Read the template file
-  console.log(`Reading template from: ${clean(templatePath)}`);
-  const template = fs.readFileSync(templatePath, "utf8");
+  console.log(`Reading template from: ${clean(resolvedTemplatePath)}`);
+  const template = fs.readFileSync(resolvedTemplatePath, "utf8");
 
   // Simple template engine - add support for including definedTermSets in the template
   const output = renderTemplateWithRules(template, rules);
 
   // Ensure output directory exists
-  const outputDir = path.dirname(outputPath);
+  const outputDir = path.dirname(resolvedOutputPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
   // Write the markdown output
-  fs.writeFileSync(outputPath, output, "utf8");
-  console.log(`Documentation generated successfully: ${clean(outputPath)}`);
+  fs.writeFileSync(resolvedOutputPath, output, "utf8");
+  console.log(`Documentation generated successfully: ${clean(resolvedOutputPath)}`);
 
   const profileName = profileCrate.rootDataset?.name || "Profile Documentation";
 
