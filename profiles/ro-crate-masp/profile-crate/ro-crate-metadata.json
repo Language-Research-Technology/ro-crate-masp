@@ -81,15 +81,6 @@
       ]
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
-      "@type": [
-        "CreativeWork",
-        "Profile"
-      ],
-      "name": "RO-Crate MASP Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
-    },
-    {
       "@id": "#author",
       "@type": "Organization",
       "name": "University of Queensland"
@@ -301,7 +292,7 @@
       "about": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
       },
-      "dateModified": "2026-07-22T15:37:00+10:00"
+      "dateModified": "2026-08-13T17:26:40+02:00"
     },
     {
       "@id": "profile-documentation.md",
@@ -319,7 +310,16 @@
       "isPartOf": {
         "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
       },
-      "dateModified": "2026-07-22T15:37:00+10:00"
+      "dateModified": "2026-08-13T17:26:40+02:00"
+    },
+    {
+      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/#profile",
+      "@type": [
+        "CreativeWork",
+        "Profile"
+      ],
+      "name": "RO-Crate MASP Profile",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/"
     },
     {
       "@id": "#class_MetadataDescriptor",
@@ -447,9 +447,6 @@
         "@id": "#class_MetadataDescriptor"
       },
       "rangeIncludes": [
-        {
-          "@id": "Text"
-        },
         {
           "@id": "#propertyValue_prop_id_MetadataDescriptor"
         }
@@ -693,7 +690,8 @@
       },
       "rangeIncludes": {
         "@id": "Text"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_specializationOf_rdfsClass",
@@ -722,7 +720,8 @@
       },
       "rangeIncludes": {
         "@id": "Integer"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_maxCount_rdfsClass",
@@ -738,7 +737,8 @@
       },
       "rangeIncludes": {
         "@id": "Integer"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_label_rdfProperty",
@@ -799,7 +799,8 @@
       },
       "domainIncludes": {
         "@id": "#class_rdfProperty"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_minCount_rdfProperty",
@@ -815,7 +816,8 @@
       },
       "rangeIncludes": {
         "@id": "Integer"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_maxCount_rdfProperty",
@@ -831,7 +833,8 @@
       },
       "rangeIncludes": {
         "@id": "Integer"
-      }
+      },
+      "sh:maxCount": 1
     },
     {
       "@id": "#prop_value_rdfProperty",
@@ -984,7 +987,7 @@
         "application/json"
       ],
       "description": "Mini Crate-O mode file for this profile (metadata, input groups, lookup and enabled classes — the schema/grammar is provided by the MASP profile crate itself).",
-      "dateModified": "2026-05-22T08:29:17+10:00"
+      "dateModified": "2026-08-13T15:49:27+02:00"
     },
     {
       "@id": "https://w3id.org/ro/conformance-indicators",
@@ -1004,6 +1007,11 @@
       ]
     },
     {
+      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
+      "@type": "DigitalFormat",
+      "name": "Hypertext Markup Language"
+    },
+    {
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
       "@type": "DigitalFormat",
       "name": "Markdown"
@@ -1012,11 +1020,6 @@
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
       "@type": "DigitalFormat",
       "name": "JSON Data Interchange Format"
-    },
-    {
-      "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471",
-      "@type": "DigitalFormat",
-      "name": "Hypertext Markup Language"
     },
     {
       "@id": "./",
