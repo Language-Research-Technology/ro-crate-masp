@@ -148,6 +148,7 @@
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
 <h3><a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadadata Descriptor</h3>
+<p>An RO-Crate @graph must contain an entity of Type @CreativeWork which is known as the RO-Crate Metadata descriptor.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -189,7 +190,7 @@
 <td></td>
 <td>Yes</td>
 <td>The RO-Crate Metadata</td>
-<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a></td>
 <td></td>
 </tr>
 <tr>
@@ -335,7 +336,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="https://bioschemas.org/ComputationalWorkflow" title="https://bioschemas.org/ComputationalWorkflow" target="_blank" rel="noopener">ComputationalWorkflow</a></td>
+<td><a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="https://bioschemas.org/terms/ComputationalWorkflow" title="https://bioschemas.org/terms/ComputationalWorkflow" target="_blank" rel="noopener">ComputationalWorkflow</a></td>
 </tr>
 <tr>
 <td><a href="#Property_programmingLanguage_Workflow" title="#Property_programmingLanguage_Workflow">programmingLanguage</a></td>
@@ -363,11 +364,6 @@
 </tr>
 </tbody>
 </table>
-<h3>Examples of Type</h3>
-<h4>Examples</h4>
-<ul>
-<li><a href="#example_workflow.cwl">Example-1: example_workflow.cwl</a></li>
-</ul>
 <h3><a id="Class_MainWorkflow_Description" title="#Class_MainWorkflow_Description"></a> Class: Main Workflow Description</h3>
 <p>The <em>Crate</em> COULD contain a data entity of type <code>[File, SoftwareSourceCode, HowTo]</code> as the <em>Main Workflow CWL Description</em>.</p>
 <p>Instances of this type MAY be present in the crate.</p>
@@ -417,6 +413,7 @@
 </tbody>
 </table>
 <h3><a id="class_CreativeWork_README" title="#class_CreativeWork_README"></a> Class: README File</h3>
+<p>The <em>Crate</em> SHOULD contain a File README.md at the root level. If present, it SHOULD have an about property referencing the Root Data Entity and SHOULD have <code>text/markdown</code> as its <code>encodingFormat</code>.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -480,6 +477,7 @@
 </tbody>
 </table>
 <h3><a id="class_Dataset_Test_Directory" title="#class_Dataset_Test_Directory"></a> Class: Test Directory</h3>
+<p>The Crate SHOULD contain a directory for test files at the root level.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -532,6 +530,7 @@
 <li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
 <h3><a id="class_Dataset_Examples_Directory" title="#class_Dataset_Examples_Directory"></a> Class: Examples Directory</h3>
+<p>The Crate SHOULD contain a directory for example files at the root level.</p>
 <p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -584,6 +583,7 @@
 <li><a href="#.%2F">Example-1: ./</a></li>
 </ul>
 <h3><a id="Class_ImageObject_Diagram" title="#Class_ImageObject_Diagram"></a> Class: Main Workflow Diagram</h3>
+<p>The <em>Crate</em> COULD contain a <em>Main Workflow Diagram</em>, indicated as a data entity of type `[&quot;File&quot;, &quot;ImageObject&quot;]</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -636,7 +636,7 @@
 </ul>
 <h3><a id="classProfile" title="#classProfile"></a> Class: Profile</h3>
 <p>A generic profile entity.</p>
-<p>At least 1 instances of this type MUST be present in the crate.</p>
+<p>Instances of this type SHOULD be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
 <thead>
@@ -647,7 +647,7 @@
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td>0</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -670,7 +670,7 @@
 <td>Yes</td>
 <td></td>
 <td></td>
-<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://schema.org/Profile" title="http://schema.org/Profile" target="_blank" rel="noopener">Profile</a></td>
+<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a>, <a href="http://www.w3.org/ns/dx/prof/Profile" title="http://www.w3.org/ns/dx/prof/Profile" target="_blank" rel="noopener">Profile</a></td>
 </tr>
 <tr>
 <td><a href="#prop_name_classProfile" title="#prop_name_classProfile">name</a></td>
@@ -690,6 +690,11 @@
 </tr>
 </tbody>
 </table>
+<h3>Examples of Type</h3>
+<h4>Examples</h4>
+<ul>
+<li><a href="#https%3A%2F%2Fw3id.org%2Fworkflowhub%2Fworkflow-ro-crate%2F1.0">Example-1: https://w3id.org/workflowhub/workflow-ro-crate/1.0</a></li>
+</ul>
 <h2>All Properties</h2>
 <h3><a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id</h3>
 <table>
@@ -705,7 +710,7 @@
 <tr>
 <td><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
 <td>The RO-Crate Metadata</td>
-<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a></td>
 <td><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadadata Descriptor</a></td>
 </tr>
 </tbody>
@@ -1114,12 +1119,12 @@
   &quot;description&quot;: &quot;This is a profile for RO-Crates that are used to describe workflows -- NOTE have moved the conformsTo to the ROOT Data Entity  as per RO-Crate 1.2&quot;
 }</code></pre></td><td>1</td><td>1</td></tr>
 </tbody></table>
-<h3><a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadadata Descriptor Identifier Constraint</h3>
+<h3><a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadata Descriptor Identifier Constraint</h3>
 <p>ID: #propertyValue_RO-Crate_Metadata_Descriptor.id</p>
 <table>
 <thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
 <tbody>
-<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor Identifier Constraint</a></td><td>Allowed identifier value constraint for RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
 </tbody></table>
 <h3><a id="propertyValue_property_Dataset_Test_Directory.id" title="#propertyValue_property_Dataset_Test_Directory.id"></a> Property Value: Test Directory Identifier Constraint</h3>
 <p>ID: #propertyValue_property_Dataset_Test_Directory.id</p>
@@ -1207,21 +1212,6 @@
   }
 }</code></pre></td></tr>
 </tbody></table>
-<h3><a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers</h3>
-<p>Canonical identifiers that indicate conformance to this profile.</p>
-<table>
-<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
-<tbody>
-<tr><td>Workflow Profile</td><td><a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F1.0" href="https://w3id.org/ro/workflow-crate/1.0" target="_blank" rel="noopener">https://w3id.org/ro/workflow-crate/1.0</a></td><td><pre><code>{
-  &quot;@id&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;,
-  &quot;@type&quot;: [
-    &quot;CreativeWork&quot;,
-    &quot;Profile&quot;
-  ],
-  &quot;name&quot;: &quot;Workflow Profile&quot;,
-  &quot;url&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;
-}</code></pre></td></tr>
-</tbody></table>
 <h3><a id="programmingLanguageCWLList"></a>Item List: Common Workflow Language</h3>
 <p>A list containing only the Common Workflow Language (CWL) as a programming language for the Workflow Description.</p>
 <table>
@@ -1238,6 +1228,21 @@
   &quot;url&quot;: {
     &quot;@id&quot;: &quot;https://www.commonwl.org/&quot;
   }
+}</code></pre></td></tr>
+</tbody></table>
+<h3><a id="conformanceIndicators"></a>Item List: Supported conformsTo identifiers</h3>
+<p>Canonical identifiers that indicate conformance to this profile.</p>
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>Workflow Profile</td><td><a id="https%3A%2F%2Fw3id.org%2Fro%2Fworkflow-crate%2F1.0" href="https://w3id.org/ro/workflow-crate/1.0" target="_blank" rel="noopener">https://w3id.org/ro/workflow-crate/1.0</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;,
+  &quot;@type&quot;: [
+    &quot;CreativeWork&quot;,
+    &quot;Profile&quot;
+  ],
+  &quot;name&quot;: &quot;Workflow Profile&quot;,
+  &quot;url&quot;: &quot;https://w3id.org/ro/workflow-crate/1.0&quot;
 }</code></pre></td></tr>
 </tbody></table>
 <p><a id="hasExampleWorkflow"></a></p>

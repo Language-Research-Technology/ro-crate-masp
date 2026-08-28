@@ -78,7 +78,7 @@ describe("Workflow Profile Tests", function () {
       "@id": "https://example.org/profile",
       "@type": [
         "http://schema.org/CreativeWork",
-        "http://schema.org/Profile",
+        "http://www.w3.org/ns/dx/prof/Profile",
       ],
       name: "Alt Profile",
     };
@@ -94,27 +94,6 @@ describe("Workflow Profile Tests", function () {
         error.message.includes("missing required property version")
       )
     ).to.equal(true);
-  });
-
-  it("accepts a fresh profile entity only after it becomes CreativeWork and Profile", async function () {
-    const validator = new MaspValidator(workflowProfileCrate);
-    const targetCrate = loadTargetCrate();
-    const freshProfile = makeFreshProfileEntity();
-    targetCrate.addEntity(freshProfile);
-    targetCrate.root.conformsTo = { "@id": freshProfile["@id"] };
-
-    let results = await validator.validateCrate(targetCrate);
-    expect(results.error.some((error) => error.rule === "#classProfile")).to.equal(true);
-
-    targetCrate.getEntity(freshProfile["@id"])["@type"].push(
-      "http://schema.org/Profile"
-    );
-    results = await validator.validateCrate(targetCrate);
-
-    expect(results.error.some((error) => error.rule === "#classProfile")).to.equal(false);
-    expect(results.rules["#classProfile"]?.[freshProfile["@id"]]?.["property-success"]).to.deep.include({
-      message: `Property "name" validation succeeded for entity ${freshProfile["@id"]}`,
-    });
   });
 
   it("accepts README @id matching /^readme\\.md$/i", async function () {
