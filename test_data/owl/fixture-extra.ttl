@@ -1,0 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex2: <http://example.org/extra#> .
+
+# A second, minimal fixture ontology -- exists only to prove --input can be
+# given more than once and have both sources merged into a single schema
+# crate. See scripts/owl-to-masp.spec.md, "Merging multiple ontologies into
+# one schema", and fixture.ttl's own header for the main fixture this
+# complements.
+
+<http://example.org/extra> a owl:Ontology ;
+    rdfs:label "Extra Fixture Ontology"@en .
+
+ex2:Sprocket a owl:Class ;
+    rdfs:label "Sprocket"@en ;
+    rdfs:comment "A fixture class from a second, merged-in ontology."@en .

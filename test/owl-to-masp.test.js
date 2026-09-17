@@ -84,4 +84,45 @@ describe("OWL to MASP converter (scripts/owl-to-masp.py)", function () {
     const mentionIds = root.mentions.map((m) => m["@id"]);
     expect(mentionIds).to.include("#owl-to-masp-conversion");
   });
+
+  describe("merging multiple --input sources (spec: 'Merging multiple ontologies into one schema')", function () {
+    const extraFixturePath = path.join(__dirname, "..", "test_data", "owl", "fixture-extra.ttl");
+    let mergedOutputDir;
+    let mergedMetadataPath;
+
+    before(function () {
+      mergedOutputDir = fs.mkdtempSync(path.join(os.tmpdir(), "owl-to-masp-merge-test-"));
+      execSync(
+        `uv run "${scriptPath}" --input "${fixturePath}" --input "${extraFixturePath}" ` +
+          `--output-dir "${mergedOutputDir}" --name "Merged Fixture Schema"`,
+        { stdio: "pipe" }
+      );
+      mergedMetadataPath = path.join(mergedOutputDir, "schema-crate", "ro-crate-metadata.json");
+    });
+
+    after(function () {
+      if (mergedOutputDir) fs.removeSync(mergedOutputDir);
+    });
+
+    it("produces one schema crate that MaspValidator loads, with classes from both --input sources", async function () {
+      const crateJson = JSON.parse(fs.readFileSync(mergedMetadataPath, "utf8"));
+      const crate = new ROCrate(crateJson, { array: true, link: true });
+      const validator = new MaspValidator(crate);
+      await validator.validateCrate(crate);
+
+      expect(validator.rules.classes).to.have.property("http://example.org/ns#Widget");
+      expect(validator.rules.classes).to.have.property("http://example.org/extra#Sprocket");
+    });
+
+    it("copies both source files, referenced from a single CreateAction's object array", function () {
+      expect(fs.existsSync(path.join(mergedOutputDir, "schema-crate", "fixture.ttl"))).to.be.true;
+      expect(fs.existsSync(path.join(mergedOutputDir, "schema-crate", "fixture-extra.ttl"))).to.be.true;
+
+      const crateJson = JSON.parse(fs.readFileSync(mergedMetadataPath, "utf8"));
+      const crate = new ROCrate(crateJson, { array: true, link: true });
+      const createAction = crate.getEntity("#owl-to-masp-conversion");
+      const objectIds = createAction.object.map((o) => o["@id"]);
+      expect(objectIds).to.have.members(["fixture.ttl", "fixture-extra.ttl"]);
+    });
+  });
 });

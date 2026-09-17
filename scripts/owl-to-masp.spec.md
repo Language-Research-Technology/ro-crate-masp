@@ -29,7 +29,7 @@ We want to bring external OWL ontologies (starting with [Records in Context Onto
 
 ## Inputs & Outputs
 
-**Input:** one OWL file (local path or URL), e.g. `https://www.ica.org/standards/RiC/RiC-O_1-1.rdf`.
+**Input:** one or more OWL files (local path or URL each), e.g. `https://www.ica.org/standards/RiC/RiC-O_1-1.rdf`. `--input`/`-i` is repeatable — give it more than once to merge several related ontologies into a single schema crate instead of maintaining one MASP schema per source file. See [Merging multiple ontologies into one schema](#merging-multiple-ontologies-into-one-schema) below.
 
 **Output:** a directory shaped like the existing `schemas/*/schema-crate/` convention:
 
@@ -38,10 +38,10 @@ schemas/<name>/
   schema-text.md                  # generated stub, placeholders only
   schema-crate/
     ro-crate-metadata.json        # generated MASP schema crate
-    <original-owl-filename>       # the source OWL file, copied in verbatim
+    <original-owl-filename>       # each source OWL file, copied in verbatim (one per --input)
 ```
 
-The source OWL file is copied into `schema-crate/` under its original filename (the last path segment of `--input`, whether that's a local path or a URL) so the crate is self-contained and the exact bytes that were converted are citable alongside the result — not just linked to an external, possibly-mutable URL. See [Provenance](#provenance-source-file--createaction) for how this file and the conversion itself are recorded in the crate's own metadata.
+Each source OWL file is copied into `schema-crate/` under its original filename (the last path segment of its `--input` value, whether that's a local path or a URL) so the crate is self-contained and the exact bytes that were converted are citable alongside the result — not just linked to an external, possibly-mutable URL. See [Provenance](#provenance-source-file--createaction) for how these files and the conversion itself are recorded in the crate's own metadata.
 
 ## CLI interface
 
@@ -53,14 +53,25 @@ uv run scripts/owl-to-masp.py \
   --name "Records in Context Ontology"
 ```
 
+Merging three ontologies into one schema (see [Merging multiple ontologies into one schema](#merging-multiple-ontologies-into-one-schema)):
+
+```bash
+uv run scripts/owl-to-masp.py \
+  --input schemas/lexinfo/lexinfo.owl \
+  --input https://www.w3.org/ns/lemon/ontolex \
+  --input https://www.w3.org/ns/lemon/synsem \
+  --output-dir schemas/lexinfo \
+  --name "LexInfo + OntoLex-Lemon (core, synsem)"
+```
+
 Flags (mirrors the option style of `scripts/mode-to-masp.js`):
 
 | Flag | Alias | Required | Description |
 |---|---|---|---|
-| `--input` | `-i` | yes | Path or URL to the OWL file |
+| `--input` | `-i` | yes | Path or URL to an OWL file. **Repeatable** — pass it once per source to merge them into one schema crate. |
 | `--output-dir` | `-o` | yes | Output directory, e.g. `schemas/ric` |
-| `--namespace` | `-n` | no | Restricts conversion to classes/properties whose IRI starts with this prefix (see [Namespace filtering](#namespace-filtering-not-compaction) below); defaults to no filtering (convert everything typed `owl:Class`/`owl:ObjectProperty`/`owl:DatatypeProperty`) |
-| `--name` | | no | Human-readable schema name for `schema-text.md` (defaults to `owl:Ontology` `rdfs:label` if present) |
+| `--namespace` | `-n` | no | Restricts conversion to classes/properties whose IRI starts with one of these prefixes (see [Namespace filtering](#namespace-filtering-not-compaction) below); defaults to no filtering (convert everything typed `owl:Class`/`owl:ObjectProperty`/`owl:DatatypeProperty` across every merged `--input`). Also repeatable — most merges need one prefix per input, though nothing requires a 1:1 pairing (any subject matching any given prefix is included). |
+| `--name` | | no | Human-readable schema name for `schema-text.md` (defaults to `owl:Ontology` `rdfs:label` if present). With more than one `--input`, there may be several `owl:Ontology` subjects and no single correct default — pass `--name` explicitly rather than relying on the (arbitrary: first one found) fallback. |
 
 Declare dependencies inline via PEP 723 script metadata at the top of `owl-to-masp.py` (so `uv run` auto-installs them, no separate `requirements.txt`/`pyproject.toml` needed):
 
@@ -103,7 +114,7 @@ This also lines up with how `lib/masp-validator.js`'s `Rule` base class already 
 
 `--namespace` does **not** compact `@id`s (no `ric:Record`-style prefixed names) — every generated `@id` is the term's full IRI, matching the precedent already set by `schemas/schema-org` (`"@id": "https://schema.org/3DModel"`), not the inconsistent `austalk:`/`ausnc:` prefixes used in `schemas/austalk` (those aren't actually resolvable — no matching `@context` prefix definition exists for them in that file).
 
-Instead, `--namespace` **filters which terms get converted at all**: only subjects typed `owl:Class`/`owl:ObjectProperty`/`owl:DatatypeProperty` (or, per [Plain RDFS vocabularies](#plain-rdfs-vocabularies-no-owl-typing) below, plain `rdfs:Class`/`rdf:Property`) whose IRI starts with the given namespace become MASP rule entities. This matters because real-world OWL files (RiC-O included) import other vocabularies (PROV, SKOS, Dublin Core, etc.) — without filtering, converting RiC-O would also try to re-mint schema entities for every imported term, most of which aren't meant to be redefined here. Properties whose `rdfs:range` points at a class *outside* the namespace are still allowed to reference that class's full IRI (external range references are normal and fine) — only whether a term becomes its *own* generated `rdfs:Class`/`rdf:Property` entity is filtered.
+Instead, `--namespace` **filters which terms get converted at all**: only subjects typed `owl:Class`/`owl:ObjectProperty`/`owl:DatatypeProperty` (or, per [Plain RDFS vocabularies](#plain-rdfs-vocabularies-no-owl-typing) below, plain `rdfs:Class`/`rdf:Property`) whose IRI starts with *one of* the given namespace prefixes (`--namespace` is repeatable — see [Merging multiple ontologies into one schema](#merging-multiple-ontologies-into-one-schema)) become MASP rule entities. This matters because real-world OWL files (RiC-O included) import other vocabularies (PROV, SKOS, Dublin Core, etc.) — without filtering, converting RiC-O would also try to re-mint schema entities for every imported term, most of which aren't meant to be redefined here. Properties whose `rdfs:range` points at a class *outside* the namespace are still allowed to reference that class's full IRI (external range references are normal and fine) — only whether a term becomes its *own* generated `rdfs:Class`/`rdf:Property` entity is filtered.
 
 ### `owl:unionOf` domain/range expansion
 
@@ -127,6 +138,18 @@ Resolved: when a domain/range/subClassOf object is a blank node, check whether i
 Resolved: a class subject is any subject typed `owl:Class` **or** `rdfs:Class` (union of both sets, deduplicated — a subject asserted as both isn't emitted twice); a property subject is any subject typed `owl:ObjectProperty`, `owl:DatatypeProperty`, **or** plain `rdf:Property`. Everything downstream (namespace filtering, label/name/comment handling, `rdfs:subClassOf`, `rdfs:domain`/`rdfs:range` when present) applies identically regardless of which type triple got the subject picked up — a plain `rdf:Property` with no `rdfs:domain`/`rdfs:range` at all simply emits a bare `rdf:Property` entity with no `domainIncludes`/`rangeIncludes`, same as an OWL-typed property would if it omitted them. This doesn't change output for RiC-O or the fixture, since a subject there typed `owl:Class` isn't additionally asserted `rdfs:Class` as a separate triple (rdflib has no OWL/RDFS entailment reasoner running here — only asserted triples are seen, not inferred ones).
 
 **Not converted, left for a follow-up:** `rdfs:subPropertyOf` (41 uses in CLDF's terms.rdf) has no MASP analogue in the current mapping table or `lib/masp-validator.js`, unlike `rdfs:subClassOf` which does. Per the "flag anything richer... rather than guess" principle (§Non-goals), this is silently ignored rather than guessed at for now — CLDF's generated schema is usable without it (classes/properties still get their labels, comments and available domain/range), it's just missing the property-hierarchy information that `rdfs:subPropertyOf` would otherwise carry.
+
+### Merging multiple ontologies into one schema
+
+**Motivating case:** LexInfo (`schemas/lexinfo`) specialises the OntoLex-Lemon model — its properties' `domainIncludes`/`rangeIncludes` point at classes like `ontolex:LexicalEntry`, `ontolex:LexicalSense` and `synsem:SyntacticArgument` that live in the `ontolex`/`synsem` modules LexInfo imports, not in LexInfo's own namespace. Converting LexInfo alone (§[Namespace filtering](#namespace-filtering-not-compaction)'s "external references are fine") leaves those referenced classes as bare, unlabelled IRIs in the generated docs. Converting `ontolex`/`synsem` as their own separate MASP schemas would give them real `rdfs:Class` entities, but at the cost of three schemas to track in lockstep (a LexInfo update that changes which OntoLex-Lemon terms it uses would need coordinated changes across all three) for what is, conceptually, one vocabulary meant to be used together.
+
+Resolved: `--input` is repeatable. Every source is fetched and parsed into **one shared rdflib graph** (`Graph.parse()` called once per source against the same `Graph` instance — this is exactly what rdflib's parse/merge already does; no new merge logic needed), and class/property extraction then runs once against that combined graph, same as a single-input run. A `--namespace` prefix given for one source's IRI space still only admits subjects in that space — `in_namespace` now checks a term's IRI against *every* given prefix, matching if any one of them matches — but since `in_namespace` already treats "no namespace given" as "convert everything typed appropriately" (no filtering), the common case for a merge is to **omit `--namespace` entirely** and let every source's classes/properties in unconditionally, since the whole point of listing several `--input`s is that all of them are wanted.
+
+This does not change single-`--input` behaviour at all: `convert()`'s `input_sources`/`namespace` parameters each accept either a bare string (existing call style, wrapped into a one-element list internally) or a list, so every existing caller (the CLI's single `-i`, the Python unit tests, `test/owl-to-masp.test.js`'s shell-out) keeps working unmodified.
+
+**Provenance for a merge** (see [Provenance](#provenance-source-file--createaction) below): each `--input` gets its own copied `File` entity (own filename, own `encodingFormat`), all listed in the root `Dataset`'s `hasPart`; the single `CreateAction`'s `object` becomes an array of all of them (one file, the existing single-`@id` shape, per `as_id_field`'s existing one-vs-many convention — no new shape introduced). There is still exactly one `CreateAction`, one `SoftwareApplication`, one `ro-crate-metadata.json` — the merge produces one schema crate, not one per source.
+
+**Not attempted:** de-duplicating a class/property that happens to be asserted in more than one merged source (e.g. if two ontologies both define the same term IRI) — rdflib's own graph union already handles this at the triple level (repeated identical triples don't duplicate), and `build_class_entities`/`build_property_entities` already dedupe subjects via `set()`, so this isn't a gap so much as untested territory; none of the ontologies converted so far (LexInfo, `ontolex`, `synsem`) share a term IRI.
 
 ### XSD → schema.org datatype table
 
@@ -178,6 +201,14 @@ Every generated crate records where it came from and how, using standard RO-Crat
 ```
 
 The root `Dataset`'s `hasPart` gains the source file's `@id`, and its `mentions` (previously always an empty array) gains `{"@id": "#owl-to-masp-conversion"}` — `mentions` is the conventional place in this repo's crates for referencing entities that describe the dataset without being literal parts of it.
+
+**With more than one `--input`** ([Merging multiple ontologies into one schema](#merging-multiple-ontologies-into-one-schema)): there is one `File` entity per source, all listed in `hasPart`, and `object` becomes an array of all of them (the same `as_id_field` one-vs-many convention used for `domainIncludes`/`rangeIncludes` — a single input still collapses to the plain `{"@id": ...}` shape shown above, unchanged):
+
+```jsonc
+"object": [{ "@id": "lexinfo.owl" }, { "@id": "ontolex" }, { "@id": "synsem" }]
+```
+
+Still exactly one `CreateAction`, one `SoftwareApplication`, one crate.
 
 **Idempotency vs. the timestamp:** the goal that "converting the same OWL source twice produces the same crate" and a provenance record that says *when* the conversion happened are in tension — `startTime` necessarily differs between two real runs. Resolved by making the internal `convert()` function accept an optional `start_time` override (the CLI always omits it and gets the real current time; tests pass a fixed value to get true byte-for-byte equality). This isn't a compromise on the idempotency goal — it means "the same *rules* come out of the same input," not "the file's bytes never change including its own timestamp of generation," which was never a sensible bar for a provenance-bearing artifact.
 

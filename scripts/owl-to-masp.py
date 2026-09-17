@@ -15,6 +15,16 @@ Usage:
         --output-dir schemas/ric \
         --namespace https://www.ica.org/standards/RiC/ontology# \
         --name "Records in Context Ontology"
+
+--input is repeatable: give it more than once to merge several ontologies
+into a single schema crate (see spec: "Merging multiple ontologies into one
+schema"), e.g.:
+    uv run scripts/owl-to-masp.py \
+        --input schemas/lexinfo/lexinfo.owl \
+        --input https://www.w3.org/ns/lemon/ontolex \
+        --input https://www.w3.org/ns/lemon/synsem \
+        --output-dir schemas/lexinfo \
+        --name "LexInfo + OntoLex-Lemon (core, synsem)"
 """
 
 import argparse
@@ -71,12 +81,22 @@ SCRIPT_URL = "https://github.com/Language-Research-Technology/ro-crate-masp/blob
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description="Convert an OWL ontology into a MASP schema crate")
-    parser.add_argument("-i", "--input", required=True, help="Path or URL to the OWL file")
+    parser.add_argument(
+        "-i",
+        "--input",
+        required=True,
+        action="append",
+        help="Path or URL to an OWL file. Repeatable -- give it more than once to merge several "
+        "ontologies into a single schema crate.",
+    )
     parser.add_argument("-o", "--output-dir", required=True, help="Output directory, e.g. schemas/ric")
     parser.add_argument(
         "-n",
         "--namespace",
-        help="Only convert classes/properties whose IRI starts with this prefix (default: no filtering)",
+        action="append",
+        default=None,
+        help="Only convert classes/properties whose IRI starts with this prefix (default: no filtering). "
+        "Repeatable -- a term matching any one of the given prefixes is included.",
     )
     parser.add_argument("--name", help="Human-readable schema name for schema-text.md")
     return parser.parse_args(argv)
@@ -107,16 +127,40 @@ def guess_formats(filename):
     return rdflib_format, encoding_format
 
 
-def load_ontology(raw_bytes, rdflib_format):
+def load_ontology(sources):
+    """Fetch and parse one or more OWL sources into a single shared graph.
+
+    Multiple sources are merged by calling Graph.parse() once per source
+    against the same Graph instance -- rdflib already accumulates triples
+    across repeated parse() calls, so no separate merge step is needed. This
+    is the mechanism behind --input being repeatable (spec: "Merging
+    multiple ontologies into one schema").
+
+    Returns (graph, fetched) where fetched is a list of
+    (raw_bytes, filename, encoding_format) tuples in input order, for the
+    provenance/file-copying step.
+    """
     graph = Graph()
-    graph.parse(data=raw_bytes, format=rdflib_format)
-    return graph
+    fetched = []
+    for source in sources:
+        raw_bytes, filename = fetch_input(source)
+        rdflib_format, encoding_format = guess_formats(filename)
+        graph.parse(data=raw_bytes, format=rdflib_format)
+        fetched.append((raw_bytes, filename, encoding_format))
+    return graph, fetched
 
 
-def in_namespace(iri, namespace):
-    if namespace is None:
+def in_namespace(iri, namespaces):
+    """namespaces: None or empty -> no filtering (everything typed
+    appropriately is included). A bare string or a list/tuple of prefixes ->
+    included iff the IRI starts with at least one of them (a merged,
+    multi-source run typically passes one prefix per --input, or none at
+    all to admit every source unfiltered -- spec: "Merging multiple
+    ontologies into one schema")."""
+    if not namespaces:
         return True
-    return str(iri).startswith(namespace)
+    prefixes = (namespaces,) if isinstance(namespaces, str) else tuple(namespaces)
+    return any(str(iri).startswith(prefix) for prefix in prefixes)
 
 
 def preferred_literal(graph, subject, predicate):
@@ -300,15 +344,20 @@ def build_resource_descriptor(class_entities, property_entities):
     }
 
 
-def build_provenance_entities(filename, encoding_format, start_time):
-    file_entity = {
-        "@id": filename,
-        "@type": "File",
-        "name": filename,
-        "description": "Source OWL ontology this schema was converted from",
-    }
-    if encoding_format:
-        file_entity["encodingFormat"] = encoding_format
+def build_provenance_entities(fetched, start_time):
+    """fetched: list of (raw_bytes, filename, encoding_format), one per
+    --input, in input order (see load_ontology)."""
+    file_entities = []
+    for _raw_bytes, filename, encoding_format in fetched:
+        file_entity = {
+            "@id": filename,
+            "@type": "File",
+            "name": filename,
+            "description": "Source OWL ontology this schema was converted from",
+        }
+        if encoding_format:
+            file_entity["encodingFormat"] = encoding_format
+        file_entities.append(file_entity)
 
     script_entity = {
         "@id": SCRIPT_URL,
@@ -317,16 +366,20 @@ def build_provenance_entities(filename, encoding_format, start_time):
         "url": SCRIPT_URL,
     }
 
+    # as_id_field collapses a single source to the plain {"@id": ...} shape
+    # every existing single-input crate already has -- a merge is the only
+    # case that produces the array form (spec: "Merging multiple ontologies
+    # into one schema").
     create_action = {
         "@id": CREATE_ACTION_ID,
         "@type": "CreateAction",
         "name": "Convert OWL ontology to MASP schema crate",
-        "object": {"@id": filename},
+        "object": as_id_field([entity["@id"] for entity in file_entities]),
         "instrument": {"@id": SCRIPT_URL},
         "result": {"@id": "./"},
         "startTime": start_time,
     }
-    return file_entity, script_entity, create_action
+    return file_entities, script_entity, create_action
 
 
 def build_crate_graph(
@@ -334,7 +387,7 @@ def build_crate_graph(
     property_entities,
     name,
     description,
-    file_entity,
+    file_entities,
     script_entity,
     create_action,
 ):
@@ -343,7 +396,7 @@ def build_crate_graph(
         "@type": "Dataset",
         "name": name,
         "hasResource": [{"@id": RESOURCE_DESCRIPTOR_ID}],
-        "hasPart": [{"@id": file_entity["@id"]}],
+        "hasPart": [{"@id": entity["@id"]} for entity in file_entities],
         "mentions": [{"@id": create_action["@id"]}],
     }
     if description:
@@ -362,7 +415,7 @@ def build_crate_graph(
         metadata_descriptor,
         root_dataset,
         resource_descriptor,
-        file_entity,
+        *file_entities,
         script_entity,
         create_action,
     ]
@@ -379,7 +432,7 @@ def build_crate_graph(
     }
 
 
-def write_schema_crate(output_dir, crate, name, raw_bytes, filename):
+def write_schema_crate(output_dir, crate, name, fetched):
     output_dir = Path(output_dir)
     schema_crate_dir = output_dir / "schema-crate"
     schema_crate_dir.mkdir(parents=True, exist_ok=True)
@@ -387,7 +440,8 @@ def write_schema_crate(output_dir, crate, name, raw_bytes, filename):
     metadata_path = schema_crate_dir / "ro-crate-metadata.json"
     metadata_path.write_text(json.dumps(crate, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    (schema_crate_dir / filename).write_bytes(raw_bytes)
+    for raw_bytes, filename, _encoding_format in fetched:
+        (schema_crate_dir / filename).write_bytes(raw_bytes)
 
     schema_text_path = output_dir / "schema-text.md"
     if not schema_text_path.exists():
@@ -403,10 +457,13 @@ def write_schema_crate(output_dir, crate, name, raw_bytes, filename):
     return metadata_path
 
 
-def convert(input_source, output_dir, namespace=None, name=None, start_time=None):
-    raw_bytes, filename = fetch_input(input_source)
-    rdflib_format, encoding_format = guess_formats(filename)
-    graph = load_ontology(raw_bytes, rdflib_format)
+def convert(input_sources, output_dir, namespace=None, name=None, start_time=None):
+    # Accept a bare string, same as every caller before --input became
+    # repeatable (the CLI, the Python unit tests, the JS shell-out test) --
+    # only a merge needs to actually pass a list.
+    sources = [input_sources] if isinstance(input_sources, str) else list(input_sources)
+
+    graph, fetched = load_ontology(sources)
 
     class_entities = build_class_entities(graph, namespace)
     property_entities = build_property_entities(graph, namespace)
@@ -414,19 +471,17 @@ def convert(input_source, output_dir, namespace=None, name=None, start_time=None
     resolved_name = name or ontology_label or "Untitled Schema"
     resolved_start_time = start_time or datetime.now(timezone.utc).isoformat()
 
-    file_entity, script_entity, create_action = build_provenance_entities(
-        filename, encoding_format, resolved_start_time
-    )
+    file_entities, script_entity, create_action = build_provenance_entities(fetched, resolved_start_time)
     crate = build_crate_graph(
         class_entities,
         property_entities,
         resolved_name,
         ontology_comment,
-        file_entity,
+        file_entities,
         script_entity,
         create_action,
     )
-    return write_schema_crate(output_dir, crate, resolved_name, raw_bytes, filename)
+    return write_schema_crate(output_dir, crate, resolved_name, fetched)
 
 
 def main(argv=None):

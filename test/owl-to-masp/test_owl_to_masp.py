@@ -14,7 +14,9 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE = REPO_ROOT / "test_data" / "owl" / "fixture.ttl"
+EXTRA_FIXTURE = REPO_ROOT / "test_data" / "owl" / "fixture-extra.ttl"
 NAMESPACE = "http://example.org/ns#"
+EXTRA_NAMESPACE = "http://example.org/extra#"
 FIXED_START_TIME = "2026-01-01T00:00:00+00:00"
 
 
@@ -213,3 +215,73 @@ def test_create_action_links_file_instrument_and_result(crate):
 
     dataset = _by_id(crate["@graph"], "./")
     assert dataset["mentions"] == [{"@id": owl_to_masp.CREATE_ACTION_ID}]
+
+
+# Merging multiple --input sources into one schema crate (spec:
+# "Merging multiple ontologies into one schema"). Every test above passes a
+# bare string for input_sources/namespace (the pre-existing call style) --
+# these prove that keeps working unchanged, alongside the new list form.
+
+
+def test_multiple_inputs_are_merged_into_one_crate(tmp_path):
+    output_dir = tmp_path / "merged-schema"
+    metadata_path = owl_to_masp.convert(
+        [str(FIXTURE), str(EXTRA_FIXTURE)],
+        str(output_dir),
+        namespace=[NAMESPACE, EXTRA_NAMESPACE],
+        name="Merged Fixture Schema",
+        start_time=FIXED_START_TIME,
+    )
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+
+    widget = _by_id(crate["@graph"], "http://example.org/ns#Widget")
+    sprocket = _by_id(crate["@graph"], "http://example.org/extra#Sprocket")
+    assert widget["@type"] == "rdfs:Class"
+    assert sprocket["@type"] == "rdfs:Class"
+    assert sprocket["rdfs:comment"] == "A fixture class from a second, merged-in ontology."
+
+
+def test_multiple_inputs_each_get_their_own_file_entity_and_are_all_copied(tmp_path):
+    output_dir = tmp_path / "merged-schema"
+    owl_to_masp.convert(
+        [str(FIXTURE), str(EXTRA_FIXTURE)],
+        str(output_dir),
+        namespace=[NAMESPACE, EXTRA_NAMESPACE],
+        name="Merged Fixture Schema",
+        start_time=FIXED_START_TIME,
+    )
+    metadata_path = output_dir / "schema-crate" / "ro-crate-metadata.json"
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+
+    fixture_file = _by_id(crate["@graph"], "fixture.ttl")
+    extra_file = _by_id(crate["@graph"], "fixture-extra.ttl")
+    assert fixture_file["@type"] == "File"
+    assert extra_file["@type"] == "File"
+
+    dataset = _by_id(crate["@graph"], "./")
+    assert {p["@id"] for p in dataset["hasPart"]} == {"fixture.ttl", "fixture-extra.ttl"}
+
+    create_action = _by_id(crate["@graph"], owl_to_masp.CREATE_ACTION_ID)
+    assert {o["@id"] for o in create_action["object"]} == {"fixture.ttl", "fixture-extra.ttl"}
+
+    assert (output_dir / "schema-crate" / "fixture.ttl").read_bytes() == FIXTURE.read_bytes()
+    assert (output_dir / "schema-crate" / "fixture-extra.ttl").read_bytes() == EXTRA_FIXTURE.read_bytes()
+
+
+def test_no_namespace_given_with_multiple_inputs_converts_everything_unfiltered(tmp_path):
+    # The common case for a merge (spec): omit --namespace entirely so every
+    # source's classes/properties come through, including ones that a
+    # single-source run would exclude as "outside the namespace" (ex:Thing,
+    # normally excluded from the main fixture's own namespace-filtered runs).
+    output_dir = tmp_path / "merged-schema-unfiltered"
+    metadata_path = owl_to_masp.convert(
+        [str(FIXTURE), str(EXTRA_FIXTURE)],
+        str(output_dir),
+        name="Merged Fixture Schema",
+        start_time=FIXED_START_TIME,
+    )
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+    ids = {e["@id"] for e in crate["@graph"]}
+    assert "http://example.org/ns#Widget" in ids
+    assert "http://example.org/extra#Sprocket" in ids
+    assert "http://example.org/external#Thing" in ids
