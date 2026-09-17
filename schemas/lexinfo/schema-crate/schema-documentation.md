@@ -4,7 +4,7 @@ title: LexInfo Schema Terms
 
 # LexInfo Schema Terms
 
-TODO: describe the source ontology and any conversion caveats here.
+This MASP Schema was auto-generated from the [LexInfo ontology](https://lexinfo.net/) (v3.0) using the `scripts/owl-to-masp.py` script.
 
 ## All Rules:
 
