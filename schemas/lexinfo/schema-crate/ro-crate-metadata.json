@@ -22,7 +22,7 @@
     {
       "@id": "./",
       "@type": "Dataset",
-      "name": "LexInfo",
+      "name": "LexInfo + OntoLex-Lemon (core, synsem)",
       "hasResource": [
         {
           "@id": "#hasSpecializedSchema"
@@ -31,6 +31,12 @@
       "hasPart": [
         {
           "@id": "lexinfo.owl"
+        },
+        {
+          "@id": "ontolex.owl"
+        },
+        {
+          "@id": "synsem.owl"
         }
       ],
       "mentions": [
@@ -828,6 +834,39 @@
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ZeroMorph"
         },
         {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#ConceptSet"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
+        },
+        {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor"
         },
         {
@@ -1393,6 +1432,105 @@
         },
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#voice"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#canonicalForm"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#concept"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#denotes"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#evokes"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isConceptOf"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isDenotedBy"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isEvokedBy"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isReferenceOf"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#isSenseOf"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#lexicalForm"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#lexicalizedSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#morphologicalPattern"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#otherForm"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#phoneticRep"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#reference"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#representation"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#sense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#usage"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#writtenRep"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#condition"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#isA"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#marker"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#objOfProp"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#ontoCorrespondence"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#ontoMapping"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#optional"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#propertyDomain"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#propertyRange"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#subjOfProp"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#submap"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#synArg"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#synBehavior"
         }
       ]
     },
@@ -1400,6 +1538,20 @@
       "@id": "lexinfo.owl",
       "@type": "File",
       "name": "lexinfo.owl",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "application/rdf+xml"
+    },
+    {
+      "@id": "ontolex.owl",
+      "@type": "File",
+      "name": "ontolex.owl",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "application/rdf+xml"
+    },
+    {
+      "@id": "synsem.owl",
+      "@type": "File",
+      "name": "synsem.owl",
       "description": "Source OWL ontology this schema was converted from",
       "encodingFormat": "application/rdf+xml"
     },
@@ -1413,16 +1565,24 @@
       "@id": "#owl-to-masp-conversion",
       "@type": "CreateAction",
       "name": "Convert OWL ontology to MASP schema crate",
-      "object": {
-        "@id": "lexinfo.owl"
-      },
+      "object": [
+        {
+          "@id": "lexinfo.owl"
+        },
+        {
+          "@id": "ontolex.owl"
+        },
+        {
+          "@id": "synsem.owl"
+        }
+      ],
       "instrument": {
         "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
       },
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-09-17T01:40:43.407397+00:00"
+      "startTime": "2026-09-17T02:07:12.533511+00:00"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
@@ -4157,6 +4317,129 @@
       ]
     },
     {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#Affix",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Affix",
+      "name": "affix",
+      "rdfs:comment": "An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix) that is attached to a word stem to form a new word.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#ConceptSet",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ConceptSet",
+      "name": "concept set",
+      "rdfs:comment": "A concept set represents a collection of lexical concepts.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#Form",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Form",
+      "name": "form",
+      "rdfs:comment": "A form represents one grammatical realization of a lexical entry.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/2002/07/owl#Thing"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalConcept",
+      "name": "lexical concept",
+      "rdfs:comment": "A lexical concept represents a mental abstraction, concept or unit of thought that embodies the meaning of one or more lexical entries.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning"
+        },
+        {
+          "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalEntry",
+      "name": "lexical entry",
+      "rdfs:comment": "A lexical entry represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression"
+        },
+        {
+          "@id": "http://www.w3.org/2002/07/owl#Thing"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalSense",
+      "name": "lexical sense",
+      "rdfs:comment": "A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MultiWordExpression",
+      "name": "multi-word expression",
+      "rdfs:comment": "A multiword expression is a lexical entry that consists of two or more words.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#Word",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Word",
+      "name": "word",
+      "rdfs:comment": "A word is a lexical entry that consists of a single token.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap",
+      "@type": "rdfs:Class",
+      "rdfs:label": "OntoMap",
+      "name": "ontology mapping",
+      "rdfs:comment": "An 'ontology mapping' (OntoMap for short) specifies how a syntactic frame and its syntactic arguments map to a set of concepts and properties in the ontology that together specify the meaning of the syntactic frame."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SyntacticArgument",
+      "name": "Syntactic Argument",
+      "rdfs:comment": "A 'syntactic argument' represents a slot that needs to be filled for a certain syntactic frame to be complete. Syntactic arguments typically realize a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.)."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SyntacticFrame",
+      "name": "Syntactic Frame",
+      "rdfs:comment": "A 'syntactic frame' represents the syntactic behavior of an open class word in terms of the (syntactic) arguments it requires. It essentially describes the so called subcategorization structure of the word in question, in particular the syntactic arguments it requires."
+    },
+    {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor",
       "@type": "rdf:Property",
       "rdfs:label": "abbreviationFor",
@@ -5740,6 +6023,405 @@
       "rdfs:comment": "Way sentences may alter the relationship between the subject and object of a verb, without changing the meaning of the sentence.",
       "rangeIncludes": {
         "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#canonicalForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "canonicalForm",
+      "name": "canonical form",
+      "rdfs:comment": "The 'canonical form' property relates a lexical entry to its canoncical or dictionary form. This usually indicates the \"lemma\" form of a lexical entry. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#concept",
+      "@type": "rdf:Property",
+      "rdfs:label": "concept",
+      "name": "concept",
+      "rdfs:comment": "The 'concept' property relates an ontological entity to a lexical concept that represents the corresponding meaning.",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#denotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "denotes",
+      "name": "denotes",
+      "rdfs:comment": "The 'denotes' property relates a lexical entry to a predicate in a given ontology that represents its meaning and has some denotational or model-theoretic semantics. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#evokes",
+      "@type": "rdf:Property",
+      "rdfs:label": "evokes",
+      "name": "evokes",
+      "rdfs:comment": "The 'evokes' property relates a lexical entry to one of the lexical concepts it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isConceptOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isConceptOf",
+      "name": "is concept of",
+      "rdfs:comment": "This property formalizes the meaning of a Lexical Concept by linking it to a particular ontological meaning.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isDenotedBy",
+      "@type": "rdf:Property",
+      "rdfs:label": "isDenotedBy",
+      "name": "is denoted by",
+      "rdfs:comment": "The object property isDenotedBy is the inverse of the object property denotes.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isEvokedBy",
+      "@type": "rdf:Property",
+      "rdfs:label": "isEvokedBy",
+      "name": "is evoked by",
+      "rdfs:comment": "The inverse relation to evokes.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isLexicalizedSenseOf",
+      "name": "is lexicalized sense of",
+      "rdfs:comment": "The object property isLexicalizedSenseOf is the inverse property of lexicalized sense.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isReferenceOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isReferenceOf",
+      "name": "is reference of",
+      "rdfs:comment": "The object property isReferenceOf is the inverse property of reference.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      },
+      "rangeIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#isSenseOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isSenseOf",
+      "name": "is sense of",
+      "rdfs:comment": "The property isSenseOf is the inverse property of sense.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#lexicalForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "lexicalForm",
+      "name": "lexical form",
+      "rdfs:comment": "The 'lexical form' property relates a lexical entry to one grammatical form variant of the lexical entry.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#lexicalizedSense",
+      "@type": "rdf:Property",
+      "rdfs:label": "lexicalizedSense",
+      "name": "lexicalized sense",
+      "rdfs:comment": "The 'lexicalized sense' property relates a lexical concept to a corresponding lexical sense that lexicalizes the concept.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#morphologicalPattern",
+      "@type": "rdf:Property",
+      "rdfs:label": "morphologicalPattern",
+      "name": "morphological pattern",
+      "rdfs:comment": "The 'morphological pattern' property indicates the morphological class of a word.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#otherForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "otherForm",
+      "name": "other form",
+      "rdfs:comment": "The  'other form' property relates a lexical entry to a non-preferred (\"non-lemma\") form that realizes the given lexical entry.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#phoneticRep",
+      "@type": "rdf:Property",
+      "rdfs:label": "phoneticRep",
+      "name": "phonetic representation",
+      "rdfs:comment": "The 'phonetic representation' property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA). ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#reference",
+      "@type": "rdf:Property",
+      "rdfs:label": "reference",
+      "name": "reference",
+      "rdfs:comment": "The 'reference' property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry. ",
+      "domainIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#representation",
+      "@type": "rdf:Property",
+      "rdfs:label": "representation",
+      "name": "representation",
+      "rdfs:comment": "The 'representation' property indicates a string by which the form is represented according to some orthography. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#sense",
+      "@type": "rdf:Property",
+      "rdfs:label": "sense",
+      "name": "sense",
+      "rdfs:comment": "The 'sense' property relates a lexical entry to one of its lexical senses. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#usage",
+      "@type": "rdf:Property",
+      "rdfs:label": "usage",
+      "name": "usage",
+      "rdfs:comment": "The 'usage' property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Resource"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/ontolex#writtenRep",
+      "@type": "rdf:Property",
+      "rdfs:label": "writtenRep",
+      "name": "written representation",
+      "rdfs:comment": "The 'written representation' property indicates the written representation of a form.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#condition",
+      "@type": "rdf:Property",
+      "rdfs:label": "condition",
+      "name": "condition",
+      "rdfs:comment": "The 'condition' property defines an evaluable constraint that derives from using a certain lexical entry to express a given ontological predicate.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#isA",
+      "@type": "rdf:Property",
+      "rdfs:label": "isA",
+      "name": "instansie van",
+      "rdfs:comment": "The 'is a' property represents the single argument of a class or unary  predicate."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#marker",
+      "@type": "rdf:Property",
+      "rdfs:label": "marker",
+      "name": "marker",
+      "rdfs:comment": "The 'marker' property indicates the marker of a syntactic argument; this can be a case marker or some other lexical entry such as a preposition or particle.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#objOfProp",
+      "@type": "rdf:Property",
+      "rdfs:label": "objOfProp",
+      "name": "object of property",
+      "rdfs:comment": "The 'objOfProp' represents the 2nd argument or object of a binary predicate (property) in the ontology."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#ontoCorrespondence",
+      "@type": "rdf:Property",
+      "rdfs:label": "ontoCorrespondence",
+      "name": "ontological correspondence",
+      "rdfs:comment": "The 'ontoCorrespondence' property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically.",
+      "domainIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#ontoMapping",
+      "@type": "rdf:Property",
+      "rdfs:label": "ontoMapping",
+      "name": "Ontologieabbildung",
+      "rdfs:comment": "The 'ontoMapping'  property relates an ontology mapping to its corresponding lexical sense.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#optional",
+      "@type": "rdf:Property",
+      "rdfs:label": "optional",
+      "name": "optional",
+      "rdfs:comment": "The 'optional' property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#propertyDomain",
+      "@type": "rdf:Property",
+      "rdfs:label": "propertyDomain",
+      "name": "property domain",
+      "rdfs:comment": "'Property domain' provides a pragmatic restriction on the domain of the property referred to by this sense."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#propertyRange",
+      "@type": "rdf:Property",
+      "rdfs:label": "propertyRange",
+      "name": "property range",
+      "rdfs:comment": "'Property domain' provides a pragmatic restriction on the range of the property referred to by this sense."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#subjOfProp",
+      "@type": "rdf:Property",
+      "rdfs:label": "subjOfProp",
+      "name": "subject of property",
+      "rdfs:comment": "The 'subjOfProp' property represents the 1st argument or subject of a binary predicate (property) in the ontology."
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#submap",
+      "@type": "rdf:Property",
+      "rdfs:label": "submap",
+      "name": "submap",
+      "rdfs:comment": "The 'submap' property relates a (complex) ontological mapping to a set of bindings that together bind the arguments of the involved predicates to a set of syntactic arguments that realize them syntactically.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#synArg",
+      "@type": "rdf:Property",
+      "rdfs:label": "synArg",
+      "name": "syntactic argument",
+      "rdfs:comment": "The object property synArg relates a syntactic frame to one of its syntactic arguments.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/lemon/synsem#synBehavior",
+      "@type": "rdf:Property",
+      "rdfs:label": "synBehavior",
+      "name": "syntactic behavior",
+      "rdfs:comment": "The 'syntactic behavior' property relates a lexical entry to one of its syntactic behaviors as captured by a syntactic frame.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
       }
     }
   ]

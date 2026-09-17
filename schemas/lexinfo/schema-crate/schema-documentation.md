@@ -1,10 +1,10 @@
 ---
-title: LexInfo Schema Terms
+title: LexInfo + OntoLex-Lemon Schema Terms
 ---
 
-# LexInfo Schema Terms
+# LexInfo + OntoLex-Lemon Schema Terms
 
-This MASP Schema was auto-generated from the [LexInfo ontology](https://lexinfo.net/) (v3.0) using the `scripts/owl-to-masp.py` script.
+This MASP Schema was auto-generated from three merged ontologies using the `scripts/owl-to-masp.py` script (see spec: "Merging multiple ontologies into one schema"): the [LexInfo ontology](https://lexinfo.net/) (v3.0), and the [OntoLex-Lemon](https://www.w3.org/2016/05/ontolex/) `ontolex` (core) and `synsem` modules that LexInfo's own properties specialise. Converting all three together, rather than as three separate schemas, means classes like `ontolex:LexicalEntry` and `ontolex:LexicalSense` — which many LexInfo properties point at as their domain — resolve to real, documented classes here instead of bare external IRIs.
 
 ## All Rules:
 
@@ -4154,13 +4154,249 @@ Instances of this type MAY be present in the crate.
 *No properties defined for this class*
 
 
+
+### <a id="Affix" title="http://www.w3.org/ns/lemon/ontolex#Affix"></a> Class: affix <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Affix)</small>
+
+An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix) that is attached to a word stem to form a new word.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+*No properties defined for this class*
+
+
+
+### <a id="ConceptSet" title="http://www.w3.org/ns/lemon/ontolex#ConceptSet"></a> Class: concept set <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#ConceptSet)</small>
+
+A concept set represents a collection of lexical concepts.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+*No properties defined for this class*
+
+
+
+### <a id="Form" title="http://www.w3.org/ns/lemon/ontolex#Form"></a> Class: form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Form)</small>
+
+A form represents one grammatical realization of a lexical entry.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#phoneticRep" title="http://www.w3.org/ns/lemon/ontolex#phoneticRep">phoneticRep</a> | No | The 'phonetic representation' property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA).  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
+| <a href="#representation" title="http://www.w3.org/ns/lemon/ontolex#representation">representation</a> | No | The 'representation' property indicates a string by which the form is represented according to some orthography.  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
+| <a href="#writtenRep" title="http://www.w3.org/ns/lemon/ontolex#writtenRep">writtenRep</a> | No | The 'written representation' property indicates the written representation of a form. | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
+
+
+### <a id="LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept"></a> Class: lexical concept <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalConcept)</small>
+
+A lexical concept represents a mental abstraction, concept or unit of thought that embodies the meaning of one or more lexical entries.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#isConceptOf" title="http://www.w3.org/ns/lemon/ontolex#isConceptOf">isConceptOf</a> | No | This property formalizes the meaning of a Lexical Concept by linking it to a particular ontological meaning. |  |  |
+| <a href="#isEvokedBy" title="http://www.w3.org/ns/lemon/ontolex#isEvokedBy">isEvokedBy</a> | No | The inverse relation to evokes. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#lexicalizedSense" title="http://www.w3.org/ns/lemon/ontolex#lexicalizedSense">lexicalizedSense</a> | No | The 'lexicalized sense' property relates a lexical concept to a corresponding lexical sense that lexicalizes the concept. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+
+
+### <a id="LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"></a> Class: lexical entry <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalEntry)</small>
+
+A lexical entry represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#abbreviationFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor">abbreviationFor</a> | No | A linking element used to identify a relation between an abbreviation and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#acronymFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor">acronymFor</a> | No | A linking element used to identify a relation between an acronym and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#canonicalForm" title="http://www.w3.org/ns/lemon/ontolex#canonicalForm">canonicalForm</a> | No | The 'canonical form' property relates a lexical entry to its canoncical or dictionary form. This usually indicates the "lemma" form of a lexical entry.  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#clippedTermFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor">clippedTermFor</a> | No | A linking element used to identify a relation between a clipped term and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#contractionFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#contractionFor">contractionFor</a> | No | The full form that corresponds to a contracted form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#denotes" title="http://www.w3.org/ns/lemon/ontolex#denotes">denotes</a> | No | The 'denotes' property relates a lexical entry to a predicate in a given ontology that represents its meaning and has some denotational or model-theoretic semantics.  | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |  |
+| <a href="#derivedForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm">derivedForm</a> | No | A form that is derived morphosyntactically from another form | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#etymologicalRoot" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot">etymologicalRoot</a> | No | Morpheme that has a particular status with regards to the word's etymology. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#evokes" title="http://www.w3.org/ns/lemon/ontolex#evokes">evokes</a> | No | The 'evokes' property relates a lexical entry to one of the lexical concepts it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry. | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |  |
+| <a href="#fullFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#fullFormFor">fullFormFor</a> | No | A linking element used to identify a relation between any full form of a term or lexical unit and its abbreviated form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#geographicalVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#geographicalVariant">geographicalVariant</a> | No | Description of a specific form used in a certain region as opposed to another form used in another region | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#head" title="http://www.lexinfo.net/ontology/3.0/lexinfo#head">head</a> | No | Indicates the head element of a phrase | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#homograph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homograph">homograph</a> | No | A word that is spelled like another, but that has a different pronunciation, meaning, and/or origin. // Word that is written like another, but that has a different pronunciation, meaning, and/or origin. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#homonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homonym">homonym</a> | No | A word that is pronounced like another word and that can be spelled the same way (homograph) or can merely sound the same (homophone). // Word that sounds the same and is written the same as another word but is different in meaning. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#homophone" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homophone">homophone</a> | No | A word that is pronounced in the same way as another word but that is spelled differently. // Word that sounds like another word, but is different in writiing or meaning. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#initialismFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor">initialismFor</a> | No | A linking element used to identify a relation between an initialism and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#lexicalForm" title="http://www.w3.org/ns/lemon/ontolex#lexicalForm">lexicalForm</a> | No | The 'lexical form' property relates a lexical entry to one grammatical form variant of the lexical entry. | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#morphologicalPattern" title="http://www.w3.org/ns/lemon/ontolex#morphologicalPattern">morphologicalPattern</a> | No | The 'morphological pattern' property indicates the morphological class of a word. |  |  |
+| <a href="#otherForm" title="http://www.w3.org/ns/lemon/ontolex#otherForm">otherForm</a> | No | The 'other form' property relates a lexical entry to a non-preferred ("non-lemma") form that realizes the given lexical entry. | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#participleFormOf" title="http://www.lexinfo.net/ontology/3.0/lexinfo#participleFormOf">participleFormOf</a> | No | Indicates that one lexical entry is the participle form of another, e.g., the adjective 'reassuring' is the participle of 'to reassure' | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#root" title="http://www.lexinfo.net/ontology/3.0/lexinfo#root">root</a> | No | base of a word | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#sense" title="http://www.w3.org/ns/lemon/ontolex#sense">sense</a> | No | The 'sense' property relates a lexical entry to one of its lexical senses.  | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#shortFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor">shortFormFor</a> | No | A linking element used to identify a relation between a short form and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#synBehavior" title="http://www.w3.org/ns/lemon/synsem#synBehavior">synBehavior</a> | No | The 'syntactic behavior' property relates a lexical entry to one of its syntactic behaviors as captured by a syntactic frame. | <a href="#SyntacticFrame" title="http://www.w3.org/ns/lemon/synsem#SyntacticFrame">Syntactic Frame</a> |  |
+
+
+### <a id="LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense"></a> Class: lexical sense <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalSense)</small>
+
+A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#antonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#antonym">antonym</a> | No | A term or lexeme whose concept or sense constitutes the opposite of the concept represented by a second term or lexeme. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#approximate" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximate">approximate</a> | No | Property used to qualify something similar but not exactly the same | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#approximateSynonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximateSynonym">approximateSynonym</a> | No | A synonym that differs in some minor way | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#associativeRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#associativeRelation">associativeRelation</a> | No | A relation between two concepts having a non-hierarchical thematic connection by virtue of experience. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#causallyRelatedConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causallyRelatedConcept">causallyRelatedConcept</a> | No | A concept that is related to another concept by virtue of the fact that it plays a causative role with respect to that concept. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#collocation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collocation">collocation</a> | No | Two terms that occur together far more frequently than chance | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#coordinateConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#coordinateConcept">coordinateConcept</a> | No | A subordinate concept having the same nearest superordinate concept and same criterion of subdivision as some other concept in a given concept system. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#exact" title="http://www.lexinfo.net/ontology/3.0/lexinfo#exact">exact</a> | No | Completely equal in every detail | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#holonymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#holonymTerm">holonymTerm</a> | No | Indicates that the referenced element is a part of this object | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#hypernym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hypernym">hypernym</a> | No | A term with a broader meaning | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#hyponym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hyponym">hyponym</a> | No | A term with a narrower meaning | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#isLexicalizedSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf">isLexicalizedSenseOf</a> | No | The object property isLexicalizedSenseOf is the inverse property of lexicalized sense. | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |  |
+| <a href="#isSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isSenseOf">isSenseOf</a> | No | The property isSenseOf is the inverse property of sense. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |  |
+| <a href="#memberHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberHolonym">memberHolonym</a> | No | Indicates the object is a member of this | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#memberMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberMeronym">memberMeronym</a> | No | Indicates this is an element of the other | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#meronymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#meronymTerm">meronymTerm</a> | No | Indicates this is a part of another concept | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#ontoCorrespondence" title="http://www.w3.org/ns/lemon/synsem#ontoCorrespondence">ontoCorrespondence</a> | No | The 'ontoCorrespondence' property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> |  |
+| <a href="#partHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym">partHolonym</a> | No | Indicates a part of this object | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#partMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partMeronym">partMeronym</a> | No | Indicates this a component of the other concept | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#partitiveRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation">partitiveRelation</a> | No | A relation between two concepts where one of the concepts constitutes the whole and the other concept a part of that whole. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#pertainsTo" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pertainsTo">pertainsTo</a> | No | Indicates that a term is the adjectival form of a word with a meaning of 'of or pertaining to X' | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#quasiEquivalent" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent">quasiEquivalent</a> | No | A term that is very similar but with some differences | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#reference" title="http://www.w3.org/ns/lemon/ontolex#reference">reference</a> | No | The 'reference' property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry.  | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |  |
+| <a href="#relatedTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#relatedTerm">relatedTerm</a> | No | A term connected to another term by a coordinate or associative relation. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#substanceHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym">substanceHolonym</a> | No | Indicates what this is composed of | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#substanceMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceMeronym">substanceMeronym</a> | No | Indicates this is a substance that composes the other | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#synonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#synonym">synonym</a> | No | Indicates the the terms have the same meaning lexicographically | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#translation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translation">translation</a> | No | Indicates that two terms are translations of one another; this is the same as interlingual synonymy | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#usage" title="http://www.w3.org/ns/lemon/ontolex#usage">usage</a> | No | The 'usage' property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning. | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |  |
+
+
+### <a id="MultiWordExpression" title="http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"></a> Class: multi-word expression <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#MultiWordExpression)</small>
+
+A multiword expression is a lexical entry that consists of two or more words.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+*No properties defined for this class*
+
+
+
+### <a id="Word" title="http://www.w3.org/ns/lemon/ontolex#Word"></a> Class: word <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Word)</small>
+
+A word is a lexical entry that consists of a single token.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+*No properties defined for this class*
+
+
+
+### <a id="OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap"></a> Class: ontology mapping <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#OntoMap)</small>
+
+An 'ontology mapping' (OntoMap for short) specifies how a syntactic frame and its syntactic arguments map to a set of concepts and properties in the ontology that together specify the meaning of the syntactic frame.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#condition" title="http://www.w3.org/ns/lemon/synsem#condition">condition</a> | No | The 'condition' property defines an evaluable constraint that derives from using a certain lexical entry to express a given ontological predicate. |  |  |
+| <a href="#ontoCorrespondence" title="http://www.w3.org/ns/lemon/synsem#ontoCorrespondence">ontoCorrespondence</a> | No | The 'ontoCorrespondence' property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> |  |
+| <a href="#ontoMapping" title="http://www.w3.org/ns/lemon/synsem#ontoMapping">ontoMapping</a> | No | The 'ontoMapping' property relates an ontology mapping to its corresponding lexical sense. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |  |
+| <a href="#reference" title="http://www.w3.org/ns/lemon/ontolex#reference">reference</a> | No | The 'reference' property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry.  | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |  |
+| <a href="#submap" title="http://www.w3.org/ns/lemon/synsem#submap">submap</a> | No | The 'submap' property relates a (complex) ontological mapping to a set of bindings that together bind the arguments of the involved predicates to a set of syntactic arguments that realize them syntactically. | <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |  |
+
+
+### <a id="SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument"></a> Class: Syntactic Argument <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#SyntacticArgument)</small>
+
+A 'syntactic argument' represents a slot that needs to be filled for a certain syntactic frame to be complete. Syntactic arguments typically realize a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#marker" title="http://www.w3.org/ns/lemon/synsem#marker">marker</a> | No | The 'marker' property indicates the marker of a syntactic argument; this can be a case marker or some other lexical entry such as a preposition or particle. |  |  |
+| <a href="#optional" title="http://www.w3.org/ns/lemon/synsem#optional">optional</a> | No | The 'optional' property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted. | schema:Boolean |  |
+
+
+### <a id="SyntacticFrame" title="http://www.w3.org/ns/lemon/synsem#SyntacticFrame"></a> Class: Syntactic Frame <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#SyntacticFrame)</small>
+
+A 'syntactic frame' represents the syntactic behavior of an open class word in terms of the (syntactic) arguments it requires. It essentially describes the so called subcategorization structure of the word in question, in particular the syntactic arguments it requires.
+
+Instances of this type MAY be present in the crate.
+
+| Min Count | Max Count |
+| --------- | --------- |
+| N/A | N/A |
+
+| Property | Required | Description | Range | Value |
+| -------- | -------- | ----------- | ----- | ----- |
+| <a href="#synArg" title="http://www.w3.org/ns/lemon/synsem#synArg">synArg</a> | No | The object property synArg relates a syntactic frame to one of its syntactic arguments. | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> |  |
+
 ## All Properties
 
 ### <a id="abbreviationFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor"></a> Property: abbreviation for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#abbreviationFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor">abbreviationFor</a> | A linking element used to identify a relation between an abbreviation and its full or expanded form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#abbreviationFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor">abbreviationFor</a> | A linking element used to identify a relation between an abbreviation and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="abessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCaseForm"></a> Property: abessive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4185,7 +4421,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#acronymFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor">acronymFor</a> | A linking element used to identify a relation between an acronym and its full or expanded form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#acronymFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor">acronymFor</a> | A linking element used to identify a relation between an acronym and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="adessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCaseForm"></a> Property: adessive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4225,17 +4461,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#antonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#antonym">antonym</a> | A term or lexeme whose concept or sense constitutes the opposite of the concept represented by a second term or lexeme. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#antonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#antonym">antonym</a> | A term or lexeme whose concept or sense constitutes the opposite of the concept represented by a second term or lexeme. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="approximate" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximate"></a> Property: approximate <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#approximate)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#approximate" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximate">approximate</a> | Property used to qualify something similar but not exactly the same | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#approximate" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximate">approximate</a> | Property used to qualify something similar but not exactly the same | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="approximateSynonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximateSynonym"></a> Property: approximate synonym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#approximateSynonym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#approximateSynonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximateSynonym">approximateSynonym</a> | A synonym that differs in some minor way | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#approximateSynonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#approximateSynonym">approximateSynonym</a> | A synonym that differs in some minor way | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="aspect" title="http://www.lexinfo.net/ontology/3.0/lexinfo#aspect"></a> Property: aspect <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#aspect)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4245,7 +4481,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#associativeRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#associativeRelation">associativeRelation</a> | A relation between two concepts having a non-hierarchical thematic connection by virtue of experience. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#associativeRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#associativeRelation">associativeRelation</a> | A relation between two concepts having a non-hierarchical thematic connection by virtue of experience. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="attitude" title="http://www.lexinfo.net/ontology/3.0/lexinfo#attitude"></a> Property: attitude <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#attitude)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4261,6 +4497,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#benefactiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm">benefactiveCaseForm</a> |  |  |  |
+### <a id="canonicalForm" title="http://www.w3.org/ns/lemon/ontolex#canonicalForm"></a> Property: canonical form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#canonicalForm)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#canonicalForm" title="http://www.w3.org/ns/lemon/ontolex#canonicalForm">canonicalForm</a> | The 'canonical form' property relates a lexical entry to its canoncical or dictionary form. This usually indicates the "lemma" form of a lexical entry.  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="case" title="http://www.lexinfo.net/ontology/3.0/lexinfo#case"></a> Property: case <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#case)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4270,7 +4511,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#causallyRelatedConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causallyRelatedConcept">causallyRelatedConcept</a> | A concept that is related to another concept by virtue of the fact that it plays a causative role with respect to that concept. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#causallyRelatedConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causallyRelatedConcept">causallyRelatedConcept</a> | A concept that is related to another concept by virtue of the fact that it plays a causative role with respect to that concept. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="causativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCaseForm"></a> Property: causative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4285,7 +4526,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#clippedTermFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor">clippedTermFor</a> | A linking element used to identify a relation between a clipped term and its full or expanded form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#clippedTermFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor">clippedTermFor</a> | A linking element used to identify a relation between a clipped term and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="cliticness" title="http://www.lexinfo.net/ontology/3.0/lexinfo#cliticness"></a> Property: cliticness <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#cliticness)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4300,7 +4541,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#collocation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collocation">collocation</a> | Two terms that occur together far more frequently than chance | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#collocation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collocation">collocation</a> | Two terms that occur together far more frequently than chance | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="comitativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCaseForm"></a> Property: comitative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4321,6 +4562,16 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#complement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#complement">complement</a> | A noun phrase that follows a copula or similar verb, as for example an idiot in the sentence He is an idiot. - A clause that serves as the subject or direct object of a verb or the direct object of a preposition, as for example that he would be early in the sentence I hoped that he would be early |  |  |
+### <a id="concept" title="http://www.w3.org/ns/lemon/ontolex#concept"></a> Property: concept <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#concept)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#concept" title="http://www.w3.org/ns/lemon/ontolex#concept">concept</a> | The 'concept' property relates an ontological entity to a lexical concept that represents the corresponding meaning. | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |  |
+### <a id="condition" title="http://www.w3.org/ns/lemon/synsem#condition"></a> Property: condition <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#condition)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#condition" title="http://www.w3.org/ns/lemon/synsem#condition">condition</a> | The 'condition' property defines an evaluable constraint that derives from using a certain lexical entry to express a given ontological predicate. |  | <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |
 ### <a id="confidence" title="http://www.lexinfo.net/ontology/3.0/lexinfo#confidence"></a> Property: confidence <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#confidence)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4330,12 +4581,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#contractionFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#contractionFor">contractionFor</a> | The full form that corresponds to a contracted form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#contractionFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#contractionFor">contractionFor</a> | The full form that corresponds to a contracted form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="coordinateConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#coordinateConcept"></a> Property: coordinate concept <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#coordinateConcept)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#coordinateConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#coordinateConcept">coordinateConcept</a> | A subordinate concept having the same nearest superordinate concept and same criterion of subdivision as some other concept in a given concept system. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#coordinateConcept" title="http://www.lexinfo.net/ontology/3.0/lexinfo#coordinateConcept">coordinateConcept</a> | A subordinate concept having the same nearest superordinate concept and same criterion of subdivision as some other concept in a given concept system. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="copulativeArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#copulativeArg"></a> Property: copulative arg <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#copulativeArg)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4376,11 +4627,16 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#delativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCaseForm">delativeCaseForm</a> |  |  |  |
+### <a id="denotes" title="http://www.w3.org/ns/lemon/ontolex#denotes"></a> Property: denotes <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#denotes)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#denotes" title="http://www.w3.org/ns/lemon/ontolex#denotes">denotes</a> | The 'denotes' property relates a lexical entry to a predicate in a given ontology that represents its meaning and has some denotational or model-theoretic semantics.  | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="derivedForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm"></a> Property: derived form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#derivedForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm">derivedForm</a> | A form that is derived morphosyntactically from another form | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#derivedForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm">derivedForm</a> | A form that is derived morphosyntactically from another form | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="description" title="http://www.lexinfo.net/ontology/3.0/lexinfo#description"></a> Property: description <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#description)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4430,17 +4686,22 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#etymologicalRoot" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot">etymologicalRoot</a> | Morpheme that has a particular status with regards to the word's etymology. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#etymologicalRoot" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot">etymologicalRoot</a> | Morpheme that has a particular status with regards to the word's etymology. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="etymology" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymology"></a> Property: etymology <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#etymology)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#etymology" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymology">etymology</a> | Information on the origin of a word and the development of its meaning. |  |  |
+### <a id="evokes" title="http://www.w3.org/ns/lemon/ontolex#evokes"></a> Property: evokes <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#evokes)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#evokes" title="http://www.w3.org/ns/lemon/ontolex#evokes">evokes</a> | The 'evokes' property relates a lexical entry to one of the lexical concepts it evokes, i.e. the mental concept that speakers of a language might associate when hearing the lexical entry. | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="exact" title="http://www.lexinfo.net/ontology/3.0/lexinfo#exact"></a> Property: exact <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#exact)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#exact" title="http://www.lexinfo.net/ontology/3.0/lexinfo#exact">exact</a> | Completely equal in every detail | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#exact" title="http://www.lexinfo.net/ontology/3.0/lexinfo#exact">exact</a> | Completely equal in every detail | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="explanation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#explanation"></a> Property: explanation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#explanation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4460,37 +4721,37 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant"></a> Property: form degree variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant"></a> Property: form mood variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant"></a> Property: form negative variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant"></a> Property: form number variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant"></a> Property: form person variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant"></a> Property: form tense variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> |  | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> | <a href="http://www.w3.org/ns/lemon/ontolex#Form" title="http://www.w3.org/ns/lemon/ontolex#Form" target="_blank" rel="noopener">Form</a> |
+| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="frequency" title="http://www.lexinfo.net/ontology/3.0/lexinfo#frequency"></a> Property: frequency <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#frequency)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4505,7 +4766,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#fullFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#fullFormFor">fullFormFor</a> | A linking element used to identify a relation between any full form of a term or lexical unit and its abbreviated form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#fullFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#fullFormFor">fullFormFor</a> | A linking element used to identify a relation between any full form of a term or lexical unit and its abbreviated form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="futureTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#futureTenseForm"></a> Property: future tense form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#futureTenseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4535,7 +4796,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#geographicalVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#geographicalVariant">geographicalVariant</a> | Description of a specific form used in a certain region as opposed to another form used in another region | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#geographicalVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#geographicalVariant">geographicalVariant</a> | Description of a specific form used in a certain region as opposed to another form used in another region | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="gerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#gerundClause"></a> Property: gerund clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#gerundClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4550,7 +4811,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#head" title="http://www.lexinfo.net/ontology/3.0/lexinfo#head">head</a> | Indicates the head element of a phrase | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#head" title="http://www.lexinfo.net/ontology/3.0/lexinfo#head">head</a> | Indicates the head element of a phrase | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="hint" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hint"></a> Property: hint <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#hint)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4560,32 +4821,32 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#holonymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#holonymTerm">holonymTerm</a> | Indicates that the referenced element is a part of this object | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#holonymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#holonymTerm">holonymTerm</a> | Indicates that the referenced element is a part of this object | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="homograph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homograph"></a> Property: homograph <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#homograph)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#homograph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homograph">homograph</a> | A word that is spelled like another, but that has a different pronunciation, meaning, and/or origin. // Word that is written like another, but that has a different pronunciation, meaning, and/or origin. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#homograph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homograph">homograph</a> | A word that is spelled like another, but that has a different pronunciation, meaning, and/or origin. // Word that is written like another, but that has a different pronunciation, meaning, and/or origin. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="homonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homonym"></a> Property: homonym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#homonym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#homonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homonym">homonym</a> | A word that is pronounced like another word and that can be spelled the same way (homograph) or can merely sound the same (homophone). // Word that sounds the same and is written the same as another word but is different in meaning. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#homonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homonym">homonym</a> | A word that is pronounced like another word and that can be spelled the same way (homograph) or can merely sound the same (homophone). // Word that sounds the same and is written the same as another word but is different in meaning. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="homophone" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homophone"></a> Property: homophone <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#homophone)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#homophone" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homophone">homophone</a> | A word that is pronounced in the same way as another word but that is spelled differently. // Word that sounds like another word, but is different in writiing or meaning. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#homophone" title="http://www.lexinfo.net/ontology/3.0/lexinfo#homophone">homophone</a> | A word that is pronounced in the same way as another word but that is spelled differently. // Word that sounds like another word, but is different in writiing or meaning. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="hypernym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hypernym"></a> Property: hypernym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#hypernym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#hypernym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hypernym">hypernym</a> | A term with a broader meaning | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#hypernym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hypernym">hypernym</a> | A term with a broader meaning | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="hyponym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hyponym"></a> Property: hyponym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#hyponym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#hyponym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hyponym">hyponym</a> | A term with a narrower meaning | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#hyponym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#hyponym">hyponym</a> | A term with a narrower meaning | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="illativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCaseForm"></a> Property: illative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4625,7 +4886,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#initialismFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor">initialismFor</a> | A linking element used to identify a relation between an initialism and its full or expanded form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#initialismFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor">initialismFor</a> | A linking element used to identify a relation between an initialism and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
+### <a id="isA" title="http://www.w3.org/ns/lemon/synsem#isA"></a> Property: instansie van <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#isA)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isA" title="http://www.w3.org/ns/lemon/synsem#isA">isA</a> | The 'is a' property represents the single argument of a class or unary predicate. |  |  |
 ### <a id="instrumentalCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCaseForm"></a> Property: instrumental case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4641,16 +4907,61 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#interrogativeInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause">interrogativeInfinitiveClause</a> |  |  |  |
+### <a id="isConceptOf" title="http://www.w3.org/ns/lemon/ontolex#isConceptOf"></a> Property: is concept of <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isConceptOf)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isConceptOf" title="http://www.w3.org/ns/lemon/ontolex#isConceptOf">isConceptOf</a> | This property formalizes the meaning of a Lexical Concept by linking it to a particular ontological meaning. |  | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |
+### <a id="isDenotedBy" title="http://www.w3.org/ns/lemon/ontolex#isDenotedBy"></a> Property: is denoted by <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isDenotedBy)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isDenotedBy" title="http://www.w3.org/ns/lemon/ontolex#isDenotedBy">isDenotedBy</a> | The object property isDenotedBy is the inverse of the object property denotes. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |
+### <a id="isEvokedBy" title="http://www.w3.org/ns/lemon/ontolex#isEvokedBy"></a> Property: is evoked by <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isEvokedBy)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isEvokedBy" title="http://www.w3.org/ns/lemon/ontolex#isEvokedBy">isEvokedBy</a> | The inverse relation to evokes. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |
+### <a id="isLexicalizedSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf"></a> Property: is lexicalized sense of <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isLexicalizedSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isLexicalizedSenseOf">isLexicalizedSenseOf</a> | The object property isLexicalizedSenseOf is the inverse property of lexicalized sense. | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
+### <a id="isReferenceOf" title="http://www.w3.org/ns/lemon/ontolex#isReferenceOf"></a> Property: is reference of <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isReferenceOf)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isReferenceOf" title="http://www.w3.org/ns/lemon/ontolex#isReferenceOf">isReferenceOf</a> | The object property isReferenceOf is the inverse property of reference. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a>, <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> |
+### <a id="isSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isSenseOf"></a> Property: is sense of <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isSenseOf)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#isSenseOf" title="http://www.w3.org/ns/lemon/ontolex#isSenseOf">isSenseOf</a> | The property isSenseOf is the inverse property of sense. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="lativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm"></a> Property: lative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#lativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm">lativeCaseForm</a> |  |  |  |
+### <a id="lexicalForm" title="http://www.w3.org/ns/lemon/ontolex#lexicalForm"></a> Property: lexical form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#lexicalForm)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#lexicalForm" title="http://www.w3.org/ns/lemon/ontolex#lexicalForm">lexicalForm</a> | The 'lexical form' property relates a lexical entry to one grammatical form variant of the lexical entry. | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
+### <a id="lexicalizedSense" title="http://www.w3.org/ns/lemon/ontolex#lexicalizedSense"></a> Property: lexicalized sense <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#lexicalizedSense)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#lexicalizedSense" title="http://www.w3.org/ns/lemon/ontolex#lexicalizedSense">lexicalizedSense</a> | The 'lexicalized sense' property relates a lexical concept to a corresponding lexical sense that lexicalizes the concept. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept">lexical concept</a> |
 ### <a id="locativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm"></a> Property: locative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#locativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm">locativeCaseForm</a> |  |  |  |
+### <a id="marker" title="http://www.w3.org/ns/lemon/synsem#marker"></a> Property: marker <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#marker)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#marker" title="http://www.w3.org/ns/lemon/synsem#marker">marker</a> | The 'marker' property indicates the marker of a syntactic argument; this can be a case marker or some other lexical entry such as a preposition or particle. |  | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> |
 ### <a id="massNounNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#massNounNumberForm"></a> Property: mass noun number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#massNounNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4665,17 +4976,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#memberHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberHolonym">memberHolonym</a> | Indicates the object is a member of this | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#memberHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberHolonym">memberHolonym</a> | Indicates the object is a member of this | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="memberMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberMeronym"></a> Property: member meronym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#memberMeronym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#memberMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberMeronym">memberMeronym</a> | Indicates this is an element of the other | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#memberMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#memberMeronym">memberMeronym</a> | Indicates this is an element of the other | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="meronymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#meronymTerm"></a> Property: meronym term <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#meronymTerm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#meronymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#meronymTerm">meronymTerm</a> | Indicates this is a part of another concept | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#meronymTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#meronymTerm">meronymTerm</a> | Indicates this is a part of another concept | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="modificationType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#modificationType"></a> Property: modification type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#modificationType)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4686,6 +4997,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#mood" title="http://www.lexinfo.net/ontology/3.0/lexinfo#mood">mood</a> | In TEI: contains information about the grammatical mood of verbs (e.g. indicative, subjunctive, imperative). | <a href="#Mood" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Mood">mood</a> |  |
+### <a id="morphologicalPattern" title="http://www.w3.org/ns/lemon/ontolex#morphologicalPattern"></a> Property: morphological pattern <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#morphologicalPattern)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#morphologicalPattern" title="http://www.w3.org/ns/lemon/ontolex#morphologicalPattern">morphologicalPattern</a> | The 'morphological pattern' property indicates the morphological class of a word. |  | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="morphosyntacticProperty" title="http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty"></a> Property: morphosyntactic property <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4736,11 +5052,36 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#objectComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement">objectComplement</a> |  |  |  |
+### <a id="objOfProp" title="http://www.w3.org/ns/lemon/synsem#objOfProp"></a> Property: object of property <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#objOfProp)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#objOfProp" title="http://www.w3.org/ns/lemon/synsem#objOfProp">objOfProp</a> | The 'objOfProp' represents the 2nd argument or object of a binary predicate (property) in the ontology. |  |  |
 ### <a id="obliqueCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm"></a> Property: oblique case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#obliqueCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm">obliqueCaseForm</a> |  |  |  |
+### <a id="ontoCorrespondence" title="http://www.w3.org/ns/lemon/synsem#ontoCorrespondence"></a> Property: ontological correspondence <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#ontoCorrespondence)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#ontoCorrespondence" title="http://www.w3.org/ns/lemon/synsem#ontoCorrespondence">ontoCorrespondence</a> | The 'ontoCorrespondence' property binds an argument of a predicate defined in the ontology to a syntactic argument that realizes this predicate argument syntactically. | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a>, <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |
+### <a id="ontoMapping" title="http://www.w3.org/ns/lemon/synsem#ontoMapping"></a> Property: Ontologieabbildung <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#ontoMapping)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#ontoMapping" title="http://www.w3.org/ns/lemon/synsem#ontoMapping">ontoMapping</a> | The 'ontoMapping' property relates an ontology mapping to its corresponding lexical sense. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |
+### <a id="optional" title="http://www.w3.org/ns/lemon/synsem#optional"></a> Property: optional <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#optional)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#optional" title="http://www.w3.org/ns/lemon/synsem#optional">optional</a> | The 'optional' property indicates whether a syntactic argument is optional, that is, it can be syntactically omitted. | schema:Boolean | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> |
+### <a id="otherForm" title="http://www.w3.org/ns/lemon/ontolex#otherForm"></a> Property: other form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#otherForm)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#otherForm" title="http://www.w3.org/ns/lemon/ontolex#otherForm">otherForm</a> | The 'other form' property relates a lexical entry to a non-preferred ("non-lemma") form that realizes the given lexical entry. | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="otherNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumberForm"></a> Property: other number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4750,12 +5091,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#partHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym">partHolonym</a> | Indicates a part of this object | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#partHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym">partHolonym</a> | Indicates a part of this object | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="partMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partMeronym"></a> Property: part meronym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#partMeronym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#partMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partMeronym">partMeronym</a> | Indicates this a component of the other concept | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#partMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partMeronym">partMeronym</a> | Indicates this a component of the other concept | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="partOfSpeech" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partOfSpeech"></a> Property: part of speech <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#partOfSpeech)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4765,7 +5106,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#participleFormOf" title="http://www.lexinfo.net/ontology/3.0/lexinfo#participleFormOf">participleFormOf</a> | Indicates that one lexical entry is the participle form of another, e.g., the adjective 'reassuring' is the participle of 'to reassure' | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#participleFormOf" title="http://www.lexinfo.net/ontology/3.0/lexinfo#participleFormOf">participleFormOf</a> | Indicates that one lexical entry is the participle form of another, e.g., the adjective 'reassuring' is the participle of 'to reassure' | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="partitiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCaseForm"></a> Property: partitive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4775,7 +5116,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#partitiveRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation">partitiveRelation</a> | A relation between two concepts where one of the concepts constitutes the whole and the other concept a part of that whole. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#partitiveRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation">partitiveRelation</a> | A relation between two concepts where one of the concepts constitutes the whole and the other concept a part of that whole. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="pastTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pastTenseForm"></a> Property: past tense form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#pastTenseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4795,7 +5136,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#pertainsTo" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pertainsTo">pertainsTo</a> | Indicates that a term is the adjectival form of a word with a meaning of 'of or pertaining to X' | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#pertainsTo" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pertainsTo">pertainsTo</a> | Indicates that a term is the adjectival form of a word with a meaning of 'of or pertaining to X' | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
+### <a id="phoneticRep" title="http://www.w3.org/ns/lemon/ontolex#phoneticRep"></a> Property: phonetic representation <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#phoneticRep)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#phoneticRep" title="http://www.w3.org/ns/lemon/ontolex#phoneticRep">phoneticRep</a> | The 'phonetic representation' property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA).  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="pluralNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pluralNumberForm"></a> Property: plural number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#pluralNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4886,6 +5232,16 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#pronunciation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pronunciation">pronunciation</a> | The representation of the manner by which a term or word is articulated. |  |  |
+### <a id="propertyDomain" title="http://www.w3.org/ns/lemon/synsem#propertyDomain"></a> Property: property domain <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#propertyDomain)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#propertyDomain" title="http://www.w3.org/ns/lemon/synsem#propertyDomain">propertyDomain</a> | 'Property domain' provides a pragmatic restriction on the domain of the property referred to by this sense. |  |  |
+### <a id="propertyRange" title="http://www.w3.org/ns/lemon/synsem#propertyRange"></a> Property: property range <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#propertyRange)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#propertyRange" title="http://www.w3.org/ns/lemon/synsem#propertyRange">propertyRange</a> | 'Property domain' provides a pragmatic restriction on the range of the property referred to by this sense. |  |  |
 ### <a id="quadrialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quadrialNumberForm"></a> Property: quadrial number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#quadrialNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4895,7 +5251,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#quasiEquivalent" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent">quasiEquivalent</a> | A term that is very similar but with some differences | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#quasiEquivalent" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent">quasiEquivalent</a> | A term that is very similar but with some differences | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
+### <a id="reference" title="http://www.w3.org/ns/lemon/ontolex#reference"></a> Property: reference <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#reference)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#reference" title="http://www.w3.org/ns/lemon/ontolex#reference">reference</a> | The 'reference' property relates a lexical sense to an ontological predicate that represents the denotation of the corresponding lexical entry.  | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a>, <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |
 ### <a id="referentType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#referentType"></a> Property: referent type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#referentType)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4915,7 +5276,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#relatedTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#relatedTerm">relatedTerm</a> | A term connected to another term by a coordinate or associative relation. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#relatedTerm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#relatedTerm">relatedTerm</a> | A term connected to another term by a coordinate or associative relation. | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
+### <a id="representation" title="http://www.w3.org/ns/lemon/ontolex#representation"></a> Property: representation <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#representation)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#representation" title="http://www.w3.org/ns/lemon/ontolex#representation">representation</a> | The 'representation' property indicates a string by which the form is represented according to some orthography.  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="romanization" title="http://www.lexinfo.net/ontology/3.0/lexinfo#romanization"></a> Property: romanization <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#romanization)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4925,7 +5291,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#root" title="http://www.lexinfo.net/ontology/3.0/lexinfo#root">root</a> | base of a word | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#root" title="http://www.lexinfo.net/ontology/3.0/lexinfo#root">root</a> | base of a word | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="secondPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#secondPersonForm"></a> Property: second person form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#secondPersonForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4936,6 +5302,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#segmentation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#segmentation">segmentation</a> | Specification of the pointers in time or sequence that indicates the segmentation process. |  |  |
+### <a id="sense" title="http://www.w3.org/ns/lemon/ontolex#sense"></a> Property: sense <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#sense)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#sense" title="http://www.w3.org/ns/lemon/ontolex#sense">sense</a> | The 'sense' property relates a lexical entry to one of its lexical senses.  | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="senseExample" title="http://www.lexinfo.net/ontology/3.0/lexinfo#senseExample"></a> Property: sense example <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#senseExample)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4955,7 +5326,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#shortFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor">shortFormFor</a> | A linking element used to identify a relation between a short form and its full or expanded form. | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry" target="_blank" rel="noopener">LexicalEntry</a> |
+| <a href="#shortFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor">shortFormFor</a> | A linking element used to identify a relation between a short form and its full or expanded form. | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="singularNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#singularNumberForm"></a> Property: singular number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#singularNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4976,6 +5347,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#subject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subject">subject</a> | relation between a phrase and a verb, that represents the person or thing that performs the action or about which something is stated |  |  |
+### <a id="subjOfProp" title="http://www.w3.org/ns/lemon/synsem#subjOfProp"></a> Property: subject of property <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#subjOfProp)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#subjOfProp" title="http://www.w3.org/ns/lemon/synsem#subjOfProp">subjOfProp</a> | The 'subjOfProp' property represents the 1st argument or subject of a binary predicate (property) in the ontology. |  |  |
 ### <a id="subjunctiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveClause"></a> Property: subjunctive clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -4991,16 +5367,21 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#sublativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm">sublativeCaseForm</a> |  |  |  |
+### <a id="submap" title="http://www.w3.org/ns/lemon/synsem#submap"></a> Property: submap <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#submap)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#submap" title="http://www.w3.org/ns/lemon/synsem#submap">submap</a> | The 'submap' property relates a (complex) ontological mapping to a set of bindings that together bind the arguments of the involved predicates to a set of syntactic arguments that realize them syntactically. | <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> | <a href="#OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap">ontology mapping</a> |
 ### <a id="substanceHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym"></a> Property: substance holonym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#substanceHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym">substanceHolonym</a> | Indicates what this is composed of | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#substanceHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym">substanceHolonym</a> | Indicates what this is composed of | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="substanceMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceMeronym"></a> Property: substance meronym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#substanceMeronym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#substanceMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceMeronym">substanceMeronym</a> | Indicates this is a substance that composes the other | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#substanceMeronym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#substanceMeronym">substanceMeronym</a> | Indicates this is a substance that composes the other | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="superessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCaseForm"></a> Property: superessive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -5020,7 +5401,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#synonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#synonym">synonym</a> | Indicates the the terms have the same meaning lexicographically | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#synonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#synonym">synonym</a> | Indicates the the terms have the same meaning lexicographically | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
+### <a id="synArg" title="http://www.w3.org/ns/lemon/synsem#synArg"></a> Property: syntactic argument <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#synArg)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#synArg" title="http://www.w3.org/ns/lemon/synsem#synArg">synArg</a> | The object property synArg relates a syntactic frame to one of its syntactic arguments. | <a href="#SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument">Syntactic Argument</a> | <a href="#SyntacticFrame" title="http://www.w3.org/ns/lemon/synsem#SyntacticFrame">Syntactic Frame</a> |
+### <a id="synBehavior" title="http://www.w3.org/ns/lemon/synsem#synBehavior"></a> Property: syntactic behavior <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#synBehavior)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#synBehavior" title="http://www.w3.org/ns/lemon/synsem#synBehavior">synBehavior</a> | The 'syntactic behavior' property relates a lexical entry to one of its syntactic behaviors as captured by a syntactic frame. | <a href="#SyntacticFrame" title="http://www.w3.org/ns/lemon/synsem#SyntacticFrame">Syntactic Frame</a> | <a href="#LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry">lexical entry</a> |
 ### <a id="temporalQualifier" title="http://www.lexinfo.net/ontology/3.0/lexinfo#temporalQualifier"></a> Property: temporal qualifier <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#temporalQualifier)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -5060,7 +5451,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#translation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translation">translation</a> | Indicates that two terms are translations of one another; this is the same as interlingual synonymy | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> | <a href="http://www.w3.org/ns/lemon/ontolex#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense" target="_blank" rel="noopener">LexicalSense</a> |
+| <a href="#translation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translation">translation</a> | Indicates that two terms are translations of one another; this is the same as interlingual synonymy | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="translationConfidence" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translationConfidence"></a> Property: translation confidence <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#translationConfidence)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -5081,6 +5472,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#trialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#trialNumberForm">trialNumberForm</a> |  |  |  |
+### <a id="usage" title="http://www.w3.org/ns/lemon/ontolex#usage"></a> Property: usage <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#usage)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#usage" title="http://www.w3.org/ns/lemon/ontolex#usage">usage</a> | The 'usage' property indicates usage conditions or pragmatic implications when using the lexical entry to refer to the given ontological meaning. | <a href="http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank" rel="noopener">Resource</a> | <a href="#LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense">lexical sense</a> |
 ### <a id="usageNote" title="http://www.lexinfo.net/ontology/3.0/lexinfo#usageNote"></a> Property: usage note <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#usageNote)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -5101,6 +5497,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#voice" title="http://www.lexinfo.net/ontology/3.0/lexinfo#voice">voice</a> | Way sentences may alter the relationship between the subject and object of a verb, without changing the meaning of the sentence. | <a href="#Voice" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Voice">voice</a> |  |
+### <a id="writtenRep" title="http://www.w3.org/ns/lemon/ontolex#writtenRep"></a> Property: written representation <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#writtenRep)</small>
+
+| Property | Description | Range | Occurs in Domain(s) |
+| -------- | ----------- | ----------- | ----------- |
+| <a href="#writtenRep" title="http://www.w3.org/ns/lemon/ontolex#writtenRep">writtenRep</a> | The 'written representation' property indicates the written representation of a form. | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ## Property Values
 
 No PropertyValue entities are defined.
