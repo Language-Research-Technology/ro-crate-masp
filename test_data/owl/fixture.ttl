@@ -72,3 +72,17 @@ ex:describedBy a owl:ObjectProperty ;
         owl:unionOf ( ex:Widget ex:Gadget )
     ] ;
     rdfs:range ex:Widget .
+
+# A class and a property with no OWL typing at all -- just plain RDFS, the
+# idiom CLDF's terms.rdf uses throughout (see scripts/owl-to-masp.spec.md,
+# "Plain RDFS vocabularies (no OWL typing)"). Must be picked up the same way
+# an owl:Class/owl:DatatypeProperty pair would be.
+ex:LegacyWidget a rdfs:Class ;
+    rdfs:label "LegacyWidget"@en ;
+    rdfs:comment "A fixture class declared with plain rdfs:Class, no owl:Class typing."@en .
+
+ex:legacyName a rdf:Property ;
+    rdfs:label "legacy name"@en ;
+    rdfs:comment "A fixture property declared with plain rdf:Property, no owl:*Property typing."@en ;
+    rdfs:domain ex:LegacyWidget ;
+    rdfs:range xsd:string .

@@ -217,7 +217,13 @@ def range_ref(iri):
 
 def build_class_entities(graph, namespace):
     entities = []
-    for subject in sorted(set(graph.subjects(RDF.type, OWL.Class)), key=str):
+    # Plain rdfs:Class (no owl:Class typing) is the idiom lightweight RDFS
+    # vocabularies use instead of full OWL -- see spec: "Plain RDFS
+    # vocabularies (no OWL typing)". Unioned with owl:Class rather than
+    # replacing it so ontologies that do use full OWL typing (RiC-O, the
+    # fixture) are unaffected; a subject asserted as both isn't emitted twice.
+    class_subjects = set(graph.subjects(RDF.type, OWL.Class)) | set(graph.subjects(RDF.type, RDFS.Class))
+    for subject in sorted(class_subjects, key=str):
         if isinstance(subject, BNode) or not in_namespace(subject, namespace):
             continue
         entity = {"@id": str(subject), "@type": "rdfs:Class"}
@@ -234,8 +240,13 @@ def build_class_entities(graph, namespace):
 
 def build_property_entities(graph, namespace):
     entities = []
-    property_subjects = set(graph.subjects(RDF.type, OWL.ObjectProperty)) | set(
-        graph.subjects(RDF.type, OWL.DatatypeProperty)
+    # Plain rdf:Property (no owl:ObjectProperty/DatatypeProperty typing) is
+    # the property-side counterpart of the rdfs:Class case above -- same
+    # reasoning, same spec section.
+    property_subjects = (
+        set(graph.subjects(RDF.type, OWL.ObjectProperty))
+        | set(graph.subjects(RDF.type, OWL.DatatypeProperty))
+        | set(graph.subjects(RDF.type, RDF.Property))
     )
     for subject in sorted(property_subjects, key=str):
         if isinstance(subject, BNode) or not in_namespace(subject, namespace):

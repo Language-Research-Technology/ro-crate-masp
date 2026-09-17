@@ -128,6 +128,23 @@ def test_range_outside_namespace_is_still_referenced_by_full_iri(crate):
     assert refers_to["rangeIncludes"] == {"@id": "http://example.org/external#Thing"}
 
 
+def test_plain_rdfs_class_is_converted_without_owl_class_typing(crate):
+    # CLDF-derived case (scripts/owl-to-masp.spec.md, "Plain RDFS
+    # vocabularies (no OWL typing)"): a class asserted only as rdfs:Class,
+    # never owl:Class, must still be picked up.
+    legacy_widget = _by_id(crate["@graph"], "http://example.org/ns#LegacyWidget")
+    assert legacy_widget["@type"] == "rdfs:Class"
+    assert legacy_widget["rdfs:label"] == "LegacyWidget"
+
+
+def test_plain_rdf_property_is_converted_without_owl_property_typing(crate):
+    legacy_name = _by_id(crate["@graph"], "http://example.org/ns#legacyName")
+    assert legacy_name["@type"] == "rdf:Property"
+    assert legacy_name["rdfs:label"] == "legacyName"
+    assert legacy_name["domainIncludes"] == {"@id": "http://example.org/ns#LegacyWidget"}
+    assert legacy_name["rangeIncludes"] == {"@id": "schema:Text"}
+
+
 def test_resource_descriptor_lists_every_generated_entity_sorted(crate):
     descriptor = _by_id(crate["@graph"], "#hasSpecializedSchema")
     assert descriptor["@type"] == "ResourceDescriptor"
