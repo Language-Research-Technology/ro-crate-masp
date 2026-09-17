@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLDF Ontology</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
+    <hr>
+<h2>title: CLDF Ontology Schema Terms</h2>
+<h1>CLDF Ontology Schema Terms</h1>
+<p>TODO: describe the source ontology and any conversion caveats here.</p>
+<h2>All Rules:</h2>
+<p><strong>23</strong> classes &middot; <strong>59</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#BorrowingTable" title="http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable">BorrowingTable</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The Borrowing Table stores information about borrowings or loanwords by linking two rows in the Form Table as <a href="https://en.wikipedia.org/wiki/Associative_entity">associative entity</a> where additional information about the particular case of borrowing can be provided. </p> </li>
+<li><a href="#CodeTable" title="http://cldf.clld.org/v1.0/terms.rdf#CodeTable">CodeTable</a> —  The Code Table lists valid values for categorical parameters, thus enabling validity checks and providing a place for additional information about codes such as a source. </li>
+<li><a href="#CognatesetTable" title="http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable">CognatesetTable</a> —  A table holding additional data about cognate sets. </li>
+<li><a href="#CognateTable" title="http://cldf.clld.org/v1.0/terms.rdf#CognateTable">CognateTable</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The table of cognate judgements accompanying a CLDF Wordlist. If the only thing we know about cognate sets is the set of members, a Cognate Table can be used without a corresponding <a href="#CognatesetTable">Cognateset Table</a>, otherwise it will become the <a href="https://en.wikipedia.org/wiki/Associative_entity">associative table</a> between Form Table and Cognateset Table. </p> </li>
+<li><a href="#ContributionTable" title="http://cldf.clld.org/v1.0/terms.rdf#ContributionTable">ContributionTable</a> —  The table of contributions - i.e. citeable units - in a CLDF dataset </li>
+<li><a href="#Dictionary" title="http://cldf.clld.org/v1.0/terms.rdf#Dictionary">Dictionary</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/Dictionary">CLDF Dictionary</a> specification</p> </li>
+<li><a href="#EntryTable" title="http://cldf.clld.org/v1.0/terms.rdf#EntryTable">EntryTable</a> —  The table of entries of a CLDF Dictionary </li>
+<li><a href="#ExampleTable" title="http://cldf.clld.org/v1.0/terms.rdf#ExampleTable">ExampleTable</a> —  The table of text examples provided with a CLDF dataset </li>
+<li><a href="#FormTable" title="http://cldf.clld.org/v1.0/terms.rdf#FormTable">FormTable</a> —  The table of forms of a CLDF Wordlist </li>
+<li><a href="#FunctionalEquivalentsetTable" title="http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentsetTable">FunctionalEquivalentsetTable</a> —  The table to list all sets of functional equivalents from a "http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable" and adding descriptions for these sets </li>
+<li><a href="#FunctionalEquivalentTable" title="http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable">FunctionalEquivalentTable</a> —  A table to specify which parts of strings are functionally equivalent. This is typically used to parallel texts (i.e. expressions of the same content in different languages) However, it can be used in general to annotated that two expression from different languages are functionally equivalent (but not necessarily cognate) </li>
+<li><a href="#Generic" title="http://cldf.clld.org/v1.0/terms.rdf#Generic">Generic</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A generic CLDF dataset; i.e. a set of cross-linguistic data which does not fit any of the other CLDF modules. </p> </li>
+<li><a href="#LanguageTable" title="http://cldf.clld.org/v1.0/terms.rdf#LanguageTable">LanguageTable</a> —  The table of languages provided with a CLDF dataset </li>
+<li><a href="#MediaTable" title="http://cldf.clld.org/v1.0/terms.rdf#MediaTable">MediaTable</a> —  The table of media resources linked from objects in a CLDF dataset </li>
+<li><a href="#ParallelText" title="http://cldf.clld.org/v1.0/terms.rdf#ParallelText">ParallelText</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/ParallelText">CLDF Parallel Text</a> specification</p> </li>
+<li><a href="#ParameterNetwork" title="http://cldf.clld.org/v1.0/terms.rdf#ParameterNetwork">ParameterNetwork</a> —  A table listing edges of a parameter network, i.e. a graph with parameters as nodes. </li>
+<li><a href="#ParameterTable" title="http://cldf.clld.org/v1.0/terms.rdf#ParameterTable">ParameterTable</a> —  The table of parameters available in a CLDF dataset </li>
+<li><a href="#SenseTable" title="http://cldf.clld.org/v1.0/terms.rdf#SenseTable">SenseTable</a> —  The table of senses of a CLDF Dictionary </li>
+<li><a href="#StructureDataset" title="http://cldf.clld.org/v1.0/terms.rdf#StructureDataset">StructureDataset</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/StructureDataset">CLDF Structure Dataset</a> specification</p> </li>
+<li><a href="#TextCorpus" title="http://cldf.clld.org/v1.0/terms.rdf#TextCorpus">TextCorpus</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/TextCorpus">CLDF Text Corpus</a> specification</p> </li>
+<li><a href="#TreeTable" title="http://cldf.clld.org/v1.0/terms.rdf#TreeTable">TreeTable</a> —  A table listing language trees, i.e. phylogenetic trees or classifiations of languages conveyed as tree structure with items of the LanguageTable as leaf nodes. </li>
+<li><a href="#ValueTable" title="http://cldf.clld.org/v1.0/terms.rdf#ValueTable">ValueTable</a> — Nf913c426f15b418aad1a967060d3f8d5</li>
+<li><a href="#Wordlist" title="http://cldf.clld.org/v1.0/terms.rdf#Wordlist">Wordlist</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/Wordlist">CLDF Wordlist</a> specification</p> </li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#alignment" title="http://cldf.clld.org/v1.0/terms.rdf#alignment">alignment</a> —  <p xmlns="http://www.w3.org/1999/xhtml">An alignment represents <a href="http://linguistics-ontology.org/gold/2010/Segment">segments</a> which are grouped into a common <a href="#cognatesetReference">cognate set</a> as a matrix in which cognate segments are placed in the same column while gap characters are introduced in those sound sequences missing a certain counterpart.</p> </li>
+<li><a href="#analyzedWord" title="http://cldf.clld.org/v1.0/terms.rdf#analyzedWord">analyzedWord</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The morpheme-pattern analysis of a word in an example. </p> </li>
+<li><a href="#citation" title="http://cldf.clld.org/v1.0/terms.rdf#citation">citation</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A full citation for a citeable unit of a dataset, preferably following the rules of the <a href="https://www.linguisticsociety.org/resource/unified-style-sheet">Unified Style Sheet for Linguistics Journals</a> or the best practices for <a href="https://site.uit.no/linguisticsdatacitation/">Linguistics Data Citation</a>. </p> </li>
+<li><a href="#cltsReference" title="http://cldf.clld.org/v1.0/terms.rdf#cltsReference">cltsReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier of a sound described in the CLTS dataset. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A sound identifier is the last path component of the sound's URL at https://clts.clld.org/parameters , e.g. <code>short_neutral_tone</code> for <code>https://clts.clld.org/parameters/short_neutral_tone</code>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> References a sound in the Cross-Linguistic Transcription Systems database. Suitable to mark parameters as phonemes, and consequently values as elements of phoneme inventories. E.g. <a href="https://clts.clld.org/parameters/voiced_bilabial_nasal_consonant">voiced_bilabial_nasal_consonant</a>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> To mark sounds that can not be mapped to any sound defined in the current CLTS version, the ID "NA", corresponding to the "unknown" sound https://clts.clld.org/parameters/NA should be used. </p> </li>
+<li><a href="#codeReference" title="http://cldf.clld.org/v1.0/terms.rdf#codeReference">codeReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a code (aka category) description by providing a foreign key to <code>CodeTable</code>. </p> </li>
+<li><a href="#cognatesetReference" title="http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference">cognatesetReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a cognateset either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>CognatesetTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </li>
+<li><a href="#columnSpec" title="http://cldf.clld.org/v1.0/terms.rdf#columnSpec">columnSpec</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A column specification given as JSON representation of a <a href="https://www.w3.org/TR/tabular-metadata/#columns">CSVW column description</a>. This column specification may be used by CLDF consumers to read a parameter's value as typed data.</p> <p xmlns="http://www.w3.org/1999/xhtml">Note that a CSVW datatye description is not sufficient, because parsing a string value must also be informed by the column properties <code>null</code> and <code>separator</code>.</p> </li>
+<li><a href="#comment" title="http://cldf.clld.org/v1.0/terms.rdf#comment">comment</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A human-readable comment on a resource, providing additional context. </p> </li>
+<li><a href="#concepticonReference" title="http://cldf.clld.org/v1.0/terms.rdf#concepticonReference">concepticonReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier of a Concepticon concept set. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A concept set groups a number of concept labels which are used in different questionnaires and were judged to denote the same concept despite potential differences among the concrete concept labels (be it their spelling, or the language in which they were originally created). </p> </li>
+<li><a href="#contributionReference" title="http://cldf.clld.org/v1.0/terms.rdf#contributionReference">contributionReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a contribution by providing a foreign key to <code>ContributionTable</code>. </p> </li>
+<li><a href="#contributor" title="http://cldf.clld.org/v1.0/terms.rdf#contributor">contributor</a> —  <p xmlns="http://www.w3.org/1999/xhtml">Names of contributor(s) to a citeable unit of a dataset.</p> </li>
+<li><a href="#description" title="http://cldf.clld.org/v1.0/terms.rdf#description">description</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A description for an entity.</p> </li>
+<li><a href="#downloadUrl" title="http://cldf.clld.org/v1.0/terms.rdf#downloadUrl">downloadUrl</a> —  <p xmlns="http://www.w3.org/1999/xhtml">URL where a media resource is available directly, typically through HTTP, but other schemes such as <a href="https://en.wikipedia.org/wiki/File_URI_scheme">file:</a> (interpreted relative to the metadata location) or <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data:</a> are permissible as well. </p> </li>
+<li><a href="#edgeIsDirected" title="http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected">edgeIsDirected</a> —  <p xmlns="http://www.w3.org/1999/xhtml">Flag signaling whether an edge in a graph is directed or not.</p> </li>
+<li><a href="#entryReference" title="http://cldf.clld.org/v1.0/terms.rdf#entryReference">entryReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a dictionary entry by providing a foreign key to <code>EntryTable</code>. </p> </li>
+<li><a href="#exampleReference" title="http://cldf.clld.org/v1.0/terms.rdf#exampleReference">exampleReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing an example by providing a foreign key to <code>ExampleTable</code>. </p> </li>
+<li><a href="#form" title="http://cldf.clld.org/v1.0/terms.rdf#form">form</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A lexical unit is any collection of word forms corresponding to a certain meaning which can be found in comparative datasets.</p> <p xmlns="http://www.w3.org/1999/xhtml">Ideally, a lexical unit would just present itself as one single <a href="http://linguistics-ontology.org/gold/2010/FormUnit">form</a>. However, in practice, scholars often list speech variants and at times even non-cognate alternatives for their preferred form.</p> </li>
+<li><a href="#formReference" title="http://cldf.clld.org/v1.0/terms.rdf#formReference">formReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a form by providing a foreign key to <code>FormTable</code>. </p> </li>
+<li><a href="#functionalEquivalentsetReference" title="http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference">functionalEquivalentsetReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A functional equivalent set is a group of strings from different languages that express similar function. This is an identifier referencing a cognateset either <ul> <li>by providing a foreign key to <code>FunctionalEquivalentsetTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </p> </li>
+<li><a href="#gbifReference" title="http://cldf.clld.org/v1.0/terms.rdf#gbifReference">gbifReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A numeric identifier for a unit in GBIF's Backbone Taxonomy. </p> <p xmlns="http://www.w3.org/1999/xhtml"> References a taxonomic unit in GBIF's Backbone Taxonomy. Can be used for example in <code>ParameterTable</code> to mark a lexical concept as biological species. E.g. <a href="https://www.gbif.org/species/5219404">5219404</a>. </p> </li>
+<li><a href="#gloss" title="http://cldf.clld.org/v1.0/terms.rdf#gloss">gloss</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A gloss corresponding to the morpheme-pattern analysis of a word in an example. </p> </li>
+<li><a href="#glottocode" title="http://cldf.clld.org/v1.0/terms.rdf#glottocode">glottocode</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A Glottocode denoting a languoid described in <a href="http://glottolog.org">Glottolog</a>.</p> </li>
+<li><a href="#grammaticalityJudgement" title="http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement">grammaticalityJudgement</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A judgement about the (un)grammaticality of the example. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A non-<code>null</code> value for this property flags an example as ungrammatical or unacceptable. The actual string value is the typographical symbol(s) or text which is to be used to mark the example when formatting it in text (e.g. <code>*</code>). </p> <p xmlns="http://www.w3.org/1999/xhtml"> <strong>Note:</strong> Ungrammatical examples should link (via <code>languageReference</code>) to special item(s) in <code>LanguageTable</code> with an empty <code>Glottocode</code> to prevent data aggregators from inadvertently assigning such an example to a proper language (if they fail to honour <code>grammaticalityJudgement</code>). </p> </li>
+<li><a href="#headword" title="http://cldf.clld.org/v1.0/terms.rdf#headword">headword</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The headword of a dictionary entry. </p> </li>
+<li><a href="#id" title="http://cldf.clld.org/v1.0/terms.rdf#id">id</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A unique identifier for a row in a table.</p> <p xmlns="http://www.w3.org/1999/xhtml"> To allow usage of identifiers as path components of URLs IDs must only contain alphanumeric characters, underscore and hyphen. </p> </li>
+<li><a href="#iso639P3code" title="http://cldf.clld.org/v1.0/terms.rdf#iso639P3code">iso639P3code</a> —  An ISO 639-3 language code, i.e. a three-letter code denoting a valid ISO 639-3 language or macrolanguage. </li>
+<li><a href="#languageReference" title="http://cldf.clld.org/v1.0/terms.rdf#languageReference">languageReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a language either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>LanguageTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </li>
+<li><a href="#latitude" title="http://cldf.clld.org/v1.0/terms.rdf#latitude">latitude</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A latitude in the <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS 84</a> standard coordinate system, specified as decimal number of degrees. </p> </li>
+<li><a href="#lgrConformance" title="http://cldf.clld.org/v1.0/terms.rdf#lgrConformance">lgrConformance</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The level of conformance of the example with the Leipzig Glossing Rules. </p> <p xmlns="http://www.w3.org/1999/xhtml"> The following levels are distinguished: </p> <ol xmlns="http://www.w3.org/1999/xhtml"> <li><code>WORD_ALIGNED</code>: Analyzed text and glosses obey LGR rule 1, "word-by-word alignment".</li> <li><code>MORPHEME_ALIGNED</code>: Analyzed text and glosses obey LGR rule 2, "morpheme-by-morpheme correspondence".</li> </ol> <p xmlns="http://www.w3.org/1999/xhtml"> No information regarding LGR conformance should be signaled with an empty string, i.e. <code>null</code> value for the property. </p> <p xmlns="http://www.w3.org/1999/xhtml"> While more information is needed to assess how to interpret IGT - e.g. whether rule 4a is followed to group gloss elements for unsegmentable morpheme - the two levels considered here are essential for decisions about automated re-use. </p> </li>
+<li><a href="#longitude" title="http://cldf.clld.org/v1.0/terms.rdf#longitude">longitude</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A longitude in the <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS 84</a> standard coordinate system, specified as decimal number of degrees. </p> </li>
+<li><a href="#macroarea" title="http://cldf.clld.org/v1.0/terms.rdf#macroarea">macroarea</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The name of a macroarea as defined by <a href="http://glottolog.org">Glottolog</a>.</p> </li>
+<li><a href="#mediaReference" title="http://cldf.clld.org/v1.0/terms.rdf#mediaReference">mediaReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a media resource by providing a foreign key to <code>MediaTable</code>. </p> </li>
+<li><a href="#mediaType" title="http://cldf.clld.org/v1.0/terms.rdf#mediaType">mediaType</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) as defined by <a href="https://tools.ietf.org/html/rfc6838">IETF's RFC 6838</a>.</p> </li>
+<li><a href="#metaLanguageReference" title="http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference">metaLanguageReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the meta language - e.g. of the translation of an example - either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>LanguageTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </li>
+<li><a href="#motivationStructure" title="http://cldf.clld.org/v1.0/terms.rdf#motivationStructure">motivationStructure</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The motivation structure of a word form gives glosses for each of its <a href="http://linguistics-ontology.org/gold/2010/Morpheme">morphemes</a>. In this it is similar to an instance of <a href="http://linguistics-ontology.org/gold/2010/InterlinearGlossedText">interlinear glossed text</a> which describes the underlying semantic motivation for a given word form.</p> <p xmlns="http://www.w3.org/1999/xhtml">As an example, consider Chinese <i>shùpí</i> "bark (of a tree)" which is a compound consisting of <i>shù</i> "tree" and <i>pí</i> "skin", and whose motivation structure could be rendered as <tt>tree bark</tt>.</p> </li>
+<li><a href="#name" title="http://cldf.clld.org/v1.0/terms.rdf#name">name</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A title, name or label for an entity.</p> </li>
+<li><a href="#parameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#parameterReference">parameterReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a parameter either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>ParameterTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </li>
+<li><a href="#parentLanguageGlottocode" title="http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode">parentLanguageGlottocode</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A <a href="http://glottolog.org">Glottocode</a> denoting the language-level languoid that is a parent languoid of the languoid described by the row in <code>LanguageTable</code>. </p> </li>
+<li><a href="#partOfSpeech" title="http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech">partOfSpeech</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The part-of-speech of a dictionary entry. </p> </li>
+<li><a href="#pathInZip" title="http://cldf.clld.org/v1.0/terms.rdf#pathInZip">pathInZip</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The name or path of a media file within the archive if it is archived within a <a href="https://en.wikipedia.org/wiki/ZIP_(file_format)">ZIP</a> file.</p> </li>
+<li><a href="#position" title="http://cldf.clld.org/v1.0/terms.rdf#position">position</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A position represents the placement of an item in a series or sequence of items. Although an integer is the recommended datatype, any datatype that supports a total ordering (where the order is transparent, such as alphabetic order for strings) is acceptable. It is also possible to have a list-valued column for this property, which can be useful for implementing multi-level orderings. In such cases, the typical order for tuples is assumed. </p> </li>
+<li><a href="#primaryText" title="http://cldf.clld.org/v1.0/terms.rdf#primaryText">primaryText</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The primary text of an example. </p> </li>
+<li><a href="#prosodicStructure" title="http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure">prosodicStructure</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The prosodic structure of a <a href="http://linguistics-ontology.org/gold/2010/Segment">word form</a> labels similar prosodic contexts which may recur even within the same word. Prosodic structures for a given language may have an underlying template that describes which syllables are possible. In Chinese dialects, for example, one could describe the basic template of most syllables as consisting of <em>initial</em>, <em>medial</em>, <em>nucleus</em>, <em>coda</em>, and <em>tone</em>, of which the nucleus and the tone as a suprasegmental element are usually the only required elements.</p> </li>
+<li><a href="#root" title="http://cldf.clld.org/v1.0/terms.rdf#root">root</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The root of a <a href="#soundSequence">word form</a> is an abstract basic unit from which several <a href="#stem">stems</a> can be derived.</p> </li>
+<li><a href="#segments" title="http://cldf.clld.org/v1.0/terms.rdf#segments">segments</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> A list of segments (aka a sound sequence) is understood as the strict segmental representation of a <a href="http://linguistics-ontology.org/gold/2010/FormUnit">form unit</a> of a language, which is usually given in phonetic transcription. <a href="http://linguistics-ontology.org/gold/2010/Suprasegmental">Suprasegmental elements</a>, like tone or accent, of sound sequences are usually represented in a sequential form, although they are usually co-articulated along with the segmental elements of a sound sequence. Alternatively, suprasegmental aspects could also be represented as part of the <a href="#prosodicStructure">prosodic structure</a> of a word form. </p> </li>
+<li><a href="#segmentSlice" title="http://cldf.clld.org/v1.0/terms.rdf#segmentSlice">segmentSlice</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> List of segment indices or segment ranges forming the target of a partial cognacy judgement. </p> </li>
+<li><a href="#source" title="http://cldf.clld.org/v1.0/terms.rdf#source">source</a> —  <p xmlns="http://www.w3.org/1999/xhtml">List of source specifications, of the form &lt;source_ID&gt;[], e.g. http://glottolog.org/resource/reference/id/318814[34], or meier2015[3-12] where meier2015 is a citation key in the accompanying BibTeX file.</p> </li>
+<li><a href="#sourceFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference">sourceFormReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the source form of a loanword by providing a foreign key to <code>FormTable</code>. </p> </li>
+<li><a href="#sourceParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference">sourceParameterReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the source parameter of a parameter network edge. </p> </li>
+<li><a href="#speakerArea" title="http://cldf.clld.org/v1.0/terms.rdf#speakerArea">speakerArea</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a media resource by providing a foreign key to <code>MediaTable</code>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> This property can be used in <code>LanguageTable</code> to point to a media resource describing the speaker area of a language, i.e. the geographic area where the speakers of the language live. </p> <p xmlns="http://www.w3.org/1999/xhtml"> The linked media resource may be an image of a map, depicting the area, or some other multimedia content for human consumption. But it may also be a GeoJSON resource (i.e. a media resource with <code>mediaType</code> <code>application/geo+json</code>). In the latter case, the GeoJSON object MUST contain a feature with a geometry of type <code>Polygon</code> or <code>Multipolygon</code> and a key <code>cldf:languageReference</code> in its <code>properties</code> object with the linking language's <code>id</code> as value. </p> </li>
+<li><a href="#stem" title="http://cldf.clld.org/v1.0/terms.rdf#stem">stem</a> —  <p xmlns="http://www.w3.org/1999/xhtml">A stem is a concrete <a href="#soundSequence">word form</a> in a language which has been derived as such from a given <a href="#root">root</a>.</p> </li>
+<li><a href="#targetFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetFormReference">targetFormReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a loanword by providing a foreign key to <code>FormTable</code>. </p> </li>
+<li><a href="#targetParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference">targetParameterReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the target parameter of a parameter network edge. </p> </li>
+<li><a href="#translatedText" title="http://cldf.clld.org/v1.0/terms.rdf#translatedText">translatedText</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The translated text of an example. </p> </li>
+<li><a href="#treeBranchLengthUnit" title="http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit">treeBranchLengthUnit</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The unit used to measure evolutionary time in phylogenetic trees.</p> </li>
+<li><a href="#treeIsRooted" title="http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted">treeIsRooted</a> —  <p xmlns="http://www.w3.org/1999/xhtml">Flag signaling whether a tree is rooted or not.</p> </li>
+<li><a href="#treeReference" title="http://cldf.clld.org/v1.0/terms.rdf#treeReference">treeReference</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a language tree by providing a foreign key <code>TreeTable</code>. </p> </li>
+<li><a href="#treeType" title="http://cldf.clld.org/v1.0/terms.rdf#treeType">treeType</a> —  <p xmlns="http://www.w3.org/1999/xhtml">The type of a tree (<code>summary</code> or <code>sample</code>) describes how the tree can be used. Summary (or consensus) trees can be analysed in isolation and should have type <code>summary</code>. Trees resulting from a method that creates multiple trees, and thus should be analysed as a whole (or sampled appropriately) should have type <code>sample</code>.</p> </li>
+<li><a href="#value" title="http://cldf.clld.org/v1.0/terms.rdf#value">value</a> —  <p xmlns="http://www.w3.org/1999/xhtml"> The value (a.k.a. datapoint or measurement) of a language for a structural feature. </p> <p xmlns="http://www.w3.org/1999/xhtml"> For features with a limited, discrete set of valid values (a.k.a. categorical variables) it is recommended to relate items of <code>ValueTable</code> to the respective code in <code>CodeTable</code>. </p> </li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="BorrowingTable" title="http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable"></a> Class: BorrowingTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml"> The Borrowing Table stores information about borrowings or loanwords by linking two rows in the Form Table as <a href="https://en.wikipedia.org/wiki/Associative_entity">associative entity</a> where additional information about the particular case of borrowing can be provided. </p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="CodeTable" title="http://cldf.clld.org/v1.0/terms.rdf#CodeTable"></a> Class: CodeTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#CodeTable)</small></h3>
+<p>The Code Table lists valid values for categorical parameters, thus enabling validity checks and providing a place for additional information about codes such as a source.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="CognateTable" title="http://cldf.clld.org/v1.0/terms.rdf#CognateTable"></a> Class: CognateTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#CognateTable)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml"> The table of cognate judgements accompanying a CLDF Wordlist. If the only thing we know about cognate sets is the set of members, a Cognate Table can be used without a corresponding <a href="#CognatesetTable">Cognateset Table</a>, otherwise it will become the <a href="https://en.wikipedia.org/wiki/Associative_entity">associative table</a> between Form Table and Cognateset Table. </p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="CognatesetTable" title="http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable"></a> Class: CognatesetTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable)</small></h3>
+<p>A table holding additional data about cognate sets.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ContributionTable" title="http://cldf.clld.org/v1.0/terms.rdf#ContributionTable"></a> Class: ContributionTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ContributionTable)</small></h3>
+<p>The table of contributions - i.e. citeable units - in a CLDF dataset</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Dictionary" title="http://cldf.clld.org/v1.0/terms.rdf#Dictionary"></a> Class: Dictionary <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#Dictionary)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/Dictionary">CLDF Dictionary</a> specification</p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="EntryTable" title="http://cldf.clld.org/v1.0/terms.rdf#EntryTable"></a> Class: EntryTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#EntryTable)</small></h3>
+<p>The table of entries of a CLDF Dictionary</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ExampleTable" title="http://cldf.clld.org/v1.0/terms.rdf#ExampleTable"></a> Class: ExampleTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ExampleTable)</small></h3>
+<p>The table of text examples provided with a CLDF dataset</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="FormTable" title="http://cldf.clld.org/v1.0/terms.rdf#FormTable"></a> Class: FormTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#FormTable)</small></h3>
+<p>The table of forms of a CLDF Wordlist</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="FunctionalEquivalentTable" title="http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable"></a> Class: FunctionalEquivalentTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable)</small></h3>
+<p>A table to specify which parts of strings are functionally equivalent. This is typically used to parallel texts (i.e. expressions of the same content in different languages) However, it can be used in general to annotated that two expression from different languages are functionally equivalent (but not necessarily cognate)</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="FunctionalEquivalentsetTable" title="http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentsetTable"></a> Class: FunctionalEquivalentsetTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentsetTable)</small></h3>
+<p>The table to list all sets of functional equivalents from a &quot;http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable&quot; and adding descriptions for these sets</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Generic" title="http://cldf.clld.org/v1.0/terms.rdf#Generic"></a> Class: Generic <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#Generic)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml"> A generic CLDF dataset; i.e. a set of cross-linguistic data which does not fit any of the other CLDF modules. </p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LanguageTable" title="http://cldf.clld.org/v1.0/terms.rdf#LanguageTable"></a> Class: LanguageTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#LanguageTable)</small></h3>
+<p>The table of languages provided with a CLDF dataset</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="MediaTable" title="http://cldf.clld.org/v1.0/terms.rdf#MediaTable"></a> Class: MediaTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#MediaTable)</small></h3>
+<p>The table of media resources linked from objects in a CLDF dataset</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ParallelText" title="http://cldf.clld.org/v1.0/terms.rdf#ParallelText"></a> Class: ParallelText <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ParallelText)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/ParallelText">CLDF Parallel Text</a> specification</p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ParameterNetwork" title="http://cldf.clld.org/v1.0/terms.rdf#ParameterNetwork"></a> Class: ParameterNetwork <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ParameterNetwork)</small></h3>
+<p>A table listing edges of a parameter network, i.e. a graph with parameters as nodes.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ParameterTable" title="http://cldf.clld.org/v1.0/terms.rdf#ParameterTable"></a> Class: ParameterTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ParameterTable)</small></h3>
+<p>The table of parameters available in a CLDF dataset</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SenseTable" title="http://cldf.clld.org/v1.0/terms.rdf#SenseTable"></a> Class: SenseTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#SenseTable)</small></h3>
+<p>The table of senses of a CLDF Dictionary</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="StructureDataset" title="http://cldf.clld.org/v1.0/terms.rdf#StructureDataset"></a> Class: StructureDataset <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#StructureDataset)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/StructureDataset">CLDF Structure Dataset</a> specification</p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="TextCorpus" title="http://cldf.clld.org/v1.0/terms.rdf#TextCorpus"></a> Class: TextCorpus <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#TextCorpus)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/TextCorpus">CLDF Text Corpus</a> specification</p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="TreeTable" title="http://cldf.clld.org/v1.0/terms.rdf#TreeTable"></a> Class: TreeTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#TreeTable)</small></h3>
+<p>A table listing language trees, i.e. phylogenetic trees or classifiations of languages conveyed as tree structure with items of the LanguageTable as leaf nodes.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ValueTable" title="http://cldf.clld.org/v1.0/terms.rdf#ValueTable"></a> Class: ValueTable <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#ValueTable)</small></h3>
+<p>Nf913c426f15b418aad1a967060d3f8d5</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Wordlist" title="http://cldf.clld.org/v1.0/terms.rdf#Wordlist"></a> Class: Wordlist <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#Wordlist)</small></h3>
+ <p xmlns="http://www.w3.org/1999/xhtml">A dataset according to the <a href="https://github.com/cldf/cldf/tree/master/modules/Wordlist">CLDF Wordlist</a> specification</p> 
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>No properties defined for this class</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="alignment" title="http://cldf.clld.org/v1.0/terms.rdf#alignment"></a> Property: alignment <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#alignment)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#alignment" title="http://cldf.clld.org/v1.0/terms.rdf#alignment">alignment</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">An alignment represents <a href="http://linguistics-ontology.org/gold/2010/Segment">segments</a> which are grouped into a common <a href="#cognatesetReference">cognate set</a> as a matrix in which cognate segments are placed in the same column while gap characters are introduced in those sound sequences missing a certain counterpart.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="analyzedWord" title="http://cldf.clld.org/v1.0/terms.rdf#analyzedWord"></a> Property: analyzedWord <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#analyzedWord)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#analyzedWord" title="http://cldf.clld.org/v1.0/terms.rdf#analyzedWord">analyzedWord</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The morpheme-pattern analysis of a word in an example. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="citation" title="http://cldf.clld.org/v1.0/terms.rdf#citation"></a> Property: citation <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#citation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#citation" title="http://cldf.clld.org/v1.0/terms.rdf#citation">citation</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A full citation for a citeable unit of a dataset, preferably following the rules of the <a href="https://www.linguisticsociety.org/resource/unified-style-sheet">Unified Style Sheet for Linguistics Journals</a> or the best practices for <a href="https://site.uit.no/linguisticsdatacitation/">Linguistics Data Citation</a>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="cltsReference" title="http://cldf.clld.org/v1.0/terms.rdf#cltsReference"></a> Property: cltsReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#cltsReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#cltsReference" title="http://cldf.clld.org/v1.0/terms.rdf#cltsReference">cltsReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier of a sound described in the CLTS dataset. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A sound identifier is the last path component of the sound's URL at https://clts.clld.org/parameters , e.g. <code>short_neutral_tone</code> for <code>https://clts.clld.org/parameters/short_neutral_tone</code>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> References a sound in the Cross-Linguistic Transcription Systems database. Suitable to mark parameters as phonemes, and consequently values as elements of phoneme inventories. E.g. <a href="https://clts.clld.org/parameters/voiced_bilabial_nasal_consonant">voiced_bilabial_nasal_consonant</a>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> To mark sounds that can not be mapped to any sound defined in the current CLTS version, the ID &quot;NA&quot;, corresponding to the &quot;unknown&quot; sound https://clts.clld.org/parameters/NA should be used. </p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="codeReference" title="http://cldf.clld.org/v1.0/terms.rdf#codeReference"></a> Property: codeReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#codeReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#codeReference" title="http://cldf.clld.org/v1.0/terms.rdf#codeReference">codeReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a code (aka category) description by providing a foreign key to <code>CodeTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="cognatesetReference" title="http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference"></a> Property: cognatesetReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#cognatesetReference" title="http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference">cognatesetReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a cognateset either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>CognatesetTable</code> or</li> <li>by using a known encoding scheme.</li> </ul></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="columnSpec" title="http://cldf.clld.org/v1.0/terms.rdf#columnSpec"></a> Property: columnSpec <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#columnSpec)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#columnSpec" title="http://cldf.clld.org/v1.0/terms.rdf#columnSpec">columnSpec</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A column specification given as JSON representation of a <a href="https://www.w3.org/TR/tabular-metadata/#columns">CSVW column description</a>. This column specification may be used by CLDF consumers to read a parameter's value as typed data.</p> <p xmlns="http://www.w3.org/1999/xhtml">Note that a CSVW datatye description is not sufficient, because parsing a string value must also be informed by the column properties <code>null</code> and <code>separator</code>.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="comment" title="http://cldf.clld.org/v1.0/terms.rdf#comment"></a> Property: comment <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#comment)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#comment" title="http://cldf.clld.org/v1.0/terms.rdf#comment">comment</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A human-readable comment on a resource, providing additional context. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="concepticonReference" title="http://cldf.clld.org/v1.0/terms.rdf#concepticonReference"></a> Property: concepticonReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#concepticonReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#concepticonReference" title="http://cldf.clld.org/v1.0/terms.rdf#concepticonReference">concepticonReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier of a Concepticon concept set. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A concept set groups a number of concept labels which are used in different questionnaires and were judged to denote the same concept despite potential differences among the concrete concept labels (be it their spelling, or the language in which they were originally created). </p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="contributionReference" title="http://cldf.clld.org/v1.0/terms.rdf#contributionReference"></a> Property: contributionReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#contributionReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#contributionReference" title="http://cldf.clld.org/v1.0/terms.rdf#contributionReference">contributionReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a contribution by providing a foreign key to <code>ContributionTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="contributor" title="http://cldf.clld.org/v1.0/terms.rdf#contributor"></a> Property: contributor <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#contributor)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#contributor" title="http://cldf.clld.org/v1.0/terms.rdf#contributor">contributor</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">Names of contributor(s) to a citeable unit of a dataset.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="description" title="http://cldf.clld.org/v1.0/terms.rdf#description"></a> Property: description <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#description)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="http://cldf.clld.org/v1.0/terms.rdf#description">description</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A description for an entity.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="downloadUrl" title="http://cldf.clld.org/v1.0/terms.rdf#downloadUrl"></a> Property: downloadUrl <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#downloadUrl)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#downloadUrl" title="http://cldf.clld.org/v1.0/terms.rdf#downloadUrl">downloadUrl</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">URL where a media resource is available directly, typically through HTTP, but other schemes such as <a href="https://en.wikipedia.org/wiki/File_URI_scheme">file:</a> (interpreted relative to the metadata location) or <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data:</a> are permissible as well. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="edgeIsDirected" title="http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected"></a> Property: edgeIsDirected <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#edgeIsDirected" title="http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected">edgeIsDirected</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">Flag signaling whether an edge in a graph is directed or not.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="entryReference" title="http://cldf.clld.org/v1.0/terms.rdf#entryReference"></a> Property: entryReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#entryReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#entryReference" title="http://cldf.clld.org/v1.0/terms.rdf#entryReference">entryReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a dictionary entry by providing a foreign key to <code>EntryTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="exampleReference" title="http://cldf.clld.org/v1.0/terms.rdf#exampleReference"></a> Property: exampleReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#exampleReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#exampleReference" title="http://cldf.clld.org/v1.0/terms.rdf#exampleReference">exampleReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing an example by providing a foreign key to <code>ExampleTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="form" title="http://cldf.clld.org/v1.0/terms.rdf#form"></a> Property: form <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#form)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#form" title="http://cldf.clld.org/v1.0/terms.rdf#form">form</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A lexical unit is any collection of word forms corresponding to a certain meaning which can be found in comparative datasets.</p> <p xmlns="http://www.w3.org/1999/xhtml">Ideally, a lexical unit would just present itself as one single <a href="http://linguistics-ontology.org/gold/2010/FormUnit">form</a>. However, in practice, scholars often list speech variants and at times even non-cognate alternatives for their preferred form.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="formReference" title="http://cldf.clld.org/v1.0/terms.rdf#formReference"></a> Property: formReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#formReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#formReference" title="http://cldf.clld.org/v1.0/terms.rdf#formReference">formReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a form by providing a foreign key to <code>FormTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="functionalEquivalentsetReference" title="http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference"></a> Property: functionalEquivalentsetReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#functionalEquivalentsetReference" title="http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference">functionalEquivalentsetReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A functional equivalent set is a group of strings from different languages that express similar function. This is an identifier referencing a cognateset either <ul> <li>by providing a foreign key to <code>FunctionalEquivalentsetTable</code> or</li> <li>by using a known encoding scheme.</li> </ul> </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="gbifReference" title="http://cldf.clld.org/v1.0/terms.rdf#gbifReference"></a> Property: gbifReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#gbifReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#gbifReference" title="http://cldf.clld.org/v1.0/terms.rdf#gbifReference">gbifReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A numeric identifier for a unit in GBIF's Backbone Taxonomy. </p> <p xmlns="http://www.w3.org/1999/xhtml"> References a taxonomic unit in GBIF's Backbone Taxonomy. Can be used for example in <code>ParameterTable</code> to mark a lexical concept as biological species. E.g. <a href="https://www.gbif.org/species/5219404">5219404</a>. </p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="gloss" title="http://cldf.clld.org/v1.0/terms.rdf#gloss"></a> Property: gloss <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#gloss)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#gloss" title="http://cldf.clld.org/v1.0/terms.rdf#gloss">gloss</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A gloss corresponding to the morpheme-pattern analysis of a word in an example. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="glottocode" title="http://cldf.clld.org/v1.0/terms.rdf#glottocode"></a> Property: glottocode <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#glottocode)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#glottocode" title="http://cldf.clld.org/v1.0/terms.rdf#glottocode">glottocode</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A Glottocode denoting a languoid described in <a href="http://glottolog.org">Glottolog</a>.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="grammaticalityJudgement" title="http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement"></a> Property: grammaticalityJudgement <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#grammaticalityJudgement" title="http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement">grammaticalityJudgement</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A judgement about the (un)grammaticality of the example. </p> <p xmlns="http://www.w3.org/1999/xhtml"> A non-<code>null</code> value for this property flags an example as ungrammatical or unacceptable. The actual string value is the typographical symbol(s) or text which is to be used to mark the example when formatting it in text (e.g. <code>*</code>). </p> <p xmlns="http://www.w3.org/1999/xhtml"> <strong>Note:</strong> Ungrammatical examples should link (via <code>languageReference</code>) to special item(s) in <code>LanguageTable</code> with an empty <code>Glottocode</code> to prevent data aggregators from inadvertently assigning such an example to a proper language (if they fail to honour <code>grammaticalityJudgement</code>). </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="headword" title="http://cldf.clld.org/v1.0/terms.rdf#headword"></a> Property: headword <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#headword)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#headword" title="http://cldf.clld.org/v1.0/terms.rdf#headword">headword</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The headword of a dictionary entry. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="id" title="http://cldf.clld.org/v1.0/terms.rdf#id"></a> Property: id <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#id)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#id" title="http://cldf.clld.org/v1.0/terms.rdf#id">id</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A unique identifier for a row in a table.</p> <p xmlns="http://www.w3.org/1999/xhtml"> To allow usage of identifiers as path components of URLs IDs must only contain alphanumeric characters, underscore and hyphen. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="iso639P3code" title="http://cldf.clld.org/v1.0/terms.rdf#iso639P3code"></a> Property: iso639P3code <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#iso639P3code)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#iso639P3code" title="http://cldf.clld.org/v1.0/terms.rdf#iso639P3code">iso639P3code</a></td>
+<td>An ISO 639-3 language code, i.e. a three-letter code denoting a valid ISO 639-3 language or macrolanguage.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="languageReference" title="http://cldf.clld.org/v1.0/terms.rdf#languageReference"></a> Property: languageReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#languageReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#languageReference" title="http://cldf.clld.org/v1.0/terms.rdf#languageReference">languageReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a language either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>LanguageTable</code> or</li> <li>by using a known encoding scheme.</li> </ul></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="latitude" title="http://cldf.clld.org/v1.0/terms.rdf#latitude"></a> Property: latitude <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#latitude)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#latitude" title="http://cldf.clld.org/v1.0/terms.rdf#latitude">latitude</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A latitude in the <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS 84</a> standard coordinate system, specified as decimal number of degrees. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="lgrConformance" title="http://cldf.clld.org/v1.0/terms.rdf#lgrConformance"></a> Property: lgrConformance <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#lgrConformance)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#lgrConformance" title="http://cldf.clld.org/v1.0/terms.rdf#lgrConformance">lgrConformance</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The level of conformance of the example with the Leipzig Glossing Rules. </p> <p xmlns="http://www.w3.org/1999/xhtml"> The following levels are distinguished: </p> <ol xmlns="http://www.w3.org/1999/xhtml"> <li><code>WORD_ALIGNED</code>: Analyzed text and glosses obey LGR rule 1, &quot;word-by-word alignment&quot;.</li> <li><code>MORPHEME_ALIGNED</code>: Analyzed text and glosses obey LGR rule 2, &quot;morpheme-by-morpheme correspondence&quot;.</li> </ol> <p xmlns="http://www.w3.org/1999/xhtml"> No information regarding LGR conformance should be signaled with an empty string, i.e. <code>null</code> value for the property. </p> <p xmlns="http://www.w3.org/1999/xhtml"> While more information is needed to assess how to interpret IGT - e.g. whether rule 4a is followed to group gloss elements for unsegmentable morpheme - the two levels considered here are essential for decisions about automated re-use. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="longitude" title="http://cldf.clld.org/v1.0/terms.rdf#longitude"></a> Property: longitude <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#longitude)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#longitude" title="http://cldf.clld.org/v1.0/terms.rdf#longitude">longitude</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A longitude in the <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS 84</a> standard coordinate system, specified as decimal number of degrees. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="macroarea" title="http://cldf.clld.org/v1.0/terms.rdf#macroarea"></a> Property: macroarea <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#macroarea)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#macroarea" title="http://cldf.clld.org/v1.0/terms.rdf#macroarea">macroarea</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The name of a macroarea as defined by <a href="http://glottolog.org">Glottolog</a>.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="mediaReference" title="http://cldf.clld.org/v1.0/terms.rdf#mediaReference"></a> Property: mediaReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#mediaReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#mediaReference" title="http://cldf.clld.org/v1.0/terms.rdf#mediaReference">mediaReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a media resource by providing a foreign key to <code>MediaTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="mediaType" title="http://cldf.clld.org/v1.0/terms.rdf#mediaType"></a> Property: mediaType <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#mediaType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#mediaType" title="http://cldf.clld.org/v1.0/terms.rdf#mediaType">mediaType</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) as defined by <a href="https://tools.ietf.org/html/rfc6838">IETF's RFC 6838</a>.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="metaLanguageReference" title="http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference"></a> Property: metaLanguageReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#metaLanguageReference" title="http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference">metaLanguageReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the meta language - e.g. of the translation of an example - either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>LanguageTable</code> or</li> <li>by using a known encoding scheme.</li> </ul></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="motivationStructure" title="http://cldf.clld.org/v1.0/terms.rdf#motivationStructure"></a> Property: motivationStructure <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#motivationStructure)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#motivationStructure" title="http://cldf.clld.org/v1.0/terms.rdf#motivationStructure">motivationStructure</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The motivation structure of a word form gives glosses for each of its <a href="http://linguistics-ontology.org/gold/2010/Morpheme">morphemes</a>. In this it is similar to an instance of <a href="http://linguistics-ontology.org/gold/2010/InterlinearGlossedText">interlinear glossed text</a> which describes the underlying semantic motivation for a given word form.</p> <p xmlns="http://www.w3.org/1999/xhtml">As an example, consider Chinese <i>shùpí</i> &quot;bark (of a tree)&quot; which is a compound consisting of <i>shù</i> &quot;tree&quot; and <i>pí</i> &quot;skin&quot;, and whose motivation structure could be rendered as <tt>tree bark</tt>.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="name" title="http://cldf.clld.org/v1.0/terms.rdf#name"></a> Property: name <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#name)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#name" title="http://cldf.clld.org/v1.0/terms.rdf#name">name</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A title, name or label for an entity.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="parameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#parameterReference"></a> Property: parameterReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#parameterReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#parameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#parameterReference">parameterReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a parameter either </p> <ul xmlns="http://www.w3.org/1999/xhtml"> <li>by providing a foreign key to <code>ParameterTable</code> or</li> <li>by using a known encoding scheme.</li> </ul></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="parentLanguageGlottocode" title="http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode"></a> Property: parentLanguageGlottocode <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#parentLanguageGlottocode" title="http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode">parentLanguageGlottocode</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A <a href="http://glottolog.org">Glottocode</a> denoting the language-level languoid that is a parent languoid of the languoid described by the row in <code>LanguageTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="partOfSpeech" title="http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech"></a> Property: partOfSpeech <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#partOfSpeech" title="http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech">partOfSpeech</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The part-of-speech of a dictionary entry. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="pathInZip" title="http://cldf.clld.org/v1.0/terms.rdf#pathInZip"></a> Property: pathInZip <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#pathInZip)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pathInZip" title="http://cldf.clld.org/v1.0/terms.rdf#pathInZip">pathInZip</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The name or path of a media file within the archive if it is archived within a <a href="https://en.wikipedia.org/wiki/ZIP_(file_format)">ZIP</a> file.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="position" title="http://cldf.clld.org/v1.0/terms.rdf#position"></a> Property: position <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#position)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#position" title="http://cldf.clld.org/v1.0/terms.rdf#position">position</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A position represents the placement of an item in a series or sequence of items. Although an integer is the recommended datatype, any datatype that supports a total ordering (where the order is transparent, such as alphabetic order for strings) is acceptable. It is also possible to have a list-valued column for this property, which can be useful for implementing multi-level orderings. In such cases, the typical order for tuples is assumed. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="primaryText" title="http://cldf.clld.org/v1.0/terms.rdf#primaryText"></a> Property: primaryText <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#primaryText)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#primaryText" title="http://cldf.clld.org/v1.0/terms.rdf#primaryText">primaryText</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The primary text of an example. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prosodicStructure" title="http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure"></a> Property: prosodicStructure <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prosodicStructure" title="http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure">prosodicStructure</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The prosodic structure of a <a href="http://linguistics-ontology.org/gold/2010/Segment">word form</a> labels similar prosodic contexts which may recur even within the same word. Prosodic structures for a given language may have an underlying template that describes which syllables are possible. In Chinese dialects, for example, one could describe the basic template of most syllables as consisting of <em>initial</em>, <em>medial</em>, <em>nucleus</em>, <em>coda</em>, and <em>tone</em>, of which the nucleus and the tone as a suprasegmental element are usually the only required elements.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="root" title="http://cldf.clld.org/v1.0/terms.rdf#root"></a> Property: root <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#root)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#root" title="http://cldf.clld.org/v1.0/terms.rdf#root">root</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The root of a <a href="#soundSequence">word form</a> is an abstract basic unit from which several <a href="#stem">stems</a> can be derived.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="segments" title="http://cldf.clld.org/v1.0/terms.rdf#segments"></a> Property: segments <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#segments)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#segments" title="http://cldf.clld.org/v1.0/terms.rdf#segments">segments</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> A list of segments (aka a sound sequence) is understood as the strict segmental representation of a <a href="http://linguistics-ontology.org/gold/2010/FormUnit">form unit</a> of a language, which is usually given in phonetic transcription. <a href="http://linguistics-ontology.org/gold/2010/Suprasegmental">Suprasegmental elements</a>, like tone or accent, of sound sequences are usually represented in a sequential form, although they are usually co-articulated along with the segmental elements of a sound sequence. Alternatively, suprasegmental aspects could also be represented as part of the <a href="#prosodicStructure">prosodic structure</a> of a word form. </p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="segmentSlice" title="http://cldf.clld.org/v1.0/terms.rdf#segmentSlice"></a> Property: segmentSlice <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#segmentSlice)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#segmentSlice" title="http://cldf.clld.org/v1.0/terms.rdf#segmentSlice">segmentSlice</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> List of segment indices or segment ranges forming the target of a partial cognacy judgement. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="source" title="http://cldf.clld.org/v1.0/terms.rdf#source"></a> Property: source <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#source)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#source" title="http://cldf.clld.org/v1.0/terms.rdf#source">source</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">List of source specifications, of the form &lt;source_ID&gt;[], e.g. http://glottolog.org/resource/reference/id/318814[34], or meier2015[3-12] where meier2015 is a citation key in the accompanying BibTeX file.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference"></a> Property: sourceFormReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference">sourceFormReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the source form of a loanword by providing a foreign key to <code>FormTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference"></a> Property: sourceParameterReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference">sourceParameterReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the source parameter of a parameter network edge. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="speakerArea" title="http://cldf.clld.org/v1.0/terms.rdf#speakerArea"></a> Property: speakerArea <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#speakerArea)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#speakerArea" title="http://cldf.clld.org/v1.0/terms.rdf#speakerArea">speakerArea</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a media resource by providing a foreign key to <code>MediaTable</code>. </p> <p xmlns="http://www.w3.org/1999/xhtml"> This property can be used in <code>LanguageTable</code> to point to a media resource describing the speaker area of a language, i.e. the geographic area where the speakers of the language live. </p> <p xmlns="http://www.w3.org/1999/xhtml"> The linked media resource may be an image of a map, depicting the area, or some other multimedia content for human consumption. But it may also be a GeoJSON resource (i.e. a media resource with <code>mediaType</code> <code>application/geo+json</code>). In the latter case, the GeoJSON object MUST contain a feature with a geometry of type <code>Polygon</code> or <code>Multipolygon</code> and a key <code>cldf:languageReference</code> in its <code>properties</code> object with the linking language's <code>id</code> as value. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="stem" title="http://cldf.clld.org/v1.0/terms.rdf#stem"></a> Property: stem <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#stem)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#stem" title="http://cldf.clld.org/v1.0/terms.rdf#stem">stem</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">A stem is a concrete <a href="#soundSequence">word form</a> in a language which has been derived as such from a given <a href="#root">root</a>.</p></td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="targetFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetFormReference"></a> Property: targetFormReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#targetFormReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#targetFormReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetFormReference">targetFormReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a loanword by providing a foreign key to <code>FormTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="targetParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference"></a> Property: targetParameterReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#targetParameterReference" title="http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference">targetParameterReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing the target parameter of a parameter network edge. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="translatedText" title="http://cldf.clld.org/v1.0/terms.rdf#translatedText"></a> Property: translatedText <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#translatedText)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#translatedText" title="http://cldf.clld.org/v1.0/terms.rdf#translatedText">translatedText</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The translated text of an example. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="treeBranchLengthUnit" title="http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit"></a> Property: treeBranchLengthUnit <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#treeBranchLengthUnit" title="http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit">treeBranchLengthUnit</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The unit used to measure evolutionary time in phylogenetic trees.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="treeIsRooted" title="http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted"></a> Property: treeIsRooted <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#treeIsRooted" title="http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted">treeIsRooted</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">Flag signaling whether a tree is rooted or not.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="treeReference" title="http://cldf.clld.org/v1.0/terms.rdf#treeReference"></a> Property: treeReference <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#treeReference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#treeReference" title="http://cldf.clld.org/v1.0/terms.rdf#treeReference">treeReference</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> An identifier referencing a language tree by providing a foreign key <code>TreeTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="treeType" title="http://cldf.clld.org/v1.0/terms.rdf#treeType"></a> Property: treeType <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#treeType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#treeType" title="http://cldf.clld.org/v1.0/terms.rdf#treeType">treeType</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml">The type of a tree (<code>summary</code> or <code>sample</code>) describes how the tree can be used. Summary (or consensus) trees can be analysed in isolation and should have type <code>summary</code>. Trees resulting from a method that creates multiple trees, and thus should be analysed as a whole (or sampled appropriately) should have type <code>sample</code>.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="value" title="http://cldf.clld.org/v1.0/terms.rdf#value"></a> Property: value <small style="color:#aaa">(http://cldf.clld.org/v1.0/terms.rdf#value)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#value" title="http://cldf.clld.org/v1.0/terms.rdf#value">value</a></td>
+<td><p xmlns="http://www.w3.org/1999/xhtml"> The value (a.k.a. datapoint or measurement) of a language for a structural feature. </p> <p xmlns="http://www.w3.org/1999/xhtml"> For features with a limited, discrete set of valid values (a.k.a. categorical variables) it is recommended to relate items of <code>ValueTable</code> to the respective code in <code>CodeTable</code>. </p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Property Values</h2>
+<p>No PropertyValue entities are defined.</p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>

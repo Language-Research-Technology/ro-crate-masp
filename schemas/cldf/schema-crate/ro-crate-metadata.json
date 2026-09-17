@@ -1,0 +1,964 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    },
+    {
+      "@base": null
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "CLDF Ontology",
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "terms.rdf"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "#owl-to-masp-conversion"
+        }
+      ],
+      "description": [
+        "\n            The CLDF Ontology is an RDF vocabulary describing the dataset types, tables\n            and columns specified in the CLDF standard.\n        "
+      ]
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#CodeTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ContributionTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#Dictionary"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#EntryTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ExampleTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#FormTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentsetTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#Generic"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#MediaTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParallelText"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParameterNetwork"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#SenseTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#StructureDataset"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#TextCorpus"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#TreeTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#ValueTable"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#Wordlist"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#alignment"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#analyzedWord"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#citation"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#cltsReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#codeReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#columnSpec"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#comment"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#concepticonReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#contributor"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#description"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#downloadUrl"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#entryReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#exampleReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#form"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#formReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#gbifReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#gloss"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#glottocode"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#headword"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#id"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#languageReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#latitude"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#lgrConformance"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#longitude"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#macroarea"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#mediaReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#mediaType"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#motivationStructure"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#name"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#parameterReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#pathInZip"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#position"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#primaryText"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#root"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#segmentSlice"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#segments"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#source"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#speakerArea"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#stem"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#targetFormReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#translatedText"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeReference"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeType"
+        },
+        {
+          "@id": "http://cldf.clld.org/v1.0/terms.rdf#value"
+        }
+      ]
+    },
+    {
+      "@id": "terms.rdf",
+      "@type": "File",
+      "name": "terms.rdf",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "application/rdf+xml"
+    },
+    {
+      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@type": "SoftwareApplication",
+      "name": "owl-to-masp.py",
+      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+    },
+    {
+      "@id": "#owl-to-masp-conversion",
+      "@type": "CreateAction",
+      "name": "Convert OWL ontology to MASP schema crate",
+      "object": {
+        "@id": "terms.rdf"
+      },
+      "instrument": {
+        "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+      },
+      "result": {
+        "@id": "./"
+      },
+      "startTime": "2026-09-17T00:05:56.400835+00:00"
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "BorrowingTable",
+      "name": "BorrowingTable",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The Borrowing Table stores information about borrowings or loanwords by\n                linking two rows in the Form Table as\n                <a href=\"https://en.wikipedia.org/wiki/Associative_entity\">associative entity</a>\n                where additional information about the particular case of borrowing can be provided.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#CodeTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CodeTable",
+      "name": "CodeTable",
+      "rdfs:comment": "\n            The Code Table lists valid values for categorical parameters, thus\n            enabling validity checks and providing a place for additional information\n            about codes such as a source.\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CognateTable",
+      "name": "CognateTable",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The table of cognate judgements accompanying a CLDF Wordlist.\n                If the only thing we know about cognate sets is the set of members, a Cognate\n                Table can be used without a corresponding\n                <a href=\"#CognatesetTable\">Cognateset Table</a>, otherwise it will become the\n                <a href=\"https://en.wikipedia.org/wiki/Associative_entity\">associative table</a>\n                between Form Table and Cognateset Table.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CognatesetTable",
+      "name": "CognatesetTable",
+      "rdfs:comment": "\n            A table holding additional data about cognate sets.\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ContributionTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ContributionTable",
+      "name": "ContributionTable",
+      "rdfs:comment": "\n            The table of contributions - i.e. citeable units - in a CLDF dataset\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#Dictionary",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Dictionary",
+      "name": "Dictionary",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A dataset according to the\n                <a href=\"https://github.com/cldf/cldf/tree/master/modules/Dictionary\">CLDF Dictionary</a>\n                specification</p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#EntryTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EntryTable",
+      "name": "EntryTable",
+      "rdfs:comment": "\n            The table of entries of a CLDF Dictionary\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ExampleTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ExampleTable",
+      "name": "ExampleTable",
+      "rdfs:comment": "\n            The table of text examples provided with a CLDF dataset\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "FormTable",
+      "name": "FormTable",
+      "rdfs:comment": "\n            The table of forms of a CLDF Wordlist\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "FunctionalEquivalentTable",
+      "name": "FunctionalEquivalentTable",
+      "rdfs:comment": "\n            A table to specify which parts of strings are functionally equivalent.\n            This is typically used to parallel texts (i.e. expressions of the same content in different languages)\n            However, it can be used in general to annotated that two expression from different languages\n            are functionally equivalent (but not necessarily cognate)\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentsetTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "FunctionalEquivalentsetTable",
+      "name": "FunctionalEquivalentsetTable",
+      "rdfs:comment": "\n            The table to list all sets of functional equivalents from a \n            \"http://cldf.clld.org/v1.0/terms.rdf#FunctionalEquivalentTable\" and adding descriptions for these\n            sets\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#Generic",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Generic",
+      "name": "Generic",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A generic CLDF dataset; i.e. a set of cross-linguistic data which does\n                not fit any of the other CLDF modules.\n            </p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LanguageTable",
+      "name": "LanguageTable",
+      "rdfs:comment": "\n            The table of languages provided with a CLDF dataset\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#MediaTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MediaTable",
+      "name": "MediaTable",
+      "rdfs:comment": "\n            The table of media resources linked from objects in a CLDF dataset\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParallelText",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ParallelText",
+      "name": "ParallelText",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A dataset according to the\n                <a href=\"https://github.com/cldf/cldf/tree/master/modules/ParallelText\">CLDF Parallel Text</a>\n                specification</p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParameterNetwork",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ParameterNetwork",
+      "name": "ParameterNetwork",
+      "rdfs:comment": "\n            A table listing edges of a parameter network, i.e. a graph with parameters as nodes.\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ParameterTable",
+      "name": "ParameterTable",
+      "rdfs:comment": "\n            The table of parameters available in a CLDF dataset\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#SenseTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SenseTable",
+      "name": "SenseTable",
+      "rdfs:comment": "\n            The table of senses of a CLDF Dictionary\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#StructureDataset",
+      "@type": "rdfs:Class",
+      "rdfs:label": "StructureDataset",
+      "name": "StructureDataset",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A dataset according to the\n                <a href=\"https://github.com/cldf/cldf/tree/master/modules/StructureDataset\">CLDF Structure Dataset</a>\n                specification</p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#TextCorpus",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TextCorpus",
+      "name": "TextCorpus",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A dataset according to the\n                <a href=\"https://github.com/cldf/cldf/tree/master/modules/TextCorpus\">CLDF Text Corpus</a>\n                specification</p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#TreeTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TreeTable",
+      "name": "TreeTable",
+      "rdfs:comment": "\n            A table listing language trees, i.e. phylogenetic trees or classifiations of languages conveyed\n            as tree structure with items of the LanguageTable as leaf nodes.\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#ValueTable",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ValueTable",
+      "name": "ValueTable",
+      "rdfs:comment": "Nf913c426f15b418aad1a967060d3f8d5"
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#Wordlist",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Wordlist",
+      "name": "Wordlist",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A dataset according to the\n                <a href=\"https://github.com/cldf/cldf/tree/master/modules/Wordlist\">CLDF Wordlist</a>\n                specification</p>\n        ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/dcat#Distribution"
+        }
+      ]
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#alignment",
+      "@type": "rdf:Property",
+      "rdfs:label": "alignment",
+      "name": "alignment",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">An alignment represents\n                <a href=\"http://linguistics-ontology.org/gold/2010/Segment\">segments</a>\n                which are grouped\n                into a common <a href=\"#cognatesetReference\">cognate set</a> as a matrix in which cognate\n                segments are placed in the same column while gap characters are introduced in\n                those sound sequences missing a certain counterpart.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#analyzedWord",
+      "@type": "rdf:Property",
+      "rdfs:label": "analyzedWord",
+      "name": "analyzedWord",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The morpheme-pattern analysis of a word in an example.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#citation",
+      "@type": "rdf:Property",
+      "rdfs:label": "citation",
+      "name": "citation",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A full citation for a citeable unit of a dataset, preferably following the rules of the\n                <a href=\"https://www.linguisticsociety.org/resource/unified-style-sheet\">Unified Style Sheet for Linguistics Journals</a>\n                or the best practices for <a href=\"https://site.uit.no/linguisticsdatacitation/\">Linguistics Data Citation</a>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#cltsReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "cltsReference",
+      "name": "cltsReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier of a sound described in the CLTS dataset.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A sound identifier is the last path component of the sound's URL at\n                https://clts.clld.org/parameters , e.g. <code>short_neutral_tone</code> for\n                <code>https://clts.clld.org/parameters/short_neutral_tone</code>.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                References a sound in the Cross-Linguistic Transcription Systems database. Suitable to\n                mark parameters as phonemes, and consequently values as elements of phoneme inventories.\n                E.g. <a href=\"https://clts.clld.org/parameters/voiced_bilabial_nasal_consonant\">voiced_bilabial_nasal_consonant</a>.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                To mark sounds that can not be mapped to any sound defined in the\n                current CLTS version, the ID \"NA\", corresponding to the \"unknown\"\n                sound https://clts.clld.org/parameters/NA should be used.\n            </p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#codeReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "codeReference",
+      "name": "codeReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a code (aka category) description\n                by providing a foreign key to <code>CodeTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "cognatesetReference",
+      "name": "cognatesetReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a cognateset either\n            </p>\n            <ul xmlns=\"http://www.w3.org/1999/xhtml\">\n                <li>by providing a foreign key to <code>CognatesetTable</code> or</li>\n                <li>by using a known encoding scheme.</li>\n            </ul>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#columnSpec",
+      "@type": "rdf:Property",
+      "rdfs:label": "columnSpec",
+      "name": "columnSpec",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A column specification given as JSON representation of a\n                <a href=\"https://www.w3.org/TR/tabular-metadata/#columns\">CSVW column description</a>.\n                This column specification may be used by CLDF consumers to read a parameter's value as typed data.</p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">Note that a CSVW datatye description is not sufficient, because parsing a string value\n                must also be informed by the column properties <code>null</code> and <code>separator</code>.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#comment",
+      "@type": "rdf:Property",
+      "rdfs:label": "comment",
+      "name": "comment",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A human-readable comment on a resource, providing additional context.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#concepticonReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "concepticonReference",
+      "name": "concepticonReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier of a Concepticon concept set.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A concept set groups a number of concept labels which are used in\n                different questionnaires and were judged to denote the same concept despite\n                potential differences among the concrete concept labels (be it their spelling,\n                or the language in which they were originally created).\n            </p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "contributionReference",
+      "name": "contributionReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a contribution\n                by providing a foreign key to <code>ContributionTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#contributor",
+      "@type": "rdf:Property",
+      "rdfs:label": "contributor",
+      "name": "contributor",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">Names of contributor(s) to a citeable unit of a dataset.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#description",
+      "@type": "rdf:Property",
+      "rdfs:label": "description",
+      "name": "description",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A description for an entity.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#downloadUrl",
+      "@type": "rdf:Property",
+      "rdfs:label": "downloadUrl",
+      "name": "downloadUrl",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">URL where a media resource is available directly, typically through HTTP, but other schemes\n                such as <a href=\"https://en.wikipedia.org/wiki/File_URI_scheme\">file:</a> (interpreted relative\n                to the metadata location) or <a href=\"https://en.wikipedia.org/wiki/Data_URI_scheme\">data:</a>\n                are permissible as well.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#edgeIsDirected",
+      "@type": "rdf:Property",
+      "rdfs:label": "edgeIsDirected",
+      "name": "edgeIsDirected",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">Flag signaling whether an edge in a graph is directed or not.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#entryReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "entryReference",
+      "name": "entryReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a dictionary entry by providing a foreign key to <code>EntryTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#exampleReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "exampleReference",
+      "name": "exampleReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing an example by providing a foreign key to\n                <code>ExampleTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#form",
+      "@type": "rdf:Property",
+      "rdfs:label": "form",
+      "name": "form",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A lexical unit is any collection of word forms corresponding to a\n                certain meaning which can be found in comparative datasets.</p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">Ideally, a lexical\n                unit would just present itself as one single\n                <a href=\"http://linguistics-ontology.org/gold/2010/FormUnit\">form</a>. However,\n                in practice, scholars often list speech variants and at times even non-cognate\n                alternatives for their preferred form.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#formReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "formReference",
+      "name": "formReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a form\n                by providing a foreign key to <code>FormTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#functionalEquivalentsetReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "functionalEquivalentsetReference",
+      "name": "functionalEquivalentsetReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\"> A functional equivalent set is a group of strings from different languages that express similar function.\n                This is an identifier referencing a cognateset either\n                <ul>\n                    <li>by providing a foreign key to <code>FunctionalEquivalentsetTable</code> or</li>\n                    <li>by using a known encoding scheme.</li>\n                </ul>\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#gbifReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "gbifReference",
+      "name": "gbifReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A numeric identifier for a unit in GBIF's Backbone Taxonomy.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                References a taxonomic unit in GBIF's Backbone Taxonomy. Can be used for example in\n                <code>ParameterTable</code> to mark a lexical concept as biological species. E.g.\n                <a href=\"https://www.gbif.org/species/5219404\">5219404</a>.\n            </p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#gloss",
+      "@type": "rdf:Property",
+      "rdfs:label": "gloss",
+      "name": "gloss",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A gloss corresponding to the morpheme-pattern analysis of a word in an example.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#glottocode",
+      "@type": "rdf:Property",
+      "rdfs:label": "glottocode",
+      "name": "glottocode",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A Glottocode denoting a languoid described in <a href=\"http://glottolog.org\">Glottolog</a>.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#grammaticalityJudgement",
+      "@type": "rdf:Property",
+      "rdfs:label": "grammaticalityJudgement",
+      "name": "grammaticalityJudgement",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A judgement about the (un)grammaticality of the example.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A non-<code>null</code> value for this property flags an example as ungrammatical\n                or unacceptable. The actual string value is the typographical symbol(s) or text which is to be\n                used to mark the example when formatting it in text (e.g. <code>*</code>).\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                <strong>Note:</strong> Ungrammatical examples should link (via <code>languageReference</code>)\n                to special item(s) in <code>LanguageTable</code> with an empty <code>Glottocode</code> to\n                prevent data aggregators from inadvertently assigning such an example to a proper language\n                (if they fail to honour <code>grammaticalityJudgement</code>).\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#headword",
+      "@type": "rdf:Property",
+      "rdfs:label": "headword",
+      "name": "headword",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The headword of a dictionary entry.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#id",
+      "@type": "rdf:Property",
+      "rdfs:label": "id",
+      "name": "id",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A unique identifier for a row in a table.</p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                To allow usage of identifiers as path components of URLs\n                IDs must only contain alphanumeric characters, underscore and hyphen.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code",
+      "@type": "rdf:Property",
+      "rdfs:label": "iso639P3code",
+      "name": "iso639P3code",
+      "rdfs:comment": "\n            An ISO 639-3 language code, i.e. a three-letter code denoting a valid ISO 639-3\n            language or macrolanguage.\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#languageReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "languageReference",
+      "name": "languageReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a language either\n            </p>\n            <ul xmlns=\"http://www.w3.org/1999/xhtml\">\n                <li>by providing a foreign key to <code>LanguageTable</code> or</li>\n                <li>by using a known encoding scheme.</li>\n            </ul>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#latitude",
+      "@type": "rdf:Property",
+      "rdfs:label": "latitude",
+      "name": "latitude",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A latitude in the\n                <a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>\n                standard coordinate system, specified as decimal number of degrees.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#lgrConformance",
+      "@type": "rdf:Property",
+      "rdfs:label": "lgrConformance",
+      "name": "lgrConformance",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The level of conformance of the example with the Leipzig Glossing Rules.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The following levels are distinguished:\n            </p>\n            <ol xmlns=\"http://www.w3.org/1999/xhtml\">\n                <li><code>WORD_ALIGNED</code>: Analyzed text and glosses obey LGR rule 1, \"word-by-word alignment\".</li>\n                <li><code>MORPHEME_ALIGNED</code>: Analyzed text and glosses obey LGR rule 2, \"morpheme-by-morpheme correspondence\".</li>\n            </ol>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                No information regarding LGR conformance should be signaled with an empty string, i.e.\n                <code>null</code> value for the property.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                While more information is needed to assess how to interpret IGT - e.g. whether rule 4a is\n                followed to group gloss elements for unsegmentable morpheme - the two levels considered here\n                are essential for decisions about automated re-use.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#longitude",
+      "@type": "rdf:Property",
+      "rdfs:label": "longitude",
+      "name": "longitude",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A longitude in the\n                <a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>\n                standard coordinate system, specified as decimal number of degrees.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#macroarea",
+      "@type": "rdf:Property",
+      "rdfs:label": "macroarea",
+      "name": "macroarea",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The name of a macroarea as defined by <a href=\"http://glottolog.org\">Glottolog</a>.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#mediaReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "mediaReference",
+      "name": "mediaReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a media resource\n                by providing a foreign key to <code>MediaTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#mediaType",
+      "@type": "rdf:Property",
+      "rdfs:label": "mediaType",
+      "name": "mediaType",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) as defined by\n                <a href=\"https://tools.ietf.org/html/rfc6838\">IETF's RFC 6838</a>.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#metaLanguageReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "metaLanguageReference",
+      "name": "metaLanguageReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing the meta language - e.g. of the translation of\n                an example - either\n            </p>\n            <ul xmlns=\"http://www.w3.org/1999/xhtml\">\n                <li>by providing a foreign key to <code>LanguageTable</code> or</li>\n                <li>by using a known encoding scheme.</li>\n            </ul>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#motivationStructure",
+      "@type": "rdf:Property",
+      "rdfs:label": "motivationStructure",
+      "name": "motivationStructure",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The motivation structure of a word form gives glosses for each of\n                its <a href=\"http://linguistics-ontology.org/gold/2010/Morpheme\">morphemes</a>.\n                In this it is similar to an instance of\n                <a href=\"http://linguistics-ontology.org/gold/2010/InterlinearGlossedText\">interlinear glossed text</a>\n                which describes the underlying semantic\n                motivation for a given word form.</p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">As an example, consider Chinese <i>shùpí</i>\n                \"bark (of a tree)\" which is a compound consisting of <i>shù</i> \"tree\" and <i>pí</i>\n                \"skin\", and whose motivation structure could be rendered as <tt>tree bark</tt>.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#name",
+      "@type": "rdf:Property",
+      "rdfs:label": "name",
+      "name": "name",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A title, name or label for an entity.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#parameterReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "parameterReference",
+      "name": "parameterReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a parameter either\n            </p>\n            <ul xmlns=\"http://www.w3.org/1999/xhtml\">\n                <li>by providing a foreign key to <code>ParameterTable</code> or</li>\n                <li>by using a known encoding scheme.</li>\n            </ul>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#parentLanguageGlottocode",
+      "@type": "rdf:Property",
+      "rdfs:label": "parentLanguageGlottocode",
+      "name": "parentLanguageGlottocode",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A <a href=\"http://glottolog.org\">Glottocode</a> denoting the language-level languoid that is\n                a parent languoid of the languoid described by the row in <code>LanguageTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech",
+      "@type": "rdf:Property",
+      "rdfs:label": "partOfSpeech",
+      "name": "partOfSpeech",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The part-of-speech of a dictionary entry.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#pathInZip",
+      "@type": "rdf:Property",
+      "rdfs:label": "pathInZip",
+      "name": "pathInZip",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The name or path of a media file within the archive if it is archived within a\n                <a href=\"https://en.wikipedia.org/wiki/ZIP_(file_format)\">ZIP</a> file.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#position",
+      "@type": "rdf:Property",
+      "rdfs:label": "position",
+      "name": "position",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A position represents the placement of an item in a series or sequence of items.\n                Although an integer is the recommended datatype, any datatype that supports a total\n                ordering (where the order is transparent, such as alphabetic order for strings) is\n                acceptable. It is also possible to have a list-valued column for this property,\n                which can be useful for implementing multi-level orderings. In such cases, the\n                typical order for tuples is assumed.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#primaryText",
+      "@type": "rdf:Property",
+      "rdfs:label": "primaryText",
+      "name": "primaryText",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The primary text of an example.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#prosodicStructure",
+      "@type": "rdf:Property",
+      "rdfs:label": "prosodicStructure",
+      "name": "prosodicStructure",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The prosodic structure of a\n                <a href=\"http://linguistics-ontology.org/gold/2010/Segment\">word form</a>\n                labels similar prosodic contexts which may recur even within the same word. Prosodic\n                structures for a given language may have an underlying template that describes\n                which syllables are possible. In Chinese dialects, for example, one could\n                describe the basic template of most syllables as consisting of <em>initial</em>,\n                <em>medial</em>, <em>nucleus</em>, <em>coda</em>, and <em>tone</em>, of which the nucleus and the tone as\n                a suprasegmental element are usually the only required elements.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#root",
+      "@type": "rdf:Property",
+      "rdfs:label": "root",
+      "name": "root",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The root of a <a href=\"#soundSequence\">word form</a> is an abstract basic\n                unit from which several <a href=\"#stem\">stems</a> can be derived.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#segmentSlice",
+      "@type": "rdf:Property",
+      "rdfs:label": "segmentSlice",
+      "name": "segmentSlice",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                List of segment indices or segment ranges forming the target of a\n                partial cognacy judgement.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#segments",
+      "@type": "rdf:Property",
+      "rdfs:label": "segments",
+      "name": "segments",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                A list of segments (aka a sound sequence) is understood as the strict segmental\n                representation of a\n                <a href=\"http://linguistics-ontology.org/gold/2010/FormUnit\">form unit</a>\n                of a language, which is usually given in phonetic transcription.\n                <a href=\"http://linguistics-ontology.org/gold/2010/Suprasegmental\">Suprasegmental elements</a>,\n                like tone or accent, of sound sequences are\n                usually represented in a sequential form, although they are usually\n                co-articulated along with the segmental elements of a sound sequence.\n                Alternatively, suprasegmental aspects could also be represented as part of the\n                <a href=\"#prosodicStructure\">prosodic structure</a> of a word form.\n            </p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#source",
+      "@type": "rdf:Property",
+      "rdfs:label": "source",
+      "name": "source",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">List of source specifications, of the form &lt;source_ID&gt;[],\n                e.g. http://glottolog.org/resource/reference/id/318814[34], or meier2015[3-12]\n            where meier2015 is a citation key in the accompanying BibTeX file.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceFormReference",
+      "name": "sourceFormReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing the source form of a loanword\n                by providing a foreign key to <code>FormTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#sourceParameterReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceParameterReference",
+      "name": "sourceParameterReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing the source parameter of a parameter network edge.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#speakerArea",
+      "@type": "rdf:Property",
+      "rdfs:label": "speakerArea",
+      "name": "speakerArea",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a media resource\n                by providing a foreign key to <code>MediaTable</code>.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                This property can be used in <code>LanguageTable</code> to point to a media resource describing\n                the speaker area of a language, i.e. the geographic area where the speakers of the\n                language live.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The linked media resource may be an image of a map, depicting the area, or some other\n                multimedia content for human consumption. But it may also be a GeoJSON\n                resource (i.e. a media resource with <code>mediaType</code> <code>application/geo+json</code>).\n                In the latter case, the GeoJSON object MUST contain a feature with a geometry of type\n                <code>Polygon</code> or <code>Multipolygon</code> and a key <code>cldf:languageReference</code>\n                in its <code>properties</code> object with the linking language's <code>id</code> as\n                value.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#stem",
+      "@type": "rdf:Property",
+      "rdfs:label": "stem",
+      "name": "stem",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">A stem is a concrete <a href=\"#soundSequence\">word form</a> in a language\n            which has been derived as such from a given <a href=\"#root\">root</a>.</p>\n        ",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#targetFormReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "targetFormReference",
+      "name": "targetFormReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a loanword\n                by providing a foreign key to <code>FormTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#targetParameterReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "targetParameterReference",
+      "name": "targetParameterReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing the target parameter of a parameter network edge.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#translatedText",
+      "@type": "rdf:Property",
+      "rdfs:label": "translatedText",
+      "name": "translatedText",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The translated text of an example.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit",
+      "@type": "rdf:Property",
+      "rdfs:label": "treeBranchLengthUnit",
+      "name": "treeBranchLengthUnit",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The unit used to measure evolutionary time in phylogenetic trees.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted",
+      "@type": "rdf:Property",
+      "rdfs:label": "treeIsRooted",
+      "name": "treeIsRooted",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">Flag signaling whether a tree is rooted or not.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeReference",
+      "@type": "rdf:Property",
+      "rdfs:label": "treeReference",
+      "name": "treeReference",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                An identifier referencing a language tree by providing a foreign key <code>TreeTable</code>.\n            </p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#treeType",
+      "@type": "rdf:Property",
+      "rdfs:label": "treeType",
+      "name": "treeType",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">The type of a tree (<code>summary</code> or <code>sample</code>) describes how the tree can be used.\n                Summary (or consensus) trees can be analysed in isolation and should have type <code>summary</code>.\n                Trees resulting from a method that creates multiple trees, and thus should be analysed as a whole\n                (or sampled appropriately) should have type <code>sample</code>.</p>\n        "
+    },
+    {
+      "@id": "http://cldf.clld.org/v1.0/terms.rdf#value",
+      "@type": "rdf:Property",
+      "rdfs:label": "value",
+      "name": "value",
+      "rdfs:comment": "\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                The value (a.k.a. datapoint or measurement) of a language for a structural\n                feature.\n            </p>\n            <p xmlns=\"http://www.w3.org/1999/xhtml\">\n                For features with a limited, discrete set of valid values (a.k.a. categorical variables)\n                it is recommended to relate items of <code>ValueTable</code> to the respective code\n                in <code>CodeTable</code>.\n            </p>\n        "
+    }
+  ]
+}
