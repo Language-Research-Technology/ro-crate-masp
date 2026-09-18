@@ -1,5 +1,5 @@
 {
-  "name": "ro-crate-maps",
+  "name": "ro-crate-masp",
   "version": "1.0.0",
   "description": "RO-Crate Machine Actionable Profiles and Schemas tools",
   "main": "index.js",
