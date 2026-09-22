@@ -170,9 +170,11 @@ This repository includes several profiles and schemas that can be built using np
 
 
 
-### Usage note: rocxl synchronisation
+### Usage note: spreadsheet synchronisation
 
-- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to run `rocxl` first and ensure `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` are synchronised. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual.
+- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to synchronise `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` first. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual.
+
+  This is done in-process via the [`ro-crate-excel`](https://github.com/Language-Research-Technology/ro-crate-excel) package's `Workbook` API (a regular npm dependency), not by shelling out to its `rocxl` command-line tool — `rocxl` also recursively catalogues data files in the target directory using the external `sf` (Siegfried) binary, which MASP schema/profile crates (metadata-only, no data files) don't need and which isn't installed in every environment.
 
 Example:
 
@@ -205,7 +207,7 @@ uv run scripts/owl-to-masp.py \
 
 This is exactly the command used to generate [`schemas/ric`](schemas/ric) (the Records in Context Ontology, RiC-O) from its published OWL source. `--namespace` restricts conversion to terms defined by the ontology itself, excluding anything it imports from other vocabularies (SKOS, Dublin Core, etc.) — without it, the converter would also try to re-mint schema entities for every imported term. The generated `schema-crate/` directory bundles the original OWL file alongside `ro-crate-metadata.json`, along with a `CreateAction` recording that this script produced the crate from that file, so the result is self-contained and its provenance is traceable without depending on the source URL remaining live.
 
-After conversion, review the generated `schema-text.md` stub and fill in a proper description, then build documentation as usual — for RiC-O that's `npm run build:ric-schema` (see [Available Build Commands](#available-build-commands) above), which also runs `rocxl` (`-x`) to produce an Excel copy of the rules alongside the JSON.
+After conversion, review the generated `schema-text.md` stub and fill in a proper description, then build documentation as usual — for RiC-O that's `npm run build:ric-schema` (see [Available Build Commands](#available-build-commands) above), which also syncs (`-x`) to produce an Excel copy of the rules alongside the JSON.
 
 The converter's own test suite (`test/owl-to-masp/test_owl_to_masp.py`, run via `npm run test:owl-to-masp`) runs against a small fixture ontology, not the full RiC-O file — see the spec for why, and for the workflow used to extend it when converting a new ontology surfaces a construct the fixture doesn't yet cover.
 

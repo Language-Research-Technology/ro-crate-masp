@@ -21,6 +21,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from ClassExample
+
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | <a href="#template%3ApropertyExample" title="template:propertyExample">propertyExample</a> | No | This is an example of a property and its format. | schema:Text |  |

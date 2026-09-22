@@ -15,6 +15,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from CollectionEvent
+
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | <a href="#collectionEventType" title="https://w3id.org/ldac/terms#collectionEventType">collectionEventType</a> | No | A kind of CollectionEvent characterised by some specific procedures, e.g. a psycholinguistic experiment. | <a href="#Session" title="https://w3id.org/ldac/terms#Session">Session</a> |  |
@@ -29,6 +31,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from CollectionProtocol
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
@@ -45,9 +49,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from DataDepositLicense
+
+*No properties defined directly on this class*
 
 
 
@@ -60,6 +64,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from DataLicense
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
@@ -75,6 +81,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from DataReuseLicense
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |

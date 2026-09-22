@@ -27,6 +27,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from AusNCObject
+
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | <a href="#austalk%3Aage_from" title="austalk:age_from">age from</a> | No | The age from which this person has resided in the specified town. | schema:Text |  |
@@ -67,6 +69,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Recorded Component
+
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
 | <a href="#austalk%3Aaudiorating" title="austalk:audiorating">audio rating</a> | No | A rating of audio quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing). | schema:Text |  |
@@ -84,9 +88,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from RecordingSite
+
+*No properties defined directly on this class*
 
 
 ## All Properties

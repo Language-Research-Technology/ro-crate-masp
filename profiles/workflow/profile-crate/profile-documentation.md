@@ -96,6 +96,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from RO-Crate Metadadata Descriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
@@ -119,6 +121,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 1 | 1 |
+
+#### Properties from Root Data Entity
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -146,6 +150,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | N/A |
 
+#### Properties from Main Workflow
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="https://bioschemas.org/ComputationalWorkflow" title="https://bioschemas.org/ComputationalWorkflow" target="_blank" rel="noopener">ComputationalWorkflow</a> |
@@ -171,6 +177,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | 1 |
 
+#### Properties from Main Workflow Description
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/HowTo" title="http://schema.org/HowTo" target="_blank" rel="noopener">HowTo</a> |
@@ -188,6 +196,8 @@ Instances of this type SHOULD be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 0 | 1 |
+
+#### Properties from README File
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -208,6 +218,8 @@ Instances of this type SHOULD be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 0 | 1 |
+
+#### Properties from Test Directory
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -232,6 +244,8 @@ Instances of this type SHOULD be present in the crate.
 | --------- | --------- |
 | 0 | 1 |
 
+#### Properties from Examples Directory
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
@@ -253,11 +267,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Main Workflow Diagram
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/ImageObject" title="http://schema.org/ImageObject" target="_blank" rel="noopener">ImageObject</a>, <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
-*No properties defined for this class*
-
 
 ### Examples of Type
 #### Examples
@@ -276,6 +290,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 1 | 1 |
+
+#### Properties from Profile
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |

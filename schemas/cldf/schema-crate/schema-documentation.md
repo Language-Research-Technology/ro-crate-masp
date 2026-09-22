@@ -4,7 +4,7 @@ title: CLDF Ontology Schema Terms
 
 # CLDF Ontology Schema Terms
 
-TODO: describe the source ontology and any conversion caveats here.
+This MASP Schema was auto-generated from the [CLDF terms](https://cldf.clld.org/v1.0/terms.html) using the `scripts/owl-to-masp.py` script.
 
 ## All Rules:
 
@@ -21,9 +21,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from BorrowingTable
+
+*No properties defined directly on this class*
 
 
 
@@ -37,9 +37,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from CodeTable
+
+*No properties defined directly on this class*
 
 
 
@@ -53,9 +53,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from CognateTable
+
+*No properties defined directly on this class*
 
 
 
@@ -69,9 +69,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from CognatesetTable
+
+*No properties defined directly on this class*
 
 
 
@@ -85,9 +85,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ContributionTable
+
+*No properties defined directly on this class*
 
 
 
@@ -101,9 +101,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from Dictionary
+
+*No properties defined directly on this class*
 
 
 
@@ -117,9 +117,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from EntryTable
+
+*No properties defined directly on this class*
 
 
 
@@ -133,9 +133,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ExampleTable
+
+*No properties defined directly on this class*
 
 
 
@@ -149,9 +149,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from FormTable
+
+*No properties defined directly on this class*
 
 
 
@@ -165,9 +165,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from FunctionalEquivalentTable
+
+*No properties defined directly on this class*
 
 
 
@@ -181,9 +181,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from FunctionalEquivalentsetTable
+
+*No properties defined directly on this class*
 
 
 
@@ -197,9 +197,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from Generic
+
+*No properties defined directly on this class*
 
 
 
@@ -213,9 +213,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from LanguageTable
+
+*No properties defined directly on this class*
 
 
 
@@ -229,9 +229,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from MediaTable
+
+*No properties defined directly on this class*
 
 
 
@@ -245,9 +245,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ParallelText
+
+*No properties defined directly on this class*
 
 
 
@@ -261,9 +261,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ParameterNetwork
+
+*No properties defined directly on this class*
 
 
 
@@ -277,9 +277,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ParameterTable
+
+*No properties defined directly on this class*
 
 
 
@@ -293,9 +293,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from SenseTable
+
+*No properties defined directly on this class*
 
 
 
@@ -309,9 +309,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from StructureDataset
+
+*No properties defined directly on this class*
 
 
 
@@ -325,9 +325,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from TextCorpus
+
+*No properties defined directly on this class*
 
 
 
@@ -341,9 +341,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from TreeTable
+
+*No properties defined directly on this class*
 
 
 
@@ -357,9 +357,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from ValueTable
+
+*No properties defined directly on this class*
 
 
 
@@ -373,9 +373,9 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-| Property | Required | Description | Range | Value |
-| -------- | -------- | ----------- | ----- | ----- |
-*No properties defined for this class*
+#### Properties from Wordlist
+
+*No properties defined directly on this class*
 
 
 ## All Properties

@@ -28,6 +28,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from RO-Crate Metadadata Descriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
@@ -46,6 +48,8 @@ Instances of this type SHOULD be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 0 | 1 |
+
+#### Properties from Root Data Entity
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -66,11 +70,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from License (Creative Work)
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_File" title="#class_File"></a> Class: File
@@ -82,6 +86,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from File
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |

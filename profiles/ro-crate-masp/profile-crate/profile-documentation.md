@@ -249,6 +249,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from RO-Crate Metadata Descriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
@@ -273,6 +275,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 1 | 1 |
+
+#### Properties from Profile Dataset
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -302,6 +306,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from ResourceDescriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://www.w3.org/ns/dx/prof/ResourceDescriptor" title="http://www.w3.org/ns/dx/prof/ResourceDescriptor" target="_blank" rel="noopener">ResourceDescriptor</a> |
@@ -324,6 +330,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from rdfs:Class
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -350,6 +358,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from rdf:Property
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -382,6 +392,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from ItemList
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/ItemList" title="http://schema.org/ItemList" target="_blank" rel="noopener">ItemList</a> |
@@ -398,6 +410,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from DefinedTermSet
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/DefinedTermSet" title="http://schema.org/DefinedTermSet" target="_blank" rel="noopener">DefinedTermSet</a> |
@@ -413,6 +427,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from DefinedTerm
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -431,11 +447,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Person
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_Organization" title="#class_Organization"></a> Class: Organization
@@ -448,11 +464,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Organization
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_File" title="#class_File"></a> Class: File
@@ -465,11 +481,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from File
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_CreativeWork" title="#class_CreativeWork"></a> Class: CreativeWork
@@ -482,11 +498,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from CreativeWork
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-*No properties defined for this class*
-
 
 ### Examples of Type
 #### Examples
@@ -504,11 +520,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from ResourceRole
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://www.w3.org/ns/dx/prof/ResourceRole" title="http://www.w3.org/ns/dx/prof/ResourceRole" target="_blank" rel="noopener">ResourceRole</a> |
-*No properties defined for this class*
-
 
 ## All Properties
 

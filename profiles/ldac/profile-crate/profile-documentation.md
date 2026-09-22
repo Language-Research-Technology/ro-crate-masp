@@ -98,6 +98,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Dataset
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a> |
@@ -280,6 +282,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from RepositoryCollection
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://pcdm.org/models#Collection" title="http://pcdm.org/models#Collection" target="_blank" rel="noopener">Collection</a> |
@@ -351,6 +355,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from RepositoryObject
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://pcdm.org/models#Object" title="http://pcdm.org/models#Object" target="_blank" rel="noopener">Object</a> |
@@ -388,6 +394,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from File
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -689,6 +697,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from CollectionEvent
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="https://w3id.org/ldac/terms#CollectionEvent" title="https://w3id.org/ldac/terms#CollectionEvent" target="_blank" rel="noopener">CollectionEvent</a> |
@@ -704,6 +714,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from CreativeWork
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -735,11 +747,17 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from DataDepositLicense
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="https://w3id.org/ldac/terms#DataDepositLicense" title="https://w3id.org/ldac/terms#DataDepositLicense" target="_blank" rel="noopener">DataDepositLicense</a> |
-*No properties defined for this class*
 
+#### Properties from DataLicense
+
+| Property | Specialization Of | Required | Description | Range | Value |
+| -------- | ----------------- | -------- | ----------- | ----- | ----- |
+| <a href="#prop_ldac:reviewDate_DataLicense" title="#prop_ldac:reviewDate_DataLicense">ldac:reviewDate</a> | <a href="https://w3id.org/ldac/terms#reviewDate" target="_blank" rel="noopener">https://w3id.org/ldac/terms#reviewDate</a> | No | The date that this license should be reviewed. | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> |  |
 
 
 ### <a id="class_DataLicense" title="#class_DataLicense"></a> Class: DataLicense
@@ -751,6 +769,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from DataLicense
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -767,6 +787,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from DataReuseLicense
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -785,6 +807,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from Dataset
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -844,11 +868,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Collection
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Collection" title="http://purl.org/dc/terms/Collection" target="_blank" rel="noopener">Collection</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Dataset" title="#class_dct:Dataset"></a> Class: dct:Dataset
@@ -861,11 +885,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Dataset
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Dataset" title="http://purl.org/dc/terms/Dataset" target="_blank" rel="noopener">Dataset</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Event" title="#class_dct:Event"></a> Class: dct:Event
@@ -878,11 +902,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Event
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Event" title="http://purl.org/dc/terms/Event" target="_blank" rel="noopener">Event</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Image" title="#class_dct:Image"></a> Class: dct:Image
@@ -895,11 +919,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Image
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Image" title="http://purl.org/dc/terms/Image" target="_blank" rel="noopener">Image</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:InteractiveResource" title="#class_dct:InteractiveResource"></a> Class: dct:InteractiveResource
@@ -912,11 +936,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:InteractiveResource
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/InteractiveResource" title="http://purl.org/dc/terms/InteractiveResource" target="_blank" rel="noopener">InteractiveResource</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:MovingImage" title="#class_dct:MovingImage"></a> Class: dct:MovingImage
@@ -929,11 +953,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:MovingImage
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/MovingImage" title="http://purl.org/dc/terms/MovingImage" target="_blank" rel="noopener">MovingImage</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:PhysicalObject" title="#class_dct:PhysicalObject"></a> Class: dct:PhysicalObject
@@ -946,11 +970,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:PhysicalObject
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/PhysicalObject" title="http://purl.org/dc/terms/PhysicalObject" target="_blank" rel="noopener">PhysicalObject</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Service" title="#class_dct:Service"></a> Class: dct:Service
@@ -963,11 +987,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Service
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Service" title="http://purl.org/dc/terms/Service" target="_blank" rel="noopener">Service</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Software" title="#class_dct:Software"></a> Class: dct:Software
@@ -980,11 +1004,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Software
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Software" title="http://purl.org/dc/terms/Software" target="_blank" rel="noopener">Software</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Sound" title="#class_dct:Sound"></a> Class: dct:Sound
@@ -997,11 +1021,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Sound
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Sound" title="http://purl.org/dc/terms/Sound" target="_blank" rel="noopener">Sound</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:StillImage" title="#class_dct:StillImage"></a> Class: dct:StillImage
@@ -1014,11 +1038,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:StillImage
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/StillImage" title="http://purl.org/dc/terms/StillImage" target="_blank" rel="noopener">StillImage</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_dct:Text" title="#class_dct:Text"></a> Class: dct:Text
@@ -1031,11 +1055,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from dct:Text
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://purl.org/dc/terms/Text" title="http://purl.org/dc/terms/Text" target="_blank" rel="noopener">Text</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_File" title="#class_File"></a> Class: File
@@ -1047,6 +1071,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from File
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -1069,6 +1095,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Geometry
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://www.opengis.net/ont/geosparql#Geometry" title="http://www.opengis.net/ont/geosparql#Geometry" target="_blank" rel="noopener">Geometry</a> |
@@ -1085,11 +1113,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Language
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Language" title="http://schema.org/Language" target="_blank" rel="noopener">Language</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_ldac:CollectionProtocol" title="#class_ldac:CollectionProtocol"></a> Class: ldac:CollectionProtocol
@@ -1101,6 +1129,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from ldac:CollectionProtocol
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -1118,6 +1148,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Organization
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a> |
@@ -1133,6 +1165,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from Person
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -1151,6 +1185,8 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Place
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Place" title="http://schema.org/Place" target="_blank" rel="noopener">Place</a> |
@@ -1167,6 +1203,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from RepositoryCollection
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -1189,6 +1227,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from RepositoryObject
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -1215,6 +1255,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from RO-Crate Metadata Descriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
@@ -1234,6 +1276,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from README Entity
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
@@ -1251,6 +1295,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 1 | 1 |
+
+#### Properties from Root Data Entity
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |

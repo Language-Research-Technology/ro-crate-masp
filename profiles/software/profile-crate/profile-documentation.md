@@ -203,6 +203,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from Root Data Entity
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a>, <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
@@ -256,6 +258,8 @@ At least 1 instances of this type MUST be present in the crate.
 | --------- | --------- |
 | 1 | 1 |
 
+#### Properties from RO-Crate Metadata Descriptor
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
@@ -274,6 +278,8 @@ At least 1 instances of this type MUST be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | 1 | 1 |
+
+#### Properties from Root Data Entity
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -294,11 +300,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from CreativeWork
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_Dataset" title="#class_Dataset"></a> Class: Dataset
@@ -310,6 +316,8 @@ Instances of this type MAY be present in the crate.
 | Min Count | Max Count |
 | --------- | --------- |
 | N/A | N/A |
+
+#### Properties from Dataset
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -347,11 +355,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from File
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/File" title="http://schema.org/File" target="_blank" rel="noopener">File</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_Person" title="#class_Person"></a> Class: Person
@@ -364,11 +372,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Person
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Person" title="http://schema.org/Person" target="_blank" rel="noopener">Person</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_Organization" title="#class_Organization"></a> Class: Organization
@@ -381,11 +389,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from Organization
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Organization" title="http://schema.org/Organization" target="_blank" rel="noopener">Organization</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_ComputerLanguage" title="#class_ComputerLanguage"></a> Class: ComputerLanguage
@@ -398,11 +406,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from ComputerLanguage
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/ComputerLanguage" title="http://schema.org/ComputerLanguage" target="_blank" rel="noopener">ComputerLanguage</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_SoftwareApplication" title="#class_SoftwareApplication"></a> Class: SoftwareApplication
@@ -415,11 +423,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from SoftwareApplication
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareApplication" title="http://schema.org/terms#SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
-*No properties defined for this class*
-
 
 
 ### <a id="class_SoftwareSourceCode" title="#class_SoftwareSourceCode"></a> Class: SoftwareSourceCode
@@ -432,11 +440,11 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
+#### Properties from SoftwareSourceCode
+
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareSourceCode" title="http://schema.org/terms#SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a> |
-*No properties defined for this class*
-
 
 
 

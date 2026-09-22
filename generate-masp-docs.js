@@ -10,7 +10,7 @@ const { ROCrate } = require("ro-crate");
 const fs = require("fs");
 const path = require("path");
 const { MaspValidator } = require("./lib/masp-validator");
-const { execSync, execFileSync } = require("child_process");
+const { execSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
 const { Workbook } = require("ro-crate-excel");
@@ -43,45 +43,80 @@ const outputPath =
   positionalArgs[2] || path.join(profileDir, "profile-documentation.md");
 const resolvedOutputPath = path.resolve(outputPath);
 
-// Rocxl synchronisation function - if the crate contains both JSON and XLSX metadata, choose the most recently modified one as the source of truth for synchronisation, otherwise use whichever one exists. If neither exists, throw an error.
-function syncProfileCrateWithRocxl(targetDir) {
+// RO-Crate metadata <-> spreadsheet synchronisation - if the crate contains both JSON and
+// XLSX metadata, choose the most recently modified one as the source of truth for
+// synchronisation, otherwise use whichever one exists. If neither exists, throw an error.
+//
+// This calls ro-crate-excel's Workbook API directly rather than shelling out to its `rocxl`
+// CLI. `rocxl` also recursively scans the target directory for data files and identifies
+// their formats via the external `sf` (Siegfried) binary -- machinery MASP schema/profile
+// crates (metadata-only, no data files to catalogue) don't need, and which isn't available
+// in every environment. Driving Workbook directly gets the JSON<->XLSX sync without that
+// external dependency.
+async function syncProfileCrateWithRocxl(targetDir) {
   const metadataPath = path.join(targetDir, "ro-crate-metadata.json");
   const spreadsheetPath = path.join(targetDir, "ro-crate-metadata.xlsx");
-  const rocxlCommand = process.platform === "win32" ? "rocxl.cmd" : "rocxl";
 
   const metadataExists = fs.existsSync(metadataPath);
   const spreadsheetExists = fs.existsSync(spreadsheetPath);
 
   if (!metadataExists && !spreadsheetExists) {
     throw new Error(
-      `Cannot run rocxl because neither ${metadataPath} nor ${spreadsheetPath} exists`
+      `Cannot sync RO-Crate metadata because neither ${metadataPath} nor ${spreadsheetPath} exists`
     );
   }
 
-  let rocxlArgs = [targetDir];
-  let syncSource = "XLSX";
-
-  if (metadataExists && !spreadsheetExists) {
-    rocxlArgs = ["--JSON", targetDir];
-    syncSource = "JSON";
-  } else if (metadataExists && spreadsheetExists) {
+  let useJsonAsSource = metadataExists && !spreadsheetExists;
+  if (metadataExists && spreadsheetExists) {
     const metadataStats = fs.statSync(metadataPath);
     const spreadsheetStats = fs.statSync(spreadsheetPath);
-    const jsonIsNewer = metadataStats.mtimeMs >= spreadsheetStats.mtimeMs;
-
-    if (jsonIsNewer) {
-      rocxlArgs = ["--JSON", targetDir];
-      syncSource = "JSON";
-    }
+    // Compare at whole-second resolution, not raw milliseconds. A fresh git
+    // checkout writes both files within the same instant, so their raw mtimes
+    // differ only by filesystem write-order jitter of a few milliseconds --
+    // meaningless noise that would otherwise coin-flip which file "wins" and
+    // can silently clobber a hand-maintained JSON with a stale spreadsheet
+    // (see the incident this comment documents: a checked-in .xlsx last
+    // touched in the same commit as its .json, but never actually kept in
+    // sync with it, got picked as source purely because of sub-second
+    // checkout timing). A real edit -- via a text editor or saving in Excel
+    // -- always produces a gap of much more than a second, so this loses no
+    // real precision.
+    const toSeconds = (ms) => Math.floor(ms / 1000);
+    useJsonAsSource =
+      toSeconds(metadataStats.mtimeMs) >= toSeconds(spreadsheetStats.mtimeMs);
   }
 
-  console.log(
-    `Synchronising RO-Crate metadata with rocxl from ${syncSource}: ${targetDir}`
-  );
-  execFileSync(rocxlCommand, rocxlArgs, {
-    cwd: __dirname,
-    stdio: "inherit",
-  });
+  if (useJsonAsSource) {
+    console.log(
+      `Synchronising RO-Crate metadata with ro-crate-excel from JSON: ${targetDir}`
+    );
+    const json = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
+    const crate = new ROCrate(json, { array: true, link: true });
+    const wb = new Workbook({ crate });
+    await wb.crateToWorkbook();
+    await wb.workbook.xlsx.writeFile(spreadsheetPath);
+  } else {
+    console.log(
+      `Synchronising RO-Crate metadata with ro-crate-excel from XLSX: ${targetDir}`
+    );
+    const wb = new Workbook();
+    await wb.loadExcel(spreadsheetPath);
+    const crateJson = JSON.parse(JSON.stringify(wb.crate.getJson()));
+    fs.writeFileSync(metadataPath, JSON.stringify(crateJson, null, 2), "utf8");
+  }
+
+  // Writing the derived file naturally gives it a later mtime than the
+  // source, even though the pair is now in sync. Left alone, that would flip
+  // "source of truth" on the very next run -- e.g. syncing from JSON bumps
+  // the .xlsx's mtime past the .json's, so a follow-up run (even one that
+  // only wants to regenerate docs, no real edit involved) would read the
+  // .xlsx back and silently overwrite the hand/tool-maintained JSON with a
+  // lossy round-trip. Re-stamping both to the same mtime after every sync
+  // keeps them tied -- and ties favour JSON -- until a genuine future edit
+  // (via a text editor or Excel) moves one of them meaningfully forward.
+  const syncedAt = new Date();
+  fs.utimesSync(metadataPath, syncedAt, syncedAt);
+  fs.utimesSync(spreadsheetPath, syncedAt, syncedAt);
 }
 
 
@@ -247,7 +282,7 @@ function makeTypeLink(typeId, isInternal = false, crate = null) {
 
 try {
   if (syncWithRocxl) {
-    syncProfileCrateWithRocxl(profileDir);
+    await syncProfileCrateWithRocxl(profileDir);
   }
 
   const profileData = fs.readFileSync(resolvedProfilePath, "utf8");
@@ -661,113 +696,168 @@ try {
       max !== undefined ? max : "N/A"
     } |\n\n`;
 
-    // Get all properties for this class (no inheritence support ATM)
-    const props = classRule["@reverse"].domainIncludes;
+    // Group properties by where they come from: those declared directly on
+    // this class ("own"), plus one group per ancestor class (nearest first)
+    // it inherits from via rdfs:subClassOf. Mirrors how schema.org's own
+    // docs group inherited properties under "Properties from <Ancestor>"
+    // headings (e.g. RiC-O's ChildRelation shows "Properties from Child
+    // Relation", then "...Descendance Relation", ... up to "...Thing").
+    const parsedClassRule = validator.rules.classes[classId];
+    let ownProps;
+    const inheritedGroups = []; // [{ ancestorLabel, props }], nearest ancestor first
+    if (parsedClassRule) {
+      const { own, inherited } = validator.inheritedPropertyRules(classId);
+      ownProps = own.map((pr) => pr.entity);
+
+      // parentClasses() returns one root-ward path per (multiple-)inheritance
+      // branch; flatten them preserving first-occurrence order so an
+      // ancestor shared by two branches is only listed once, at its nearest
+      // occurrence.
+      const seenAncestors = new Set();
+      for (const path of validator.parentClasses(classId)) {
+        for (const ancestorId of path) {
+          if (seenAncestors.has(ancestorId)) continue;
+          seenAncestors.add(ancestorId);
+          const ancestorPropRules = inherited[ancestorId];
+          if (!ancestorPropRules || ancestorPropRules.length === 0) continue;
+          const ancestorEntity = getCrateEntity(profileCrate, ancestorId);
+          const ancestorLabel =
+            (ancestorEntity && (ancestorEntity["name"] || ancestorEntity["rdfs:label"])) ||
+            ancestorId.split(/[/#]/).pop() ||
+            ancestorId;
+          inheritedGroups.push({
+            ancestorLabel,
+            props: ancestorPropRules.map((pr) => pr.entity),
+          });
+        }
+      }
+    } else {
+      // Defensive fallback for a class entity that never became a parsed
+      // ClassRule (not reachable from the ResourceDescriptor) -- no
+      // inheritance grouping available, so fall back to whatever properties
+      // point at it directly.
+      ownProps = classRule["@reverse"].domainIncludes || [];
+    }
 
     // Note: `specialized` always defaults to [] above, which is truthy in JS --
     // check whether it actually resolves to a non-empty value, not just whether
     // the variable itself is truthy.
     const classHasSpecialization = hasSpecializationValue(specialized);
+    const allGroupedProps = [...ownProps, ...inheritedGroups.flatMap((g) => g.props)];
     const showSpecializationColumn =
       classHasSpecialization ||
-      props.some((prop) => hasSpecializationValue(prop["prov:specializationOf"]));
+      allGroupedProps.some((prop) => hasSpecializationValue(prop["prov:specializationOf"]));
 
-    if (showSpecializationColumn) {
-      classSummary += `| Property | Specialization Of | Required | Description | Range | Value |\n`;
-      classSummary += `| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`;
-    } else {
-      classSummary += `| Property | Required | Description | Range | Value |\n`;
-      classSummary += `| -------- | -------- | ----------- | ----- | ----- |\n`;
-    }
+    const propsTableHeader = showSpecializationColumn
+      ? `| Property | Specialization Of | Required | Description | Range | Value |\n| -------- | ----------------- | -------- | ----------- | ----- | ----- |\n`
+      : `| Property | Required | Description | Range | Value |\n| -------- | -------- | ----------- | ----- | ----- |\n`;
 
-    if (classHasSpecialization) {
-      const specializedArray = Array.isArray(specialized)
-        ? specialized
-        : [specialized];
-      const specializedStr = specializedArray
-        .map((s) => {
-          const typeId = typeof s === "object" ? s["@id"] : s;
-          const def = getCrateEntity(profileCrate, typeId);
-          return makeTypeLink(typeId, !!def, profileCrate);
-        })
-        .join(", ");
-      classSummary += showSpecializationColumn
-        ? `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`
-        : `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
-    }
-
-    if (props.length > 0) {
+    function renderPropRows(props) {
+      let out = "";
       // Sort properties: required first, then alphabetically
-      props.sort((a, b) => {
-        const aRequired = a["sh:minCount"] && parseInt(a["sh:minCount"]) > 0;
-        const bRequired = b["sh:minCount"] && parseInt(b["sh:minCount"]) > 0;
+      props
+        .slice()
+        .sort((a, b) => {
+          const aRequired = a["sh:minCount"] && parseInt(a["sh:minCount"]) > 0;
+          const bRequired = b["sh:minCount"] && parseInt(b["sh:minCount"]) > 0;
 
-        if (aRequired && !bRequired) return -1;
-        if (!aRequired && bRequired) return 1;
+          if (aRequired && !bRequired) return -1;
+          if (!aRequired && bRequired) return 1;
 
-        const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
-        const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
+          const aName = String(a["name"] || a["rdfs:label"] || a["@id"] || "");
+          const bName = String(b["name"] || b["rdfs:label"] || b["@id"] || "");
 
-        return aName.localeCompare(bName);
-      });
+          return aName.localeCompare(bName);
+        })
+        .forEach((prop) => {
+          const propName = prop["rdfs:label"] || prop["name"] || prop["@id"];
+          const isRequired =
+            prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0
+              ? "Yes"
+              : "No";
+          const propDesc = prop["description"] || prop["rdfs:comment"] || "";
 
-      props.forEach((prop) => {
-        const propName = prop["rdfs:label"] || prop["name"] || prop["@id"];
-        const isRequired =
-          prop["sh:minCount"] && parseInt(prop["sh:minCount"]) > 0
-            ? "Yes"
-            : "No";
-        const propDesc = prop["description"] || prop["rdfs:comment"] || "";
+          const rangesArray = prop["rangeIncludes"] || [];
 
-        const rangesArray = prop["rangeIncludes"] || [];
+          // Create links to range classes that are defined in the profile
+          const rangeLinks = rangesArray
+            .map((r) => {
+              const rangeId = typeof r === "object" ? r["@id"] : r;
+              if (!rangeId) return "Text"; // Default to Text if no range is specified
+              const rangeDefiniton = getCrateEntity(profileCrate, rangeId);
+              const isInternal = !!rangeDefiniton;
+              return makeTypeLink(rangeId, isInternal, profileCrate);
+            })
+            .join(", ");
 
-        // Create links to range classes that are defined in the profile
-        const rangeLinks = rangesArray
-          .map((r) => {
-            const rangeId = typeof r === "object" ? r["@id"] : r;
-            if (!rangeId) return "Text"; // Default to Text if no range is specified
-            const rangeDefiniton = getCrateEntity(profileCrate, rangeId);
-            const isInternal = !!rangeDefiniton;
-            return makeTypeLink(rangeId, isInternal, profileCrate);
+          // Get fixed value if specified — resolve URI to label
+          const rawFixedValue = prop["schema:value"] || prop["value"] || "";
+          const fixedValue = rawFixedValue
+            ? String(rawFixedValue)
+                .split(",")
+                .map((v) => {
+                  const val = v.trim();
+                  // If it looks like a URI, resolve to a label
+                  if (isValidUri(val)) {
+                    const def = getCrateEntity(profileCrate, val);
+                    const isInternal = !!def;
+                    return makeTypeLink(val, isInternal, profileCrate);
+                  }
+                  return val;
+                })
+                .join(", ")
+            : "";
+
+          const propAnchorId = getAnchorId(prop["@id"]);
+          const propLink = `<a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
+            propName
+          )}</a>`;
+          if (showSpecializationColumn) {
+            const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
+            out += `| ${propLink} | ${propSpecializationOf} | ${clean(isRequired)} | ${clean(
+              propDesc
+            )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
+          } else {
+            out += `| ${propLink} | ${clean(isRequired)} | ${clean(
+              propDesc
+            )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
+          }
+        });
+      return out;
+    }
+
+    // "Properties from <this class>" -- own properties, plus the synthetic
+    // @type row when this class specializes a schema.org/external type.
+    classSummary += `#### Properties from ${clean(classLabel)}\n\n`;
+    if (classHasSpecialization || ownProps.length > 0) {
+      classSummary += propsTableHeader;
+      if (classHasSpecialization) {
+        const specializedArray = Array.isArray(specialized)
+          ? specialized
+          : [specialized];
+        const specializedStr = specializedArray
+          .map((s) => {
+            const typeId = typeof s === "object" ? s["@id"] : s;
+            const def = getCrateEntity(profileCrate, typeId);
+            return makeTypeLink(typeId, !!def, profileCrate);
           })
           .join(", ");
-
-        // Get fixed value if specified — resolve URI to label
-        const rawFixedValue = prop["schema:value"] || prop["value"] || "";
-        const fixedValue = rawFixedValue
-          ? String(rawFixedValue)
-              .split(",")
-              .map((v) => {
-                const val = v.trim();
-                // If it looks like a URI, resolve to a label
-                if (isValidUri(val)) {
-                  const def = getCrateEntity(profileCrate, val);
-                  const isInternal = !!def;
-                  return makeTypeLink(val, isInternal, profileCrate);
-                }
-                return val;
-              })
-              .join(", ")
-          : "";
-
-        const propAnchorId = getAnchorId(prop["@id"]);
-        const propLink = `<a href="#${propAnchorId}" title="${clean(prop["@id"])}">${clean(
-          propName
-        )}</a>`;
-        if (showSpecializationColumn) {
-          const propSpecializationOf = formatSpecializationOf(prop["prov:specializationOf"]);
-          classSummary += `| ${propLink} | ${propSpecializationOf} | ${clean(isRequired)} | ${clean(
-            propDesc
-          )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
-        } else {
-          classSummary += `| ${propLink} | ${clean(isRequired)} | ${clean(
-            propDesc
-          )} | ${clean(rangeLinks)} | ${clean(fixedValue)} |\n`;
-        }
-      });
+        classSummary += showSpecializationColumn
+          ? `| @type |  | Yes |  |  | ${clean(specializedStr)} |\n`
+          : `| @type | Yes |  |  | ${clean(specializedStr)} |\n`;
+      }
+      classSummary += renderPropRows(ownProps);
     } else {
-      classSummary += `*No properties defined for this class*\n\n`;
+      classSummary += `*No properties defined directly on this class*\n\n`;
     }
+
+    // "Properties from <ancestor>" -- one section per ancestor class this one
+    // inherits property rules from, nearest ancestor first.
+    inheritedGroups.forEach((group) => {
+      classSummary += `\n#### Properties from ${clean(group.ancestorLabel)}\n\n`;
+      classSummary += propsTableHeader;
+      classSummary += renderPropRows(group.props);
+    });
 
     classSummary += `\n`;
 

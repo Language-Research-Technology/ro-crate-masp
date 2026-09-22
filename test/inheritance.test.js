@@ -209,4 +209,30 @@ describe("MaspValidator – class inheritance", function () {
       expect(ids.length).to.equal(unique.size);
     });
   });
+
+  describe("ClassRule.findPropertyRulesForClass() applies inherited property rules", function () {
+    // parseRules() already ran in the inheritedPropertyRules before() above.
+
+    it("Person's own class rule picks up property rules declared on Thing (its ancestor)", function () {
+      const personRule = validator.rules.classes["https://schema.org/Person"];
+      expect(personRule).to.exist;
+      const propertyIds = personRule.propertyRules
+        .filter(Boolean)
+        .map((pr) => pr.id);
+      // "name" has domainIncludes Thing, not Person -- only reachable through
+      // rdfs:subClassOf inheritance, not Person's own @reverse.domainIncludes.
+      expect(propertyIds).to.include("https://schema.org/name");
+    });
+
+    it("does not duplicate a property rule reachable through more than one ancestor path", function () {
+      const localBusinessRule =
+        validator.rules.classes["https://schema.org/LocalBusiness"];
+      expect(localBusinessRule).to.exist;
+      const propertyIds = localBusinessRule.propertyRules
+        .filter(Boolean)
+        .map((pr) => pr.id);
+      const unique = new Set(propertyIds);
+      expect(propertyIds.length).to.equal(unique.size);
+    });
+  });
 });
