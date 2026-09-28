@@ -20,6 +20,7 @@ These are the published GitHub Pages versions of the current profiles and schema
 
   - Schema: CLDF Ontology (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/cldf/schema-crate/index.html
   - Schema: LexInfo + OntoLex-Lemon (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/lexinfo/schema-crate/index.html
+  - Schema: W3C Web Annotation Vocabulary (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html
   - Schema: Records in Context (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/ric/schema-crate/index.html
   - Profile: RO-Crate 2 Profile (NEW): https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-2/profile-crate/index.html
   - Profile: RO-Crate MASP Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-masp/profile-crate/index.html
@@ -166,6 +167,7 @@ This repository includes several profiles and schemas that can be built using np
 - **Language Data Commons (LDAC) Schema**: `npm run build:ldac-schema`
 - **AusTalk Schema**: `npm run build:austalk-schema`
 - **Records in Context (RiC-O) Schema**: `npm run build:ric-schema`
+- **W3C Web Annotation (OA) Schema**: `npm run build:oa-schema`
 
 
 

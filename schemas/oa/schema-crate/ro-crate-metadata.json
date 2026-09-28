@@ -1,0 +1,762 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    },
+    {
+      "@base": null
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Web Annotation Vocabulary",
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "oa.ttl"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "#owl-to-masp-conversion"
+        }
+      ],
+      "description": [
+        "The Web Annotation ontology defines the terms of the Web Annotation vocabulary. Any changes to this document MUST be from a Working Group in the W3C that has established expertise in the area."
+      ]
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Annotation"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Choice"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#CssSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#CssStyle"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#DataPositionSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Direction"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#FragmentSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#HttpRequestState"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Motivation"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#RangeSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#ResourceSelection"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#SpecificResource"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#State"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Style"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#SvgSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#TextPositionSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#TextQuoteSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#TextualBody"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#TimeState"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#XPathSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#annotationService"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#bodyValue"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#cachedSource"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#canonical"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#end"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#exact"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasBody"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasEndSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasPurpose"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasScope"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasSource"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasStartSelector"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasState"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#hasTarget"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#motivatedBy"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#prefix"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#processingLanguage"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#refinedBy"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#renderedVia"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#sourceDate"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#sourceDateEnd"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#sourceDateStart"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#start"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#styleClass"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#styledBy"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#suffix"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#textDirection"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#via"
+        }
+      ]
+    },
+    {
+      "@id": "oa.ttl",
+      "@type": "File",
+      "name": "oa.ttl",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "text/turtle"
+    },
+    {
+      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@type": "SoftwareApplication",
+      "name": "owl-to-masp.py",
+      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+    },
+    {
+      "@id": "#owl-to-masp-conversion",
+      "@type": "CreateAction",
+      "name": "Convert OWL ontology to MASP schema crate",
+      "object": {
+        "@id": "oa.ttl"
+      },
+      "instrument": {
+        "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+      },
+      "result": {
+        "@id": "./"
+      },
+      "startTime": "2026-09-28T22:27:58.272020+00:00"
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Annotation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Annotation",
+      "name": "Annotation",
+      "rdfs:comment": "The class for Web Annotations."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Choice",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Choice",
+      "name": "Choice",
+      "rdfs:comment": "A subClass of  as:OrderedCollection  that conveys to a consuming application that it should select one of the resources in the  as:items  list to use, rather than all of them.  This is typically used to provide a choice of resources to render to the user, based on further supplied properties.  If the consuming application cannot determine the user's preference, then it should use the first in the list.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/activitystreams#OrderedCollection"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#CssSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CssSelector",
+      "name": "CssSelector",
+      "rdfs:comment": "A CssSelector describes a Segment of interest in a representation that conforms to the Document Object Model through the use of the CSS selector specification.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#CssStyle",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CssStyle",
+      "name": "CssStyle",
+      "rdfs:comment": "A resource which describes styles for resources participating in the Annotation using CSS.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Style"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#DataPositionSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "DataPositionSelector",
+      "name": "DataPositionSelector",
+      "rdfs:comment": "DataPositionSelector describes a range of data by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first byte, position 1 would be immediately before the second byte, and so on. The start byte is thus included in the list, but the end byte is not.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Direction",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Direction",
+      "name": "Direction",
+      "rdfs:comment": "A class to encapsulate the different text directions that a textual resource might take.  It is not used directly in the Annotation Model, only its three instances."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#FragmentSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "FragmentSelector",
+      "name": "FragmentSelector",
+      "rdfs:comment": "The FragmentSelector class is used to record the segment of a representation using the IRI fragment specification defined by the representation's media type.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#HttpRequestState",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HttpRequestState",
+      "name": "HttpRequestState",
+      "rdfs:comment": "The HttpRequestState class is used to record the HTTP request headers that a client SHOULD use to request the correct representation from the resource. ",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#State"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Motivation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Motivation",
+      "name": "Motivation",
+      "rdfs:comment": "The Motivation class is used to record the user's intent or motivation for the creation of the Annotation, or the inclusion of the body or target, that it is associated with.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#RangeSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RangeSelector",
+      "name": "RangeSelector",
+      "rdfs:comment": "A Range Selector can be used to identify the beginning and the end of the selection by using other Selectors. The selection consists of everything from the beginning of the starting selector through to the beginning of the ending selector, but not including it.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#ResourceSelection",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ResourceSelection",
+      "name": "ResourceSelection",
+      "rdfs:comment": "Instances of the ResourceSelection class identify part (described by an oa:Selector) of another resource (referenced with oa:hasSource), possibly from a particular representation of a resource (described by an oa:State). Please note that ResourceSelection is not used directly in the Web Annotation model, but is provided as a separate class for further application profiles to use, separate from oa:SpecificResource which has many Annotation specific features."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Selector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Selector",
+      "name": "Selector",
+      "rdfs:comment": "A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. This class is not used directly in the Annotation model, only its subclasses."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#SpecificResource",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SpecificResource",
+      "name": "SpecificResource",
+      "rdfs:comment": "Instances of the SpecificResource class identify part of another resource (referenced with oa:hasSource), a particular representation of a resource, a resource with styling hints for renders, or any combination of these, as used within an Annotation.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#ResourceSelection"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#State",
+      "@type": "rdfs:Class",
+      "rdfs:label": "State",
+      "name": "State",
+      "rdfs:comment": "A State describes the intended state of a resource as applied to the particular Annotation, and thus provides the information needed to retrieve the correct representation of that resource."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#Style",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Style",
+      "name": "Style",
+      "rdfs:comment": "A Style describes the intended styling of a resource as applied to the particular Annotation, and thus provides the information to ensure that rendering is consistent across implementations."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#SvgSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SvgSelector",
+      "name": "SvgSelector",
+      "rdfs:comment": "An SvgSelector defines an area through the use of the Scalable Vector Graphics [SVG] standard. This allows the user to select a non-rectangular area of the content, such as a circle or polygon by describing the region using SVG. The SVG may be either embedded within the Annotation or referenced as an External Resource.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#TextPositionSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TextPositionSelector",
+      "name": "TextPositionSelector",
+      "rdfs:comment": "The TextPositionSelector describes a range of text by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first character, position 1 would be immediately before the second character, and so on.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#TextQuoteSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TextQuoteSelector",
+      "name": "TextQuoteSelector",
+      "rdfs:comment": "The TextQuoteSelector describes a range of text by copying it, and including some of the text immediately before (a prefix) and after (a suffix) it to distinguish between multiple copies of the same sequence of characters.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#TextualBody",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TextualBody",
+      "name": "TextualBody",
+      "rdfs:comment": ""
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#TimeState",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TimeState",
+      "name": "TimeState",
+      "rdfs:comment": "A TimeState records the time at which the resource's state is appropriate for the Annotation, typically the time that the Annotation was created and/or a link to a persistent copy of the current version.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#State"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#XPathSelector",
+      "@type": "rdfs:Class",
+      "rdfs:label": "XPathSelector",
+      "name": "XPathSelector",
+      "rdfs:comment": " An XPathSelector is used to select elements and content within a resource that supports the Document Object Model via a specified XPath value.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Selector"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#annotationService",
+      "@type": "rdf:Property",
+      "rdfs:label": "annotationService",
+      "name": "annotationService",
+      "rdfs:comment": "The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource.  The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship.\n\n  This relationship is intended to be used both within Linked Data descriptions and as the  rel  type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements.  For more information about these, please see the Annotation Protocol specification annotation-protocol.\n  "
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#bodyValue",
+      "@type": "rdf:Property",
+      "rdfs:label": "bodyValue",
+      "name": "bodyValue",
+      "rdfs:comment": "The object of the predicate is a plain text string to be used as the content of the body of the Annotation.  The value MUST be an  xsd:string  and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for  rdf:langString .\n  ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Annotation"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#cachedSource",
+      "@type": "rdf:Property",
+      "rdfs:label": "cachedSource",
+      "name": "cachedSource",
+      "rdfs:comment": "A object of the relationship is a copy of the Source resource's representation, appropriate for the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#TimeState"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#canonical",
+      "@type": "rdf:Property",
+      "rdfs:label": "canonical",
+      "name": "canonical",
+      "rdfs:comment": "A object of the relationship is the canonical IRI that can always be used to deduplicate the Annotation, regardless of the current IRI used to access the representation."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#end",
+      "@type": "rdf:Property",
+      "rdfs:label": "end",
+      "name": "end",
+      "rdfs:comment": "The end property is used to convey the 0-based index of the end position of a range of content.",
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#exact",
+      "@type": "rdf:Property",
+      "rdfs:label": "exact",
+      "name": "exact",
+      "rdfs:comment": "The object of the predicate is a copy of the text which is being selected, after normalization.",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasBody",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasBody",
+      "name": "hasBody",
+      "rdfs:comment": "The object of the relationship is a resource that is a body of the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Annotation"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasEndSelector",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasEndSelector",
+      "name": "hasEndSelector",
+      "rdfs:comment": "The relationship between a RangeSelector and the Selector that describes the end position of the range. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#RangeSelector"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Selector"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasPurpose",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasPurpose",
+      "name": "hasPurpose",
+      "rdfs:comment": "The purpose served by the resource in the Annotation.",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Motivation"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasScope",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasScope",
+      "name": "hasScope",
+      "rdfs:comment": "The scope or context in which the resource is used within the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#SpecificResource"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasSelector",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasSelector",
+      "name": "hasSelector",
+      "rdfs:comment": "The object of the relationship is a Selector that describes the segment or region of interest within the source resource.  Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#ResourceSelection"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Selector"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasSource",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasSource",
+      "name": "hasSource",
+      "rdfs:comment": "The resource that the ResourceSelection, or its subclass SpecificResource, is refined from, or more specific than. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#ResourceSelection"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasStartSelector",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasStartSelector",
+      "name": "hasStartSelector",
+      "rdfs:comment": "The relationship between a RangeSelector and the Selector that describes the start position of the range. ",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#RangeSelector"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Selector"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasState",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasState",
+      "name": "hasState",
+      "rdfs:comment": "The relationship between the ResourceSelection, or its subclass SpecificResource, and a State resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#ResourceSelection"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#State"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#hasTarget",
+      "@type": "rdf:Property",
+      "rdfs:label": "hasTarget",
+      "name": "hasTarget",
+      "rdfs:comment": "The relationship between an Annotation and its Target.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Annotation"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#motivatedBy",
+      "@type": "rdf:Property",
+      "rdfs:label": "motivatedBy",
+      "name": "motivatedBy",
+      "rdfs:comment": "The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Annotation"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Motivation"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#prefix",
+      "@type": "rdf:Property",
+      "rdfs:label": "prefix",
+      "name": "prefix",
+      "rdfs:comment": "The object of the property is a snippet of content that occurs immediately before the content which is being selected by the Selector.",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#processingLanguage",
+      "@type": "rdf:Property",
+      "rdfs:label": "processingLanguage",
+      "name": "processingLanguage",
+      "rdfs:comment": "The object of the property is the language that should be used for textual processing algorithms when dealing with the content of the resource, including hyphenation, line breaking, which font to use for rendering and so forth.  The value must follow the recommendations of BCP47.",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#refinedBy",
+      "@type": "rdf:Property",
+      "rdfs:label": "refinedBy",
+      "name": "refinedBy",
+      "rdfs:comment": "The relationship between a Selector and another Selector or a State and a Selector or State that should be applied to the results of the first to refine the processing of the source resource. "
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#renderedVia",
+      "@type": "rdf:Property",
+      "rdfs:label": "renderedVia",
+      "name": "renderedVia",
+      "rdfs:comment": "A system that was used by the application that created the Annotation to render the resource.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#SpecificResource"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#sourceDate",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceDate",
+      "name": "sourceDate",
+      "rdfs:comment": "The timestamp at which the Source resource should be interpreted as being applicable to the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#TimeState"
+      },
+      "rangeIncludes": {
+        "@id": "schema:DateTime"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#sourceDateEnd",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceDateEnd",
+      "name": "sourceDateEnd",
+      "rdfs:comment": "The end timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#TimeState"
+      },
+      "rangeIncludes": {
+        "@id": "schema:DateTime"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#sourceDateStart",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceDateStart",
+      "name": "sourceDateStart",
+      "rdfs:comment": "The start timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#TimeState"
+      },
+      "rangeIncludes": {
+        "@id": "schema:DateTime"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#start",
+      "@type": "rdf:Property",
+      "rdfs:label": "start",
+      "name": "start",
+      "rdfs:comment": "The start position in a 0-based index at which a range of content is selected from the data in the source resource.",
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#styleClass",
+      "@type": "rdf:Property",
+      "rdfs:label": "styleClass",
+      "name": "styleClass",
+      "rdfs:comment": "The name of the class used in the CSS description referenced from the Annotation that should be applied to the Specific Resource.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#SpecificResource"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#styledBy",
+      "@type": "rdf:Property",
+      "rdfs:label": "styledBy",
+      "name": "styledBy",
+      "rdfs:comment": "A reference to a Stylesheet that should be used to apply styles to the Annotation rendering.",
+      "domainIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Annotation"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Style"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#suffix",
+      "@type": "rdf:Property",
+      "rdfs:label": "suffix",
+      "name": "suffix",
+      "rdfs:comment": "The snippet of text that occurs immediately after the text which is being selected.",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#textDirection",
+      "@type": "rdf:Property",
+      "rdfs:label": "textDirection",
+      "name": "textDirection",
+      "rdfs:comment": "The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.",
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/ns/oa#Direction"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#via",
+      "@type": "rdf:Property",
+      "rdfs:label": "via",
+      "name": "via",
+      "rdfs:comment": "A object of the relationship is a resource from which the source resource was retrieved by the providing system."
+    }
+  ]
+}

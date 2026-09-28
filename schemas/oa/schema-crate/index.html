@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Annotation Vocabulary</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
+    <hr>
+<h2>title: Web Annotation Vocabulary Schema Terms</h2>
+<h1>Web Annotation Vocabulary Schema Terms</h1>
+<p>This MASP Schema was machine-ported from the <a href="https://www.w3.org/TR/annotation-vocab/">W3C Web Annotation Vocabulary</a> (namespace <code>http://www.w3.org/ns/oa#</code>, source <a href="https://www.w3.org/ns/oa.ttl">oa.ttl</a>) using the <code>scripts/owl-to-masp.py</code> script. It has not been hand-edited.</p>
+<p>All of the vocabulary's classes and properties are included. The vocabulary's named individuals are not, as the converter does not yet port instances: the <code>oa:Motivation</code> values (<code>oa:assessing</code>, <code>oa:bookmarking</code>, <code>oa:classifying</code>, <code>oa:commenting</code>, <code>oa:describing</code>, <code>oa:editing</code>, <code>oa:highlighting</code>, <code>oa:identifying</code>, <code>oa:linking</code>, <code>oa:moderating</code>, <code>oa:questioning</code>, <code>oa:replying</code>, <code>oa:tagging</code>), the <code>oa:Direction</code> values (<code>oa:ltrDirection</code>, <code>oa:rtlDirection</code>), and the Annotation Protocol preferences <code>oa:PreferContainedDescriptions</code> and <code>oa:PreferContainedIRIs</code>.</p>
+<h2>All Rules:</h2>
+<p><strong>21</strong> classes &middot; <strong>29</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> — The class for Web Annotations.</li>
+<li><a href="#Choice" title="http://www.w3.org/ns/oa#Choice">Choice</a> — A subClass of as:OrderedCollection that conveys to a consuming application that it should select one of the resources in the as:items list to use, rather than all of them. This is typically used to provide a choice of resources to render to the user, based on further supplied properties. If the consuming application cannot determine the user's preference, then it should use the first in the list.</li>
+<li><a href="#CssSelector" title="http://www.w3.org/ns/oa#CssSelector">CssSelector</a> — A CssSelector describes a Segment of interest in a representation that conforms to the Document Object Model through the use of the CSS selector specification.</li>
+<li><a href="#CssStyle" title="http://www.w3.org/ns/oa#CssStyle">CssStyle</a> — A resource which describes styles for resources participating in the Annotation using CSS.</li>
+<li><a href="#DataPositionSelector" title="http://www.w3.org/ns/oa#DataPositionSelector">DataPositionSelector</a> — DataPositionSelector describes a range of data by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first byte, position 1 would be immediately before the second byte, and so on. The start byte is thus included in the list, but the end byte is not.</li>
+<li><a href="#Direction" title="http://www.w3.org/ns/oa#Direction">Direction</a> — A class to encapsulate the different text directions that a textual resource might take. It is not used directly in the Annotation Model, only its three instances.</li>
+<li><a href="#FragmentSelector" title="http://www.w3.org/ns/oa#FragmentSelector">FragmentSelector</a> — The FragmentSelector class is used to record the segment of a representation using the IRI fragment specification defined by the representation's media type.</li>
+<li><a href="#HttpRequestState" title="http://www.w3.org/ns/oa#HttpRequestState">HttpRequestState</a> — The HttpRequestState class is used to record the HTTP request headers that a client SHOULD use to request the correct representation from the resource. </li>
+<li><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a> — The Motivation class is used to record the user's intent or motivation for the creation of the Annotation, or the inclusion of the body or target, that it is associated with.</li>
+<li><a href="#RangeSelector" title="http://www.w3.org/ns/oa#RangeSelector">RangeSelector</a> — A Range Selector can be used to identify the beginning and the end of the selection by using other Selectors. The selection consists of everything from the beginning of the starting selector through to the beginning of the ending selector, but not including it.</li>
+<li><a href="#ResourceSelection" title="http://www.w3.org/ns/oa#ResourceSelection">ResourceSelection</a> — Instances of the ResourceSelection class identify part (described by an oa:Selector) of another resource (referenced with oa:hasSource), possibly from a particular representation of a resource (described by an oa:State). Please note that ResourceSelection is not used directly in the Web Annotation model, but is provided as a separate class for further application profiles to use, separate from oa:SpecificResource which has many Annotation specific features.</li>
+<li><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a> — A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. This class is not used directly in the Annotation model, only its subclasses.</li>
+<li><a href="#SpecificResource" title="http://www.w3.org/ns/oa#SpecificResource">SpecificResource</a> — Instances of the SpecificResource class identify part of another resource (referenced with oa:hasSource), a particular representation of a resource, a resource with styling hints for renders, or any combination of these, as used within an Annotation.</li>
+<li><a href="#State" title="http://www.w3.org/ns/oa#State">State</a> — A State describes the intended state of a resource as applied to the particular Annotation, and thus provides the information needed to retrieve the correct representation of that resource.</li>
+<li><a href="#Style" title="http://www.w3.org/ns/oa#Style">Style</a> — A Style describes the intended styling of a resource as applied to the particular Annotation, and thus provides the information to ensure that rendering is consistent across implementations.</li>
+<li><a href="#SvgSelector" title="http://www.w3.org/ns/oa#SvgSelector">SvgSelector</a> — An SvgSelector defines an area through the use of the Scalable Vector Graphics [SVG] standard. This allows the user to select a non-rectangular area of the content, such as a circle or polygon by describing the region using SVG. The SVG may be either embedded within the Annotation or referenced as an External Resource.</li>
+<li><a href="#TextPositionSelector" title="http://www.w3.org/ns/oa#TextPositionSelector">TextPositionSelector</a> — The TextPositionSelector describes a range of text by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first character, position 1 would be immediately before the second character, and so on.</li>
+<li><a href="#TextQuoteSelector" title="http://www.w3.org/ns/oa#TextQuoteSelector">TextQuoteSelector</a> — The TextQuoteSelector describes a range of text by copying it, and including some of the text immediately before (a prefix) and after (a suffix) it to distinguish between multiple copies of the same sequence of characters.</li>
+<li><a href="#TextualBody" title="http://www.w3.org/ns/oa#TextualBody">TextualBody</a> — </li>
+<li><a href="#TimeState" title="http://www.w3.org/ns/oa#TimeState">TimeState</a> — A TimeState records the time at which the resource's state is appropriate for the Annotation, typically the time that the Annotation was created and/or a link to a persistent copy of the current version.</li>
+<li><a href="#XPathSelector" title="http://www.w3.org/ns/oa#XPathSelector">XPathSelector</a> —  An XPathSelector is used to select elements and content within a resource that supports the Document Object Model via a specified XPath value.</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#annotationService" title="http://www.w3.org/ns/oa#annotationService">annotationService</a> — The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource. The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship. This relationship is intended to be used both within Linked Data descriptions and as the rel type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements. For more information about these, please see the Annotation Protocol specification annotation-protocol. </li>
+<li><a href="#bodyValue" title="http://www.w3.org/ns/oa#bodyValue">bodyValue</a> — The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString . </li>
+<li><a href="#cachedSource" title="http://www.w3.org/ns/oa#cachedSource">cachedSource</a> — A object of the relationship is a copy of the Source resource's representation, appropriate for the Annotation.</li>
+<li><a href="#canonical" title="http://www.w3.org/ns/oa#canonical">canonical</a> — A object of the relationship is the canonical IRI that can always be used to deduplicate the Annotation, regardless of the current IRI used to access the representation.</li>
+<li><a href="#end" title="http://www.w3.org/ns/oa#end">end</a> — The end property is used to convey the 0-based index of the end position of a range of content.</li>
+<li><a href="#exact" title="http://www.w3.org/ns/oa#exact">exact</a> — The object of the predicate is a copy of the text which is being selected, after normalization.</li>
+<li><a href="#hasBody" title="http://www.w3.org/ns/oa#hasBody">hasBody</a> — The object of the relationship is a resource that is a body of the Annotation.</li>
+<li><a href="#hasEndSelector" title="http://www.w3.org/ns/oa#hasEndSelector">hasEndSelector</a> — The relationship between a RangeSelector and the Selector that describes the end position of the range. </li>
+<li><a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a> — The purpose served by the resource in the Annotation.</li>
+<li><a href="#hasScope" title="http://www.w3.org/ns/oa#hasScope">hasScope</a> — The scope or context in which the resource is used within the Annotation.</li>
+<li><a href="#hasSelector" title="http://www.w3.org/ns/oa#hasSelector">hasSelector</a> — The object of the relationship is a Selector that describes the segment or region of interest within the source resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</li>
+<li><a href="#hasSource" title="http://www.w3.org/ns/oa#hasSource">hasSource</a> — The resource that the ResourceSelection, or its subclass SpecificResource, is refined from, or more specific than. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</li>
+<li><a href="#hasStartSelector" title="http://www.w3.org/ns/oa#hasStartSelector">hasStartSelector</a> — The relationship between a RangeSelector and the Selector that describes the start position of the range. </li>
+<li><a href="#hasState" title="http://www.w3.org/ns/oa#hasState">hasState</a> — The relationship between the ResourceSelection, or its subclass SpecificResource, and a State resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</li>
+<li><a href="#hasTarget" title="http://www.w3.org/ns/oa#hasTarget">hasTarget</a> — The relationship between an Annotation and its Target.</li>
+<li><a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> — The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.</li>
+<li><a href="#prefix" title="http://www.w3.org/ns/oa#prefix">prefix</a> — The object of the property is a snippet of content that occurs immediately before the content which is being selected by the Selector.</li>
+<li><a href="#processingLanguage" title="http://www.w3.org/ns/oa#processingLanguage">processingLanguage</a> — The object of the property is the language that should be used for textual processing algorithms when dealing with the content of the resource, including hyphenation, line breaking, which font to use for rendering and so forth. The value must follow the recommendations of BCP47.</li>
+<li><a href="#refinedBy" title="http://www.w3.org/ns/oa#refinedBy">refinedBy</a> — The relationship between a Selector and another Selector or a State and a Selector or State that should be applied to the results of the first to refine the processing of the source resource. </li>
+<li><a href="#renderedVia" title="http://www.w3.org/ns/oa#renderedVia">renderedVia</a> — A system that was used by the application that created the Annotation to render the resource.</li>
+<li><a href="#sourceDate" title="http://www.w3.org/ns/oa#sourceDate">sourceDate</a> — The timestamp at which the Source resource should be interpreted as being applicable to the Annotation.</li>
+<li><a href="#sourceDateEnd" title="http://www.w3.org/ns/oa#sourceDateEnd">sourceDateEnd</a> — The end timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</li>
+<li><a href="#sourceDateStart" title="http://www.w3.org/ns/oa#sourceDateStart">sourceDateStart</a> — The start timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</li>
+<li><a href="#start" title="http://www.w3.org/ns/oa#start">start</a> — The start position in a 0-based index at which a range of content is selected from the data in the source resource.</li>
+<li><a href="#styleClass" title="http://www.w3.org/ns/oa#styleClass">styleClass</a> — The name of the class used in the CSS description referenced from the Annotation that should be applied to the Specific Resource.</li>
+<li><a href="#styledBy" title="http://www.w3.org/ns/oa#styledBy">styledBy</a> — A reference to a Stylesheet that should be used to apply styles to the Annotation rendering.</li>
+<li><a href="#suffix" title="http://www.w3.org/ns/oa#suffix">suffix</a> — The snippet of text that occurs immediately after the text which is being selected.</li>
+<li><a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a> — The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.</li>
+<li><a href="#via" title="http://www.w3.org/ns/oa#via">via</a> — A object of the relationship is a resource from which the source resource was retrieved by the providing system.</li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="Annotation" title="http://www.w3.org/ns/oa#Annotation"></a> Class: Annotation <small style="color:#aaa">(http://www.w3.org/ns/oa#Annotation)</small></h3>
+<p>The class for Web Annotations.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Annotation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#bodyValue" title="http://www.w3.org/ns/oa#bodyValue">bodyValue</a></td>
+<td>No</td>
+<td>The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString .</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasBody" title="http://www.w3.org/ns/oa#hasBody">hasBody</a></td>
+<td>No</td>
+<td>The object of the relationship is a resource that is a body of the Annotation.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasTarget" title="http://www.w3.org/ns/oa#hasTarget">hasTarget</a></td>
+<td>No</td>
+<td>The relationship between an Annotation and its Target.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a></td>
+<td>No</td>
+<td>The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.</td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#styledBy" title="http://www.w3.org/ns/oa#styledBy">styledBy</a></td>
+<td>No</td>
+<td>A reference to a Stylesheet that should be used to apply styles to the Annotation rendering.</td>
+<td><a href="#Style" title="http://www.w3.org/ns/oa#Style">Style</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Choice" title="http://www.w3.org/ns/oa#Choice"></a> Class: Choice <small style="color:#aaa">(http://www.w3.org/ns/oa#Choice)</small></h3>
+<p>A subClass of as:OrderedCollection that conveys to a consuming application that it should select one of the resources in the as:items list to use, rather than all of them. This is typically used to provide a choice of resources to render to the user, based on further supplied properties. If the consuming application cannot determine the user's preference, then it should use the first in the list.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Choice</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="CssSelector" title="http://www.w3.org/ns/oa#CssSelector"></a> Class: CssSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#CssSelector)</small></h3>
+<p>A CssSelector describes a Segment of interest in a representation that conforms to the Document Object Model through the use of the CSS selector specification.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from CssSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="CssStyle" title="http://www.w3.org/ns/oa#CssStyle"></a> Class: CssStyle <small style="color:#aaa">(http://www.w3.org/ns/oa#CssStyle)</small></h3>
+<p>A resource which describes styles for resources participating in the Annotation using CSS.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from CssStyle</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="DataPositionSelector" title="http://www.w3.org/ns/oa#DataPositionSelector"></a> Class: DataPositionSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#DataPositionSelector)</small></h3>
+<p>DataPositionSelector describes a range of data by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first byte, position 1 would be immediately before the second byte, and so on. The start byte is thus included in the list, but the end byte is not.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from DataPositionSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="Direction" title="http://www.w3.org/ns/oa#Direction"></a> Class: Direction <small style="color:#aaa">(http://www.w3.org/ns/oa#Direction)</small></h3>
+<p>A class to encapsulate the different text directions that a textual resource might take. It is not used directly in the Annotation Model, only its three instances.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Direction</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="FragmentSelector" title="http://www.w3.org/ns/oa#FragmentSelector"></a> Class: FragmentSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#FragmentSelector)</small></h3>
+<p>The FragmentSelector class is used to record the segment of a representation using the IRI fragment specification defined by the representation's media type.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from FragmentSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="HttpRequestState" title="http://www.w3.org/ns/oa#HttpRequestState"></a> Class: HttpRequestState <small style="color:#aaa">(http://www.w3.org/ns/oa#HttpRequestState)</small></h3>
+<p>The HttpRequestState class is used to record the HTTP request headers that a client SHOULD use to request the correct representation from the resource.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HttpRequestState</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="Motivation" title="http://www.w3.org/ns/oa#Motivation"></a> Class: Motivation <small style="color:#aaa">(http://www.w3.org/ns/oa#Motivation)</small></h3>
+<p>The Motivation class is used to record the user's intent or motivation for the creation of the Annotation, or the inclusion of the body or target, that it is associated with.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Motivation</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="RangeSelector" title="http://www.w3.org/ns/oa#RangeSelector"></a> Class: RangeSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#RangeSelector)</small></h3>
+<p>A Range Selector can be used to identify the beginning and the end of the selection by using other Selectors. The selection consists of everything from the beginning of the starting selector through to the beginning of the ending selector, but not including it.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from RangeSelector</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasEndSelector" title="http://www.w3.org/ns/oa#hasEndSelector">hasEndSelector</a></td>
+<td>No</td>
+<td>The relationship between a RangeSelector and the Selector that describes the end position of the range.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasStartSelector" title="http://www.w3.org/ns/oa#hasStartSelector">hasStartSelector</a></td>
+<td>No</td>
+<td>The relationship between a RangeSelector and the Selector that describes the start position of the range.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ResourceSelection" title="http://www.w3.org/ns/oa#ResourceSelection"></a> Class: ResourceSelection <small style="color:#aaa">(http://www.w3.org/ns/oa#ResourceSelection)</small></h3>
+<p>Instances of the ResourceSelection class identify part (described by an oa:Selector) of another resource (referenced with oa:hasSource), possibly from a particular representation of a resource (described by an oa:State). Please note that ResourceSelection is not used directly in the Web Annotation model, but is provided as a separate class for further application profiles to use, separate from oa:SpecificResource which has many Annotation specific features.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from ResourceSelection</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasSelector" title="http://www.w3.org/ns/oa#hasSelector">hasSelector</a></td>
+<td>No</td>
+<td>The object of the relationship is a Selector that describes the segment or region of interest within the source resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasSource" title="http://www.w3.org/ns/oa#hasSource">hasSource</a></td>
+<td>No</td>
+<td>The resource that the ResourceSelection, or its subclass SpecificResource, is refined from, or more specific than. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasState" title="http://www.w3.org/ns/oa#hasState">hasState</a></td>
+<td>No</td>
+<td>The relationship between the ResourceSelection, or its subclass SpecificResource, and a State resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#State" title="http://www.w3.org/ns/oa#State">State</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Selector" title="http://www.w3.org/ns/oa#Selector"></a> Class: Selector <small style="color:#aaa">(http://www.w3.org/ns/oa#Selector)</small></h3>
+<p>A resource which describes the segment of interest in a representation of a Source resource, indicated with oa:hasSelector from the Specific Resource. This class is not used directly in the Annotation model, only its subclasses.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Selector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="SpecificResource" title="http://www.w3.org/ns/oa#SpecificResource"></a> Class: SpecificResource <small style="color:#aaa">(http://www.w3.org/ns/oa#SpecificResource)</small></h3>
+<p>Instances of the SpecificResource class identify part of another resource (referenced with oa:hasSource), a particular representation of a resource, a resource with styling hints for renders, or any combination of these, as used within an Annotation.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from SpecificResource</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasScope" title="http://www.w3.org/ns/oa#hasScope">hasScope</a></td>
+<td>No</td>
+<td>The scope or context in which the resource is used within the Annotation.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#renderedVia" title="http://www.w3.org/ns/oa#renderedVia">renderedVia</a></td>
+<td>No</td>
+<td>A system that was used by the application that created the Annotation to render the resource.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#styleClass" title="http://www.w3.org/ns/oa#styleClass">styleClass</a></td>
+<td>No</td>
+<td>The name of the class used in the CSS description referenced from the Annotation that should be applied to the Specific Resource.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from ResourceSelection</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasSelector" title="http://www.w3.org/ns/oa#hasSelector">hasSelector</a></td>
+<td>No</td>
+<td>The object of the relationship is a Selector that describes the segment or region of interest within the source resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasSource" title="http://www.w3.org/ns/oa#hasSource">hasSource</a></td>
+<td>No</td>
+<td>The resource that the ResourceSelection, or its subclass SpecificResource, is refined from, or more specific than. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#hasState" title="http://www.w3.org/ns/oa#hasState">hasState</a></td>
+<td>No</td>
+<td>The relationship between the ResourceSelection, or its subclass SpecificResource, and a State resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#State" title="http://www.w3.org/ns/oa#State">State</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="State" title="http://www.w3.org/ns/oa#State"></a> Class: State <small style="color:#aaa">(http://www.w3.org/ns/oa#State)</small></h3>
+<p>A State describes the intended state of a resource as applied to the particular Annotation, and thus provides the information needed to retrieve the correct representation of that resource.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from State</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="Style" title="http://www.w3.org/ns/oa#Style"></a> Class: Style <small style="color:#aaa">(http://www.w3.org/ns/oa#Style)</small></h3>
+<p>A Style describes the intended styling of a resource as applied to the particular Annotation, and thus provides the information to ensure that rendering is consistent across implementations.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Style</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="SvgSelector" title="http://www.w3.org/ns/oa#SvgSelector"></a> Class: SvgSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#SvgSelector)</small></h3>
+<p>An SvgSelector defines an area through the use of the Scalable Vector Graphics [SVG] standard. This allows the user to select a non-rectangular area of the content, such as a circle or polygon by describing the region using SVG. The SVG may be either embedded within the Annotation or referenced as an External Resource.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from SvgSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="TextPositionSelector" title="http://www.w3.org/ns/oa#TextPositionSelector"></a> Class: TextPositionSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#TextPositionSelector)</small></h3>
+<p>The TextPositionSelector describes a range of text by recording the start and end positions of the selection in the stream. Position 0 would be immediately before the first character, position 1 would be immediately before the second character, and so on.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from TextPositionSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="TextQuoteSelector" title="http://www.w3.org/ns/oa#TextQuoteSelector"></a> Class: TextQuoteSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#TextQuoteSelector)</small></h3>
+<p>The TextQuoteSelector describes a range of text by copying it, and including some of the text immediately before (a prefix) and after (a suffix) it to distinguish between multiple copies of the same sequence of characters.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from TextQuoteSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="TextualBody" title="http://www.w3.org/ns/oa#TextualBody"></a> Class: TextualBody <small style="color:#aaa">(http://www.w3.org/ns/oa#TextualBody)</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from TextualBody</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="TimeState" title="http://www.w3.org/ns/oa#TimeState"></a> Class: TimeState <small style="color:#aaa">(http://www.w3.org/ns/oa#TimeState)</small></h3>
+<p>A TimeState records the time at which the resource's state is appropriate for the Annotation, typically the time that the Annotation was created and/or a link to a persistent copy of the current version.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from TimeState</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#cachedSource" title="http://www.w3.org/ns/oa#cachedSource">cachedSource</a></td>
+<td>No</td>
+<td>A object of the relationship is a copy of the Source resource's representation, appropriate for the Annotation.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceDate" title="http://www.w3.org/ns/oa#sourceDate">sourceDate</a></td>
+<td>No</td>
+<td>The timestamp at which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceDateEnd" title="http://www.w3.org/ns/oa#sourceDateEnd">sourceDateEnd</a></td>
+<td>No</td>
+<td>The end timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceDateStart" title="http://www.w3.org/ns/oa#sourceDateStart">sourceDateStart</a></td>
+<td>No</td>
+<td>The start timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="XPathSelector" title="http://www.w3.org/ns/oa#XPathSelector"></a> Class: XPathSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#XPathSelector)</small></h3>
+<p>An XPathSelector is used to select elements and content within a resource that supports the Document Object Model via a specified XPath value.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from XPathSelector</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h2>All Properties</h2>
+<h3><a id="annotationService" title="http://www.w3.org/ns/oa#annotationService"></a> Property: annotationService <small style="color:#aaa">(http://www.w3.org/ns/oa#annotationService)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#annotationService" title="http://www.w3.org/ns/oa#annotationService">annotationService</a></td>
+<td>The object of the relationship is the end point of a service that conforms to the annotation-protocol, and it may be associated with any resource. The expectation of asserting the relationship is that the object is the preferred service for maintaining annotations about the subject resource, according to the publisher of the relationship. This relationship is intended to be used both within Linked Data descriptions and as the rel type of a Link, via HTTP Link Headers rfc5988 for binary resources and in HTML <link> elements. For more information about these, please see the Annotation Protocol specification annotation-protocol.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="bodyValue" title="http://www.w3.org/ns/oa#bodyValue"></a> Property: bodyValue <small style="color:#aaa">(http://www.w3.org/ns/oa#bodyValue)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#bodyValue" title="http://www.w3.org/ns/oa#bodyValue">bodyValue</a></td>
+<td>The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString .</td>
+<td>schema:Text</td>
+<td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="cachedSource" title="http://www.w3.org/ns/oa#cachedSource"></a> Property: cachedSource <small style="color:#aaa">(http://www.w3.org/ns/oa#cachedSource)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#cachedSource" title="http://www.w3.org/ns/oa#cachedSource">cachedSource</a></td>
+<td>A object of the relationship is a copy of the Source resource's representation, appropriate for the Annotation.</td>
+<td></td>
+<td><a href="#TimeState" title="http://www.w3.org/ns/oa#TimeState">TimeState</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="canonical" title="http://www.w3.org/ns/oa#canonical"></a> Property: canonical <small style="color:#aaa">(http://www.w3.org/ns/oa#canonical)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#canonical" title="http://www.w3.org/ns/oa#canonical">canonical</a></td>
+<td>A object of the relationship is the canonical IRI that can always be used to deduplicate the Annotation, regardless of the current IRI used to access the representation.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="end" title="http://www.w3.org/ns/oa#end"></a> Property: end <small style="color:#aaa">(http://www.w3.org/ns/oa#end)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#end" title="http://www.w3.org/ns/oa#end">end</a></td>
+<td>The end property is used to convey the 0-based index of the end position of a range of content.</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="exact" title="http://www.w3.org/ns/oa#exact"></a> Property: exact <small style="color:#aaa">(http://www.w3.org/ns/oa#exact)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#exact" title="http://www.w3.org/ns/oa#exact">exact</a></td>
+<td>The object of the predicate is a copy of the text which is being selected, after normalization.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasBody" title="http://www.w3.org/ns/oa#hasBody"></a> Property: hasBody <small style="color:#aaa">(http://www.w3.org/ns/oa#hasBody)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasBody" title="http://www.w3.org/ns/oa#hasBody">hasBody</a></td>
+<td>The object of the relationship is a resource that is a body of the Annotation.</td>
+<td></td>
+<td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasEndSelector" title="http://www.w3.org/ns/oa#hasEndSelector"></a> Property: hasEndSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#hasEndSelector)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasEndSelector" title="http://www.w3.org/ns/oa#hasEndSelector">hasEndSelector</a></td>
+<td>The relationship between a RangeSelector and the Selector that describes the end position of the range.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td><a href="#RangeSelector" title="http://www.w3.org/ns/oa#RangeSelector">RangeSelector</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose"></a> Property: hasPurpose <small style="color:#aaa">(http://www.w3.org/ns/oa#hasPurpose)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a></td>
+<td>The purpose served by the resource in the Annotation.</td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasScope" title="http://www.w3.org/ns/oa#hasScope"></a> Property: hasScope <small style="color:#aaa">(http://www.w3.org/ns/oa#hasScope)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasScope" title="http://www.w3.org/ns/oa#hasScope">hasScope</a></td>
+<td>The scope or context in which the resource is used within the Annotation.</td>
+<td></td>
+<td><a href="#SpecificResource" title="http://www.w3.org/ns/oa#SpecificResource">SpecificResource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasSelector" title="http://www.w3.org/ns/oa#hasSelector"></a> Property: hasSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#hasSelector)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasSelector" title="http://www.w3.org/ns/oa#hasSelector">hasSelector</a></td>
+<td>The object of the relationship is a Selector that describes the segment or region of interest within the source resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td><a href="#ResourceSelection" title="http://www.w3.org/ns/oa#ResourceSelection">ResourceSelection</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasSource" title="http://www.w3.org/ns/oa#hasSource"></a> Property: hasSource <small style="color:#aaa">(http://www.w3.org/ns/oa#hasSource)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasSource" title="http://www.w3.org/ns/oa#hasSource">hasSource</a></td>
+<td>The resource that the ResourceSelection, or its subclass SpecificResource, is refined from, or more specific than. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td></td>
+<td><a href="#ResourceSelection" title="http://www.w3.org/ns/oa#ResourceSelection">ResourceSelection</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasStartSelector" title="http://www.w3.org/ns/oa#hasStartSelector"></a> Property: hasStartSelector <small style="color:#aaa">(http://www.w3.org/ns/oa#hasStartSelector)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasStartSelector" title="http://www.w3.org/ns/oa#hasStartSelector">hasStartSelector</a></td>
+<td>The relationship between a RangeSelector and the Selector that describes the start position of the range.</td>
+<td><a href="#Selector" title="http://www.w3.org/ns/oa#Selector">Selector</a></td>
+<td><a href="#RangeSelector" title="http://www.w3.org/ns/oa#RangeSelector">RangeSelector</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasState" title="http://www.w3.org/ns/oa#hasState"></a> Property: hasState <small style="color:#aaa">(http://www.w3.org/ns/oa#hasState)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasState" title="http://www.w3.org/ns/oa#hasState">hasState</a></td>
+<td>The relationship between the ResourceSelection, or its subclass SpecificResource, and a State resource. Please note that the domain ( oa:ResourceSelection ) is not used directly in the Web Annotation model.</td>
+<td><a href="#State" title="http://www.w3.org/ns/oa#State">State</a></td>
+<td><a href="#ResourceSelection" title="http://www.w3.org/ns/oa#ResourceSelection">ResourceSelection</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hasTarget" title="http://www.w3.org/ns/oa#hasTarget"></a> Property: hasTarget <small style="color:#aaa">(http://www.w3.org/ns/oa#hasTarget)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hasTarget" title="http://www.w3.org/ns/oa#hasTarget">hasTarget</a></td>
+<td>The relationship between an Annotation and its Target.</td>
+<td></td>
+<td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy"></a> Property: motivatedBy <small style="color:#aaa">(http://www.w3.org/ns/oa#motivatedBy)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a></td>
+<td>The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.</td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a></td>
+<td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prefix" title="http://www.w3.org/ns/oa#prefix"></a> Property: prefix <small style="color:#aaa">(http://www.w3.org/ns/oa#prefix)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prefix" title="http://www.w3.org/ns/oa#prefix">prefix</a></td>
+<td>The object of the property is a snippet of content that occurs immediately before the content which is being selected by the Selector.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="processingLanguage" title="http://www.w3.org/ns/oa#processingLanguage"></a> Property: processingLanguage <small style="color:#aaa">(http://www.w3.org/ns/oa#processingLanguage)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#processingLanguage" title="http://www.w3.org/ns/oa#processingLanguage">processingLanguage</a></td>
+<td>The object of the property is the language that should be used for textual processing algorithms when dealing with the content of the resource, including hyphenation, line breaking, which font to use for rendering and so forth. The value must follow the recommendations of BCP47.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="refinedBy" title="http://www.w3.org/ns/oa#refinedBy"></a> Property: refinedBy <small style="color:#aaa">(http://www.w3.org/ns/oa#refinedBy)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#refinedBy" title="http://www.w3.org/ns/oa#refinedBy">refinedBy</a></td>
+<td>The relationship between a Selector and another Selector or a State and a Selector or State that should be applied to the results of the first to refine the processing of the source resource.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="renderedVia" title="http://www.w3.org/ns/oa#renderedVia"></a> Property: renderedVia <small style="color:#aaa">(http://www.w3.org/ns/oa#renderedVia)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#renderedVia" title="http://www.w3.org/ns/oa#renderedVia">renderedVia</a></td>
+<td>A system that was used by the application that created the Annotation to render the resource.</td>
+<td></td>
+<td><a href="#SpecificResource" title="http://www.w3.org/ns/oa#SpecificResource">SpecificResource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceDate" title="http://www.w3.org/ns/oa#sourceDate"></a> Property: sourceDate <small style="color:#aaa">(http://www.w3.org/ns/oa#sourceDate)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceDate" title="http://www.w3.org/ns/oa#sourceDate">sourceDate</a></td>
+<td>The timestamp at which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td><a href="#TimeState" title="http://www.w3.org/ns/oa#TimeState">TimeState</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceDateEnd" title="http://www.w3.org/ns/oa#sourceDateEnd"></a> Property: sourceDateEnd <small style="color:#aaa">(http://www.w3.org/ns/oa#sourceDateEnd)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceDateEnd" title="http://www.w3.org/ns/oa#sourceDateEnd">sourceDateEnd</a></td>
+<td>The end timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td><a href="#TimeState" title="http://www.w3.org/ns/oa#TimeState">TimeState</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceDateStart" title="http://www.w3.org/ns/oa#sourceDateStart"></a> Property: sourceDateStart <small style="color:#aaa">(http://www.w3.org/ns/oa#sourceDateStart)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceDateStart" title="http://www.w3.org/ns/oa#sourceDateStart">sourceDateStart</a></td>
+<td>The start timestamp of the interval over which the Source resource should be interpreted as being applicable to the Annotation.</td>
+<td>schema:DateTime</td>
+<td><a href="#TimeState" title="http://www.w3.org/ns/oa#TimeState">TimeState</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="start" title="http://www.w3.org/ns/oa#start"></a> Property: start <small style="color:#aaa">(http://www.w3.org/ns/oa#start)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#start" title="http://www.w3.org/ns/oa#start">start</a></td>
+<td>The start position in a 0-based index at which a range of content is selected from the data in the source resource.</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="styleClass" title="http://www.w3.org/ns/oa#styleClass"></a> Property: styleClass <small style="color:#aaa">(http://www.w3.org/ns/oa#styleClass)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#styleClass" title="http://www.w3.org/ns/oa#styleClass">styleClass</a></td>
+<td>The name of the class used in the CSS description referenced from the Annotation that should be applied to the Specific Resource.</td>
+<td>schema:Text</td>
+<td><a href="#SpecificResource" title="http://www.w3.org/ns/oa#SpecificResource">SpecificResource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="styledBy" title="http://www.w3.org/ns/oa#styledBy"></a> Property: styledBy <small style="color:#aaa">(http://www.w3.org/ns/oa#styledBy)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#styledBy" title="http://www.w3.org/ns/oa#styledBy">styledBy</a></td>
+<td>A reference to a Stylesheet that should be used to apply styles to the Annotation rendering.</td>
+<td><a href="#Style" title="http://www.w3.org/ns/oa#Style">Style</a></td>
+<td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="suffix" title="http://www.w3.org/ns/oa#suffix"></a> Property: suffix <small style="color:#aaa">(http://www.w3.org/ns/oa#suffix)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#suffix" title="http://www.w3.org/ns/oa#suffix">suffix</a></td>
+<td>The snippet of text that occurs immediately after the text which is being selected.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="textDirection" title="http://www.w3.org/ns/oa#textDirection"></a> Property: textDirection <small style="color:#aaa">(http://www.w3.org/ns/oa#textDirection)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a></td>
+<td>The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.</td>
+<td><a href="#Direction" title="http://www.w3.org/ns/oa#Direction">Direction</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="via" title="http://www.w3.org/ns/oa#via"></a> Property: via <small style="color:#aaa">(http://www.w3.org/ns/oa#via)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#via" title="http://www.w3.org/ns/oa#via">via</a></td>
+<td>A object of the relationship is a resource from which the source resource was retrieved by the providing system.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Property Values</h2>
+<p>No PropertyValue entities are defined.</p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>
