@@ -448,9 +448,6 @@
       },
       "rangeIncludes": [
         {
-          "@id": "Text"
-        },
-        {
           "@id": "#propertyValue_prop_id_MetadataDescriptor"
         }
       ],

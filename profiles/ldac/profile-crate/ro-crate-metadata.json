@@ -3325,9 +3325,6 @@
       "rdfs:comment": "The RO-Crate Metadata Descriptor",
       "rangeIncludes": [
         {
-          "@id": "#Root_Data_Entity"
-        },
-        {
           "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
         }
       ],
