@@ -28,6 +28,7 @@ These are the published GitHub Pages versions of the current profiles and schema
   - Profile: Workflow Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/workflow/profile-crate/index.html
   - Profile: LDAC Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/ldac/profile-crate/index.html
   - Profile: CCA Demo Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/cca-demo/profile-crate/index.html
+  - Profile: rocphotos Profile: https://language-research-technology.github.io/ro-crate-masp/profiles/rocphotos/profile-crate/index.html
   - Schema: Schema.org Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/schema-org/schema-crate/index.html
   - Schema: LDAC Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/ldac/schema-crate/index.html
   - Schema: AusTalk Schema: https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html
@@ -168,6 +169,7 @@ This repository includes several profiles and schemas that can be built using np
 - **AusTalk Schema**: `npm run build:austalk-schema`
 - **Records in Context (RiC-O) Schema**: `npm run build:ric-schema`
 - **W3C Web Annotation (OA) Schema**: `npm run build:oa-schema`
+- **rocphotos Profile**: `npm run build:rocphotos-profile` — describes the crates written by [rocphotos](https://github.com/ptsefton/rocphotos), and uses the OA schema above for the standoff annotations that carry its face regions
 
 
 

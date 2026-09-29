@@ -36,9 +36,10 @@
     "generate:mode:austalk-schema": "npm exec -- generate-mode-file --output schemas/austalk/schema-crate/crate-o-mode.json --update-profile schemas/austalk/schema-crate/ro-crate-metadata.json",
     "generate:mode:template-schema": "npm exec -- generate-mode-file --output schemas/template/schema-crate/crate-o-mode.json --update-profile schemas/template/schema-crate/ro-crate-metadata.json",
     "generate:modes": "npm run generate:mode:ldac-profile && npm run generate:mode:ro-crate-profile && npm run generate:mode:ro-crate-masp-profile && npm run generate:mode:workflow-profile && npm run generate:mode:software-profile && npm run generate:mode:ldac-schema && npm run generate:mode:austalk-schema && npm run generate:mode:template-schema",
-    "build": "npm run build:ldac-profile && npm run build:ldac-schema && npm run build:ro-crate-profile && npm run build:ro-crate-2-profile && npm run build:ro-crate-masp-profile && npm run build:workflow-profile && npm run build:software-profile && npm run build:austalk-schema && npm run build:template-schema && npm run build:ric-schema && npm run build:cldf-schema && npm run build:lexinfo-schema && npm run build:oa-schema && npm run build:schema-org-schema",
+    "build": "npm run build:ldac-profile && npm run build:ldac-schema && npm run build:ro-crate-profile && npm run build:ro-crate-2-profile && npm run build:ro-crate-masp-profile && npm run build:workflow-profile && npm run build:software-profile && npm run build:austalk-schema && npm run build:template-schema && npm run build:ric-schema && npm run build:cldf-schema && npm run build:lexinfo-schema && npm run build:oa-schema && npm run build:schema-org-schema && npm run build:rocphotos-profile",
     "validate:workflow": "node validate-crate.js profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json",
-    "validate:workflow:json": "node validate-crate.js --json profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json"
+    "validate:workflow:json": "node validate-crate.js --json profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json",
+    "build:rocphotos-profile": "npm exec -- generate-masp-docs -x -- profiles/rocphotos/profile-crate/ro-crate-metadata.json profiles/rocphotos/profile-text.md profiles/rocphotos/profile-crate/profile-documentation.md"
   },
   "repository": {
     "type": "git",
