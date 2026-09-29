@@ -57,6 +57,84 @@
       },
       "hasPart": [
         {
+          "@id": "#itemlist_AbbreviatedForm"
+        },
+        {
+          "@id": "#itemlist_Animacy"
+        },
+        {
+          "@id": "#itemlist_Aspect"
+        },
+        {
+          "@id": "#itemlist_Case"
+        },
+        {
+          "@id": "#itemlist_Cliticness"
+        },
+        {
+          "@id": "#itemlist_Dating"
+        },
+        {
+          "@id": "#itemlist_Definiteness"
+        },
+        {
+          "@id": "#itemlist_Degree"
+        },
+        {
+          "@id": "#itemlist_Finiteness"
+        },
+        {
+          "@id": "#itemlist_Frequency"
+        },
+        {
+          "@id": "#itemlist_Gender"
+        },
+        {
+          "@id": "#itemlist_ModificationType"
+        },
+        {
+          "@id": "#itemlist_Mood"
+        },
+        {
+          "@id": "#itemlist_Negative"
+        },
+        {
+          "@id": "#itemlist_NormativeAuthorization"
+        },
+        {
+          "@id": "#itemlist_Number"
+        },
+        {
+          "@id": "#itemlist_PartOfSpeech"
+        },
+        {
+          "@id": "#itemlist_Person"
+        },
+        {
+          "@id": "#itemlist_ReferentType"
+        },
+        {
+          "@id": "#itemlist_Register"
+        },
+        {
+          "@id": "#itemlist_TemporalQualifier"
+        },
+        {
+          "@id": "#itemlist_Tense"
+        },
+        {
+          "@id": "#itemlist_TermElement"
+        },
+        {
+          "@id": "#itemlist_TermType"
+        },
+        {
+          "@id": "#itemlist_VerbFormMood"
+        },
+        {
+          "@id": "#itemlist_Voice"
+        },
+        {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm"
         },
         {
@@ -834,39 +912,6 @@
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ZeroMorph"
         },
         {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#ConceptSet"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
-        },
-        {
-          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
-        },
-        {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviationFor"
         },
         {
@@ -1434,6 +1479,30 @@
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#voice"
         },
         {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#ConceptSet"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalSense"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
+        },
+        {
           "@id": "http://www.w3.org/ns/lemon/ontolex#canonicalForm"
         },
         {
@@ -1492,6 +1561,15 @@
         },
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#writtenRep"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#OntoMap"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
+        },
+        {
+          "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
         },
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#condition"
@@ -1582,7 +1660,7 @@
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-09-17T02:07:12.533511+00:00"
+      "startTime": "2026-09-29T02:18:59.954350+00:00"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
@@ -4531,9 +4609,14 @@
       "rdfs:label": "animacy",
       "name": "animacy",
       "rdfs:comment": "The characteristic of a word indicating that in a given discourse community, its referent is considered to be alive or to possess a quality of volition or consciousness.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy"
+        },
+        {
+          "@id": "#itemlist_Animacy"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#antonym",
@@ -4580,9 +4663,14 @@
       "rdfs:label": "aspect",
       "name": "aspect",
       "rdfs:comment": "Category associated to verbs and referring to the way the grammar marks the duration or type of temporal activity.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect"
+        },
+        {
+          "@id": "#itemlist_Aspect"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#associativeRelation",
@@ -4622,9 +4710,14 @@
       "rdfs:label": "case",
       "name": "case",
       "rdfs:comment": "In a given sentence, the way in which the form of a word changes in order to express a relationship with one or several words of the sentence. The morphological modification may apply to nouns, pronouns noun phrase constituents, such as adjectives or numerals.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case"
+        },
+        {
+          "@id": "#itemlist_Case"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#causallyRelatedConcept",
@@ -4670,9 +4763,14 @@
       "rdfs:label": "cliticness",
       "name": "cliticness",
       "rdfs:comment": "Categorization of the different types of clitics",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness"
+        },
+        {
+          "@id": "#itemlist_Cliticness"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collectiveNumberForm",
@@ -4771,9 +4869,14 @@
       "rdfs:label": "dating",
       "name": "dating",
       "rdfs:comment": "Indication specifying whether the usage is old or modern.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Dating"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Dating"
+        },
+        {
+          "@id": "#itemlist_Dating"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCaseForm",
@@ -4793,9 +4896,14 @@
       "rdfs:label": "definiteness",
       "name": "definiteness",
       "rdfs:comment": "Property about the possiblity to identify an entity.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness"
+        },
+        {
+          "@id": "#itemlist_Definiteness"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#degree",
@@ -4803,9 +4911,14 @@
       "rdfs:label": "degree",
       "name": "degree",
       "rdfs:comment": "Property concerning comparison.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree"
+        },
+        {
+          "@id": "#itemlist_Degree"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCaseForm",
@@ -4929,9 +5042,14 @@
       "rdfs:label": "finiteness",
       "name": "finiteness",
       "rdfs:comment": "Property referring to finite and non-finite status of a verbal form.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness"
+        },
+        {
+          "@id": "#itemlist_Finiteness"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#firstPersonForm",
@@ -5029,9 +5147,14 @@
       "rdfs:label": "frequency",
       "name": "frequency",
       "rdfs:comment": "The relative commonness with which a term occurs.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency"
+        },
+        {
+          "@id": "#itemlist_Frequency"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#frequencyUsage",
@@ -5065,9 +5188,14 @@
       "rdfs:label": "gender",
       "name": "gender",
       "rdfs:comment": "A grammatical category that indicates grammatical relationships between words in sentences.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender"
+        },
+        {
+          "@id": "#itemlist_Gender"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCaseForm",
@@ -5356,9 +5484,14 @@
       "rdfs:label": "modificationType",
       "name": "modification type",
       "rdfs:comment": "Refers to the prenominal or postnominal positions of determiners which distinguish different forms.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType"
+        },
+        {
+          "@id": "#itemlist_ModificationType"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#mood",
@@ -5366,9 +5499,14 @@
       "rdfs:label": "mood",
       "name": "mood",
       "rdfs:comment": "In TEI: contains information about the grammatical mood of verbs (e.g. indicative, subjunctive, imperative).",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood"
+        },
+        {
+          "@id": "#itemlist_Mood"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty",
@@ -5382,9 +5520,14 @@
       "rdfs:label": "negative",
       "name": "negative",
       "rdfs:comment": "denotes the negation or the absence",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Negative"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Negative"
+        },
+        {
+          "@id": "#itemlist_Negative"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativeForm",
@@ -5404,9 +5547,14 @@
       "rdfs:label": "normativeAuthorization",
       "name": "normative authorization",
       "rdfs:comment": "A term status qualifier assigned by an authoritative body, such as a standards body or a governmental entity with a regulatory function.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization"
+        },
+        {
+          "@id": "#itemlist_NormativeAuthorization"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#normativity",
@@ -5428,9 +5576,14 @@
       "rdfs:label": "number",
       "name": "number",
       "rdfs:comment": "Grammatical category for the variation in form of nouns, pronouns, and any words agreeing with them, depending on how many persons or things are referred to. // In many languages, the grammatical distinction that indicates the number of objects referred to by the term or word.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number"
+        },
+        {
+          "@id": "#itemlist_Number"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#object",
@@ -5488,9 +5641,14 @@
       "rdfs:label": "partOfSpeech",
       "name": "part of speech",
       "rdfs:comment": "A category assigned to a word based on its grammatical and semantic properties. // Term used to describe how a particular word is used in a sentence.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
+        },
+        {
+          "@id": "#itemlist_PartOfSpeech"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#participleFormOf",
@@ -5542,9 +5700,14 @@
       "rdfs:label": "person",
       "name": "person",
       "rdfs:comment": "Indication of grammatical person (1st, 2nd, 3rd, etc.) associated with a given inflected form.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person"
+        },
+        {
+          "@id": "#itemlist_Person"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pertainsTo",
@@ -5694,9 +5857,14 @@
       "rdfs:label": "referentType",
       "name": "referent type",
       "rdfs:comment": "Type of concrete object or concept (the referent) that an expression represents (the reference).",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType"
+        },
+        {
+          "@id": "#itemlist_ReferentType"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveObject",
@@ -5710,9 +5878,14 @@
       "rdfs:label": "register",
       "name": "register",
       "rdfs:comment": "Classification indicating the relative level of language individually assigned to a lexeme or term or to a text type.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register"
+        },
+        {
+          "@id": "#itemlist_Register"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relatedTerm",
@@ -5900,9 +6073,14 @@
       "rdfs:label": "temporalQualifier",
       "name": "temporal qualifier",
       "rdfs:comment": "An attribution of a term or lexeme with respect to its use over time.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier"
+        },
+        {
+          "@id": "#itemlist_TemporalQualifier"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#tense",
@@ -5910,9 +6088,14 @@
       "rdfs:label": "tense",
       "name": "tense",
       "rdfs:comment": "Property referring to the way the grammar marks the time at which the action denoted by the verb took place.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense"
+        },
+        {
+          "@id": "#itemlist_Tense"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#termElement",
@@ -5920,9 +6103,14 @@
       "rdfs:label": "termElement",
       "name": "term element",
       "rdfs:comment": "Any logically significant portion of a larger term or lexeme.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement"
+        },
+        {
+          "@id": "#itemlist_TermElement"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#termType",
@@ -5930,9 +6118,14 @@
       "rdfs:label": "termType",
       "name": "term type",
       "rdfs:comment": "An attribute assigned to a lexeme or a term.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+        },
+        {
+          "@id": "#itemlist_TermType"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCaseForm",
@@ -6005,9 +6198,14 @@
       "rdfs:label": "verbFormMood",
       "name": "verb form mood",
       "rdfs:comment": "One of a set of distinctive forms that are used to signal modality. Modality is a facet of illocutionary point or general intent of a speaker, or a speaker's degree of commitment to the expressed proposition's believability, obligatoriness, desirability or reality.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"
+        },
+        {
+          "@id": "#itemlist_VerbFormMood"
+        }
+      ]
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCaseForm",
@@ -6021,9 +6219,14 @@
       "rdfs:label": "voice",
       "name": "voice",
       "rdfs:comment": "Way sentences may alter the relationship between the subject and object of a verb, without changing the meaning of the sentence.",
-      "rangeIncludes": {
-        "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice"
+        },
+        {
+          "@id": "#itemlist_Voice"
+        }
+      ]
     },
     {
       "@id": "http://www.w3.org/ns/lemon/ontolex#canonicalForm",
@@ -6423,6 +6626,2732 @@
       "rangeIncludes": {
         "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
       }
+    },
+    {
+      "@id": "#itemlist_AbbreviatedForm",
+      "@type": "ItemList",
+      "name": "AbbreviatedForm values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviatedForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviation"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#acronym"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#contraction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#initialism"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Animacy",
+      "@type": "ItemList",
+      "name": "animacy values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#animate"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inanimate"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherAnimacy"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Aspect",
+      "@type": "ItemList",
+      "name": "aspect values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#cessative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperfective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inchoative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#perfective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#unaccomplished"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Case",
+      "@type": "ItemList",
+      "name": "case values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#directCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inessiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#translativeCase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCase"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Cliticness",
+      "@type": "ItemList",
+      "name": "cliticness values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#bound"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#no"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#yes"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Dating",
+      "@type": "ItemList",
+      "name": "dating values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#modern"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#old"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Definiteness",
+      "@type": "ItemList",
+      "name": "definiteness values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#definite"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fullArticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefinite"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#shortArticle"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Degree",
+      "@type": "ItemList",
+      "name": "degree values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#positive"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlative"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Finiteness",
+      "@type": "ItemList",
+      "name": "finiteness values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#finite"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nonFinite"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Frequency",
+      "@type": "ItemList",
+      "name": "frequency values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonlyUsed"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infrequentlyUsed"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#rarelyUsed"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Gender",
+      "@type": "ItemList",
+      "name": "gender values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonGender"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#feminine"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#masculine"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#neuter"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherGender"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_ModificationType",
+      "@type": "ItemList",
+      "name": "modification type values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indifferent"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#postModifier"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preModifier"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Mood",
+      "@type": "ItemList",
+      "name": "mood values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indicative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctive"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Negative",
+      "@type": "ItemList",
+      "name": "negative values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#no"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#yes"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_NormativeAuthorization",
+      "@type": "ItemList",
+      "name": "normative authorization values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#admittedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#deprecatedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#legalTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preferredTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#regulatedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#standardizedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#supersededTerm"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Number",
+      "@type": "ItemList",
+      "name": "number values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dual"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#massNoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumber"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#paucal"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#plural"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#quadrial"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#singular"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#trial"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_PartOfSpeech",
+      "@type": "ItemList",
+      "name": "part of speech values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective-i"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective-na"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adverb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affirmativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affixedPersonalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#allusivePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#article"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#auxiliary"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#bullet"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#cardinalNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#circumposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#closeParenthesis"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collectivePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#colon"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comma"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonNoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#compoundPreposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditionalParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditionalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conjunction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#coordinatingConjunction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#coordinationParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#copula"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#deficientVerb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#definiteArticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#demonstrativeDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#demonstrativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#determiner"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#diminutiveNoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#distinctiveParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#emphaticPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativeDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativePoint"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#existentialPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPreposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPrepositionDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPrepositionPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPronounAuxiliary"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#futureParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#generalAdverb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#generalizationWord"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genericNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#impersonalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteArticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteCardinalNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteMultiplicativeNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteOrdinalNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefinitePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interjection"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeCardinalNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeMultiplicativeNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeOrdinalNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeRelativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#invertedComma"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#irreflexivePersonalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#letter"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#lightVerb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#mainVerb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#modal"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#multiplicativeNumeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#noun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#numeral"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#numeralFraction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#openParenthesis"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ordinalAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#participleAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#particle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveArticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pastParticipleAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#personalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#plainVerb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#point"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessivePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveRelativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#postposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preposition"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdverb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#presentParticipleAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#presentativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pronominalAdverb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#properNoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#punctuation"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#qualifierAdjective"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#questionMark"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reciprocalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexivePersonalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexivePossessivePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relationNoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativeDeterminer"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativePronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#semiColon"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#slash"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#strongPersonalPronoun"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subordinatingConjunction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#suspensionPoints"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#symbol"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#unclassifiedParticle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#verb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#weakPersonalPronoun"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Person",
+      "@type": "ItemList",
+      "name": "person values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#firstPerson"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#secondPerson"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#thirdPerson"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_ReferentType",
+      "@type": "ItemList",
+      "name": "referent type values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#personal"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessive"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Register",
+      "@type": "ItemList",
+      "name": "register values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#benchLevelRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dialectRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#facetiousRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#formalRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inHouseRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ironicRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#neutralRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#slangRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#tabooRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#technicalRegister"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vulgarRegister"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_TemporalQualifier",
+      "@type": "ItemList",
+      "name": "temporal qualifier values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#archaicForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#obsoleteForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#outdatedForm"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Tense",
+      "@type": "ItemList",
+      "name": "tense values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#future"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperfect"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#past"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#present"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preterite"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_TermElement",
+      "@type": "ItemList",
+      "name": "term element values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affix"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#baseElement"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infix"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inflectionElement"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#morphologicalElement"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#optionalElement"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prefix"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#radical"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#suffix"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#syllable"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#wordElement"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_TermType",
+      "@type": "ItemList",
+      "name": "term type values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#CJK_compound"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviatedForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviation"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#acronym"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#appellation"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonName"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#compound"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#contraction"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#entryTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#equation"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#expression"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#formula"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fullForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#idiom"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#initialism"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#internationalScientificTerm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#internationalism"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#logicalExpression"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nucleus"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partNumber"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#phraseologicalUnit"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#productName"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#proverb"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#setPhrase"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#shortForm"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sku"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#standardText"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#string"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#stringCategory"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#symbol"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#transcribedForm"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_VerbFormMood",
+      "@type": "ItemList",
+      "name": "verb form mood values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditional"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#gerundive"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indicative"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infinitive"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#participle"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctive"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Voice",
+      "@type": "ItemList",
+      "name": "voice values",
+      "itemListElement": [
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#activeVoice"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#middleVoice"
+        },
+        {
+          "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#passiveVoice"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#CJK_compound",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "cjk_compound",
+      "description": "A lexical unit in a CJKV language that is represented by at least two CJKV characters."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviatedForm",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "abbreviated form",
+      "description": "A term or lexeme resulting from the omission of any part of the full term or lexeme while designating the same concept."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abbreviation",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "abbreviation"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "abessive case",
+      "description": "Case that expresses the lack or absence of the referent of the noun it marks."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "ablative case",
+      "description": "Case used to typically indicate locative or instrumental function."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "absolutive case",
+      "description": "Case for nouns in ergative-absolute languages that would generally be the subjects of intransitive verbs or the objects of transitive verbs in the translational equivalents of nominative-accusative languages such as English."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "accusative case",
+      "description": "Case used to indicate direct object."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#acronym",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "acronym",
+      "description": "An abbreviation made up of the initial letters of the components of the full form of the designation or from syllables of the full form and pronounced syllabically."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#activeVoice",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice",
+      "name": "active voice",
+      "description": "Value that expresses the situation where the grammatical subject is also the semantic actor of the verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "adessive case",
+      "description": "Case which expresses the meaning of presence 'at' or 'near' a place."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "aditive case",
+      "description": "Case expressing &quot;to&quot; in Basque studies."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adjective",
+      "description": "Part of speech related to attributes of noun."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective-i",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adjective-i",
+      "description": "Deverbal adjective in Japanese ending with the '-i' suffix in dictionary form"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjective-na",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adjective-na",
+      "description": "Denominal adjectives in Japanese formed from a noun plus the particle 'na'"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#admittedTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "admitted term",
+      "description": "A term rated according to the scale of a term acceptability rating as a synonym for a preferred term."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adposition",
+      "description": "Part of speech that occurs before/inside/after a complement composed of a noun phrase, noun, pronoun or clause that functions as a noun phrase and form a single structure with the complement to express its grammatical and semantic relation to another unit."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adverb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adverb",
+      "description": "Part of speech to refer to an heterogeneous group of words whose most frequent function is to specify the mode of action of the verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "adverbial pronoun",
+      "description": "()"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affirmativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "affirmative particle",
+      "description": "Particle used to express affirmation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affix",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "affix"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#affixedPersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "affixed personal pronoun",
+      "description": "Personnal pronoun that is affixed, i.e. added as an affix to another word."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "allative case",
+      "description": "Case which expresses the meaning of motion 'to' or 'towards' the referent it marks."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#allusivePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "allusive pronoun",
+      "description": "Pronoun that refers to something characterized by allusions."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#animate",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy",
+      "name": "animate",
+      "description": "Perceived as alive."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#appellation",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "appellation",
+      "description": "A designation that represents an individual concept."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#archaicForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier",
+      "name": "archaic form",
+      "description": "A term or lexeme no longer in ordinary use, though retained for special purposes."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#article",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "article",
+      "description": "Term used in the grammatical classification of words referring to a subclass of determiners which displays a primary role in differentiating the uses of nouns."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#auxiliary",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "auxiliary",
+      "description": "a verb that adds functional or grammatical meaning to the clause in which it appears, so as to express tense, aspect, modality, voice, emphasis, etc."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#baseElement",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "base element",
+      "description": "The root form of a word or term that is used as the formal dictionary entry for the term."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#benchLevelRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "bench level register",
+      "description": "Register of terms used in applications-oriented as opposed to theoretical or academic levels of language. // The register of terms used in applications-oriented as opposed to theoretical or academic levels of language."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "benefactive case",
+      "description": "Case that expresses that the referent of the noun it marks receives the benefit of the situation expressed by the clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#bound",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness",
+      "name": "bound",
+      "description": "Linked to a particular element."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#bullet",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "bullet",
+      "description": "Sign used to mark an item in a list."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#cardinalNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "cardinal numeral",
+      "description": "A word denoting a number."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "causative case",
+      "description": "Case which expresses that the referent of the noun it marks is the cause of the situation expressed by the clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#cessative",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
+      "name": "cessative",
+      "description": "Aspect that expresses the cessation of an event or state."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#circumposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "circumposition",
+      "description": "Adposition which consists of two parts which are positioned ahead and after the adpositional foci."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTerm",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "clipped term",
+      "description": "An abbreviation formed by truncating a part of a simple term."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#closeParenthesis",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "close parenthesis",
+      "description": "End of a parenthesis pair."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "collective",
+      "description": "A collective number is a number referring to 'a set of things'. Languages that have this feature can use it to get a phrase like 'flock of sheeps' by using 'sheep' in collective number."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collectivePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "collective pronoun",
+      "description": "A pronoun that refers to all elements of a set."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#colon",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "colon",
+      "description": "Sign with two vertical points that is used in writing and printing to introduce an explanation, example or quotation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "comitative case",
+      "description": "Case which expresses a meaning similar to 'along with' or 'accompagnied by'."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comma",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "comma",
+      "description": "Mark (,) used in writing to show a short pause or to separate items in a list."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonGender",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
+      "name": "common gender",
+      "description": "Indistinguished gender for epicenes."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonName",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "common name",
+      "description": "A synonym for an international scientific term that is used in general discourse in a given language."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonNoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "common noun",
+      "description": "A noun or adjective denoting a class of objects. // Noun that signifies a non-specific member of a group."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#commonlyUsed",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency",
+      "name": "commonly used",
+      "description": "Said of a term that appears frequently."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparative",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree",
+      "name": "comparative",
+      "description": "Comparative is the comparison where only two entites are involved."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "comparative particle",
+      "description": "Particle used to compare."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#compound",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "compound",
+      "description": "A lexical unit that combines two or sometimes more different words, frequently such that the sense of the new lexical unit is not clearly derivable from the combination of its parts."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#compoundPreposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "compound preposition",
+      "description": "Preposition that is a aggregation of words"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditional",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood",
+      "name": "conditional",
+      "description": "A conditional relation is a logical relation in which the illocutionary act employing one of a pair of propositions is expressed or implied to be true or in force if the other proposition is true."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditionalParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "conditional particle",
+      "description": "conditional particule"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conditionalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "conditional pronoun",
+      "description": "conditional pronoun"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#conjunction",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "conjunction",
+      "description": "Word that syntactically links words or constituents, and expresses a semantic relationship between them."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#contraction",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "contraction",
+      "description": "A lexical unit formed by a shortening of a word, syllable, or word group by omission of a sound or letter."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#coordinatingConjunction",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "coordinating conjunction",
+      "description": "Conjunction that links constituents."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#coordinationParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "coordination particle",
+      "description": "particle for coordination"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#copula",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "copula",
+      "description": "Special word that combines the subject of a sentence and its description."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "dative case",
+      "description": "Case that expresses an indirect object relationship or a range of meaning similar to that covered by 'to' or 'for' in English; but there is a great deal of variation between languages in the way this case is used."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#deficientVerb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "deficient verb",
+      "description": "verb lacking certain morphosyntactic properties"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#definite",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness",
+      "name": "definite",
+      "description": "Value referring to the capacity of identification of an entity."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#definiteArticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "definite article",
+      "description": "Article that allows the reference to a specific, identifiable entity (or class of entities)."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "delative case",
+      "description": "Case which expresses motion downward from the referent of the noun it marks."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#demonstrativeDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "demonstrative determiner",
+      "description": "Determiner used to point to an entity in the situation or elsewhere in a sentence."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#demonstrativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "demonstrative pronoun",
+      "description": "Pronoun used to point to an entity in the situation or elsewhere in a sentence."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#deprecatedTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "deprecated term",
+      "description": "A term rated according to the scale of a term acceptability rating as undesired."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#determiner",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "determiner",
+      "description": "Word or affix that belongs to a class of noun modifiers that expresses the reference, including quantity, of a noun."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dialectRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "dialect register"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#diminutiveNoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "diminutive noun",
+      "description": "diminutive noun"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#directCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "direct case",
+      "description": "An unmarked case which covers the single argument of a one-place verb and the agent and patient arguments of a transitive verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#distinctiveParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "distinctive particle",
+      "description": "distinctive particle"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dual",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "dual",
+      "description": "Form used in some languages to designate two persons or things. // The form used in some languages to designate two persons or things."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "elative case",
+      "description": "Case which expresses the meaning of motion 'away from' from the referent of the noun it marks."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#emphaticPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "emphatic pronoun",
+      "description": "An emphatic pronoun is a personal pronoun that is used to emphasize its referent."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#entryTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "entry term",
+      "description": "A term that heads a terminological entry."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#equation",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "equation",
+      "description": "An expression used to represent a concept based on a statement that two mathematical expressions are, for instance, equal as identified by the equal sign (=), or assigned to one another by a similar sign."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "equative case",
+      "description": "Case that expresses likeness or identity to the referent of the noun it marks. It can have meaning, such as: 'as', 'like', or 'in the capacity of'."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "ergative case",
+      "description": "Case assigned to the subject of a transitive verb as opposed to absolutive case."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "essive case",
+      "description": "Case which expresses a state of being."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativeDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "exclamative determiner",
+      "description": "Determiner expressing an emotional utterance and marked with a strong intonation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativePoint",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "exclamative point",
+      "description": "Special sign (!) usually used in writing to mark exclamation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#exclamativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "exclamative pronoun",
+      "description": "Pronoun marked with an emotional utterance and/or a strong intonation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#existentialPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "existential pronoun",
+      "description": "pronoun that indicates the existence of something or someone"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#expression",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "expression",
+      "description": "A significant word or phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#facetiousRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "facetious register"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#feminine",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
+      "name": "feminine",
+      "description": "Of, relating to, or constituting the gender that ordinarily includes most words or grammatical forms referring to females."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#finite",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness",
+      "name": "finite",
+      "description": "Property applied to a verb form that can occur on its own in an independent sentence."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#firstPerson",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person",
+      "name": "first person",
+      "description": "First person deixis is deictic reference that refers to the speaker, or both the speaker and referents grouped with the speaker"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#formalRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "formal register"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#formula",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "formula",
+      "description": "Figures, symbols or the like used to express a concept briefly, such as a mathematical or chemical formula."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fullArticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness",
+      "name": "full article",
+      "description": "For definiteness, when a specific form is the syntactic subject of the clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fullForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "full form",
+      "description": "The complete presentation of a term or lexeme for which there is an abbreviated form."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPreposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "fused preposition",
+      "description": "Preposition that is the result of a morphological merge from at least two words."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPrepositionDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "fused preposition determiner",
+      "description": "word resulting from the aggregation of a proposition and a determiner"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPrepositionPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "fused preposition pronoun",
+      "description": "word resulting from the aggregation of a preposition and a pronoun"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#fusedPronounAuxiliary",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "fused pronoun auxiliary",
+      "description": "word resulting from the aggregation of a pronoun and an auxiliary"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#future",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
+      "name": "future",
+      "description": "Verb tense that indicates action or state of being in the future."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#futureParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "future particle",
+      "description": "Particle used in order to express future."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#generalAdverb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "general adverb",
+      "description": "Adverb belonging to the general class of adverbs"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#generalizationWord",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "generalization word",
+      "description": "A word that does not carry its own meaning but generalizes the meaning of a neighboring word, adding the &quot;etc.&quot; sense."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genericNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "generic numeral",
+      "description": "A numeral used to indicate the number of sets/kinds of objects."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "genitive case",
+      "description": "Case which expresses a possessive relationship (e.g. the boy's book) or some other similarly close connection (e.g. a summer's day)."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#gerundive",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood",
+      "name": "gerundive"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#idiom",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "idiom",
+      "description": "A group of words in a fixed order that have a particular meaning that is different from the meanings of each word understood on its own."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "illative case",
+      "description": "Case which expresses the meaning of 'motion into' or 'direction towards' the referent of the noun it marks."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperative",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"
+      ],
+      "name": "imperative",
+      "description": "Mood used to express an order."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperfect",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
+      "name": "imperfect",
+      "description": "Verb tense that refers to action in the past that is incomplete or ongoing."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperfective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
+      "name": "imperfective",
+      "description": "Imperfective aspect is an aspect that expresses an event or state, with respect to its internal structure, instead of expressing it as a simple whole."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#impersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "impersonal pronoun",
+      "description": "Pronoun lacking person referent."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inHouseRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "in house register",
+      "description": "Register of terms that are company-specific and not readily recognized outside this environment. // The register of terms that are company-specific and not readily recognized outside this environment."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inanimate",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy",
+      "name": "inanimate",
+      "description": "Perceived as not living."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inchoative",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
+      "name": "inchoative",
+      "description": "Aspect that expresses the beginning of an event or state."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefinite",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness",
+      "name": "indefinite",
+      "description": "Value related to an entity in a situation where the identification of this entity is not clear cut."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteArticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite article",
+      "description": "Article not capable of expressing identification."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteCardinalNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite cardinal numeral",
+      "description": "A word used to express imprecise quantity."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite determiner",
+      "description": "Determiner not capable of identification."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteMultiplicativeNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite multiplicative numeral",
+      "description": "A word indicating imprecise number of times something happened."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefiniteOrdinalNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite ordinal numeral",
+      "description": "A word used to indicate imprecise rank of an object in a sequence."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indefinitePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "indefinite pronoun",
+      "description": "Pronoun that does not allow reference."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indicative",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"
+      ],
+      "name": "indicative",
+      "description": "Mood value used in the expression of statements and questions."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indifferent",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType",
+      "name": "indifferent",
+      "description": "Markup to express that there is not any pertinence."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inessiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "inessive case",
+      "description": "Case which expresses the meaning of location or position within a place."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infinitive",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood",
+      "name": "infinitive",
+      "description": "Mood cited as unmarked or base form."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "infinitive particle",
+      "description": "Particle used to express infinitive."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infix",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "infix"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inflectionElement",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "inflection element",
+      "description": "An element of language used to change the form of a word (noun, adjective) by declension, and (verbs) by conjugation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infrequentlyUsed",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency",
+      "name": "infrequently used",
+      "description": "Said of a term that does not appear frequently."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#initialism",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "initialism",
+      "description": "An abbreviation made up of the initial letters of the components of the full form of the designation or from syllables of the full form and pronounced letter by letter."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "instrumental case",
+      "description": "Case indicating that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interjection",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interjection",
+      "description": "Word or sound that expresses an emotion."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#internationalScientificTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "international scientific term",
+      "description": "A term that is part of an international scientific nomenclature as adopted by an appropriate scientific body."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#internationalism",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "internationalism",
+      "description": "A term that has the same or nearly identical orthographic or phonemic form in many languages."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeCardinalNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative cardinal numeral",
+      "description": "An interrogative/relative word used to ask about quantity."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative determiner",
+      "description": "Determiner used to express a question."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeMultiplicativeNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative multiplicative numeral",
+      "description": "An interrogative/relative word used to ask about the number of times something happened."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeOrdinalNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative ordinal numeral",
+      "description": "An interrogative/relative word used to ask about numeric ranking."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative particle",
+      "description": "Particle used to express a question."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative pronoun",
+      "description": "Pronoun used to express a question."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeRelativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "interrogative relative pronoun",
+      "description": "pronoun which may act as a relative pronoun or an interrogative one"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#invertedComma",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "inverted comma",
+      "description": "Inverted comma."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ironicRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "ironic register"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#irreflexivePersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "irreflexive personal pronoun",
+      "description": "personal pronoun which is not reflexive"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "lative case",
+      "description": "Case which expresses motion to a location."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#legalTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "legal term",
+      "description": "A term that is legally defined and used in legally binding documents."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#letter",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "letter"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#lightVerb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "light verb",
+      "description": "verb participating in a complex predication that has little semantic content of its own."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "locative case",
+      "description": "Case that indicates a final location of action or a time of the action."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#logicalExpression",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "logical expression",
+      "description": "An expression used to represent a concept based on mathematical or logical relations, such as statements of inequality, set relationships, boolean operations, and the like."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#mainVerb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "main verb",
+      "description": "Main verb in contrast to a modal or an auxiliary."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#masculine",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
+      "name": "masculine",
+      "description": "Of, relating to, or constituting the gender that ordinarily includes most words or grammatical forms referring to males."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#massNoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "mass noun",
+      "description": "Designation of a term or word that is not countable and cannot generally be used with the indefinite article or in the plural."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#middleVoice",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice",
+      "name": "middle voice",
+      "description": "Value for middle voice that expresses that the subject is both the agent and object, or that the subject is separate from the agent or that the receiver is the agent him/herself."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#modal",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "modal",
+      "description": "Verb form that is usually used with another verb to express ideas such as possibilities, permission, or intention."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#modern",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Dating",
+      "name": "modern",
+      "description": "Currently in use."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#morphologicalElement",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "morphological element",
+      "description": "Unit resulting from the division of words into their smallest meaningful parts.\nNote: moved to lexeme element from being an independent element; note that this is currently an independent element in 12620"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#multiplicativeNumeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "multiplicative numeral",
+      "description": "A word that expresses the number of times something happened."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "negative particle",
+      "description": "Particle used to express negation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "negative pronoun",
+      "description": "Pronoun used in a context of a negation or for expressing a negation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#neuter",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
+      "name": "neuter",
+      "description": "Of, relating to, or constituting the gender that ordinarily includes most words or grammatical forms referring to objects that are not characterized as male or female."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#neutralRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "neutral register",
+      "description": "The register appropriate to general texts or discourse."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#no",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Negative"
+      ],
+      "name": "no",
+      "description": "Value for negation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "nominative case",
+      "description": "Case used to indicate the subject of a verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nonFinite",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness",
+      "name": "non finite",
+      "description": "Property related for verb forms occurring on their own only in dependent clauses and lacking tense and mood contrasts."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#noun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "noun",
+      "description": "Part of speech used to express the name of a person, place, action or thing."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nucleus",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "nucleus",
+      "description": "The component of a multiword or multi-morphemic compound term that is determined or modified by the other components making up the term."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#numeral",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "numeral",
+      "description": "Part of speech that expresses a number or the relation to a number."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#numeralFraction",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "numeral fraction",
+      "description": "Word used to denote the denominator of a fraction."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "oblique case",
+      "description": "Case that is used when a noun is the object of a verb or a proposition, except for nominative and vocative case."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#obsoleteForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier",
+      "name": "obsolete form",
+      "description": "A term or lexeme which is no longer in common use."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#old",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Dating",
+      "name": "old",
+      "description": "Used in the past."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#openParenthesis",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "open parenthesis",
+      "description": "Beginning of a pair of parenthesis."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#optionalElement",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "optional element",
+      "description": "1951: An optional part of a headword.\n1951; examples? The question arises whether these are true options or whether the options reflect synonyms or hyponyms (e.g., barrage, barrage de retenue). The question is not whether 1951 should use this markup, but rather how to map this markup in a global environment."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ordinalAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "ordinal adjective",
+      "description": "Adjective/numeral/number expressing a numeric ranking."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherAnimacy",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy",
+      "name": "other animacy",
+      "description": "Perceived as related to animacy, but without specific reference to the previous items."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherGender",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
+      "name": "other gender",
+      "description": "A grammatical category that indicates grammatical relationships between words in sentences."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumber",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "other number",
+      "description": "Designation used to classify number-related grammatical information that can differ from the standard European classifications cited above."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#outdatedForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier",
+      "name": "outdated form",
+      "description": "A term or lexeme that has fallen from fashion, but the meaning of which is readily recognizable."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partNumber",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "part number",
+      "description": "A unique alphanumeric designation assigned to an object in a manufacturing system."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#participle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood",
+      "name": "participle",
+      "description": "Term referring to a word derived from a verb and used as an adjective."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#participleAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "participle adjective",
+      "description": "Adjective based on a verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#particle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "particle",
+      "description": "Word that does not belong to one of the main classes of words, is invariable in form, and typically has grammatical or pragmatic meaning."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveArticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "partitive article",
+      "description": "Article expressing a part or quantity."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "partitive case",
+      "description": "Case that expresses the partial nature of the referent of the noun it marks, as opposed to expressing the whole unit or class of which the referent is a part."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#passiveVoice",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice",
+      "name": "passive voice",
+      "description": "Term referring to a situation where the grammatical subject is typically the recipient or goal of the action denoted by the verb."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#past",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
+      "name": "past",
+      "description": "Past tense is an absolute tense that refers to a time before the moment of utterance."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pastParticipleAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "past participle adjective",
+      "description": "Adjective based on a past participle."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#paucal",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "paucal",
+      "description": "Number that specifies 'a few' things."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#perfective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
+      "name": "perfective",
+      "description": "Perfective aspect is an aspect that expresses a temporal view of an event or state as a simple whole, apart from the consideration of the internal structure of the time in which it occurs."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#personal",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType",
+      "name": "personal",
+      "description": "Property that refers to the person."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#personalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "personal pronoun",
+      "description": "Pronoun referring a person."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#phraseologicalUnit",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "phraseological unit",
+      "description": "Any group of two or more words that form a unit, the meaning of which frequently cannot be deduced based on the combined sense of the words making up the phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#plainVerb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "plain verb",
+      "description": "verb which has its own semantics"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#plural",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "plural",
+      "description": "The form of a term or word (usually of a noun) used to designate more than one object. // Value that expresses more than one element."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#point",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "point",
+      "description": "Sign (.) used to expresses the end of a sentence or an abbreviation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#positive",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree",
+      "name": "positive",
+      "description": "Value used in a comparison relationship when no comparison is involved."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessive",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType",
+      "name": "possessive",
+      "description": "Relative to the possession or association."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "possessive adjective",
+      "description": "An adjective derived from a noun and denoting possession by the object described by the noun."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "possessive determiner",
+      "description": "Determiner that expresses ownership."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "possessive particle",
+      "description": "Particle expressing ownship."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessivePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "possessive pronoun",
+      "description": "Pronoun that expresses ownership and relationships like ownership, such as kinship, and other forms of association."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveRelativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "possessive relative pronoun",
+      "description": "A relative pronoun whose antecedent is the possessor of the subject or object in the relative clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#postModifier",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType",
+      "name": "post modifier",
+      "description": "Situation where the modifier is after the modified."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#postposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "postposition",
+      "description": "Adposition that appears at the end of the noun phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preModifier",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType",
+      "name": "pre modifier",
+      "description": "Situation where the modifier is before the modified."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preferredTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "preferred term",
+      "description": "A term rated according to the scale of a term acceptability rating as the primary term for a given concept."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prefix",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "prefix"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preposition",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "preposition",
+      "description": "Adposition placed at the beginning of a noun phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdverb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "prepositional adverb",
+      "description": "adverb which is very similar in its form to a preposition"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#present",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
+      "name": "present",
+      "description": "Verb tense that indicates action or state of being in the present."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#presentParticipleAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "present participle adjective",
+      "description": "Adjective based on a present participle."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#presentativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "presentative pronoun",
+      "description": "pronoun that identify the current locative or temporal situation"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preterite",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
+      "name": "preterite",
+      "description": "The simple past or preterite as distinct from the perfect form, e.g,, \"showed\" not \"shown\""
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#productName",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "product name",
+      "description": "An attribute assigned to a term indicating that that term is the official designator for a product."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "prolative case",
+      "description": "Case for a noun or a pronoun that expresses motion within a place or a period of time needed for an event."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pronominalAdverb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "pronominal adverb",
+      "description": "adverb formed in replacement of a preposition and a pronoun"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "pronoun",
+      "description": "Word used in place of a noun or a noun phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#properNoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "proper noun",
+      "description": "A noun or adjective denoting a single object. // Noun that is the name of a specific individual, place, or object."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#proverb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "proverb",
+      "description": "A brief popular axiom or saying."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#punctuation",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "punctuation",
+      "description": "Graphical mark used either at word level to indicate an abbreviation or at a text level to separate phrases or sentences."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#quadrial",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "quadrial",
+      "description": "Property related to four elements."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#qualifierAdjective",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "qualifier adjective",
+      "description": "Adjective used to qualify."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#questionMark",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "question mark",
+      "description": "Sign used to express a question."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#radical",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "radical",
+      "description": "A basic identifiable component of every CJKV character, often found on the left side of the character, that sometimes gives a rough indication of meaning and is used for collating lexical and terminological resources."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#rarelyUsed",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency",
+      "name": "rarely used",
+      "description": "Said of a term that is almost never used."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reciprocalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "reciprocal pronoun",
+      "description": "Pronoun expressing mutual relationship."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "reflexive determiner",
+      "description": "Determiner that refers to the same entity."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexivePersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "reflexive personal pronoun",
+      "description": "personal pronoun which is reflexive"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexivePossessivePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "reflexive possessive pronoun",
+      "description": "A possessive pronoun that refers to the subject as the possessor."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#regulatedTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "regulated term",
+      "description": "A term defined by law or government regulation."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relationNoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "relation noun",
+      "description": "relation noun"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativeDeterminer",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "relative determiner",
+      "description": "Determiner related to a referent."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "relative particle",
+      "description": "relative particle"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#relativePronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "relative pronoun",
+      "description": "Pronoun which introduces a relative clause and refers to something that has been said before."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#secondPerson",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person",
+      "name": "second person",
+      "description": "Second person deixis is deictic reference to a person or persons identified as addressee."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#semiColon",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "semi colon",
+      "description": "Sign (;) usually used to separate phrases."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#setPhrase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "set phrase",
+      "description": "A fixed, lexicalized phrase."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#shortArticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness",
+      "name": "short article",
+      "description": "For definiteness, when a specific form is not the syntactic subject of the clause."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#shortForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "short form",
+      "description": "A variant of a multiword term or lexeme that includes fewer words than the full form."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#singular",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "singular",
+      "description": "The form of a term or word (usually of a noun) used to designate one object. // Value that expresses one element."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sku",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "sku",
+      "description": "An inventory item identified by a unique alphanumeric designation assigned to an object in an inventory control system."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#slangRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "slang register",
+      "description": "An extremely informal register of a word, term, or text that is used in spoken and everyday language and less commonly in documents."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#slash",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "slash",
+      "description": "The punctuation sign /"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "sociative case",
+      "description": "Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#standardText",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "standard text",
+      "description": "A fixed chunk of recurring text."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#standardizedTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "standardized term",
+      "description": "A term that has been standardized by a standardizing body."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#string",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "string",
+      "description": "A chunk of text used in a software interface, documentation, help file, or the like."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#stringCategory",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "string category",
+      "description": "A type value assigned to a string."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#strongPersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "strong personal pronoun",
+      "description": "Personal pronoun that can occupy the position after a preposition and/or reinforce a weak personal pronoun."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctive",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"
+      ],
+      "name": "subjunctive",
+      "description": "Mood often used to express uncertainty, whishes or desires."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "sublative case",
+      "description": "Case for a move of something to the surface of another object."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subordinatingConjunction",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "subordinating conjunction",
+      "description": "Conjunction that links constructions by making one of them a constituent of another. The subordinating conjunction typically marks the incorporated constituent."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#suffix",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "suffix"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "superessive case",
+      "description": "Case indicating location on top of something or on the surface of something."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlative",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree",
+      "name": "superlative",
+      "description": "Value used in a comparison between more than two entities."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "superlative particle",
+      "description": "Particle expressing superlative degree. Superlative is the comparison between more than two entities and contrasts with comparative where only two entities are involved and positive where no comparison is implied."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#supersededTerm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
+      "name": "superseded term",
+      "description": "A term that is no longer preferred or admitted."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#suspensionPoints",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "suspension points",
+      "description": "Sequence of three dots having the same meaning as &quot;et cetera&quot; (full form) or &quot;etc&quot; (abbreviated form)."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#syllable",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "syllable",
+      "description": "A unit of spoken language that is next bigger than a speech sound and consists of one or more vowel sounds alone or of a syllabic consonant alone or of either with one or more consonant sounds preceding or following."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#symbol",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
+      ],
+      "name": "symbol",
+      "description": "A character or glyph representing an idea, concept or object"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#tabooRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "taboo register"
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#technicalRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "technical register",
+      "description": "The register appropriate to scientific texts or special languages."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "terminative case",
+      "description": "Case that indicates to what or where something ends."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#thirdPerson",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person",
+      "name": "third person",
+      "description": "Third person deixis is deictic reference to a referent(s) not identified as the speaker or addressee."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#transcribedForm",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
+      "name": "transcribed form",
+      "description": "A form of a term or lexeme resulting from an operation whereby the characters of one writing system are represented by characters from another writing system, taking into account the pronunciation of the characters converted."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#translativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "translative case",
+      "description": "Case indicating that the referent of the noun, or the quality of the adjective, that it marks is the result of a process of change."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#trial",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
+      "name": "trial",
+      "description": "Grammatical number referring to 'three things', as opposed to 'singular' and 'plural'."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#unaccomplished",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
+      "name": "unaccomplished",
+      "description": "aspect that expresses an event or state that is not finished."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#unclassifiedParticle",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "unclassified particle",
+      "description": "Particle that is not covered by other sorts of particle definitions."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#verb",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "verb",
+      "description": "Element which, singly or in combination with other verbs is used as the minimal predicate of a sentence, co-occurring with a subject. If the predicate contains other elements (e.g. object, complement), then it is the verb which more than any other is the unit which influences the choice and extent of these elements."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCase",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
+      "name": "vocative case",
+      "description": "Case used to indicate direct address."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vulgarRegister",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
+      "name": "vulgar register",
+      "description": "Register of a term or text type that can be characterized as profane or socially unacceptable. // The register of a term or text type that can be characterized as profane or socially unacceptable."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#weakPersonalPronoun",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
+      "name": "weak personal pronoun",
+      "description": "Personal pronoun that cannot occupy the position after a preposition and/or reinforce a strong personal pronoun."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#wordElement",
+      "@type": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
+      "name": "word element",
+      "description": "Any lexeme element in a compound lexical unit that is itself a word."
+    },
+    {
+      "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#yes",
+      "@type": [
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness",
+        "http://www.lexinfo.net/ontology/3.0/lexinfo#Negative"
+      ],
+      "name": "yes",
+      "description": "Positive value"
     }
   ]
 }

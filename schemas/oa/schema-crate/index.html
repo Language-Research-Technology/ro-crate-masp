@@ -36,7 +36,7 @@
 <h2>title: Web Annotation Vocabulary Schema Terms</h2>
 <h1>Web Annotation Vocabulary Schema Terms</h1>
 <p>This MASP Schema was machine-ported from the <a href="https://www.w3.org/TR/annotation-vocab/">W3C Web Annotation Vocabulary</a> (namespace <code>http://www.w3.org/ns/oa#</code>, source <a href="https://www.w3.org/ns/oa.ttl">oa.ttl</a>) using the <code>scripts/owl-to-masp.py</code> script. It has not been hand-edited.</p>
-<p>All of the vocabulary's classes and properties are included. Its named individuals, the <code>oa:Motivation</code> values (<code>oa:commenting</code>, <code>oa:tagging</code>, etc.) and the <code>oa:Direction</code> values (<code>oa:ltrDirection</code>, <code>oa:rtlDirection</code>), are ported as instances of their class and listed in an <code>ItemList</code> per class (<code>#itemlist_Motivation</code>, <code>#itemlist_Direction</code>). Properties whose range is one of those classes (<code>oa:motivatedBy</code>, <code>oa:hasPurpose</code>, <code>oa:textDirection</code>) take their values from that list. The Annotation Protocol preferences <code>oa:PreferContainedDescriptions</code> and <code>oa:PreferContainedIRIs</code> are not ported, as they are HTTP <code>Prefer</code> header values rather than crate metadata.</p>
+<p>All of the vocabulary's classes and properties are included. Its named individuals, the <code>oa:Motivation</code> values (<code>oa:commenting</code>, <code>oa:tagging</code>, etc.) and the <code>oa:Direction</code> values (<code>oa:ltrDirection</code>, <code>oa:rtlDirection</code>), are ported as instances of their class and listed in an <code>ItemList</code> per class (<code>#itemlist_Motivation</code>, <code>#itemlist_Direction</code>). Properties whose range is one of those classes (<code>oa:motivatedBy</code>, <code>oa:hasPurpose</code>, <code>oa:textDirection</code>) offer the standard values from that list, but keep the class in their range too, so a custom value (such as your own <code>oa:Motivation</code>) is still valid, as the Web Annotation model allows. The Annotation Protocol preferences <code>oa:PreferContainedDescriptions</code> and <code>oa:PreferContainedIRIs</code> are not ported, as they are HTTP <code>Prefer</code> header values rather than crate metadata.</p>
 <h2>All Rules:</h2>
 <p><strong>21</strong> classes &middot; <strong>29</strong> properties</p>
 <div class="row">
@@ -158,7 +158,7 @@
 <td><a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a></td>
 <td>No</td>
 <td>The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.</td>
-<td><a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
 <td></td>
 </tr>
 <tr>
@@ -883,7 +883,7 @@
 <tr>
 <td><a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a></td>
 <td>The purpose served by the resource in the Annotation.</td>
-<td><a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1016,7 +1016,7 @@
 <tr>
 <td><a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a></td>
 <td>The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation.</td>
-<td><a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
+<td><a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a></td>
 <td><a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></td>
 </tr>
 </tbody>
@@ -1244,7 +1244,7 @@
 <tr>
 <td><a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a></td>
 <td>The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.</td>
-<td><a href="#itemlist_Direction" title="#itemlist_Direction">Direction values</a></td>
+<td><a href="#Direction" title="http://www.w3.org/ns/oa#Direction">Direction</a>, <a href="#itemlist_Direction" title="#itemlist_Direction">Direction values</a></td>
 <td></td>
 </tr>
 </tbody>

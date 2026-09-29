@@ -6,7 +6,7 @@ title: Web Annotation Vocabulary Schema Terms
 
 This MASP Schema was machine-ported from the [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/) (namespace `http://www.w3.org/ns/oa#`, source [oa.ttl](https://www.w3.org/ns/oa.ttl)) using the `scripts/owl-to-masp.py` script. It has not been hand-edited.
 
-All of the vocabulary's classes and properties are included. Its named individuals, the `oa:Motivation` values (`oa:commenting`, `oa:tagging`, etc.) and the `oa:Direction` values (`oa:ltrDirection`, `oa:rtlDirection`), are ported as instances of their class and listed in an `ItemList` per class (`#itemlist_Motivation`, `#itemlist_Direction`). Properties whose range is one of those classes (`oa:motivatedBy`, `oa:hasPurpose`, `oa:textDirection`) take their values from that list. The Annotation Protocol preferences `oa:PreferContainedDescriptions` and `oa:PreferContainedIRIs` are not ported, as they are HTTP `Prefer` header values rather than crate metadata.
+All of the vocabulary's classes and properties are included. Its named individuals, the `oa:Motivation` values (`oa:commenting`, `oa:tagging`, etc.) and the `oa:Direction` values (`oa:ltrDirection`, `oa:rtlDirection`), are ported as instances of their class and listed in an `ItemList` per class (`#itemlist_Motivation`, `#itemlist_Direction`). Properties whose range is one of those classes (`oa:motivatedBy`, `oa:hasPurpose`, `oa:textDirection`) offer the standard values from that list, but keep the class in their range too, so a custom value (such as your own `oa:Motivation`) is still valid, as the Web Annotation model allows. The Annotation Protocol preferences `oa:PreferContainedDescriptions` and `oa:PreferContainedIRIs` are not ported, as they are HTTP `Prefer` header values rather than crate metadata.
 
 ## All Rules:
 
@@ -30,7 +30,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#bodyValue" title="http://www.w3.org/ns/oa#bodyValue">bodyValue</a> | No | The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString .  | schema:Text |  |
 | <a href="#hasBody" title="http://www.w3.org/ns/oa#hasBody">hasBody</a> | No | The object of the relationship is a resource that is a body of the Annotation. |  |  |
 | <a href="#hasTarget" title="http://www.w3.org/ns/oa#hasTarget">hasTarget</a> | No | The relationship between an Annotation and its Target. |  |  |
-| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | No | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
+| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | No | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
 | <a href="#styledBy" title="http://www.w3.org/ns/oa#styledBy">styledBy</a> | No | A reference to a Stylesheet that should be used to apply styles to the Annotation rendering. | <a href="#Style" title="http://www.w3.org/ns/oa#Style">Style</a> |  |
 
 
@@ -419,7 +419,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a> | The purpose served by the resource in the Annotation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
+| <a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a> | The purpose served by the resource in the Annotation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
 ### <a id="hasScope" title="http://www.w3.org/ns/oa#hasScope"></a> Property: hasScope <small style="color:#aaa">(http://www.w3.org/ns/oa#hasScope)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -454,7 +454,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> | <a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> |
+| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a>, <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> | <a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> |
 ### <a id="prefix" title="http://www.w3.org/ns/oa#prefix"></a> Property: prefix <small style="color:#aaa">(http://www.w3.org/ns/oa#prefix)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -514,7 +514,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a> | The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource. | <a href="#itemlist_Direction" title="#itemlist_Direction">Direction values</a> |  |
+| <a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a> | The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource. | <a href="#Direction" title="http://www.w3.org/ns/oa#Direction">Direction</a>, <a href="#itemlist_Direction" title="#itemlist_Direction">Direction values</a> |  |
 ### <a id="via" title="http://www.w3.org/ns/oa#via"></a> Property: via <small style="color:#aaa">(http://www.w3.org/ns/oa#via)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |

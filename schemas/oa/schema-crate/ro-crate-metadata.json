@@ -234,7 +234,7 @@
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-09-29T01:37:59.575116+00:00"
+      "startTime": "2026-09-29T02:18:30.314542+00:00"
     },
     {
       "@id": "http://www.w3.org/ns/oa#Annotation",
@@ -539,9 +539,14 @@
       "rdfs:label": "hasPurpose",
       "name": "hasPurpose",
       "rdfs:comment": "The purpose served by the resource in the Annotation.",
-      "rangeIncludes": {
-        "@id": "#itemlist_Motivation"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Motivation"
+        },
+        {
+          "@id": "#itemlist_Motivation"
+        }
+      ]
     },
     {
       "@id": "http://www.w3.org/ns/oa#hasScope",
@@ -621,9 +626,14 @@
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/oa#Annotation"
       },
-      "rangeIncludes": {
-        "@id": "#itemlist_Motivation"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Motivation"
+        },
+        {
+          "@id": "#itemlist_Motivation"
+        }
+      ]
     },
     {
       "@id": "http://www.w3.org/ns/oa#prefix",
@@ -753,9 +763,14 @@
       "rdfs:label": "textDirection",
       "name": "textDirection",
       "rdfs:comment": "The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.",
-      "rangeIncludes": {
-        "@id": "#itemlist_Direction"
-      }
+      "rangeIncludes": [
+        {
+          "@id": "http://www.w3.org/ns/oa#Direction"
+        },
+        {
+          "@id": "#itemlist_Direction"
+        }
+      ]
     },
     {
       "@id": "http://www.w3.org/ns/oa#via",

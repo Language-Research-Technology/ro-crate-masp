@@ -356,13 +356,20 @@ def build_instance_entities(graph, class_entities, namespace):
     return instances, item_lists
 
 
-def replace_ranges_with_item_lists(property_entities, item_lists):
+def add_item_lists_to_ranges(property_entities, item_lists):
     for entity in property_entities:
         ranges = entity.get("rangeIncludes")
         if ranges is None:
             continue
         refs = ranges if isinstance(ranges, list) else [ranges]
-        refs = [{"@id": item_lists[r["@id"]]["@id"]} if r["@id"] in item_lists else r for r in refs]
+        # Keep the class so custom instances still validate; the ItemList
+        # supplies the standard values (see spec: "Instances (named individuals)").
+        expanded = []
+        for r in refs:
+            expanded.append(r)
+            if r["@id"] in item_lists:
+                expanded.append({"@id": item_lists[r["@id"]]["@id"]})
+        refs = expanded
         entity["rangeIncludes"] = refs[0] if len(refs) == 1 else refs
 
 
@@ -522,7 +529,7 @@ def convert(input_sources, output_dir, namespace=None, name=None, start_time=Non
     class_entities = build_class_entities(graph, namespace)
     property_entities = build_property_entities(graph, namespace)
     instance_entities, item_lists = build_instance_entities(graph, class_entities, namespace)
-    replace_ranges_with_item_lists(property_entities, item_lists)
+    add_item_lists_to_ranges(property_entities, item_lists)
     ontology_label, ontology_comment = ontology_metadata(graph, namespace)
     resolved_name = name or ontology_label or "Untitled Schema"
     resolved_start_time = start_time or datetime.now(timezone.utc).isoformat()

@@ -180,9 +180,13 @@ def test_instances_are_listed_in_an_item_list_per_class(crate):
     ]
 
 
-def test_range_pointing_at_a_class_with_instances_becomes_the_item_list(crate):
+def test_range_pointing_at_a_class_with_instances_also_gets_the_item_list(crate):
+    # the class stays so custom instances still validate; the list adds the standard values
     has_colour = _by_id(crate["@graph"], "http://example.org/ns#hasColour")
-    assert has_colour["rangeIncludes"] == {"@id": "#itemlist_Colour"}
+    assert has_colour["rangeIncludes"] == [
+        {"@id": "http://example.org/ns#Colour"},
+        {"@id": "#itemlist_Colour"},
+    ]
     # ranges pointing at classes without instances are untouched
     has_widget = _by_id(crate["@graph"], "http://example.org/ns#hasWidget")
     assert has_widget["rangeIncludes"] == {"@id": "http://example.org/ns#Widget"}
