@@ -51,6 +51,12 @@
       },
       "hasPart": [
         {
+          "@id": "#itemlist_Direction"
+        },
+        {
+          "@id": "#itemlist_Motivation"
+        },
+        {
           "@id": "http://www.w3.org/ns/oa#Annotation"
         },
         {
@@ -228,7 +234,7 @@
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-09-28T22:27:58.272020+00:00"
+      "startTime": "2026-09-29T01:37:59.575116+00:00"
     },
     {
       "@id": "http://www.w3.org/ns/oa#Annotation",
@@ -534,7 +540,7 @@
       "name": "hasPurpose",
       "rdfs:comment": "The purpose served by the resource in the Annotation.",
       "rangeIncludes": {
-        "@id": "http://www.w3.org/ns/oa#Motivation"
+        "@id": "#itemlist_Motivation"
       }
     },
     {
@@ -616,7 +622,7 @@
         "@id": "http://www.w3.org/ns/oa#Annotation"
       },
       "rangeIncludes": {
-        "@id": "http://www.w3.org/ns/oa#Motivation"
+        "@id": "#itemlist_Motivation"
       }
     },
     {
@@ -748,7 +754,7 @@
       "name": "textDirection",
       "rdfs:comment": "The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource.",
       "rangeIncludes": {
-        "@id": "http://www.w3.org/ns/oa#Direction"
+        "@id": "#itemlist_Direction"
       }
     },
     {
@@ -757,6 +763,155 @@
       "rdfs:label": "via",
       "name": "via",
       "rdfs:comment": "A object of the relationship is a resource from which the source resource was retrieved by the providing system."
+    },
+    {
+      "@id": "#itemlist_Direction",
+      "@type": "ItemList",
+      "name": "Direction values",
+      "itemListElement": [
+        {
+          "@id": "http://www.w3.org/ns/oa#ltrDirection"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#rtlDirection"
+        }
+      ]
+    },
+    {
+      "@id": "#itemlist_Motivation",
+      "@type": "ItemList",
+      "name": "Motivation values",
+      "itemListElement": [
+        {
+          "@id": "http://www.w3.org/ns/oa#assessing"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#bookmarking"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#classifying"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#commenting"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#describing"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#editing"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#highlighting"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#identifying"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#linking"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#moderating"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#questioning"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#replying"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#tagging"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#assessing",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "assessing",
+      "description": "The motivation for when the user intends to provide an assessment about the Target resource."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#bookmarking",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "bookmarking",
+      "description": "The motivation for when the user intends to create a bookmark to the Target or part thereof."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#classifying",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "classifying",
+      "description": "The motivation for when the user intends to that classify the Target as something."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#commenting",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "commenting",
+      "description": "The motivation for when the user intends to comment about the Target."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#describing",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "describing",
+      "description": "The motivation for when the user intends to describe the Target, as opposed to a comment about them."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#editing",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "editing",
+      "description": "The motivation for when the user intends to request a change or edit to the Target resource."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#highlighting",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "highlighting",
+      "description": "The motivation for when the user intends to highlight the Target resource or segment of it."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#identifying",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "identifying",
+      "description": "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#linking",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "linking",
+      "description": "The motivation for when the user intends to link to a resource related to the Target."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#ltrDirection",
+      "@type": "http://www.w3.org/ns/oa#Direction",
+      "name": "ltrDirection",
+      "description": "The direction of text that is read from left to right."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#moderating",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "moderating",
+      "description": "The motivation for when the user intends to assign some value or quality to the Target."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#questioning",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "questioning",
+      "description": "The motivation for when the user intends to ask a question about the Target."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#replying",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "replying",
+      "description": "The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#rtlDirection",
+      "@type": "http://www.w3.org/ns/oa#Direction",
+      "name": "rtlDirection",
+      "description": "The direction of text that is read from right to left."
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#tagging",
+      "@type": "http://www.w3.org/ns/oa#Motivation",
+      "name": "tagging",
+      "description": "The motivation for when the user intends to associate a tag with the Target."
     }
   ]
 }

@@ -161,6 +161,15 @@ describe("Workflow Profile Tests", function () {
     ).to.equal(true);
   });
 
+  it("offers ItemList members as editor values for programmingLanguage", function () {
+    const validator = new MaspValidator(workflowProfileCrate);
+    validator.ensureParsed();
+    const rule = validator.rules.properties["#Property_programmingLanguage_Workflow"];
+    const ids = validator.getEditorValuesForProperty(rule).map((v) => v["@id"]);
+    expect(ids).to.include("https://w3id.org/workflowhub/workflow-ro-crate#cwl");
+    expect(ids).to.have.lengthOf(5);
+  });
+
 });
 
 

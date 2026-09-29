@@ -86,3 +86,30 @@ ex:legacyName a rdf:Property ;
     rdfs:comment "A fixture property declared with plain rdf:Property, no owl:*Property typing."@en ;
     rdfs:domain ex:LegacyWidget ;
     rdfs:range xsd:string .
+
+# Instances of an in-namespace class -- the idiom the W3C Web Annotation
+# vocabulary uses for oa:Motivation values (oa:commenting a oa:Motivation).
+# Must become instance entities listed in an ItemList, with ex:hasColour's
+# range replaced by that ItemList (see scripts/owl-to-masp.spec.md,
+# "Instances (named individuals)"). ex:blue also carries
+# owl:NamedIndividual, which must not change anything. ex:ignoredResource
+# is typed only as rdfs:Resource, so it must not be ported.
+ex:Colour a owl:Class ;
+    rdfs:label "Colour"@en ;
+    rdfs:comment "A fixture class whose allowed values are its instances."@en .
+
+ex:red a ex:Colour ;
+    rdfs:label "red"@en ;
+    rdfs:comment "The colour red."@en .
+
+ex:blue a ex:Colour, owl:NamedIndividual ;
+    rdfs:label "blue"@en .
+
+ex:hasColour a owl:ObjectProperty ;
+    rdfs:label "has colour"@en ;
+    rdfs:comment "The colour of a Widget."@en ;
+    rdfs:domain ex:Widget ;
+    rdfs:range ex:Colour .
+
+ex:ignoredResource a rdfs:Resource ;
+    rdfs:label "ignoredResource"@en .

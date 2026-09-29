@@ -316,6 +316,56 @@ def build_property_entities(graph, namespace):
     return entities
 
 
+def build_instance_entities(graph, class_entities, namespace):
+    """Instances of converted classes (e.g. oa:commenting a oa:Motivation)
+    become instance entities listed in one ItemList per class -- the same
+    shape the workflow profile uses for ComputerLanguage values. See spec:
+    "Instances (named individuals)".
+    """
+    class_ids = {entity["@id"] for entity in class_entities}
+    class_names = {entity["@id"]: entity["name"] for entity in class_entities}
+    instances = []
+    members = {}
+    for subject in sorted(set(graph.subjects(RDF.type, None)), key=str):
+        if isinstance(subject, BNode) or not in_namespace(subject, namespace) or str(subject) in class_ids:
+            continue
+        types = sorted(str(t) for t in graph.objects(subject, RDF.type) if str(t) in class_ids)
+        if not types:
+            continue
+        label = preferred_literal(graph, subject, RDFS.label)
+        entity = {
+            "@id": str(subject),
+            "@type": types[0] if len(types) == 1 else types,
+            "name": label if label is not None else local_name(subject),
+        }
+        comment = preferred_literal(graph, subject, RDFS.comment)
+        if comment is not None:
+            entity["description"] = comment
+        instances.append(entity)
+        for class_id in types:
+            members.setdefault(class_id, []).append(str(subject))
+
+    item_lists = {}
+    for class_id in sorted(members):
+        item_lists[class_id] = {
+            "@id": f"#itemlist_{local_name(class_id)}",
+            "@type": "ItemList",
+            "name": f"{class_names[class_id]} values",
+            "itemListElement": [{"@id": iri} for iri in members[class_id]],
+        }
+    return instances, item_lists
+
+
+def replace_ranges_with_item_lists(property_entities, item_lists):
+    for entity in property_entities:
+        ranges = entity.get("rangeIncludes")
+        if ranges is None:
+            continue
+        refs = ranges if isinstance(ranges, list) else [ranges]
+        refs = [{"@id": item_lists[r["@id"]]["@id"]} if r["@id"] in item_lists else r for r in refs]
+        entity["rangeIncludes"] = refs[0] if len(refs) == 1 else refs
+
+
 def ontology_metadata(graph, namespace):
     ontologies = list(graph.subjects(RDF.type, OWL.Ontology))
     subject = None
@@ -333,8 +383,8 @@ def ontology_metadata(graph, namespace):
     )
 
 
-def build_resource_descriptor(class_entities, property_entities):
-    parts = [{"@id": entity["@id"]} for entity in class_entities + property_entities]
+def build_resource_descriptor(rule_entities):
+    parts = [{"@id": entity["@id"]} for entity in sorted(rule_entities, key=lambda e: e["@id"])]
     return {
         "@id": RESOURCE_DESCRIPTOR_ID,
         "@type": "ResourceDescriptor",
@@ -385,6 +435,8 @@ def build_provenance_entities(fetched, start_time):
 def build_crate_graph(
     class_entities,
     property_entities,
+    instance_entities,
+    item_list_entities,
     name,
     description,
     file_entities,
@@ -409,7 +461,7 @@ def build_crate_graph(
         "about": {"@id": "./"},
     }
 
-    resource_descriptor = build_resource_descriptor(class_entities, property_entities)
+    resource_descriptor = build_resource_descriptor(class_entities + property_entities + item_list_entities)
 
     graph = [
         metadata_descriptor,
@@ -421,6 +473,8 @@ def build_crate_graph(
     ]
     graph.extend(class_entities)
     graph.extend(property_entities)
+    graph.extend(item_list_entities)
+    graph.extend(instance_entities)
 
     return {
         "@context": [
@@ -467,6 +521,8 @@ def convert(input_sources, output_dir, namespace=None, name=None, start_time=Non
 
     class_entities = build_class_entities(graph, namespace)
     property_entities = build_property_entities(graph, namespace)
+    instance_entities, item_lists = build_instance_entities(graph, class_entities, namespace)
+    replace_ranges_with_item_lists(property_entities, item_lists)
     ontology_label, ontology_comment = ontology_metadata(graph, namespace)
     resolved_name = name or ontology_label or "Untitled Schema"
     resolved_start_time = start_time or datetime.now(timezone.utc).isoformat()
@@ -475,6 +531,8 @@ def convert(input_sources, output_dir, namespace=None, name=None, start_time=Non
     crate = build_crate_graph(
         class_entities,
         property_entities,
+        instance_entities,
+        list(item_lists.values()),
         resolved_name,
         ontology_comment,
         file_entities,

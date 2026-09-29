@@ -156,6 +156,50 @@ def test_resource_descriptor_lists_every_generated_entity_sorted(crate):
     assert "http://example.org/external#Thing" not in part_ids
 
 
+def test_instances_of_a_converted_class_become_instance_entities(crate):
+    red = _by_id(crate["@graph"], "http://example.org/ns#red")
+    assert red == {
+        "@id": "http://example.org/ns#red",
+        "@type": "http://example.org/ns#Colour",
+        "name": "red",
+        "description": "The colour red.",
+    }
+    # owl:NamedIndividual is not a converted class, so it is not kept in @type
+    blue = _by_id(crate["@graph"], "http://example.org/ns#blue")
+    assert blue["@type"] == "http://example.org/ns#Colour"
+    assert "description" not in blue
+
+
+def test_instances_are_listed_in_an_item_list_per_class(crate):
+    item_list = _by_id(crate["@graph"], "#itemlist_Colour")
+    assert item_list["@type"] == "ItemList"
+    assert item_list["name"] == "Colour values"
+    assert item_list["itemListElement"] == [
+        {"@id": "http://example.org/ns#blue"},
+        {"@id": "http://example.org/ns#red"},
+    ]
+
+
+def test_range_pointing_at_a_class_with_instances_becomes_the_item_list(crate):
+    has_colour = _by_id(crate["@graph"], "http://example.org/ns#hasColour")
+    assert has_colour["rangeIncludes"] == {"@id": "#itemlist_Colour"}
+    # ranges pointing at classes without instances are untouched
+    has_widget = _by_id(crate["@graph"], "http://example.org/ns#hasWidget")
+    assert has_widget["rangeIncludes"] == {"@id": "http://example.org/ns#Widget"}
+
+
+def test_subject_typed_only_as_rdfs_resource_is_not_ported(crate):
+    with pytest.raises(KeyError):
+        _by_id(crate["@graph"], "http://example.org/ns#ignoredResource")
+
+
+def test_item_lists_are_in_the_resource_descriptor(crate):
+    descriptor = _by_id(crate["@graph"], "#hasSpecializedSchema")
+    part_ids = [part["@id"] for part in descriptor["hasPart"]]
+    assert "#itemlist_Colour" in part_ids
+    assert "http://example.org/ns#red" not in part_ids
+
+
 def test_root_dataset_points_at_resource_descriptor(crate):
     dataset = _by_id(crate["@graph"], "./")
     assert dataset["@type"] == "Dataset"

@@ -6,7 +6,7 @@ title: Web Annotation Vocabulary Schema Terms
 
 This MASP Schema was machine-ported from the [W3C Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/) (namespace `http://www.w3.org/ns/oa#`, source [oa.ttl](https://www.w3.org/ns/oa.ttl)) using the `scripts/owl-to-masp.py` script. It has not been hand-edited.
 
-All of the vocabulary's classes and properties are included. The vocabulary's named individuals are not, as the converter does not yet port instances: the `oa:Motivation` values (`oa:assessing`, `oa:bookmarking`, `oa:classifying`, `oa:commenting`, `oa:describing`, `oa:editing`, `oa:highlighting`, `oa:identifying`, `oa:linking`, `oa:moderating`, `oa:questioning`, `oa:replying`, `oa:tagging`), the `oa:Direction` values (`oa:ltrDirection`, `oa:rtlDirection`), and the Annotation Protocol preferences `oa:PreferContainedDescriptions` and `oa:PreferContainedIRIs`.
+All of the vocabulary's classes and properties are included. Its named individuals, the `oa:Motivation` values (`oa:commenting`, `oa:tagging`, etc.) and the `oa:Direction` values (`oa:ltrDirection`, `oa:rtlDirection`), are ported as instances of their class and listed in an `ItemList` per class (`#itemlist_Motivation`, `#itemlist_Direction`). Properties whose range is one of those classes (`oa:motivatedBy`, `oa:hasPurpose`, `oa:textDirection`) take their values from that list. The Annotation Protocol preferences `oa:PreferContainedDescriptions` and `oa:PreferContainedIRIs` are not ported, as they are HTTP `Prefer` header values rather than crate metadata.
 
 ## All Rules:
 
@@ -30,7 +30,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#bodyValue" title="http://www.w3.org/ns/oa#bodyValue">bodyValue</a> | No | The object of the predicate is a plain text string to be used as the content of the body of the Annotation. The value MUST be an xsd:string and that data type MUST NOT be expressed in the serialization. Note that language MUST NOT be associated with the value either as a language tag, as that is only available for rdf:langString .  | schema:Text |  |
 | <a href="#hasBody" title="http://www.w3.org/ns/oa#hasBody">hasBody</a> | No | The object of the relationship is a resource that is a body of the Annotation. |  |  |
 | <a href="#hasTarget" title="http://www.w3.org/ns/oa#hasTarget">hasTarget</a> | No | The relationship between an Annotation and its Target. |  |  |
-| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | No | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a> |  |
+| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | No | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
 | <a href="#styledBy" title="http://www.w3.org/ns/oa#styledBy">styledBy</a> | No | A reference to a Stylesheet that should be used to apply styles to the Annotation rendering. | <a href="#Style" title="http://www.w3.org/ns/oa#Style">Style</a> |  |
 
 
@@ -419,7 +419,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a> | The purpose served by the resource in the Annotation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a> |  |
+| <a href="#hasPurpose" title="http://www.w3.org/ns/oa#hasPurpose">hasPurpose</a> | The purpose served by the resource in the Annotation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> |  |
 ### <a id="hasScope" title="http://www.w3.org/ns/oa#hasScope"></a> Property: hasScope <small style="color:#aaa">(http://www.w3.org/ns/oa#hasScope)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -454,7 +454,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#Motivation" title="http://www.w3.org/ns/oa#Motivation">Motivation</a> | <a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> |
+| <a href="#motivatedBy" title="http://www.w3.org/ns/oa#motivatedBy">motivatedBy</a> | The relationship between an Annotation and a Motivation that describes the reason for the Annotation's creation. | <a href="#itemlist_Motivation" title="#itemlist_Motivation">Motivation values</a> | <a href="#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> |
 ### <a id="prefix" title="http://www.w3.org/ns/oa#prefix"></a> Property: prefix <small style="color:#aaa">(http://www.w3.org/ns/oa#prefix)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -514,7 +514,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a> | The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource. | <a href="#Direction" title="http://www.w3.org/ns/oa#Direction">Direction</a> |  |
+| <a href="#textDirection" title="http://www.w3.org/ns/oa#textDirection">textDirection</a> | The direction of the text of the subject resource. There MUST only be one text direction associated with any given resource. | <a href="#itemlist_Direction" title="#itemlist_Direction">Direction values</a> |  |
 ### <a id="via" title="http://www.w3.org/ns/oa#via"></a> Property: via <small style="color:#aaa">(http://www.w3.org/ns/oa#via)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -523,5 +523,119 @@ Instances of this type MAY be present in the crate.
 ## Property Values
 
 No PropertyValue entities are defined.
+
+
+
+## Value Lists
+
+## Item Lists
+
+### <a id="itemlist_Direction"></a>Item List: Direction values
+
+
+
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>ltrDirection</td><td><a id="ltrDirection" href="http://www.w3.org/ns/oa#ltrDirection" target="_blank" rel="noopener">http://www.w3.org/ns/oa#ltrDirection</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#ltrDirection&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Direction&quot;,
+  &quot;name&quot;: &quot;ltrDirection&quot;,
+  &quot;description&quot;: &quot;The direction of text that is read from left to right.&quot;
+}</code></pre></td></tr>
+<tr><td>rtlDirection</td><td><a id="rtlDirection" href="http://www.w3.org/ns/oa#rtlDirection" target="_blank" rel="noopener">http://www.w3.org/ns/oa#rtlDirection</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#rtlDirection&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Direction&quot;,
+  &quot;name&quot;: &quot;rtlDirection&quot;,
+  &quot;description&quot;: &quot;The direction of text that is read from right to left.&quot;
+}</code></pre></td></tr>
+</tbody></table>
+
+### <a id="itemlist_Motivation"></a>Item List: Motivation values
+
+
+
+<table>
+<thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
+<tbody>
+<tr><td>assessing</td><td><a id="assessing" href="http://www.w3.org/ns/oa#assessing" target="_blank" rel="noopener">http://www.w3.org/ns/oa#assessing</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#assessing&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;assessing&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to provide an assessment about the Target resource.&quot;
+}</code></pre></td></tr>
+<tr><td>bookmarking</td><td><a id="bookmarking" href="http://www.w3.org/ns/oa#bookmarking" target="_blank" rel="noopener">http://www.w3.org/ns/oa#bookmarking</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#bookmarking&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;bookmarking&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to create a bookmark to the Target or part thereof.&quot;
+}</code></pre></td></tr>
+<tr><td>classifying</td><td><a id="classifying" href="http://www.w3.org/ns/oa#classifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#classifying</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#classifying&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;classifying&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to that classify the Target as something.&quot;
+}</code></pre></td></tr>
+<tr><td>commenting</td><td><a id="commenting" href="http://www.w3.org/ns/oa#commenting" target="_blank" rel="noopener">http://www.w3.org/ns/oa#commenting</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#commenting&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;commenting&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to comment about the Target.&quot;
+}</code></pre></td></tr>
+<tr><td>describing</td><td><a id="describing" href="http://www.w3.org/ns/oa#describing" target="_blank" rel="noopener">http://www.w3.org/ns/oa#describing</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#describing&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;describing&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to describe the Target, as opposed to a comment about them.&quot;
+}</code></pre></td></tr>
+<tr><td>editing</td><td><a id="editing" href="http://www.w3.org/ns/oa#editing" target="_blank" rel="noopener">http://www.w3.org/ns/oa#editing</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#editing&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;editing&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to request a change or edit to the Target resource.&quot;
+}</code></pre></td></tr>
+<tr><td>highlighting</td><td><a id="highlighting" href="http://www.w3.org/ns/oa#highlighting" target="_blank" rel="noopener">http://www.w3.org/ns/oa#highlighting</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#highlighting&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;highlighting&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to highlight the Target resource or segment of it.&quot;
+}</code></pre></td></tr>
+<tr><td>identifying</td><td><a id="identifying" href="http://www.w3.org/ns/oa#identifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#identifying</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#identifying&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;identifying&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.&quot;
+}</code></pre></td></tr>
+<tr><td>linking</td><td><a id="linking" href="http://www.w3.org/ns/oa#linking" target="_blank" rel="noopener">http://www.w3.org/ns/oa#linking</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#linking&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;linking&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to link to a resource related to the Target.&quot;
+}</code></pre></td></tr>
+<tr><td>moderating</td><td><a id="moderating" href="http://www.w3.org/ns/oa#moderating" target="_blank" rel="noopener">http://www.w3.org/ns/oa#moderating</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#moderating&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;moderating&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to assign some value or quality to the Target.&quot;
+}</code></pre></td></tr>
+<tr><td>questioning</td><td><a id="questioning" href="http://www.w3.org/ns/oa#questioning" target="_blank" rel="noopener">http://www.w3.org/ns/oa#questioning</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#questioning&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;questioning&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to ask a question about the Target.&quot;
+}</code></pre></td></tr>
+<tr><td>replying</td><td><a id="replying" href="http://www.w3.org/ns/oa#replying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#replying</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#replying&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;replying&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource.&quot;
+}</code></pre></td></tr>
+<tr><td>tagging</td><td><a id="tagging" href="http://www.w3.org/ns/oa#tagging" target="_blank" rel="noopener">http://www.w3.org/ns/oa#tagging</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#tagging&quot;,
+  &quot;@type&quot;: &quot;http://www.w3.org/ns/oa#Motivation&quot;,
+  &quot;name&quot;: &quot;tagging&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to associate a tag with the Target.&quot;
+}</code></pre></td></tr>
+</tbody></table>
 
 
