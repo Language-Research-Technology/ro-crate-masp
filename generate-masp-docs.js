@@ -14,6 +14,7 @@ const { execSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });
 const { Workbook } = require("ro-crate-excel");
+const { registerUnlistedRules } = require("./lib/register-rules");
 
 async function main() {
 // Parse command line arguments — strip flags before positional args
@@ -102,7 +103,28 @@ async function syncProfileCrateWithRocxl(targetDir) {
     const wb = new Workbook();
     await wb.loadExcel(spreadsheetPath);
     const crateJson = JSON.parse(JSON.stringify(wb.crate.getJson()));
+    // Rows added in Excel aren't rules until the schema descriptor lists them.
+    const registered = registerUnlistedRules(crateJson);
     fs.writeFileSync(metadataPath, JSON.stringify(crateJson, null, 2), "utf8");
+    if (registered.length > 0) {
+      // Write the fix back so the spreadsheet stays the thing people edit.
+      const regenerated = new Workbook({
+        crate: new ROCrate(crateJson, { array: true, link: true }),
+      });
+      await regenerated.crateToWorkbook();
+      await regenerated.workbook.xlsx.writeFile(spreadsheetPath);
+      console.warn(
+        [
+          "",
+          "WARNING: ro-crate-metadata.xlsx has been REGENERATED.",
+          `Added ${registered.length} rule(s) missing from the schema ResourceDescriptor's hasPart:`,
+          ...registered.map((id) => `  ${id}`),
+          "If the spreadsheet is open in Excel, close it WITHOUT saving and reopen it,",
+          "or your next save will overwrite this fix. Excel will not warn you.",
+          "",
+        ].join("\n")
+      );
+    }
   }
 
   // Writing the derived file naturally gives it a later mtime than the

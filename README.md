@@ -176,7 +176,7 @@ This repository includes several profiles and schemas that can be built using np
 
 ### Usage note: spreadsheet synchronisation
 
-- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to synchronise `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` first. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual.
+- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to synchronise `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` first. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual. When syncing from the spreadsheet, any `rdfs:Class`, `rdf:Property`, `ItemList`, `PropertyValue` or `DefinedTermSet` row not yet listed in the schema `ResourceDescriptor`'s `hasPart` is added to it automatically, and the spreadsheet is regenerated with a warning — if it is open in Excel, close it without saving and reopen it.
 
   This is done in-process via the [`ro-crate-excel`](https://github.com/Language-Research-Technology/ro-crate-excel) package's `Workbook` API (a regular npm dependency), not by shelling out to its `rocxl` command-line tool — `rocxl` also recursively catalogues data files in the target directory using the external `sf` (Siegfried) binary, which MASP schema/profile crates (metadata-only, no data files) don't need and which isn't installed in every environment.
 
