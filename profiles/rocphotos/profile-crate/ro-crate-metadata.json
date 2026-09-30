@@ -1146,7 +1146,10 @@
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
-      "rdfs:comment": "Always oa:identifying \u2014 the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own.",
+      "rdfs:comment": "Always oa:identifying \u2014 the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile.",
+      "rangeIncludes": {
+        "@id": "#itemlist_motivation"
+      },
       "sh:minCount": 1
     },
     {
@@ -1399,6 +1402,12 @@
           "@id": "http://www.w3.org/ns/oa#identifying"
         }
       ]
+    },
+    {
+      "@id": "http://www.w3.org/ns/oa#identifying",
+      "@type": "oa:Motivation",
+      "name": "identifying",
+      "description": "The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target."
     }
   ]
 }

@@ -54,7 +54,7 @@ itself queries a companion SQLite index, not this crate.</li>
 <p>All three share the same root <code>Dataset</code>/descriptor shape, which is why one
 profile covers them: the class rules below describe what may appear, and
 cardinality is asserted only where it holds for every crate.</p>
-<h2>People and pets, twice over</h2>
+<h2>People (and pets)</h2>
 <p>A person's identity is derived from their name and is collection-wide
 (<code>arcp://name,rocphoto/person/&lt;NameSlug&gt;</code>). Inside a crate, though, nothing
 points at that identity directly. Each crate carries <strong>an instance</strong> of the
@@ -89,20 +89,20 @@ two shapes, and its <code>oa:hasTarget</code> is a W3C Media Fragment whose <cod
 <code>rocphotos:regionType</code> rather than falling through <code>@vocab</code> to a schema.org
 IRI that does not exist. <code>width</code> and <code>height</code>, which a region also uses, are
 deliberately left as schema.org's own rather than redefined.</p>
-<p>Two things a crate does not yet describe, so the rules over them are left
-unconstrained here rather than failing a crate:</p>
-<ul>
-<li><code>oa:motivatedBy</code> points at <code>oa:identifying</code>, which the crate does not
-describe as an entity of its own. The validator resolves a range reference
-within the target crate, so it cannot be range-checked until it does.</li>
-<li>A <code>FaceEmbedding</code>'s <code>about</code> points at a <code>Person</code> that the faces crate does
-not itself contain — unlike the photo crates, which carry a copy of every
-identity they reference.</li>
-</ul>
+<p>One thing a crate does not yet describe, so the rule over it is left
+unconstrained here rather than failing a crate: a <code>FaceEmbedding</code>'s <code>about</code>
+points at a <code>Person</code> that the faces crate does not itself contain — unlike the
+photo crates, which carry a copy of every identity they reference.</p>
 <h2>Enumerations</h2>
 <p>An enumerated value in a MASP <code>ItemList</code> is an IRI, resolved within the crate
 being validated. <code>regionType</code> is a plain literal (&quot;Face&quot; or &quot;Pet&quot;), so it is
 declared as text rather than given an ItemList it could never satisfy.</p>
+<p><code>oa:motivatedBy</code> takes its value from the &quot;Annotation motivations&quot; list, which
+for now holds only <code>oa:identifying</code>; using a list leaves room to add other
+motivations later. Like any ItemList value, a crate must carry the
+<code>oa:identifying</code> entity itself, with the same <code>@type</code>, <code>name</code> and
+<code>description</code> as in this profile (the same as in the
+<a href="https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html">Web Annotation schema</a>).</p>
 <h2>Rules</h2>
 <p><strong>15</strong> classes &middot; <strong>50</strong> properties</p>
 <div class="row">
@@ -162,7 +162,7 @@ declared as text rather than given an ItemList it could never satisfy.</p>
 <li><a href="#prop_embedding_name" title="#prop_embedding_name">name</a> — The person's name, or "Ignored stranger" for a permanently-suppressed face. <small style="color:#aaa">#prop_embedding_name</small></li>
 <li><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a> — A per-region proxy for the subject, so this one sighting could later carry its own properties. <small style="color:#aaa">#prop_standoff_hasBody</small></li>
 <li><a href="#prop_standoff_hasTarget" title="#prop_standoff_hasTarget">oa:hasTarget</a> — A W3C Media Fragment on the photo — #xywh=percent:x,y,w,h, a top-left corner and size, unlike the centre-based EXIF shape. <small style="color:#aaa">#prop_standoff_hasTarget</small></li>
-<li><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> — Always oa:identifying — the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own. <small style="color:#aaa">#prop_standoff_motivatedBy</small></li>
+<li><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> — Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile. <small style="color:#aaa">#prop_standoff_motivatedBy</small></li>
 <li><a href="#prop_photo_processingError" title="#prop_photo_processingError">processingError</a> — An EXIF and/or thumbnail failure. Removed once the file processes cleanly. <small style="color:#aaa">#prop_photo_processingError</small></li>
 <li><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">prov:specializationOf</a> — The real photo this item stands for. <small style="color:#aaa">#prop_albumitem_specializationOf</small></li>
 <li><a href="#prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf">prov:specializationOf</a> — The shared identity this is an instance of. <small style="color:#aaa">#prop_personinstance_specializationOf</small></li>
@@ -964,8 +964,8 @@ declared as text rather than given an ItemList it could never satisfy.</p>
 <td><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a></td>
 <td><a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a></td>
 <td>Yes</td>
-<td>Always oa:identifying — the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own.</td>
-<td></td>
+<td>Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile.</td>
+<td><a href="#itemlist_motivation" title="#itemlist_motivation">Annotation motivations</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1853,8 +1853,8 @@ declared as text rather than given an ItemList it could never satisfy.</p>
 <tr>
 <td><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a></td>
 <td><a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a></td>
-<td>Always oa:identifying — the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own.</td>
-<td></td>
+<td>Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile.</td>
+<td><a href="#itemlist_motivation" title="#itemlist_motivation">Annotation motivations</a></td>
 <td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
 </tr>
 </tbody>
@@ -2246,8 +2246,11 @@ declared as text rather than given an ItemList it could never satisfy.</p>
 <table>
 <thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
 <tbody>
-<tr><td>http://www.w3.org/ns/oa#identifying</td><td><a id="identifying" href="http://www.w3.org/ns/oa#identifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#identifying</a></td><td><pre><code>{
-  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#identifying&quot;
+<tr><td>identifying</td><td><a id="identifying" href="http://www.w3.org/ns/oa#identifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#identifying</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#identifying&quot;,
+  &quot;@type&quot;: &quot;oa:Motivation&quot;,
+  &quot;name&quot;: &quot;identifying&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.&quot;
 }</code></pre></td></tr>
 </tbody></table>
 

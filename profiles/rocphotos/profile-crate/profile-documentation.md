@@ -24,7 +24,7 @@ All three share the same root `Dataset`/descriptor shape, which is why one
 profile covers them: the class rules below describe what may appear, and
 cardinality is asserted only where it holds for every crate.
 
-## People and pets, twice over
+## People (and pets)
 
 A person's identity is derived from their name and is collection-wide
 (`arcp://name,rocphoto/person/<NameSlug>`). Inside a crate, though, nothing
@@ -69,21 +69,23 @@ rocphotos binds each of them as a term definition in every crate's own
 IRI that does not exist. `width` and `height`, which a region also uses, are
 deliberately left as schema.org's own rather than redefined.
 
-Two things a crate does not yet describe, so the rules over them are left
-unconstrained here rather than failing a crate:
-
-- `oa:motivatedBy` points at `oa:identifying`, which the crate does not
-  describe as an entity of its own. The validator resolves a range reference
-  within the target crate, so it cannot be range-checked until it does.
-- A `FaceEmbedding`'s `about` points at a `Person` that the faces crate does
-  not itself contain — unlike the photo crates, which carry a copy of every
-  identity they reference.
+One thing a crate does not yet describe, so the rule over it is left
+unconstrained here rather than failing a crate: a `FaceEmbedding`'s `about`
+points at a `Person` that the faces crate does not itself contain — unlike the
+photo crates, which carry a copy of every identity they reference.
 
 ## Enumerations
 
 An enumerated value in a MASP `ItemList` is an IRI, resolved within the crate
 being validated. `regionType` is a plain literal ("Face" or "Pet"), so it is
 declared as text rather than given an ItemList it could never satisfy.
+
+`oa:motivatedBy` takes its value from the "Annotation motivations" list, which
+for now holds only `oa:identifying`; using a list leaves room to add other
+motivations later. Like any ItemList value, a crate must carry the
+`oa:identifying` entity itself, with the same `@type`, `name` and
+`description` as in this profile (the same as in the
+[Web Annotation schema](https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html)).
 
 ## Rules
 
@@ -331,7 +333,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_standoff_name" title="#prop_standoff_name">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | The subject's name. | Text |  |
 | <a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a> | <a href="http://www.w3.org/ns/oa#hasBody" target="_blank" rel="noopener">http://www.w3.org/ns/oa#hasBody</a> | Yes | A per-region proxy for the subject, so this one sighting could later carry its own properties. | <a href="#class_RegionBody" title="#class_RegionBody">Region body</a> |  |
 | <a href="#prop_standoff_hasTarget" title="#prop_standoff_hasTarget">oa:hasTarget</a> | <a href="http://www.w3.org/ns/oa#hasTarget" target="_blank" rel="noopener">http://www.w3.org/ns/oa#hasTarget</a> | Yes | A W3C Media Fragment on the photo — #xywh=percent:x,y,w,h, a top-left corner and size, unlike the centre-based EXIF shape. |  |  |
-| <a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> | <a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a> | Yes | Always oa:identifying — the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own. |  |  |
+| <a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> | <a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a> | Yes | Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile. | <a href="#itemlist_motivation" title="#itemlist_motivation">Annotation motivations</a> |  |
 | <a href="#prop_standoff_regionType" title="#prop_standoff_regionType">regionType</a> | <a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a> | Yes | A literal, either "Face" or "Pet". | Text |  |
 | <a href="#prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile">writtenToFile</a> | <a href="https://w3id.org/ldac/rocphotos/terms#writtenToFile" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#writtenToFile</a> | Yes | Whether this region has been written into the photo file's own XMP. Once a rescan finds the same name in the file's real EXIF regions, this region is replaced by the EXIF-derived one. | Boolean |  |
 
@@ -557,7 +559,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> | <a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a> | Always oa:identifying — the annotation says who this is. Left range-unconstrained: the validator resolves a range reference within the target crate, and rocphotos does not (yet) describe oa:identifying as an entity of its own. |  | <a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a> |
+| <a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> | <a href="http://www.w3.org/ns/oa#motivatedBy" target="_blank" rel="noopener">http://www.w3.org/ns/oa#motivatedBy</a> | Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile. | <a href="#itemlist_motivation" title="#itemlist_motivation">Annotation motivations</a> | <a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a> |
 ### <a id="prop_photo_processingError" title="#prop_photo_processingError"></a> Property: processingError
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -665,8 +667,11 @@ Why a standoff region exists: it identifies someone.
 <table>
 <thead><tr><th>Name</th><th>@id</th><th>Entity</th></tr></thead>
 <tbody>
-<tr><td>http://www.w3.org/ns/oa#identifying</td><td><a id="identifying" href="http://www.w3.org/ns/oa#identifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#identifying</a></td><td><pre><code>{
-  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#identifying&quot;
+<tr><td>identifying</td><td><a id="identifying" href="http://www.w3.org/ns/oa#identifying" target="_blank" rel="noopener">http://www.w3.org/ns/oa#identifying</a></td><td><pre><code>{
+  &quot;@id&quot;: &quot;http://www.w3.org/ns/oa#identifying&quot;,
+  &quot;@type&quot;: &quot;oa:Motivation&quot;,
+  &quot;name&quot;: &quot;identifying&quot;,
+  &quot;description&quot;: &quot;The motivation for when the user intends to assign an identity to the Target or identify what is being depicted or described in the Target.&quot;
 }</code></pre></td></tr>
 </tbody></table>
 

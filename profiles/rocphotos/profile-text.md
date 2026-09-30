@@ -24,7 +24,7 @@ All three share the same root `Dataset`/descriptor shape, which is why one
 profile covers them: the class rules below describe what may appear, and
 cardinality is asserted only where it holds for every crate.
 
-## People and pets, twice over
+## People (and pets)
 
 A person's identity is derived from their name and is collection-wide
 (`arcp://name,rocphoto/person/<NameSlug>`). Inside a crate, though, nothing
@@ -69,21 +69,23 @@ rocphotos binds each of them as a term definition in every crate's own
 IRI that does not exist. `width` and `height`, which a region also uses, are
 deliberately left as schema.org's own rather than redefined.
 
-Two things a crate does not yet describe, so the rules over them are left
-unconstrained here rather than failing a crate:
-
-- `oa:motivatedBy` points at `oa:identifying`, which the crate does not
-  describe as an entity of its own. The validator resolves a range reference
-  within the target crate, so it cannot be range-checked until it does.
-- A `FaceEmbedding`'s `about` points at a `Person` that the faces crate does
-  not itself contain — unlike the photo crates, which carry a copy of every
-  identity they reference.
+One thing a crate does not yet describe, so the rule over it is left
+unconstrained here rather than failing a crate: a `FaceEmbedding`'s `about`
+points at a `Person` that the faces crate does not itself contain — unlike the
+photo crates, which carry a copy of every identity they reference.
 
 ## Enumerations
 
 An enumerated value in a MASP `ItemList` is an IRI, resolved within the crate
 being validated. `regionType` is a plain literal ("Face" or "Pet"), so it is
 declared as text rather than given an ItemList it could never satisfy.
+
+`oa:motivatedBy` takes its value from the "Annotation motivations" list, which
+for now holds only `oa:identifying`; using a list leaves room to add other
+motivations later. Like any ItemList value, a crate must carry the
+`oa:identifying` entity itself, with the same `@type`, `name` and
+`description` as in this profile (the same as in the
+[Web Annotation schema](https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html)).
 
 ## Rules
 
