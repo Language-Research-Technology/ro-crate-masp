@@ -35,74 +35,62 @@
     <hr>
 <h2>title: rocphotos Profile</h2>
 <h2>Overview</h2>
-<p>A profile for photograph collections kept &quot;at rest&quot; on a filesystem as nested
-RO-Crates, as produced by <a href="https://github.com/ptsefton/rocphotos">rocphotos</a>.
-A collection is made of three kinds of crate:</p>
+<p>Photo collections stored on a filesystem as nested RO-Crates by
+<a href="https://github.com/ptsefton/rocphotos">rocphotos</a>. Three kinds of crate share
+one root <code>Dataset</code> shape, so one profile covers them; cardinality is asserted
+only where it holds for all three.</p>
 <ul>
-<li><strong>The root crate</strong>, one per collection. Lists each sub-collection as a
-<code>Dataset</code>, holds any albums (<code>ImageGallery</code>), and — on its <code>mentions</code> —
-every <code>Person</code> and <code>Pet</code> depicted anywhere in the collection. This is the
-crate in which a person is <em>described</em>: their name is derived from the
-photos, but anything further known about them belongs here.</li>
-<li><strong>A sub-collection crate</strong> per directory of photos. Holds an <code>ImageObject</code>
-per photograph, an <code>ImageRegion</code> per tagged face or pet, and an instance of
-each person/pet depicted (below).</li>
-<li><strong>The faces crate</strong>, under the application's own housekeeping directory:
-one <code>FaceEmbedding</code> per face-recognition reference, for inspection. Matching
-itself queries a companion SQLite index, not this crate.</li>
+<li><strong>Root crate</strong> (one per collection): sub-collections as <code>Dataset</code>s, albums
+(<code>ImageGallery</code>), and on <code>mentions</code> every <code>Person</code>/<code>Pet</code> depicted. People are
+described here.</li>
+<li><strong>Sub-collection crate</strong> (one per photo directory): an <code>ImageObject</code> per
+photo, an <code>ImageRegion</code> per tagged face/pet, and an instance of each
+person/pet depicted.</li>
+<li><strong>Faces crate</strong> (in the app's housekeeping directory): a <code>FaceEmbedding</code> per
+face-recognition reference, for inspection only; matching uses a SQLite index.</li>
 </ul>
-<p>All three share the same root <code>Dataset</code>/descriptor shape, which is why one
-profile covers them: the class rules below describe what may appear, and
-cardinality is asserted only where it holds for every crate.</p>
-<h2>People (and pets)</h2>
-<p>A person's identity is derived from their name and is collection-wide
-(<code>arcp://name,rocphoto/person/&lt;NameSlug&gt;</code>). Inside a crate, though, nothing
-points at that identity directly. Each crate carries <strong>an instance</strong> of the
-person — one per person per crate — and the image's <code>about</code>, the region's
-<code>about</code> and a standoff region's body proxy all point at the instance, which
-<code>prov:specializationOf</code> the shared identity.</p>
-<p>The indirection exists so the same person can be recorded under the name they
-went by in that part of the collection: a birth name in the crates covering
-2005 and a chosen name in those covering 2025, still resolving to one person.
-Since a sub-collection is usually a slice of time, the crate is the natural
-unit for that.</p>
-<p>Both are <code>schema:Person</code>, so they are told apart here by what they must carry —
-a canonical person by <code>name</code>, an instance by <code>prov:specializationOf</code> — rather
-than by type. The same applies to the pet classes and to a region's body proxy.</p>
-<h2>Faces: two region shapes</h2>
-<p>A face tagged in the photo file itself (MWG, as written by digiKam, Lightroom
-or Photos) is rebuilt from EXIF on every scan, and its area follows MWG's own
-convention — a <strong>centre</strong> point plus size, as fractions of the image.</p>
-<p>A face confirmed in the application is recorded instead as a <em>standoff</em>
-annotation, whether or not it is ever written into the photo file, using the
-<a href="https://www.w3.org/TR/annotation-vocab/">W3C Web Annotation vocabulary</a>. It is
-typed <code>oa:Annotation</code> as well as <code>ImageRegion</code>, which is what distinguishes the
-two shapes, and its <code>oa:hasTarget</code> is a W3C Media Fragment whose <code>xywh</code> is a
-<strong>top-left</strong> corner — the opposite convention to the EXIF-derived shape.</p>
-<h2>Known gap: the coined terms</h2>
-<p>This profile uses <code>schema:</code> and <code>oa:</code> wherever a term exists, and a
-<code>rocphotos:</code> namespace (<code>https://w3id.org/ldac/rocphotos/terms#</code>) for the rest:
-<code>Pet</code>, <code>ImageRegion</code>, <code>FaceEmbedding</code>, <code>regionType</code>, <code>writtenToFile</code>,
-<code>embedding</code>, <code>rating</code> and friends. schema.org defines none of these.</p>
-<p>rocphotos binds each of them as a term definition in every crate's own
-<code>@context</code>, so the bare <code>regionType</code> a crate writes resolves to
-<code>rocphotos:regionType</code> rather than falling through <code>@vocab</code> to a schema.org
-IRI that does not exist. <code>width</code> and <code>height</code>, which a region also uses, are
-deliberately left as schema.org's own rather than redefined.</p>
-<p>One thing a crate does not yet describe, so the rule over it is left
-unconstrained here rather than failing a crate: a <code>FaceEmbedding</code>'s <code>about</code>
-points at a <code>Person</code> that the faces crate does not itself contain — unlike the
-photo crates, which carry a copy of every identity they reference.</p>
-<h2>Enumerations</h2>
-<p>An enumerated value in a MASP <code>ItemList</code> is an IRI, resolved within the crate
-being validated. <code>regionType</code> is a plain literal (&quot;Face&quot; or &quot;Pet&quot;), so it is
-declared as text rather than given an ItemList it could never satisfy.</p>
-<p><code>oa:motivatedBy</code> takes its value from the &quot;Annotation motivations&quot; list, which
-for now holds only <code>oa:identifying</code>; using a list leaves room to add other
-motivations later. Like any ItemList value, a crate must carry the
-<code>oa:identifying</code> entity itself, with the same <code>@type</code>, <code>name</code> and
-<code>description</code> as in this profile (the same as in the
-<a href="https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html">Web Annotation schema</a>).</p>
+<h2>People and pets</h2>
+<p>Identity is collection-wide, derived from the name
+(<code>arcp://name,rocphoto/person/&lt;NameSlug&gt;</code>). Each crate holds one <strong>instance</strong>
+per person, which <code>prov:specializationOf</code> that identity; image <code>about</code>, region
+<code>about</code> and standoff body proxies point at the instance. This lets a person
+appear under different names in different crates (e.g. birth name in 2005,
+chosen name in 2025).</p>
+<p>Canonical and instance are both <code>schema:Person</code>, told apart by required
+properties: <code>name</code> vs <code>prov:specializationOf</code>. Same for pets and body proxies.</p>
+<h2>Face regions</h2>
+<ul>
+<li><strong>EXIF (MWG)</strong>: rebuilt from the photo file on every scan. Area is a
+<strong>centre</strong> point plus size, as fractions.</li>
+<li><strong>Standoff</strong>: a face confirmed in the app, typed <code>oa:Annotation</code> and
+<code>ImageRegion</code>. <code>oa:hasTarget</code> is a Media Fragment whose <code>xywh</code> is the
+<strong>top-left</strong> corner. <code>oa:motivatedBy</code> is always <code>oa:identifying</code> (see
+Value lists, below).</li>
+</ul>
+<h2>Namespaces</h2>
+<p><code>schema:</code> and <code>oa:</code> where a term exists; otherwise <code>rocphotos:</code>
+(<code>https://w3id.org/ldac/rocphotos/terms#</code>): <code>Pet</code>, <code>ImageRegion</code>,
+<code>FaceEmbedding</code>, <code>regionType</code>, <code>writtenToFile</code>, <code>embedding</code>, <code>rating</code>, etc.
+Each crate's <code>@context</code> binds these, so bare terms don't fall through to
+<code>@vocab</code>. <code>width</code>/<code>height</code> stay schema.org.</p>
+<h2>Value lists</h2>
+<p>ItemList values are IRIs, and the crate must contain each value's entity,
+matching the profile's copy property for property (<code>@type</code> compared as a
+literal string, so write <code>oa:Motivation</code>, not the full IRI).</p>
+<ul>
+<li><code>oa:motivatedBy</code>: &quot;Annotation motivations&quot; list, currently only
+<code>oa:identifying</code> (same entity as the
+<a href="https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html">Web Annotation schema</a>).
+A list so more motivations can be added later.</li>
+<li><code>regionType</code>: a literal (&quot;Face&quot; or &quot;Pet&quot;), so declared as text, not an
+ItemList.</li>
+</ul>
+<h2>Known gaps</h2>
+<ul>
+<li>The <code>rocphotos:</code> terms are coined here; schema.org defines none of them.</li>
+<li>A <code>FaceEmbedding</code>'s <code>about</code> points at a <code>Person</code> the faces crate doesn't
+contain, so it is left unconstrained.</li>
+</ul>
 <h2>Rules</h2>
 <p><strong>15</strong> classes &middot; <strong>50</strong> properties</p>
 <div class="row">
@@ -2239,7 +2227,6 @@ motivations later. Like any ItemList value, a crate must carry the
 </table>
 <h2>Property Values</h2>
 <p>No PropertyValue entities are defined.</p>
-<h2>Enumerations</h2>
 <h2>Item Lists</h2>
 <h3><a id="itemlist_motivation"></a>Item List: Annotation motivations</h3>
 <p>Why a standoff region exists: it identifies someone.</p>
