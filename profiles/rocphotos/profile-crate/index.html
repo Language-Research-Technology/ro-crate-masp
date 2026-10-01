@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rocphotos Profile</title>
+  <title>RO-Crate Photo Collection Profile</title>
   <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -32,32 +32,104 @@
       <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
       <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
     </p>
-    <hr>
-<h2>title: rocphotos Profile</h2>
+    <h1>Rocphotos RO-Crate Profile</h1>
 <h2>Overview</h2>
-<p>Photo collections stored on a filesystem as nested RO-Crates by
-<a href="https://github.com/ptsefton/rocphotos">rocphotos</a>. Three kinds of crate share
-one root <code>Dataset</code> shape, so one profile covers them; cardinality is asserted
-only where it holds for all three.</p>
+<p>This profile is for representing photo collections stored on a filesystem as nested RO-Crates, so that metadata about the photos and their context can be persisted ove the long term. This is implemented in
+<a href="https://github.com/ptsefton/rocphotos">rocphotos</a> but is designed to be application neutral so other applications can work with the metadata using this profile. There are three kinds of crate,
+and one profile covers them: each has its own root class (below).</p>
 <ul>
-<li><strong>Root crate</strong> (one per collection): sub-collections as <code>Dataset</code>s, albums
-(<code>ImageGallery</code>), and on <code>mentions</code> every <code>Person</code>/<code>Pet</code> depicted. People are
-described here.</li>
-<li><strong>Sub-collection crate</strong> (one per photo directory): an <code>ImageObject</code> per
+<li><strong>Main collection crate</strong> (one per collection): sub-collections as <code>Dataset</code>s, albums
+(<code>ImageGallery</code>), and every <code>Person</code>/<code>Pet</code> depicted. People are described
+here. They are not linked from the root dataset; nothing needs them to be.</li>
+<li><strong>Folder collection crate</strong> (one per photo directory): an <code>ImageObject</code> per
 photo, an <code>ImageRegion</code> per tagged face/pet, and an instance of each
 person/pet depicted.</li>
 <li><strong>Faces crate</strong> (in the app's housekeeping directory): a <code>FaceEmbedding</code> per
 face-recognition reference, for inspection only; matching uses a SQLite index.</li>
 </ul>
+<h2>Three kinds of root</h2>
+<p>Every crate's metadata descriptor must have exactly one <code>about</code>, and its value
+must fit one of three root classes. All three are <code>Dataset</code>s with a <code>name</code> and
+a <code>hasPart</code>; what <code>hasPart</code> holds is what tells them apart:</p>
+<table>
+<thead>
+<tr>
+<th>Root class</th>
+<th><code>hasPart</code> holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main collection root</td>
+<td>sub-collection references and albums</td>
+</tr>
+<tr>
+<td>Folder collection root</td>
+<td>photos</td>
+</tr>
+<tr>
+<td>Faces crate root</td>
+<td>face embeddings</td>
+</tr>
+</tbody>
+</table>
+<p>A root that mixes these fits none of them. A sub-collection reference in the
+main crate has no <code>hasPart</code>, so it cannot pass as a root.</p>
 <h2>People and pets</h2>
 <p>Identity is collection-wide, derived from the name
-(<code>arcp://name,rocphoto/person/&lt;NameSlug&gt;</code>). Each crate holds one <strong>instance</strong>
-per person, which <code>prov:specializationOf</code> that identity; image <code>about</code>, region
-<code>about</code> and standoff body proxies point at the instance. This lets a person
-appear under different names in different crates (e.g. birth name in 2005,
-chosen name in 2025).</p>
-<p>Canonical and instance are both <code>schema:Person</code>, told apart by required
-properties: <code>name</code> vs <code>prov:specializationOf</code>. Same for pets and body proxies.</p>
+(<code>arcp://name,rocphoto/person/&lt;NameSlug&gt;</code>). Every crate that depicts someone
+carries a copy of that identity, so each crate reads standalone; the copy
+carries <code>name</code> and nothing else, and the main collection crate's copy is the
+one that describes them. Image <code>about</code>, region <code>about</code> and a standoff
+region's <code>oa:hasBody</code> all name the identity directly.</p>
+<p>A crate may also hold an <strong>instance</strong> of a person — a second node,
+<code>prov:specializationOf</code> the identity, that references point at instead. It
+says that this part of the collection knows them by a different name: a birth
+name in the 2005 crates, a chosen name in the 2025 ones. An instance is
+written only where that is actually so. Writing one for every person in every
+crate would mean its presence said nothing, and a copy nobody had got round
+to updating would then be indistinguishable from a deliberate local name.
+Crates written before this rule hold an instance per person regardless and
+remain valid: a reference may name either.</p>
+<p>Canonical and instance are both <code>schema:Person</code>, distinguished by required
+properties: <code>name</code> vs <code>prov:specializationOf</code>.</p>
+<p>Where the photo file's own tag disagrees with the name a crate records for a
+region, the crate's name stands and the file's is kept beside it as
+<code>nameInFile</code>, for somebody to decide between later. Renaming a person
+rewrites every crate that depicts them, and it cannot rewrite the photo files
+unless write-back is enabled, so re-deriving a region from EXIF would
+otherwise undo the rename without saying so. The property is absent whenever
+the two agree.</p>
+<h2>Relationships between people</h2>
+<p>A person once carried a repeatable <code>parent</code> property. It has been removed: a parent is a relationship, and the relationship classes below say far more about one — when it held, which end is which — than a bare link from a person could. Keeping both would have meant two ways to state the same fact, pointing opposite ways, with nothing to say which a reader should believe.</p>
+<p>A relationship is not a property of either person — a marriage is not something one of them <em>has</em> — so it is an entity of its own joining them, which is also what lets it carry a span of time. These specialize <a href="https://www.ica.org/standards/RiC/ontology">Records in Contexts</a>' <code>rico:Relation</code>.</p>
+<p><strong>The kind of relationship is the class, not a value on a shared class.</strong> That is deliberate. A <code>DefinedTerm</code> has no way to say which end of a directed relation plays which role, so recording the kind as a term would leave the direction written as prose on a property every kind shared — true of all of them by convention, guaranteed of none, and silently wrong for the first term that broke it. A class can state its own direction, and each of these does.</p>
+<p><strong>Only the kinds RiC already has a class for</strong>, used as they stand:</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Is</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Married</td>
+<td><code>rico:SpouseRelation</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td>Parent and child</td>
+<td><code>rico:ChildRelation</code></td>
+<td>parent → child</td>
+</tr>
+</tbody>
+</table>
+<p>Nothing is coined here. A kind RiC does not cover — a de facto partnership, going out, a relation at a particular remove — waits until there is a way to say it in a vocabulary somebody else maintains, rather than being invented in this profile and then having to be reconciled later.</p>
+<p>The directed one follows RiC's own orientation, which runs <strong>down</strong> a generation: the parent is <code>rico:relationHasSource</code> and the child is <code>rico:relationHasTarget</code>. Recording it the other way up would make the specialization a lie, since no <code>sameAs</code> can connect a relation to its inverse.</p>
+<p><strong>Each kind declares its own participant properties, with its own words for them.</strong> <code>rico:relationHasSource</code> and <code>rico:relationHasTarget</code> would be the same pair for any directed kind, so the property name cannot say what either end means; a rule declared per class can. The parent-child kind calls them Parent and Child and says plainly which is which. The display name is the rule's <code>name</code>; <code>rdfs:label</code> is the property as written into the crate, which is what MASP looks up.</p>
+<p>The undirected kind lists its people on <code>rico:relationConnects</code>, in no significant order. (RiC's <code>relationSource</code> is something else entirely — the source of information for the assertion, a literal.) Both take an optional <code>rico:beginningDate</code> and <code>rico:endDate</code>, to whatever precision is known.</p>
 <h2>Face regions</h2>
 <ul>
 <li><strong>EXIF (MWG)</strong>: rebuilt from the photo file on every scan. Area is a
@@ -87,94 +159,116 @@ ItemList.</li>
 </ul>
 <h2>Known gaps</h2>
 <ul>
-<li>The <code>rocphotos:</code> terms are coined here; schema.org defines none of them.</li>
-<li>A <code>FaceEmbedding</code>'s <code>about</code> points at a <code>Person</code> the faces crate doesn't
-contain, so it is left unconstrained.</li>
+<li>The <code>rocphotos:</code> terms are coined here</li>
+<li>References that cross crates have no range, since the validator can only
+resolve a reference within the crate it is checking: a <code>FaceEmbedding</code>'s
+<code>about</code> (the <code>Person</code> is in the main crate) and an album item's
+<code>prov:specializationOf</code> (the photo is in its folder crate).</li>
 </ul>
 <h2>Rules</h2>
-<p><strong>15</strong> classes &middot; <strong>50</strong> properties</p>
+<p><strong>20</strong> classes &middot; <strong>65</strong> properties</p>
 <div class="row">
   <div class="col-md-6 col-panel">
     <h3>Classes</h3>
     <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
     <ul id="class-list" class="entity-list">
-<li><a href="#class_Album" title="#class_Album">Album</a> <small style="color:#aaa">#class_Album</small></li>
-<li><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a> <small style="color:#aaa">#class_AlbumItem</small></li>
-<li><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a> <small style="color:#aaa">#class_ExifValue</small></li>
-<li><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a> <small style="color:#aaa">#class_FaceEmbedding</small></li>
-<li><a href="#MainPersonClass" title="#MainPersonClass">Person</a> <small style="color:#aaa">#MainPersonClass</small></li>
-<li><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a> <small style="color:#aaa">#InstancePersonClass</small></li>
-<li><a href="#MainPetClass" title="#MainPetClass">Pet</a> <small style="color:#aaa">#MainPetClass</small></li>
-<li><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a> <small style="color:#aaa">#InstancePetClass</small></li>
-<li><a href="#class_Photo" title="#class_Photo">Photo</a> <small style="color:#aaa">#class_Photo</small></li>
-<li><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a> <small style="color:#aaa">#class_ImageRegion_Standoff</small></li>
-<li><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a> <small style="color:#aaa">#class_ImageRegion_Exif</small></li>
-<li><a href="#class_RegionBody" title="#class_RegionBody">Region body</a> <small style="color:#aaa">#class_RegionBody</small></li>
-<li><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a> <small style="color:#aaa">#Root_Data_Entity</small></li>
-<li><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a> <small style="color:#aaa">#class_SubCollection</small></li>
-<li><a href="#class_Thumbnail" title="#class_Thumbnail">Thumbnail</a> <small style="color:#aaa">#class_Thumbnail</small></li>
+<li><a href="#class_Album" title="#class_Album">Album</a> — A named, ordered virtual collection of photos, living in the root crate. <small style="color:#aaa">#class_Album</small></li>
+<li><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a> — One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo. <small style="color:#aaa">#class_AlbumItem</small></li>
+<li><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a> — One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node. <small style="color:#aaa">#class_ExifValue</small></li>
+<li><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a> — One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data. <small style="color:#aaa">#class_FaceEmbedding</small></li>
+<li><a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a> — The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings. <small style="color:#aaa">#class_FacesRoot</small></li>
+<li><a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a> — The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos. <small style="color:#aaa">#class_FolderCollectionRoot</small></li>
+<li><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a> — The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums. <small style="color:#aaa">#class_MainCollectionRoot</small></li>
+<li><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a> — Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands. <small style="color:#aaa">#SpouseRelationshipClass</small></li>
+<li><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a> — Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up. <small style="color:#aaa">#ParentChildRelationshipClass</small></li>
+<li><a href="#MainPersonClass" title="#MainPersonClass">Person</a> — A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone. <small style="color:#aaa">#MainPersonClass</small></li>
+<li><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a> — A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection. <small style="color:#aaa">#InstancePersonClass</small></li>
+<li><a href="#MainPetClass" title="#MainPetClass">Pet</a> — A pet, identified by name the same way a Person is, in its own id space so the two never collide. <small style="color:#aaa">#MainPetClass</small></li>
+<li><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a> — A pet as depicted in one crate — see Person in this crate. <small style="color:#aaa">#InstancePetClass</small></li>
+<li><a href="#class_Photo" title="#class_Photo">Photo</a> — A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename. <small style="color:#aaa">#class_Photo</small></li>
+<li><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a> — A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape. <small style="color:#aaa">#class_ImageRegion_Standoff</small></li>
+<li><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a> — A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image. <small style="color:#aaa">#class_ImageRegion_Exif</small></li>
+<li><a href="#class_RegionBody" title="#class_RegionBody">Region body</a> — The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity). <small style="color:#aaa">#class_RegionBody</small></li>
+<li><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a> — The entity that identifies the crate and points at its root data entity. <small style="color:#aaa">#RO-Crate_Metadata_Descriptor</small></li>
+<li><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a> — How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos). <small style="color:#aaa">#class_SubCollection</small></li>
+<li><a href="#class_Thumbnail" title="#class_Thumbnail">Thumbnail</a> — A generated thumbnail, referenced by a photo's thumbnail property. <small style="color:#aaa">#class_Thumbnail</small></li>
     </ul>
   </div>
   <div class="col-md-6 col-panel">
     <h3>Properties</h3>
     <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
     <ul id="prop-list" class="entity-list">
-<li><a href="#prop_photo_about" title="#prop_photo_about">about</a> — Everyone depicted, always via this crate's instance of them, never the shared identity directly. <small style="color:#aaa">#prop_photo_about</small></li>
-<li><a href="#prop_region_about" title="#prop_region_about">about</a> — Who this region depicts, via the crate's instance of them. <small style="color:#aaa">#prop_region_about</small></li>
-<li><a href="#prop_embedding_about" title="#prop_embedding_about">about</a> — The person this is a reference for. Absent entirely for a stranger. <small style="color:#aaa">#prop_embedding_about</small></li>
-<li><a href="#prop_photo_dateCreated" title="#prop_photo_dateCreated">dateCreated</a> — From EXIF DateTimeOriginal. <small style="color:#aaa">#prop_photo_dateCreated</small></li>
-<li><a href="#prop_photo_dateModified" title="#prop_photo_dateModified">dateModified</a> — The source file's modification time when last processed — what a rescan compares against to decide whether to re-read it. <small style="color:#aaa">#prop_photo_dateModified</small></li>
-<li><a href="#prop_photo_description" title="#prop_photo_description">description</a> — The photo's own caption, if it has one. <small style="color:#aaa">#prop_photo_description</small></li>
-<li><a href="#prop_album_description" title="#prop_album_description">description</a> — Optional. <small style="color:#aaa">#prop_album_description</small></li>
-<li><a href="#prop_embedding_embedding" title="#prop_embedding_embedding">embedding</a> — The model's own vector. <small style="color:#aaa">#prop_embedding_embedding</small></li>
-<li><a href="#prop_embedding_model" title="#prop_embedding_model">embeddingModel</a> — The model that produced it. <small style="color:#aaa">#prop_embedding_model</small></li>
-<li><a href="#prop_embedding_modelVersion" title="#prop_embedding_modelVersion">embeddingModelVersion</a> — Its version — a bump makes every reference obsolete, which is why it is recorded per entity. <small style="color:#aaa">#prop_embedding_modelVersion</small></li>
-<li><a href="#prop_photo_exifData" title="#prop_photo_exifData">exifData</a> — Selected EXIF fields, each as a PropertyValue. <small style="color:#aaa">#prop_photo_exifData</small></li>
-<li><a href="#prop_root_hasPart" title="#prop_root_hasPart">hasPart</a> — The photos in this crate, or — in the root crate — each sub-collection Dataset and each album. <small style="color:#aaa">#prop_root_hasPart</small></li>
-<li><a href="#prop_album_hasPart" title="#prop_album_hasPart">hasPart</a> — Membership and display order at once: array order is the order. <small style="color:#aaa">#prop_album_hasPart</small></li>
-<li><a href="#prop_region_height" title="#prop_region_height">height</a> — The region's height, as a fraction of the image. <small style="color:#aaa">#prop_region_height</small></li>
-<li><a href="#prop_photo_keywords" title="#prop_photo_keywords">keywords</a> — IPTC/XMP keywords, excluding any that duplicate a region's name. <small style="color:#aaa">#prop_photo_keywords</small></li>
-<li><a href="#prop_root_mentions" title="#prop_root_mentions">mentions</a> — Root crate only: every Person/Pet depicted anywhere in the collection. This is what makes them reachable in the graph, and where their description is meant to accumulate. Deliberately unrestricted in range: a Pet cannot be range-checked until rocphotos binds the rocphotos: prefix in its crates (see the profile text). <small style="color:#aaa">#prop_root_mentions</small></li>
-<li><a href="#prop_root_name" title="#prop_root_name">name</a> — For a sub-collection, its path relative to the collection root. <small style="color:#aaa">#prop_root_name</small></li>
-<li><a href="#prop_subcollection_name" title="#prop_subcollection_name">name</a> — The sub-collection's path, e.g. 2025/03/10. <small style="color:#aaa">#prop_subcollection_name</small></li>
-<li><a href="#prop_photo_name" title="#prop_photo_name">name</a> — The file's own name. <small style="color:#aaa">#prop_photo_name</small></li>
-<li><a href="#prop_thumbnail_name" title="#prop_thumbnail_name">name</a> — e.g. "Thumbnail of IMG_0042.jpg". <small style="color:#aaa">#prop_thumbnail_name</small></li>
-<li><a href="#prop_album_name" title="#prop_album_name">name</a> — The album's name, from which its id is derived. <small style="color:#aaa">#prop_album_name</small></li>
-<li><a href="#prop_person_name" title="#prop_person_name">name</a> — The name their identity is derived from. <small style="color:#aaa">#prop_person_name</small></li>
-<li><a href="#prop_personinstance_name" title="#prop_personinstance_name">name</a> — How they were known here, which need not match the shared identity's name. <small style="color:#aaa">#prop_personinstance_name</small></li>
-<li><a href="#prop_pet_name" title="#prop_pet_name">name</a> — The name their identity is derived from. <small style="color:#aaa">#prop_pet_name</small></li>
-<li><a href="#prop_petinstance_name" title="#prop_petinstance_name">name</a> — How they were known here. <small style="color:#aaa">#prop_petinstance_name</small></li>
-<li><a href="#prop_region_name" title="#prop_region_name">name</a> — The subject's name, duplicated here so a reader need not resolve about. <small style="color:#aaa">#prop_region_name</small></li>
-<li><a href="#prop_standoff_name" title="#prop_standoff_name">name</a> — The subject's name. <small style="color:#aaa">#prop_standoff_name</small></li>
-<li><a href="#prop_exif_name" title="#prop_exif_name">name</a> — The EXIF field name, e.g. Make. <small style="color:#aaa">#prop_exif_name</small></li>
-<li><a href="#prop_embedding_name" title="#prop_embedding_name">name</a> — The person's name, or "Ignored stranger" for a permanently-suppressed face. <small style="color:#aaa">#prop_embedding_name</small></li>
-<li><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a> — A per-region proxy for the subject, so this one sighting could later carry its own properties. <small style="color:#aaa">#prop_standoff_hasBody</small></li>
-<li><a href="#prop_standoff_hasTarget" title="#prop_standoff_hasTarget">oa:hasTarget</a> — A W3C Media Fragment on the photo — #xywh=percent:x,y,w,h, a top-left corner and size, unlike the centre-based EXIF shape. <small style="color:#aaa">#prop_standoff_hasTarget</small></li>
-<li><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">oa:motivatedBy</a> — Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile. <small style="color:#aaa">#prop_standoff_motivatedBy</small></li>
-<li><a href="#prop_photo_processingError" title="#prop_photo_processingError">processingError</a> — An EXIF and/or thumbnail failure. Removed once the file processes cleanly. <small style="color:#aaa">#prop_photo_processingError</small></li>
-<li><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">prov:specializationOf</a> — The real photo this item stands for. <small style="color:#aaa">#prop_albumitem_specializationOf</small></li>
-<li><a href="#prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf">prov:specializationOf</a> — The shared identity this is an instance of. <small style="color:#aaa">#prop_personinstance_specializationOf</small></li>
-<li><a href="#prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf">prov:specializationOf</a> — The shared identity this is an instance of. <small style="color:#aaa">#prop_petinstance_specializationOf</small></li>
-<li><a href="#prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf">prov:specializationOf</a> — This crate's instance of the person depicted. <small style="color:#aaa">#prop_regionbody_specializationOf</small></li>
-<li><a href="#prop_photo_rating" title="#prop_photo_rating">rating</a> — XMP star rating, 1-5. Absent rather than 0 when unrated. <small style="color:#aaa">#prop_photo_rating</small></li>
-<li><a href="#prop_photo_regions" title="#prop_photo_regions">regions</a> — Every tagged region on this photo, of either shape. <small style="color:#aaa">#prop_photo_regions</small></li>
-<li><a href="#prop_region_regionType" title="#prop_region_regionType">regionType</a> — A literal, either "Face" or "Pet". <small style="color:#aaa">#prop_region_regionType</small></li>
-<li><a href="#prop_standoff_regionType" title="#prop_standoff_regionType">regionType</a> — A literal, either "Face" or "Pet". <small style="color:#aaa">#prop_standoff_regionType</small></li>
-<li><a href="#prop_embedding_sourceImage" title="#prop_embedding_sourceImage">sourceImage</a> — The photo it was computed from, as a collection-relative path. <small style="color:#aaa">#prop_embedding_sourceImage</small></li>
-<li><a href="#prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion">sourceRegion</a> — The region it was computed from. Absent for a stranger, which is never written back as a region. <small style="color:#aaa">#prop_embedding_sourceRegion</small></li>
-<li><a href="#prop_photo_thumbnail" title="#prop_photo_thumbnail">thumbnail</a> — The generated thumbnail. <small style="color:#aaa">#prop_photo_thumbnail</small></li>
-<li><a href="#prop_photo_title" title="#prop_photo_title">title</a> — Always present: the IPTC/XMP title if the file has one, its filename otherwise. <small style="color:#aaa">#prop_photo_title</small></li>
-<li><a href="#prop_exif_value" title="#prop_exif_value">value</a> — Its value, as text. <small style="color:#aaa">#prop_exif_value</small></li>
-<li><a href="#prop_region_width" title="#prop_region_width">width</a> — The region's width, as a fraction of the image. <small style="color:#aaa">#prop_region_width</small></li>
-<li><a href="#prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile">writtenToFile</a> — Whether this region has been written into the photo file's own XMP. Once a rescan finds the same name in the file's real EXIF regions, this region is replaced by the EXIF-derived one. <small style="color:#aaa">#prop_standoff_writtenToFile</small></li>
-<li><a href="#prop_region_xPosition" title="#prop_region_xPosition">xPosition</a> — The region's centre X, as a fraction of the image. <small style="color:#aaa">#prop_region_xPosition</small></li>
-<li><a href="#prop_region_yPosition" title="#prop_region_yPosition">yPosition</a> — The region's centre Y, as a fraction of the image. <small style="color:#aaa">#prop_region_yPosition</small></li>
+<li><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a> — Always ro-crate-metadata.json. <small style="color:#aaa">#RO-Crate_Metadata_Descriptor.id</small></li>
+<li><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">About</a> — The one root data entity of this crate. Exactly one value, which must have the shape of one of the three kinds of root. <small style="color:#aaa">#RO-Crate_Metadata_Descriptor.about</small></li>
+<li><a href="#prop_photo_about" title="#prop_photo_about">About</a> — Everyone depicted, always via this crate's instance of them, never the shared identity directly. <small style="color:#aaa">#prop_photo_about</small></li>
+<li><a href="#prop_region_about" title="#prop_region_about">About</a> — Who this region depicts, via the crate's instance of them. <small style="color:#aaa">#prop_region_about</small></li>
+<li><a href="#prop_embedding_about" title="#prop_embedding_about">About</a> — The person this is a reference for. Absent entirely for a stranger. No range: the person is described in the main collection crate, not here, so it cannot be checked within this crate. <small style="color:#aaa">#prop_embedding_about</small></li>
+<li><a href="#prop_spouse_beginningDate" title="#prop_spouse_beginningDate">Began</a> — When it began, to whatever precision is known — a year on its own is fine. <small style="color:#aaa">#prop_spouse_beginningDate</small></li>
+<li><a href="#prop_parentchild_beginningDate" title="#prop_parentchild_beginningDate">Began</a> — When it began, to whatever precision is known — a year on its own is fine. <small style="color:#aaa">#prop_parentchild_beginningDate</small></li>
+<li><a href="#prop_person_birthDate" title="#prop_person_birthDate">Birth date</a> — Date of birth for this person, to the maximum available precision - can use data ranges if this is not known <small style="color:#aaa">#prop_person_birthDate</small></li>
+<li><a href="#prop_parentchild_target" title="#prop_parentchild_target">Child</a> — The child, who is the target of the relationship. <small style="color:#aaa">#prop_parentchild_target</small></li>
+<li><a href="#prop_photo_dateCreated" title="#prop_photo_dateCreated">Date created</a> — From EXIF DateTimeOriginal. <small style="color:#aaa">#prop_photo_dateCreated</small></li>
+<li><a href="#prop_photo_dateModified" title="#prop_photo_dateModified">Date modified</a> — The source file's modification time when last processed — what a rescan compares against to decide whether to re-read it. <small style="color:#aaa">#prop_photo_dateModified</small></li>
+<li><a href="#prop_photo_description" title="#prop_photo_description">Description</a> — The photo's own caption, if it has one. <small style="color:#aaa">#prop_photo_description</small></li>
+<li><a href="#prop_album_description" title="#prop_album_description">Description</a> — Optional. <small style="color:#aaa">#prop_album_description</small></li>
+<li><a href="#prop_person_description" title="#prop_person_description">Description</a> — Biographical notes about this person <small style="color:#aaa">#prop_person_description</small></li>
+<li><a href="#prop_embedding_embedding" title="#prop_embedding_embedding">Embedding</a> — The model's own vector. <small style="color:#aaa">#prop_embedding_embedding</small></li>
+<li><a href="#prop_embedding_model" title="#prop_embedding_model">Embedding model</a> — The model that produced it. <small style="color:#aaa">#prop_embedding_model</small></li>
+<li><a href="#prop_embedding_modelVersion" title="#prop_embedding_modelVersion">Embedding model version</a> — Its version — a bump makes every reference obsolete, which is why it is recorded per entity. <small style="color:#aaa">#prop_embedding_modelVersion</small></li>
+<li><a href="#prop_spouse_endDate" title="#prop_spouse_endDate">Ended</a> — When it ended, if it has. Left out while it still holds. <small style="color:#aaa">#prop_spouse_endDate</small></li>
+<li><a href="#prop_parentchild_endDate" title="#prop_parentchild_endDate">Ended</a> — When it ended, if it has. Left out while it still holds. <small style="color:#aaa">#prop_parentchild_endDate</small></li>
+<li><a href="#prop_photo_exifData" title="#prop_photo_exifData">EXIF data</a> — Selected EXIF fields, each as a PropertyValue. <small style="color:#aaa">#prop_photo_exifData</small></li>
+<li><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">Has body</a> — A per-region proxy for the subject, so this one sighting could later carry its own properties. <small style="color:#aaa">#prop_standoff_hasBody</small></li>
+<li><a href="#prop_mainroot_hasPart" title="#prop_mainroot_hasPart">Has part</a> — Each sub-collection folder, as a Dataset reference, and each album. <small style="color:#aaa">#prop_mainroot_hasPart</small></li>
+<li><a href="#prop_folderroot_hasPart" title="#prop_folderroot_hasPart">Has part</a> — Every photo in this folder. <small style="color:#aaa">#prop_folderroot_hasPart</small></li>
+<li><a href="#prop_facesroot_hasPart" title="#prop_facesroot_hasPart">Has part</a> — Every face-recognition reference. <small style="color:#aaa">#prop_facesroot_hasPart</small></li>
+<li><a href="#prop_album_hasPart" title="#prop_album_hasPart">Has part</a> — Membership and display order at once: array order is the order. <small style="color:#aaa">#prop_album_hasPart</small></li>
+<li><a href="#prop_standoff_hasTarget" title="#prop_standoff_hasTarget">Has target</a> — A W3C Media Fragment on the photo — #xywh=percent:x,y,w,h, a top-left corner and size, unlike the centre-based EXIF shape. <small style="color:#aaa">#prop_standoff_hasTarget</small></li>
+<li><a href="#prop_region_height" title="#prop_region_height">Height</a> — The region's height, as a fraction of the image. <small style="color:#aaa">#prop_region_height</small></li>
+<li><a href="#prop_photo_keywords" title="#prop_photo_keywords">Keywords</a> — IPTC/XMP keywords, excluding any that duplicate a region's name. <small style="color:#aaa">#prop_photo_keywords</small></li>
+<li><a href="#prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy">Motivated by</a> — Always oa:identifying — the annotation says who this is. The value comes from an ItemList so more motivations can be added later. As with any ItemList value, the crate must carry the oa:identifying entity itself, matching the one in this profile. <small style="color:#aaa">#prop_standoff_motivatedBy</small></li>
+<li><a href="#prop_mainroot_name" title="#prop_mainroot_name">Name</a> — The name of the collection, folder or crate. <small style="color:#aaa">#prop_mainroot_name</small></li>
+<li><a href="#prop_folderroot_name" title="#prop_folderroot_name">Name</a> — The name of the collection, folder or crate. <small style="color:#aaa">#prop_folderroot_name</small></li>
+<li><a href="#prop_facesroot_name" title="#prop_facesroot_name">Name</a> — The name of the collection, folder or crate. <small style="color:#aaa">#prop_facesroot_name</small></li>
+<li><a href="#prop_subcollection_name" title="#prop_subcollection_name">Name</a> — The sub-collection's path, e.g. 2025/03/10. <small style="color:#aaa">#prop_subcollection_name</small></li>
+<li><a href="#prop_photo_name" title="#prop_photo_name">Name</a> — The file's own name. <small style="color:#aaa">#prop_photo_name</small></li>
+<li><a href="#prop_thumbnail_name" title="#prop_thumbnail_name">Name</a> — e.g. "Thumbnail of IMG_0042.jpg". <small style="color:#aaa">#prop_thumbnail_name</small></li>
+<li><a href="#prop_album_name" title="#prop_album_name">Name</a> — The album's name, from which its id is derived. <small style="color:#aaa">#prop_album_name</small></li>
+<li><a href="#prop_person_name" title="#prop_person_name">Name</a> — The main or canonical name for this person, this depends on the policy of a particular collection but may be their birth name or a nickname <small style="color:#aaa">#prop_person_name</small></li>
+<li><a href="#prop_personinstance_name" title="#prop_personinstance_name">Name</a> — How they were known here, which need not match the shared identity's name. <small style="color:#aaa">#prop_personinstance_name</small></li>
+<li><a href="#prop_pet_name" title="#prop_pet_name">Name</a> — The name their identity is derived from. <small style="color:#aaa">#prop_pet_name</small></li>
+<li><a href="#prop_petinstance_name" title="#prop_petinstance_name">Name</a> — How they were known here. <small style="color:#aaa">#prop_petinstance_name</small></li>
+<li><a href="#prop_region_name" title="#prop_region_name">Name</a> — The subject's name, duplicated here so a reader need not resolve about. <small style="color:#aaa">#prop_region_name</small></li>
+<li><a href="#prop_standoff_name" title="#prop_standoff_name">Name</a> — The subject's name. <small style="color:#aaa">#prop_standoff_name</small></li>
+<li><a href="#prop_exif_name" title="#prop_exif_name">Name</a> — The EXIF field name, e.g. Make. <small style="color:#aaa">#prop_exif_name</small></li>
+<li><a href="#prop_embedding_name" title="#prop_embedding_name">Name</a> — The person's name, or "Ignored stranger" for a permanently-suppressed face. <small style="color:#aaa">#prop_embedding_name</small></li>
+<li><a href="#prop_region_nameInFile" title="#prop_region_nameInFile">Name in file</a> — The name the photo file's own tag gives this region, recorded only where it differs from the name the crate keeps. Its absence means the two agree. <small style="color:#aaa">#prop_region_nameInFile</small></li>
+<li><a href="#prop_parentchild_source" title="#prop_parentchild_source">Parent</a> — The parent. RiC orients this relationship from the parent, so the parent is its source. <small style="color:#aaa">#prop_parentchild_source</small></li>
+<li><a href="#prop_photo_processingError" title="#prop_photo_processingError">Processing error</a> — An EXIF and/or thumbnail failure. Removed once the file processes cleanly. <small style="color:#aaa">#prop_photo_processingError</small></li>
+<li><a href="#prop_photo_rating" title="#prop_photo_rating">Rating</a> — XMP star rating, 1-5. Absent rather than 0 when unrated. <small style="color:#aaa">#prop_photo_rating</small></li>
+<li><a href="#prop_region_regionType" title="#prop_region_regionType">Region type</a> — A literal, either "Face" or "Pet". <small style="color:#aaa">#prop_region_regionType</small></li>
+<li><a href="#prop_standoff_regionType" title="#prop_standoff_regionType">Region type</a> — A literal, either "Face" or "Pet". <small style="color:#aaa">#prop_standoff_regionType</small></li>
+<li><a href="#prop_photo_regions" title="#prop_photo_regions">Regions</a> — Every tagged region on this photo, of either shape. <small style="color:#aaa">#prop_photo_regions</small></li>
+<li><a href="#prop_embedding_sourceImage" title="#prop_embedding_sourceImage">Source image</a> — The photo it was computed from, as a collection-relative path. <small style="color:#aaa">#prop_embedding_sourceImage</small></li>
+<li><a href="#prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion">Source region</a> — The region it was computed from. Absent for a stranger, which is never written back as a region. <small style="color:#aaa">#prop_embedding_sourceRegion</small></li>
+<li><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">Specialization of</a> — The real photo this item stands for. No range: the photo is described in its folder crate, not here, so it cannot be checked within this crate. <small style="color:#aaa">#prop_albumitem_specializationOf</small></li>
+<li><a href="#prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf">Specialization of</a> — The shared identity this is an instance of. <small style="color:#aaa">#prop_personinstance_specializationOf</small></li>
+<li><a href="#prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf">Specialization of</a> — The shared identity this is an instance of. <small style="color:#aaa">#prop_petinstance_specializationOf</small></li>
+<li><a href="#prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf">Specialization of</a> — This crate's instance of the person depicted. <small style="color:#aaa">#prop_regionbody_specializationOf</small></li>
+<li><a href="#prop_spouse_connects" title="#prop_spouse_connects">Spouses</a> — The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side. <small style="color:#aaa">#prop_spouse_connects</small></li>
+<li><a href="#prop_photo_thumbnail" title="#prop_photo_thumbnail">Thumbnail</a> — The generated thumbnail. <small style="color:#aaa">#prop_photo_thumbnail</small></li>
+<li><a href="#prop_photo_title" title="#prop_photo_title">Title</a> — Always present: the IPTC/XMP title if the file has one, its filename otherwise. <small style="color:#aaa">#prop_photo_title</small></li>
+<li><a href="#prop_exif_value" title="#prop_exif_value">Value</a> — Its value, as text. <small style="color:#aaa">#prop_exif_value</small></li>
+<li><a href="#prop_region_width" title="#prop_region_width">Width</a> — The region's width, as a fraction of the image. <small style="color:#aaa">#prop_region_width</small></li>
+<li><a href="#prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile">Written to file</a> — Whether this region has been written into the photo file's own XMP. Once a rescan finds the same name in the file's real EXIF regions, this region is replaced by the EXIF-derived one. <small style="color:#aaa">#prop_standoff_writtenToFile</small></li>
+<li><a href="#prop_region_xPosition" title="#prop_region_xPosition">X position</a> — The region's centre X, as a fraction of the image. <small style="color:#aaa">#prop_region_xPosition</small></li>
+<li><a href="#prop_region_yPosition" title="#prop_region_yPosition">Y position</a> — The region's centre Y, as a fraction of the image. <small style="color:#aaa">#prop_region_yPosition</small></li>
     </ul>
   </div>
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
-<h3><a id="Root_Data_Entity" title="#Root_Data_Entity"></a> Class: Root Data Entity</h3>
-<p>The root of any rocphotos crate: the collection root, a sub-collection directory, or the faces crate. Distinguished from the sub-collection Datasets a root crate lists by having hasPart of its own.</p>
+<h3><a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor</h3>
+<p>The entity that identifies the crate and points at its root data entity.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
 <table>
@@ -191,7 +285,63 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h4>Properties from Root Data Entity</h4>
+<h4>Properties from RO-Crate Metadata Descriptor</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a></td>
+</tr>
+<tr>
+<td><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
+<td></td>
+<td>Yes</td>
+<td>Always ro-crate-metadata.json.</td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor identifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a></td>
+<td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
+<td>Yes</td>
+<td>The one root data entity of this crate. Exactly one value, which must have the shape of one of the three kinds of root.</td>
+<td><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a>, <a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a>, <a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_MainCollectionRoot" title="#class_MainCollectionRoot"></a> Class: Main collection root</h3>
+<p>The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Main collection root</h4>
 <table>
 <thead>
 <tr>
@@ -213,33 +363,137 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a></td>
 </tr>
 <tr>
-<td><a href="#prop_root_hasPart" title="#prop_root_hasPart">hasPart</a></td>
+<td><a href="#prop_mainroot_hasPart" title="#prop_mainroot_hasPart">hasPart</a></td>
 <td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
 <td>Yes</td>
-<td>The photos in this crate, or — in the root crate — each sub-collection Dataset and each album.</td>
-<td></td>
+<td>Each sub-collection folder, as a Dataset reference, and each album.</td>
+<td><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a>, <a href="#class_Album" title="#class_Album">Album</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_root_name" title="#prop_root_name">name</a></td>
+<td><a href="#prop_mainroot_name" title="#prop_mainroot_name">name</a></td>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
-<td>For a sub-collection, its path relative to the collection root.</td>
-<td>Text</td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_FolderCollectionRoot" title="#class_FolderCollectionRoot"></a> Class: Folder collection root</h3>
+<p>The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Folder collection root</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a></td>
+</tr>
+<tr>
+<td><a href="#prop_folderroot_hasPart" title="#prop_folderroot_hasPart">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
+<td>Yes</td>
+<td>Every photo in this folder.</td>
+<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="#prop_root_mentions" title="#prop_root_mentions">mentions</a></td>
-<td><a href="http://schema.org/mentions" target="_blank" rel="noopener">http://schema.org/mentions</a></td>
-<td>No</td>
-<td>Root crate only: every Person/Pet depicted anywhere in the collection. This is what makes them reachable in the graph, and where their description is meant to accumulate. Deliberately unrestricted in range: a Pet cannot be range-checked until rocphotos binds the rocphotos: prefix in its crates (see the profile text).</td>
+<td><a href="#prop_folderroot_name" title="#prop_folderroot_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>Yes</td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="class_FacesRoot" title="#class_FacesRoot"></a> Class: Faces crate root</h3>
+<p>The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Faces crate root</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a></td>
+</tr>
+<tr>
+<td><a href="#prop_facesroot_hasPart" title="#prop_facesroot_hasPart">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
+<td>Yes</td>
+<td>Every face-recognition reference.</td>
+<td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_facesroot_name" title="#prop_facesroot_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>Yes</td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h3><a id="class_SubCollection" title="#class_SubCollection"></a> Class: Sub-collection reference</h3>
-<p>How the root crate lists a sub-collection directory: a Dataset with a trailing-slash id and no hasPart of its own (its own crate holds the photos).</p>
+<p>How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos).</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -281,7 +535,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The sub-collection's path, e.g. 2025/03/10.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -329,7 +583,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The file's own name.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -337,7 +591,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/title" target="_blank" rel="noopener">http://schema.org/title</a></td>
 <td>Yes</td>
 <td>Always present: the IPTC/XMP title if the file has one, its filename otherwise.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -345,7 +599,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>No</td>
 <td>Everyone depicted, always via this crate's instance of them, never the shared identity directly.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
 <td></td>
 </tr>
 <tr>
@@ -353,7 +607,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/dateCreated" target="_blank" rel="noopener">http://schema.org/dateCreated</a></td>
 <td>No</td>
 <td>From EXIF DateTimeOriginal.</td>
-<td>Date</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td></td>
 </tr>
 <tr>
@@ -361,7 +615,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/dateModified" target="_blank" rel="noopener">http://schema.org/dateModified</a></td>
 <td>No</td>
 <td>The source file's modification time when last processed — what a rescan compares against to decide whether to re-read it.</td>
-<td>Date</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td></td>
 </tr>
 <tr>
@@ -369,7 +623,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>No</td>
 <td>The photo's own caption, if it has one.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -385,7 +639,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/keywords" target="_blank" rel="noopener">http://schema.org/keywords</a></td>
 <td>No</td>
 <td>IPTC/XMP keywords, excluding any that duplicate a region's name.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -393,7 +647,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#processingError" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#processingError</a></td>
 <td>No</td>
 <td>An EXIF and/or thumbnail failure. Removed once the file processes cleanly.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -401,7 +655,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#rating" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#rating</a></td>
 <td>No</td>
 <td>XMP star rating, 1-5. Absent rather than 0 when unrated.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td></td>
 </tr>
 <tr>
@@ -465,7 +719,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>e.g. &quot;Thumbnail of IMG_0042.jpg&quot;.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -512,8 +766,8 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">prov:specializationOf</a></td>
 <td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
 <td>Yes</td>
-<td>The real photo this item stands for.</td>
-<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
+<td>The real photo this item stands for. No range: the photo is described in its folder crate, not here, so it cannot be checked within this crate.</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -569,7 +823,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The album's name, from which its id is derived.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -577,7 +831,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>No</td>
 <td>Optional.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -624,8 +878,24 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_person_name" title="#prop_person_name">name</a></td>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
-<td>The name their identity is derived from.</td>
-<td>Text</td>
+<td>The main or canonical name for this person, this depends on the policy of a particular collection but may be their birth name or a nickname</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_person_birthDate" title="#prop_person_birthDate">birthDate</a></td>
+<td><a href="http://schema.org/birthDate" target="_blank" rel="noopener">http://schema.org/birthDate</a></td>
+<td>No</td>
+<td>Date of birth for this person, to the maximum available precision - can use data ranges if this is not known</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_person_description" title="#prop_person_description">description</a></td>
+<td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
+<td>No</td>
+<td>Biographical notes about this person</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -673,7 +943,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>How they were known here, which need not match the shared identity's name.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -729,7 +999,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The name their identity is derived from.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -777,7 +1047,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>How they were known here.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -833,7 +1103,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>Yes</td>
 <td>Who this region depicts, via the crate's instance of them.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
 <td></td>
 </tr>
 <tr>
@@ -841,7 +1111,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/height" target="_blank" rel="noopener">http://schema.org/height</a></td>
 <td>Yes</td>
 <td>The region's height, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td></td>
 </tr>
 <tr>
@@ -849,7 +1119,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The subject's name, duplicated here so a reader need not resolve about.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -857,7 +1127,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
 <td>Yes</td>
 <td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -865,7 +1135,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/width" target="_blank" rel="noopener">http://schema.org/width</a></td>
 <td>Yes</td>
 <td>The region's width, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td></td>
 </tr>
 <tr>
@@ -873,7 +1143,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#xPosition" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#xPosition</a></td>
 <td>Yes</td>
 <td>The region's centre X, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td></td>
 </tr>
 <tr>
@@ -881,7 +1151,15 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#yPosition" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#yPosition</a></td>
 <td>Yes</td>
 <td>The region's centre Y, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_region_nameInFile" title="#prop_region_nameInFile">nameInFile</a></td>
+<td></td>
+<td>No</td>
+<td>The name the photo file's own tag gives this region, recorded only where it differs from the name the crate keeps. Its absence means the two agree.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -925,19 +1203,11 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#ImageRegion" title="https://w3id.org/ldac/rocphotos/terms#ImageRegion" target="_blank" rel="noopener">ImageRegion</a>, <a href="http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation" target="_blank" rel="noopener">Annotation</a></td>
 </tr>
 <tr>
-<td><a href="#prop_standoff_name" title="#prop_standoff_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>Yes</td>
-<td>The subject's name.</td>
-<td>Text</td>
-<td></td>
-</tr>
-<tr>
 <td><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a></td>
 <td><a href="http://www.w3.org/ns/oa#hasBody" target="_blank" rel="noopener">http://www.w3.org/ns/oa#hasBody</a></td>
 <td>Yes</td>
 <td>A per-region proxy for the subject, so this one sighting could later carry its own properties.</td>
-<td><a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
 <td></td>
 </tr>
 <tr>
@@ -957,11 +1227,19 @@ contain, so it is left unconstrained.</li>
 <td></td>
 </tr>
 <tr>
+<td><a href="#prop_standoff_name" title="#prop_standoff_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>Yes</td>
+<td>The subject's name.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="#prop_standoff_regionType" title="#prop_standoff_regionType">regionType</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
 <td>Yes</td>
 <td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -969,7 +1247,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#writtenToFile" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#writtenToFile</a></td>
 <td>Yes</td>
 <td>Whether this region has been written into the photo file's own XMP. Once a rescan finds the same name in the file's real EXIF regions, this region is replaced by the EXIF-derived one.</td>
-<td>Boolean</td>
+<td><a href="http://schema.org/Boolean" title="http://schema.org/Boolean" target="_blank" rel="noopener">Boolean</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1017,7 +1295,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
 <td>Yes</td>
 <td>This crate's instance of the person depicted.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1065,7 +1343,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The EXIF field name, e.g. Make.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1073,7 +1351,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a></td>
 <td>Yes</td>
 <td>Its value, as text.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -1121,7 +1399,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embedding" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embedding</a></td>
 <td>Yes</td>
 <td>The model's own vector.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1129,7 +1407,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embeddingModel" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embeddingModel</a></td>
 <td>Yes</td>
 <td>The model that produced it.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1137,7 +1415,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion</a></td>
 <td>Yes</td>
 <td>Its version — a bump makes every reference obsolete, which is why it is recorded per entity.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1145,7 +1423,7 @@ contain, so it is left unconstrained.</li>
 <td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
 <td>Yes</td>
 <td>The person's name, or &quot;Ignored stranger&quot; for a permanently-suppressed face.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
@@ -1153,15 +1431,15 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#sourceImage" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#sourceImage</a></td>
 <td>Yes</td>
 <td>The photo it was computed from, as a collection-relative path.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="#prop_embedding_about" title="#prop_embedding_about">about</a></td>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>No</td>
-<td>The person this is a reference for. Absent entirely for a stranger.</td>
-<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td>The person this is a reference for. Absent entirely for a stranger. No range: the person is described in the main collection crate, not here, so it cannot be checked within this crate.</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1169,13 +1447,189 @@ contain, so it is left unconstrained.</li>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#sourceRegion" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#sourceRegion</a></td>
 <td>No</td>
 <td>The region it was computed from. Absent for a stranger, which is never written back as a region.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Married</h3>
+<p>Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Married</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#SpouseRelation" title="https://www.ica.org/standards/RiC/ontology#SpouseRelation" target="_blank" rel="noopener">SpouseRelation</a></td>
+</tr>
+<tr>
+<td><a href="#prop_spouse_connects" title="#prop_spouse_connects">rico:relationConnects</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationConnects" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationConnects</a></td>
+<td>Yes</td>
+<td>The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_spouse_beginningDate" title="#prop_spouse_beginningDate">rico:beginningDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a></td>
+<td>No</td>
+<td>When it began, to whatever precision is known — a year on its own is fine.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_spouse_endDate" title="#prop_spouse_endDate">rico:endDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a></td>
+<td>No</td>
+<td>When it ended, if it has. Left out while it still holds.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ParentChildRelationshipClass" title="#ParentChildRelationshipClass"></a> Class: Parent and child</h3>
+<p>Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Parent and child</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@type</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#ChildRelation" title="https://www.ica.org/standards/RiC/ontology#ChildRelation" target="_blank" rel="noopener">ChildRelation</a></td>
+</tr>
+<tr>
+<td><a href="#prop_parentchild_target" title="#prop_parentchild_target">rico:relationHasTarget</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationHasTarget" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationHasTarget</a></td>
+<td>Yes</td>
+<td>The child, who is the target of the relationship.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_parentchild_source" title="#prop_parentchild_source">rico:relationHasSource</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationHasSource" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationHasSource</a></td>
+<td>Yes</td>
+<td>The parent. RiC orients this relationship from the parent, so the parent is its source.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_parentchild_beginningDate" title="#prop_parentchild_beginningDate">rico:beginningDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a></td>
+<td>No</td>
+<td>When it began, to whatever precision is known — a year on its own is fine.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#prop_parentchild_endDate" title="#prop_parentchild_endDate">rico:endDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a></td>
+<td>No</td>
+<td>When it ended, if it has. Left out while it still holds.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h2>All Properties</h2>
-<h3><a id="prop_photo_about" title="#prop_photo_about"></a> Property: about</h3>
+<h3><a id="RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id"></a> Property: @id</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#RO-Crate_Metadata_Descriptor.id" title="#RO-Crate_Metadata_Descriptor.id">@id</a></td>
+<td>Always ro-crate-metadata.json.</td>
+<td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor identifier</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about"></a> Property: About</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#RO-Crate_Metadata_Descriptor.about" title="#RO-Crate_Metadata_Descriptor.about">about</a></td>
+<td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
+<td>The one root data entity of this crate. Exactly one value, which must have the shape of one of the three kinds of root.</td>
+<td><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a>, <a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a>, <a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a></td>
+<td><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_about" title="#prop_photo_about"></a> Property: About</h3>
 <table>
 <thead>
 <tr>
@@ -1191,12 +1645,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_about" title="#prop_photo_about">about</a></td>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>Everyone depicted, always via this crate's instance of them, never the shared identity directly.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_about" title="#prop_region_about"></a> Property: about</h3>
+<h3><a id="prop_region_about" title="#prop_region_about"></a> Property: About</h3>
 <table>
 <thead>
 <tr>
@@ -1212,12 +1666,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_region_about" title="#prop_region_about">about</a></td>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
 <td>Who this region depicts, via the crate's instance of them.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a>, <a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
 <td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_embedding_about" title="#prop_embedding_about"></a> Property: about</h3>
+<h3><a id="prop_embedding_about" title="#prop_embedding_about"></a> Property: About</h3>
 <table>
 <thead>
 <tr>
@@ -1232,13 +1686,97 @@ contain, so it is left unconstrained.</li>
 <tr>
 <td><a href="#prop_embedding_about" title="#prop_embedding_about">about</a></td>
 <td><a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a></td>
-<td>The person this is a reference for. Absent entirely for a stranger.</td>
-<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td>The person this is a reference for. Absent entirely for a stranger. No range: the person is described in the main collection crate, not here, so it cannot be checked within this crate.</td>
+<td></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_dateCreated" title="#prop_photo_dateCreated"></a> Property: dateCreated</h3>
+<h3><a id="prop_spouse_beginningDate" title="#prop_spouse_beginningDate"></a> Property: Began</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_spouse_beginningDate" title="#prop_spouse_beginningDate">rico:beginningDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a></td>
+<td>When it began, to whatever precision is known — a year on its own is fine.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_parentchild_beginningDate" title="#prop_parentchild_beginningDate"></a> Property: Began</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_parentchild_beginningDate" title="#prop_parentchild_beginningDate">rico:beginningDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a></td>
+<td>When it began, to whatever precision is known — a year on its own is fine.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_person_birthDate" title="#prop_person_birthDate"></a> Property: Birth date</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_person_birthDate" title="#prop_person_birthDate">birthDate</a></td>
+<td><a href="http://schema.org/birthDate" target="_blank" rel="noopener">http://schema.org/birthDate</a></td>
+<td>Date of birth for this person, to the maximum available precision - can use data ranges if this is not known</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_parentchild_target" title="#prop_parentchild_target"></a> Property: Child</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_parentchild_target" title="#prop_parentchild_target">rico:relationHasTarget</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationHasTarget" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationHasTarget</a></td>
+<td>The child, who is the target of the relationship.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_dateCreated" title="#prop_photo_dateCreated"></a> Property: Date created</h3>
 <table>
 <thead>
 <tr>
@@ -1254,12 +1792,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_dateCreated" title="#prop_photo_dateCreated">dateCreated</a></td>
 <td><a href="http://schema.org/dateCreated" target="_blank" rel="noopener">http://schema.org/dateCreated</a></td>
 <td>From EXIF DateTimeOriginal.</td>
-<td>Date</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_dateModified" title="#prop_photo_dateModified"></a> Property: dateModified</h3>
+<h3><a id="prop_photo_dateModified" title="#prop_photo_dateModified"></a> Property: Date modified</h3>
 <table>
 <thead>
 <tr>
@@ -1275,12 +1813,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_dateModified" title="#prop_photo_dateModified">dateModified</a></td>
 <td><a href="http://schema.org/dateModified" target="_blank" rel="noopener">http://schema.org/dateModified</a></td>
 <td>The source file's modification time when last processed — what a rescan compares against to decide whether to re-read it.</td>
-<td>Date</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_description" title="#prop_photo_description"></a> Property: description</h3>
+<h3><a id="prop_photo_description" title="#prop_photo_description"></a> Property: Description</h3>
 <table>
 <thead>
 <tr>
@@ -1296,12 +1834,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_description" title="#prop_photo_description">description</a></td>
 <td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>The photo's own caption, if it has one.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_album_description" title="#prop_album_description"></a> Property: description</h3>
+<h3><a id="prop_album_description" title="#prop_album_description"></a> Property: Description</h3>
 <table>
 <thead>
 <tr>
@@ -1317,12 +1855,33 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_album_description" title="#prop_album_description">description</a></td>
 <td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
 <td>Optional.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_Album" title="#class_Album">Album</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_embedding_embedding" title="#prop_embedding_embedding"></a> Property: embedding</h3>
+<h3><a id="prop_person_description" title="#prop_person_description"></a> Property: Description</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_person_description" title="#prop_person_description">description</a></td>
+<td><a href="http://schema.org/description" target="_blank" rel="noopener">http://schema.org/description</a></td>
+<td>Biographical notes about this person</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_embedding_embedding" title="#prop_embedding_embedding"></a> Property: Embedding</h3>
 <table>
 <thead>
 <tr>
@@ -1338,12 +1897,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_embedding_embedding" title="#prop_embedding_embedding">embedding</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embedding" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embedding</a></td>
 <td>The model's own vector.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_embedding_model" title="#prop_embedding_model"></a> Property: embeddingModel</h3>
+<h3><a id="prop_embedding_model" title="#prop_embedding_model"></a> Property: Embedding model</h3>
 <table>
 <thead>
 <tr>
@@ -1359,12 +1918,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_embedding_model" title="#prop_embedding_model">embeddingModel</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embeddingModel" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embeddingModel</a></td>
 <td>The model that produced it.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_embedding_modelVersion" title="#prop_embedding_modelVersion"></a> Property: embeddingModelVersion</h3>
+<h3><a id="prop_embedding_modelVersion" title="#prop_embedding_modelVersion"></a> Property: Embedding model version</h3>
 <table>
 <thead>
 <tr>
@@ -1380,12 +1939,54 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_embedding_modelVersion" title="#prop_embedding_modelVersion">embeddingModelVersion</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion</a></td>
 <td>Its version — a bump makes every reference obsolete, which is why it is recorded per entity.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_exifData" title="#prop_photo_exifData"></a> Property: exifData</h3>
+<h3><a id="prop_spouse_endDate" title="#prop_spouse_endDate"></a> Property: Ended</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_spouse_endDate" title="#prop_spouse_endDate">rico:endDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a></td>
+<td>When it ended, if it has. Left out while it still holds.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_parentchild_endDate" title="#prop_parentchild_endDate"></a> Property: Ended</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_parentchild_endDate" title="#prop_parentchild_endDate">rico:endDate</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a></td>
+<td>When it ended, if it has. Left out while it still holds.</td>
+<td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
+<td><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_exifData" title="#prop_photo_exifData"></a> Property: EXIF data</h3>
 <table>
 <thead>
 <tr>
@@ -1406,7 +2007,7 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_root_hasPart" title="#prop_root_hasPart"></a> Property: hasPart</h3>
+<h3><a id="prop_standoff_hasBody" title="#prop_standoff_hasBody"></a> Property: Has body</h3>
 <table>
 <thead>
 <tr>
@@ -1419,15 +2020,78 @@ contain, so it is left unconstrained.</li>
 </thead>
 <tbody>
 <tr>
-<td><a href="#prop_root_hasPart" title="#prop_root_hasPart">hasPart</a></td>
-<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
-<td>The photos in this crate, or — in the root crate — each sub-collection Dataset and each album.</td>
-<td></td>
-<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
+<td><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a></td>
+<td><a href="http://www.w3.org/ns/oa#hasBody" target="_blank" rel="noopener">http://www.w3.org/ns/oa#hasBody</a></td>
+<td>A per-region proxy for the subject, so this one sighting could later carry its own properties.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#MainPetClass" title="#MainPetClass">Pet</a>, <a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
+<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_album_hasPart" title="#prop_album_hasPart"></a> Property: hasPart</h3>
+<h3><a id="prop_mainroot_hasPart" title="#prop_mainroot_hasPart"></a> Property: Has part</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_mainroot_hasPart" title="#prop_mainroot_hasPart">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
+<td>Each sub-collection folder, as a Dataset reference, and each album.</td>
+<td><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a>, <a href="#class_Album" title="#class_Album">Album</a></td>
+<td><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_folderroot_hasPart" title="#prop_folderroot_hasPart"></a> Property: Has part</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_folderroot_hasPart" title="#prop_folderroot_hasPart">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
+<td>Every photo in this folder.</td>
+<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
+<td><a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_facesroot_hasPart" title="#prop_facesroot_hasPart"></a> Property: Has part</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_facesroot_hasPart" title="#prop_facesroot_hasPart">hasPart</a></td>
+<td><a href="http://schema.org/hasPart" target="_blank" rel="noopener">http://schema.org/hasPart</a></td>
+<td>Every face-recognition reference.</td>
+<td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
+<td><a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_album_hasPart" title="#prop_album_hasPart"></a> Property: Has part</h3>
 <table>
 <thead>
 <tr>
@@ -1448,364 +2112,7 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_height" title="#prop_region_height"></a> Property: height</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_region_height" title="#prop_region_height">height</a></td>
-<td><a href="http://schema.org/height" target="_blank" rel="noopener">http://schema.org/height</a></td>
-<td>The region's height, as a fraction of the image.</td>
-<td>Number</td>
-<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_photo_keywords" title="#prop_photo_keywords"></a> Property: keywords</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_photo_keywords" title="#prop_photo_keywords">keywords</a></td>
-<td><a href="http://schema.org/keywords" target="_blank" rel="noopener">http://schema.org/keywords</a></td>
-<td>IPTC/XMP keywords, excluding any that duplicate a region's name.</td>
-<td>Text</td>
-<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_root_mentions" title="#prop_root_mentions"></a> Property: mentions</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_root_mentions" title="#prop_root_mentions">mentions</a></td>
-<td><a href="http://schema.org/mentions" target="_blank" rel="noopener">http://schema.org/mentions</a></td>
-<td>Root crate only: every Person/Pet depicted anywhere in the collection. This is what makes them reachable in the graph, and where their description is meant to accumulate. Deliberately unrestricted in range: a Pet cannot be range-checked until rocphotos binds the rocphotos: prefix in its crates (see the profile text).</td>
-<td></td>
-<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_root_name" title="#prop_root_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_root_name" title="#prop_root_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>For a sub-collection, its path relative to the collection root.</td>
-<td>Text</td>
-<td><a href="#Root_Data_Entity" title="#Root_Data_Entity">Root Data Entity</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_subcollection_name" title="#prop_subcollection_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_subcollection_name" title="#prop_subcollection_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The sub-collection's path, e.g. 2025/03/10.</td>
-<td>Text</td>
-<td><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_photo_name" title="#prop_photo_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_photo_name" title="#prop_photo_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The file's own name.</td>
-<td>Text</td>
-<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_thumbnail_name" title="#prop_thumbnail_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_thumbnail_name" title="#prop_thumbnail_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>e.g. &quot;Thumbnail of IMG_0042.jpg&quot;.</td>
-<td>Text</td>
-<td><a href="#class_Thumbnail" title="#class_Thumbnail">Thumbnail</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_album_name" title="#prop_album_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_album_name" title="#prop_album_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The album's name, from which its id is derived.</td>
-<td>Text</td>
-<td><a href="#class_Album" title="#class_Album">Album</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_person_name" title="#prop_person_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_person_name" title="#prop_person_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The name their identity is derived from.</td>
-<td>Text</td>
-<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_personinstance_name" title="#prop_personinstance_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_personinstance_name" title="#prop_personinstance_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>How they were known here, which need not match the shared identity's name.</td>
-<td>Text</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_pet_name" title="#prop_pet_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_pet_name" title="#prop_pet_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The name their identity is derived from.</td>
-<td>Text</td>
-<td><a href="#MainPetClass" title="#MainPetClass">Pet</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_petinstance_name" title="#prop_petinstance_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_petinstance_name" title="#prop_petinstance_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>How they were known here.</td>
-<td>Text</td>
-<td><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_region_name" title="#prop_region_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_region_name" title="#prop_region_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The subject's name, duplicated here so a reader need not resolve about.</td>
-<td>Text</td>
-<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_standoff_name" title="#prop_standoff_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_standoff_name" title="#prop_standoff_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The subject's name.</td>
-<td>Text</td>
-<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_exif_name" title="#prop_exif_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_exif_name" title="#prop_exif_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The EXIF field name, e.g. Make.</td>
-<td>Text</td>
-<td><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_embedding_name" title="#prop_embedding_name"></a> Property: name</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_embedding_name" title="#prop_embedding_name">name</a></td>
-<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
-<td>The person's name, or &quot;Ignored stranger&quot; for a permanently-suppressed face.</td>
-<td>Text</td>
-<td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_standoff_hasBody" title="#prop_standoff_hasBody"></a> Property: oa:hasBody</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_standoff_hasBody" title="#prop_standoff_hasBody">oa:hasBody</a></td>
-<td><a href="http://www.w3.org/ns/oa#hasBody" target="_blank" rel="noopener">http://www.w3.org/ns/oa#hasBody</a></td>
-<td>A per-region proxy for the subject, so this one sighting could later carry its own properties.</td>
-<td><a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
-<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_standoff_hasTarget" title="#prop_standoff_hasTarget"></a> Property: oa:hasTarget</h3>
+<h3><a id="prop_standoff_hasTarget" title="#prop_standoff_hasTarget"></a> Property: Has target</h3>
 <table>
 <thead>
 <tr>
@@ -1826,7 +2133,49 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy"></a> Property: oa:motivatedBy</h3>
+<h3><a id="prop_region_height" title="#prop_region_height"></a> Property: Height</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_region_height" title="#prop_region_height">height</a></td>
+<td><a href="http://schema.org/height" target="_blank" rel="noopener">http://schema.org/height</a></td>
+<td>The region's height, as a fraction of the image.</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
+<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_keywords" title="#prop_photo_keywords"></a> Property: Keywords</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_photo_keywords" title="#prop_photo_keywords">keywords</a></td>
+<td><a href="http://schema.org/keywords" target="_blank" rel="noopener">http://schema.org/keywords</a></td>
+<td>IPTC/XMP keywords, excluding any that duplicate a region's name.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_standoff_motivatedBy" title="#prop_standoff_motivatedBy"></a> Property: Motivated by</h3>
 <table>
 <thead>
 <tr>
@@ -1847,7 +2196,362 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_processingError" title="#prop_photo_processingError"></a> Property: processingError</h3>
+<h3><a id="prop_mainroot_name" title="#prop_mainroot_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_mainroot_name" title="#prop_mainroot_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_folderroot_name" title="#prop_folderroot_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_folderroot_name" title="#prop_folderroot_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_facesroot_name" title="#prop_facesroot_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_facesroot_name" title="#prop_facesroot_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The name of the collection, folder or crate.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_subcollection_name" title="#prop_subcollection_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_subcollection_name" title="#prop_subcollection_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The sub-collection's path, e.g. 2025/03/10.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_name" title="#prop_photo_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_photo_name" title="#prop_photo_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The file's own name.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_thumbnail_name" title="#prop_thumbnail_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_thumbnail_name" title="#prop_thumbnail_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>e.g. &quot;Thumbnail of IMG_0042.jpg&quot;.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_Thumbnail" title="#class_Thumbnail">Thumbnail</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_album_name" title="#prop_album_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_album_name" title="#prop_album_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The album's name, from which its id is derived.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_Album" title="#class_Album">Album</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_person_name" title="#prop_person_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_person_name" title="#prop_person_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The main or canonical name for this person, this depends on the policy of a particular collection but may be their birth name or a nickname</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_personinstance_name" title="#prop_personinstance_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_personinstance_name" title="#prop_personinstance_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>How they were known here, which need not match the shared identity's name.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_pet_name" title="#prop_pet_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_pet_name" title="#prop_pet_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The name their identity is derived from.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#MainPetClass" title="#MainPetClass">Pet</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_petinstance_name" title="#prop_petinstance_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_petinstance_name" title="#prop_petinstance_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>How they were known here.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_region_name" title="#prop_region_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_region_name" title="#prop_region_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The subject's name, duplicated here so a reader need not resolve about.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_standoff_name" title="#prop_standoff_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_standoff_name" title="#prop_standoff_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The subject's name.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_exif_name" title="#prop_exif_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_exif_name" title="#prop_exif_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The EXIF field name, e.g. Make.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_embedding_name" title="#prop_embedding_name"></a> Property: Name</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_embedding_name" title="#prop_embedding_name">name</a></td>
+<td><a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a></td>
+<td>The person's name, or &quot;Ignored stranger&quot; for a permanently-suppressed face.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_region_nameInFile" title="#prop_region_nameInFile"></a> Property: Name in file</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_region_nameInFile" title="#prop_region_nameInFile">nameInFile</a></td>
+<td>The name the photo file's own tag gives this region, recorded only where it differs from the name the crate keeps. Its absence means the two agree.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_parentchild_source" title="#prop_parentchild_source"></a> Property: Parent</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_parentchild_source" title="#prop_parentchild_source">rico:relationHasSource</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationHasSource" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationHasSource</a></td>
+<td>The parent. RiC orients this relationship from the parent, so the parent is its source.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_processingError" title="#prop_photo_processingError"></a> Property: Processing error</h3>
 <table>
 <thead>
 <tr>
@@ -1863,96 +2567,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_processingError" title="#prop_photo_processingError">processingError</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#processingError" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#processingError</a></td>
 <td>An EXIF and/or thumbnail failure. Removed once the file processes cleanly.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf"></a> Property: prov:specializationOf</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">prov:specializationOf</a></td>
-<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
-<td>The real photo this item stands for.</td>
-<td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
-<td><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf"></a> Property: prov:specializationOf</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf">prov:specializationOf</a></td>
-<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
-<td>The shared identity this is an instance of.</td>
-<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf"></a> Property: prov:specializationOf</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf">prov:specializationOf</a></td>
-<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
-<td>The shared identity this is an instance of.</td>
-<td><a href="#MainPetClass" title="#MainPetClass">Pet</a></td>
-<td><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf"></a> Property: prov:specializationOf</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf">prov:specializationOf</a></td>
-<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
-<td>This crate's instance of the person depicted.</td>
-<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
-<td><a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_photo_rating" title="#prop_photo_rating"></a> Property: rating</h3>
+<h3><a id="prop_photo_rating" title="#prop_photo_rating"></a> Property: Rating</h3>
 <table>
 <thead>
 <tr>
@@ -1968,12 +2588,54 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_rating" title="#prop_photo_rating">rating</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#rating" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#rating</a></td>
 <td>XMP star rating, 1-5. Absent rather than 0 when unrated.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_regions" title="#prop_photo_regions"></a> Property: regions</h3>
+<h3><a id="prop_region_regionType" title="#prop_region_regionType"></a> Property: Region type</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_region_regionType" title="#prop_region_regionType">regionType</a></td>
+<td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
+<td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_standoff_regionType" title="#prop_standoff_regionType"></a> Property: Region type</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_standoff_regionType" title="#prop_standoff_regionType">regionType</a></td>
+<td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
+<td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
+<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_regions" title="#prop_photo_regions"></a> Property: Regions</h3>
 <table>
 <thead>
 <tr>
@@ -1994,49 +2656,7 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_regionType" title="#prop_region_regionType"></a> Property: regionType</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_region_regionType" title="#prop_region_regionType">regionType</a></td>
-<td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
-<td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
-<td>Text</td>
-<td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_standoff_regionType" title="#prop_standoff_regionType"></a> Property: regionType</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Specialization Of</th>
-<th>Description</th>
-<th>Range</th>
-<th>Occurs in Domain(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#prop_standoff_regionType" title="#prop_standoff_regionType">regionType</a></td>
-<td><a href="https://w3id.org/ldac/rocphotos/terms#regionType" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#regionType</a></td>
-<td>A literal, either &quot;Face&quot; or &quot;Pet&quot;.</td>
-<td>Text</td>
-<td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
-</tr>
-</tbody>
-</table>
-<h3><a id="prop_embedding_sourceImage" title="#prop_embedding_sourceImage"></a> Property: sourceImage</h3>
+<h3><a id="prop_embedding_sourceImage" title="#prop_embedding_sourceImage"></a> Property: Source image</h3>
 <table>
 <thead>
 <tr>
@@ -2052,12 +2672,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_embedding_sourceImage" title="#prop_embedding_sourceImage">sourceImage</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#sourceImage" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#sourceImage</a></td>
 <td>The photo it was computed from, as a collection-relative path.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion"></a> Property: sourceRegion</h3>
+<h3><a id="prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion"></a> Property: Source region</h3>
 <table>
 <thead>
 <tr>
@@ -2073,12 +2693,117 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion">sourceRegion</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#sourceRegion" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#sourceRegion</a></td>
 <td>The region it was computed from. Absent for a stranger, which is never written back as a region.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_thumbnail" title="#prop_photo_thumbnail"></a> Property: thumbnail</h3>
+<h3><a id="prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf"></a> Property: Specialization of</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_albumitem_specializationOf" title="#prop_albumitem_specializationOf">prov:specializationOf</a></td>
+<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
+<td>The real photo this item stands for. No range: the photo is described in its folder crate, not here, so it cannot be checked within this crate.</td>
+<td></td>
+<td><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf"></a> Property: Specialization of</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_personinstance_specializationOf" title="#prop_personinstance_specializationOf">prov:specializationOf</a></td>
+<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
+<td>The shared identity this is an instance of.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf"></a> Property: Specialization of</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_petinstance_specializationOf" title="#prop_petinstance_specializationOf">prov:specializationOf</a></td>
+<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
+<td>The shared identity this is an instance of.</td>
+<td><a href="#MainPetClass" title="#MainPetClass">Pet</a></td>
+<td><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf"></a> Property: Specialization of</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_regionbody_specializationOf" title="#prop_regionbody_specializationOf">prov:specializationOf</a></td>
+<td><a href="http://www.w3.org/ns/prov#specializationOf" target="_blank" rel="noopener">http://www.w3.org/ns/prov#specializationOf</a></td>
+<td>This crate's instance of the person depicted.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a>, <a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a></td>
+<td><a href="#class_RegionBody" title="#class_RegionBody">Region body</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_spouse_connects" title="#prop_spouse_connects"></a> Property: Spouses</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Specialization Of</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prop_spouse_connects" title="#prop_spouse_connects">rico:relationConnects</a></td>
+<td><a href="https://www.ica.org/standards/RiC/ontology#relationConnects" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationConnects</a></td>
+<td>The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side.</td>
+<td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prop_photo_thumbnail" title="#prop_photo_thumbnail"></a> Property: Thumbnail</h3>
 <table>
 <thead>
 <tr>
@@ -2099,7 +2824,7 @@ contain, so it is left unconstrained.</li>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_photo_title" title="#prop_photo_title"></a> Property: title</h3>
+<h3><a id="prop_photo_title" title="#prop_photo_title"></a> Property: Title</h3>
 <table>
 <thead>
 <tr>
@@ -2115,12 +2840,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_photo_title" title="#prop_photo_title">title</a></td>
 <td><a href="http://schema.org/title" target="_blank" rel="noopener">http://schema.org/title</a></td>
 <td>Always present: the IPTC/XMP title if the file has one, its filename otherwise.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_Photo" title="#class_Photo">Photo</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_exif_value" title="#prop_exif_value"></a> Property: value</h3>
+<h3><a id="prop_exif_value" title="#prop_exif_value"></a> Property: Value</h3>
 <table>
 <thead>
 <tr>
@@ -2136,12 +2861,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_exif_value" title="#prop_exif_value">value</a></td>
 <td><a href="http://schema.org/value" target="_blank" rel="noopener">http://schema.org/value</a></td>
 <td>Its value, as text.</td>
-<td>Text</td>
+<td><a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a></td>
 <td><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_width" title="#prop_region_width"></a> Property: width</h3>
+<h3><a id="prop_region_width" title="#prop_region_width"></a> Property: Width</h3>
 <table>
 <thead>
 <tr>
@@ -2157,12 +2882,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_region_width" title="#prop_region_width">width</a></td>
 <td><a href="http://schema.org/width" target="_blank" rel="noopener">http://schema.org/width</a></td>
 <td>The region's width, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile"></a> Property: writtenToFile</h3>
+<h3><a id="prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile"></a> Property: Written to file</h3>
 <table>
 <thead>
 <tr>
@@ -2178,12 +2903,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_standoff_writtenToFile" title="#prop_standoff_writtenToFile">writtenToFile</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#writtenToFile" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#writtenToFile</a></td>
 <td>Whether this region has been written into the photo file's own XMP. Once a rescan finds the same name in the file's real EXIF regions, this region is replaced by the EXIF-derived one.</td>
-<td>Boolean</td>
+<td><a href="http://schema.org/Boolean" title="http://schema.org/Boolean" target="_blank" rel="noopener">Boolean</a></td>
 <td><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_xPosition" title="#prop_region_xPosition"></a> Property: xPosition</h3>
+<h3><a id="prop_region_xPosition" title="#prop_region_xPosition"></a> Property: X position</h3>
 <table>
 <thead>
 <tr>
@@ -2199,12 +2924,12 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_region_xPosition" title="#prop_region_xPosition">xPosition</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#xPosition" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#xPosition</a></td>
 <td>The region's centre X, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
 </tr>
 </tbody>
 </table>
-<h3><a id="prop_region_yPosition" title="#prop_region_yPosition"></a> Property: yPosition</h3>
+<h3><a id="prop_region_yPosition" title="#prop_region_yPosition"></a> Property: Y position</h3>
 <table>
 <thead>
 <tr>
@@ -2220,13 +2945,19 @@ contain, so it is left unconstrained.</li>
 <td><a href="#prop_region_yPosition" title="#prop_region_yPosition">yPosition</a></td>
 <td><a href="https://w3id.org/ldac/rocphotos/terms#yPosition" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#yPosition</a></td>
 <td>The region's centre Y, as a fraction of the image.</td>
-<td>Number</td>
+<td><a href="http://schema.org/Number" title="http://schema.org/Number" target="_blank" rel="noopener">Number</a></td>
 <td><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a></td>
 </tr>
 </tbody>
 </table>
 <h2>Property Values</h2>
-<p>No PropertyValue entities are defined.</p>
+<h3><a id="propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id"></a> Property Value: RO-Crate Metadata Descriptor identifier</h3>
+<p>ID: #propertyValue_RO-Crate_Metadata_Descriptor.id</p>
+<table>
+<thead><tr><th>Property Value</th><th>Description</th><th>Value</th><th>Min Count</th><th>Max Count</th></tr></thead>
+<tbody>
+<tr><td><a href="#propertyValue_RO-Crate_Metadata_Descriptor.id" title="#propertyValue_RO-Crate_Metadata_Descriptor.id">RO-Crate Metadata Descriptor identifier</a></td><td>The fixed @id of the RO-Crate Metadata Descriptor.</td><td><div><strong>Literal String</strong><pre><code>ro-crate-metadata.json</code></pre></div></td><td>1</td><td>1</td></tr>
+</tbody></table>
 <h2>Item Lists</h2>
 <h3><a id="itemlist_motivation"></a>Item List: Annotation motivations</h3>
 <p>Why a standoff region exists: it identifies someone.</p>
