@@ -332,11 +332,282 @@
         "@id": "http://schema.org/CreativeWork"
       },
       "rdfs:comment": "The entity that identifies the crate and points at its root data entity.",
-      "sh:minCount": 1,
-      "sh:maxCount": 1,
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
+    },
+    {
+      "@id": "#class_MainCollectionRoot",
+      "@type": "rdfs:Class",
+      "name": "Main collection root",
+      "rdfs:label": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      },
+      "rdfs:comment": "The root dataset of a rocphotos Main Collection, which includes references to all the \"folder collections\". This has the metadata for the Main Collection, which also includes detailed context such as relationships between people.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "The root dataset of a rocphotos Main Collection, which includes references to all the \"folder collections\". This has the metadata for the Main Collection, which also includes detailed context such as relationships between people."
+    },
+    {
+      "@id": "#class_FolderCollectionRoot",
+      "@type": "rdfs:Class",
+      "name": "Folder collection root",
+      "rdfs:label": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      },
+      "rdfs:comment": "The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories."
+    },
+    {
+      "@id": "#class_FacesRoot",
+      "@type": "rdfs:Class",
+      "name": "Faces crate root",
+      "rdfs:label": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      },
+      "rdfs:comment": "This is used by the rocphotos app for managing face data - it is not designed to be edited by people.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "This is used by the rocphotos app for managing face data - it is not designed to be edited by people."
+    },
+    {
+      "@id": "#class_SubCollection",
+      "@type": "rdfs:Class",
+      "name": "Sub-collection reference",
+      "rdfs:label": "Dataset",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Dataset"
+      },
+      "rdfs:comment": "A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand."
+    },
+    {
+      "@id": "#class_Photo",
+      "@type": "rdfs:Class",
+      "name": "Photo",
+      "rdfs:label": "ImageObject",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/ImageObject"
+      },
+      "rdfs:comment": "A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items).",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items)."
+    },
+    {
+      "@id": "#class_Thumbnail",
+      "@type": "rdfs:Class",
+      "name": "Thumbnail",
+      "rdfs:label": "ImageObject",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/ImageObject"
+      },
+      "rdfs:comment": "A generated thumbnail, referenced by a photo's thumbnail property.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A generated thumbnail, referenced by a photo's thumbnail property."
+    },
+    {
+      "@id": "#class_AlbumItem",
+      "@type": "rdfs:Class",
+      "name": "Album item",
+      "rdfs:label": "ImageObject",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/ImageObject"
+      },
+      "rdfs:comment": "A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture."
+    },
+    {
+      "@id": "#class_Album",
+      "@type": "rdfs:Class",
+      "name": "Album",
+      "rdfs:label": "ImageGallery",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/ImageGallery"
+      },
+      "rdfs:comment": "A named, ordered virtual collection of photos, which is stored in the Main Collection crate.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A named, ordered virtual collection of photos, which is stored in the Main Collection crate."
+    },
+    {
+      "@id": "#MainPersonClass",
+      "@type": "rdfs:Class",
+      "name": "Person",
+      "rdfs:label": "Person",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Person"
+      },
+      "rdfs:comment": "A person, identified by name across the whole collection using an id that is unique within the collections (eg arcp://name,rocphoto/person/<NameSlug>). The Main Crate has the 'canonical' or main description for each unique person represented in the collection.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A person, identified by name across the whole collection using an id that is unique within the collections (eg arcp://name,rocphoto/person/<NameSlug>). The Main Crate has the 'canonical' or main description for each unique person represented in the collection."
+    },
+    {
+      "@id": "#InstancePersonClass",
+      "@type": "rdfs:Class",
+      "name": "Person in this crate",
+      "rdfs:label": "Person",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Person"
+      },
+      "rdfs:comment": "A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection."
+    },
+    {
+      "@id": "#MainPetClass",
+      "@type": "rdfs:Class",
+      "name": "Pet",
+      "rdfs:label": "rocp:Pet",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#Pet"
+      },
+      "rdfs:comment": "A pet, identified by name the same way a Person is, in its own id space so the two never collide.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A pet, identified by name the same way a Person is, in its own id space so the two never collide."
+    },
+    {
+      "@id": "#InstancePetClass",
+      "@type": "rdfs:Class",
+      "name": "Pet in this crate",
+      "rdfs:label": "rocp:Pet",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#Pet"
+      },
+      "rdfs:comment": "A pet as depicted in one crate — see Person in this crate.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A pet as depicted in one crate — see Person in this crate."
+    },
+    {
+      "@id": "#class_ImageRegion_Exif",
+      "@type": "rdfs:Class",
+      "name": "Region (from the file's own tags)",
+      "rdfs:label": "ImageRegion",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#ImageRegion"
+      },
+      "rdfs:comment": "A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image."
+    },
+    {
+      "@id": "#class_ImageRegion_Standoff",
+      "@type": "rdfs:Class",
+      "name": "Region (confirmed here)",
+      "rdfs:label": "ImageRegion",
+      "prov:specializationOf": [
+        {
+          "@id": "https://w3id.org/ldac/rocphotos/terms#ImageRegion"
+        },
+        {
+          "@id": "http://www.w3.org/ns/oa#Annotation"
+        }
+      ],
+      "rdfs:comment": "A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape."
+    },
+    {
+      "@id": "#class_RegionBody",
+      "@type": "rdfs:Class",
+      "name": "Region body",
+      "rdfs:label": "Person",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/Person"
+      },
+      "rdfs:comment": "The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity).",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity)."
+    },
+    {
+      "@id": "#class_ExifValue",
+      "@type": "rdfs:Class",
+      "name": "EXIF value",
+      "rdfs:label": "PropertyValue",
+      "prov:specializationOf": {
+        "@id": "http://schema.org/PropertyValue"
+      },
+      "rdfs:comment": "One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node."
+    },
+    {
+      "@id": "#class_FaceEmbedding",
+      "@type": "rdfs:Class",
+      "name": "Face embedding",
+      "rdfs:label": "FaceEmbedding",
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#FaceEmbedding"
+      },
+      "rdfs:comment": "One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data."
+    },
+    {
+      "@id": "#SpouseRelationshipClass",
+      "@type": "rdfs:Class",
+      "name": "Spouses",
+      "rdfs:label": "rico:SpouseRelation",
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#SpouseRelation"
+      },
+      "rdfs:comment": "Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships."
+    },
+    {
+      "@id": "#ParentChildRelationshipClass",
+      "@type": "rdfs:Class",
+      "name": "Parent and child",
+      "rdfs:label": "rico:ChildRelation",
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#ChildRelation"
+      },
+      "rdfs:comment": "A parent-child relationship including biological, adoptive or other forms.",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      },
+      "description": "A parent-child relationship including biological, adoptive or other forms."
     },
     {
       "@id": "#RO-Crate_Metadata_Descriptor.id",
@@ -350,8 +621,8 @@
       "rangeIncludes": {
         "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id"
       },
-      "sh:minCount": 1,
-      "sh:maxCount": 1,
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       }
@@ -361,9 +632,6 @@
       "@type": "rdf:Property",
       "name": "About",
       "rdfs:label": "about",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/about"
-      },
       "domainIncludes": {
         "@id": "#RO-Crate_Metadata_Descriptor"
       },
@@ -379,35 +647,13 @@
           "@id": "#class_FacesRoot"
         }
       ],
-      "sh:minCount": 1,
-      "sh:maxCount": 1,
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
-      }
-    },
-    {
-      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
-      "@type": "PropertyValue",
-      "name": "RO-Crate Metadata Descriptor identifier",
-      "description": "The fixed @id of the RO-Crate Metadata Descriptor.",
-      "value": "ro-crate-metadata.json",
-      "sh:minCount": 1,
-      "sh:maxCount": 1,
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      }
-    },
-    {
-      "@id": "#class_MainCollectionRoot",
-      "@type": "rdfs:Class",
-      "name": "Main collection root",
-      "rdfs:label": "Dataset",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Dataset"
       },
-      "rdfs:comment": "The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
       }
     },
     {
@@ -415,9 +661,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_MainCollectionRoot"
       },
@@ -425,9 +668,12 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Text"
       },
-      "sh:minCount": 1,
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -435,9 +681,6 @@
       "@type": "rdf:Property",
       "name": "Has part",
       "rdfs:label": "hasPart",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/hasPart"
-      },
       "domainIncludes": {
         "@id": "#class_MainCollectionRoot"
       },
@@ -450,22 +693,12 @@
           "@id": "#class_Album"
         }
       ],
-      "sh:minCount": 1,
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
-      }
-    },
-    {
-      "@id": "#class_FolderCollectionRoot",
-      "@type": "rdfs:Class",
-      "name": "Folder collection root",
-      "rdfs:label": "Dataset",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Dataset"
       },
-      "rdfs:comment": "The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
       }
     },
     {
@@ -473,9 +706,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_FolderCollectionRoot"
       },
@@ -483,9 +713,12 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Text"
       },
-      "sh:minCount": 1,
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -493,34 +726,19 @@
       "@type": "rdf:Property",
       "name": "Has part",
       "rdfs:label": "hasPart",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/hasPart"
-      },
       "domainIncludes": {
         "@id": "#class_FolderCollectionRoot"
       },
       "rdfs:comment": "Every photo in this folder.",
-      "rangeIncludes": [
-        {
-          "@id": "#class_Photo"
-        }
-      ],
-      "sh:minCount": 1,
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      }
-    },
-    {
-      "@id": "#class_FacesRoot",
-      "@type": "rdfs:Class",
-      "name": "Faces crate root",
-      "rdfs:label": "Dataset",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Dataset"
+      "rangeIncludes": {
+        "@id": "#class_Photo"
       },
-      "rdfs:comment": "The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings.",
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
       }
     },
     {
@@ -528,9 +746,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_FacesRoot"
       },
@@ -538,9 +753,12 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Text"
       },
-      "sh:minCount": 1,
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -548,260 +766,26 @@
       "@type": "rdf:Property",
       "name": "Has part",
       "rdfs:label": "hasPart",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/hasPart"
-      },
       "domainIncludes": {
         "@id": "#class_FacesRoot"
       },
       "rdfs:comment": "Every face-recognition reference.",
-      "rangeIncludes": [
-        {
-          "@id": "#class_FaceEmbedding"
-        }
-      ],
-      "sh:minCount": 1,
+      "rangeIncludes": {
+        "@id": "#class_FaceEmbedding"
+      },
+      "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
       }
-    },
-    {
-      "@id": "#class_SubCollection",
-      "@type": "rdfs:Class",
-      "name": "Sub-collection reference",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Dataset"
-      },
-      "description": "How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos).",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "Dataset",
-      "rdfs:comment": "How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos)."
-    },
-    {
-      "@id": "#class_Photo",
-      "@type": "rdfs:Class",
-      "name": "Photo",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/ImageObject"
-      },
-      "description": "A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageObject",
-      "rdfs:comment": "A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename."
-    },
-    {
-      "@id": "#class_Thumbnail",
-      "@type": "rdfs:Class",
-      "name": "Thumbnail",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/ImageObject"
-      },
-      "description": "A generated thumbnail, referenced by a photo's thumbnail property.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageObject",
-      "rdfs:comment": "A generated thumbnail, referenced by a photo's thumbnail property."
-    },
-    {
-      "@id": "#class_AlbumItem",
-      "@type": "rdfs:Class",
-      "name": "Album item",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/ImageObject"
-      },
-      "description": "One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageObject",
-      "rdfs:comment": "One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo."
-    },
-    {
-      "@id": "#class_Album",
-      "@type": "rdfs:Class",
-      "name": "Album",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/ImageGallery"
-      },
-      "description": "A named, ordered virtual collection of photos, living in the root crate.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageGallery",
-      "rdfs:comment": "A named, ordered virtual collection of photos, living in the root crate."
-    },
-    {
-      "@id": "#MainPersonClass",
-      "@type": "rdfs:Class",
-      "name": "Person",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Person"
-      },
-      "description": "A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "Person",
-      "rdfs:comment": "A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone."
-    },
-    {
-      "@id": "#InstancePersonClass",
-      "@type": "rdfs:Class",
-      "name": "Person in this crate",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Person"
-      },
-      "description": "A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "Person",
-      "rdfs:comment": "A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection."
-    },
-    {
-      "@id": "#MainPetClass",
-      "@type": "rdfs:Class",
-      "name": "Pet",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#Pet"
-      },
-      "description": "A pet, identified by name the same way a Person is, in its own id space so the two never collide.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "rocp:Pet",
-      "rdfs:comment": "A pet, identified by name the same way a Person is, in its own id space so the two never collide."
-    },
-    {
-      "@id": "#InstancePetClass",
-      "@type": "rdfs:Class",
-      "name": "Pet in this crate",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#Pet"
-      },
-      "description": "A pet as depicted in one crate — see Person in this crate.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "rocp:Pet",
-      "rdfs:comment": "A pet as depicted in one crate — see Person in this crate."
-    },
-    {
-      "@id": "#class_ImageRegion_Exif",
-      "@type": "rdfs:Class",
-      "name": "Region (from the file's own tags)",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#ImageRegion"
-      },
-      "description": "A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageRegion",
-      "rdfs:comment": "A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image."
-    },
-    {
-      "@id": "#class_ImageRegion_Standoff",
-      "@type": "rdfs:Class",
-      "name": "Region (confirmed here)",
-      "prov:specializationOf": [
-        {
-          "@id": "https://w3id.org/ldac/rocphotos/terms#ImageRegion"
-        },
-        {
-          "@id": "http://www.w3.org/ns/oa#Annotation"
-        }
-      ],
-      "description": "A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "ImageRegion",
-      "rdfs:comment": "A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape."
-    },
-    {
-      "@id": "#class_RegionBody",
-      "@type": "rdfs:Class",
-      "name": "Region body",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/Person"
-      },
-      "description": "The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity).",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "Person",
-      "rdfs:comment": "The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity)."
-    },
-    {
-      "@id": "#class_ExifValue",
-      "@type": "rdfs:Class",
-      "name": "EXIF value",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/PropertyValue"
-      },
-      "description": "One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "PropertyValue",
-      "rdfs:comment": "One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node."
-    },
-    {
-      "@id": "#class_FaceEmbedding",
-      "@type": "rdfs:Class",
-      "name": "Face embedding",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#FaceEmbedding"
-      },
-      "description": "One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "FaceEmbedding",
-      "rdfs:comment": "One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data."
-    },
-    {
-      "@id": "#SpouseRelationshipClass",
-      "@type": "rdfs:Class",
-      "name": "Married",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#SpouseRelation"
-      },
-      "description": "Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "rico:SpouseRelation",
-      "rdfs:comment": "Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands."
-    },
-    {
-      "@id": "#ParentChildRelationshipClass",
-      "@type": "rdfs:Class",
-      "name": "Parent and child",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#ChildRelation"
-      },
-      "description": "Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up.",
-      "isPartOf": {
-        "@id": "#hasSpecializedSchema"
-      },
-      "rdfs:label": "rico:ChildRelation",
-      "rdfs:comment": "Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up."
     },
     {
       "@id": "#prop_subcollection_name",
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_SubCollection"
       },
@@ -812,6 +796,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -819,9 +806,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -832,6 +816,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -839,9 +826,6 @@
       "@type": "rdf:Property",
       "name": "Title",
       "rdfs:label": "title",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/title"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -852,6 +836,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/title"
       }
     },
     {
@@ -859,9 +846,6 @@
       "@type": "rdf:Property",
       "name": "Description",
       "rdfs:label": "description",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/description"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -871,6 +855,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/description"
       }
     },
     {
@@ -878,9 +865,6 @@
       "@type": "rdf:Property",
       "name": "Date created",
       "rdfs:label": "dateCreated",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/dateCreated"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -890,6 +874,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/dateCreated"
       }
     },
     {
@@ -897,9 +884,6 @@
       "@type": "rdf:Property",
       "name": "Date modified",
       "rdfs:label": "dateModified",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/dateModified"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -909,6 +893,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/dateModified"
       }
     },
     {
@@ -916,9 +903,6 @@
       "@type": "rdf:Property",
       "name": "Keywords",
       "rdfs:label": "keywords",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/keywords"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -928,6 +912,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/keywords"
       }
     },
     {
@@ -935,9 +922,6 @@
       "@type": "rdf:Property",
       "name": "Rating",
       "rdfs:label": "rating",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#rating"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -947,6 +931,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#rating"
       }
     },
     {
@@ -954,9 +941,6 @@
       "@type": "rdf:Property",
       "name": "EXIF data",
       "rdfs:label": "exifData",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#exifData"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -966,6 +950,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#exifData"
       }
     },
     {
@@ -973,9 +960,6 @@
       "@type": "rdf:Property",
       "name": "About",
       "rdfs:label": "about",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/about"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -996,6 +980,9 @@
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
       }
     },
     {
@@ -1003,9 +990,6 @@
       "@type": "rdf:Property",
       "name": "Regions",
       "rdfs:label": "regions",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#regions"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -1020,6 +1004,9 @@
       ],
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#regions"
       }
     },
     {
@@ -1027,9 +1014,6 @@
       "@type": "rdf:Property",
       "name": "Thumbnail",
       "rdfs:label": "thumbnail",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/thumbnail"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -1039,6 +1023,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/thumbnail"
       }
     },
     {
@@ -1046,9 +1033,6 @@
       "@type": "rdf:Property",
       "name": "Processing error",
       "rdfs:label": "processingError",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#processingError"
-      },
       "domainIncludes": {
         "@id": "#class_Photo"
       },
@@ -1058,6 +1042,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#processingError"
       }
     },
     {
@@ -1065,9 +1052,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_Thumbnail"
       },
@@ -1078,6 +1062,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1085,9 +1072,6 @@
       "@type": "rdf:Property",
       "name": "Specialization of",
       "rdfs:label": "prov:specializationOf",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/prov#specializationOf"
-      },
       "domainIncludes": {
         "@id": "#class_AlbumItem"
       },
@@ -1095,6 +1079,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/prov#specializationOf"
       }
     },
     {
@@ -1102,9 +1089,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_Album"
       },
@@ -1115,6 +1099,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1122,9 +1109,6 @@
       "@type": "rdf:Property",
       "name": "Description",
       "rdfs:label": "description",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/description"
-      },
       "domainIncludes": {
         "@id": "#class_Album"
       },
@@ -1134,6 +1118,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/description"
       }
     },
     {
@@ -1141,9 +1128,6 @@
       "@type": "rdf:Property",
       "name": "Has part",
       "rdfs:label": "hasPart",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/hasPart"
-      },
       "domainIncludes": {
         "@id": "#class_Album"
       },
@@ -1154,6 +1138,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/hasPart"
       }
     },
     {
@@ -1161,9 +1148,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#MainPersonClass"
       },
@@ -1174,6 +1158,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1181,9 +1168,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#InstancePersonClass"
       },
@@ -1194,6 +1178,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1201,9 +1188,6 @@
       "@type": "rdf:Property",
       "name": "Specialization of",
       "rdfs:label": "prov:specializationOf",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/prov#specializationOf"
-      },
       "domainIncludes": {
         "@id": "#InstancePersonClass"
       },
@@ -1214,6 +1198,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/prov#specializationOf"
       }
     },
     {
@@ -1221,9 +1208,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#MainPetClass"
       },
@@ -1234,6 +1218,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1241,9 +1228,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#InstancePetClass"
       },
@@ -1254,6 +1238,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1261,9 +1248,6 @@
       "@type": "rdf:Property",
       "name": "Specialization of",
       "rdfs:label": "prov:specializationOf",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/prov#specializationOf"
-      },
       "domainIncludes": {
         "@id": "#InstancePetClass"
       },
@@ -1274,6 +1258,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/prov#specializationOf"
       }
     },
     {
@@ -1281,9 +1268,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1294,6 +1278,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1301,9 +1288,6 @@
       "@type": "rdf:Property",
       "name": "Region type",
       "rdfs:label": "regionType",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#regionType"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1314,6 +1298,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#regionType"
       }
     },
     {
@@ -1321,9 +1308,6 @@
       "@type": "rdf:Property",
       "name": "About",
       "rdfs:label": "about",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/about"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1345,6 +1329,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
       }
     },
     {
@@ -1352,9 +1339,6 @@
       "@type": "rdf:Property",
       "name": "X position",
       "rdfs:label": "xPosition",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#xPosition"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1365,6 +1349,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#xPosition"
       }
     },
     {
@@ -1372,9 +1359,6 @@
       "@type": "rdf:Property",
       "name": "Y position",
       "rdfs:label": "yPosition",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#yPosition"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1385,6 +1369,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#yPosition"
       }
     },
     {
@@ -1392,9 +1379,6 @@
       "@type": "rdf:Property",
       "name": "Width",
       "rdfs:label": "width",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/width"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1405,6 +1389,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/width"
       }
     },
     {
@@ -1412,9 +1399,6 @@
       "@type": "rdf:Property",
       "name": "Height",
       "rdfs:label": "height",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/height"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Exif"
       },
@@ -1425,6 +1409,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/height"
       }
     },
     {
@@ -1432,9 +1419,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1445,6 +1429,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1452,9 +1439,6 @@
       "@type": "rdf:Property",
       "name": "Region type",
       "rdfs:label": "regionType",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#regionType"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1465,6 +1449,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#regionType"
       }
     },
     {
@@ -1472,9 +1459,6 @@
       "@type": "rdf:Property",
       "name": "Has target",
       "rdfs:label": "oa:hasTarget",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/oa#hasTarget"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1482,6 +1466,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/oa#hasTarget"
       }
     },
     {
@@ -1489,9 +1476,6 @@
       "@type": "rdf:Property",
       "name": "Has body",
       "rdfs:label": "oa:hasBody",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/oa#hasBody"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1510,6 +1494,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/oa#hasBody"
       }
     },
     {
@@ -1517,9 +1504,6 @@
       "@type": "rdf:Property",
       "name": "Motivated by",
       "rdfs:label": "oa:motivatedBy",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/oa#motivatedBy"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1530,6 +1514,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/oa#motivatedBy"
       }
     },
     {
@@ -1537,9 +1524,6 @@
       "@type": "rdf:Property",
       "name": "Written to file",
       "rdfs:label": "writtenToFile",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#writtenToFile"
-      },
       "domainIncludes": {
         "@id": "#class_ImageRegion_Standoff"
       },
@@ -1550,6 +1534,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#writtenToFile"
       }
     },
     {
@@ -1557,9 +1544,6 @@
       "@type": "rdf:Property",
       "name": "Specialization of",
       "rdfs:label": "prov:specializationOf",
-      "prov:specializationOf": {
-        "@id": "http://www.w3.org/ns/prov#specializationOf"
-      },
       "domainIncludes": {
         "@id": "#class_RegionBody"
       },
@@ -1575,6 +1559,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://www.w3.org/ns/prov#specializationOf"
       }
     },
     {
@@ -1582,9 +1569,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_ExifValue"
       },
@@ -1595,6 +1579,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1602,9 +1589,6 @@
       "@type": "rdf:Property",
       "name": "Value",
       "rdfs:label": "value",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/value"
-      },
       "domainIncludes": {
         "@id": "#class_ExifValue"
       },
@@ -1615,6 +1599,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/value"
       }
     },
     {
@@ -1622,9 +1609,6 @@
       "@type": "rdf:Property",
       "name": "Name",
       "rdfs:label": "name",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/name"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1635,6 +1619,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/name"
       }
     },
     {
@@ -1642,15 +1629,15 @@
       "@type": "rdf:Property",
       "name": "About",
       "rdfs:label": "about",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/about"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
       "rdfs:comment": "The person this is a reference for. Absent entirely for a stranger. No range: the person is described in the main collection crate, not here, so it cannot be checked within this crate.",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "http://schema.org/about"
       }
     },
     {
@@ -1658,9 +1645,6 @@
       "@type": "rdf:Property",
       "name": "Source image",
       "rdfs:label": "sourceImage",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#sourceImage"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1671,6 +1655,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#sourceImage"
       }
     },
     {
@@ -1678,9 +1665,6 @@
       "@type": "rdf:Property",
       "name": "Source region",
       "rdfs:label": "sourceRegion",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#sourceRegion"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1690,6 +1674,9 @@
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#sourceRegion"
       }
     },
     {
@@ -1697,9 +1684,6 @@
       "@type": "rdf:Property",
       "name": "Embedding",
       "rdfs:label": "embedding",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#embedding"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1710,6 +1694,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#embedding"
       }
     },
     {
@@ -1717,9 +1704,6 @@
       "@type": "rdf:Property",
       "name": "Embedding model",
       "rdfs:label": "embeddingModel",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#embeddingModel"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1730,6 +1714,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#embeddingModel"
       }
     },
     {
@@ -1737,9 +1724,6 @@
       "@type": "rdf:Property",
       "name": "Embedding model version",
       "rdfs:label": "embeddingModelVersion",
-      "prov:specializationOf": {
-        "@id": "https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion"
-      },
       "domainIncludes": {
         "@id": "#class_FaceEmbedding"
       },
@@ -1750,6 +1734,9 @@
       "sh:minCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://w3id.org/ldac/rocphotos/terms#embeddingModelVersion"
       }
     },
     {
@@ -1757,9 +1744,6 @@
       "@type": "rdf:Property",
       "name": "Description",
       "rdfs:label": "description",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/description"
-      },
       "domainIncludes": {
         "@id": "#MainPersonClass"
       },
@@ -1767,19 +1751,19 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Text"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "http://schema.org/description"
+      }
     },
     {
       "@id": "#prop_person_birthDate",
       "@type": "rdf:Property",
       "name": "Birth date",
       "rdfs:label": "birthDate",
-      "prov:specializationOf": {
-        "@id": "http://schema.org/birthDate"
-      },
       "domainIncludes": {
         "@id": "#MainPersonClass"
       },
@@ -1787,10 +1771,13 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Date"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "http://schema.org/birthDate"
+      }
     },
     {
       "@id": "#prop_region_nameInFile",
@@ -1804,19 +1791,16 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Text"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
-      },
-      "sh:maxCount": "1"
+      }
     },
     {
       "@id": "#prop_spouse_connects",
       "@type": "rdf:Property",
       "name": "Spouses",
       "rdfs:label": "rico:relationConnects",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#relationConnects"
-      },
       "domainIncludes": {
         "@id": "#SpouseRelationshipClass"
       },
@@ -1827,6 +1811,9 @@
       "sh:minCount": "2",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
+      },
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#relationConnects"
       }
     },
     {
@@ -1834,9 +1821,6 @@
       "@type": "rdf:Property",
       "name": "Parent",
       "rdfs:label": "rico:relationHasSource",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#relationHasSource"
-      },
       "domainIncludes": {
         "@id": "#ParentChildRelationshipClass"
       },
@@ -1845,19 +1829,19 @@
         "@id": "#MainPersonClass"
       },
       "sh:minCount": "1",
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#relationHasSource"
+      }
     },
     {
       "@id": "#prop_parentchild_target",
       "@type": "rdf:Property",
       "name": "Child",
       "rdfs:label": "rico:relationHasTarget",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#relationHasTarget"
-      },
       "domainIncludes": {
         "@id": "#ParentChildRelationshipClass"
       },
@@ -1866,19 +1850,19 @@
         "@id": "#MainPersonClass"
       },
       "sh:minCount": "1",
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#relationHasTarget"
+      }
     },
     {
       "@id": "#prop_spouse_beginningDate",
       "@type": "rdf:Property",
       "name": "Began",
       "rdfs:label": "rico:beginningDate",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#beginningDate"
-      },
       "domainIncludes": {
         "@id": "#SpouseRelationshipClass"
       },
@@ -1886,19 +1870,19 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Date"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#beginningDate"
+      }
     },
     {
       "@id": "#prop_spouse_endDate",
       "@type": "rdf:Property",
       "name": "Ended",
       "rdfs:label": "rico:endDate",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#endDate"
-      },
       "domainIncludes": {
         "@id": "#SpouseRelationshipClass"
       },
@@ -1906,19 +1890,19 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Date"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#endDate"
+      }
     },
     {
       "@id": "#prop_parentchild_beginningDate",
       "@type": "rdf:Property",
       "name": "Began",
       "rdfs:label": "rico:beginningDate",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#beginningDate"
-      },
       "domainIncludes": {
         "@id": "#ParentChildRelationshipClass"
       },
@@ -1926,19 +1910,19 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Date"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#beginningDate"
+      }
     },
     {
       "@id": "#prop_parentchild_endDate",
       "@type": "rdf:Property",
       "name": "Ended",
       "rdfs:label": "rico:endDate",
-      "prov:specializationOf": {
-        "@id": "https://www.ica.org/standards/RiC/ontology#endDate"
-      },
       "domainIncludes": {
         "@id": "#ParentChildRelationshipClass"
       },
@@ -1946,10 +1930,25 @@
       "rangeIncludes": {
         "@id": "http://schema.org/Date"
       },
+      "sh:maxCount": "1",
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
       },
-      "sh:maxCount": "1"
+      "prov:specializationOf": {
+        "@id": "https://www.ica.org/standards/RiC/ontology#endDate"
+      }
+    },
+    {
+      "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
+      "@type": "PropertyValue",
+      "name": "RO-Crate Metadata Descriptor identifier",
+      "description": "The fixed @id of the RO-Crate Metadata Descriptor.",
+      "value": "ro-crate-metadata.json",
+      "sh:minCount": "1",
+      "sh:maxCount": "1",
+      "isPartOf": {
+        "@id": "#hasSpecializedSchema"
+      }
     },
     {
       "@id": "#itemlist_motivation",

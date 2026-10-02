@@ -172,25 +172,25 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
     <h3>Classes</h3>
     <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
     <ul id="class-list" class="entity-list">
-<li><a href="#class_Album" title="#class_Album">Album</a> — A named, ordered virtual collection of photos, living in the root crate. <small style="color:#aaa">#class_Album</small></li>
-<li><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a> — One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo. <small style="color:#aaa">#class_AlbumItem</small></li>
+<li><a href="#class_Album" title="#class_Album">Album</a> — A named, ordered virtual collection of photos, which is stored in the Main Collection crate. <small style="color:#aaa">#class_Album</small></li>
+<li><a href="#class_AlbumItem" title="#class_AlbumItem">Album item</a> — A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture. <small style="color:#aaa">#class_AlbumItem</small></li>
 <li><a href="#class_ExifValue" title="#class_ExifValue">EXIF value</a> — One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node. <small style="color:#aaa">#class_ExifValue</small></li>
 <li><a href="#class_FaceEmbedding" title="#class_FaceEmbedding">Face embedding</a> — One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data. <small style="color:#aaa">#class_FaceEmbedding</small></li>
-<li><a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a> — The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings. <small style="color:#aaa">#class_FacesRoot</small></li>
-<li><a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a> — The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos. <small style="color:#aaa">#class_FolderCollectionRoot</small></li>
-<li><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a> — The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums. <small style="color:#aaa">#class_MainCollectionRoot</small></li>
-<li><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a> — Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands. <small style="color:#aaa">#SpouseRelationshipClass</small></li>
-<li><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a> — Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up. <small style="color:#aaa">#ParentChildRelationshipClass</small></li>
-<li><a href="#MainPersonClass" title="#MainPersonClass">Person</a> — A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone. <small style="color:#aaa">#MainPersonClass</small></li>
+<li><a href="#class_FacesRoot" title="#class_FacesRoot">Faces crate root</a> — This is used by the rocphotos app for managing face data - it is not designed to be edited by people. <small style="color:#aaa">#class_FacesRoot</small></li>
+<li><a href="#class_FolderCollectionRoot" title="#class_FolderCollectionRoot">Folder collection root</a> — The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories. <small style="color:#aaa">#class_FolderCollectionRoot</small></li>
+<li><a href="#class_MainCollectionRoot" title="#class_MainCollectionRoot">Main collection root</a> — The root dataset of a rocphotos Main Collection, which includes references to all the "folder collections". This has the metadata for the Main Collection, which also includes detailed context such as relationships between people. <small style="color:#aaa">#class_MainCollectionRoot</small></li>
+<li><a href="#ParentChildRelationshipClass" title="#ParentChildRelationshipClass">Parent and child</a> — A parent-child relationship including biological, adoptive or other forms. <small style="color:#aaa">#ParentChildRelationshipClass</small></li>
+<li><a href="#MainPersonClass" title="#MainPersonClass">Person</a> — A person, identified by name across the whole collection using an id that is unique within the collections (eg arcp://name,rocphoto/person/<NameSlug>). The Main Crate has the 'canonical' or main description for each unique person represented in the collection. <small style="color:#aaa">#MainPersonClass</small></li>
 <li><a href="#InstancePersonClass" title="#InstancePersonClass">Person in this crate</a> — A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection. <small style="color:#aaa">#InstancePersonClass</small></li>
 <li><a href="#MainPetClass" title="#MainPetClass">Pet</a> — A pet, identified by name the same way a Person is, in its own id space so the two never collide. <small style="color:#aaa">#MainPetClass</small></li>
 <li><a href="#InstancePetClass" title="#InstancePetClass">Pet in this crate</a> — A pet as depicted in one crate — see Person in this crate. <small style="color:#aaa">#InstancePetClass</small></li>
-<li><a href="#class_Photo" title="#class_Photo">Photo</a> — A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename. <small style="color:#aaa">#class_Photo</small></li>
+<li><a href="#class_Photo" title="#class_Photo">Photo</a> — A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items). <small style="color:#aaa">#class_Photo</small></li>
 <li><a href="#class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff">Region (confirmed here)</a> — A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape. <small style="color:#aaa">#class_ImageRegion_Standoff</small></li>
 <li><a href="#class_ImageRegion_Exif" title="#class_ImageRegion_Exif">Region (from the file's own tags)</a> — A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image. <small style="color:#aaa">#class_ImageRegion_Exif</small></li>
 <li><a href="#class_RegionBody" title="#class_RegionBody">Region body</a> — The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity). <small style="color:#aaa">#class_RegionBody</small></li>
 <li><a href="#RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor">RO-Crate Metadata Descriptor</a> — The entity that identifies the crate and points at its root data entity. <small style="color:#aaa">#RO-Crate_Metadata_Descriptor</small></li>
-<li><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a> — How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos). <small style="color:#aaa">#class_SubCollection</small></li>
+<li><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a> — Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships. <small style="color:#aaa">#SpouseRelationshipClass</small></li>
+<li><a href="#class_SubCollection" title="#class_SubCollection">Sub-collection reference</a> — A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand. <small style="color:#aaa">#class_SubCollection</small></li>
 <li><a href="#class_Thumbnail" title="#class_Thumbnail">Thumbnail</a> — A generated thumbnail, referenced by a photo's thumbnail property. <small style="color:#aaa">#class_Thumbnail</small></li>
     </ul>
   </div>
@@ -325,7 +325,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_MainCollectionRoot" title="#class_MainCollectionRoot"></a> Class: Main collection root</h3>
-<p>The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums.</p>
+<p>The root dataset of a rocphotos Main Collection, which includes references to all the &quot;folder collections&quot;. This has the metadata for the Main Collection, which also includes detailed context such as relationships between people.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -381,7 +381,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_FolderCollectionRoot" title="#class_FolderCollectionRoot"></a> Class: Folder collection root</h3>
-<p>The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos.</p>
+<p>The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -437,7 +437,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_FacesRoot" title="#class_FacesRoot"></a> Class: Faces crate root</h3>
-<p>The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings.</p>
+<p>This is used by the rocphotos app for managing face data - it is not designed to be edited by people.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -493,7 +493,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_SubCollection" title="#class_SubCollection"></a> Class: Sub-collection reference</h3>
-<p>How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos).</p>
+<p>A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -541,7 +541,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_Photo" title="#class_Photo"></a> Class: Photo</h3>
-<p>A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename.</p>
+<p>A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items).</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -725,7 +725,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_AlbumItem" title="#class_AlbumItem"></a> Class: Album item</h3>
-<p>One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo.</p>
+<p>A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -773,7 +773,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_Album" title="#class_Album"></a> Class: Album</h3>
-<p>A named, ordered virtual collection of photos, living in the root crate.</p>
+<p>A named, ordered virtual collection of photos, which is stored in the Main Collection crate.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -837,7 +837,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="MainPersonClass" title="#MainPersonClass"></a> Class: Person</h3>
-<p>A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone.</p>
+<p>A person, identified by name across the whole collection using an id that is unique within the collections (eg arcp://name,rocphoto/person/<NameSlug>). The Main Crate has the 'canonical' or main description for each unique person represented in the collection.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -1452,8 +1452,8 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tr>
 </tbody>
 </table>
-<h3><a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Married</h3>
-<p>Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands.</p>
+<h3><a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Spouses</h3>
+<p>Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -1469,7 +1469,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tr>
 </tbody>
 </table>
-<h4>Properties from Married</h4>
+<h4>Properties from Spouses</h4>
 <table>
 <thead>
 <tr>
@@ -1517,7 +1517,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="ParentChildRelationshipClass" title="#ParentChildRelationshipClass"></a> Class: Parent and child</h3>
-<p>Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up.</p>
+<p>A parent-child relationship including biological, adoptive or other forms.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
 <thead>
@@ -1709,7 +1709,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 <td><a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a></td>
 <td>When it began, to whatever precision is known — a year on its own is fine.</td>
 <td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
-<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a></td>
 </tr>
 </tbody>
 </table>
@@ -1961,7 +1961,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 <td><a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a></td>
 <td>When it ended, if it has. Left out while it still holds.</td>
 <td><a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a></td>
-<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a></td>
 </tr>
 </tbody>
 </table>
@@ -2799,7 +2799,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 <td><a href="https://www.ica.org/standards/RiC/ontology#relationConnects" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationConnects</a></td>
 <td>The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side.</td>
 <td><a href="#MainPersonClass" title="#MainPersonClass">Person</a></td>
-<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a></td>
+<td><a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a></td>
 </tr>
 </tbody>
 </table>

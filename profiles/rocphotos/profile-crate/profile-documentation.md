@@ -149,7 +149,7 @@ At least 1 instances of this type MUST be present in the crate.
 
 ### <a id="class_MainCollectionRoot" title="#class_MainCollectionRoot"></a> Class: Main collection root
 
-The root of the main collection crate. Told apart from the other two roots by what its hasPart holds: the sub-collection folders, and any albums.
+The root dataset of a rocphotos Main Collection, which includes references to all the "folder collections". This has the metadata for the Main Collection, which also includes detailed context such as relationships between people.
 
 Instances of this type MAY be present in the crate.
 
@@ -168,7 +168,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_FolderCollectionRoot" title="#class_FolderCollectionRoot"></a> Class: Folder collection root
 
-The root of a crate for one folder of photos. Told apart from the other two roots by its hasPart holding photos.
+The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories.
 
 Instances of this type MAY be present in the crate.
 
@@ -187,7 +187,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_FacesRoot" title="#class_FacesRoot"></a> Class: Faces crate root
 
-The root of the faces crate. Told apart from the other two roots by its hasPart holding face embeddings.
+This is used by the rocphotos app for managing face data - it is not designed to be edited by people.
 
 Instances of this type MAY be present in the crate.
 
@@ -206,7 +206,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_SubCollection" title="#class_SubCollection"></a> Class: Sub-collection reference
 
-How the main collection root lists a sub-collection folder: a Dataset with a name and no hasPart of its own (its own crate holds the photos).
+A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand.
 
 Instances of this type MAY be present in the crate.
 
@@ -224,7 +224,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_Photo" title="#class_Photo"></a> Class: Photo
 
-A source photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items) by carrying a title, which is always present — the file's own IPTC/XMP title, or its filename.
+A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items).
 
 Instances of this type MAY be present in the crate.
 
@@ -271,7 +271,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_AlbumItem" title="#class_AlbumItem"></a> Class: Album item
 
-One photo's place in one album — a proxy, so a caption specific to this album could later hang off it without touching the shared photo.
+A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture.
 
 Instances of this type MAY be present in the crate.
 
@@ -289,7 +289,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_Album" title="#class_Album"></a> Class: Album
 
-A named, ordered virtual collection of photos, living in the root crate.
+A named, ordered virtual collection of photos, which is stored in the Main Collection crate.
 
 Instances of this type MAY be present in the crate.
 
@@ -309,7 +309,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MainPersonClass" title="#MainPersonClass"></a> Class: Person
 
-A person, identified by name across the whole collection (arcp://name,rocphoto/person/<NameSlug>). The root crate's copy is the one to describe in full; each sub-collection crate carries a minimal copy so it reads standalone.
+A person, identified by name across the whole collection using an id that is unique within the collections (eg arcp://name,rocphoto/person/<NameSlug>). The Main Crate has the 'canonical' or main description for each unique person represented in the collection.
 
 Instances of this type MAY be present in the crate.
 
@@ -492,9 +492,9 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_embedding_sourceRegion" title="#prop_embedding_sourceRegion">sourceRegion</a> | <a href="https://w3id.org/ldac/rocphotos/terms#sourceRegion" target="_blank" rel="noopener">https://w3id.org/ldac/rocphotos/terms#sourceRegion</a> | No | The region it was computed from. Absent for a stranger, which is never written back as a region. | <a href="http://schema.org/Text" title="http://schema.org/Text" target="_blank" rel="noopener">Text</a> |  |
 
 
-### <a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Married
+### <a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Spouses
 
-Two people who are, or were, married to each other. Not oriented: it reads the same from either side. This is RiC's own SpouseRelation, used as it stands.
+Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships.
 
 Instances of this type MAY be present in the crate.
 
@@ -502,7 +502,7 @@ Instances of this type MAY be present in the crate.
 | --------- | --------- |
 | N/A | N/A |
 
-#### Properties from Married
+#### Properties from Spouses
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
@@ -514,7 +514,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ParentChildRelationshipClass" title="#ParentChildRelationshipClass"></a> Class: Parent and child
 
-Oriented from the parent to the child: the parent is the source, the child is the target. This is RiC's own ChildRelation, used as it stands, including its direction — which runs down a generation rather than up.
+A parent-child relationship including biological, adoptive or other forms.
 
 Instances of this type MAY be present in the crate.
 
@@ -563,7 +563,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_spouse_beginningDate" title="#prop_spouse_beginningDate">rico:beginningDate</a> | <a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a> | When it began, to whatever precision is known — a year on its own is fine. | <a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a> |
+| <a href="#prop_spouse_beginningDate" title="#prop_spouse_beginningDate">rico:beginningDate</a> | <a href="https://www.ica.org/standards/RiC/ontology#beginningDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#beginningDate</a> | When it began, to whatever precision is known — a year on its own is fine. | <a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a> |
 ### <a id="prop_parentchild_beginningDate" title="#prop_parentchild_beginningDate"></a> Property: Began
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -623,7 +623,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_spouse_endDate" title="#prop_spouse_endDate">rico:endDate</a> | <a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a> | When it ended, if it has. Left out while it still holds. | <a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a> |
+| <a href="#prop_spouse_endDate" title="#prop_spouse_endDate">rico:endDate</a> | <a href="https://www.ica.org/standards/RiC/ontology#endDate" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#endDate</a> | When it ended, if it has. Left out while it still holds. | <a href="http://schema.org/Date" title="http://schema.org/Date" target="_blank" rel="noopener">Date</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a> |
 ### <a id="prop_parentchild_endDate" title="#prop_parentchild_endDate"></a> Property: Ended
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -823,7 +823,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_spouse_connects" title="#prop_spouse_connects">rico:relationConnects</a> | <a href="https://www.ica.org/standards/RiC/ontology#relationConnects" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationConnects</a> | The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side. | <a href="#MainPersonClass" title="#MainPersonClass">Person</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Married</a> |
+| <a href="#prop_spouse_connects" title="#prop_spouse_connects">rico:relationConnects</a> | <a href="https://www.ica.org/standards/RiC/ontology#relationConnects" target="_blank" rel="noopener">https://www.ica.org/standards/RiC/ontology#relationConnects</a> | The two people who are, or were, married to each other. Neither comes first: this relationship reads the same from either side. | <a href="#MainPersonClass" title="#MainPersonClass">Person</a> | <a href="#SpouseRelationshipClass" title="#SpouseRelationshipClass">Spouses</a> |
 ### <a id="prop_photo_thumbnail" title="#prop_photo_thumbnail"></a> Property: Thumbnail
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
