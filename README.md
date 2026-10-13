@@ -19,7 +19,7 @@ If this work goes forward then this repository will probably turn into the home 
 These are the published GitHub Pages versions of the current profiles and schemas:
 
   - Schema: CLDF Ontology (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/cldf/schema-crate/index.html
-  - Schema: LexInfo + OntoLex-Lemon (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/lexinfo/schema-crate/index.html
+  - Schema: lemon, Lexicon Model for Ontologies (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/lemon/schema-crate/index.html
   - Schema: W3C Web Annotation Vocabulary (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html
   - Schema: Records in Context (Ported from OWL): https://language-research-technology.github.io/ro-crate-masp/schemas/ric/schema-crate/index.html
   - Profile: RO-Crate 2 Profile (NEW): https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate-2/profile-crate/index.html
@@ -169,6 +169,7 @@ This repository includes several profiles and schemas that can be built using np
 - **AusTalk Schema**: `npm run build:austalk-schema`
 - **Records in Context (RiC-O) Schema**: `npm run build:ric-schema`
 - **W3C Web Annotation (OA) Schema**: `npm run build:oa-schema`
+- **lemon (Lexicon Model for Ontologies) Schema**: `npm run build:lemon-schema` — converted from [lemon.rdf](https://lemon-model.net/lemon.rdf) via `scripts/owl-to-masp.py`
 - **rocphotos Profile**: `npm run build:rocphotos-profile` — describes the crates written by [rocphotos](https://github.com/ptsefton/rocphotos), and uses the OA schema above for the standoff annotations that carry its face regions
 
 

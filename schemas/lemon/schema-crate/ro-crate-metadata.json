@@ -1,0 +1,1370 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    },
+    {
+      "@base": null
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "lemon (Lexicon Model for Ontologies)",
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "lemon.rdf"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "#owl-to-masp-conversion"
+        }
+      ],
+      "description": [
+        "Lemon: The lexicon model for ontologies is designed to allow  for descriptions of lexical information regarding ontological elements and other RDF resources. Lemon covers mapping of lexical decomposition, phrase structure, syntax,  variation, morphology, and lexicon-ontology mapping."
+      ]
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "http://lemon-model.net/lemon#Argument"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Component"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#ComponentList"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Form"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Frame"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#HasLanguage"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#HasPattern"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalCondition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalContext"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalSense"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalTopic"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Lexicon"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#MorphPattern"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#MorphTransform"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Node"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#NodeConstituent"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Part"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Phrase"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#PhraseElement"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#PropertyValue"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Prototype"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#SenseCondition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#SenseContext"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#SenseDefinition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#SynRoleMarker"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#UsageExample"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Word"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#abstractForm"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#altRef"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#broader"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#canonicalForm"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#condition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#constituent"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#context"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#decomposition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#definition"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#edge"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#element"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#entry"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#equivalent"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#example"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#extrinsicArg"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#formVariant"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#generates"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#hiddenRef"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#incompatible"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#isA"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#isReferenceOf"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#isSenseOf"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#language"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#leaf"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#lexicalForm"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#lexicalVariant"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#marker"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#narrower"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#nextTransform"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#objOfProp"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#optional"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#otherForm"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#pattern"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#phraseRoot"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#prefRef"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#property"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#propertyDomain"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#propertyRange"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#reference"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#representation"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#rule"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#semArg"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#sense"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#senseRelation"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#separator"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#subjOfProp"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#subsense"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#synArg"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#synBehavior"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#topic"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#transform"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#tree"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#value"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#writtenRep"
+        }
+      ]
+    },
+    {
+      "@id": "lemon.rdf",
+      "@type": "File",
+      "name": "lemon.rdf",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "application/rdf+xml"
+    },
+    {
+      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@type": "SoftwareApplication",
+      "name": "owl-to-masp.py",
+      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+    },
+    {
+      "@id": "#owl-to-masp-conversion",
+      "@type": "CreateAction",
+      "name": "Convert OWL ontology to MASP schema crate",
+      "object": {
+        "@id": "lemon.rdf"
+      },
+      "instrument": {
+        "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+      },
+      "result": {
+        "@id": "./"
+      },
+      "startTime": "2026-10-13T22:55:23.302857+00:00"
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Argument",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Argument",
+      "name": "Argument",
+      "rdfs:comment": "A slot representing a gap that must be filled in realising a lexical entry in a given projection",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#PhraseElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Component",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Component",
+      "name": "Component",
+      "rdfs:comment": "A constituent element of a lexical entry. This may be a word in a multi-word lexical element or a constituent of a compound word",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#PhraseElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#ComponentList",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ComponentList",
+      "name": "ComponentList",
+      "rdfs:comment": "A node within a list of components. This should generally be a blank node,see rdf:List",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Form",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Form",
+      "name": "Form",
+      "rdfs:comment": "A given written or spoken realisation of a lexical entry",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Frame",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Frame",
+      "name": "Frame",
+      "rdfs:comment": "A stereotypical example of the usage of a given lexical entry. The most common example of projections are subcategorization frames which describe the slots taken by the arguments of a verb.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#HasLanguage",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HasLanguage",
+      "name": "HasLanguage",
+      "rdfs:comment": "Structural element for all elements that can be tagged with a language",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#HasPattern",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HasPattern",
+      "name": "HasPattern",
+      "rdfs:comment": "HasPattern. A kind of LemonElement.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LemonElement",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LemonElement",
+      "name": "LemonElement"
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LexicalCondition",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalCondition",
+      "name": "Lexical Condition",
+      "rdfs:comment": "An evaluable condition on when a sense applies.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LexicalContext",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalContext",
+      "name": "Lexical Context",
+      "rdfs:comment": "Indicates the pragmatic or discourse context in which a sense applies",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LexicalEntry",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalEntry",
+      "name": "Lexical entry",
+      "rdfs:comment": "An entry in the lexicon. This may be any morpheme, word, compound, phrase or clause that is included in the lexicon",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#HasLanguage"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#HasPattern"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LexicalSense",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalSense",
+      "name": "Lexical sense",
+      "rdfs:comment": "Represents the intersection in meaning between the lexical entry and the ontology entity. This is used as the ontology entity and lexical entry may not be in one-to-one correspondence as such the existence of a sense between them states meerly that there are some cases when this lexical entry refer to the ontology entity and vica versa. Mapping elements can be used to further specify this relation",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#LexicalTopic",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicalTopic",
+      "name": "Lexical Topic",
+      "rdfs:comment": "Indicates the topic of a lexicon or a lexical entry",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Lexicon",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Lexicon",
+      "name": "Lexicon",
+      "rdfs:comment": "The lexicon object. This object is specific to the given language and/or domain it describes",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#HasLanguage"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#HasPattern"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#MorphPattern",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MorphPattern",
+      "name": "Morphological pattern",
+      "rdfs:comment": "Morphological pattern. A kind of HasLanguage, LemonElement.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#HasLanguage"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#MorphTransform",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MorphTransform",
+      "name": "Morphological Transform",
+      "rdfs:comment": "Morphological Transform. A kind of LemonElement.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Node",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Node",
+      "name": "Node",
+      "rdfs:comment": "A node in a phrase structure or dependency parse graph",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#NodeConstituent",
+      "@type": "rdfs:Class",
+      "rdfs:label": "NodeConstituent",
+      "name": "Constituent",
+      "rdfs:comment": "The class of constituents, that is types applied to nodes in a phrase structure graph",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Part",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Part",
+      "name": "Part of word",
+      "rdfs:comment": "An affix is a morpheme that is attached to a word stem to form a new word.  Use this for lexical entries with only abstract forms",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Phrase",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Phrase",
+      "name": "Phrase",
+      "rdfs:comment": "A phrase in lemon is defined in the looser sense of a sequence of words, it does not have to a fully grammatical phrase",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#PhraseElement",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PhraseElement",
+      "name": "Phrase element",
+      "rdfs:comment": "A terminal node in a phrase structure graph, i.e., a realisable, lexical element.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#PropertyValue",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PropertyValue",
+      "name": "Property Value",
+      "rdfs:comment": "A value that can be used in the range of linguistic property",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Prototype",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Prototype",
+      "name": "Prototype",
+      "rdfs:comment": "Prototype. A kind of LemonElement.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#SenseCondition",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SenseCondition",
+      "name": "Condition",
+      "rdfs:comment": "Indicates a logical condition that is used indicate when a particular term has the given meaning",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#SenseContext",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SenseContext",
+      "name": "Context",
+      "rdfs:comment": "Indicates the context in which a term is to be used. The context refers not to the immediate syntactic context, but the document and register the document is used in",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#SenseDefinition",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SenseDefinition",
+      "name": "Definition",
+      "rdfs:comment": "A definition of a sememe, that is the a text describing the exact meaning of the lexical entry when its sense is the given ontology reference",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#SynRoleMarker",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SynRoleMarker",
+      "name": "Syntactic role marker",
+      "rdfs:comment": "The indicator of a given syntactic argument, normally a preposition or other particle marker or a linguistic property such as case",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#PropertyValue"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#UsageExample",
+      "@type": "rdfs:Class",
+      "rdfs:label": "UsageExample",
+      "name": "Usage Example",
+      "rdfs:comment": "An example of the usage of a lexical entry when refering to the ontology entity given by the sememe's reference. This should in effect be an example of the form used in context. E.g., \"this is a *usage example*\"",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LemonElement"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#Word",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Word",
+      "name": "Word",
+      "rdfs:comment": "A word is a single unit of writing or speech. In languages written in Latin, Cyrillic, Greek, Arabic scripts etc. these are assumed to be separated by white-space characters. For Chinese, Japanese, Korean this should correspond to some agreed segmentation scheme.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#abstractForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "abstractForm",
+      "name": "Abstract form",
+      "rdfs:comment": "A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#altRef",
+      "@type": "rdf:Property",
+      "rdfs:label": "altRef",
+      "name": "Alternative reference of",
+      "rdfs:comment": "The sense of a non-preferred but admissible lexicalization of a given ontology entity",
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#broader",
+      "@type": "rdf:Property",
+      "rdfs:label": "broader",
+      "name": "Broader",
+      "rdfs:comment": "Denotes that one sense is broader than another. From a lexical point of view  this means replacing one lexical entry with another generalizes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#canonicalForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "canonicalForm",
+      "name": "Canonical form",
+      "rdfs:comment": "The canonical (\"dictionary\") form of the lexical entry. This can be used to indicate the \"lemma\" form of a lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#condition",
+      "@type": "rdf:Property",
+      "rdfs:label": "condition",
+      "name": "Condition",
+      "rdfs:comment": "Indicates an evaluable test, the is necessary for this sense to apply",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalCondition"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#constituent",
+      "@type": "rdf:Property",
+      "rdfs:label": "constituent",
+      "name": "Constituent",
+      "rdfs:comment": "Constituent. A sub-property of topObjectProperty.",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#NodeConstituent"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#context",
+      "@type": "rdf:Property",
+      "rdfs:label": "context",
+      "name": "Context",
+      "rdfs:comment": "Denotes the pragmatic or discursive context of a sense mapping or a constraint on the mapping by syntactic or semantic properites",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalContext"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#decomposition",
+      "@type": "rdf:Property",
+      "rdfs:label": "decomposition",
+      "name": "Decomposition",
+      "rdfs:comment": "Denotes a component of a lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#ComponentList"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#definition",
+      "@type": "rdf:Property",
+      "rdfs:label": "definition",
+      "name": "Definition",
+      "rdfs:comment": "Indicates a natural language definition. Note there is a pseudo-node to allow for further description of the definition (e.g., source, creation date etc.). The value property should be used to indicate the string value of the definition.",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#SenseDefinition"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#edge",
+      "@type": "rdf:Property",
+      "rdfs:label": "edge",
+      "name": "Edge",
+      "rdfs:comment": "Denotes the relation between a node in a multi-word expression structure and an edge",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#element",
+      "@type": "rdf:Property",
+      "rdfs:label": "element",
+      "name": "Element",
+      "rdfs:comment": "Denotes the lexical entry represented by the component",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Component"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#entry",
+      "@type": "rdf:Property",
+      "rdfs:label": "entry",
+      "name": "Entry",
+      "rdfs:comment": "Indicates an entry in a lexicon",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Lexicon"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#equivalent",
+      "@type": "rdf:Property",
+      "rdfs:label": "equivalent",
+      "name": "Equivalent",
+      "rdfs:comment": "Indicates that two senses are equivalent. From a lexical point of view , this indicates that the lexical entries can be substituted for each other with no change in meaning. From an ontological point of view it means that the two references are not disjoint. From a mapping point of view it means if one mapping apply the other must necessarily apply",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#example",
+      "@type": "rdf:Property",
+      "rdfs:label": "example",
+      "name": "Example",
+      "rdfs:comment": "Example",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#UsageExample"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#extrinsicArg",
+      "@type": "rdf:Property",
+      "rdfs:label": "extrinsicArg",
+      "name": "Extrinsic argument",
+      "rdfs:comment": "A raisable semantic argument is not in fact the semantic argument of the current frame-sense but instead is \"raised\" into a frame-sense used for an argument. For example the phrase \"John seemed to be happy\", is interpreted as \"it seemed that X\" where X is \"John is happy\", hence the subject of \"seem\" is a raisable argument."
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#formVariant",
+      "@type": "rdf:Property",
+      "rdfs:label": "formVariant",
+      "name": "Form variant",
+      "rdfs:comment": "Form variant",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#generates",
+      "@type": "rdf:Property",
+      "rdfs:label": "generates",
+      "name": "Generates",
+      "rdfs:comment": "Generates",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphTransform"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Prototype"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#hiddenRef",
+      "@type": "rdf:Property",
+      "rdfs:label": "hiddenRef",
+      "name": "Hidden reference of",
+      "rdfs:comment": "The sense of a non-admissible lexicalization for a ontology entity. This is used to denote incorrect or deprecated language that may be useful for information extraction but not generation",
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#incompatible",
+      "@type": "rdf:Property",
+      "rdfs:label": "incompatible",
+      "name": "Incompatible",
+      "rdfs:comment": "Says that the two senses are disjoint. From a lexical point of view, this means substituting the lexical entries must change the meaning of the phrase. From an ontological point of view, this property is implied if both references are also disjoint, but does not imply disjointness, but non-equivalence of the references. For the mapping point of view  there is not instance when both mappings are valid.",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#isA",
+      "@type": "rdf:Property",
+      "rdfs:label": "isA",
+      "name": "Instance of",
+      "rdfs:comment": "Denotes that the single argument of a class predicate is represented in the lexicon by the given semantic argument. That is Class(?x) or ?x rdf:type Class",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#isReferenceOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isReferenceOf",
+      "name": "Reference of",
+      "rdfs:comment": "Indicate that a reference has a given sense",
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#isSenseOf",
+      "@type": "rdf:Property",
+      "rdfs:label": "isSenseOf",
+      "name": "Sense of",
+      "rdfs:comment": "Indicate that a sense is realised by the given lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#language",
+      "@type": "rdf:Property",
+      "rdfs:label": "language",
+      "name": "Language",
+      "rdfs:comment": "The language of a given lexicon. This should be some ISO-639 string",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#HasLanguage"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#leaf",
+      "@type": "rdf:Property",
+      "rdfs:label": "leaf",
+      "name": "Leaf",
+      "rdfs:comment": "Denotes the component referred to by the lex (pre-terminal) of the phrase structure",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#PhraseElement"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#lexicalForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "lexicalForm",
+      "name": "Lexical form",
+      "rdfs:comment": "Denotes a written representation of a lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#lexicalVariant",
+      "@type": "rdf:Property",
+      "rdfs:label": "lexicalVariant",
+      "name": "Lexical variant",
+      "rdfs:comment": "Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as \"lexical\" and \"lexicalize\"",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#marker",
+      "@type": "rdf:Property",
+      "rdfs:label": "marker",
+      "name": "Marker",
+      "rdfs:comment": "Denotes the marker of a semantic argument. This should generally either be a semantic property i.e., case or another lexical entry e.g., a preposition or particle",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#SynRoleMarker"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#narrower",
+      "@type": "rdf:Property",
+      "rdfs:label": "narrower",
+      "name": "Narrower",
+      "rdfs:comment": "Denotes that one sense is narrower than another. From a lexical point of view  this means replacing one lexical entry with another specializes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#nextTransform",
+      "@type": "rdf:Property",
+      "rdfs:label": "nextTransform",
+      "name": "Next transform",
+      "rdfs:comment": "Next transform",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphTransform"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphTransform"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#objOfProp",
+      "@type": "rdf:Property",
+      "rdfs:label": "objOfProp",
+      "name": "Object of property",
+      "rdfs:comment": "Indicates the semantic argument which represents the objects (ranges) of the property referred to by this sense",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#optional",
+      "@type": "rdf:Property",
+      "rdfs:label": "optional",
+      "name": "Optional",
+      "rdfs:comment": "Denotes that the syntactic argument is optional (may be omitted)",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#otherForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "otherForm",
+      "name": "Other form",
+      "rdfs:comment": "A non-preferred (\"non-dictionary\") representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#pattern",
+      "@type": "rdf:Property",
+      "rdfs:label": "pattern",
+      "name": "Pattern",
+      "rdfs:comment": "Pattern",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#HasPattern"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphPattern"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#phraseRoot",
+      "@type": "rdf:Property",
+      "rdfs:label": "phraseRoot",
+      "name": "Phrase root",
+      "rdfs:comment": "Indicates the head node of a phrase structure or dependency parse graph",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#prefRef",
+      "@type": "rdf:Property",
+      "rdfs:label": "prefRef",
+      "name": "Preferred reference of",
+      "rdfs:comment": "The sense of the preferred lexicalization of a given ontology entity",
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#property",
+      "@type": "rdf:Property",
+      "rdfs:label": "property",
+      "name": "Lexical property",
+      "rdfs:comment": "Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LemonElement"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#PropertyValue"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#propertyDomain",
+      "@type": "rdf:Property",
+      "rdfs:label": "propertyDomain",
+      "name": "Property domain",
+      "rdfs:comment": "Indicates a restrictions on the domain of the property. That is, this sense only applies if the property the sense refers to has a subject in the class referred to by this property",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#propertyRange",
+      "@type": "rdf:Property",
+      "rdfs:label": "propertyRange",
+      "name": "Property range",
+      "rdfs:comment": "Indicates a restrictions on the range of the property. That is, this sense only applies if the property the sense refers to has a object in the class referred to by this property",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#reference",
+      "@type": "rdf:Property",
+      "rdfs:label": "reference",
+      "name": "Reference",
+      "rdfs:comment": "A reference to an external resource",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#representation",
+      "@type": "rdf:Property",
+      "rdfs:label": "representation",
+      "name": "Representation",
+      "rdfs:comment": "A realisation of a given form",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#rule",
+      "@type": "rdf:Property",
+      "rdfs:label": "rule",
+      "name": "Rule",
+      "rdfs:comment": "Rule",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphTransform"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#semArg",
+      "@type": "rdf:Property",
+      "rdfs:label": "semArg",
+      "name": "Semantic argument",
+      "rdfs:comment": "Denotes a semantic argument slot of a semantic unit",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#sense",
+      "@type": "rdf:Property",
+      "rdfs:label": "sense",
+      "name": "Sense",
+      "rdfs:comment": "Indicates the sense of a lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#senseRelation",
+      "@type": "rdf:Property",
+      "rdfs:label": "senseRelation",
+      "name": "Sense relation",
+      "rdfs:comment": "Denotes a relationship between senses",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#separator",
+      "@type": "rdf:Property",
+      "rdfs:label": "separator",
+      "name": "Separator",
+      "rdfs:comment": "Indicates the graphical element used to seperate the subnodes of this phrase structure. It is generally recommended that you use a string value with the language tag used to indicate script, (i.e., using ISO-15924 codes, such as \"Latn\"), as orthographic features may change with script.",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Node"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#subjOfProp",
+      "@type": "rdf:Property",
+      "rdfs:label": "subjOfProp",
+      "name": "Subject of property",
+      "rdfs:comment": "Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#subsense",
+      "@type": "rdf:Property",
+      "rdfs:label": "subsense",
+      "name": "Subsense",
+      "rdfs:comment": "Indicates that the relation between a compound sense and its atomic subsenses",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalSense"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#synArg",
+      "@type": "rdf:Property",
+      "rdfs:label": "synArg",
+      "name": "Syntactic argument",
+      "rdfs:comment": "Indicates a slot in a syntactic frame",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Frame"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Argument"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#synBehavior",
+      "@type": "rdf:Property",
+      "rdfs:label": "synBehavior",
+      "name": "Syntactic behavior",
+      "rdfs:comment": "Indicates a syntactic behavior of a lexical entry",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalEntry"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#Frame"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#topic",
+      "@type": "rdf:Property",
+      "rdfs:label": "topic",
+      "name": "Topic",
+      "rdfs:comment": "Indicates the topic of the overrall lexicon, this is property is sometimes called \"subject field\". Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon",
+      "domainIncludes": [
+        {
+          "@id": "http://lemon-model.net/lemon#LexicalEntry"
+        },
+        {
+          "@id": "http://lemon-model.net/lemon#Lexicon"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#LexicalTopic"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#transform",
+      "@type": "rdf:Property",
+      "rdfs:label": "transform",
+      "name": "Transform",
+      "rdfs:comment": "Transform",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphPattern"
+      },
+      "rangeIncludes": {
+        "@id": "http://lemon-model.net/lemon#MorphTransform"
+      }
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#tree",
+      "@type": "rdf:Property",
+      "rdfs:label": "tree",
+      "name": "Tree",
+      "rdfs:comment": "Tree"
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#value",
+      "@type": "rdf:Property",
+      "rdfs:label": "value",
+      "name": "Value",
+      "rdfs:comment": "This indicates the value of a pseudo-data node. An example of this is definition where the value would generally be a string but it would not be possible to add further annotations, such as source or creation date."
+    },
+    {
+      "@id": "http://lemon-model.net/lemon#writtenRep",
+      "@type": "rdf:Property",
+      "rdfs:label": "writtenRep",
+      "name": "Written representation",
+      "rdfs:comment": "Gives the written representation of a given form",
+      "domainIncludes": {
+        "@id": "http://lemon-model.net/lemon#Form"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    }
+  ]
+}

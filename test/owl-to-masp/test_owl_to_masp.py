@@ -134,6 +134,11 @@ def test_skos_prefix_is_not_declared_without_examples(tmp_path):
     assert crate["@context"][1] == {"@vocab": "http://schema.org/"}
 
 
+def test_name_falls_back_to_local_name_when_no_english_label(crate):
+    is_a = _by_id(crate["@graph"], "http://example.org/ns#isA")
+    assert is_a["name"] == "isA"
+
+
 def test_out_of_namespace_class_is_excluded(crate):
     ids = {entity["@id"] for entity in crate["@graph"]}
     assert "http://example.org/external#Thing" not in ids

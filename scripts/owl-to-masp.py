@@ -184,6 +184,21 @@ def preferred_literal(graph, subject, predicate):
     return str(literals[0])
 
 
+def english_label(graph, subject):
+    """The @en rdfs:label, else an untagged one, else None -- never another
+    language. Callers fall back to the local name, so a term labelled only
+    in other languages (e.g. synsem:isA, whose labels are af/de/es/...) gets
+    "isA" rather than whichever label rdflib happens to return first. See
+    spec: "Multiple/no rdfs:label".
+    """
+    labels = list(graph.objects(subject, RDFS.label))
+    for language in ("en", None):
+        for literal in labels:
+            if getattr(literal, "language", None) == language:
+                return str(literal)
+    return None
+
+
 def rdf_list_items(graph, list_node):
     items = []
     current = list_node
@@ -244,7 +259,7 @@ def label_and_name(graph, subject):
     usually holds (e.g. "is part of"). So we swap them on the way in.
     """
     label = local_name(subject)
-    expanded = preferred_literal(graph, subject, RDFS.label)
+    expanded = english_label(graph, subject)
     return label, (expanded if expanded is not None else label)
 
 
@@ -437,7 +452,7 @@ def build_instance_entities(graph, class_entities, namespace):
         types = sorted(str(t) for t in graph.objects(subject, RDF.type) if str(t) in class_ids)
         if not types:
             continue
-        label = preferred_literal(graph, subject, RDFS.label)
+        label = english_label(graph, subject)
         entity = {
             "@id": str(subject),
             "@type": types[0] if len(types) == 1 else types,

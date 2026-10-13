@@ -3,6 +3,7 @@
 - Issue: https://github.com/Language-Research-Technology/ro-crate-masp/issues/29
 - Implementation: `scripts/owl-to-masp.py` (Python, run via `uv run`)
 - Status: draft — spec written before implementation; update this file as design decisions are made or revised.
+- Note: the LexInfo + OntoLex-Lemon schema (`schemas/lexinfo`) used as a worked example in several sections below was later removed from the repo (it was the wrong vocabulary for the job; `schemas/lemon` replaced it). The examples still describe real constructs the converter handles, and the schema is in git history.
 
 ## Problem
 
@@ -247,7 +248,7 @@ Still exactly one `CreateAction`, one `SoftwareApplication`, one crate.
 
 ## Edge cases & open questions
 
-- **Multiple/no `rdfs:label`, language-tagged labels:** resolved — when picking the OWL `rdfs:label` literal to use for the generated `name` field (see [Label vs. name](#label-vs-name)), prefer a literal tagged `@en`, else the first untagged (no language) literal, else the first literal found in whatever order `rdflib` returns (not guaranteed stable across ontology re-fetches, but stable for a fixed local file). Same preference order for `rdfs:comment`. Other languages are dropped, not merged in — acceptable for v1 since RiC-O's primary documentation language is English.
+- **Multiple/no `rdfs:label`, language-tagged labels:** resolved — when picking the OWL `rdfs:label` literal to use for the generated `name` field (see [Label vs. name](#label-vs-name)), prefer a literal tagged `@en`, else the first untagged (no language) literal, else the term's **local name** — never a label in another language. (This was originally "else the first literal found", which named OntoLex's `synsem:isA` and `synsem:ontoMapping` "instansie van" (Afrikaans) and "Ontologieabbildung" (German): the W3C `synsem` file gives those two terms labels in several languages but none in English.) `rdfs:comment` still uses `@en`, then untagged, then the first literal found; no converted ontology so far has a term whose only comments are non-English. Other languages are dropped, not merged in — acceptable for v1 since RiC-O's primary documentation language is English.
 - **Cardinality:** OWL doesn't have a direct analogue to `sh:minCount`/`sh:maxCount` unless the source ontology uses SHACL or OWL restrictions alongside it. Default to leaving cardinality unset (i.e. optional/unbounded) rather than guessing; profiles that specialise the schema can tighten it.
 - **subClassOf / inheritance:** resolved — see mapping table above (plain passthrough, matching `schemas/schema-org`'s precedent). Still worth a throwaway check against RiC-O's actual class hierarchy (it's deep, with multiple inheritance in places) to confirm nothing stranger is needed.
 - **Large ontologies:** RiC-O has several hundred classes/properties — output must be deterministic and diff-friendly. Resolved: classes and properties are each sorted by IRI before being written, both in the `@graph` array and in the `ResourceDescriptor`'s `hasPart` list, so regenerating after an upstream update produces a minimal, reviewable git diff.

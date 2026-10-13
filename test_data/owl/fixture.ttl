@@ -153,3 +153,11 @@ ex:RedWidget a owl:Class ;
 ex:hasRedWidget a owl:ObjectProperty ;
     rdfs:label "has red widget"@en ;
     rdfs:subPropertyOf ex:hasWidget .
+
+# Labels only in languages other than English, like OntoLex's synsem:isA:
+# name must fall back to the local name, never to one of these labels
+# (spec: "Multiple/no rdfs:label").
+ex:isA a owl:ObjectProperty ;
+    rdfs:label "instansie van"@af ;
+    rdfs:label "instanz von"@de ;
+    rdfs:comment "Labelled only in other languages."@en .

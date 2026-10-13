@@ -1,0 +1,3425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lemon (Lexicon Model for Ontologies)</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
+    <hr>
+<h2>title: lemon Schema Terms</h2>
+<h1>lemon Schema Terms</h1>
+<p>This MASP Schema was auto-generated from the <a href="https://lemon-model.net/">lemon</a> (Lexicon Model for Ontologies) RDF vocabulary, <a href="https://lemon-model.net/lemon.rdf"><code>https://lemon-model.net/lemon.rdf</code></a>, using the <code>scripts/owl-to-masp.py</code> script. lemon describes lexical information about ontology elements and other RDF resources: lexicons, lexical entries and their forms, senses, syntactic frames, phrase structure and morphology. It is the model that the W3C <a href="https://www.w3.org/2016/05/ontolex/">OntoLex-Lemon</a> vocabulary was later based on; the terms here are in lemon's own namespace, <code>http://lemon-model.net/lemon#</code>.</p>
+<p>Conversion notes:</p>
+<ul>
+<li>Labels and comments are in English; lemon's labels in other languages are not carried over.</li>
+<li>Anonymous <code>owl:Restriction</code> superclasses (e.g. cardinality constraints on <code>LexicalEntry</code> and <code>Lexicon</code>) are dropped, as for other converted ontologies.</li>
+</ul>
+<h2>All Rules:</h2>
+<p><strong>29</strong> classes &middot; <strong>54</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a> — A slot representing a gap that must be filled in realising a lexical entry in a given projection</li>
+<li><a href="#Component" title="http://lemon-model.net/lemon#Component">Component</a> — A constituent element of a lexical entry. This may be a word in a multi-word lexical element or a constituent of a compound word</li>
+<li><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a> — A node within a list of components. This should generally be a blank node,see rdf:List</li>
+<li><a href="#SenseCondition" title="http://lemon-model.net/lemon#SenseCondition">Condition</a> — Indicates a logical condition that is used indicate when a particular term has the given meaning</li>
+<li><a href="#NodeConstituent" title="http://lemon-model.net/lemon#NodeConstituent">Constituent</a> — The class of constituents, that is types applied to nodes in a phrase structure graph</li>
+<li><a href="#SenseContext" title="http://lemon-model.net/lemon#SenseContext">Context</a> — Indicates the context in which a term is to be used. The context refers not to the immediate syntactic context, but the document and register the document is used in</li>
+<li><a href="#SenseDefinition" title="http://lemon-model.net/lemon#SenseDefinition">Definition</a> — A definition of a sememe, that is the a text describing the exact meaning of the lexical entry when its sense is the given ontology reference</li>
+<li><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a> — A given written or spoken realisation of a lexical entry</li>
+<li><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a> — A stereotypical example of the usage of a given lexical entry. The most common example of projections are subcategorization frames which describe the slots taken by the arguments of a verb.</li>
+<li><a href="#HasLanguage" title="http://lemon-model.net/lemon#HasLanguage">HasLanguage</a> — Structural element for all elements that can be tagged with a language</li>
+<li><a href="#HasPattern" title="http://lemon-model.net/lemon#HasPattern">HasPattern</a> — HasPattern. A kind of LemonElement.</li>
+<li><a href="#LemonElement" title="http://lemon-model.net/lemon#LemonElement">LemonElement</a></li>
+<li><a href="#LexicalCondition" title="http://lemon-model.net/lemon#LexicalCondition">Lexical Condition</a> — An evaluable condition on when a sense applies.</li>
+<li><a href="#LexicalContext" title="http://lemon-model.net/lemon#LexicalContext">Lexical Context</a> — Indicates the pragmatic or discourse context in which a sense applies</li>
+<li><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a> — An entry in the lexicon. This may be any morpheme, word, compound, phrase or clause that is included in the lexicon</li>
+<li><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a> — Represents the intersection in meaning between the lexical entry and the ontology entity. This is used as the ontology entity and lexical entry may not be in one-to-one correspondence as such the existence of a sense between them states meerly that there are some cases when this lexical entry refer to the ontology entity and vica versa. Mapping elements can be used to further specify this relation</li>
+<li><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a> — Indicates the topic of a lexicon or a lexical entry</li>
+<li><a href="#Lexicon" title="http://lemon-model.net/lemon#Lexicon">Lexicon</a> — The lexicon object. This object is specific to the given language and/or domain it describes</li>
+<li><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a> — Morphological pattern. A kind of HasLanguage, LemonElement.</li>
+<li><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a> — Morphological Transform. A kind of LemonElement.</li>
+<li><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a> — A node in a phrase structure or dependency parse graph</li>
+<li><a href="#Part" title="http://lemon-model.net/lemon#Part">Part of word</a> — An affix is a morpheme that is attached to a word stem to form a new word. Use this for lexical entries with only abstract forms</li>
+<li><a href="#Phrase" title="http://lemon-model.net/lemon#Phrase">Phrase</a> — A phrase in lemon is defined in the looser sense of a sequence of words, it does not have to a fully grammatical phrase</li>
+<li><a href="#PhraseElement" title="http://lemon-model.net/lemon#PhraseElement">Phrase element</a> — A terminal node in a phrase structure graph, i.e., a realisable, lexical element.</li>
+<li><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a> — A value that can be used in the range of linguistic property</li>
+<li><a href="#Prototype" title="http://lemon-model.net/lemon#Prototype">Prototype</a> — Prototype. A kind of LemonElement.</li>
+<li><a href="#SynRoleMarker" title="http://lemon-model.net/lemon#SynRoleMarker">Syntactic role marker</a> — The indicator of a given syntactic argument, normally a preposition or other particle marker or a linguistic property such as case</li>
+<li><a href="#UsageExample" title="http://lemon-model.net/lemon#UsageExample">Usage Example</a> — An example of the usage of a lexical entry when refering to the ontology entity given by the sememe's reference. This should in effect be an example of the form used in context. E.g., "this is a *usage example*"</li>
+<li><a href="#Word" title="http://lemon-model.net/lemon#Word">Word</a> — A word is a single unit of writing or speech. In languages written in Latin, Cyrillic, Greek, Arabic scripts etc. these are assumed to be separated by white-space characters. For Chinese, Japanese, Korean this should correspond to some agreed segmentation scheme.</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">Abstract form</a> — A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</li>
+<li><a href="#altRef" title="http://lemon-model.net/lemon#altRef">Alternative reference of</a> — The sense of a non-preferred but admissible lexicalization of a given ontology entity</li>
+<li><a href="#broader" title="http://lemon-model.net/lemon#broader">Broader</a> — Denotes that one sense is broader than another. From a lexical point of view this means replacing one lexical entry with another generalizes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</li>
+<li><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">Canonical form</a> — The canonical ("dictionary") form of the lexical entry. This can be used to indicate the "lemma" form of a lexical entry</li>
+<li><a href="#condition" title="http://lemon-model.net/lemon#condition">Condition</a> — Indicates an evaluable test, the is necessary for this sense to apply</li>
+<li><a href="#constituent" title="http://lemon-model.net/lemon#constituent">Constituent</a> — Constituent. A sub-property of topObjectProperty.</li>
+<li><a href="#context" title="http://lemon-model.net/lemon#context">Context</a> — Denotes the pragmatic or discursive context of a sense mapping or a constraint on the mapping by syntactic or semantic properites</li>
+<li><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">Decomposition</a> — Denotes a component of a lexical entry</li>
+<li><a href="#definition" title="http://lemon-model.net/lemon#definition">Definition</a> — Indicates a natural language definition. Note there is a pseudo-node to allow for further description of the definition (e.g., source, creation date etc.). The value property should be used to indicate the string value of the definition.</li>
+<li><a href="#edge" title="http://lemon-model.net/lemon#edge">Edge</a> — Denotes the relation between a node in a multi-word expression structure and an edge</li>
+<li><a href="#element" title="http://lemon-model.net/lemon#element">Element</a> — Denotes the lexical entry represented by the component</li>
+<li><a href="#entry" title="http://lemon-model.net/lemon#entry">Entry</a> — Indicates an entry in a lexicon</li>
+<li><a href="#equivalent" title="http://lemon-model.net/lemon#equivalent">Equivalent</a> — Indicates that two senses are equivalent. From a lexical point of view , this indicates that the lexical entries can be substituted for each other with no change in meaning. From an ontological point of view it means that the two references are not disjoint. From a mapping point of view it means if one mapping apply the other must necessarily apply</li>
+<li><a href="#example" title="http://lemon-model.net/lemon#example">Example</a> — Example</li>
+<li><a href="#extrinsicArg" title="http://lemon-model.net/lemon#extrinsicArg">Extrinsic argument</a> — A raisable semantic argument is not in fact the semantic argument of the current frame-sense but instead is "raised" into a frame-sense used for an argument. For example the phrase "John seemed to be happy", is interpreted as "it seemed that X" where X is "John is happy", hence the subject of "seem" is a raisable argument.</li>
+<li><a href="#formVariant" title="http://lemon-model.net/lemon#formVariant">Form variant</a> — Form variant</li>
+<li><a href="#generates" title="http://lemon-model.net/lemon#generates">Generates</a> — Generates</li>
+<li><a href="#hiddenRef" title="http://lemon-model.net/lemon#hiddenRef">Hidden reference of</a> — The sense of a non-admissible lexicalization for a ontology entity. This is used to denote incorrect or deprecated language that may be useful for information extraction but not generation</li>
+<li><a href="#incompatible" title="http://lemon-model.net/lemon#incompatible">Incompatible</a> — Says that the two senses are disjoint. From a lexical point of view, this means substituting the lexical entries must change the meaning of the phrase. From an ontological point of view, this property is implied if both references are also disjoint, but does not imply disjointness, but non-equivalence of the references. For the mapping point of view there is not instance when both mappings are valid.</li>
+<li><a href="#isA" title="http://lemon-model.net/lemon#isA">Instance of</a> — Denotes that the single argument of a class predicate is represented in the lexicon by the given semantic argument. That is Class(?x) or ?x rdf:type Class</li>
+<li><a href="#language" title="http://lemon-model.net/lemon#language">Language</a> — The language of a given lexicon. This should be some ISO-639 string</li>
+<li><a href="#leaf" title="http://lemon-model.net/lemon#leaf">Leaf</a> — Denotes the component referred to by the lex (pre-terminal) of the phrase structure</li>
+<li><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">Lexical form</a> — Denotes a written representation of a lexical entry</li>
+<li><a href="#property" title="http://lemon-model.net/lemon#property">Lexical property</a> — Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</li>
+<li><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">Lexical variant</a> — Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as "lexical" and "lexicalize"</li>
+<li><a href="#marker" title="http://lemon-model.net/lemon#marker">Marker</a> — Denotes the marker of a semantic argument. This should generally either be a semantic property i.e., case or another lexical entry e.g., a preposition or particle</li>
+<li><a href="#narrower" title="http://lemon-model.net/lemon#narrower">Narrower</a> — Denotes that one sense is narrower than another. From a lexical point of view this means replacing one lexical entry with another specializes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</li>
+<li><a href="#nextTransform" title="http://lemon-model.net/lemon#nextTransform">Next transform</a> — Next transform</li>
+<li><a href="#objOfProp" title="http://lemon-model.net/lemon#objOfProp">Object of property</a> — Indicates the semantic argument which represents the objects (ranges) of the property referred to by this sense</li>
+<li><a href="#optional" title="http://lemon-model.net/lemon#optional">Optional</a> — Denotes that the syntactic argument is optional (may be omitted)</li>
+<li><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">Other form</a> — A non-preferred ("non-dictionary") representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</li>
+<li><a href="#pattern" title="http://lemon-model.net/lemon#pattern">Pattern</a> — Pattern</li>
+<li><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">Phrase root</a> — Indicates the head node of a phrase structure or dependency parse graph</li>
+<li><a href="#prefRef" title="http://lemon-model.net/lemon#prefRef">Preferred reference of</a> — The sense of the preferred lexicalization of a given ontology entity</li>
+<li><a href="#propertyDomain" title="http://lemon-model.net/lemon#propertyDomain">Property domain</a> — Indicates a restrictions on the domain of the property. That is, this sense only applies if the property the sense refers to has a subject in the class referred to by this property</li>
+<li><a href="#propertyRange" title="http://lemon-model.net/lemon#propertyRange">Property range</a> — Indicates a restrictions on the range of the property. That is, this sense only applies if the property the sense refers to has a object in the class referred to by this property</li>
+<li><a href="#reference" title="http://lemon-model.net/lemon#reference">Reference</a> — A reference to an external resource</li>
+<li><a href="#isReferenceOf" title="http://lemon-model.net/lemon#isReferenceOf">Reference of</a> — Indicate that a reference has a given sense</li>
+<li><a href="#representation" title="http://lemon-model.net/lemon#representation">Representation</a> — A realisation of a given form</li>
+<li><a href="#rule" title="http://lemon-model.net/lemon#rule">Rule</a> — Rule</li>
+<li><a href="#semArg" title="http://lemon-model.net/lemon#semArg">Semantic argument</a> — Denotes a semantic argument slot of a semantic unit</li>
+<li><a href="#sense" title="http://lemon-model.net/lemon#sense">Sense</a> — Indicates the sense of a lexical entry</li>
+<li><a href="#isSenseOf" title="http://lemon-model.net/lemon#isSenseOf">Sense of</a> — Indicate that a sense is realised by the given lexical entry</li>
+<li><a href="#senseRelation" title="http://lemon-model.net/lemon#senseRelation">Sense relation</a> — Denotes a relationship between senses</li>
+<li><a href="#separator" title="http://lemon-model.net/lemon#separator">Separator</a> — Indicates the graphical element used to seperate the subnodes of this phrase structure. It is generally recommended that you use a string value with the language tag used to indicate script, (i.e., using ISO-15924 codes, such as "Latn"), as orthographic features may change with script.</li>
+<li><a href="#subjOfProp" title="http://lemon-model.net/lemon#subjOfProp">Subject of property</a> — Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense</li>
+<li><a href="#subsense" title="http://lemon-model.net/lemon#subsense">Subsense</a> — Indicates that the relation between a compound sense and its atomic subsenses</li>
+<li><a href="#synArg" title="http://lemon-model.net/lemon#synArg">Syntactic argument</a> — Indicates a slot in a syntactic frame</li>
+<li><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">Syntactic behavior</a> — Indicates a syntactic behavior of a lexical entry</li>
+<li><a href="#topic" title="http://lemon-model.net/lemon#topic">Topic</a> — Indicates the topic of the overrall lexicon, this is property is sometimes called "subject field". Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</li>
+<li><a href="#transform" title="http://lemon-model.net/lemon#transform">Transform</a> — Transform</li>
+<li><a href="#tree" title="http://lemon-model.net/lemon#tree">Tree</a> — Tree</li>
+<li><a href="#value" title="http://lemon-model.net/lemon#value">Value</a> — This indicates the value of a pseudo-data node. An example of this is definition where the value would generally be a string but it would not be possible to add further annotations, such as source or creation date.</li>
+<li><a href="#writtenRep" title="http://lemon-model.net/lemon#writtenRep">Written representation</a> — Gives the written representation of a given form</li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="Argument" title="http://lemon-model.net/lemon#Argument"></a> Class: Argument <small style="color:#aaa">(http://lemon-model.net/lemon#Argument)</small></h3>
+<p>A slot representing a gap that must be filled in realising a lexical entry in a given projection</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Argument</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#marker" title="http://lemon-model.net/lemon#marker">marker</a></td>
+<td>No</td>
+<td>Denotes the marker of a semantic argument. This should generally either be a semantic property i.e., case or another lexical entry e.g., a preposition or particle</td>
+<td><a href="#SynRoleMarker" title="http://lemon-model.net/lemon#SynRoleMarker">Syntactic role marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#optional" title="http://lemon-model.net/lemon#optional">optional</a></td>
+<td>No</td>
+<td>Denotes that the syntactic argument is optional (may be omitted)</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Component" title="http://lemon-model.net/lemon#Component"></a> Class: Component <small style="color:#aaa">(http://lemon-model.net/lemon#Component)</small></h3>
+<p>A constituent element of a lexical entry. This may be a word in a multi-word lexical element or a constituent of a compound word</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Component</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#element" title="http://lemon-model.net/lemon#element">element</a></td>
+<td>No</td>
+<td>Denotes the lexical entry represented by the component</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ComponentList" title="http://lemon-model.net/lemon#ComponentList"></a> Class: ComponentList <small style="color:#aaa">(http://lemon-model.net/lemon#ComponentList)</small></h3>
+<p>A node within a list of components. This should generally be a blank node,see rdf:List</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from ComponentList</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h3><a id="Form" title="http://lemon-model.net/lemon#Form"></a> Class: Form <small style="color:#aaa">(http://lemon-model.net/lemon#Form)</small></h3>
+<p>A given written or spoken realisation of a lexical entry</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Form</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#formVariant" title="http://lemon-model.net/lemon#formVariant">formVariant</a></td>
+<td>No</td>
+<td>Form variant</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#representation" title="http://lemon-model.net/lemon#representation">representation</a></td>
+<td>No</td>
+<td>A realisation of a given form</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#writtenRep" title="http://lemon-model.net/lemon#writtenRep">writtenRep</a></td>
+<td>No</td>
+<td>Gives the written representation of a given form</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Frame" title="http://lemon-model.net/lemon#Frame"></a> Class: Frame <small style="color:#aaa">(http://lemon-model.net/lemon#Frame)</small></h3>
+<p>A stereotypical example of the usage of a given lexical entry. The most common example of projections are subcategorization frames which describe the slots taken by the arguments of a verb.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#synArg" title="http://lemon-model.net/lemon#synArg">synArg</a></td>
+<td>No</td>
+<td>Indicates a slot in a syntactic frame</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="HasLanguage" title="http://lemon-model.net/lemon#HasLanguage"></a> Class: HasLanguage <small style="color:#aaa">(http://lemon-model.net/lemon#HasLanguage)</small></h3>
+<p>Structural element for all elements that can be tagged with a language</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="HasPattern" title="http://lemon-model.net/lemon#HasPattern"></a> Class: HasPattern <small style="color:#aaa">(http://lemon-model.net/lemon#HasPattern)</small></h3>
+<p>HasPattern. A kind of LemonElement.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LemonElement" title="http://lemon-model.net/lemon#LemonElement"></a> Class: LemonElement <small style="color:#aaa">(http://lemon-model.net/lemon#LemonElement)</small></h3>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicalCondition" title="http://lemon-model.net/lemon#LexicalCondition"></a> Class: Lexical Condition <small style="color:#aaa">(http://lemon-model.net/lemon#LexicalCondition)</small></h3>
+<p>Term: <code>LexicalCondition</code></p>
+<p>An evaluable condition on when a sense applies.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical Condition</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicalContext" title="http://lemon-model.net/lemon#LexicalContext"></a> Class: Lexical Context <small style="color:#aaa">(http://lemon-model.net/lemon#LexicalContext)</small></h3>
+<p>Term: <code>LexicalContext</code></p>
+<p>Indicates the pragmatic or discourse context in which a sense applies</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical Context</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry"></a> Class: Lexical entry <small style="color:#aaa">(http://lemon-model.net/lemon#LexicalEntry)</small></h3>
+<p>Term: <code>LexicalEntry</code></p>
+<p>An entry in the lexicon. This may be any morpheme, word, compound, phrase or clause that is included in the lexicon</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>No</td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>No</td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>No</td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>No</td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>No</td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>No</td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>No</td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>No</td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>No</td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicalSense" title="http://lemon-model.net/lemon#LexicalSense"></a> Class: Lexical sense <small style="color:#aaa">(http://lemon-model.net/lemon#LexicalSense)</small></h3>
+<p>Term: <code>LexicalSense</code></p>
+<p>Represents the intersection in meaning between the lexical entry and the ontology entity. This is used as the ontology entity and lexical entry may not be in one-to-one correspondence as such the existence of a sense between them states meerly that there are some cases when this lexical entry refer to the ontology entity and vica versa. Mapping elements can be used to further specify this relation</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical sense</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#broader" title="http://lemon-model.net/lemon#broader">broader</a></td>
+<td>No</td>
+<td>Denotes that one sense is broader than another. From a lexical point of view this means replacing one lexical entry with another generalizes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#condition" title="http://lemon-model.net/lemon#condition">condition</a></td>
+<td>No</td>
+<td>Indicates an evaluable test, the is necessary for this sense to apply</td>
+<td><a href="#LexicalCondition" title="http://lemon-model.net/lemon#LexicalCondition">Lexical Condition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#context" title="http://lemon-model.net/lemon#context">context</a></td>
+<td>No</td>
+<td>Denotes the pragmatic or discursive context of a sense mapping or a constraint on the mapping by syntactic or semantic properites</td>
+<td><a href="#LexicalContext" title="http://lemon-model.net/lemon#LexicalContext">Lexical Context</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#definition" title="http://lemon-model.net/lemon#definition">definition</a></td>
+<td>No</td>
+<td>Indicates a natural language definition. Note there is a pseudo-node to allow for further description of the definition (e.g., source, creation date etc.). The value property should be used to indicate the string value of the definition.</td>
+<td><a href="#SenseDefinition" title="http://lemon-model.net/lemon#SenseDefinition">Definition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#equivalent" title="http://lemon-model.net/lemon#equivalent">equivalent</a></td>
+<td>No</td>
+<td>Indicates that two senses are equivalent. From a lexical point of view , this indicates that the lexical entries can be substituted for each other with no change in meaning. From an ontological point of view it means that the two references are not disjoint. From a mapping point of view it means if one mapping apply the other must necessarily apply</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#example" title="http://lemon-model.net/lemon#example">example</a></td>
+<td>No</td>
+<td>Example</td>
+<td><a href="#UsageExample" title="http://lemon-model.net/lemon#UsageExample">Usage Example</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#incompatible" title="http://lemon-model.net/lemon#incompatible">incompatible</a></td>
+<td>No</td>
+<td>Says that the two senses are disjoint. From a lexical point of view, this means substituting the lexical entries must change the meaning of the phrase. From an ontological point of view, this property is implied if both references are also disjoint, but does not imply disjointness, but non-equivalence of the references. For the mapping point of view there is not instance when both mappings are valid.</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#isA" title="http://lemon-model.net/lemon#isA">isA</a></td>
+<td>No</td>
+<td>Denotes that the single argument of a class predicate is represented in the lexicon by the given semantic argument. That is Class(?x) or ?x rdf:type Class</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#narrower" title="http://lemon-model.net/lemon#narrower">narrower</a></td>
+<td>No</td>
+<td>Denotes that one sense is narrower than another. From a lexical point of view this means replacing one lexical entry with another specializes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#objOfProp" title="http://lemon-model.net/lemon#objOfProp">objOfProp</a></td>
+<td>No</td>
+<td>Indicates the semantic argument which represents the objects (ranges) of the property referred to by this sense</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#propertyDomain" title="http://lemon-model.net/lemon#propertyDomain">propertyDomain</a></td>
+<td>No</td>
+<td>Indicates a restrictions on the domain of the property. That is, this sense only applies if the property the sense refers to has a subject in the class referred to by this property</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#propertyRange" title="http://lemon-model.net/lemon#propertyRange">propertyRange</a></td>
+<td>No</td>
+<td>Indicates a restrictions on the range of the property. That is, this sense only applies if the property the sense refers to has a object in the class referred to by this property</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#reference" title="http://lemon-model.net/lemon#reference">reference</a></td>
+<td>No</td>
+<td>A reference to an external resource</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#semArg" title="http://lemon-model.net/lemon#semArg">semArg</a></td>
+<td>No</td>
+<td>Denotes a semantic argument slot of a semantic unit</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#isSenseOf" title="http://lemon-model.net/lemon#isSenseOf">isSenseOf</a></td>
+<td>No</td>
+<td>Indicate that a sense is realised by the given lexical entry</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#senseRelation" title="http://lemon-model.net/lemon#senseRelation">senseRelation</a></td>
+<td>No</td>
+<td>Denotes a relationship between senses</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#subjOfProp" title="http://lemon-model.net/lemon#subjOfProp">subjOfProp</a></td>
+<td>No</td>
+<td>Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#subsense" title="http://lemon-model.net/lemon#subsense">subsense</a></td>
+<td>No</td>
+<td>Indicates that the relation between a compound sense and its atomic subsenses</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic"></a> Class: Lexical Topic <small style="color:#aaa">(http://lemon-model.net/lemon#LexicalTopic)</small></h3>
+<p>Term: <code>LexicalTopic</code></p>
+<p>Indicates the topic of a lexicon or a lexical entry</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical Topic</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Lexicon" title="http://lemon-model.net/lemon#Lexicon"></a> Class: Lexicon <small style="color:#aaa">(http://lemon-model.net/lemon#Lexicon)</small></h3>
+<p>The lexicon object. This object is specific to the given language and/or domain it describes</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexicon</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#entry" title="http://lemon-model.net/lemon#entry">entry</a></td>
+<td>No</td>
+<td>Indicates an entry in a lexicon</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="MorphPattern" title="http://lemon-model.net/lemon#MorphPattern"></a> Class: Morphological pattern <small style="color:#aaa">(http://lemon-model.net/lemon#MorphPattern)</small></h3>
+<p>Term: <code>MorphPattern</code></p>
+<p>Morphological pattern. A kind of HasLanguage, LemonElement.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Morphological pattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#transform" title="http://lemon-model.net/lemon#transform">transform</a></td>
+<td>No</td>
+<td>Transform</td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="MorphTransform" title="http://lemon-model.net/lemon#MorphTransform"></a> Class: Morphological Transform <small style="color:#aaa">(http://lemon-model.net/lemon#MorphTransform)</small></h3>
+<p>Term: <code>MorphTransform</code></p>
+<p>Morphological Transform. A kind of LemonElement.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Morphological Transform</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#generates" title="http://lemon-model.net/lemon#generates">generates</a></td>
+<td>No</td>
+<td>Generates</td>
+<td><a href="#Prototype" title="http://lemon-model.net/lemon#Prototype">Prototype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#nextTransform" title="http://lemon-model.net/lemon#nextTransform">nextTransform</a></td>
+<td>No</td>
+<td>Next transform</td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#rule" title="http://lemon-model.net/lemon#rule">rule</a></td>
+<td>No</td>
+<td>Rule</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Node" title="http://lemon-model.net/lemon#Node"></a> Class: Node <small style="color:#aaa">(http://lemon-model.net/lemon#Node)</small></h3>
+<p>A node in a phrase structure or dependency parse graph</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Node</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#constituent" title="http://lemon-model.net/lemon#constituent">constituent</a></td>
+<td>No</td>
+<td>Constituent. A sub-property of topObjectProperty.</td>
+<td><a href="#NodeConstituent" title="http://lemon-model.net/lemon#NodeConstituent">Constituent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#edge" title="http://lemon-model.net/lemon#edge">edge</a></td>
+<td>No</td>
+<td>Denotes the relation between a node in a multi-word expression structure and an edge</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#leaf" title="http://lemon-model.net/lemon#leaf">leaf</a></td>
+<td>No</td>
+<td>Denotes the component referred to by the lex (pre-terminal) of the phrase structure</td>
+<td><a href="#PhraseElement" title="http://lemon-model.net/lemon#PhraseElement">Phrase element</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#separator" title="http://lemon-model.net/lemon#separator">separator</a></td>
+<td>No</td>
+<td>Indicates the graphical element used to seperate the subnodes of this phrase structure. It is generally recommended that you use a string value with the language tag used to indicate script, (i.e., using ISO-15924 codes, such as &quot;Latn&quot;), as orthographic features may change with script.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="NodeConstituent" title="http://lemon-model.net/lemon#NodeConstituent"></a> Class: Constituent <small style="color:#aaa">(http://lemon-model.net/lemon#NodeConstituent)</small></h3>
+<p>Term: <code>NodeConstituent</code></p>
+<p>The class of constituents, that is types applied to nodes in a phrase structure graph</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Constituent</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Part" title="http://lemon-model.net/lemon#Part"></a> Class: Part of word <small style="color:#aaa">(http://lemon-model.net/lemon#Part)</small></h3>
+<p>Term: <code>Part</code></p>
+<p>An affix is a morpheme that is attached to a word stem to form a new word. Use this for lexical entries with only abstract forms</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Part of word</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from Lexical entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>No</td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>No</td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>No</td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>No</td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>No</td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>No</td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>No</td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>No</td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>No</td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Phrase" title="http://lemon-model.net/lemon#Phrase"></a> Class: Phrase <small style="color:#aaa">(http://lemon-model.net/lemon#Phrase)</small></h3>
+<p>A phrase in lemon is defined in the looser sense of a sequence of words, it does not have to a fully grammatical phrase</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Phrase</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from Lexical entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>No</td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>No</td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>No</td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>No</td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>No</td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>No</td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>No</td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>No</td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>No</td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="PhraseElement" title="http://lemon-model.net/lemon#PhraseElement"></a> Class: Phrase element <small style="color:#aaa">(http://lemon-model.net/lemon#PhraseElement)</small></h3>
+<p>Term: <code>PhraseElement</code></p>
+<p>A terminal node in a phrase structure graph, i.e., a realisable, lexical element.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Phrase element</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="PropertyValue" title="http://lemon-model.net/lemon#PropertyValue"></a> Class: Property Value <small style="color:#aaa">(http://lemon-model.net/lemon#PropertyValue)</small></h3>
+<p>Term: <code>PropertyValue</code></p>
+<p>A value that can be used in the range of linguistic property</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Property Value</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Prototype" title="http://lemon-model.net/lemon#Prototype"></a> Class: Prototype <small style="color:#aaa">(http://lemon-model.net/lemon#Prototype)</small></h3>
+<p>Prototype. A kind of LemonElement.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Prototype</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SenseCondition" title="http://lemon-model.net/lemon#SenseCondition"></a> Class: Condition <small style="color:#aaa">(http://lemon-model.net/lemon#SenseCondition)</small></h3>
+<p>Term: <code>SenseCondition</code></p>
+<p>Indicates a logical condition that is used indicate when a particular term has the given meaning</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Condition</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SenseContext" title="http://lemon-model.net/lemon#SenseContext"></a> Class: Context <small style="color:#aaa">(http://lemon-model.net/lemon#SenseContext)</small></h3>
+<p>Term: <code>SenseContext</code></p>
+<p>Indicates the context in which a term is to be used. The context refers not to the immediate syntactic context, but the document and register the document is used in</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Context</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SenseDefinition" title="http://lemon-model.net/lemon#SenseDefinition"></a> Class: Definition <small style="color:#aaa">(http://lemon-model.net/lemon#SenseDefinition)</small></h3>
+<p>Term: <code>SenseDefinition</code></p>
+<p>A definition of a sememe, that is the a text describing the exact meaning of the lexical entry when its sense is the given ontology reference</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Definition</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SynRoleMarker" title="http://lemon-model.net/lemon#SynRoleMarker"></a> Class: Syntactic role marker <small style="color:#aaa">(http://lemon-model.net/lemon#SynRoleMarker)</small></h3>
+<p>Term: <code>SynRoleMarker</code></p>
+<p>The indicator of a given syntactic argument, normally a preposition or other particle marker or a linguistic property such as case</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Syntactic role marker</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexical entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>No</td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>No</td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>No</td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>No</td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>No</td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>No</td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>No</td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>No</td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>No</td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="UsageExample" title="http://lemon-model.net/lemon#UsageExample"></a> Class: Usage Example <small style="color:#aaa">(http://lemon-model.net/lemon#UsageExample)</small></h3>
+<p>Term: <code>UsageExample</code></p>
+<p>An example of the usage of a lexical entry when refering to the ontology entity given by the sememe's reference. This should in effect be an example of the form used in context. E.g., &quot;this is a <em>usage example</em>&quot;</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Usage Example</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Word" title="http://lemon-model.net/lemon#Word"></a> Class: Word <small style="color:#aaa">(http://lemon-model.net/lemon#Word)</small></h3>
+<p>A word is a single unit of writing or speech. In languages written in Latin, Cyrillic, Greek, Arabic scripts etc. these are assumed to be separated by white-space characters. For Chinese, Japanese, Korean this should correspond to some agreed segmentation scheme.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Word</h4>
+<p><em>No properties defined directly on this class</em></p>
+<h4>Properties from Lexical entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>No</td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>No</td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>No</td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>No</td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>No</td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>No</td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>No</td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>No</td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>No</td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>No</td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>No</td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from LemonElement</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>No</td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from HasPattern</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>No</td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="abstractForm" title="http://lemon-model.net/lemon#abstractForm"></a> Property: Abstract form <small style="color:#aaa">(http://lemon-model.net/lemon#abstractForm)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#abstractForm" title="http://lemon-model.net/lemon#abstractForm">abstractForm</a></td>
+<td>A representation of a lexical entry that should not be considered canonical. This is primarily from a linguistic view for non-realisable forms such as stems but may also include misspellings and other unusual forms</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="altRef" title="http://lemon-model.net/lemon#altRef"></a> Property: Alternative reference of <small style="color:#aaa">(http://lemon-model.net/lemon#altRef)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#altRef" title="http://lemon-model.net/lemon#altRef">altRef</a></td>
+<td>The sense of a non-preferred but admissible lexicalization of a given ontology entity</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="broader" title="http://lemon-model.net/lemon#broader"></a> Property: Broader <small style="color:#aaa">(http://lemon-model.net/lemon#broader)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#broader" title="http://lemon-model.net/lemon#broader">broader</a></td>
+<td>Denotes that one sense is broader than another. From a lexical point of view this means replacing one lexical entry with another generalizes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="canonicalForm" title="http://lemon-model.net/lemon#canonicalForm"></a> Property: Canonical form <small style="color:#aaa">(http://lemon-model.net/lemon#canonicalForm)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#canonicalForm" title="http://lemon-model.net/lemon#canonicalForm">canonicalForm</a></td>
+<td>The canonical (&quot;dictionary&quot;) form of the lexical entry. This can be used to indicate the &quot;lemma&quot; form of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="condition" title="http://lemon-model.net/lemon#condition"></a> Property: Condition <small style="color:#aaa">(http://lemon-model.net/lemon#condition)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#condition" title="http://lemon-model.net/lemon#condition">condition</a></td>
+<td>Indicates an evaluable test, the is necessary for this sense to apply</td>
+<td><a href="#LexicalCondition" title="http://lemon-model.net/lemon#LexicalCondition">Lexical Condition</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="constituent" title="http://lemon-model.net/lemon#constituent"></a> Property: Constituent <small style="color:#aaa">(http://lemon-model.net/lemon#constituent)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#constituent" title="http://lemon-model.net/lemon#constituent">constituent</a></td>
+<td>Constituent. A sub-property of topObjectProperty.</td>
+<td><a href="#NodeConstituent" title="http://lemon-model.net/lemon#NodeConstituent">Constituent</a></td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="context" title="http://lemon-model.net/lemon#context"></a> Property: Context <small style="color:#aaa">(http://lemon-model.net/lemon#context)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#context" title="http://lemon-model.net/lemon#context">context</a></td>
+<td>Denotes the pragmatic or discursive context of a sense mapping or a constraint on the mapping by syntactic or semantic properites</td>
+<td><a href="#LexicalContext" title="http://lemon-model.net/lemon#LexicalContext">Lexical Context</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="decomposition" title="http://lemon-model.net/lemon#decomposition"></a> Property: Decomposition <small style="color:#aaa">(http://lemon-model.net/lemon#decomposition)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#decomposition" title="http://lemon-model.net/lemon#decomposition">decomposition</a></td>
+<td>Denotes a component of a lexical entry</td>
+<td><a href="#ComponentList" title="http://lemon-model.net/lemon#ComponentList">ComponentList</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="definition" title="http://lemon-model.net/lemon#definition"></a> Property: Definition <small style="color:#aaa">(http://lemon-model.net/lemon#definition)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definition" title="http://lemon-model.net/lemon#definition">definition</a></td>
+<td>Indicates a natural language definition. Note there is a pseudo-node to allow for further description of the definition (e.g., source, creation date etc.). The value property should be used to indicate the string value of the definition.</td>
+<td><a href="#SenseDefinition" title="http://lemon-model.net/lemon#SenseDefinition">Definition</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="edge" title="http://lemon-model.net/lemon#edge"></a> Property: Edge <small style="color:#aaa">(http://lemon-model.net/lemon#edge)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#edge" title="http://lemon-model.net/lemon#edge">edge</a></td>
+<td>Denotes the relation between a node in a multi-word expression structure and an edge</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="element" title="http://lemon-model.net/lemon#element"></a> Property: Element <small style="color:#aaa">(http://lemon-model.net/lemon#element)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#element" title="http://lemon-model.net/lemon#element">element</a></td>
+<td>Denotes the lexical entry represented by the component</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td><a href="#Component" title="http://lemon-model.net/lemon#Component">Component</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="entry" title="http://lemon-model.net/lemon#entry"></a> Property: Entry <small style="color:#aaa">(http://lemon-model.net/lemon#entry)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#entry" title="http://lemon-model.net/lemon#entry">entry</a></td>
+<td>Indicates an entry in a lexicon</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td><a href="#Lexicon" title="http://lemon-model.net/lemon#Lexicon">Lexicon</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="equivalent" title="http://lemon-model.net/lemon#equivalent"></a> Property: Equivalent <small style="color:#aaa">(http://lemon-model.net/lemon#equivalent)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#equivalent" title="http://lemon-model.net/lemon#equivalent">equivalent</a></td>
+<td>Indicates that two senses are equivalent. From a lexical point of view , this indicates that the lexical entries can be substituted for each other with no change in meaning. From an ontological point of view it means that the two references are not disjoint. From a mapping point of view it means if one mapping apply the other must necessarily apply</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="example" title="http://lemon-model.net/lemon#example"></a> Property: Example <small style="color:#aaa">(http://lemon-model.net/lemon#example)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#example" title="http://lemon-model.net/lemon#example">example</a></td>
+<td>Example</td>
+<td><a href="#UsageExample" title="http://lemon-model.net/lemon#UsageExample">Usage Example</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="extrinsicArg" title="http://lemon-model.net/lemon#extrinsicArg"></a> Property: Extrinsic argument <small style="color:#aaa">(http://lemon-model.net/lemon#extrinsicArg)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#extrinsicArg" title="http://lemon-model.net/lemon#extrinsicArg">extrinsicArg</a></td>
+<td>A raisable semantic argument is not in fact the semantic argument of the current frame-sense but instead is &quot;raised&quot; into a frame-sense used for an argument. For example the phrase &quot;John seemed to be happy&quot;, is interpreted as &quot;it seemed that X&quot; where X is &quot;John is happy&quot;, hence the subject of &quot;seem&quot; is a raisable argument.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="formVariant" title="http://lemon-model.net/lemon#formVariant"></a> Property: Form variant <small style="color:#aaa">(http://lemon-model.net/lemon#formVariant)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#formVariant" title="http://lemon-model.net/lemon#formVariant">formVariant</a></td>
+<td>Form variant</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="generates" title="http://lemon-model.net/lemon#generates"></a> Property: Generates <small style="color:#aaa">(http://lemon-model.net/lemon#generates)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#generates" title="http://lemon-model.net/lemon#generates">generates</a></td>
+<td>Generates</td>
+<td><a href="#Prototype" title="http://lemon-model.net/lemon#Prototype">Prototype</a></td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="hiddenRef" title="http://lemon-model.net/lemon#hiddenRef"></a> Property: Hidden reference of <small style="color:#aaa">(http://lemon-model.net/lemon#hiddenRef)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hiddenRef" title="http://lemon-model.net/lemon#hiddenRef">hiddenRef</a></td>
+<td>The sense of a non-admissible lexicalization for a ontology entity. This is used to denote incorrect or deprecated language that may be useful for information extraction but not generation</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="incompatible" title="http://lemon-model.net/lemon#incompatible"></a> Property: Incompatible <small style="color:#aaa">(http://lemon-model.net/lemon#incompatible)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#incompatible" title="http://lemon-model.net/lemon#incompatible">incompatible</a></td>
+<td>Says that the two senses are disjoint. From a lexical point of view, this means substituting the lexical entries must change the meaning of the phrase. From an ontological point of view, this property is implied if both references are also disjoint, but does not imply disjointness, but non-equivalence of the references. For the mapping point of view there is not instance when both mappings are valid.</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="isA" title="http://lemon-model.net/lemon#isA"></a> Property: Instance of <small style="color:#aaa">(http://lemon-model.net/lemon#isA)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#isA" title="http://lemon-model.net/lemon#isA">isA</a></td>
+<td>Denotes that the single argument of a class predicate is represented in the lexicon by the given semantic argument. That is Class(?x) or ?x rdf:type Class</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="language" title="http://lemon-model.net/lemon#language"></a> Property: Language <small style="color:#aaa">(http://lemon-model.net/lemon#language)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#language" title="http://lemon-model.net/lemon#language">language</a></td>
+<td>The language of a given lexicon. This should be some ISO-639 string</td>
+<td>schema:Text</td>
+<td><a href="#HasLanguage" title="http://lemon-model.net/lemon#HasLanguage">HasLanguage</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="leaf" title="http://lemon-model.net/lemon#leaf"></a> Property: Leaf <small style="color:#aaa">(http://lemon-model.net/lemon#leaf)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#leaf" title="http://lemon-model.net/lemon#leaf">leaf</a></td>
+<td>Denotes the component referred to by the lex (pre-terminal) of the phrase structure</td>
+<td><a href="#PhraseElement" title="http://lemon-model.net/lemon#PhraseElement">Phrase element</a></td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="lexicalForm" title="http://lemon-model.net/lemon#lexicalForm"></a> Property: Lexical form <small style="color:#aaa">(http://lemon-model.net/lemon#lexicalForm)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#lexicalForm" title="http://lemon-model.net/lemon#lexicalForm">lexicalForm</a></td>
+<td>Denotes a written representation of a lexical entry</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="property" title="http://lemon-model.net/lemon#property"></a> Property: Lexical property <small style="color:#aaa">(http://lemon-model.net/lemon#property)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#property" title="http://lemon-model.net/lemon#property">property</a></td>
+<td>Denotes a lexical property of a lexical entry, form, component or MWE node. For the lexical entry this is assumed to be static properties e.g., part of speech and gender and for the others this is assumed to be specific properties e.g., case, number</td>
+<td><a href="#PropertyValue" title="http://lemon-model.net/lemon#PropertyValue">Property Value</a></td>
+<td><a href="#LemonElement" title="http://lemon-model.net/lemon#LemonElement">LemonElement</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant"></a> Property: Lexical variant <small style="color:#aaa">(http://lemon-model.net/lemon#lexicalVariant)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#lexicalVariant" title="http://lemon-model.net/lemon#lexicalVariant">lexicalVariant</a></td>
+<td>Indicates a non-semantic relationship between two lexical entries. E.g., a term is derived from another term, such as &quot;lexical&quot; and &quot;lexicalize&quot;</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="marker" title="http://lemon-model.net/lemon#marker"></a> Property: Marker <small style="color:#aaa">(http://lemon-model.net/lemon#marker)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#marker" title="http://lemon-model.net/lemon#marker">marker</a></td>
+<td>Denotes the marker of a semantic argument. This should generally either be a semantic property i.e., case or another lexical entry e.g., a preposition or particle</td>
+<td><a href="#SynRoleMarker" title="http://lemon-model.net/lemon#SynRoleMarker">Syntactic role marker</a></td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="narrower" title="http://lemon-model.net/lemon#narrower"></a> Property: Narrower <small style="color:#aaa">(http://lemon-model.net/lemon#narrower)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#narrower" title="http://lemon-model.net/lemon#narrower">narrower</a></td>
+<td>Denotes that one sense is narrower than another. From a lexical point of view this means replacing one lexical entry with another specializes the meaning of the phrase. From an ontological point of view this property makes not strong assertions. From a mapping point of view if the broader sense applies the narrower sense must also</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="nextTransform" title="http://lemon-model.net/lemon#nextTransform"></a> Property: Next transform <small style="color:#aaa">(http://lemon-model.net/lemon#nextTransform)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#nextTransform" title="http://lemon-model.net/lemon#nextTransform">nextTransform</a></td>
+<td>Next transform</td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="objOfProp" title="http://lemon-model.net/lemon#objOfProp"></a> Property: Object of property <small style="color:#aaa">(http://lemon-model.net/lemon#objOfProp)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#objOfProp" title="http://lemon-model.net/lemon#objOfProp">objOfProp</a></td>
+<td>Indicates the semantic argument which represents the objects (ranges) of the property referred to by this sense</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="optional" title="http://lemon-model.net/lemon#optional"></a> Property: Optional <small style="color:#aaa">(http://lemon-model.net/lemon#optional)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#optional" title="http://lemon-model.net/lemon#optional">optional</a></td>
+<td>Denotes that the syntactic argument is optional (may be omitted)</td>
+<td>schema:Boolean</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="otherForm" title="http://lemon-model.net/lemon#otherForm"></a> Property: Other form <small style="color:#aaa">(http://lemon-model.net/lemon#otherForm)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#otherForm" title="http://lemon-model.net/lemon#otherForm">otherForm</a></td>
+<td>A non-preferred (&quot;non-dictionary&quot;) representation of a lexical entry. This should be variant that is either a morphological variant, an abbreviation, short form or acronym</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="pattern" title="http://lemon-model.net/lemon#pattern"></a> Property: Pattern <small style="color:#aaa">(http://lemon-model.net/lemon#pattern)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pattern" title="http://lemon-model.net/lemon#pattern">pattern</a></td>
+<td>Pattern</td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+<td><a href="#HasPattern" title="http://lemon-model.net/lemon#HasPattern">HasPattern</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="phraseRoot" title="http://lemon-model.net/lemon#phraseRoot"></a> Property: Phrase root <small style="color:#aaa">(http://lemon-model.net/lemon#phraseRoot)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#phraseRoot" title="http://lemon-model.net/lemon#phraseRoot">phraseRoot</a></td>
+<td>Indicates the head node of a phrase structure or dependency parse graph</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="prefRef" title="http://lemon-model.net/lemon#prefRef"></a> Property: Preferred reference of <small style="color:#aaa">(http://lemon-model.net/lemon#prefRef)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#prefRef" title="http://lemon-model.net/lemon#prefRef">prefRef</a></td>
+<td>The sense of the preferred lexicalization of a given ontology entity</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="propertyDomain" title="http://lemon-model.net/lemon#propertyDomain"></a> Property: Property domain <small style="color:#aaa">(http://lemon-model.net/lemon#propertyDomain)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#propertyDomain" title="http://lemon-model.net/lemon#propertyDomain">propertyDomain</a></td>
+<td>Indicates a restrictions on the domain of the property. That is, this sense only applies if the property the sense refers to has a subject in the class referred to by this property</td>
+<td></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="propertyRange" title="http://lemon-model.net/lemon#propertyRange"></a> Property: Property range <small style="color:#aaa">(http://lemon-model.net/lemon#propertyRange)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#propertyRange" title="http://lemon-model.net/lemon#propertyRange">propertyRange</a></td>
+<td>Indicates a restrictions on the range of the property. That is, this sense only applies if the property the sense refers to has a object in the class referred to by this property</td>
+<td></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="reference" title="http://lemon-model.net/lemon#reference"></a> Property: Reference <small style="color:#aaa">(http://lemon-model.net/lemon#reference)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#reference" title="http://lemon-model.net/lemon#reference">reference</a></td>
+<td>A reference to an external resource</td>
+<td></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="isReferenceOf" title="http://lemon-model.net/lemon#isReferenceOf"></a> Property: Reference of <small style="color:#aaa">(http://lemon-model.net/lemon#isReferenceOf)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#isReferenceOf" title="http://lemon-model.net/lemon#isReferenceOf">isReferenceOf</a></td>
+<td>Indicate that a reference has a given sense</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="representation" title="http://lemon-model.net/lemon#representation"></a> Property: Representation <small style="color:#aaa">(http://lemon-model.net/lemon#representation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#representation" title="http://lemon-model.net/lemon#representation">representation</a></td>
+<td>A realisation of a given form</td>
+<td>schema:Text</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="rule" title="http://lemon-model.net/lemon#rule"></a> Property: Rule <small style="color:#aaa">(http://lemon-model.net/lemon#rule)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#rule" title="http://lemon-model.net/lemon#rule">rule</a></td>
+<td>Rule</td>
+<td>schema:Text</td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="semArg" title="http://lemon-model.net/lemon#semArg"></a> Property: Semantic argument <small style="color:#aaa">(http://lemon-model.net/lemon#semArg)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#semArg" title="http://lemon-model.net/lemon#semArg">semArg</a></td>
+<td>Denotes a semantic argument slot of a semantic unit</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sense" title="http://lemon-model.net/lemon#sense"></a> Property: Sense <small style="color:#aaa">(http://lemon-model.net/lemon#sense)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sense" title="http://lemon-model.net/lemon#sense">sense</a></td>
+<td>Indicates the sense of a lexical entry</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="isSenseOf" title="http://lemon-model.net/lemon#isSenseOf"></a> Property: Sense of <small style="color:#aaa">(http://lemon-model.net/lemon#isSenseOf)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#isSenseOf" title="http://lemon-model.net/lemon#isSenseOf">isSenseOf</a></td>
+<td>Indicate that a sense is realised by the given lexical entry</td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="senseRelation" title="http://lemon-model.net/lemon#senseRelation"></a> Property: Sense relation <small style="color:#aaa">(http://lemon-model.net/lemon#senseRelation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#senseRelation" title="http://lemon-model.net/lemon#senseRelation">senseRelation</a></td>
+<td>Denotes a relationship between senses</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="separator" title="http://lemon-model.net/lemon#separator"></a> Property: Separator <small style="color:#aaa">(http://lemon-model.net/lemon#separator)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#separator" title="http://lemon-model.net/lemon#separator">separator</a></td>
+<td>Indicates the graphical element used to seperate the subnodes of this phrase structure. It is generally recommended that you use a string value with the language tag used to indicate script, (i.e., using ISO-15924 codes, such as &quot;Latn&quot;), as orthographic features may change with script.</td>
+<td>schema:Text</td>
+<td><a href="#Node" title="http://lemon-model.net/lemon#Node">Node</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="subjOfProp" title="http://lemon-model.net/lemon#subjOfProp"></a> Property: Subject of property <small style="color:#aaa">(http://lemon-model.net/lemon#subjOfProp)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#subjOfProp" title="http://lemon-model.net/lemon#subjOfProp">subjOfProp</a></td>
+<td>Indicates the semantic argument which represents the subjects (domain) of the property referred to by this sense</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="subsense" title="http://lemon-model.net/lemon#subsense"></a> Property: Subsense <small style="color:#aaa">(http://lemon-model.net/lemon#subsense)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#subsense" title="http://lemon-model.net/lemon#subsense">subsense</a></td>
+<td>Indicates that the relation between a compound sense and its atomic subsenses</td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+<td><a href="#LexicalSense" title="http://lemon-model.net/lemon#LexicalSense">Lexical sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="synArg" title="http://lemon-model.net/lemon#synArg"></a> Property: Syntactic argument <small style="color:#aaa">(http://lemon-model.net/lemon#synArg)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#synArg" title="http://lemon-model.net/lemon#synArg">synArg</a></td>
+<td>Indicates a slot in a syntactic frame</td>
+<td><a href="#Argument" title="http://lemon-model.net/lemon#Argument">Argument</a></td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="synBehavior" title="http://lemon-model.net/lemon#synBehavior"></a> Property: Syntactic behavior <small style="color:#aaa">(http://lemon-model.net/lemon#synBehavior)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#synBehavior" title="http://lemon-model.net/lemon#synBehavior">synBehavior</a></td>
+<td>Indicates a syntactic behavior of a lexical entry</td>
+<td><a href="#Frame" title="http://lemon-model.net/lemon#Frame">Frame</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="topic" title="http://lemon-model.net/lemon#topic"></a> Property: Topic <small style="color:#aaa">(http://lemon-model.net/lemon#topic)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#topic" title="http://lemon-model.net/lemon#topic">topic</a></td>
+<td>Indicates the topic of the overrall lexicon, this is property is sometimes called &quot;subject field&quot;. Note that in addition to the topic of a lexicon each lexical entry may belong to a given domain, this can be modelled as equal or not equal to the topic of the associated lexicon</td>
+<td><a href="#LexicalTopic" title="http://lemon-model.net/lemon#LexicalTopic">Lexical Topic</a></td>
+<td><a href="#LexicalEntry" title="http://lemon-model.net/lemon#LexicalEntry">Lexical entry</a>, <a href="#Lexicon" title="http://lemon-model.net/lemon#Lexicon">Lexicon</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="transform" title="http://lemon-model.net/lemon#transform"></a> Property: Transform <small style="color:#aaa">(http://lemon-model.net/lemon#transform)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#transform" title="http://lemon-model.net/lemon#transform">transform</a></td>
+<td>Transform</td>
+<td><a href="#MorphTransform" title="http://lemon-model.net/lemon#MorphTransform">Morphological Transform</a></td>
+<td><a href="#MorphPattern" title="http://lemon-model.net/lemon#MorphPattern">Morphological pattern</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="tree" title="http://lemon-model.net/lemon#tree"></a> Property: Tree <small style="color:#aaa">(http://lemon-model.net/lemon#tree)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#tree" title="http://lemon-model.net/lemon#tree">tree</a></td>
+<td>Tree</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="value" title="http://lemon-model.net/lemon#value"></a> Property: Value <small style="color:#aaa">(http://lemon-model.net/lemon#value)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#value" title="http://lemon-model.net/lemon#value">value</a></td>
+<td>This indicates the value of a pseudo-data node. An example of this is definition where the value would generally be a string but it would not be possible to add further annotations, such as source or creation date.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="writtenRep" title="http://lemon-model.net/lemon#writtenRep"></a> Property: Written representation <small style="color:#aaa">(http://lemon-model.net/lemon#writtenRep)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#writtenRep" title="http://lemon-model.net/lemon#writtenRep">writtenRep</a></td>
+<td>Gives the written representation of a given form</td>
+<td>schema:Text</td>
+<td><a href="#Form" title="http://lemon-model.net/lemon#Form">Form</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Property Values</h2>
+<p>No PropertyValue entities are defined.</p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>
