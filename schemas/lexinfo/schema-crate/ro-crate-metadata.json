@@ -2,7 +2,8 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#"
     },
     {
       "@base": null
@@ -1660,13 +1661,14 @@
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-09-29T02:18:59.954350+00:00"
+      "startTime": "2026-10-13T03:05:03.389857+00:00"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm",
       "@type": "rdfs:Class",
       "rdfs:label": "AbbreviatedForm",
       "name": "AbbreviatedForm",
+      "rdfs:comment": "AbbreviatedForm. A kind of TermType.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"
@@ -1678,6 +1680,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivalComplementFrame",
       "name": "adjectival complement frame",
+      "rdfs:comment": "adjectival complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -1689,6 +1692,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Adjective",
       "name": "adjective",
+      "rdfs:comment": "adjective. A kind of Word. Equivalent to: partOfSpeech some AdjectivePOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -1700,6 +1704,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Adjective-i",
       "name": "adjective-i",
+      "rdfs:comment": "adjective-i. A kind of Adjective. Equivalent to: partOfSpeech = adjective-i.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -1711,6 +1716,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Adjective-na",
       "name": "adjective-na",
+      "rdfs:comment": "adjective-na. A kind of Adjective. Equivalent to: partOfSpeech = adjective-na.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -1722,6 +1728,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveAccusativePostPositiveFrame",
       "name": "adjective accusative post positive frame",
+      "rdfs:comment": "adjective accusative post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some AccusativePostPositiveArg.",
+      "skos:example": [
+        "wird wurden unseren irrtum GEWAHR"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePostPositiveFrame"
@@ -1733,6 +1743,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveAttributiveFrame",
       "name": "adjective attributive frame",
+      "rdfs:comment": "adjective attributive frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 attributiveArg.",
+      "skos:example": [
+        "the RED ball"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1744,6 +1758,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveComparativeFrame",
       "name": "adjective comparative frame",
+      "rdfs:comment": "adjective comparative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 comparativeAdjunct and exactly 1 copulativeSubject.",
+      "skos:example": [
+        "new york is BIGGER THAN berlin"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1755,6 +1773,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveDativePostPositiveFrame",
       "name": "adjective dative post positive frame",
+      "rdfs:comment": "adjective dative post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some DativePostPositiveArg.",
+      "skos:example": [
+        "er ist seinem bruder ÄHNLICH"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePostPositiveFrame"
@@ -1766,6 +1788,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveFrame",
       "name": "adjective frame",
+      "rdfs:comment": "adjective frame. A kind of SyntacticFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
@@ -1777,6 +1800,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveGenitivePostPositiveFrame",
       "name": "adjective genitive post positive frame",
+      "rdfs:comment": "adjective genitive post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some GenitivePostPositiveArg.",
+      "skos:example": [
+        "er ist des hochverrats SCHULDIG"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePostPositiveFrame"
@@ -1788,6 +1815,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveImpersonalFrame",
       "name": "adjective impersonal frame",
+      "rdfs:comment": "adjective impersonal frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 object and exactly 0 copulativeSubject.",
+      "skos:example": [
+        "es ist mir HEISS"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1799,6 +1830,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivePOS",
       "name": "adjective",
+      "rdfs:comment": "adjective. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -1810,6 +1842,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivePPFrame",
       "name": "adjective pp frame",
+      "rdfs:comment": "adjective pp frame. A kind of AdjectiveFrame. Equivalent to: AdjectivePredicativeFrame and PrepositionalFrame.",
+      "skos:example": [
+        "he is RELATED TO her"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1821,6 +1857,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivePhrase",
       "name": "adjective phrase",
+      "rdfs:comment": "adjective phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Adjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
@@ -1832,6 +1869,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivePostPositiveFrame",
       "name": "adjective post positive frame",
+      "rdfs:comment": "adjective post positive frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 copulativeArg and exactly 1 postPositiveArg.",
+      "skos:example": [
+        "that is something INTERESTING"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1855,6 +1896,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectivePredicativeFrame",
       "name": "adjective predicative frame",
+      "rdfs:comment": "adjective predicative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 copulativeSubject.",
+      "skos:example": [
+        "he is HAPPY"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1866,6 +1911,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveScaleFrame",
       "name": "adjective scale frame",
+      "rdfs:comment": "adjective scale frame. A kind of AdjectiveFrame. Equivalent to: exactly 1 adverbialComplement and exactly 1 copulativeSubject.",
+      "skos:example": [
+        "Everest is 8,848m HIGH"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1877,6 +1926,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdjectiveSuperlativeFrame",
       "name": "adjective superlative frame",
+      "rdfs:comment": "adjective superlative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 superlativeAdjunct and exactly 1 copulativeSubject.",
+      "skos:example": [
+        "tokyo is the BIGGEST of all metropoles"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"
@@ -1888,6 +1941,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Adposition",
       "name": "adposition",
+      "rdfs:comment": "adposition. A kind of Word. Equivalent to: partOfSpeech some AdpositionPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -1899,6 +1953,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdpositionPOS",
       "name": "adposition",
+      "rdfs:comment": "adposition. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -1910,6 +1965,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Adverb",
       "name": "adverb",
+      "rdfs:comment": "adverb. A kind of Word. Equivalent to: partOfSpeech some AdverbPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -1921,6 +1977,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdverbPOS",
       "name": "adverb",
+      "rdfs:comment": "adverb. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -1932,6 +1989,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdverbialComplementFrame",
       "name": "adverbial complement frame",
+      "rdfs:comment": "adverbial complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeAdverb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -1943,6 +2001,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AdverbialPronoun",
       "name": "adverbial pronoun",
+      "rdfs:comment": "adverbial pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = adverbialPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -1954,6 +2013,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AffirmativeParticle",
       "name": "affirmative particle",
+      "rdfs:comment": "affirmative particle. A kind of Particle. Equivalent to: partOfSpeech = affirmativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -1965,6 +2025,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AffixedPersonalPronoun",
       "name": "affixed personal pronoun",
+      "rdfs:comment": "affixed personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = affixedPersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -1976,6 +2037,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AllusivePronoun",
       "name": "allusive pronoun",
+      "rdfs:comment": "allusive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = allusivePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -1986,7 +2048,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy",
       "@type": "rdfs:Class",
       "rdfs:label": "Animacy",
-      "name": "animacy"
+      "name": "animacy",
+      "rdfs:comment": "animacy"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ArbitraryControl",
@@ -2005,6 +2068,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Article",
       "name": "article",
+      "rdfs:comment": "article. A kind of Determiner. Equivalent to: partOfSpeech some ArticlePOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -2016,6 +2080,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ArticlePOS",
       "name": "article",
+      "rdfs:comment": "article. A kind of DeterminerPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DeterminerPOS"
@@ -2026,13 +2091,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect",
       "@type": "rdfs:Class",
       "rdfs:label": "Aspect",
-      "name": "aspect"
+      "name": "aspect",
+      "rdfs:comment": "aspect"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Auxiliary",
       "@type": "rdfs:Class",
       "rdfs:label": "Auxiliary",
       "name": "auxiliary",
+      "rdfs:comment": "auxiliary. A kind of Verb. Equivalent to: partOfSpeech = auxiliary.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -2044,6 +2111,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Bullet",
       "name": "bullet",
+      "rdfs:comment": "bullet. A kind of Symbol. Equivalent to: partOfSpeech = bullet.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -2055,6 +2123,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CardinalNumeral",
       "name": "cardinal numeral",
+      "rdfs:comment": "cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = cardinalNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2065,13 +2134,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Case",
       "@type": "rdfs:Class",
       "rdfs:label": "Case",
-      "name": "case"
+      "name": "case",
+      "rdfs:comment": "case"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Circumposition",
       "@type": "rdfs:Class",
       "rdfs:label": "Circumposition",
       "name": "circumposition",
+      "rdfs:comment": "circumposition. A kind of Adposition. Equivalent to: partOfSpeech = circumposition.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition"
@@ -2082,13 +2153,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness",
       "@type": "rdfs:Class",
       "rdfs:label": "Cliticness",
-      "name": "cliticness"
+      "name": "cliticness",
+      "rdfs:comment": "cliticness"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#CloseParenthesis",
       "@type": "rdfs:Class",
       "rdfs:label": "CloseParenthesis",
       "name": "close parenthesis",
+      "rdfs:comment": "close parenthesis. A kind of Symbol. Equivalent to: partOfSpeech = closeParenthesis.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -2100,6 +2173,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CollectivePronoun",
       "name": "collective pronoun",
+      "rdfs:comment": "collective pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = collectivePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2111,6 +2185,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Colon",
       "name": "colon",
+      "rdfs:comment": "colon. A kind of Symbol. Equivalent to: partOfSpeech = colon.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -2122,6 +2197,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Comma",
       "name": "comma",
+      "rdfs:comment": "comma. A kind of Symbol. Equivalent to: partOfSpeech = comma.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -2133,6 +2209,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CommonNoun",
       "name": "common noun",
+      "rdfs:comment": "common noun. A kind of Noun. Equivalent to: partOfSpeech = commonNoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Noun"
@@ -2144,6 +2221,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ComparativeParticle",
       "name": "comparative particle",
+      "rdfs:comment": "comparative particle. A kind of Particle. Equivalent to: partOfSpeech = comparativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2155,6 +2233,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CompoundPreposition",
       "name": "compound preposition",
+      "rdfs:comment": "compound preposition. A kind of Adposition. Equivalent to: partOfSpeech = compoundPreposition.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition"
@@ -2166,6 +2245,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ConditionalParticle",
       "name": "conditional particle",
+      "rdfs:comment": "conditional particle. A kind of Particle. Equivalent to: partOfSpeech = conditionalParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2177,6 +2257,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ConditionalPronoun",
       "name": "conditional pronoun",
+      "rdfs:comment": "conditional pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = conditionalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2188,6 +2269,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Conjunction",
       "name": "conjunction",
+      "rdfs:comment": "conjunction. A kind of Word. Equivalent to: partOfSpeech some ConjunctionPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2199,6 +2281,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ConjunctionPOS",
       "name": "conjunction",
+      "rdfs:comment": "conjunction. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -2222,6 +2305,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CoordinatingConjunction",
       "name": "coordinating conjunction",
+      "rdfs:comment": "coordinating conjunction. A kind of Conjunction. Equivalent to: partOfSpeech = coordinatingConjunction.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Conjunction"
@@ -2233,6 +2317,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "CoordinationParticle",
       "name": "coordination particle",
+      "rdfs:comment": "coordination particle. A kind of Particle. Equivalent to: partOfSpeech = coordinationParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2244,6 +2329,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Copula",
       "name": "copula",
+      "rdfs:comment": "copula. A kind of Verb. Equivalent to: partOfSpeech = copula.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -2254,13 +2340,18 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Dating",
       "@type": "rdfs:Class",
       "rdfs:label": "Dating",
-      "name": "dating"
+      "name": "dating",
+      "rdfs:comment": "dating"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DativeTransitiveFrame",
       "@type": "rdfs:Class",
       "rdfs:label": "DativeTransitiveFrame",
       "name": "dative transitive frame",
+      "rdfs:comment": "dative transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 directObject and exactly 1 indirectObject and exactly 1 subject.",
+      "skos:example": [
+        "ich DANKE dir"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2284,6 +2375,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DeficientVerb",
       "name": "deficient verb",
+      "rdfs:comment": "deficient verb. A kind of Verb. Equivalent to: partOfSpeech = deficientVerb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -2295,6 +2387,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DefiniteArticle",
       "name": "definite article",
+      "rdfs:comment": "definite article. A kind of Article. Equivalent to: partOfSpeech = definiteArticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Article"
@@ -2305,19 +2398,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness",
       "@type": "rdfs:Class",
       "rdfs:label": "Definiteness",
-      "name": "definiteness"
+      "name": "definiteness",
+      "rdfs:comment": "definiteness"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Degree",
       "@type": "rdfs:Class",
       "rdfs:label": "Degree",
-      "name": "degree"
+      "name": "degree",
+      "rdfs:comment": "degree"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DemonstrativeDeterminer",
       "@type": "rdfs:Class",
       "rdfs:label": "DemonstrativeDeterminer",
       "name": "demonstrative determiner",
+      "rdfs:comment": "demonstrative determiner. A kind of Determiner. Equivalent to: partOfSpeech = demonstrativeDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -2329,6 +2425,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DemonstrativePronoun",
       "name": "demonstrative pronoun",
+      "rdfs:comment": "demonstrative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = demonstrativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2340,6 +2437,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Determiner",
       "name": "determiner",
+      "rdfs:comment": "determiner. A kind of Word. Equivalent to: partOfSpeech some DeterminerPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2351,6 +2449,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DeterminerPOS",
       "name": "determiner",
+      "rdfs:comment": "determiner. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -2362,6 +2461,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DiminutiveNoun",
       "name": "diminutive noun",
+      "rdfs:comment": "diminutive noun. A kind of Noun. Equivalent to: partOfSpeech = diminutiveNoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Noun"
@@ -2373,6 +2473,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DistinctiveParticle",
       "name": "distinctive particle",
+      "rdfs:comment": "distinctive particle. A kind of Particle. Equivalent to: partOfSpeech = distinctiveParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2384,6 +2485,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DitransitiveDoubleAccusativeFrame",
       "name": "ditransitive double accusative frame",
+      "rdfs:comment": "ditransitive double accusative frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 2 directObject and exactly 1 subject.",
+      "skos:example": [
+        "das KOSTET ihn sein leben"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2395,6 +2500,11 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DitransitiveFrame",
       "name": "ditransitive frame",
+      "rdfs:comment": "ditransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 indirectObject and exactly 1 subject.",
+      "skos:example": [
+        "i GAVE him it",
+        "mein vater SCHREIBT ihr einen brief"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2406,6 +2516,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DitransitiveFrame_For",
       "name": "ditransitive frame_ for",
+      "rdfs:comment": "ditransitive frame_ for. A kind of DitransitiveFrame.",
+      "skos:example": [
+        "she BOUGHT him it, she BOUGHT it FOR him"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame"
@@ -2417,6 +2531,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "DitransitiveFrame_To",
       "name": "ditransitive frame_ to",
+      "rdfs:comment": "ditransitive frame_ to. A kind of DitransitiveFrame.",
+      "skos:example": [
+        "he GAVE his mother, he GAVE a present TO his mother"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame"
@@ -2428,6 +2546,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "EmphaticPronoun",
       "name": "emphatic pronoun",
+      "rdfs:comment": "emphatic pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = emphaticPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2439,6 +2558,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ExclamativeDeterminer",
       "name": "exclamative determiner",
+      "rdfs:comment": "exclamative determiner. A kind of Determiner. Equivalent to: partOfSpeech = exclamativeDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -2450,6 +2570,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ExclamativePoint",
       "name": "exclamative point",
+      "rdfs:comment": "exclamative point. A kind of Symbol. Equivalent to: partOfSpeech = exclamativePoint.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -2461,6 +2582,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ExclamativePronoun",
       "name": "exclamative pronoun",
+      "rdfs:comment": "exclamative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = exclamativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2472,6 +2594,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ExistentialPronoun",
       "name": "existential pronoun",
+      "rdfs:comment": "existential pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = existentialPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2482,19 +2605,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness",
       "@type": "rdfs:Class",
       "rdfs:label": "Finiteness",
-      "name": "finiteness"
+      "name": "finiteness",
+      "rdfs:comment": "finiteness"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency",
       "@type": "rdfs:Class",
       "rdfs:label": "Frequency",
-      "name": "frequency"
+      "name": "frequency",
+      "rdfs:comment": "frequency"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPreposition",
       "@type": "rdfs:Class",
       "rdfs:label": "FusedPreposition",
       "name": "fused preposition",
+      "rdfs:comment": "fused preposition. A kind of Word. Equivalent to: partOfSpeech some FusedPrepositionPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2506,6 +2632,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "FusedPrepositionDeterminer",
       "name": "fused preposition determiner",
+      "rdfs:comment": "fused preposition determiner. A kind of FusedPreposition. Equivalent to: partOfSpeech = fusedPrepositionDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPreposition"
@@ -2517,6 +2644,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "FusedPrepositionPOS",
       "name": "fused preposition",
+      "rdfs:comment": "fused preposition. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -2528,6 +2656,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "FusedPrepositionPronoun",
       "name": "fused preposition pronoun",
+      "rdfs:comment": "fused preposition pronoun. A kind of FusedPreposition. Equivalent to: partOfSpeech = fusedPrepositionPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPreposition"
@@ -2539,6 +2668,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "FusedPronounAuxiliary",
       "name": "fused pronoun auxiliary",
+      "rdfs:comment": "fused pronoun auxiliary. A kind of Pronoun. Equivalent to: partOfSpeech = fusedPronounAuxiliary.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2550,6 +2680,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "FutureParticle",
       "name": "future particle",
+      "rdfs:comment": "future particle. A kind of Particle. Equivalent to: partOfSpeech = futureParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2560,13 +2691,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Gender",
       "@type": "rdfs:Class",
       "rdfs:label": "Gender",
-      "name": "gender"
+      "name": "gender",
+      "rdfs:comment": "gender"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#GeneralAdverb",
       "@type": "rdfs:Class",
       "rdfs:label": "GeneralAdverb",
       "name": "general adverb",
+      "rdfs:comment": "general adverb. A kind of Adverb. Equivalent to: partOfSpeech = generalAdverb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adverb"
@@ -2578,6 +2711,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GeneralizationWord",
       "name": "generalization word",
+      "rdfs:comment": "generalization word. A kind of Word. Equivalent to: partOfSpeech = generalizationWord.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2589,6 +2723,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GenericNumeral",
       "name": "generic numeral",
+      "rdfs:comment": "generic numeral. A kind of Numeral. Equivalent to: partOfSpeech = genericNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2600,6 +2735,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GenitiveDitransitiveFrame",
       "name": "genitive ditransitive frame",
+      "rdfs:comment": "genitive ditransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 genitiveObject and exactly 1 subject.",
+      "skos:example": [
+        "man KLAGTE ihn des diebstahls AN"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2611,6 +2750,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GenitiveTransitiveFrame",
       "name": "genitive transitive frame",
+      "rdfs:comment": "genitive transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 genitiveObject and exactly 1 subject.",
+      "skos:example": [
+        "wir GEDENKEN jenes mannes"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2622,6 +2765,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GerundACFrame",
       "name": "gerund ac frame",
+      "rdfs:comment": "gerund ac frame. A kind of GerundFrame. Equivalent to: ArbitraryControl and GerundFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#GerundFrame"
@@ -2645,6 +2789,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GerundOCFrame",
       "name": "gerund oc frame",
+      "rdfs:comment": "gerund oc frame. A kind of GerundFrame. Equivalent to: GerundFrame and ObjectControl.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#GerundFrame"
@@ -2656,6 +2801,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "GerundSCFrame",
       "name": "gerund sc frame",
+      "rdfs:comment": "gerund sc frame. A kind of GerundFrame. Equivalent to: GerundFrame and SubjectControl.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#GerundFrame"
@@ -2667,6 +2813,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ImpersonalFrame",
       "name": "impersonal frame",
+      "rdfs:comment": "impersonal frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 subject.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2678,6 +2825,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ImpersonalIntransitiveFrame",
       "name": "impersonal intransitive frame",
+      "rdfs:comment": "impersonal intransitive frame. A kind of ImpersonalFrame. Equivalent to: ImpersonalFrame and exactly 0 object.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalFrame"
@@ -2689,6 +2837,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ImpersonalIntransitivePPFrame",
       "name": "impersonal intransitive pp frame",
+      "rdfs:comment": "impersonal intransitive pp frame. A kind of PrepositionalFrame. Equivalent to: ImpersonalIntransitiveFrame and PrepositionalFrame.",
+      "skos:example": [
+        "it REEKS OF tar"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalFrame"
@@ -2700,6 +2852,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ImpersonalPronoun",
       "name": "impersonal pronoun",
+      "rdfs:comment": "impersonal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = impersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2711,6 +2864,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ImpersonalTransitiveFrame",
       "name": "impersonal transitive frame",
+      "rdfs:comment": "impersonal transitive frame. A kind of ImpersonalFrame. Equivalent to: ImpersonalFrame and at least 1 directObject.",
+      "skos:example": [
+        "es JUCKT mich"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalFrame"
@@ -2722,6 +2879,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefiniteArticle",
       "name": "indefinite article",
+      "rdfs:comment": "indefinite article. A kind of Article. Equivalent to: partOfSpeech = indefiniteArticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Article"
@@ -2733,6 +2891,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefiniteCardinalNumeral",
       "name": "indefinite cardinal numeral",
+      "rdfs:comment": "indefinite cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteCardinalNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2744,6 +2903,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefiniteDeterminer",
       "name": "indefinite determiner",
+      "rdfs:comment": "indefinite determiner. A kind of Determiner. Equivalent to: partOfSpeech = indefiniteDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -2755,6 +2915,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefiniteMultiplicativeNumeral",
       "name": "indefinite multiplicative numeral",
+      "rdfs:comment": "indefinite multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteMultiplicativeNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2766,6 +2927,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefiniteOrdinalNumeral",
       "name": "indefinite ordinal numeral",
+      "rdfs:comment": "indefinite ordinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteOrdinalNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2777,6 +2939,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IndefinitePronoun",
       "name": "indefinite pronoun",
+      "rdfs:comment": "indefinite pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = indefinitePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2800,6 +2963,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InfinitiveParticle",
       "name": "infinitive particle",
+      "rdfs:comment": "infinitive particle. A kind of Particle. Equivalent to: partOfSpeech = infinitiveParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2811,6 +2975,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Infix",
       "name": "infix",
+      "rdfs:comment": "infix. A kind of Affix.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
@@ -2822,6 +2987,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Interjection",
       "name": "interjection",
+      "rdfs:comment": "interjection. A kind of Word. Equivalent to: partOfSpeech = interjection.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2833,6 +2999,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeCardinalNumeral",
       "name": "interrogative cardinal numeral",
+      "rdfs:comment": "interrogative cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeCardinalNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2844,6 +3011,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeDeterminer",
       "name": "interrogative determiner",
+      "rdfs:comment": "interrogative determiner. A kind of Determiner. Equivalent to: partOfSpeech = interrogativeDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -2879,6 +3047,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeMultiplicativeNumeral",
       "name": "interrogative multiplicative numeral",
+      "rdfs:comment": "interrogative multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeMultiplicativeNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2890,6 +3059,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeOrdinalNumeral",
       "name": "interrogative ordinal numeral",
+      "rdfs:comment": "interrogative ordinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeOrdinalNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -2901,6 +3071,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeParticle",
       "name": "interrogative particle",
+      "rdfs:comment": "interrogative particle. A kind of Particle. Equivalent to: partOfSpeech = interrogativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -2912,6 +3083,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativePronoun",
       "name": "interrogative pronoun",
+      "rdfs:comment": "interrogative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = interrogativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -2923,6 +3095,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InterrogativeRelativePronoun",
       "name": "interrogative relative pronoun",
+      "rdfs:comment": "interrogative relative pronoun. A kind of Word. Equivalent to: partOfSpeech = interrogativeRelativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -2934,6 +3107,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveAdjectivalComplementFrame",
       "name": "intransitive adjectival complement frame",
+      "rdfs:comment": "intransitive adjectival complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeAdjective.",
+      "skos:example": [
+        "his reputation SANK low"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame"
@@ -2945,6 +3122,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveAdverbialComplementFrame",
       "name": "intransitive adverbial complement frame",
+      "rdfs:comment": "intransitive adverbial complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeAdverb.",
+      "skos:example": [
+        "he SEEMED well"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame"
@@ -2956,6 +3137,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveDeclarativeFrame",
       "name": "intransitive declarative frame",
+      "rdfs:comment": "intransitive declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and IntransitiveFrame.",
+      "skos:example": [
+        "i KNOW [that is a bad idea]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DeclarativeFrame"
@@ -2967,6 +3152,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveFrame",
       "name": "intransitive frame",
+      "rdfs:comment": "intransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 directObject and exactly 1 subject.",
+      "skos:example": [
+        "he LEFT"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -2978,6 +3167,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveInfinitiveACFrame",
       "name": "intransitive infinitive ac frame",
+      "rdfs:comment": "intransitive infinitive ac frame. A kind of InfinitiveFrame. Equivalent to: ArbitraryControl and InfinitiveFrame and IntransitiveFrame.",
+      "skos:example": [
+        "I HELPED [to save the child]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -2989,6 +3182,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveInfinitiveRSFrame",
       "name": "intransitive infinitive rs frame",
+      "rdfs:comment": "intransitive infinitive rs frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and IntransitiveFrame and RaisingSubject.",
+      "skos:example": [
+        "he SEEMED [to be happy]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -3000,6 +3197,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveInfinitiveSCFrame",
       "name": "intransitive infinitive sc frame",
+      "rdfs:comment": "intransitive infinitive sc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and IntransitiveFrame and SubjectControl.",
+      "skos:example": [
+        "I WANTED [to come]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -3011,6 +3212,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveInterrogativeFrame",
       "name": "intransitive interrogative frame",
+      "rdfs:comment": "intransitive interrogative frame. A kind of InterrogativeFrame. Equivalent to: InterrogativeFrame and IntransitiveFrame.",
+      "skos:example": [
+        "he ASKED [what he should do]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeFrame"
@@ -3022,6 +3227,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveInterrogativeInfinitiveFrame",
       "name": "intransitive interrogative infinitive frame",
+      "rdfs:comment": "intransitive interrogative infinitive frame. A kind of InterrogativeInfinitiveFrame. Equivalent to: InterrogativeInfinitiveFrame and IntransitiveFrame.",
+      "skos:example": [
+        "he ASKED [what to do]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeInfinitiveFrame"
@@ -3033,6 +3242,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveNominalComplementFrame",
       "name": "intransitive nominal complement frame",
+      "rdfs:comment": "intransitive nominal complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeNominative.",
+      "skos:example": [
+        "he SEEMED a fool"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame"
@@ -3044,6 +3257,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitivePPDeclarativeFrame",
       "name": "intransitive pp declarative frame",
+      "rdfs:comment": "intransitive pp declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and IntransitivePPFrame.",
+      "skos:example": [
+        "the SUGGESTED to him [that he should go]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DeclarativeFrame"
@@ -3055,6 +3272,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitivePPFrame",
       "name": "intransitive pp frame",
+      "rdfs:comment": "intransitive pp frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and PPFrame.",
+      "skos:example": [
+        "he TOOK CARE OF her"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame"
@@ -3066,6 +3287,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IntransitiveSententialFrame",
       "name": "intransitive sentential frame",
+      "rdfs:comment": "intransitive sentential frame. A kind of SententialFrame. Equivalent to: IntransitiveFrame and SententialFrame.",
+      "skos:example": [
+        "they THOUGHT he was always late"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SententialFrame"
@@ -3077,6 +3302,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "InvertedComma",
       "name": "inverted comma",
+      "rdfs:comment": "inverted comma. A kind of Symbol. Equivalent to: partOfSpeech = invertedComma.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3088,6 +3314,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "IrreflexivePersonalPronoun",
       "name": "irreflexive personal pronoun",
+      "rdfs:comment": "irreflexive personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = irreflexivePersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3099,6 +3326,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Letter",
       "name": "letter",
+      "rdfs:comment": "letter. A kind of Symbol. Equivalent to: partOfSpeech = letter.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3110,6 +3338,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "LightVerb",
       "name": "light verb",
+      "rdfs:comment": "light verb. A kind of Verb. Equivalent to: partOfSpeech = lightVerb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -3121,6 +3350,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "MainVerb",
       "name": "main verb",
+      "rdfs:comment": "main verb. A kind of Verb. Equivalent to: partOfSpeech = mainVerb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -3132,6 +3362,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Modal",
       "name": "modal",
+      "rdfs:comment": "modal. A kind of Verb. Equivalent to: partOfSpeech = modal.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -3142,19 +3373,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType",
       "@type": "rdfs:Class",
       "rdfs:label": "ModificationType",
-      "name": "modification type"
+      "name": "modification type",
+      "rdfs:comment": "modification type"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Mood",
       "@type": "rdfs:Class",
       "rdfs:label": "Mood",
-      "name": "mood"
+      "name": "mood",
+      "rdfs:comment": "mood"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#MultiplicativeNumeral",
       "@type": "rdfs:Class",
       "rdfs:label": "MultiplicativeNumeral",
       "name": "multiplicative numeral",
+      "rdfs:comment": "multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = multiplicativeNumeral.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -3165,13 +3399,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Negative",
       "@type": "rdfs:Class",
       "rdfs:label": "Negative",
-      "name": "negative"
+      "name": "negative",
+      "rdfs:comment": "negative"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NegativeParticle",
       "@type": "rdfs:Class",
       "rdfs:label": "NegativeParticle",
       "name": "negative particle",
+      "rdfs:comment": "negative particle. A kind of Particle. Equivalent to: partOfSpeech = negativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -3183,6 +3419,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NegativePronoun",
       "name": "negative pronoun",
+      "rdfs:comment": "negative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = negativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3194,6 +3431,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NominalComplementFrame",
       "name": "nominal complement frame",
+      "rdfs:comment": "nominal complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeNominative.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -3204,13 +3442,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization",
       "@type": "rdfs:Class",
       "rdfs:label": "NormativeAuthorization",
-      "name": "normative authorization"
+      "name": "normative authorization",
+      "rdfs:comment": "normative authorization"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Noun",
       "@type": "rdfs:Class",
       "rdfs:label": "Noun",
       "name": "noun",
+      "rdfs:comment": "noun. A kind of Word. Equivalent to: partOfSpeech some NounPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -3222,6 +3462,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounFrame",
       "name": "noun frame",
+      "rdfs:comment": "noun frame. A kind of SyntacticFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
@@ -3233,6 +3474,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounPOS",
       "name": "noun",
+      "rdfs:comment": "noun. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -3244,6 +3486,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounPPFrame",
       "name": "noun pp frame",
+      "rdfs:comment": "noun pp frame. A kind of NounFrame. Equivalent to: NounPredicateFrame and PrepositionalFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NounFrame"
@@ -3255,6 +3498,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounPhrase",
       "name": "noun phrase",
+      "rdfs:comment": "noun phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Noun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
@@ -3266,6 +3510,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounPossessiveFrame",
       "name": "noun possessive frame",
+      "rdfs:comment": "noun possessive frame. A kind of NounFrame. Equivalent to: NounFrame and at least 1 copulativeArg and at least 1 possessiveAdjunct of type PossessiveAdjunct.",
+      "skos:example": [
+        "the CAPITAL OF france is paris"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NounFrame"
@@ -3277,6 +3525,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NounPredicateFrame",
       "name": "noun predicate frame",
+      "rdfs:comment": "noun predicate frame. A kind of NounFrame. Equivalent to: NounFrame and at least 1 copulativeArg.",
+      "skos:example": [
+        "he is a MAN"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#NounFrame"
@@ -3287,13 +3539,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Number",
       "@type": "rdfs:Class",
       "rdfs:label": "Number",
-      "name": "number"
+      "name": "number",
+      "rdfs:comment": "number"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral",
       "@type": "rdfs:Class",
       "rdfs:label": "Numeral",
       "name": "numeral",
+      "rdfs:comment": "numeral. A kind of Word. Equivalent to: partOfSpeech some NumeralPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -3305,6 +3559,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NumeralFraction",
       "name": "numeral fraction",
+      "rdfs:comment": "numeral fraction. A kind of Numeral. Equivalent to: partOfSpeech = numeralFraction.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"
@@ -3316,6 +3571,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "NumeralPOS",
       "name": "numeral",
+      "rdfs:comment": "numeral. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -3339,6 +3595,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "OpenParenthesis",
       "name": "open parenthesis",
+      "rdfs:comment": "open parenthesis. A kind of Symbol. Equivalent to: partOfSpeech = openParenthesis.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3350,6 +3607,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "OrdinalAdjective",
       "name": "ordinal adjective",
+      "rdfs:comment": "ordinal adjective. A kind of Adjective. Equivalent to: partOfSpeech = ordinalAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3361,6 +3619,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PPFrame",
       "name": "pp frame",
+      "rdfs:comment": "pp frame. A kind of VerbFrame. Equivalent to: PrepositionalFrame and VerbFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -3371,13 +3630,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech",
       "@type": "rdfs:Class",
       "rdfs:label": "PartOfSpeech",
-      "name": "part of speech"
+      "name": "part of speech",
+      "rdfs:comment": "part of speech"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ParticipleAdjective",
       "@type": "rdfs:Class",
       "rdfs:label": "ParticipleAdjective",
       "name": "participle adjective",
+      "rdfs:comment": "participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = participleAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3389,6 +3650,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Particle",
       "name": "particle",
+      "rdfs:comment": "particle. A kind of Word. Equivalent to: partOfSpeech some ParticlePOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -3400,6 +3662,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ParticlePOS",
       "name": "particle",
+      "rdfs:comment": "particle. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -3411,6 +3674,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PartitiveArticle",
       "name": "partitive article",
+      "rdfs:comment": "partitive article. A kind of Article. Equivalent to: partOfSpeech = partitiveArticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Article"
@@ -3422,6 +3686,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PastParticipleAdjective",
       "name": "past participle adjective",
+      "rdfs:comment": "past participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = pastParticipleAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3432,13 +3697,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Person",
       "@type": "rdfs:Class",
       "rdfs:label": "Person",
-      "name": "person"
+      "name": "person",
+      "rdfs:comment": "person"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PersonalPronoun",
       "@type": "rdfs:Class",
       "rdfs:label": "PersonalPronoun",
       "name": "personal pronoun",
+      "rdfs:comment": "personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = personalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3450,6 +3717,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PlainVerb",
       "name": "plain verb",
+      "rdfs:comment": "plain verb. A kind of Verb. Equivalent to: partOfSpeech = plainVerb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"
@@ -3461,6 +3729,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Point",
       "name": "point",
+      "rdfs:comment": "point. A kind of Symbol. Equivalent to: partOfSpeech = point.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3472,6 +3741,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PossessiveAdjective",
       "name": "possessive adjective",
+      "rdfs:comment": "possessive adjective. A kind of Adjective. Equivalent to: partOfSpeech = possessiveAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3483,6 +3753,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PossessiveDeterminer",
       "name": "possessive determiner",
+      "rdfs:comment": "possessive determiner. A kind of Determiner. Equivalent to: partOfSpeech = possessiveDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -3494,6 +3765,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PossessiveParticle",
       "name": "possessive particle",
+      "rdfs:comment": "possessive particle. A kind of Particle. Equivalent to: partOfSpeech = possessiveParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -3505,6 +3777,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PossessivePronoun",
       "name": "possessive pronoun",
+      "rdfs:comment": "possessive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = possessivePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3516,6 +3789,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PossessiveRelativePronoun",
       "name": "possessive relative pronoun",
+      "rdfs:comment": "possessive relative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = possessiveRelativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3527,6 +3801,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Postposition",
       "name": "postposition",
+      "rdfs:comment": "postposition. A kind of Adposition. Equivalent to: partOfSpeech = postposition.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition"
@@ -3538,6 +3813,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Prefix",
       "name": "prefix",
+      "rdfs:comment": "prefix. A kind of Affix.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
@@ -3549,6 +3825,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Preposition",
       "name": "preposition",
+      "rdfs:comment": "preposition. A kind of Adposition. Equivalent to: partOfSpeech = preposition.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition"
@@ -3560,6 +3837,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PrepositionFrame",
       "name": "preposition frame",
+      "rdfs:comment": "preposition frame. A kind of SyntacticFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
@@ -3571,6 +3849,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PrepositionPhrase",
       "name": "preposition phrase",
+      "rdfs:comment": "preposition phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Preposition.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
@@ -3582,6 +3861,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PrepositionalAdverb",
       "name": "prepositional adverb",
+      "rdfs:comment": "prepositional adverb. A kind of Adverb. Equivalent to: partOfSpeech = prepositionalAdverb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adverb"
@@ -3605,6 +3885,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PrepositionalInterrogativeFrame",
       "name": "prepositional interrogative frame",
+      "rdfs:comment": "prepositional interrogative frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 prepositionalInterrogativeClause.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -3616,6 +3897,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PrepositionalPhraseFrame",
       "name": "prepositional phrase frame",
+      "rdfs:comment": "prepositional phrase frame. A kind of PrepositionFrame. Equivalent to: PrepositionFrame and at least 1 complement of type PrepositionalAdjunct and at least 1 copulativeSubject.",
+      "skos:example": [
+        "he is IN london"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionFrame"
@@ -3627,6 +3912,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PresentParticipleAdjective",
       "name": "present participle adjective",
+      "rdfs:comment": "present participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = presentParticipleAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3638,6 +3924,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PresentativePronoun",
       "name": "presentative pronoun",
+      "rdfs:comment": "presentative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = presentativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3649,6 +3936,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PronominalAdverb",
       "name": "pronominal adverb",
+      "rdfs:comment": "pronominal adverb. A kind of Adverb. Equivalent to: partOfSpeech = pronominalAdverb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adverb"
@@ -3660,6 +3948,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Pronoun",
       "name": "pronoun",
+      "rdfs:comment": "pronoun. A kind of Word. Equivalent to: partOfSpeech some PronounPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -3671,6 +3960,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "PronounPOS",
       "name": "pronoun",
+      "rdfs:comment": "pronoun. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -3682,6 +3972,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ProperNoun",
       "name": "proper noun",
+      "rdfs:comment": "proper noun. A kind of Noun. Equivalent to: partOfSpeech = properNoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Noun"
@@ -3693,6 +3984,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Punctuation",
       "name": "punctuation",
+      "rdfs:comment": "punctuation. A kind of Symbol. Equivalent to: partOfSpeech = punctuation.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3704,6 +3996,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "QualifierAdjective",
       "name": "qualifier adjective",
+      "rdfs:comment": "qualifier adjective. A kind of Adjective. Equivalent to: partOfSpeech = qualifierAdjective.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"
@@ -3715,6 +4008,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "QuestionMark",
       "name": "question mark",
+      "rdfs:comment": "question mark. A kind of Symbol. Equivalent to: partOfSpeech = questionMark.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3726,6 +4020,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "RaisableArgument",
       "name": "RaisableArgument",
+      "rdfs:comment": "RaisableArgument. A kind of SyntacticArgument.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticArgument"
@@ -3736,7 +4031,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#RaisableSubject",
       "@type": "rdfs:Class",
       "rdfs:label": "RaisableSubject",
-      "name": "RaisableSubject"
+      "name": "RaisableSubject",
+      "rdfs:comment": "RaisableSubject. Equivalent to: RaisableArgument and Subject."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#RaisingSubject",
@@ -3755,6 +4051,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReciprocalFrame",
       "name": "reciprocal frame",
+      "rdfs:comment": "reciprocal frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 2 subject.",
+      "skos:example": [
+        "mary and john MET"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -3766,6 +4066,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReciprocalPronoun",
       "name": "reciprocal pronoun",
+      "rdfs:comment": "reciprocal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reciprocalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3776,13 +4077,18 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType",
       "@type": "rdfs:Class",
       "rdfs:label": "ReferentType",
-      "name": "referent type"
+      "name": "referent type",
+      "rdfs:comment": "referent type"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDativeTransitiveFrame",
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveDativeTransitiveFrame",
       "name": "reflexive dative transitive frame",
+      "rdfs:comment": "reflexive dative transitive frame. A kind of ReflexiveFrame. Equivalent to: DativeTransitiveFrame and ReflexiveFrame.",
+      "skos:example": [
+        "ich TUE mir WEH"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"
@@ -3794,6 +4100,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveDeterminer",
       "name": "reflexive determiner",
+      "rdfs:comment": "reflexive determiner. A kind of Determiner. Equivalent to: partOfSpeech = reflexiveDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -3805,6 +4112,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveDitransitiveFrame",
       "name": "reflexive ditransitive frame",
+      "rdfs:comment": "reflexive ditransitive frame. A kind of ReflexiveFrame. Equivalent to: DitransitiveFrame and ReflexiveFrame and directObject some ReflexiveObject.",
+      "skos:example": [
+        "das habe ich mir EINGEBILDET"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"
@@ -3816,6 +4127,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveFrame",
       "name": "reflexive frame",
+      "rdfs:comment": "reflexive frame. A kind of VerbFrame. Equivalent to: VerbFrame and object some ReflexiveObject.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -3827,6 +4139,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexivePersonalPronoun",
       "name": "reflexive personal pronoun",
+      "rdfs:comment": "reflexive personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reflexivePersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3838,6 +4151,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexivePossessivePronoun",
       "name": "reflexive possessive pronoun",
+      "rdfs:comment": "reflexive possessive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reflexivePossessivePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3849,6 +4163,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveReciprocalFrame",
       "name": "reflexive reciprocal frame",
+      "rdfs:comment": "reflexive reciprocal frame. A kind of ReflexiveFrame. Equivalent to: ReciprocalFrame and ReflexiveFrame.",
+      "skos:example": [
+        "hans und marie TREFFEN sich"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"
@@ -3860,6 +4178,11 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveTransitiveFrame",
       "name": "reflexive transitive frame",
+      "rdfs:comment": "reflexive transitive frame. A kind of ReflexiveFrame. Equivalent to: ReflexiveFrame and TransitiveFrame.",
+      "skos:example": [
+        "elle se COUCHE",
+        "er ERHOLT sich"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"
@@ -3871,6 +4194,11 @@
       "@type": "rdfs:Class",
       "rdfs:label": "ReflexiveTransitivePPFrame",
       "name": "reflexive transitive pp frame",
+      "rdfs:comment": "reflexive transitive pp frame. A kind of ReflexiveFrame. Equivalent to: ReflexiveFrame and TransitivePPFrame.",
+      "skos:example": [
+        "elle se APPROCHE DE la gare",
+        "ich ERRINERE mich AN seinen vater"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"
@@ -3881,13 +4209,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Register",
       "@type": "rdfs:Class",
       "rdfs:label": "Register",
-      "name": "register"
+      "name": "register",
+      "rdfs:comment": "register"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#RelationNoun",
       "@type": "rdfs:Class",
       "rdfs:label": "RelationNoun",
       "name": "relation noun",
+      "rdfs:comment": "relation noun. A kind of Noun. Equivalent to: partOfSpeech = relationNoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Noun"
@@ -3899,6 +4229,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "RelativeDeterminer",
       "name": "relative determiner",
+      "rdfs:comment": "relative determiner. A kind of Determiner. Equivalent to: partOfSpeech = relativeDeterminer.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"
@@ -3910,6 +4241,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "RelativeParticle",
       "name": "relative particle",
+      "rdfs:comment": "relative particle. A kind of Particle. Equivalent to: partOfSpeech = relativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -3921,6 +4253,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "RelativePronoun",
       "name": "relative pronoun",
+      "rdfs:comment": "relative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = relativePronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -3944,6 +4277,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SemiColon",
       "name": "semi colon",
+      "rdfs:comment": "semi colon. A kind of Symbol. Equivalent to: partOfSpeech = semiColon.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -3979,6 +4313,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Slash",
       "name": "slash",
+      "rdfs:comment": "slash. A kind of Symbol. Equivalent to: partOfSpeech = slash.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -4002,6 +4337,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "StrongPersonalPronoun",
       "name": "strong personal pronoun",
+      "rdfs:comment": "strong personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = strongPersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -4025,6 +4361,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubjectlessFrame",
       "name": "subjectless frame",
+      "rdfs:comment": "subjectless frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 subject.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -4036,6 +4373,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubjectlessIntransitiveFrame",
       "name": "subjectless intransitive frame",
+      "rdfs:comment": "subjectless intransitive frame. A kind of SubjectlessFrame. Equivalent to: SubjectlessFrame and exactly 1 indirectObject.",
+      "skos:example": [
+        "mir SCHWINDELT"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessFrame"
@@ -4047,6 +4388,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubjectlessIntransitivePPFrame",
       "name": "subjectless intransitive pp frame",
+      "rdfs:comment": "subjectless intransitive pp frame. A kind of SubjectlessIntransitiveFrame. Equivalent to: PPFrame and SubjectlessIntransitiveFrame.",
+      "skos:example": [
+        "mir TRÄUMT VON jener zeit"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessIntransitiveFrame"
@@ -4058,6 +4403,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubjectlessTransitiveFrame",
       "name": "subjectless transitive frame",
+      "rdfs:comment": "subjectless transitive frame. A kind of SubjectlessFrame. Equivalent to: SubjectlessFrame and exactly 1 directObject.",
+      "skos:example": [
+        "mich FRIERT"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessFrame"
@@ -4069,6 +4418,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubjectlessTransitivePPFrame",
       "name": "subjectless transitive pp frame",
+      "rdfs:comment": "subjectless transitive pp frame. A kind of SubjectlessTransitiveFrame. Equivalent to: PPFrame and SubjectlessTransitiveFrame.",
+      "skos:example": [
+        "mich EKELT VOR fleisch"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessTransitiveFrame"
@@ -4080,6 +4433,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SubordinatingConjunction",
       "name": "subordinating conjunction",
+      "rdfs:comment": "subordinating conjunction. A kind of Conjunction. Equivalent to: partOfSpeech = subordinatingConjunction.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Conjunction"
@@ -4091,6 +4445,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Suffix",
       "name": "suffix",
+      "rdfs:comment": "suffix. A kind of Affix.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Affix"
@@ -4102,6 +4457,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SuperlativeParticle",
       "name": "superlative particle",
+      "rdfs:comment": "superlative particle. A kind of Particle. Equivalent to: partOfSpeech = superlativeParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -4113,6 +4469,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "SuspensionPoints",
       "name": "suspension points",
+      "rdfs:comment": "suspension points. A kind of Symbol. Equivalent to: partOfSpeech = suspensionPoints.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"
@@ -4124,6 +4481,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Symbol",
       "name": "symbol",
+      "rdfs:comment": "symbol. A kind of Word. Equivalent to: partOfSpeech some SymbolPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -4134,31 +4492,36 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SymbolPOS",
       "@type": "rdfs:Class",
       "rdfs:label": "SymbolPOS",
-      "name": "symbol"
+      "name": "symbol",
+      "rdfs:comment": "symbol"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier",
       "@type": "rdfs:Class",
       "rdfs:label": "TemporalQualifier",
-      "name": "temporal qualifier"
+      "name": "temporal qualifier",
+      "rdfs:comment": "temporal qualifier"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Tense",
       "@type": "rdfs:Class",
       "rdfs:label": "Tense",
-      "name": "tense"
+      "name": "tense",
+      "rdfs:comment": "tense"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement",
       "@type": "rdfs:Class",
       "rdfs:label": "TermElement",
-      "name": "term element"
+      "name": "term element",
+      "rdfs:comment": "term element"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TermType",
       "@type": "rdfs:Class",
       "rdfs:label": "TermType",
-      "name": "term type"
+      "name": "term type",
+      "rdfs:comment": "term type"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TransfixMorph",
@@ -4177,6 +4540,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveAdjectivalComplementFrame",
       "name": "transitive adjectival complement frame",
+      "rdfs:comment": "transitive adjectival complement frame. A kind of TransitiveFrame. Equivalent to: AdjectivalComplementFrame and TransitiveFrame.",
+      "skos:example": [
+        "they PAINTED it red"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame"
@@ -4188,6 +4555,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveAdverbialComplementFrame",
       "name": "transitive adverbial complement frame",
+      "rdfs:comment": "transitive adverbial complement frame. A kind of TransitiveFrame. Equivalent to: AdverbialComplementFrame and TransitiveFrame.",
+      "skos:example": [
+        "she PUT the cheese back"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame"
@@ -4199,6 +4570,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveDeclarativeFrame",
       "name": "transitive declarative frame",
+      "rdfs:comment": "transitive declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and TransitiveFrame.",
+      "skos:example": [
+        "he CONVINCED her [that she should go]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#DeclarativeFrame"
@@ -4210,6 +4585,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveFrame",
       "name": "transitive frame",
+      "rdfs:comment": "transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 subject.",
+      "skos:example": [
+        "the dog BIT the man"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"
@@ -4221,6 +4600,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveInfinitiveACFrame",
       "name": "transitive infinitive ac frame",
+      "rdfs:comment": "transitive infinitive ac frame. A kind of InfinitiveFrame. Equivalent to: ArbitraryControl and InfinitiveFrame and TransitiveFrame.",
+      "skos:example": [
+        "they CONVINCED him [to go]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -4232,6 +4615,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveInfinitiveOCFrame",
       "name": "transitive infinitive oc frame",
+      "rdfs:comment": "transitive infinitive oc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and ObjectControl and TransitiveFrame.",
+      "skos:example": [
+        "i WANT john [to go]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -4243,6 +4630,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveInfinitiveSCFrame",
       "name": "transitive infinitive sc frame",
+      "rdfs:comment": "transitive infinitive sc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and SubjectControl and TransitiveFrame.",
+      "skos:example": [
+        "john PROMISED mary [to resign]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"
@@ -4254,6 +4645,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveInterrogativeFrame",
       "name": "transitive interrogative frame",
+      "rdfs:comment": "transitive interrogative frame. A kind of InterrogativeFrame. Equivalent to: InterrogativeFrame and TransitiveFrame.",
+      "skos:example": [
+        "he ASKED her [what he should do]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeFrame"
@@ -4265,6 +4660,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveInterrogativeInfinitiveFrame",
       "name": "transitive interrogative infinitive frame",
+      "rdfs:comment": "transitive interrogative infinitive frame. A kind of InterrogativeInfinitiveFrame.",
+      "skos:example": [
+        "he ASKED her [what to do]"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeInfinitiveFrame"
@@ -4276,6 +4675,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveNominalComplementFrame",
       "name": "transitive nominal complement frame",
+      "rdfs:comment": "transitive nominal complement frame. A kind of TransitiveFrame. Equivalent to: NominalComplementFrame and TransitiveFrame.",
+      "skos:example": [
+        "they ELECTED him president"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame"
@@ -4287,6 +4690,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitivePPFrame",
       "name": "transitive pp frame",
+      "rdfs:comment": "transitive pp frame. A kind of TransitiveFrame. Equivalent to: PPFrame and TransitiveFrame.",
+      "skos:example": [
+        "she ADDED salt TO the stew"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame"
@@ -4298,6 +4705,10 @@
       "@type": "rdfs:Class",
       "rdfs:label": "TransitiveSententialFrame",
       "name": "transitive sentential frame",
+      "rdfs:comment": "transitive sentential frame. A kind of SententialFrame. Equivalent to: SententialFrame and TransitiveFrame.",
+      "skos:example": [
+        "he TOLD the audience he was leaving"
+      ],
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#SententialFrame"
@@ -4309,6 +4720,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "UnclassifiedParticle",
       "name": "unclassified particle",
+      "rdfs:comment": "unclassified particle. A kind of Particle. Equivalent to: partOfSpeech = unclassifiedParticle.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"
@@ -4320,6 +4732,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Verb",
       "name": "verb",
+      "rdfs:comment": "verb. A kind of Word. Equivalent to: partOfSpeech some VerbPOS.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#Word"
@@ -4330,13 +4743,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood",
       "@type": "rdfs:Class",
       "rdfs:label": "VerbFormMood",
-      "name": "verb form mood"
+      "name": "verb form mood",
+      "rdfs:comment": "verb form mood"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame",
       "@type": "rdfs:Class",
       "rdfs:label": "VerbFrame",
       "name": "verb frame",
+      "rdfs:comment": "verb frame. A kind of SyntacticFrame.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/synsem#SyntacticFrame"
@@ -4348,6 +4763,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "VerbPOS",
       "name": "verb",
+      "rdfs:comment": "verb. A kind of PartOfSpeech.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"
@@ -4359,6 +4775,7 @@
       "@type": "rdfs:Class",
       "rdfs:label": "VerbPhrase",
       "name": "verb phrase",
+      "rdfs:comment": "verb phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Verb.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"
@@ -4369,13 +4786,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Voice",
       "@type": "rdfs:Class",
       "rdfs:label": "Voice",
-      "name": "voice"
+      "name": "voice",
+      "rdfs:comment": "voice"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#WeakPersonalPronoun",
       "@type": "rdfs:Class",
       "rdfs:label": "WeakPersonalPronoun",
       "name": "weak personal pronoun",
+      "rdfs:comment": "weak personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = weakPersonalPronoun.",
       "rdfs:subClassOf": [
         {
           "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"
@@ -4534,25 +4953,29 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "abessiveCaseForm",
-      "name": "abessive case form"
+      "name": "abessive case form",
+      "rdfs:comment": "abessive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "ablativeCaseForm",
-      "name": "ablative case form"
+      "name": "ablative case form",
+      "rdfs:comment": "ablative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "absolutiveCaseForm",
-      "name": "absolutive case form"
+      "name": "absolutive case form",
+      "rdfs:comment": "absolutive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "accusativeCaseForm",
-      "name": "accusative case form"
+      "name": "accusative case form",
+      "rdfs:comment": "accusative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor",
@@ -4571,37 +4994,43 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "adessiveCaseForm",
-      "name": "adessive case form"
+      "name": "adessive case form",
+      "rdfs:comment": "adessive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "aditiveCaseForm",
-      "name": "aditive case form"
+      "name": "aditive case form",
+      "rdfs:comment": "aditive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adjunct",
       "@type": "rdf:Property",
       "rdfs:label": "adjunct",
-      "name": "adjunct"
+      "name": "adjunct",
+      "rdfs:comment": "adjunct. A sub-property of synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adpositionalObject",
       "@type": "rdf:Property",
       "rdfs:label": "adpositionalObject",
-      "name": "adpositional object"
+      "name": "adpositional object",
+      "rdfs:comment": "adpositional object. A sub-property of object, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialComplement",
       "@type": "rdf:Property",
       "rdfs:label": "adverbialComplement",
-      "name": "adverbial complement"
+      "name": "adverbial complement",
+      "rdfs:comment": "adverbial complement. A sub-property of complement, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "allativeCaseForm",
-      "name": "allative case form"
+      "name": "allative case form",
+      "rdfs:comment": "allative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#animacy",
@@ -4696,13 +5125,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#attributiveArg",
       "@type": "rdf:Property",
       "rdfs:label": "attributiveArg",
-      "name": "attributive arg"
+      "name": "attributive arg",
+      "rdfs:comment": "attributive arg. A sub-property of synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "benefactiveCaseForm",
-      "name": "benefactive case form"
+      "name": "benefactive case form",
+      "rdfs:comment": "benefactive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#case",
@@ -4736,13 +5167,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "causativeCaseForm",
-      "name": "causative case form"
+      "name": "causative case form",
+      "rdfs:comment": "causative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#clausalArg",
       "@type": "rdf:Property",
       "rdfs:label": "clausalArg",
-      "name": "clausal arg"
+      "name": "clausal arg",
+      "rdfs:comment": "clausal arg. A sub-property of synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor",
@@ -4776,7 +5209,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collectiveNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "collectiveNumberForm",
-      "name": "collective number form"
+      "name": "collective number form",
+      "rdfs:comment": "collective number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#collocation",
@@ -4795,19 +5229,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "comitativeCaseForm",
-      "name": "comitative case form"
+      "name": "comitative case form",
+      "rdfs:comment": "comitative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeAdjunct",
       "@type": "rdf:Property",
       "rdfs:label": "comparativeAdjunct",
-      "name": "comparative adjunct"
+      "name": "comparative adjunct",
+      "rdfs:comment": "comparative adjunct. A sub-property of predicativeAdjunct, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeDegreeForm",
       "@type": "rdf:Property",
       "rdfs:label": "comparativeDegreeForm",
-      "name": "comparative degree form"
+      "name": "comparative degree form",
+      "rdfs:comment": "comparative degree form. A sub-property of formDegreeVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#complement",
@@ -4882,13 +5319,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "dativeCaseForm",
-      "name": "dative case form"
+      "name": "dative case form",
+      "rdfs:comment": "dative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#declarativeClause",
       "@type": "rdf:Property",
       "rdfs:label": "declarativeClause",
-      "name": "declarative clause"
+      "name": "declarative clause",
+      "rdfs:comment": "declarative clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#definiteness",
@@ -4924,7 +5363,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "delativeCaseForm",
-      "name": "delative case form"
+      "name": "delative case form",
+      "rdfs:comment": "delative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#derivedForm",
@@ -4950,7 +5390,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#directCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "directCaseForm",
-      "name": "direct case form"
+      "name": "direct case form",
+      "rdfs:comment": "direct case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#directObject",
@@ -4970,31 +5411,36 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#dualNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "dualNumberForm",
-      "name": "dual number form"
+      "name": "dual number form",
+      "rdfs:comment": "dual number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "elativeCaseForm",
-      "name": "elative case form"
+      "name": "elative case form",
+      "rdfs:comment": "elative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "equativeCaseForm",
-      "name": "equative case form"
+      "name": "equative case form",
+      "rdfs:comment": "equative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "ergativeCaseForm",
-      "name": "ergative case form"
+      "name": "ergative case form",
+      "rdfs:comment": "ergative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "essiveCaseForm",
-      "name": "essive case form"
+      "name": "essive case form",
+      "rdfs:comment": "essive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot",
@@ -5055,13 +5501,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#firstPersonForm",
       "@type": "rdf:Property",
       "rdfs:label": "firstPersonForm",
-      "name": "first person form"
+      "name": "first person form",
+      "rdfs:comment": "first person form. A sub-property of formPersonVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant",
       "@type": "rdf:Property",
       "rdfs:label": "formCaseVariant",
       "name": "form case variant",
+      "rdfs:comment": "form case variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5074,6 +5522,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formDegreeVariant",
       "name": "form degree variant",
+      "rdfs:comment": "form degree variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5086,6 +5535,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formMoodVariant",
       "name": "form mood variant",
+      "rdfs:comment": "form mood variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5098,6 +5548,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formNegativeVariant",
       "name": "form negative variant",
+      "rdfs:comment": "form negative variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5110,6 +5561,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formNumberVariant",
       "name": "form number variant",
+      "rdfs:comment": "form number variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5122,6 +5574,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formPersonVariant",
       "name": "form person variant",
+      "rdfs:comment": "form person variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5134,6 +5587,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "formTenseVariant",
       "name": "form tense variant",
+      "rdfs:comment": "form tense variant",
       "domainIncludes": {
         "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
       },
@@ -5180,7 +5634,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#futureTenseForm",
       "@type": "rdf:Property",
       "rdfs:label": "futureTenseForm",
-      "name": "future tense form"
+      "name": "future tense form",
+      "rdfs:comment": "future tense form. A sub-property of formTenseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#gender",
@@ -5201,13 +5656,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "genitiveCaseForm",
-      "name": "genitive case form"
+      "name": "genitive case form",
+      "rdfs:comment": "genitive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveObject",
       "@type": "rdf:Property",
       "rdfs:label": "genitiveObject",
-      "name": "genitive object"
+      "name": "genitive object",
+      "rdfs:comment": "genitive object. A sub-property of object, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#geographic",
@@ -5233,7 +5690,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#gerundClause",
       "@type": "rdf:Property",
       "rdfs:label": "gerundClause",
-      "name": "gerund clause"
+      "name": "gerund clause",
+      "rdfs:comment": "gerund clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#gloss",
@@ -5344,25 +5802,29 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "illativeCaseForm",
-      "name": "illative case form"
+      "name": "illative case form",
+      "rdfs:comment": "illative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperativeMoodForm",
       "@type": "rdf:Property",
       "rdfs:label": "imperativeMoodForm",
-      "name": "imperative mood form"
+      "name": "imperative mood form",
+      "rdfs:comment": "imperative mood form. A sub-property of formMoodVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#imperfectTenseForm",
       "@type": "rdf:Property",
       "rdfs:label": "imperfectTenseForm",
-      "name": "imperfect tense form"
+      "name": "imperfect tense form",
+      "rdfs:comment": "imperfect tense form. A sub-property of formTenseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indicativeMoodForm",
       "@type": "rdf:Property",
       "rdfs:label": "indicativeMoodForm",
-      "name": "indicative mood form"
+      "name": "indicative mood form",
+      "rdfs:comment": "indicative mood form. A sub-property of formMoodVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#indirectObject",
@@ -5375,13 +5837,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#inessiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "inessiveCaseForm",
-      "name": "inessive case form"
+      "name": "inessive case form",
+      "rdfs:comment": "inessive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveClause",
       "@type": "rdf:Property",
       "rdfs:label": "infinitiveClause",
-      "name": "infinitive clause"
+      "name": "infinitive clause",
+      "rdfs:comment": "infinitive clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor",
@@ -5400,37 +5864,43 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "instrumentalCaseForm",
-      "name": "instrumental case form"
+      "name": "instrumental case form",
+      "rdfs:comment": "instrumental case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeClause",
       "@type": "rdf:Property",
       "rdfs:label": "interrogativeClause",
-      "name": "interrogative clause"
+      "name": "interrogative clause",
+      "rdfs:comment": "interrogative clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause",
       "@type": "rdf:Property",
       "rdfs:label": "interrogativeInfinitiveClause",
-      "name": "interrogative infinitive clause"
+      "name": "interrogative infinitive clause",
+      "rdfs:comment": "interrogative infinitive clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "lativeCaseForm",
-      "name": "lative case form"
+      "name": "lative case form",
+      "rdfs:comment": "lative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "locativeCaseForm",
-      "name": "locative case form"
+      "name": "locative case form",
+      "rdfs:comment": "locative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#massNounNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "massNounNumberForm",
-      "name": "mass noun number form"
+      "name": "mass noun number form",
+      "rdfs:comment": "mass noun number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#meaningType",
@@ -5512,7 +5982,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty",
       "@type": "rdf:Property",
       "rdfs:label": "morphosyntacticProperty",
-      "name": "morphosyntactic property"
+      "name": "morphosyntactic property",
+      "rdfs:comment": "morphosyntactic property"
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negative",
@@ -5533,13 +6004,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#negativeForm",
       "@type": "rdf:Property",
       "rdfs:label": "negativeForm",
-      "name": "negative form"
+      "name": "negative form",
+      "rdfs:comment": "negative form. A sub-property of formNegativeVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "nominativeCaseForm",
-      "name": "nominative case form"
+      "name": "nominative case form",
+      "rdfs:comment": "nominative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#normativeAuthorization",
@@ -5589,25 +6062,29 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#object",
       "@type": "rdf:Property",
       "rdfs:label": "object",
-      "name": "object"
+      "name": "object",
+      "rdfs:comment": "object. A sub-property of synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement",
       "@type": "rdf:Property",
       "rdfs:label": "objectComplement",
-      "name": "object complement"
+      "name": "object complement",
+      "rdfs:comment": "object complement. A sub-property of complement, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "obliqueCaseForm",
-      "name": "oblique case form"
+      "name": "oblique case form",
+      "rdfs:comment": "oblique case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "otherNumberForm",
-      "name": "other number form"
+      "name": "other number form",
+      "rdfs:comment": "other number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym",
@@ -5667,7 +6144,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "partitiveCaseForm",
-      "name": "partitive case form"
+      "name": "partitive case form",
+      "rdfs:comment": "partitive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation",
@@ -5686,13 +6164,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pastTenseForm",
       "@type": "rdf:Property",
       "rdfs:label": "pastTenseForm",
-      "name": "past tense form"
+      "name": "past tense form",
+      "rdfs:comment": "past tense form. A sub-property of formTenseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#paucalNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "paucalNumberForm",
-      "name": "paucal number form"
+      "name": "paucal number form",
+      "rdfs:comment": "paucal number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#person",
@@ -5726,31 +6206,36 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pluralNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "pluralNumberForm",
-      "name": "plural number form"
+      "name": "plural number form",
+      "rdfs:comment": "plural number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#positiveDegreeForm",
       "@type": "rdf:Property",
       "rdfs:label": "positiveDegreeForm",
-      "name": "positive degree form"
+      "name": "positive degree form",
+      "rdfs:comment": "positive degree form. A sub-property of formDegreeVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#positiveForm",
       "@type": "rdf:Property",
       "rdfs:label": "positiveForm",
-      "name": "positive form"
+      "name": "positive form",
+      "rdfs:comment": "positive form. A sub-property of formNegativeVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjunct",
       "@type": "rdf:Property",
       "rdfs:label": "possessiveAdjunct",
-      "name": "possessive adjunct"
+      "name": "possessive adjunct",
+      "rdfs:comment": "possessive adjunct. A sub-property of adjunct, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveInfinitiveClause",
       "@type": "rdf:Property",
       "rdfs:label": "possessiveInfinitiveClause",
-      "name": "possessive infinitive clause"
+      "name": "possessive infinitive clause",
+      "rdfs:comment": "possessive infinitive clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#postPositiveArg",
@@ -5763,67 +6248,78 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjective",
       "@type": "rdf:Property",
       "rdfs:label": "predicativeAdjective",
-      "name": "predicative adjective"
+      "name": "predicative adjective",
+      "rdfs:comment": "predicative adjective. A sub-property of complement, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjunct",
       "@type": "rdf:Property",
       "rdfs:label": "predicativeAdjunct",
-      "name": "predicative adjunct"
+      "name": "predicative adjunct",
+      "rdfs:comment": "predicative adjunct. A sub-property of adjunct, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdverb",
       "@type": "rdf:Property",
       "rdfs:label": "predicativeAdverb",
-      "name": "predicative adverb"
+      "name": "predicative adverb",
+      "rdfs:comment": "predicative adverb. A sub-property of complement, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeNominative",
       "@type": "rdf:Property",
       "rdfs:label": "predicativeNominative",
-      "name": "predicative nominative"
+      "name": "predicative nominative",
+      "rdfs:comment": "predicative nominative. A sub-property of complement, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdjunct",
       "@type": "rdf:Property",
       "rdfs:label": "prepositionalAdjunct",
-      "name": "prepositional adjunct"
+      "name": "prepositional adjunct",
+      "rdfs:comment": "prepositional adjunct. A sub-property of adjunct, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalGerundClause",
       "@type": "rdf:Property",
       "rdfs:label": "prepositionalGerundClause",
-      "name": "prepositional gerund clause"
+      "name": "prepositional gerund clause",
+      "rdfs:comment": "prepositional gerund clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalInterrogativeClause",
       "@type": "rdf:Property",
       "rdfs:label": "prepositionalInterrogativeClause",
-      "name": "prepositional interrogative clause"
+      "name": "prepositional interrogative clause",
+      "rdfs:comment": "prepositional interrogative clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalObject",
       "@type": "rdf:Property",
       "rdfs:label": "prepositionalObject",
-      "name": "prepositional object"
+      "name": "prepositional object",
+      "rdfs:comment": "prepositional object. A sub-property of adpositionalObject, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#presentTenseForm",
       "@type": "rdf:Property",
       "rdfs:label": "presentTenseForm",
-      "name": "present tense form"
+      "name": "present tense form",
+      "rdfs:comment": "present tense form. A sub-property of formTenseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#preteriteTenseForm",
       "@type": "rdf:Property",
       "rdfs:label": "preteriteTenseForm",
-      "name": "preterite tense form"
+      "name": "preterite tense form",
+      "rdfs:comment": "preterite tense form. A sub-property of formTenseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "prolativeCaseForm",
-      "name": "prolative case form"
+      "name": "prolative case form",
+      "rdfs:comment": "prolative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#pronunciation",
@@ -5836,7 +6332,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#quadrialNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "quadrialNumberForm",
-      "name": "quadrial number form"
+      "name": "quadrial number form",
+      "rdfs:comment": "quadrial number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent",
@@ -5870,7 +6367,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveObject",
       "@type": "rdf:Property",
       "rdfs:label": "reflexiveObject",
-      "name": "reflexive object"
+      "name": "reflexive object",
+      "rdfs:comment": "reflexive object. A sub-property of object, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#register",
@@ -5924,7 +6422,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#secondPersonForm",
       "@type": "rdf:Property",
       "rdfs:label": "secondPersonForm",
-      "name": "second person form"
+      "name": "second person form",
+      "rdfs:comment": "second person form. A sub-property of formPersonVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#segmentation",
@@ -5951,7 +6450,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sententialClause",
       "@type": "rdf:Property",
       "rdfs:label": "sententialClause",
-      "name": "sentential clause"
+      "name": "sentential clause",
+      "rdfs:comment": "sentential clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor",
@@ -5970,13 +6470,15 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#singularNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "singularNumberForm",
-      "name": "singular number form"
+      "name": "singular number form",
+      "rdfs:comment": "singular number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "sociativeCaseForm",
-      "name": "sociative case form"
+      "name": "sociative case form",
+      "rdfs:comment": "sociative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#socioCultural",
@@ -5996,19 +6498,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveClause",
       "@type": "rdf:Property",
       "rdfs:label": "subjunctiveClause",
-      "name": "subjunctive clause"
+      "name": "subjunctive clause",
+      "rdfs:comment": "subjunctive clause. A sub-property of clausalArg, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveMoodForm",
       "@type": "rdf:Property",
       "rdfs:label": "subjunctiveMoodForm",
-      "name": "subjunctive mood form"
+      "name": "subjunctive mood form",
+      "rdfs:comment": "subjunctive mood form. A sub-property of formMoodVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "sublativeCaseForm",
-      "name": "sublative case form"
+      "name": "sublative case form",
+      "rdfs:comment": "sublative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#substanceHolonym",
@@ -6040,19 +6545,22 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "superessiveCaseForm",
-      "name": "superessive case form"
+      "name": "superessive case form",
+      "rdfs:comment": "superessive case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeAdjunct",
       "@type": "rdf:Property",
       "rdfs:label": "superlativeAdjunct",
-      "name": "superlative adjunct"
+      "name": "superlative adjunct",
+      "rdfs:comment": "superlative adjunct. A sub-property of predicativeAdjunct, synArg."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeDegreeForm",
       "@type": "rdf:Property",
       "rdfs:label": "superlativeDegreeForm",
-      "name": "superlative degree form"
+      "name": "superlative degree form",
+      "rdfs:comment": "superlative degree form. A sub-property of formDegreeVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#synonym",
@@ -6131,7 +6639,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "terminativeCaseForm",
-      "name": "terminative case form"
+      "name": "terminative case form",
+      "rdfs:comment": "terminative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#textType",
@@ -6144,7 +6653,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#thirdPersonForm",
       "@type": "rdf:Property",
       "rdfs:label": "thirdPersonForm",
-      "name": "third person form"
+      "name": "third person form",
+      "rdfs:comment": "third person form. A sub-property of formPersonVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#translation",
@@ -6170,7 +6680,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#translativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "translativeCaseForm",
-      "name": "translative case form"
+      "name": "translative case form",
+      "rdfs:comment": "translative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#transliteration",
@@ -6183,7 +6694,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#trialNumberForm",
       "@type": "rdf:Property",
       "rdfs:label": "trialNumberForm",
-      "name": "trial number form"
+      "name": "trial number form",
+      "rdfs:comment": "trial number form. A sub-property of formNumberVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#usageNote",
@@ -6211,7 +6723,8 @@
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCaseForm",
       "@type": "rdf:Property",
       "rdfs:label": "vocativeCaseForm",
-      "name": "vocative case form"
+      "name": "vocative case form",
+      "rdfs:comment": "vocative case form. A sub-property of formCaseVariant."
     },
     {
       "@id": "http://www.lexinfo.net/ontology/3.0/lexinfo#voice",

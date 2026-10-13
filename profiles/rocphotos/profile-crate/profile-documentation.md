@@ -128,6 +128,8 @@ literal string, so write `oa:Motivation`, not the full IRI).
 
 ### <a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor
 
+Term: `CreativeWork`
+
 The entity that identifies the crate and points at its root data entity.
 
 At least 1 instances of this type MUST be present in the crate.
@@ -149,6 +151,8 @@ At least 1 instances of this type MUST be present in the crate.
 
 ### <a id="class_MainCollectionRoot" title="#class_MainCollectionRoot"></a> Class: Main collection root
 
+Term: `Dataset`
+
 The root dataset of a rocphotos Main Collection, which includes references to all the "folder collections". This has the metadata for the Main Collection, which also includes detailed context such as relationships between people.
 
 Instances of this type MAY be present in the crate.
@@ -167,6 +171,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_FolderCollectionRoot" title="#class_FolderCollectionRoot"></a> Class: Folder collection root
+
+Term: `Dataset`
 
 The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories.
 
@@ -187,6 +193,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_FacesRoot" title="#class_FacesRoot"></a> Class: Faces crate root
 
+Term: `Dataset`
+
 This is used by the rocphotos app for managing face data - it is not designed to be edited by people.
 
 Instances of this type MAY be present in the crate.
@@ -206,6 +214,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_SubCollection" title="#class_SubCollection"></a> Class: Sub-collection reference
 
+Term: `Dataset`
+
 A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand.
 
 Instances of this type MAY be present in the crate.
@@ -223,6 +233,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_Photo" title="#class_Photo"></a> Class: Photo
+
+Term: `ImageObject`
 
 A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items).
 
@@ -253,6 +265,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_Thumbnail" title="#class_Thumbnail"></a> Class: Thumbnail
 
+Term: `ImageObject`
+
 A generated thumbnail, referenced by a photo's thumbnail property.
 
 Instances of this type MAY be present in the crate.
@@ -271,6 +285,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_AlbumItem" title="#class_AlbumItem"></a> Class: Album item
 
+Term: `ImageObject`
+
 A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture.
 
 Instances of this type MAY be present in the crate.
@@ -288,6 +304,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_Album" title="#class_Album"></a> Class: Album
+
+Term: `ImageGallery`
 
 A named, ordered virtual collection of photos, which is stored in the Main Collection crate.
 
@@ -329,6 +347,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InstancePersonClass" title="#InstancePersonClass"></a> Class: Person in this crate
 
+Term: `Person`
+
 A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection.
 
 Instances of this type MAY be present in the crate.
@@ -348,6 +368,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MainPetClass" title="#MainPetClass"></a> Class: Pet
 
+Term: `rocp:Pet`
+
 A pet, identified by name the same way a Person is, in its own id space so the two never collide.
 
 Instances of this type MAY be present in the crate.
@@ -365,6 +387,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="InstancePetClass" title="#InstancePetClass"></a> Class: Pet in this crate
+
+Term: `rocp:Pet`
 
 A pet as depicted in one crate — see Person in this crate.
 
@@ -384,6 +408,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_ImageRegion_Exif" title="#class_ImageRegion_Exif"></a> Class: Region (from the file's own tags)
+
+Term: `ImageRegion`
 
 A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image.
 
@@ -410,6 +436,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff"></a> Class: Region (confirmed here)
 
+Term: `ImageRegion`
+
 A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape.
 
 Instances of this type MAY be present in the crate.
@@ -433,6 +461,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="class_RegionBody" title="#class_RegionBody"></a> Class: Region body
 
+Term: `Person`
+
 The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity).
 
 Instances of this type MAY be present in the crate.
@@ -450,6 +480,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_ExifValue" title="#class_ExifValue"></a> Class: EXIF value
+
+Term: `PropertyValue`
 
 One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node.
 
@@ -469,6 +501,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="class_FaceEmbedding" title="#class_FaceEmbedding"></a> Class: Face embedding
+
+Term: `FaceEmbedding`
 
 One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data.
 
@@ -494,6 +528,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Spouses
 
+Term: `rico:SpouseRelation`
+
 Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships.
 
 Instances of this type MAY be present in the crate.
@@ -513,6 +549,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ParentChildRelationshipClass" title="#ParentChildRelationshipClass"></a> Class: Parent and child
+
+Term: `rico:ChildRelation`
 
 A parent-child relationship including biological, adoptive or other forms.
 

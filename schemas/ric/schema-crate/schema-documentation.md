@@ -20,6 +20,8 @@ Conversion caveats:
 
 ### <a id="AccumulationRelation" title="https://www.ica.org/standards/RiC/ontology#AccumulationRelation"></a> Class: Accumulation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AccumulationRelation)</small>
 
+Term: `AccumulationRelation`
+
 Connects at least one Record Resource or Instantiation to at least one Agent, when the Record Resource or Instantiation is or was accumulated by the Agent, be it intentionally (collecting it) or not (receiving it in the course of its activities). The Record Resource(s) or Instantiation(s) is the source of the Relation, and the Agent(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -257,6 +259,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ActivityDocumentationRelation" title="https://www.ica.org/standards/RiC/ontology#ActivityDocumentationRelation"></a> Class: Activity Documentation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ActivityDocumentationRelation)</small>
 
+Term: `ActivityDocumentationRelation`
+
 Connects at least one Record Resource or Instantiation to at least one Activity, when the Record Resource or Instantiation results from the Activity. The Record Resource(s) or Instantiation(s) is the source of the Relation, and the Activity(-ies) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -376,6 +380,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ActivityType" title="https://www.ica.org/standards/RiC/ontology#ActivityType"></a> Class: Activity Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ActivityType)</small>
+
+Term: `ActivityType`
 
 Categorization of an Activity.
 
@@ -610,6 +616,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AgentControlRelation" title="https://www.ica.org/standards/RiC/ontology#AgentControlRelation"></a> Class: Agent Control Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AgentControlRelation)</small>
 
+Term: `AgentControlRelation`
+
 Connects at least one Agent, to at least another Agent, when the first one(s) control(s) or controlled in a way the activities of the second one(s). The Relation is oriented from the controlling agent to the controlled one: the controlling Agent(s) is the source of the Relation, and the controlled Agent(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -736,6 +744,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AgentHierarchicalRelation" title="https://www.ica.org/standards/RiC/ontology#AgentHierarchicalRelation"></a> Class: Agent Hierarchical Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AgentHierarchicalRelation)</small>
 
+Term: `AgentHierarchicalRelation`
+
 Connects at least one Agent to at least another Agent, when the first one is or was hierarchically superior to the second one. The Relation is oriented towards the 'bottom' of the hierarchical tree: the superior Agent(s) is the source of the Relation, and the inferior Agent(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -850,6 +860,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AgentName" title="https://www.ica.org/standards/RiC/ontology#AgentName"></a> Class: Agent Name <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AgentName)</small>
 
+Term: `AgentName`
+
 A label, title or term designating an Agent in order to make it distinguishable from other similar entities.
 
 Instances of this type MAY be present in the crate.
@@ -960,6 +972,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="AgentTemporalRelation" title="https://www.ica.org/standards/RiC/ontology#AgentTemporalRelation"></a> Class: Agent Temporal Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AgentTemporalRelation)</small>
+
+Term: `AgentTemporalRelation`
 
 Connects at least one Agent to at least another Agent that succeeds it chronologically for, for instance, fullfilling some functions or performing some activities. The Relation is oriented chronologically, from the predecessor to the successor: the predecessor Agent(s) is the source of the Relation, and the successor Agent(s) is the target.
 
@@ -1087,6 +1101,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="AgentToAgentRelation" title="https://www.ica.org/standards/RiC/ontology#AgentToAgentRelation"></a> Class: Agent Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AgentToAgentRelation)</small>
+
+Term: `AgentToAgentRelation`
 
 Connects at least two Agents. This Relation is a generic, not oriented one.
 
@@ -1295,6 +1311,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AppellationRelation" title="https://www.ica.org/standards/RiC/ontology#AppellationRelation"></a> Class: Appellation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AppellationRelation)</small>
 
+Term: `AppellationRelation`
+
 Connects an Appellation and at least one Thing that the Appellation designates or designated. The Appellation is the source of the Relation and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -1403,6 +1421,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AuthorityRelation" title="https://www.ica.org/standards/RiC/ontology#AuthorityRelation"></a> Class: Authority Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AuthorityRelation)</small>
 
+Term: `AuthorityRelation`
+
 Connects at least one Agent and at least one Thing over which the Agent has or had some authority. The Agent(s) is the source of the relation, and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -1510,6 +1530,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="AuthorshipRelation" title="https://www.ica.org/standards/RiC/ontology#AuthorshipRelation"></a> Class: Authorship Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#AuthorshipRelation)</small>
+
+Term: `AuthorshipRelation`
 
 Connects at least one Record to at least one Person, Group or Position that is or was responsible for conceiving and formulating the information contained in the Record. The Record is the source of the Relation and the Person(s), Group(s) or Position(s) is the target. 
 
@@ -1638,6 +1660,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CarrierExtent" title="https://www.ica.org/standards/RiC/ontology#CarrierExtent"></a> Class: Carrier Extent <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CarrierExtent)</small>
 
+Term: `CarrierExtent`
+
 Number of physical units and/or physical dimensions of the carrier of an Instantiation.
 
 Instances of this type MAY be present in the crate.
@@ -1741,6 +1765,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CarrierType" title="https://www.ica.org/standards/RiC/ontology#CarrierType"></a> Class: Carrier Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CarrierType)</small>
 
+Term: `CarrierType`
+
 Categorization of physical material on which information is represented.
 
 Instances of this type MAY be present in the crate.
@@ -1841,6 +1867,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ChildRelation" title="https://www.ica.org/standards/RiC/ontology#ChildRelation"></a> Class: Child Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ChildRelation)</small>
+
+Term: `ChildRelation`
 
 Connects at least one Person to at least another Person, when the first has(ave) child(s) the second one(s). The Relation is oriented from the parent to the child: the parent is the source of the relation, and the child(ren) is the target.
 
@@ -2079,6 +2107,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ContentType" title="https://www.ica.org/standards/RiC/ontology#ContentType"></a> Class: Content Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ContentType)</small>
 
+Term: `ContentType`
+
 The fundamental form of communication in which a Record or Record Part is expressed.
 
 Instances of this type MAY be present in the crate.
@@ -2280,6 +2310,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CorporateBody" title="https://www.ica.org/standards/RiC/ontology#CorporateBody"></a> Class: Corporate Body <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CorporateBody)</small>
 
+Term: `CorporateBody`
+
 An organized group of persons that act together as an Agent, and that has a recognized legal or social status.
 
 Instances of this type MAY be present in the crate.
@@ -2444,6 +2476,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CorporateBodyType" title="https://www.ica.org/standards/RiC/ontology#CorporateBodyType"></a> Class: Corporate Body Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CorporateBodyType)</small>
 
+Term: `CorporateBodyType`
+
 Categorization of a Corporate Body.
 
 Instances of this type MAY be present in the crate.
@@ -2544,6 +2578,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="CorrespondenceRelation" title="https://www.ica.org/standards/RiC/ontology#CorrespondenceRelation"></a> Class: Correspondence Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CorrespondenceRelation)</small>
+
+Term: `CorrespondenceRelation`
 
 Connects at least two Persons, when they correspond or corresponded to each other. This Relation is not oriented.
 
@@ -2664,6 +2700,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="CreationRelation" title="https://www.ica.org/standards/RiC/ontology#CreationRelation"></a> Class: Creation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#CreationRelation)</small>
+
+Term: `CreationRelation`
 
 Connects at least one Record Resource or Instantiation to at least one Agent, when the Agent is either responsible for all or some of the content of the Record Resource, or is a contributor to the genesis or production of the Instantiation. The Record Resource or Instantiation is the source of the Relation, and the Agent(s) is the target. 
 
@@ -2912,6 +2950,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DateType" title="https://www.ica.org/standards/RiC/ontology#DateType"></a> Class: Date Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#DateType)</small>
 
+Term: `DateType`
+
 Categorization of a Date.
 
 Instances of this type MAY be present in the crate.
@@ -3013,6 +3053,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DemographicGroup" title="https://www.ica.org/standards/RiC/ontology#DemographicGroup"></a> Class: Demographic Group <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#DemographicGroup)</small>
 
+Term: `DemographicGroup`
+
 Categorization of a Person or Group based on shared characteristics.
 
 Instances of this type MAY be present in the crate.
@@ -3113,6 +3155,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="DerivationRelation" title="https://www.ica.org/standards/RiC/ontology#DerivationRelation"></a> Class: Derivation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#DerivationRelation)</small>
+
+Term: `DerivationRelation`
 
 Connects an Instantiation to at least one Instantiation that is derived from it, whether it exists or has been lost or destroyed. The Relation is oriented chronologically, from the first Instantiation in time to the derived Instantiation: the first Instantiation is the source of the Relation, and the derived Instantiation(s) is the target.
 
@@ -3239,6 +3283,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="DescendanceRelation" title="https://www.ica.org/standards/RiC/ontology#DescendanceRelation"></a> Class: Descendance Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#DescendanceRelation)</small>
+
+Term: `DescendanceRelation`
 
 Connects at least one Person to at least another Person, when the first has/have descendant the second one(s). The Relation is oriented from the ascendant to the descendant: the ascendant Person(s) is the source of the Relation, and the descendant Person(s) is the target.
 
@@ -3378,6 +3424,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="DocumentaryFormType" title="https://www.ica.org/standards/RiC/ontology#DocumentaryFormType"></a> Class: Documentary Form Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#DocumentaryFormType)</small>
+
+Term: `DocumentaryFormType`
 
 Categorization of a Record or Record Part with respect to its extrinsic and intrinsic elements that together communicate its content, administrative and documentary context, and authority.
 
@@ -3589,6 +3637,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="EventRelation" title="https://www.ica.org/standards/RiC/ontology#EventRelation"></a> Class: Event Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#EventRelation)</small>
 
+Term: `EventRelation`
+
 Connects at least one Event to at least one Thing, when the first is associated with the existence and lifecycle of the second one. The Event(s) is the source of the Relation, and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -3696,6 +3746,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="EventType" title="https://www.ica.org/standards/RiC/ontology#EventType"></a> Class: Event Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#EventType)</small>
+
+Term: `EventType`
 
 Categorization of an Event.
 
@@ -3895,6 +3947,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ExtentType" title="https://www.ica.org/standards/RiC/ontology#ExtentType"></a> Class: Extent Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ExtentType)</small>
+
+Term: `ExtentType`
 
 Categorization of the extent that is being measured.
 
@@ -4156,6 +4210,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FamilyRelation" title="https://www.ica.org/standards/RiC/ontology#FamilyRelation"></a> Class: Family Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#FamilyRelation)</small>
 
+Term: `FamilyRelation`
+
 Connects at least two Persons, when they have some family link, i.e. belong to the same family. This Relation is a generic, not oriented one.
 
 Instances of this type MAY be present in the crate.
@@ -4270,6 +4326,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FamilyType" title="https://www.ica.org/standards/RiC/ontology#FamilyType"></a> Class: Family Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#FamilyType)</small>
 
+Term: `FamilyType`
+
 Categorization of a Family.
 
 Instances of this type MAY be present in the crate.
@@ -4370,6 +4428,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="FunctionalEquivalenceRelation" title="https://www.ica.org/standards/RiC/ontology#FunctionalEquivalenceRelation"></a> Class: Functional Equivalence Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#FunctionalEquivalenceRelation)</small>
+
+Term: `FunctionalEquivalenceRelation`
 
 Connects at least two Instantiations which may be considered as equivalent. This Relation is not oriented.
 
@@ -4638,6 +4698,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GroupSubdivisionRelation" title="https://www.ica.org/standards/RiC/ontology#GroupSubdivisionRelation"></a> Class: Group Subdivision Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#GroupSubdivisionRelation)</small>
 
+Term: `GroupSubdivisionRelation`
+
 Connects a Group and at least another Group, when the first one has or had the second one(s) among its subdivisions. The Relation is oriented from the Group to its subdivision(s): the parent Group is the source and the subdivision Group(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -4869,6 +4931,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="IdentifierType" title="https://www.ica.org/standards/RiC/ontology#IdentifierType"></a> Class: Identifier Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#IdentifierType)</small>
+
+Term: `IdentifierType`
 
 Categorization of an Identifier.
 
@@ -5120,6 +5184,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InstantiationExtent" title="https://www.ica.org/standards/RiC/ontology#InstantiationExtent"></a> Class: Instantiation Extent <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#InstantiationExtent)</small>
 
+Term: `InstantiationExtent`
+
 Countable characteristics of an Instantiation expressed as a quantity.
 
 Instances of this type MAY be present in the crate.
@@ -5222,6 +5288,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="InstantiationToInstantiationRelation" title="https://www.ica.org/standards/RiC/ontology#InstantiationToInstantiationRelation"></a> Class: Instantiation to Instantiation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#InstantiationToInstantiationRelation)</small>
+
+Term: `InstantiationToInstantiationRelation`
 
 Connects at least two instantiations. This Relation is a generic, not oriented one.
 
@@ -5330,6 +5398,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="IntellectualPropertyRightsRelation" title="https://www.ica.org/standards/RiC/ontology#IntellectualPropertyRightsRelation"></a> Class: Intellectual Property Rights Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#IntellectualPropertyRightsRelation)</small>
+
+Term: `IntellectualPropertyRightsRelation`
 
 Connects at least one Agent and one Record Resource or Instantiation on which the Agent has or had some intellectual property rights. The Agent(s) is the source of the Relation and the Record Resource(s) or Instantiation(s) is the target.
 
@@ -5445,6 +5515,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="KnowingOfRelation" title="https://www.ica.org/standards/RiC/ontology#KnowingOfRelation"></a> Class: Knowing Of Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#KnowingOfRelation)</small>
 
+Term: `KnowingOfRelation`
+
 Connects at least one Person to at least another one, when the first one has some knowledge of the second one through time or space. The first Person is the source of the Relation, and the second one is the target.
 
 Instances of this type MAY be present in the crate.
@@ -5558,6 +5630,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="KnowingRelation" title="https://www.ica.org/standards/RiC/ontology#KnowingRelation"></a> Class: Knowing Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#KnowingRelation)</small>
+
+Term: `KnowingRelation`
 
 Connects at least two Persons who directly know each other during their existence. This Relation is not oriented.
 
@@ -5768,6 +5842,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="LeadershipRelation" title="https://www.ica.org/standards/RiC/ontology#LeadershipRelation"></a> Class: Leadership Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#LeadershipRelation)</small>
 
+Term: `LeadershipRelation`
+
 Connects at least one Person and at least one Group, when the first one(s) lead(s) or led the second one(s). The Relation is oriented from the leading Person to the Group: the leading Person(s) is the source of the Relation, and the Group(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -5901,6 +5977,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="LegalStatus" title="https://www.ica.org/standards/RiC/ontology#LegalStatus"></a> Class: Legal Status <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#LegalStatus)</small>
 
+Term: `LegalStatus`
+
 A status defined by law.
 
 Instances of this type MAY be present in the crate.
@@ -6003,6 +6081,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ManagementRelation" title="https://www.ica.org/standards/RiC/ontology#ManagementRelation"></a> Class: Management Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ManagementRelation)</small>
+
+Term: `ManagementRelation`
 
 Connects at least one Agent and at least one Record Resource or Instantiation that the Agent manages or managed. The Agent(s) is the source of the Relation, and the Record Resource(s) or Instantiation(s) is the target.
 
@@ -6226,6 +6306,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MandateRelation" title="https://www.ica.org/standards/RiC/ontology#MandateRelation"></a> Class: Mandate Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#MandateRelation)</small>
 
+Term: `MandateRelation`
+
 Connects at least one Mandate and at least one Agent, when the first gives or gave the second one the authority or competencies to act. May also involve one to many Activities that the Mandate(s) assign(s) or assigned to the Agent(s). The Mandate(s) is the source of the Relation and the Agent(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -6341,6 +6423,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="MandateType" title="https://www.ica.org/standards/RiC/ontology#MandateType"></a> Class: Mandate Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#MandateType)</small>
+
+Term: `MandateType`
 
 Categorization of a Mandate.
 
@@ -6587,6 +6671,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MembershipRelation" title="https://www.ica.org/standards/RiC/ontology#MembershipRelation"></a> Class: Membership Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#MembershipRelation)</small>
 
+Term: `MembershipRelation`
+
 Connects a Group and at least one Person, when the first one has or had the second one(s) among its members. The Relation is oriented from the Group to its members: the Group(s) is the source of the Relation, and the Person(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -6701,6 +6787,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="MigrationRelation" title="https://www.ica.org/standards/RiC/ontology#MigrationRelation"></a> Class: Migration Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#MigrationRelation)</small>
+
+Term: `MigrationRelation`
 
 Connects an Instantiation and at least another Instantiation it has been migrated into. The Relation is oriented chronologically, from the first Instantiation in time (the migrated one) to the one which results from its migration: the first Instantiation in time is the source of the Relation, and the resulting Instantiation is the target.
 
@@ -6939,6 +7027,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OccupationType" title="https://www.ica.org/standards/RiC/ontology#OccupationType"></a> Class: Occupation Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#OccupationType)</small>
 
+Term: `OccupationType`
+
 Categorization of a profession, trade, or craft pursued by a Person in fulfilment of an Activity.
 
 Instances of this type MAY be present in the crate.
@@ -7052,6 +7142,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OrganicOrFunctionalProvenanceRelation" title="https://www.ica.org/standards/RiC/ontology#OrganicOrFunctionalProvenanceRelation"></a> Class: Organic or functional provenance Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#OrganicOrFunctionalProvenanceRelation)</small>
 
+Term: `OrganicOrFunctionalProvenanceRelation`
+
 Connects at least one Record Resource or Instantiation to at least one Agent or Activity, when the Agent or Activity is the provenance of the Record Resource or Instantiation (i.e. when the Agent created, accumulated or maintained the Record Resource or Instantiation, or when the Activity resulted into them). The Record Resource(s) or Instantiation(s) is the source of the Relation, and the Agent(s) or Activity(-ies) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -7159,6 +7251,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="OrganicProvenanceRelation" title="https://www.ica.org/standards/RiC/ontology#OrganicProvenanceRelation"></a> Class: Organic Provenance Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#OrganicProvenanceRelation)</small>
+
+Term: `OrganicProvenanceRelation`
 
 Connects at least one Record Resource or an Instantiation to at least one Agent that creates or accumulates the Record Resource, receives it, or sends it. The Record Resource(s) or Instantiation(s) is the source of the Relation, and the Agent(s) is the target.
 
@@ -7274,6 +7368,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OwnershipRelation" title="https://www.ica.org/standards/RiC/ontology#OwnershipRelation"></a> Class: Ownership Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#OwnershipRelation)</small>
 
+Term: `OwnershipRelation`
+
 Connects at least one Group, Person or Position and at least a Thing that these Agent(s) own(s) or owned. The Group(s), Person(s) or Position(s) is the source of the Relation, and the Agent(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -7387,6 +7483,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="PerformanceRelation" title="https://www.ica.org/standards/RiC/ontology#PerformanceRelation"></a> Class: Performance Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PerformanceRelation)</small>
+
+Term: `PerformanceRelation`
 
 Connects at least one Activity to at least one Agent that performs or performed the activity. The Activity(-ies) is the source of the Relation and the Agent(s) is the target.
 
@@ -7669,6 +7767,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PhysicalLocation" title="https://www.ica.org/standards/RiC/ontology#PhysicalLocation"></a> Class: Physical Location <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PhysicalLocation)</small>
 
+Term: `PhysicalLocation`
+
 A delimitation of the physical territory of a Place.
 
 Instances of this type MAY be present in the crate.
@@ -7878,6 +7978,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PlaceName" title="https://www.ica.org/standards/RiC/ontology#PlaceName"></a> Class: Place Name <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PlaceName)</small>
 
+Term: `PlaceName`
+
 A label, title or term designating a Place in order to make it distinguishable from other similar entities.
 
 Instances of this type MAY be present in the crate.
@@ -7989,6 +8091,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PlaceRelation" title="https://www.ica.org/standards/RiC/ontology#PlaceRelation"></a> Class: Place Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PlaceRelation)</small>
 
+Term: `PlaceRelation`
+
 Connects a Place and at least one Thing when the first is associated with the existence and lifecycle of the second one. The Place is the source of the Relation and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -8096,6 +8200,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="PlaceType" title="https://www.ica.org/standards/RiC/ontology#PlaceType"></a> Class: Place Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PlaceType)</small>
+
+Term: `PlaceType`
 
 Categorization of a Place.
 
@@ -8342,6 +8448,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PositionHoldingRelation" title="https://www.ica.org/standards/RiC/ontology#PositionHoldingRelation"></a> Class: Position Holding Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PositionHoldingRelation)</small>
 
+Term: `PositionHoldingRelation`
+
 Connects at least one Person and at least one Position that the Person(s) occupies or occupied. The Person is the source of the Relation and the Position is the target.
 
 Instances of this type MAY be present in the crate.
@@ -8456,6 +8564,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PositionToGroupRelation" title="https://www.ica.org/standards/RiC/ontology#PositionToGroupRelation"></a> Class: Position to Group Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#PositionToGroupRelation)</small>
 
+Term: `PositionToGroupRelation`
+
 Connects at least one Position and a Group in which the position(s) exist(s) or existed, or that is (are) defined by that group's organizational structure. The Position(s) is the source of the Relation and the Group is the target.
 
 Instances of this type MAY be present in the crate.
@@ -8569,6 +8679,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ProductionTechniqueType" title="https://www.ica.org/standards/RiC/ontology#ProductionTechniqueType"></a> Class: Production Technique Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#ProductionTechniqueType)</small>
+
+Term: `ProductionTechniqueType`
 
 The method used in the representation of information on an instantiation.
 
@@ -8980,6 +9092,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordPart" title="https://www.ica.org/standards/RiC/ontology#RecordPart"></a> Class: Record Part <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordPart)</small>
 
+Term: `RecordPart`
+
 Component of a Record with independent information content that contributes to the intellectual completeness of the Record.
 
 Instances of this type MAY be present in the crate.
@@ -9160,6 +9274,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource"></a> Class: Record Resource <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResource)</small>
 
+Term: `RecordResource`
+
 Information produced or acquired and retained by an Agent in the course of life or work activity.
 
 Instances of this type MAY be present in the crate.
@@ -9311,6 +9427,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordResourceExtent" title="https://www.ica.org/standards/RiC/ontology#RecordResourceExtent"></a> Class: Record Resource Extent <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResourceExtent)</small>
 
+Term: `RecordResourceExtent`
+
 The quantity of information content, as human experienced, contained in a Record Resource.
 
 Instances of this type MAY be present in the crate.
@@ -9413,6 +9531,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RecordResourceGeneticRelation" title="https://www.ica.org/standards/RiC/ontology#RecordResourceGeneticRelation"></a> Class: Record Resource Genetic Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResourceGeneticRelation)</small>
+
+Term: `RecordResourceGeneticRelation`
 
 Connects two or more record resources when there is a genetic link between them. Genetic in this sense is as defined by diplomatics, i.e., the process by which a record resource is developed. This Relation is a generic, not oriented one.
 
@@ -9527,6 +9647,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RecordResourceHoldingRelation" title="https://www.ica.org/standards/RiC/ontology#RecordResourceHoldingRelation"></a> Class: Record Resource Holding Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResourceHoldingRelation)</small>
+
+Term: `RecordResourceHoldingRelation`
 
 Connects at least one Agent and one or more Record Resource or Instantiation that the Agent(s) hold(s) or held. The Agent(s) is the source of the Relation and the Record Resource(s) or Instantiation is the target.
 
@@ -9648,6 +9770,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordResourceToInstantiationRelation" title="https://www.ica.org/standards/RiC/ontology#RecordResourceToInstantiationRelation"></a> Class: Record Resource to Instantiation Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResourceToInstantiationRelation)</small>
 
+Term: `RecordResourceToInstantiationRelation`
+
 Connects a Record Resource to one or more Instantiations that instantiate it, and which either may exist or may have been lost or destroyed. The Record Resource is the source of the Relation and the Instantiation(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -9756,6 +9880,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordResourceToRecordResourceRelation" title="https://www.ica.org/standards/RiC/ontology#RecordResourceToRecordResourceRelation"></a> Class: Record Resource to Record Resource Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordResourceToRecordResourceRelation)</small>
 
+Term: `RecordResourceToRecordResourceRelation`
+
 Connects at least two Record Resources. This Relation is a generic, not oriented one.
 
 Instances of this type MAY be present in the crate.
@@ -9863,6 +9989,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RecordSet" title="https://www.ica.org/standards/RiC/ontology#RecordSet"></a> Class: Record Set <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordSet)</small>
+
+Term: `RecordSet`
 
 One or more records that are grouped together by an Agent based on the records sharing one or more attributes or relations.
 
@@ -10065,6 +10193,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RecordSetType" title="https://www.ica.org/standards/RiC/ontology#RecordSetType"></a> Class: Record Set Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordSetType)</small>
 
+Term: `RecordSetType`
+
 A broad categorization of the type of Record Set.
 
 Instances of this type MAY be present in the crate.
@@ -10165,6 +10295,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RecordState" title="https://www.ica.org/standards/RiC/ontology#RecordState"></a> Class: Record State <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RecordState)</small>
+
+Term: `RecordState`
 
 Description of the production or reproduction status of a Record or Record Part.
 
@@ -10371,6 +10503,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RepresentationType" title="https://www.ica.org/standards/RiC/ontology#RepresentationType"></a> Class: Representation Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RepresentationType)</small>
 
+Term: `RepresentationType`
+
 Method of recording the content type of an Instantiation
 
 Instances of this type MAY be present in the crate.
@@ -10471,6 +10605,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RoleType" title="https://www.ica.org/standards/RiC/ontology#RoleType"></a> Class: Role Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RoleType)</small>
+
+Term: `RoleType`
 
 The role an Agent plays in some context (usually in some creation relation). Not to be confused with a Position (position of an agent in some group). For example, a Person who is the head of some Corporate Body may play the role of annotator (of a record) in a creation relation.
 
@@ -10674,6 +10810,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RuleRelation" title="https://www.ica.org/standards/RiC/ontology#RuleRelation"></a> Class: Rule Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RuleRelation)</small>
 
+Term: `RuleRelation`
+
 Connects at least one Rule to at least one Thing when it is associated with existence and lifecycle of the Thing. The Rule(s) is the source of the Relation, and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -10782,6 +10920,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RuleType" title="https://www.ica.org/standards/RiC/ontology#RuleType"></a> Class: Rule Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#RuleType)</small>
 
+Term: `RuleType`
+
 Categorization of a Rule.
 
 Instances of this type MAY be present in the crate.
@@ -10882,6 +11022,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="SequentialRelation" title="https://www.ica.org/standards/RiC/ontology#SequentialRelation"></a> Class: Sequential Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#SequentialRelation)</small>
+
+Term: `SequentialRelation`
 
 Connects at least one Thing to at least one other Thing that follows or followed it in some sequence. The Relation is oriented from the first Thing(s) in the sequence to the following one(s): the first Thing(s) is the source, and the following Thing(s) is the target.
 
@@ -10990,6 +11132,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="SiblingRelation" title="https://www.ica.org/standards/RiC/ontology#SiblingRelation"></a> Class: Sibling Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#SiblingRelation)</small>
+
+Term: `SiblingRelation`
 
 Connects at least two Persons, when they are siblings. This Relation is not oriented.
 
@@ -11111,6 +11255,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SpouseRelation" title="https://www.ica.org/standards/RiC/ontology#SpouseRelation"></a> Class: Spouse Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#SpouseRelation)</small>
 
+Term: `SpouseRelation`
+
 Connects at least two Persons, when they are spouses. This Relation is not oriented.
 
 Instances of this type MAY be present in the crate.
@@ -11230,6 +11376,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="StudyAtRelation" title="https://www.ica.org/standards/RiC/ontology#StudyAtRelation"></a> Class: Study At Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#StudyAtRelation)</small>
+
+Term: `StudyAtRelation`
 
 Connects a Group (as an educational institution) to at least one Person who studied or study at this group. Both 'institution' and 'at' can be interpreted broadly. The Relation is oriented from the educational institution to the student(s): the former is the source of the Relation, and the latter is/are the target.
 
@@ -11352,6 +11500,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TeachingRelation" title="https://www.ica.org/standards/RiC/ontology#TeachingRelation"></a> Class: Teaching Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#TeachingRelation)</small>
 
+Term: `TeachingRelation`
+
 Connects at least one Person to at least another Person who is or was their student. The Relation is oriented from the teacher(s) to the student(s): the teacher Person(s) is the source of the Relation, and the student Person(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -11471,6 +11621,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="TemporalRelation" title="https://www.ica.org/standards/RiC/ontology#TemporalRelation"></a> Class: Temporal Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#TemporalRelation)</small>
+
+Term: `TemporalRelation`
 
 Connects at least one Thing to at least one other Thing that follows it in chronological order. The Relation is oriented chronologically: the preceding Thing(s) is the source of the Relation, the following Thing(s) is the target.
 
@@ -11785,6 +11937,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TitleType" title="https://www.ica.org/standards/RiC/ontology#TitleType"></a> Class: Title Type <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#TitleType)</small>
 
+Term: `TitleType`
+
 Categorization of a Title.
 
 Instances of this type MAY be present in the crate.
@@ -11981,6 +12135,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TypeRelation" title="https://www.ica.org/standards/RiC/ontology#TypeRelation"></a> Class: Type Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#TypeRelation)</small>
 
+Term: `TypeRelation`
+
 Connects a category (a Type) and at least one Thing that belongs to this category. The Type(s) is the source of the Relation, and the Thing(s) is the target.
 
 Instances of this type MAY be present in the crate.
@@ -12089,6 +12245,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="UnitOfMeasurement" title="https://www.ica.org/standards/RiC/ontology#UnitOfMeasurement"></a> Class: Unit Of Measurement <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#UnitOfMeasurement)</small>
 
+Term: `UnitOfMeasurement`
+
 A definite magnitude of a quantity, defined and adopted by convention or by law, that is used as a standard for measurement of the same kind of quantity. Can be spacial units (cm, m), weight (g, kg), time (s, h), storage (MB, TB) or more informal units used in the archival context like number of boxes, pages or words.
 
 Instances of this type MAY be present in the crate.
@@ -12181,6 +12339,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="WholePartRelation" title="https://www.ica.org/standards/RiC/ontology#WholePartRelation"></a> Class: Whole Part Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#WholePartRelation)</small>
+
+Term: `WholePartRelation`
 
 Connects a Thing to at least one other Thing that is or was a portion or division of the whole Thing. The Relation is oriented from the Thing to its part(s): the Thing is the source of the Relation, and the part Thing(s) is the target.
 
@@ -12289,6 +12449,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="WorkRelation" title="https://www.ica.org/standards/RiC/ontology#WorkRelation"></a> Class: Work Relation <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#WorkRelation)</small>
+
+Term: `WorkRelation`
 
 Connects at least two Agents that have or had some type of work relation in the course of their activities. This Relation is not oriented.
 
@@ -12408,6 +12570,13 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#accruals" title="https://www.ica.org/standards/RiC/ontology#accruals">accruals</a> | Information on the anticipated accession(s) to the Record Set. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordSet" title="https://www.ica.org/standards/RiC/ontology#RecordSet">Record Set</a> |
+
+Examples:
+
+- Accruing - there is an agreement with the creator that additional snapshots of their email directory will be accessioned at yearly intervals
+- Non-accruing
+- Unknown
+
 ### <a id="accrualsStatus" title="https://www.ica.org/standards/RiC/ontology#accrualsStatus"></a> Property: accruals status <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#accrualsStatus)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12463,6 +12632,14 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#authenticityNote" title="https://www.ica.org/standards/RiC/ontology#authenticityNote">authenticityNote</a> | Information on the evidence that a Record Resource or Instantiation is what it purports to be, was created or sent by the said Agent at the said time, and has not been tampered with, corrupted, or forged.  | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a>, <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- The deed is digitally signed by the Notary. The electronic signature validity cannot be assessed, but the content was not modified from the moment of signing.
+- The letter is unsigned.
+- The record bears signatures.
+- The timestamp exists but cannot be verified.
+
 ### <a id="authorizedBy" title="https://www.ica.org/standards/RiC/ontology#authorizedBy"></a> Property: authorized by <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#authorizedBy)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12498,21 +12675,54 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#carrierExtent" title="https://www.ica.org/standards/RiC/ontology#carrierExtent">carrierExtent</a> | Number of physical units and/or physical dimensions of the carrier of an Instantiation. In order to manage an Instantiation of a record resource it is necessary to note the extent of the carrier as well as that of the Instantiation itself. Whether it is necessary to note dimensions, the number of relevant units, or both, depends on the nature of the carrier and particular business needs. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a> |
+
+Examples:
+
+- 1 page
+- 3 GB (1 USB key)
+- 32.5 x 49 cm (piece of parchment)
+
 ### <a id="classification" title="https://www.ica.org/standards/RiC/ontology#classification"></a> Property: classification <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#classification)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#classification" title="https://www.ica.org/standards/RiC/ontology#classification">classification</a> | A term, number or alphanumeric string that is usually taken from an external classification vocabulary or scheme that qualifies a Record Resource. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- BUD-01-F002 (classification number from a corporate file plan)
+- digitized items
+- financial affairs
+- human resource management
+- student registration
+
 ### <a id="conditionsOfAccess" title="https://www.ica.org/standards/RiC/ontology#conditionsOfAccess"></a> Property: conditions of access <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#conditionsOfAccess)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#conditionsOfAccess" title="https://www.ica.org/standards/RiC/ontology#conditionsOfAccess">conditionsOfAccess</a> | Terms and circumstances affecting the availability of a Record Resource or an Instantiation for consultation. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a>, <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Acceso libre a través de los terminales de consulta
+- Closed as awaiting conservation treatment
+- Closed for 30 years
+- Closed under data protection legislation
+- Open
+- Recognita software, min. version 3.0, is needed in order to open the file
+- The Archives cannot provide VHS reader to access the content of the tape
+
 ### <a id="conditionsOfUse" title="https://www.ica.org/standards/RiC/ontology#conditionsOfUse"></a> Property: conditions of use <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#conditionsOfUse)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#conditionsOfUse" title="https://www.ica.org/standards/RiC/ontology#conditionsOfUse">conditionsOfUse</a> | Terms and circumstances affecting the use of a Record Resource or an Instantiation after access has been provided. Includes conditions governing reproduction of the Record Resource under applicable copyright (intellectual property) and/or property legislation or due to conservation status. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a>, <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Cannot be copied using warm light copying machines or photographed using flashlight
+- Permission of the copyright owner must be obtained before use
+
 ### <a id="contained" title="https://www.ica.org/standards/RiC/ontology#contained"></a> Property: contained <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#contained)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12553,6 +12763,13 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#dateQualifier" title="https://www.ica.org/standards/RiC/ontology#dateQualifier">dateQualifier</a> | A human readable qualification of a Date to indicate the level of precision or certainty. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Date" title="https://www.ica.org/standards/RiC/ontology#Date">Date</a> |
+
+Examples:
+
+- approximate
+- circa
+- end unknown
+
 ### <a id="deathDate" title="https://www.ica.org/standards/RiC/ontology#deathDate"></a> Property: death date <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#deathDate)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12633,6 +12850,21 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#expressedDate" title="https://www.ica.org/standards/RiC/ontology#expressedDate">expressedDate</a> | Natural language expression of a date. This property is a specialization of the name property. In order that the precise meaning of the date can be understood, information such as the calendar used or other specific context should be included. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Date" title="https://www.ica.org/standards/RiC/ontology#Date">Date</a> |
+
+Examples:
+
+- 15 thermidor an IV (calendrier révolutionnaire français)
+- 1550-1553, 1555 (date range)
+- 1925-1966 (date range)
+- 8 avril 1258 (a. st., style de Pâques)
+- All of the years 1550, 1551, 1553, 1555
+- Die jovis ultima mensis martii anno domini millesimo quingentesimo quadragesimo ante Pascha
+- October 24, 1999 (month day, year)
+- One of the years 1550, 1551, 1553, 1555
+- The Middle Ages
+- The second semester of 1951 to 1952 (academic reference system)
+- XVIIe siècle
+
 ### <a id="expressesOrExpressed" title="https://www.ica.org/standards/RiC/ontology#expressesOrExpressed"></a> Property: expresses or expressed <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#expressesOrExpressed)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12668,6 +12900,14 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#generalDescription" title="https://www.ica.org/standards/RiC/ontology#generalDescription">generalDescription</a> | General information about an entity. General description may be used to describe any entity. There are different appropriate uses for general description. First, while it is recommended that more specific properties be used in describing an entity, it may be desirable, for economic or other reasons, to describe two or more specific properties together. Second, general description may be used to describe one or more characteristics that are not otherwise accommodated in RiC-O. Third, it may be used to provide a succinct summary or abstract description in addition to more detailed specific description. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Thing" title="https://www.ica.org/standards/RiC/ontology#Thing">Thing</a> |
+
+Examples:
+
+- Le massif du Mont-Blanc est un massif des Alpes partagé entre la France, l'Italie et la Suisse. Il abrite le mont Blanc, plus haut sommet d'Europe occidentale qui culmine à 4 809 mètres (altitude relevée en 2015). Il est traversé par le tunnel du Mont-Blanc, entre Chamonix dans la vallée de l'Arve et Courmayeur dans la vallée d'Aoste.
+- The Senate is the academic governing body of the University of Strathclyde and is responsible for all academic matters including academic standards and quality. Meetings of the Senate are chaired by the Principal and the membership is drawn entirely from within the University, comprising academic and research staff. (about a corporate body, University of Strathclyde Senate)
+- This activity involves regulating the nursing profession by conducting examinations and on-going education for nurses, maintaining rolls of those qualified as enrolled or registered nurses, midwives, psychiatric, and other specialised nurses. It also covers hearing disciplinary charges against nurses (and where necessary, removing them temporarily or permanently from the registers), as well as promoting the nursing profession. (about an activity, Nursing Profession Regulation)
+- Thomas Blaikie (1750-1838) est un botaniste et jardinier écossais. Il a dessiné notamment les jardins de Malmaison et Bagatelle.
+
 ### <a id="geodesicSystem" title="https://www.ica.org/standards/RiC/ontology#geodesicSystem"></a> Property: geodesic system <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#geodesicSystem)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -12678,6 +12918,12 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#geographicalCoordinates" title="https://www.ica.org/standards/RiC/ontology#geographicalCoordinates">geographicalCoordinates</a> | Longitudinal and latitudinal information about a Place.  | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Place" title="https://www.ica.org/standards/RiC/ontology#Place">Place</a> |
+
+Examples:
+
+- Latitude 35.89421911, Longitude 139.94637467 (ISO 6709/F)
+- Latitude 50°40′46,461″N, Longitude 95°48′26,533″W, Height 123,45m (ISO 6709/D)
+
 ### <a id="hadComponent" title="https://www.ica.org/standards/RiC/ontology#hadComponent"></a> Property: had component <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#hadComponent)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -13663,11 +13909,29 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#history" title="https://www.ica.org/standards/RiC/ontology#history">history</a> | Summary of the development of an entity throughout its existence. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Agent" title="https://www.ica.org/standards/RiC/ontology#Agent">Agent</a>, <a href="#Event" title="https://www.ica.org/standards/RiC/ontology#Event">Event</a>, <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a>, <a href="#Place" title="https://www.ica.org/standards/RiC/ontology#Place">Place</a>, <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a>, <a href="#Rule" title="https://www.ica.org/standards/RiC/ontology#Rule">Rule</a> |
+
+Examples:
+
+- El primer sorteo de lotería se celebró el 13 de mayo de 1771, siendo desarrollado por la Real Lotería General de Nueva España… (sobre una actividad)
+- Nacido en Barbastro en 1892, donde realizó sus primeros estudios con los escolapios. Licenciado en Derecho por la Universidad de Zaragoza, aprobó las oposiciones al cuerpo nacional de notarios… (sobre una persona)
+- The manuscripts are part of the collections of Robert Harley (d 1724) and Edward Harley (d 1741), 1st and 2nd Earls of Oxford, that were brought by Parliament and transferred to the British Museum in 1753. Those materials were then separated into this collection and those for Harley Charters and Harley Rolls and became part of the collections of the British Library in 1972. (about a Record Set)
+
 ### <a id="identifier" title="https://www.ica.org/standards/RiC/ontology#identifier"></a> Property: identifier <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#identifier)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#identifier" title="https://www.ica.org/standards/RiC/ontology#identifier">identifier</a> | A word, number, letter, symbol, or any combination of these used to uniquely identify or reference an individual instance of an entity within a specific information domain. Can include Global Persistent Identifiers (globally unique and persistently resolvable identifier for the entity) and/or Local Identifiers. Both the domain within which the identifier is unique, and the rules used in forming the identifier value should be provided with the identifier value. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Thing" title="https://www.ica.org/standards/RiC/ontology#Thing">Thing</a> |
+
+Examples:
+
+- B-000091 (example of a unique identifier for an instantiation assigned by a repository)
+- BUD-01-F002 (example of a classification number from a corporate file plan)
+- F 1204 (example of a local identifier for a record set assigned by a repository)
+- NAS1/A/1.1 (example of a local identifier for a record)
+- http://isni.org/0000000073572182 (example of a persistent International Standard Name Identifier for a person)
+- http://n2t.net/ark:/99166/w6tz44ht (example of an Archival Resource Key for a person)
+- http://n2t.net/ark:/99166/w6v1266v (example of an Archival Resource Key for a record)
+
 ### <a id="included" title="https://www.ica.org/standards/RiC/ontology#included"></a> Property: included <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#included)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -13693,6 +13957,13 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#instantiationExtent" title="https://www.ica.org/standards/RiC/ontology#instantiationExtent">instantiationExtent</a> | Countable characteristics of an Instantiation expressed as a quantity. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a> |
+
+Examples:
+
+- 234 linear metres
+- Size of PDF file: 1.5 MB
+- The register has 345 written folios
+
 ### <a id="instantiationStructure" title="https://www.ica.org/standards/RiC/ontology#instantiationStructure"></a> Property: Instantiation structure <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#instantiationStructure)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -13703,6 +13974,14 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#integrityNote" title="https://www.ica.org/standards/RiC/ontology#integrityNote">integrityNote</a> | Information about the known intellectual completeness of a Record Resource. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- A web page (HTML, 15 images, 2 CSS, 1 javascript), with 5 images missing.
+- For record set: series of letters, one is missing so the integrity is compromised.
+- Line three of a hand-written letter was cut out and a replacement text was inserted by an unknown person.
+- Part of the text is missing (because a corner on the instantiation was cut out, which is a physical characteristic). See also the examples of physicalCharacteristics.
+
 ### <a id="intersects" title="https://www.ica.org/standards/RiC/ontology#intersects"></a> Property: intersects <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#intersects)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14623,6 +14902,12 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#location" title="https://www.ica.org/standards/RiC/ontology#location">location</a> | A delimitation of the physical territory of a Place. Used to describe basic human-readable text such as an address, a cadastral reference, or less precise information found in a Record. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Place" title="https://www.ica.org/standards/RiC/ontology#Place">Place</a> |
+
+Examples:
+
+- 25 rue Saint-Denis à Paris
+- Montreal (city in Canada)
+
 ### <a id="longitude" title="https://www.ica.org/standards/RiC/ontology#longitude"></a> Property: longitude <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#longitude)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14673,11 +14958,40 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#name" title="https://www.ica.org/standards/RiC/ontology#name">name</a> | A label, title or term designating an entity in order to make it distinguishable from other similar entities. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Thing" title="https://www.ica.org/standards/RiC/ontology#Thing">Thing</a> |
+
+Examples:
+
+- D-Day (about a Date or Event)
+- Digital copy of the Pomarius archival inventory from 1575 (about an Instantiation)
+- Fundraising, University of Glasgow (about an Activity)
+- Halloween 2016 (about a Date)
+- Nelson Mandela (about a Person)
+- Papers of the Earls of Liverpool (about a Record Set)
+- Paris (about a Place)
+- Prime Minister (about a Position)
+- Providing hearing services (about an Activity)
+- Sketch Map of the Qatar Peninsula (about a Record)
+- The Letter of Neacsu from Campulung to the Mayor of Brasov (about a Record)
+
 ### <a id="normalizedDateValue" title="https://www.ica.org/standards/RiC/ontology#normalizedDateValue"></a> Property: normalized date value <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#normalizedDateValue)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#normalizedDateValue" title="https://www.ica.org/standards/RiC/ontology#normalizedDateValue">normalizedDateValue</a> | Machine readable representation of the date based on a public technical standard. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Date" title="https://www.ica.org/standards/RiC/ontology#Date">Date</a> |
+
+Examples:
+
+- 1550,1551,1553,1555 (a date set in EDTF, meaning one of the years 1550, 1551, 1553, 1555)
+- 1948-03 (an ISO 8601 form of a single date)
+- 1948-03-08 (an ISO 8601 form of a single date)
+- 1948-03~ (a single date in ETDF, meaning March 1948 approximately)
+- 1948/ (a date range in EDTF, starting in 1948, end unknown)
+- 1948/.. (an open date range in EDTF, starting in 1948)
+- 2012-02-14/2015-03-08 (an ISO 8601 form of a date range)
+- 2012/2015-03 (an ISO 8601 form of a date range)
+- {1550,1551,1553,1555} (a date set in EDTF, meaning all of the years 1550, 1551, 1553, 1555)
+- {1805,1815..1820} (a date set in EDTF, meaning all of the years 1805, 1815, 1816, 1817, 1818, 1819, 1820)
+
 ### <a id="normalizedValue" title="https://www.ica.org/standards/RiC/ontology#normalizedValue"></a> Property: normalized value <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#normalizedValue)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14713,6 +15027,19 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#physicalCharacteristicsNote" title="https://www.ica.org/standards/RiC/ontology#physicalCharacteristicsNote">physicalCharacteristicsNote</a> | Information about the physical features, completeness, or conservation status of an Instantiation. Includes information about the physical nature and condition such as conservation status or the deterioration of an Instantiation (for example its carrier) affecting the ability to recover information.  | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a> |
+
+Examples:
+
+- A web page (HTML, 15 images, 2 CSS, 1 JavaScript), with 1 CSS missing.
+- British Library binding
+- Digital file format: JPEG-2000
+- For carrier: hard drives on which the author wrote physically (using a pen).
+- Letter physical characteristics: corner without text missing – the carrier is damaged, but no information of the content is missing
+- The charter is missing the seal.
+- Watermarked
+- carrier heavily foxed
+- some loss of text due to rodent damage
+
 ### <a id="physicalOrLogicalExtent" title="https://www.ica.org/standards/RiC/ontology#physicalOrLogicalExtent"></a> Property: physical or logical extent <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#physicalOrLogicalExtent)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14758,6 +15085,14 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#productionTechnique" title="https://www.ica.org/standards/RiC/ontology#productionTechnique">productionTechnique</a> | The method used in the representation of information on an Instantiation. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a> |
+
+Examples:
+
+- engraving
+- handwriting
+- magnetic recording
+- optical recording
+
 ### <a id="proxyDirectlyFollowsInSequence" title="https://www.ica.org/standards/RiC/ontology#proxyDirectlyFollowsInSequence"></a> Property: proxy directly follows in sequence <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#proxyDirectlyFollowsInSequence)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14908,6 +15243,13 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#qualityOfRepresentationNote" title="https://www.ica.org/standards/RiC/ontology#qualityOfRepresentationNote">qualityOfRepresentationNote</a> | Characteristics of an Instantiation that affect the ability to recover the intellectual content. Such characteristics may be related to the methods used in creating the Instantiation or introduced subsequent to the creation through accident. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a> |
+
+Examples:
+
+- Black and white digitization may have led to loss of some information.
+- some loss of information due to poor quality of image capture
+- some loss of text due to rodent damage
+
 ### <a id="quantity" title="https://www.ica.org/standards/RiC/ontology#quantity"></a> Property: quantity <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#quantity)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14928,6 +15270,16 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#recordResourceExtent" title="https://www.ica.org/standards/RiC/ontology#recordResourceExtent">recordResourceExtent</a> | The quantity of information content, as human experienced, contained in a Record Resource. The method and precision of expressing the quantity of information represented in a Record Resource will vary according to the kind of Record Resource being described, processing economy constraints, etc. For record sets, quantity may be expressed as number of records, or, for analogue records in particular, by the physical storage dimensions of the members of the Record Set. For individual records or record parts, quantity may be expressed in more precise terms.  | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- 1,500 words
+- 2 films
+- 2.065.735 characters
+- 3 minutes and 24 seconds
+- 6 maps
+- 6 photographs
+
 ### <a id="recordResourceHasSourceOfInformation" title="https://www.ica.org/standards/RiC/ontology#recordResourceHasSourceOfInformation"></a> Property: Record Resource has source of information <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#recordResourceHasSourceOfInformation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14938,11 +15290,24 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#recordResourceSourceOfInformation" title="https://www.ica.org/standards/RiC/ontology#recordResourceSourceOfInformation">recordResourceSourceOfInformation</a> | Information about some source on which the content of a Record Resource is based. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Dardy-Cretin (Michèle), Histoire administrative du ministère de la culture et de la communication (1959-2012). Paris: Collection du Comité d’histoire du ministère de la culture et de la communication, 2012.
+
 ### <a id="recordResourceStructure" title="https://www.ica.org/standards/RiC/ontology#recordResourceStructure"></a> Property: Record Resource structure <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#recordResourceStructure)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#recordResourceStructure" title="https://www.ica.org/standards/RiC/ontology#recordResourceStructure">recordResourceStructure</a> | Information about the intellectual arrangement and composition of a Record Resource. For Record and Record Part, it encompasses information about the intellectual composition of the record, the presence of record parts and their functions. For Record Set, it encompasses information about the methodology or criteria used for arranging the Record Set members or Record members within the containing Record Set | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Inside each file, the records are arranged chronologically.
+- The database has 3 related tables: names, addresses, and passport numbers.
+- The record has 2 appendixes, comprising a full account of the income from car taxes and real estate taxes.
+- The series have the files arranged according to the alphabetical order of the places concerned.
+
 ### <a id="referenceSystem" title="https://www.ica.org/standards/RiC/ontology#referenceSystem"></a> Property: reference system <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#referenceSystem)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -14958,6 +15323,13 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#relationCertainty" title="https://www.ica.org/standards/RiC/ontology#relationCertainty">relationCertainty</a> | Qualifies the level of certitude of the accuracy of a Relation. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Relation" title="https://www.ica.org/standards/RiC/ontology#Relation">Relation</a> |
+
+Examples:
+
+- certain
+- uncertain
+- unknown
+
 ### <a id="relationConnects" title="https://www.ica.org/standards/RiC/ontology#relationConnects"></a> Property: relation connects <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#relationConnects)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -15028,6 +15400,15 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#scopeAndContent" title="https://www.ica.org/standards/RiC/ontology#scopeAndContent">scopeAndContent</a> | Summary of the scope (such as time periods, geography) and content (such as subject matter, administrative processes) of a Record Resource. Provides a more complete summary of the informational content of the Record Resource highlighting the information conveyed in the Record Resource, why it was created, received, and/or maintained, and the agents connected to it. It may include description of relations with agents, activities, dates and places, or with other record resources. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Among the witnesses, the Duke of Normandy.
+- Includes a detailed list of the lands and villages given by the King to the Abbey.
+- Letter from Vlad the Impaler (Dracula) to the Council of Kronstadt asking them to send military support against the Ottomans, within the framework of their alliance treaty.
+- Se hace referencia a construcción del Gran Hotel, iniciada en 1899 bajo el nombre de Casa Celestino. Tras su interrupción en 1902, continuó la obra ya con su nombre actual.
+- The author explains why he does not agree with the decision made and adds that it cannot be applied.
+
 ### <a id="sentimentOrEmotionExpressed" title="https://www.ica.org/standards/RiC/ontology#sentimentOrEmotionExpressed"></a> Property: sentiment or emotion expressed <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#sentimentOrEmotionExpressed)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -15048,6 +15429,14 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#structure" title="https://www.ica.org/standards/RiC/ontology#structure">structure</a> | Information about the intellectual arrangement and composition of a Record Resource or the physical arrangement and composition of an Instantiation. For Record and Record Part, it encompasses information about the intellectual composition of the record, the presence of record parts and their functions. For Record Set, it encompasses information about the methodology or criteria used for arranging the Record Set members or Record members within the containing Record Set. For Instantiation, it may comprise information about the composition of the physical elements of the instantiation | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Instantiation" title="https://www.ica.org/standards/RiC/ontology#Instantiation">Instantiation</a>, <a href="#RecordResource" title="https://www.ica.org/standards/RiC/ontology#RecordResource">Record Resource</a> |
+
+Examples:
+
+- Inside each file, the records are arranged chronologically (about a record set)
+- The database has three related tables: names, addresses, and passport numbers (about a record)
+- The record has two appendices, comprising a full account of the income from car taxes and real estate taxes
+- The series have the files arranged according to the alphabetical order of the places concerned
+
 ### <a id="studiesOrStudiedAt" title="https://www.ica.org/standards/RiC/ontology#studiesOrStudiedAt"></a> Property: studies or studied at <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#studiesOrStudiedAt)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -15058,6 +15447,11 @@ Instances of this type MAY be present in the crate.
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
 | <a href="#technicalCharacteristics" title="https://www.ica.org/standards/RiC/ontology#technicalCharacteristics">technicalCharacteristics</a> | Describes any relevant physical or software feature of any device involved in the creation or management of a Record Resource. | <a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a> | <a href="#Mechanism" title="https://www.ica.org/standards/RiC/ontology#Mechanism">Mechanism</a> |
+
+Examples:
+
+- Hubble Space Telescope had until 2002 a flawed mirror that introduced severe spherical aberration for the images.
+
 ### <a id="textualValue" title="https://www.ica.org/standards/RiC/ontology#textualValue"></a> Property: textual value <small style="color:#aaa">(https://www.ica.org/standards/RiC/ontology#textualValue)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |

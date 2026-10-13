@@ -35,7 +35,15 @@ from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
-from rdflib import OWL, RDF, RDFS, XSD, BNode, Graph
+from rdflib import OWL, RDF, RDFS, SKOS, XSD, BNode, Graph, Namespace
+
+LEXINFO = Namespace("http://www.lexinfo.net/ontology/3.0/lexinfo#")
+
+# Annotation properties carrying usage examples of a term, all ported to
+# skos:example (see spec: "Usage examples"). lexinfo:example is LexInfo's own
+# frame-usage annotation, e.g. "his reputation SANK low".
+EXAMPLE_PREDICATES = (SKOS.example, LEXINFO.example)
+SKOS_PREFIX = str(SKOS)
 
 XSD_TO_SCHEMA = {
     str(XSD.string): "schema:Text",
@@ -240,6 +248,105 @@ def label_and_name(graph, subject):
     return label, (expanded if expanded is not None else label)
 
 
+def describe_expression(graph, node):
+    """Render an OWL class expression as a short phrase using bare term
+    names, e.g. "partOfSpeech some AdjectivePOS" or "IntransitiveFrame and
+    at least 1 predicativeAdjective". Returns None for anything not handled.
+    """
+    if not isinstance(node, BNode):
+        return local_name(node)
+    for operator, joiner in ((OWL.intersectionOf, " and "), (OWL.unionOf, " or ")):
+        members = graph.value(node, operator)
+        if members is not None:
+            parts = [describe_expression(graph, member) for member in rdf_list_items(graph, members)]
+            if not parts or None in parts:
+                return None
+            return joiner.join(parts)
+    on_property = graph.value(node, OWL.onProperty)
+    if on_property is None or isinstance(on_property, BNode):
+        return None
+    prop = local_name(on_property)
+    value = graph.value(node, OWL.hasValue)
+    if value is not None:
+        return f"{prop} = {local_name(value)}"
+    for predicate, word in ((OWL.someValuesFrom, "some"), (OWL.allValuesFrom, "only")):
+        filler = graph.value(node, predicate)
+        if filler is not None:
+            filler_text = describe_expression(graph, filler)
+            return None if filler_text is None else f"{prop} {word} {filler_text}"
+    on_class = graph.value(node, OWL.onClass)
+    of_type = f" of type {local_name(on_class)}" if on_class is not None and not isinstance(on_class, BNode) else ""
+    for predicates, word in (
+        ((OWL.cardinality, OWL.qualifiedCardinality), "exactly"),
+        ((OWL.minCardinality, OWL.minQualifiedCardinality), "at least"),
+        ((OWL.maxCardinality, OWL.maxQualifiedCardinality), "at most"),
+    ):
+        for predicate in predicates:
+            count = graph.value(node, predicate)
+            if count is not None:
+                return f"{word} {count} {prop}{of_type}"
+    return None
+
+
+def structural_description(graph, subject, name):
+    """Fallback description for a term with no rdfs:comment: its label
+    phrase plus what the OWL structure says about it, so terms that share a
+    label (e.g. lexinfo:Adjective and lexinfo:AdjectivePOS, both "adjective")
+    can be told apart. See spec: "Comment fallback".
+    """
+    sentences = [name]
+    supers = sorted(local_name(o) for o in graph.objects(subject, RDFS.subClassOf) if not isinstance(o, BNode))
+    if supers:
+        sentences.append(f"A kind of {', '.join(supers)}")
+    super_props = sorted(local_name(o) for o in graph.objects(subject, RDFS.subPropertyOf) if not isinstance(o, BNode))
+    if super_props:
+        sentences.append(f"A sub-property of {', '.join(super_props)}")
+    inverses = sorted(local_name(o) for o in graph.objects(subject, OWL.inverseOf) if not isinstance(o, BNode))
+    if inverses:
+        sentences.append(f"Inverse of {', '.join(inverses)}")
+    definitions = sorted(
+        text
+        for text in (describe_expression(graph, o) for o in graph.objects(subject, OWL.equivalentClass))
+        if text is not None
+    )
+    if definitions:
+        sentences.append(f"Equivalent to: {'; '.join(definitions)}")
+    return ". ".join(sentences) + "." if len(sentences) > 1 else name
+
+
+def comment_or_label_fallback(graph, subject, entity):
+    """rdfs:comment if the ontology has one; otherwise a description built
+    from the label phrase and the term's OWL structure (unless that would
+    just repeat the bare term), so readers that only show the description
+    (e.g. Crate-O help) still get something useful. See spec: "Comment
+    fallback".
+    """
+    comment = preferred_literal(graph, subject, RDFS.comment)
+    if comment is None:
+        fallback = structural_description(graph, subject, entity["name"])
+        if fallback != entity["rdfs:label"]:
+            comment = fallback
+    if comment is not None:
+        entity["rdfs:comment"] = comment
+
+
+def usage_examples(graph, subject):
+    """Every usage example in every language -- unlike labels, examples in
+    different languages are distinct content, not translations, so none are
+    dropped. Emitted as plain strings, not {"@value", "@language"} objects:
+    ro-crate-excel can't round-trip language-tagged values through the
+    synced .xlsx (see spec: "Usage examples"). Sorted for stable output.
+    """
+    literals = {literal for predicate in EXAMPLE_PREDICATES for literal in graph.objects(subject, predicate)}
+    return sorted({str(literal) for literal in literals})
+
+
+def add_usage_examples(graph, subject, entity):
+    examples = usage_examples(graph, subject)
+    if examples:
+        entity["skos:example"] = examples
+
+
 def as_id_field(iris):
     refs = [{"@id": iri} for iri in iris]
     if not refs:
@@ -272,9 +379,8 @@ def build_class_entities(graph, namespace):
             continue
         entity = {"@id": str(subject), "@type": "rdfs:Class"}
         entity["rdfs:label"], entity["name"] = label_and_name(graph, subject)
-        comment = preferred_literal(graph, subject, RDFS.comment)
-        if comment is not None:
-            entity["rdfs:comment"] = comment
+        comment_or_label_fallback(graph, subject, entity)
+        add_usage_examples(graph, subject, entity)
         super_classes = resolve_objects(graph, subject, RDFS.subClassOf, "rdfs:subClassOf")
         if super_classes:
             entity["rdfs:subClassOf"] = [{"@id": iri} for iri in super_classes]
@@ -297,9 +403,8 @@ def build_property_entities(graph, namespace):
             continue
         entity = {"@id": str(subject), "@type": "rdf:Property"}
         entity["rdfs:label"], entity["name"] = label_and_name(graph, subject)
-        comment = preferred_literal(graph, subject, RDFS.comment)
-        if comment is not None:
-            entity["rdfs:comment"] = comment
+        comment_or_label_fallback(graph, subject, entity)
+        add_usage_examples(graph, subject, entity)
 
         domains = resolve_objects(graph, subject, RDFS.domain, "rdfs:domain")
         domain_field = as_id_field(domains)
@@ -483,10 +588,16 @@ def build_crate_graph(
     graph.extend(item_list_entities)
     graph.extend(instance_entities)
 
+    local_context = {"@vocab": "http://schema.org/"}
+    # skos: isn't in the RO-Crate context; only declare it when used so
+    # crates without examples are unchanged.
+    if any("skos:example" in entity for entity in class_entities + property_entities):
+        local_context["skos"] = SKOS_PREFIX
+
     return {
         "@context": [
             "https://w3id.org/ro/crate/1.2/context",
-            {"@vocab": "http://schema.org/"},
+            local_context,
             {"@base": None},
         ],
         "@graph": graph,

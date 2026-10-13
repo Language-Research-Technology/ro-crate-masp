@@ -15,7 +15,7 @@ The ontologies' named individuals (e.g. the `lexinfo:PartOfSpeech` values `lexin
 
 ### <a id="AbbreviatedForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm"></a> Class: AbbreviatedForm <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AbbreviatedForm)</small>
 
-
+AbbreviatedForm. A kind of TermType.
 
 Instances of this type MAY be present in the crate.
 
@@ -31,7 +31,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivalComplementFrame"></a> Class: adjectival complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivalComplementFrame)</small>
 
+Term: `AdjectivalComplementFrame`
 
+adjectival complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -53,7 +55,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Adjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective"></a> Class: adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective)</small>
 
+Term: `Adjective`
 
+adjective. A kind of Word. Equivalent to: partOfSpeech some AdjectivePOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -98,7 +102,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Adjective-i" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective-i"></a> Class: adjective-i <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective-i)</small>
 
+Term: `Adjective-i`
 
+adjective-i. A kind of Adjective. Equivalent to: partOfSpeech = adjective-i.
 
 Instances of this type MAY be present in the crate.
 
@@ -143,7 +149,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Adjective-na" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective-na"></a> Class: adjective-na <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Adjective-na)</small>
 
+Term: `Adjective-na`
 
+adjective-na. A kind of Adjective. Equivalent to: partOfSpeech = adjective-na.
 
 Instances of this type MAY be present in the crate.
 
@@ -188,7 +196,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveAccusativePostPositiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveAccusativePostPositiveFrame"></a> Class: adjective accusative post positive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveAccusativePostPositiveFrame)</small>
 
+Term: `AdjectiveAccusativePostPositiveFrame`
 
+adjective accusative post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some AccusativePostPositiveArg.
+
+Examples:
+
+- wird wurden unseren irrtum GEWAHR
 
 Instances of this type MAY be present in the crate.
 
@@ -210,7 +224,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveAttributiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveAttributiveFrame"></a> Class: adjective attributive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveAttributiveFrame)</small>
 
+Term: `AdjectiveAttributiveFrame`
 
+adjective attributive frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 attributiveArg.
+
+Examples:
+
+- the RED ball
 
 Instances of this type MAY be present in the crate.
 
@@ -232,7 +252,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveComparativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveComparativeFrame"></a> Class: adjective comparative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveComparativeFrame)</small>
 
+Term: `AdjectiveComparativeFrame`
 
+adjective comparative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 comparativeAdjunct and exactly 1 copulativeSubject.
+
+Examples:
+
+- new york is BIGGER THAN berlin
 
 Instances of this type MAY be present in the crate.
 
@@ -254,7 +280,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveDativePostPositiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveDativePostPositiveFrame"></a> Class: adjective dative post positive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveDativePostPositiveFrame)</small>
 
+Term: `AdjectiveDativePostPositiveFrame`
 
+adjective dative post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some DativePostPositiveArg.
+
+Examples:
+
+- er ist seinem bruder ÄHNLICH
 
 Instances of this type MAY be present in the crate.
 
@@ -276,7 +308,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame"></a> Class: adjective frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveFrame)</small>
 
+Term: `AdjectiveFrame`
 
+adjective frame. A kind of SyntacticFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -298,7 +332,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveGenitivePostPositiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveGenitivePostPositiveFrame"></a> Class: adjective genitive post positive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveGenitivePostPositiveFrame)</small>
 
+Term: `AdjectiveGenitivePostPositiveFrame`
 
+adjective genitive post positive frame. A kind of AdjectivePostPositiveFrame. Equivalent to: AdjectivePostPositiveFrame and postPositiveArg some GenitivePostPositiveArg.
+
+Examples:
+
+- er ist des hochverrats SCHULDIG
 
 Instances of this type MAY be present in the crate.
 
@@ -320,7 +360,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveImpersonalFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveImpersonalFrame"></a> Class: adjective impersonal frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveImpersonalFrame)</small>
 
+Term: `AdjectiveImpersonalFrame`
 
+adjective impersonal frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 object and exactly 0 copulativeSubject.
+
+Examples:
+
+- es ist mir HEISS
 
 Instances of this type MAY be present in the crate.
 
@@ -342,7 +388,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivePOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePOS"></a> Class: adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePOS)</small>
 
+Term: `AdjectivePOS`
 
+adjective. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -358,7 +406,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePPFrame"></a> Class: adjective pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePPFrame)</small>
 
+Term: `AdjectivePPFrame`
 
+adjective pp frame. A kind of AdjectiveFrame. Equivalent to: AdjectivePredicativeFrame and PrepositionalFrame.
+
+Examples:
+
+- he is RELATED TO her
 
 Instances of this type MAY be present in the crate.
 
@@ -380,7 +434,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivePhrase" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePhrase"></a> Class: adjective phrase <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePhrase)</small>
 
+Term: `AdjectivePhrase`
 
+adjective phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Adjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -425,7 +481,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivePostPositiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePostPositiveFrame"></a> Class: adjective post positive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePostPositiveFrame)</small>
 
+Term: `AdjectivePostPositiveFrame`
 
+adjective post positive frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 copulativeArg and exactly 1 postPositiveArg.
+
+Examples:
+
+- that is something INTERESTING
 
 Instances of this type MAY be present in the crate.
 
@@ -446,6 +508,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="AdjectivePredicateFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePredicateFrame"></a> Class: adjective predicate frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePredicateFrame)</small>
+
+Term: `AdjectivePredicateFrame`
 
 Note this frame should be used when both attributive and predicative use of the adjective is allowed
 
@@ -469,7 +533,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectivePredicativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePredicativeFrame"></a> Class: adjective predicative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectivePredicativeFrame)</small>
 
+Term: `AdjectivePredicativeFrame`
 
+adjective predicative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and exactly 1 copulativeSubject.
+
+Examples:
+
+- he is HAPPY
 
 Instances of this type MAY be present in the crate.
 
@@ -491,7 +561,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveScaleFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveScaleFrame"></a> Class: adjective scale frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveScaleFrame)</small>
 
+Term: `AdjectiveScaleFrame`
 
+adjective scale frame. A kind of AdjectiveFrame. Equivalent to: exactly 1 adverbialComplement and exactly 1 copulativeSubject.
+
+Examples:
+
+- Everest is 8,848m HIGH
 
 Instances of this type MAY be present in the crate.
 
@@ -513,7 +589,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdjectiveSuperlativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveSuperlativeFrame"></a> Class: adjective superlative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdjectiveSuperlativeFrame)</small>
 
+Term: `AdjectiveSuperlativeFrame`
 
+adjective superlative frame. A kind of AdjectiveFrame. Equivalent to: AdjectiveFrame and at least 1 superlativeAdjunct and exactly 1 copulativeSubject.
+
+Examples:
+
+- tokyo is the BIGGEST of all metropoles
 
 Instances of this type MAY be present in the crate.
 
@@ -535,7 +617,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Adposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition"></a> Class: adposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Adposition)</small>
 
+Term: `Adposition`
 
+adposition. A kind of Word. Equivalent to: partOfSpeech some AdpositionPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -580,7 +664,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdpositionPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdpositionPOS"></a> Class: adposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdpositionPOS)</small>
 
+Term: `AdpositionPOS`
 
+adposition. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -596,7 +682,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Adverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Adverb"></a> Class: adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Adverb)</small>
 
+Term: `Adverb`
 
+adverb. A kind of Word. Equivalent to: partOfSpeech some AdverbPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -641,7 +729,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdverbPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbPOS"></a> Class: adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbPOS)</small>
 
+Term: `AdverbPOS`
 
+adverb. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -657,7 +747,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdverbialComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbialComplementFrame"></a> Class: adverbial complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbialComplementFrame)</small>
 
+Term: `AdverbialComplementFrame`
 
+adverbial complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeAdverb.
 
 Instances of this type MAY be present in the crate.
 
@@ -679,7 +771,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AdverbialPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbialPronoun"></a> Class: adverbial pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AdverbialPronoun)</small>
 
+Term: `AdverbialPronoun`
 
+adverbial pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = adverbialPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -724,7 +818,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AffirmativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AffirmativeParticle"></a> Class: affirmative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AffirmativeParticle)</small>
 
+Term: `AffirmativeParticle`
 
+affirmative particle. A kind of Particle. Equivalent to: partOfSpeech = affirmativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -769,7 +865,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AffixedPersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AffixedPersonalPronoun"></a> Class: affixed personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AffixedPersonalPronoun)</small>
 
+Term: `AffixedPersonalPronoun`
 
+affixed personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = affixedPersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -814,7 +912,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="AllusivePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#AllusivePronoun"></a> Class: allusive pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#AllusivePronoun)</small>
 
+Term: `AllusivePronoun`
 
+allusive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = allusivePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -859,7 +959,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Animacy" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy"></a> Class: animacy <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Animacy)</small>
 
+Term: `Animacy`
 
+animacy
 
 Instances of this type MAY be present in the crate.
 
@@ -874,6 +976,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ArbitraryControl" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ArbitraryControl"></a> Class: arbitrary control <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ArbitraryControl)</small>
+
+Term: `ArbitraryControl`
 
 Indicates either the subject or object of the main clause may be the omitted argument of the subclause
 
@@ -897,7 +1001,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Article" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Article"></a> Class: article <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Article)</small>
 
+Term: `Article`
 
+article. A kind of Determiner. Equivalent to: partOfSpeech some ArticlePOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -942,7 +1048,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ArticlePOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ArticlePOS"></a> Class: article <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ArticlePOS)</small>
 
+Term: `ArticlePOS`
 
+article. A kind of DeterminerPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -958,7 +1066,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Aspect" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect"></a> Class: aspect <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Aspect)</small>
 
+Term: `Aspect`
 
+aspect
 
 Instances of this type MAY be present in the crate.
 
@@ -974,7 +1084,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Auxiliary" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Auxiliary"></a> Class: auxiliary <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Auxiliary)</small>
 
+Term: `Auxiliary`
 
+auxiliary. A kind of Verb. Equivalent to: partOfSpeech = auxiliary.
 
 Instances of this type MAY be present in the crate.
 
@@ -1019,7 +1131,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Bullet" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Bullet"></a> Class: bullet <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Bullet)</small>
 
+Term: `Bullet`
 
+bullet. A kind of Symbol. Equivalent to: partOfSpeech = bullet.
 
 Instances of this type MAY be present in the crate.
 
@@ -1064,7 +1178,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CardinalNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CardinalNumeral"></a> Class: cardinal numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CardinalNumeral)</small>
 
+Term: `CardinalNumeral`
 
+cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = cardinalNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -1109,7 +1225,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Case" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Case"></a> Class: case <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Case)</small>
 
+Term: `Case`
 
+case
 
 Instances of this type MAY be present in the crate.
 
@@ -1125,7 +1243,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Circumposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Circumposition"></a> Class: circumposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Circumposition)</small>
 
+Term: `Circumposition`
 
+circumposition. A kind of Adposition. Equivalent to: partOfSpeech = circumposition.
 
 Instances of this type MAY be present in the crate.
 
@@ -1170,7 +1290,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Cliticness" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness"></a> Class: cliticness <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Cliticness)</small>
 
+Term: `Cliticness`
 
+cliticness
 
 Instances of this type MAY be present in the crate.
 
@@ -1186,7 +1308,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CloseParenthesis" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CloseParenthesis"></a> Class: close parenthesis <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CloseParenthesis)</small>
 
+Term: `CloseParenthesis`
 
+close parenthesis. A kind of Symbol. Equivalent to: partOfSpeech = closeParenthesis.
 
 Instances of this type MAY be present in the crate.
 
@@ -1231,7 +1355,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CollectivePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CollectivePronoun"></a> Class: collective pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CollectivePronoun)</small>
 
+Term: `CollectivePronoun`
 
+collective pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = collectivePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -1276,7 +1402,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Colon" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Colon"></a> Class: colon <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Colon)</small>
 
+Term: `Colon`
 
+colon. A kind of Symbol. Equivalent to: partOfSpeech = colon.
 
 Instances of this type MAY be present in the crate.
 
@@ -1321,7 +1449,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Comma" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Comma"></a> Class: comma <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Comma)</small>
 
+Term: `Comma`
 
+comma. A kind of Symbol. Equivalent to: partOfSpeech = comma.
 
 Instances of this type MAY be present in the crate.
 
@@ -1366,7 +1496,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CommonNoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CommonNoun"></a> Class: common noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CommonNoun)</small>
 
+Term: `CommonNoun`
 
+common noun. A kind of Noun. Equivalent to: partOfSpeech = commonNoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -1411,7 +1543,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ComparativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ComparativeParticle"></a> Class: comparative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ComparativeParticle)</small>
 
+Term: `ComparativeParticle`
 
+comparative particle. A kind of Particle. Equivalent to: partOfSpeech = comparativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -1456,7 +1590,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CompoundPreposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CompoundPreposition"></a> Class: compound preposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CompoundPreposition)</small>
 
+Term: `CompoundPreposition`
 
+compound preposition. A kind of Adposition. Equivalent to: partOfSpeech = compoundPreposition.
 
 Instances of this type MAY be present in the crate.
 
@@ -1501,7 +1637,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ConditionalParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ConditionalParticle"></a> Class: conditional particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ConditionalParticle)</small>
 
+Term: `ConditionalParticle`
 
+conditional particle. A kind of Particle. Equivalent to: partOfSpeech = conditionalParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -1546,7 +1684,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ConditionalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ConditionalPronoun"></a> Class: conditional pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ConditionalPronoun)</small>
 
+Term: `ConditionalPronoun`
 
+conditional pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = conditionalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -1591,7 +1731,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Conjunction" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Conjunction"></a> Class: conjunction <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Conjunction)</small>
 
+Term: `Conjunction`
 
+conjunction. A kind of Word. Equivalent to: partOfSpeech some ConjunctionPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -1636,7 +1778,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ConjunctionPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ConjunctionPOS"></a> Class: conjunction <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ConjunctionPOS)</small>
 
+Term: `ConjunctionPOS`
 
+conjunction. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -1651,6 +1795,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="Control" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Control"></a> Class: control <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Control)</small>
+
+Term: `Control`
 
 Control indicates how a an argument from a main clause will be utilized in a subclause. This class includes both control structures and raising structures
 
@@ -1674,7 +1820,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CoordinatingConjunction" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CoordinatingConjunction"></a> Class: coordinating conjunction <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CoordinatingConjunction)</small>
 
+Term: `CoordinatingConjunction`
 
+coordinating conjunction. A kind of Conjunction. Equivalent to: partOfSpeech = coordinatingConjunction.
 
 Instances of this type MAY be present in the crate.
 
@@ -1719,7 +1867,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="CoordinationParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#CoordinationParticle"></a> Class: coordination particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#CoordinationParticle)</small>
 
+Term: `CoordinationParticle`
 
+coordination particle. A kind of Particle. Equivalent to: partOfSpeech = coordinationParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -1764,7 +1914,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Copula" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Copula"></a> Class: copula <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Copula)</small>
 
+Term: `Copula`
 
+copula. A kind of Verb. Equivalent to: partOfSpeech = copula.
 
 Instances of this type MAY be present in the crate.
 
@@ -1809,7 +1961,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Dating" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Dating"></a> Class: dating <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Dating)</small>
 
+Term: `Dating`
 
+dating
 
 Instances of this type MAY be present in the crate.
 
@@ -1825,7 +1979,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DativeTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DativeTransitiveFrame"></a> Class: dative transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DativeTransitiveFrame)</small>
 
+Term: `DativeTransitiveFrame`
 
+dative transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 directObject and exactly 1 indirectObject and exactly 1 subject.
+
+Examples:
+
+- ich DANKE dir
 
 Instances of this type MAY be present in the crate.
 
@@ -1846,6 +2006,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="DeclarativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DeclarativeFrame"></a> Class: declarative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DeclarativeFrame)</small>
+
+Term: `DeclarativeFrame`
 
 Declarative frames take a clause as an argument, this argument is marker with the declarative conjunction (&quot;that&quot; in English)
 
@@ -1869,7 +2031,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DeficientVerb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DeficientVerb"></a> Class: deficient verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DeficientVerb)</small>
 
+Term: `DeficientVerb`
 
+deficient verb. A kind of Verb. Equivalent to: partOfSpeech = deficientVerb.
 
 Instances of this type MAY be present in the crate.
 
@@ -1914,7 +2078,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DefiniteArticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DefiniteArticle"></a> Class: definite article <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DefiniteArticle)</small>
 
+Term: `DefiniteArticle`
 
+definite article. A kind of Article. Equivalent to: partOfSpeech = definiteArticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -1959,7 +2125,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Definiteness" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness"></a> Class: definiteness <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Definiteness)</small>
 
+Term: `Definiteness`
 
+definiteness
 
 Instances of this type MAY be present in the crate.
 
@@ -1975,7 +2143,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Degree" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Degree"></a> Class: degree <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Degree)</small>
 
+Term: `Degree`
 
+degree
 
 Instances of this type MAY be present in the crate.
 
@@ -1991,7 +2161,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DemonstrativeDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DemonstrativeDeterminer"></a> Class: demonstrative determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DemonstrativeDeterminer)</small>
 
+Term: `DemonstrativeDeterminer`
 
+demonstrative determiner. A kind of Determiner. Equivalent to: partOfSpeech = demonstrativeDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -2036,7 +2208,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DemonstrativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DemonstrativePronoun"></a> Class: demonstrative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DemonstrativePronoun)</small>
 
+Term: `DemonstrativePronoun`
 
+demonstrative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = demonstrativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2081,7 +2255,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Determiner" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner"></a> Class: determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Determiner)</small>
 
+Term: `Determiner`
 
+determiner. A kind of Word. Equivalent to: partOfSpeech some DeterminerPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -2126,7 +2302,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DeterminerPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DeterminerPOS"></a> Class: determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DeterminerPOS)</small>
 
+Term: `DeterminerPOS`
 
+determiner. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -2142,7 +2320,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DiminutiveNoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DiminutiveNoun"></a> Class: diminutive noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DiminutiveNoun)</small>
 
+Term: `DiminutiveNoun`
 
+diminutive noun. A kind of Noun. Equivalent to: partOfSpeech = diminutiveNoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2187,7 +2367,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DistinctiveParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DistinctiveParticle"></a> Class: distinctive particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DistinctiveParticle)</small>
 
+Term: `DistinctiveParticle`
 
+distinctive particle. A kind of Particle. Equivalent to: partOfSpeech = distinctiveParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -2232,7 +2414,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DitransitiveDoubleAccusativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveDoubleAccusativeFrame"></a> Class: ditransitive double accusative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveDoubleAccusativeFrame)</small>
 
+Term: `DitransitiveDoubleAccusativeFrame`
 
+ditransitive double accusative frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 2 directObject and exactly 1 subject.
+
+Examples:
+
+- das KOSTET ihn sein leben
 
 Instances of this type MAY be present in the crate.
 
@@ -2254,7 +2442,14 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DitransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame"></a> Class: ditransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame)</small>
 
+Term: `DitransitiveFrame`
 
+ditransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 indirectObject and exactly 1 subject.
+
+Examples:
+
+- i GAVE him it
+- mein vater SCHREIBT ihr einen brief
 
 Instances of this type MAY be present in the crate.
 
@@ -2276,7 +2471,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DitransitiveFrame_For" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame_For"></a> Class: ditransitive frame_ for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame_For)</small>
 
+Term: `DitransitiveFrame_For`
 
+ditransitive frame_ for. A kind of DitransitiveFrame.
+
+Examples:
+
+- she BOUGHT him it, she BOUGHT it FOR him
 
 Instances of this type MAY be present in the crate.
 
@@ -2298,7 +2499,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="DitransitiveFrame_To" title="http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame_To"></a> Class: ditransitive frame_ to <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#DitransitiveFrame_To)</small>
 
+Term: `DitransitiveFrame_To`
 
+ditransitive frame_ to. A kind of DitransitiveFrame.
+
+Examples:
+
+- he GAVE his mother, he GAVE a present TO his mother
 
 Instances of this type MAY be present in the crate.
 
@@ -2320,7 +2527,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="EmphaticPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#EmphaticPronoun"></a> Class: emphatic pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#EmphaticPronoun)</small>
 
+Term: `EmphaticPronoun`
 
+emphatic pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = emphaticPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2365,7 +2574,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ExclamativeDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativeDeterminer"></a> Class: exclamative determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativeDeterminer)</small>
 
+Term: `ExclamativeDeterminer`
 
+exclamative determiner. A kind of Determiner. Equivalent to: partOfSpeech = exclamativeDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -2410,7 +2621,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ExclamativePoint" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativePoint"></a> Class: exclamative point <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativePoint)</small>
 
+Term: `ExclamativePoint`
 
+exclamative point. A kind of Symbol. Equivalent to: partOfSpeech = exclamativePoint.
 
 Instances of this type MAY be present in the crate.
 
@@ -2455,7 +2668,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ExclamativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativePronoun"></a> Class: exclamative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ExclamativePronoun)</small>
 
+Term: `ExclamativePronoun`
 
+exclamative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = exclamativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2500,7 +2715,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ExistentialPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ExistentialPronoun"></a> Class: existential pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ExistentialPronoun)</small>
 
+Term: `ExistentialPronoun`
 
+existential pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = existentialPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2545,7 +2762,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Finiteness" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness"></a> Class: finiteness <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Finiteness)</small>
 
+Term: `Finiteness`
 
+finiteness
 
 Instances of this type MAY be present in the crate.
 
@@ -2561,7 +2780,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Frequency" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency"></a> Class: frequency <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Frequency)</small>
 
+Term: `Frequency`
 
+frequency
 
 Instances of this type MAY be present in the crate.
 
@@ -2577,7 +2798,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FusedPreposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPreposition"></a> Class: fused preposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPreposition)</small>
 
+Term: `FusedPreposition`
 
+fused preposition. A kind of Word. Equivalent to: partOfSpeech some FusedPrepositionPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -2622,7 +2845,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FusedPrepositionDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionDeterminer"></a> Class: fused preposition determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionDeterminer)</small>
 
+Term: `FusedPrepositionDeterminer`
 
+fused preposition determiner. A kind of FusedPreposition. Equivalent to: partOfSpeech = fusedPrepositionDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -2667,7 +2892,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FusedPrepositionPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionPOS"></a> Class: fused preposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionPOS)</small>
 
+Term: `FusedPrepositionPOS`
 
+fused preposition. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -2683,7 +2910,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FusedPrepositionPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionPronoun"></a> Class: fused preposition pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPrepositionPronoun)</small>
 
+Term: `FusedPrepositionPronoun`
 
+fused preposition pronoun. A kind of FusedPreposition. Equivalent to: partOfSpeech = fusedPrepositionPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -2728,7 +2957,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FusedPronounAuxiliary" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPronounAuxiliary"></a> Class: fused pronoun auxiliary <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FusedPronounAuxiliary)</small>
 
+Term: `FusedPronounAuxiliary`
 
+fused pronoun auxiliary. A kind of Pronoun. Equivalent to: partOfSpeech = fusedPronounAuxiliary.
 
 Instances of this type MAY be present in the crate.
 
@@ -2773,7 +3004,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="FutureParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#FutureParticle"></a> Class: future particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#FutureParticle)</small>
 
+Term: `FutureParticle`
 
+future particle. A kind of Particle. Equivalent to: partOfSpeech = futureParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -2818,7 +3051,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Gender" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Gender"></a> Class: gender <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Gender)</small>
 
+Term: `Gender`
 
+gender
 
 Instances of this type MAY be present in the crate.
 
@@ -2834,7 +3069,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GeneralAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GeneralAdverb"></a> Class: general adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GeneralAdverb)</small>
 
+Term: `GeneralAdverb`
 
+general adverb. A kind of Adverb. Equivalent to: partOfSpeech = generalAdverb.
 
 Instances of this type MAY be present in the crate.
 
@@ -2879,7 +3116,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GeneralizationWord" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GeneralizationWord"></a> Class: generalization word <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GeneralizationWord)</small>
 
+Term: `GeneralizationWord`
 
+generalization word. A kind of Word. Equivalent to: partOfSpeech = generalizationWord.
 
 Instances of this type MAY be present in the crate.
 
@@ -2924,7 +3163,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GenericNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GenericNumeral"></a> Class: generic numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GenericNumeral)</small>
 
+Term: `GenericNumeral`
 
+generic numeral. A kind of Numeral. Equivalent to: partOfSpeech = genericNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -2969,7 +3210,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GenitiveDitransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GenitiveDitransitiveFrame"></a> Class: genitive ditransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GenitiveDitransitiveFrame)</small>
 
+Term: `GenitiveDitransitiveFrame`
 
+genitive ditransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 genitiveObject and exactly 1 subject.
+
+Examples:
+
+- man KLAGTE ihn des diebstahls AN
 
 Instances of this type MAY be present in the crate.
 
@@ -2991,7 +3238,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GenitiveTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GenitiveTransitiveFrame"></a> Class: genitive transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GenitiveTransitiveFrame)</small>
 
+Term: `GenitiveTransitiveFrame`
 
+genitive transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 genitiveObject and exactly 1 subject.
+
+Examples:
+
+- wir GEDENKEN jenes mannes
 
 Instances of this type MAY be present in the crate.
 
@@ -3013,7 +3266,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GerundACFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GerundACFrame"></a> Class: gerund ac frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GerundACFrame)</small>
 
+Term: `GerundACFrame`
 
+gerund ac frame. A kind of GerundFrame. Equivalent to: ArbitraryControl and GerundFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -3034,6 +3289,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="GerundFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GerundFrame"></a> Class: gerund frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GerundFrame)</small>
+
+Term: `GerundFrame`
 
 Indicates one of the arguments is a gerund clause
 
@@ -3057,7 +3314,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GerundOCFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GerundOCFrame"></a> Class: gerund oc frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GerundOCFrame)</small>
 
+Term: `GerundOCFrame`
 
+gerund oc frame. A kind of GerundFrame. Equivalent to: GerundFrame and ObjectControl.
 
 Instances of this type MAY be present in the crate.
 
@@ -3079,7 +3338,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="GerundSCFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#GerundSCFrame"></a> Class: gerund sc frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#GerundSCFrame)</small>
 
+Term: `GerundSCFrame`
 
+gerund sc frame. A kind of GerundFrame. Equivalent to: GerundFrame and SubjectControl.
 
 Instances of this type MAY be present in the crate.
 
@@ -3101,7 +3362,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ImpersonalFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalFrame"></a> Class: impersonal frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalFrame)</small>
 
+Term: `ImpersonalFrame`
 
+impersonal frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 subject.
 
 Instances of this type MAY be present in the crate.
 
@@ -3123,7 +3386,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ImpersonalIntransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalIntransitiveFrame"></a> Class: impersonal intransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalIntransitiveFrame)</small>
 
+Term: `ImpersonalIntransitiveFrame`
 
+impersonal intransitive frame. A kind of ImpersonalFrame. Equivalent to: ImpersonalFrame and exactly 0 object.
 
 Instances of this type MAY be present in the crate.
 
@@ -3145,7 +3410,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ImpersonalIntransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalIntransitivePPFrame"></a> Class: impersonal intransitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalIntransitivePPFrame)</small>
 
+Term: `ImpersonalIntransitivePPFrame`
 
+impersonal intransitive pp frame. A kind of PrepositionalFrame. Equivalent to: ImpersonalIntransitiveFrame and PrepositionalFrame.
+
+Examples:
+
+- it REEKS OF tar
 
 Instances of this type MAY be present in the crate.
 
@@ -3167,7 +3438,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ImpersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalPronoun"></a> Class: impersonal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalPronoun)</small>
 
+Term: `ImpersonalPronoun`
 
+impersonal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = impersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -3212,7 +3485,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ImpersonalTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalTransitiveFrame"></a> Class: impersonal transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ImpersonalTransitiveFrame)</small>
 
+Term: `ImpersonalTransitiveFrame`
 
+impersonal transitive frame. A kind of ImpersonalFrame. Equivalent to: ImpersonalFrame and at least 1 directObject.
+
+Examples:
+
+- es JUCKT mich
 
 Instances of this type MAY be present in the crate.
 
@@ -3234,7 +3513,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefiniteArticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteArticle"></a> Class: indefinite article <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteArticle)</small>
 
+Term: `IndefiniteArticle`
 
+indefinite article. A kind of Article. Equivalent to: partOfSpeech = indefiniteArticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -3279,7 +3560,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefiniteCardinalNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteCardinalNumeral"></a> Class: indefinite cardinal numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteCardinalNumeral)</small>
 
+Term: `IndefiniteCardinalNumeral`
 
+indefinite cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteCardinalNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3324,7 +3607,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefiniteDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteDeterminer"></a> Class: indefinite determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteDeterminer)</small>
 
+Term: `IndefiniteDeterminer`
 
+indefinite determiner. A kind of Determiner. Equivalent to: partOfSpeech = indefiniteDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -3369,7 +3654,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefiniteMultiplicativeNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteMultiplicativeNumeral"></a> Class: indefinite multiplicative numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteMultiplicativeNumeral)</small>
 
+Term: `IndefiniteMultiplicativeNumeral`
 
+indefinite multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteMultiplicativeNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3414,7 +3701,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefiniteOrdinalNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteOrdinalNumeral"></a> Class: indefinite ordinal numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefiniteOrdinalNumeral)</small>
 
+Term: `IndefiniteOrdinalNumeral`
 
+indefinite ordinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = indefiniteOrdinalNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3459,7 +3748,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IndefinitePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IndefinitePronoun"></a> Class: indefinite pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IndefinitePronoun)</small>
 
+Term: `IndefinitePronoun`
 
+indefinite pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = indefinitePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -3504,6 +3795,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InfinitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame"></a> Class: infinitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveFrame)</small>
 
+Term: `InfinitiveFrame`
+
 Infinitive frames take an infinitive clause as an argument
 
 Instances of this type MAY be present in the crate.
@@ -3526,7 +3819,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InfinitiveParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveParticle"></a> Class: infinitive particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InfinitiveParticle)</small>
 
+Term: `InfinitiveParticle`
 
+infinitive particle. A kind of Particle. Equivalent to: partOfSpeech = infinitiveParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -3571,7 +3866,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Infix" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Infix"></a> Class: infix <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Infix)</small>
 
+Term: `Infix`
 
+infix. A kind of Affix.
 
 Instances of this type MAY be present in the crate.
 
@@ -3616,7 +3913,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Interjection" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Interjection"></a> Class: interjection <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Interjection)</small>
 
+Term: `Interjection`
 
+interjection. A kind of Word. Equivalent to: partOfSpeech = interjection.
 
 Instances of this type MAY be present in the crate.
 
@@ -3661,7 +3960,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeCardinalNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeCardinalNumeral"></a> Class: interrogative cardinal numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeCardinalNumeral)</small>
 
+Term: `InterrogativeCardinalNumeral`
 
+interrogative cardinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeCardinalNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3706,7 +4007,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeDeterminer"></a> Class: interrogative determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeDeterminer)</small>
 
+Term: `InterrogativeDeterminer`
 
+interrogative determiner. A kind of Determiner. Equivalent to: partOfSpeech = interrogativeDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -3751,6 +4054,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeFrame"></a> Class: interrogative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeFrame)</small>
 
+Term: `InterrogativeFrame`
+
 Indicates the frame has a subframe indicated with the appropriate interrogative (e.g., &quot;who&quot;, &quot;where&quot;, &quot;how&quot;)
 
 Instances of this type MAY be present in the crate.
@@ -3772,6 +4077,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="InterrogativeInfinitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeInfinitiveFrame"></a> Class: interrogative infinitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeInfinitiveFrame)</small>
+
+Term: `InterrogativeInfinitiveFrame`
 
 Indicates the frame has an argument that is a clause with both an interrogative and the clause is in the infinitive form
 
@@ -3795,7 +4102,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeMultiplicativeNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeMultiplicativeNumeral"></a> Class: interrogative multiplicative numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeMultiplicativeNumeral)</small>
 
+Term: `InterrogativeMultiplicativeNumeral`
 
+interrogative multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeMultiplicativeNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3840,7 +4149,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeOrdinalNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeOrdinalNumeral"></a> Class: interrogative ordinal numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeOrdinalNumeral)</small>
 
+Term: `InterrogativeOrdinalNumeral`
 
+interrogative ordinal numeral. A kind of Numeral. Equivalent to: partOfSpeech = interrogativeOrdinalNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -3885,7 +4196,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeParticle"></a> Class: interrogative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeParticle)</small>
 
+Term: `InterrogativeParticle`
 
+interrogative particle. A kind of Particle. Equivalent to: partOfSpeech = interrogativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -3930,7 +4243,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativePronoun"></a> Class: interrogative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativePronoun)</small>
 
+Term: `InterrogativePronoun`
 
+interrogative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = interrogativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -3975,7 +4290,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InterrogativeRelativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeRelativePronoun"></a> Class: interrogative relative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InterrogativeRelativePronoun)</small>
 
+Term: `InterrogativeRelativePronoun`
 
+interrogative relative pronoun. A kind of Word. Equivalent to: partOfSpeech = interrogativeRelativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -4020,7 +4337,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveAdjectivalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveAdjectivalComplementFrame"></a> Class: intransitive adjectival complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveAdjectivalComplementFrame)</small>
 
+Term: `IntransitiveAdjectivalComplementFrame`
 
+intransitive adjectival complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeAdjective.
+
+Examples:
+
+- his reputation SANK low
 
 Instances of this type MAY be present in the crate.
 
@@ -4042,7 +4365,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveAdverbialComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveAdverbialComplementFrame"></a> Class: intransitive adverbial complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveAdverbialComplementFrame)</small>
 
+Term: `IntransitiveAdverbialComplementFrame`
 
+intransitive adverbial complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeAdverb.
+
+Examples:
+
+- he SEEMED well
 
 Instances of this type MAY be present in the crate.
 
@@ -4064,7 +4393,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveDeclarativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveDeclarativeFrame"></a> Class: intransitive declarative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveDeclarativeFrame)</small>
 
+Term: `IntransitiveDeclarativeFrame`
 
+intransitive declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and IntransitiveFrame.
+
+Examples:
+
+- i KNOW [that is a bad idea]
 
 Instances of this type MAY be present in the crate.
 
@@ -4086,7 +4421,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame"></a> Class: intransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveFrame)</small>
 
+Term: `IntransitiveFrame`
 
+intransitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 directObject and exactly 1 subject.
+
+Examples:
+
+- he LEFT
 
 Instances of this type MAY be present in the crate.
 
@@ -4108,7 +4449,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveInfinitiveACFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveACFrame"></a> Class: intransitive infinitive ac frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveACFrame)</small>
 
+Term: `IntransitiveInfinitiveACFrame`
 
+intransitive infinitive ac frame. A kind of InfinitiveFrame. Equivalent to: ArbitraryControl and InfinitiveFrame and IntransitiveFrame.
+
+Examples:
+
+- I HELPED [to save the child]
 
 Instances of this type MAY be present in the crate.
 
@@ -4130,7 +4477,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveInfinitiveRSFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveRSFrame"></a> Class: intransitive infinitive rs frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveRSFrame)</small>
 
+Term: `IntransitiveInfinitiveRSFrame`
 
+intransitive infinitive rs frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and IntransitiveFrame and RaisingSubject.
+
+Examples:
+
+- he SEEMED [to be happy]
 
 Instances of this type MAY be present in the crate.
 
@@ -4152,7 +4505,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveInfinitiveSCFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveSCFrame"></a> Class: intransitive infinitive sc frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInfinitiveSCFrame)</small>
 
+Term: `IntransitiveInfinitiveSCFrame`
 
+intransitive infinitive sc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and IntransitiveFrame and SubjectControl.
+
+Examples:
+
+- I WANTED [to come]
 
 Instances of this type MAY be present in the crate.
 
@@ -4174,7 +4533,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveInterrogativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInterrogativeFrame"></a> Class: intransitive interrogative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInterrogativeFrame)</small>
 
+Term: `IntransitiveInterrogativeFrame`
 
+intransitive interrogative frame. A kind of InterrogativeFrame. Equivalent to: InterrogativeFrame and IntransitiveFrame.
+
+Examples:
+
+- he ASKED [what he should do]
 
 Instances of this type MAY be present in the crate.
 
@@ -4196,7 +4561,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveInterrogativeInfinitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInterrogativeInfinitiveFrame"></a> Class: intransitive interrogative infinitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveInterrogativeInfinitiveFrame)</small>
 
+Term: `IntransitiveInterrogativeInfinitiveFrame`
 
+intransitive interrogative infinitive frame. A kind of InterrogativeInfinitiveFrame. Equivalent to: InterrogativeInfinitiveFrame and IntransitiveFrame.
+
+Examples:
+
+- he ASKED [what to do]
 
 Instances of this type MAY be present in the crate.
 
@@ -4218,7 +4589,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveNominalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveNominalComplementFrame"></a> Class: intransitive nominal complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveNominalComplementFrame)</small>
 
+Term: `IntransitiveNominalComplementFrame`
 
+intransitive nominal complement frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and at least 1 predicativeNominative.
+
+Examples:
+
+- he SEEMED a fool
 
 Instances of this type MAY be present in the crate.
 
@@ -4240,7 +4617,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitivePPDeclarativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitivePPDeclarativeFrame"></a> Class: intransitive pp declarative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitivePPDeclarativeFrame)</small>
 
+Term: `IntransitivePPDeclarativeFrame`
 
+intransitive pp declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and IntransitivePPFrame.
+
+Examples:
+
+- the SUGGESTED to him [that he should go]
 
 Instances of this type MAY be present in the crate.
 
@@ -4262,7 +4645,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitivePPFrame"></a> Class: intransitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitivePPFrame)</small>
 
+Term: `IntransitivePPFrame`
 
+intransitive pp frame. A kind of IntransitiveFrame. Equivalent to: IntransitiveFrame and PPFrame.
+
+Examples:
+
+- he TOOK CARE OF her
 
 Instances of this type MAY be present in the crate.
 
@@ -4284,7 +4673,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IntransitiveSententialFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveSententialFrame"></a> Class: intransitive sentential frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IntransitiveSententialFrame)</small>
 
+Term: `IntransitiveSententialFrame`
 
+intransitive sentential frame. A kind of SententialFrame. Equivalent to: IntransitiveFrame and SententialFrame.
+
+Examples:
+
+- they THOUGHT he was always late
 
 Instances of this type MAY be present in the crate.
 
@@ -4306,7 +4701,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InvertedComma" title="http://www.lexinfo.net/ontology/3.0/lexinfo#InvertedComma"></a> Class: inverted comma <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#InvertedComma)</small>
 
+Term: `InvertedComma`
 
+inverted comma. A kind of Symbol. Equivalent to: partOfSpeech = invertedComma.
 
 Instances of this type MAY be present in the crate.
 
@@ -4351,7 +4748,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="IrreflexivePersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#IrreflexivePersonalPronoun"></a> Class: irreflexive personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#IrreflexivePersonalPronoun)</small>
 
+Term: `IrreflexivePersonalPronoun`
 
+irreflexive personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = irreflexivePersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -4396,7 +4795,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Letter" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Letter"></a> Class: letter <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Letter)</small>
 
+Term: `Letter`
 
+letter. A kind of Symbol. Equivalent to: partOfSpeech = letter.
 
 Instances of this type MAY be present in the crate.
 
@@ -4441,7 +4842,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="LightVerb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#LightVerb"></a> Class: light verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#LightVerb)</small>
 
+Term: `LightVerb`
 
+light verb. A kind of Verb. Equivalent to: partOfSpeech = lightVerb.
 
 Instances of this type MAY be present in the crate.
 
@@ -4486,7 +4889,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MainVerb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#MainVerb"></a> Class: main verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#MainVerb)</small>
 
+Term: `MainVerb`
 
+main verb. A kind of Verb. Equivalent to: partOfSpeech = mainVerb.
 
 Instances of this type MAY be present in the crate.
 
@@ -4531,7 +4936,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Modal" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Modal"></a> Class: modal <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Modal)</small>
 
+Term: `Modal`
 
+modal. A kind of Verb. Equivalent to: partOfSpeech = modal.
 
 Instances of this type MAY be present in the crate.
 
@@ -4576,7 +4983,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ModificationType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType"></a> Class: modification type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ModificationType)</small>
 
+Term: `ModificationType`
 
+modification type
 
 Instances of this type MAY be present in the crate.
 
@@ -4592,7 +5001,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Mood" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Mood"></a> Class: mood <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Mood)</small>
 
+Term: `Mood`
 
+mood
 
 Instances of this type MAY be present in the crate.
 
@@ -4608,7 +5019,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MultiplicativeNumeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#MultiplicativeNumeral"></a> Class: multiplicative numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#MultiplicativeNumeral)</small>
 
+Term: `MultiplicativeNumeral`
 
+multiplicative numeral. A kind of Numeral. Equivalent to: partOfSpeech = multiplicativeNumeral.
 
 Instances of this type MAY be present in the crate.
 
@@ -4653,7 +5066,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Negative" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Negative"></a> Class: negative <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Negative)</small>
 
+Term: `Negative`
 
+negative
 
 Instances of this type MAY be present in the crate.
 
@@ -4669,7 +5084,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NegativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NegativeParticle"></a> Class: negative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NegativeParticle)</small>
 
+Term: `NegativeParticle`
 
+negative particle. A kind of Particle. Equivalent to: partOfSpeech = negativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -4714,7 +5131,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NegativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NegativePronoun"></a> Class: negative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NegativePronoun)</small>
 
+Term: `NegativePronoun`
 
+negative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = negativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -4759,7 +5178,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NominalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NominalComplementFrame"></a> Class: nominal complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NominalComplementFrame)</small>
 
+Term: `NominalComplementFrame`
 
+nominal complement frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 predicativeNominative.
 
 Instances of this type MAY be present in the crate.
 
@@ -4781,7 +5202,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NormativeAuthorization" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization"></a> Class: normative authorization <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NormativeAuthorization)</small>
 
+Term: `NormativeAuthorization`
 
+normative authorization
 
 Instances of this type MAY be present in the crate.
 
@@ -4797,7 +5220,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Noun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Noun"></a> Class: noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Noun)</small>
 
+Term: `Noun`
 
+noun. A kind of Word. Equivalent to: partOfSpeech some NounPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -4842,7 +5267,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounFrame"></a> Class: noun frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounFrame)</small>
 
+Term: `NounFrame`
 
+noun frame. A kind of SyntacticFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -4864,7 +5291,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounPOS"></a> Class: noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounPOS)</small>
 
+Term: `NounPOS`
 
+noun. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -4880,7 +5309,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounPPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounPPFrame"></a> Class: noun pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounPPFrame)</small>
 
+Term: `NounPPFrame`
 
+noun pp frame. A kind of NounFrame. Equivalent to: NounPredicateFrame and PrepositionalFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -4902,7 +5333,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounPhrase" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounPhrase"></a> Class: noun phrase <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounPhrase)</small>
 
+Term: `NounPhrase`
 
+noun phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Noun.
 
 Instances of this type MAY be present in the crate.
 
@@ -4947,7 +5380,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounPossessiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounPossessiveFrame"></a> Class: noun possessive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounPossessiveFrame)</small>
 
+Term: `NounPossessiveFrame`
 
+noun possessive frame. A kind of NounFrame. Equivalent to: NounFrame and at least 1 copulativeArg and at least 1 possessiveAdjunct of type PossessiveAdjunct.
+
+Examples:
+
+- the CAPITAL OF france is paris
 
 Instances of this type MAY be present in the crate.
 
@@ -4969,7 +5408,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NounPredicateFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NounPredicateFrame"></a> Class: noun predicate frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NounPredicateFrame)</small>
 
+Term: `NounPredicateFrame`
 
+noun predicate frame. A kind of NounFrame. Equivalent to: NounFrame and at least 1 copulativeArg.
+
+Examples:
+
+- he is a MAN
 
 Instances of this type MAY be present in the crate.
 
@@ -4991,7 +5436,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Number" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Number"></a> Class: number <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Number)</small>
 
+Term: `Number`
 
+number
 
 Instances of this type MAY be present in the crate.
 
@@ -5007,7 +5454,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Numeral" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral"></a> Class: numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Numeral)</small>
 
+Term: `Numeral`
 
+numeral. A kind of Word. Equivalent to: partOfSpeech some NumeralPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -5052,7 +5501,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NumeralFraction" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NumeralFraction"></a> Class: numeral fraction <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NumeralFraction)</small>
 
+Term: `NumeralFraction`
 
+numeral fraction. A kind of Numeral. Equivalent to: partOfSpeech = numeralFraction.
 
 Instances of this type MAY be present in the crate.
 
@@ -5097,7 +5548,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="NumeralPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#NumeralPOS"></a> Class: numeral <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#NumeralPOS)</small>
 
+Term: `NumeralPOS`
 
+numeral. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -5112,6 +5565,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ObjectControl" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ObjectControl"></a> Class: object control <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ObjectControl)</small>
+
+Term: `ObjectControl`
 
 Indicates the object of the main clause is also the (omitted) object of the subclause
 
@@ -5135,7 +5590,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OpenParenthesis" title="http://www.lexinfo.net/ontology/3.0/lexinfo#OpenParenthesis"></a> Class: open parenthesis <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#OpenParenthesis)</small>
 
+Term: `OpenParenthesis`
 
+open parenthesis. A kind of Symbol. Equivalent to: partOfSpeech = openParenthesis.
 
 Instances of this type MAY be present in the crate.
 
@@ -5180,7 +5637,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OrdinalAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#OrdinalAdjective"></a> Class: ordinal adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#OrdinalAdjective)</small>
 
+Term: `OrdinalAdjective`
 
+ordinal adjective. A kind of Adjective. Equivalent to: partOfSpeech = ordinalAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -5225,7 +5684,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PPFrame"></a> Class: pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PPFrame)</small>
 
+Term: `PPFrame`
 
+pp frame. A kind of VerbFrame. Equivalent to: PrepositionalFrame and VerbFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -5247,7 +5708,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PartOfSpeech" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech"></a> Class: part of speech <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PartOfSpeech)</small>
 
+Term: `PartOfSpeech`
 
+part of speech
 
 Instances of this type MAY be present in the crate.
 
@@ -5263,7 +5726,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ParticipleAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ParticipleAdjective"></a> Class: participle adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ParticipleAdjective)</small>
 
+Term: `ParticipleAdjective`
 
+participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = participleAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -5308,7 +5773,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Particle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Particle"></a> Class: particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Particle)</small>
 
+Term: `Particle`
 
+particle. A kind of Word. Equivalent to: partOfSpeech some ParticlePOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -5353,7 +5820,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ParticlePOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ParticlePOS"></a> Class: particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ParticlePOS)</small>
 
+Term: `ParticlePOS`
 
+particle. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -5369,7 +5838,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PartitiveArticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PartitiveArticle"></a> Class: partitive article <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PartitiveArticle)</small>
 
+Term: `PartitiveArticle`
 
+partitive article. A kind of Article. Equivalent to: partOfSpeech = partitiveArticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -5414,7 +5885,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PastParticipleAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PastParticipleAdjective"></a> Class: past participle adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PastParticipleAdjective)</small>
 
+Term: `PastParticipleAdjective`
 
+past participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = pastParticipleAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -5459,7 +5932,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Person" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Person"></a> Class: person <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Person)</small>
 
+Term: `Person`
 
+person
 
 Instances of this type MAY be present in the crate.
 
@@ -5475,7 +5950,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PersonalPronoun"></a> Class: personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PersonalPronoun)</small>
 
+Term: `PersonalPronoun`
 
+personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = personalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -5520,7 +5997,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PlainVerb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PlainVerb"></a> Class: plain verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PlainVerb)</small>
 
+Term: `PlainVerb`
 
+plain verb. A kind of Verb. Equivalent to: partOfSpeech = plainVerb.
 
 Instances of this type MAY be present in the crate.
 
@@ -5565,7 +6044,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Point" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Point"></a> Class: point <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Point)</small>
 
+Term: `Point`
 
+point. A kind of Symbol. Equivalent to: partOfSpeech = point.
 
 Instances of this type MAY be present in the crate.
 
@@ -5610,7 +6091,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PossessiveAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveAdjective"></a> Class: possessive adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveAdjective)</small>
 
+Term: `PossessiveAdjective`
 
+possessive adjective. A kind of Adjective. Equivalent to: partOfSpeech = possessiveAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -5655,7 +6138,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PossessiveDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveDeterminer"></a> Class: possessive determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveDeterminer)</small>
 
+Term: `PossessiveDeterminer`
 
+possessive determiner. A kind of Determiner. Equivalent to: partOfSpeech = possessiveDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -5700,7 +6185,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PossessiveParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveParticle"></a> Class: possessive particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveParticle)</small>
 
+Term: `PossessiveParticle`
 
+possessive particle. A kind of Particle. Equivalent to: partOfSpeech = possessiveParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -5745,7 +6232,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PossessivePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PossessivePronoun"></a> Class: possessive pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PossessivePronoun)</small>
 
+Term: `PossessivePronoun`
 
+possessive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = possessivePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -5790,7 +6279,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PossessiveRelativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveRelativePronoun"></a> Class: possessive relative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PossessiveRelativePronoun)</small>
 
+Term: `PossessiveRelativePronoun`
 
+possessive relative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = possessiveRelativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -5835,7 +6326,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Postposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Postposition"></a> Class: postposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Postposition)</small>
 
+Term: `Postposition`
 
+postposition. A kind of Adposition. Equivalent to: partOfSpeech = postposition.
 
 Instances of this type MAY be present in the crate.
 
@@ -5880,7 +6373,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Prefix" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Prefix"></a> Class: prefix <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Prefix)</small>
 
+Term: `Prefix`
 
+prefix. A kind of Affix.
 
 Instances of this type MAY be present in the crate.
 
@@ -5925,7 +6420,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Preposition" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Preposition"></a> Class: preposition <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Preposition)</small>
 
+Term: `Preposition`
 
+preposition. A kind of Adposition. Equivalent to: partOfSpeech = preposition.
 
 Instances of this type MAY be present in the crate.
 
@@ -5970,7 +6467,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionFrame"></a> Class: preposition frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionFrame)</small>
 
+Term: `PrepositionFrame`
 
+preposition frame. A kind of SyntacticFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -5992,7 +6491,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionPhrase" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionPhrase"></a> Class: preposition phrase <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionPhrase)</small>
 
+Term: `PrepositionPhrase`
 
+preposition phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Preposition.
 
 Instances of this type MAY be present in the crate.
 
@@ -6037,7 +6538,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionalAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalAdverb"></a> Class: prepositional adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalAdverb)</small>
 
+Term: `PrepositionalAdverb`
 
+prepositional adverb. A kind of Adverb. Equivalent to: partOfSpeech = prepositionalAdverb.
 
 Instances of this type MAY be present in the crate.
 
@@ -6082,6 +6585,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionalFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalFrame"></a> Class: prepositional frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalFrame)</small>
 
+Term: `PrepositionalFrame`
+
 Abstract frame for words that take a prepositional phrase as an argument
 
 Instances of this type MAY be present in the crate.
@@ -6104,7 +6609,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionalInterrogativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalInterrogativeFrame"></a> Class: prepositional interrogative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalInterrogativeFrame)</small>
 
+Term: `PrepositionalInterrogativeFrame`
 
+prepositional interrogative frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 1 prepositionalInterrogativeClause.
 
 Instances of this type MAY be present in the crate.
 
@@ -6126,7 +6633,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PrepositionalPhraseFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalPhraseFrame"></a> Class: prepositional phrase frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PrepositionalPhraseFrame)</small>
 
+Term: `PrepositionalPhraseFrame`
 
+prepositional phrase frame. A kind of PrepositionFrame. Equivalent to: PrepositionFrame and at least 1 complement of type PrepositionalAdjunct and at least 1 copulativeSubject.
+
+Examples:
+
+- he is IN london
 
 Instances of this type MAY be present in the crate.
 
@@ -6148,7 +6661,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PresentParticipleAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PresentParticipleAdjective"></a> Class: present participle adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PresentParticipleAdjective)</small>
 
+Term: `PresentParticipleAdjective`
 
+present participle adjective. A kind of Adjective. Equivalent to: partOfSpeech = presentParticipleAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -6193,7 +6708,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PresentativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PresentativePronoun"></a> Class: presentative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PresentativePronoun)</small>
 
+Term: `PresentativePronoun`
 
+presentative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = presentativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6238,7 +6755,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PronominalAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PronominalAdverb"></a> Class: pronominal adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PronominalAdverb)</small>
 
+Term: `PronominalAdverb`
 
+pronominal adverb. A kind of Adverb. Equivalent to: partOfSpeech = pronominalAdverb.
 
 Instances of this type MAY be present in the crate.
 
@@ -6283,7 +6802,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Pronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun"></a> Class: pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Pronoun)</small>
 
+Term: `Pronoun`
 
+pronoun. A kind of Word. Equivalent to: partOfSpeech some PronounPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -6328,7 +6849,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="PronounPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#PronounPOS"></a> Class: pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#PronounPOS)</small>
 
+Term: `PronounPOS`
 
+pronoun. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -6344,7 +6867,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ProperNoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ProperNoun"></a> Class: proper noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ProperNoun)</small>
 
+Term: `ProperNoun`
 
+proper noun. A kind of Noun. Equivalent to: partOfSpeech = properNoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6389,7 +6914,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Punctuation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Punctuation"></a> Class: punctuation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Punctuation)</small>
 
+Term: `Punctuation`
 
+punctuation. A kind of Symbol. Equivalent to: partOfSpeech = punctuation.
 
 Instances of this type MAY be present in the crate.
 
@@ -6434,7 +6961,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="QualifierAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#QualifierAdjective"></a> Class: qualifier adjective <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#QualifierAdjective)</small>
 
+Term: `QualifierAdjective`
 
+qualifier adjective. A kind of Adjective. Equivalent to: partOfSpeech = qualifierAdjective.
 
 Instances of this type MAY be present in the crate.
 
@@ -6479,7 +7008,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="QuestionMark" title="http://www.lexinfo.net/ontology/3.0/lexinfo#QuestionMark"></a> Class: question mark <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#QuestionMark)</small>
 
+Term: `QuestionMark`
 
+question mark. A kind of Symbol. Equivalent to: partOfSpeech = questionMark.
 
 Instances of this type MAY be present in the crate.
 
@@ -6524,7 +7055,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RaisableArgument" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RaisableArgument"></a> Class: RaisableArgument <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RaisableArgument)</small>
 
-
+RaisableArgument. A kind of SyntacticArgument.
 
 Instances of this type MAY be present in the crate.
 
@@ -6547,7 +7078,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RaisableSubject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RaisableSubject"></a> Class: RaisableSubject <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RaisableSubject)</small>
 
-
+RaisableSubject. Equivalent to: RaisableArgument and Subject.
 
 Instances of this type MAY be present in the crate.
 
@@ -6562,6 +7093,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RaisingSubject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RaisingSubject"></a> Class: raising subject <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RaisingSubject)</small>
+
+Term: `RaisingSubject`
 
 Indicates the syntactic subject of the main clause is in fact the subject of the subclause. The main clause should then be interpreted as being impersonal.
 
@@ -6585,7 +7118,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReciprocalFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReciprocalFrame"></a> Class: reciprocal frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReciprocalFrame)</small>
 
+Term: `ReciprocalFrame`
 
+reciprocal frame. A kind of VerbFrame. Equivalent to: VerbFrame and at least 2 subject.
+
+Examples:
+
+- mary and john MET
 
 Instances of this type MAY be present in the crate.
 
@@ -6607,7 +7146,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReciprocalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReciprocalPronoun"></a> Class: reciprocal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReciprocalPronoun)</small>
 
+Term: `ReciprocalPronoun`
 
+reciprocal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reciprocalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6652,7 +7193,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReferentType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType"></a> Class: referent type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReferentType)</small>
 
+Term: `ReferentType`
 
+referent type
 
 Instances of this type MAY be present in the crate.
 
@@ -6668,7 +7211,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveDativeTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDativeTransitiveFrame"></a> Class: reflexive dative transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDativeTransitiveFrame)</small>
 
+Term: `ReflexiveDativeTransitiveFrame`
 
+reflexive dative transitive frame. A kind of ReflexiveFrame. Equivalent to: DativeTransitiveFrame and ReflexiveFrame.
+
+Examples:
+
+- ich TUE mir WEH
 
 Instances of this type MAY be present in the crate.
 
@@ -6690,7 +7239,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDeterminer"></a> Class: reflexive determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDeterminer)</small>
 
+Term: `ReflexiveDeterminer`
 
+reflexive determiner. A kind of Determiner. Equivalent to: partOfSpeech = reflexiveDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -6735,7 +7286,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveDitransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDitransitiveFrame"></a> Class: reflexive ditransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveDitransitiveFrame)</small>
 
+Term: `ReflexiveDitransitiveFrame`
 
+reflexive ditransitive frame. A kind of ReflexiveFrame. Equivalent to: DitransitiveFrame and ReflexiveFrame and directObject some ReflexiveObject.
+
+Examples:
+
+- das habe ich mir EINGEBILDET
 
 Instances of this type MAY be present in the crate.
 
@@ -6757,7 +7314,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame"></a> Class: reflexive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveFrame)</small>
 
+Term: `ReflexiveFrame`
 
+reflexive frame. A kind of VerbFrame. Equivalent to: VerbFrame and object some ReflexiveObject.
 
 Instances of this type MAY be present in the crate.
 
@@ -6779,7 +7338,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexivePersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexivePersonalPronoun"></a> Class: reflexive personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexivePersonalPronoun)</small>
 
+Term: `ReflexivePersonalPronoun`
 
+reflexive personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reflexivePersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6824,7 +7385,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexivePossessivePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexivePossessivePronoun"></a> Class: reflexive possessive pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexivePossessivePronoun)</small>
 
+Term: `ReflexivePossessivePronoun`
 
+reflexive possessive pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = reflexivePossessivePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6869,7 +7432,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveReciprocalFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveReciprocalFrame"></a> Class: reflexive reciprocal frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveReciprocalFrame)</small>
 
+Term: `ReflexiveReciprocalFrame`
 
+reflexive reciprocal frame. A kind of ReflexiveFrame. Equivalent to: ReciprocalFrame and ReflexiveFrame.
+
+Examples:
+
+- hans und marie TREFFEN sich
 
 Instances of this type MAY be present in the crate.
 
@@ -6891,7 +7460,14 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveTransitiveFrame"></a> Class: reflexive transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveTransitiveFrame)</small>
 
+Term: `ReflexiveTransitiveFrame`
 
+reflexive transitive frame. A kind of ReflexiveFrame. Equivalent to: ReflexiveFrame and TransitiveFrame.
+
+Examples:
+
+- elle se COUCHE
+- er ERHOLT sich
 
 Instances of this type MAY be present in the crate.
 
@@ -6913,7 +7489,14 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ReflexiveTransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveTransitivePPFrame"></a> Class: reflexive transitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ReflexiveTransitivePPFrame)</small>
 
+Term: `ReflexiveTransitivePPFrame`
 
+reflexive transitive pp frame. A kind of ReflexiveFrame. Equivalent to: ReflexiveFrame and TransitivePPFrame.
+
+Examples:
+
+- elle se APPROCHE DE la gare
+- ich ERRINERE mich AN seinen vater
 
 Instances of this type MAY be present in the crate.
 
@@ -6935,7 +7518,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Register" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Register"></a> Class: register <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Register)</small>
 
+Term: `Register`
 
+register
 
 Instances of this type MAY be present in the crate.
 
@@ -6951,7 +7536,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RelationNoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RelationNoun"></a> Class: relation noun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RelationNoun)</small>
 
+Term: `RelationNoun`
 
+relation noun. A kind of Noun. Equivalent to: partOfSpeech = relationNoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -6996,7 +7583,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RelativeDeterminer" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RelativeDeterminer"></a> Class: relative determiner <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RelativeDeterminer)</small>
 
+Term: `RelativeDeterminer`
 
+relative determiner. A kind of Determiner. Equivalent to: partOfSpeech = relativeDeterminer.
 
 Instances of this type MAY be present in the crate.
 
@@ -7041,7 +7630,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RelativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RelativeParticle"></a> Class: relative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RelativeParticle)</small>
 
+Term: `RelativeParticle`
 
+relative particle. A kind of Particle. Equivalent to: partOfSpeech = relativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -7086,7 +7677,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="RelativePronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RelativePronoun"></a> Class: relative pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RelativePronoun)</small>
 
+Term: `RelativePronoun`
 
+relative pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = relativePronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -7130,6 +7723,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="RootMorph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#RootMorph"></a> Class: morphological root <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#RootMorph)</small>
+
+Term: `RootMorph`
 
 A root is the portion of a word that (a) is common to a set of derived or inflected forms, (b) is not further analyzable into meaningful elements, and (c) carries the principle portion of meaning of the words in which it functions (as defined by the SIL Glossary of Linguistic Terms, https://glossary.sil.org/term/root).
 
@@ -7176,7 +7771,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SemiColon" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SemiColon"></a> Class: semi colon <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SemiColon)</small>
 
+Term: `SemiColon`
 
+semi colon. A kind of Symbol. Equivalent to: partOfSpeech = semiColon.
 
 Instances of this type MAY be present in the crate.
 
@@ -7221,6 +7818,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SententialFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SententialFrame"></a> Class: sentential frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SententialFrame)</small>
 
+Term: `SententialFrame`
+
 Sentential frames take a clause as argument, no conjunction is used and the syntax of the clause is the same as a main clause
 
 Instances of this type MAY be present in the crate.
@@ -7242,6 +7841,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="SimulfixMorph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SimulfixMorph"></a> Class: simulfix <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SimulfixMorph)</small>
+
+Term: `SimulfixMorph`
 
 A simulfix is a change or replacement of vowels or consonants (usually vowels) which changes the meaning of a word (as defined by the SIL Glossary of Linguistic Terms, https://glossary.sil.org/term/simulfix). Examples include umlaut in Germanic languages, e.g., in the formation of the English plural feet from the singular foot.
 
@@ -7288,7 +7889,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Slash" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Slash"></a> Class: slash <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Slash)</small>
 
+Term: `Slash`
 
+slash. A kind of Symbol. Equivalent to: partOfSpeech = slash.
 
 Instances of this type MAY be present in the crate.
 
@@ -7332,6 +7935,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="StemMorph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#StemMorph"></a> Class: morphological stem <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#StemMorph)</small>
+
+Term: `StemMorph`
 
 A stem is the root or roots of a word, together with any derivational affixes, to which inflectional affixes are added (as defined by the SIL Glossary of Linguistic Terms, https://glossary.sil.org/term/stem). A stem consists minimally of a root, but may be analyzable into a root plus derivational morphemes.
 
@@ -7378,7 +7983,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="StrongPersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#StrongPersonalPronoun"></a> Class: strong personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#StrongPersonalPronoun)</small>
 
+Term: `StrongPersonalPronoun`
 
+strong personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = strongPersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -7423,6 +8030,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectControl" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectControl"></a> Class: subject control <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectControl)</small>
 
+Term: `SubjectControl`
+
 Indicates the subject of the main clause is the (omitted) subject of the subclause
 
 Instances of this type MAY be present in the crate.
@@ -7445,7 +8054,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectlessFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessFrame"></a> Class: subjectless frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessFrame)</small>
 
+Term: `SubjectlessFrame`
 
+subjectless frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 0 subject.
 
 Instances of this type MAY be present in the crate.
 
@@ -7467,7 +8078,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectlessIntransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessIntransitiveFrame"></a> Class: subjectless intransitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessIntransitiveFrame)</small>
 
+Term: `SubjectlessIntransitiveFrame`
 
+subjectless intransitive frame. A kind of SubjectlessFrame. Equivalent to: SubjectlessFrame and exactly 1 indirectObject.
+
+Examples:
+
+- mir SCHWINDELT
 
 Instances of this type MAY be present in the crate.
 
@@ -7489,7 +8106,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectlessIntransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessIntransitivePPFrame"></a> Class: subjectless intransitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessIntransitivePPFrame)</small>
 
+Term: `SubjectlessIntransitivePPFrame`
 
+subjectless intransitive pp frame. A kind of SubjectlessIntransitiveFrame. Equivalent to: PPFrame and SubjectlessIntransitiveFrame.
+
+Examples:
+
+- mir TRÄUMT VON jener zeit
 
 Instances of this type MAY be present in the crate.
 
@@ -7511,7 +8134,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectlessTransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessTransitiveFrame"></a> Class: subjectless transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessTransitiveFrame)</small>
 
+Term: `SubjectlessTransitiveFrame`
 
+subjectless transitive frame. A kind of SubjectlessFrame. Equivalent to: SubjectlessFrame and exactly 1 directObject.
+
+Examples:
+
+- mich FRIERT
 
 Instances of this type MAY be present in the crate.
 
@@ -7533,7 +8162,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubjectlessTransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessTransitivePPFrame"></a> Class: subjectless transitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubjectlessTransitivePPFrame)</small>
 
+Term: `SubjectlessTransitivePPFrame`
 
+subjectless transitive pp frame. A kind of SubjectlessTransitiveFrame. Equivalent to: PPFrame and SubjectlessTransitiveFrame.
+
+Examples:
+
+- mich EKELT VOR fleisch
 
 Instances of this type MAY be present in the crate.
 
@@ -7555,7 +8190,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SubordinatingConjunction" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SubordinatingConjunction"></a> Class: subordinating conjunction <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SubordinatingConjunction)</small>
 
+Term: `SubordinatingConjunction`
 
+subordinating conjunction. A kind of Conjunction. Equivalent to: partOfSpeech = subordinatingConjunction.
 
 Instances of this type MAY be present in the crate.
 
@@ -7600,7 +8237,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Suffix" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Suffix"></a> Class: suffix <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Suffix)</small>
 
+Term: `Suffix`
 
+suffix. A kind of Affix.
 
 Instances of this type MAY be present in the crate.
 
@@ -7645,7 +8284,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SuperlativeParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SuperlativeParticle"></a> Class: superlative particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SuperlativeParticle)</small>
 
+Term: `SuperlativeParticle`
 
+superlative particle. A kind of Particle. Equivalent to: partOfSpeech = superlativeParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -7690,7 +8331,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SuspensionPoints" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SuspensionPoints"></a> Class: suspension points <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SuspensionPoints)</small>
 
+Term: `SuspensionPoints`
 
+suspension points. A kind of Symbol. Equivalent to: partOfSpeech = suspensionPoints.
 
 Instances of this type MAY be present in the crate.
 
@@ -7735,7 +8378,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Symbol" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol"></a> Class: symbol <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Symbol)</small>
 
+Term: `Symbol`
 
+symbol. A kind of Word. Equivalent to: partOfSpeech some SymbolPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -7780,7 +8425,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SymbolPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#SymbolPOS"></a> Class: symbol <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#SymbolPOS)</small>
 
+Term: `SymbolPOS`
 
+symbol
 
 Instances of this type MAY be present in the crate.
 
@@ -7796,7 +8443,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TemporalQualifier" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier"></a> Class: temporal qualifier <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TemporalQualifier)</small>
 
+Term: `TemporalQualifier`
 
+temporal qualifier
 
 Instances of this type MAY be present in the crate.
 
@@ -7812,7 +8461,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Tense" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Tense"></a> Class: tense <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Tense)</small>
 
+Term: `Tense`
 
+tense
 
 Instances of this type MAY be present in the crate.
 
@@ -7828,7 +8479,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TermElement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement"></a> Class: term element <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TermElement)</small>
 
+Term: `TermElement`
 
+term element
 
 Instances of this type MAY be present in the crate.
 
@@ -7844,7 +8497,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TermType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TermType"></a> Class: term type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TermType)</small>
 
+Term: `TermType`
 
+term type
 
 Instances of this type MAY be present in the crate.
 
@@ -7859,6 +8514,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="TransfixMorph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransfixMorph"></a> Class: transfix <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransfixMorph)</small>
+
+Term: `TransfixMorph`
 
 A transfix is a discontinuous affix that disrupts the base to which it is attached. The term is reserved for true single affixes, rather than combinations of an infix with an independent prefix or suffix. (Broselow, E., 2000. Transfixation. In G. Booij, et al. (eds.), Ein internationales Handbuch zur Flexion und Wortbildung. 1. Halbband. Mouton De Gruyter, New York, Berlin, p. 552-557.) Examples include discontinuous affixes inserted into a word root, as in root-and-pattern systems of several Semitic languages, e.g., in the Arabic word kitaba "writing" from the root k-t-b.
 
@@ -7905,7 +8562,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveAdjectivalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveAdjectivalComplementFrame"></a> Class: transitive adjectival complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveAdjectivalComplementFrame)</small>
 
+Term: `TransitiveAdjectivalComplementFrame`
 
+transitive adjectival complement frame. A kind of TransitiveFrame. Equivalent to: AdjectivalComplementFrame and TransitiveFrame.
+
+Examples:
+
+- they PAINTED it red
 
 Instances of this type MAY be present in the crate.
 
@@ -7927,7 +8590,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveAdverbialComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveAdverbialComplementFrame"></a> Class: transitive adverbial complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveAdverbialComplementFrame)</small>
 
+Term: `TransitiveAdverbialComplementFrame`
 
+transitive adverbial complement frame. A kind of TransitiveFrame. Equivalent to: AdverbialComplementFrame and TransitiveFrame.
+
+Examples:
+
+- she PUT the cheese back
 
 Instances of this type MAY be present in the crate.
 
@@ -7949,7 +8618,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveDeclarativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveDeclarativeFrame"></a> Class: transitive declarative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveDeclarativeFrame)</small>
 
+Term: `TransitiveDeclarativeFrame`
 
+transitive declarative frame. A kind of DeclarativeFrame. Equivalent to: DeclarativeFrame and TransitiveFrame.
+
+Examples:
+
+- he CONVINCED her [that she should go]
 
 Instances of this type MAY be present in the crate.
 
@@ -7971,7 +8646,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame"></a> Class: transitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveFrame)</small>
 
+Term: `TransitiveFrame`
 
+transitive frame. A kind of VerbFrame. Equivalent to: VerbFrame and exactly 1 directObject and exactly 1 subject.
+
+Examples:
+
+- the dog BIT the man
 
 Instances of this type MAY be present in the crate.
 
@@ -7993,7 +8674,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveInfinitiveACFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveACFrame"></a> Class: transitive infinitive ac frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveACFrame)</small>
 
+Term: `TransitiveInfinitiveACFrame`
 
+transitive infinitive ac frame. A kind of InfinitiveFrame. Equivalent to: ArbitraryControl and InfinitiveFrame and TransitiveFrame.
+
+Examples:
+
+- they CONVINCED him [to go]
 
 Instances of this type MAY be present in the crate.
 
@@ -8015,7 +8702,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveInfinitiveOCFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveOCFrame"></a> Class: transitive infinitive oc frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveOCFrame)</small>
 
+Term: `TransitiveInfinitiveOCFrame`
 
+transitive infinitive oc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and ObjectControl and TransitiveFrame.
+
+Examples:
+
+- i WANT john [to go]
 
 Instances of this type MAY be present in the crate.
 
@@ -8037,7 +8730,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveInfinitiveSCFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveSCFrame"></a> Class: transitive infinitive sc frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInfinitiveSCFrame)</small>
 
+Term: `TransitiveInfinitiveSCFrame`
 
+transitive infinitive sc frame. A kind of InfinitiveFrame. Equivalent to: InfinitiveFrame and SubjectControl and TransitiveFrame.
+
+Examples:
+
+- john PROMISED mary [to resign]
 
 Instances of this type MAY be present in the crate.
 
@@ -8059,7 +8758,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveInterrogativeFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInterrogativeFrame"></a> Class: transitive interrogative frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInterrogativeFrame)</small>
 
+Term: `TransitiveInterrogativeFrame`
 
+transitive interrogative frame. A kind of InterrogativeFrame. Equivalent to: InterrogativeFrame and TransitiveFrame.
+
+Examples:
+
+- he ASKED her [what he should do]
 
 Instances of this type MAY be present in the crate.
 
@@ -8081,7 +8786,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveInterrogativeInfinitiveFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInterrogativeInfinitiveFrame"></a> Class: transitive interrogative infinitive frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveInterrogativeInfinitiveFrame)</small>
 
+Term: `TransitiveInterrogativeInfinitiveFrame`
 
+transitive interrogative infinitive frame. A kind of InterrogativeInfinitiveFrame.
+
+Examples:
+
+- he ASKED her [what to do]
 
 Instances of this type MAY be present in the crate.
 
@@ -8103,7 +8814,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveNominalComplementFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveNominalComplementFrame"></a> Class: transitive nominal complement frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveNominalComplementFrame)</small>
 
+Term: `TransitiveNominalComplementFrame`
 
+transitive nominal complement frame. A kind of TransitiveFrame. Equivalent to: NominalComplementFrame and TransitiveFrame.
+
+Examples:
+
+- they ELECTED him president
 
 Instances of this type MAY be present in the crate.
 
@@ -8125,7 +8842,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitivePPFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitivePPFrame"></a> Class: transitive pp frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitivePPFrame)</small>
 
+Term: `TransitivePPFrame`
 
+transitive pp frame. A kind of TransitiveFrame. Equivalent to: PPFrame and TransitiveFrame.
+
+Examples:
+
+- she ADDED salt TO the stew
 
 Instances of this type MAY be present in the crate.
 
@@ -8147,7 +8870,13 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="TransitiveSententialFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveSententialFrame"></a> Class: transitive sentential frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#TransitiveSententialFrame)</small>
 
+Term: `TransitiveSententialFrame`
 
+transitive sentential frame. A kind of SententialFrame. Equivalent to: SententialFrame and TransitiveFrame.
+
+Examples:
+
+- he TOLD the audience he was leaving
 
 Instances of this type MAY be present in the crate.
 
@@ -8169,7 +8898,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="UnclassifiedParticle" title="http://www.lexinfo.net/ontology/3.0/lexinfo#UnclassifiedParticle"></a> Class: unclassified particle <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#UnclassifiedParticle)</small>
 
+Term: `UnclassifiedParticle`
 
+unclassified particle. A kind of Particle. Equivalent to: partOfSpeech = unclassifiedParticle.
 
 Instances of this type MAY be present in the crate.
 
@@ -8214,7 +8945,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Verb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Verb"></a> Class: verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Verb)</small>
 
+Term: `Verb`
 
+verb. A kind of Word. Equivalent to: partOfSpeech some VerbPOS.
 
 Instances of this type MAY be present in the crate.
 
@@ -8259,7 +8992,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="VerbFormMood" title="http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood"></a> Class: verb form mood <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFormMood)</small>
 
+Term: `VerbFormMood`
 
+verb form mood
 
 Instances of this type MAY be present in the crate.
 
@@ -8275,7 +9010,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="VerbFrame" title="http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame"></a> Class: verb frame <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#VerbFrame)</small>
 
+Term: `VerbFrame`
 
+verb frame. A kind of SyntacticFrame.
 
 Instances of this type MAY be present in the crate.
 
@@ -8297,7 +9034,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="VerbPOS" title="http://www.lexinfo.net/ontology/3.0/lexinfo#VerbPOS"></a> Class: verb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#VerbPOS)</small>
 
+Term: `VerbPOS`
 
+verb. A kind of PartOfSpeech.
 
 Instances of this type MAY be present in the crate.
 
@@ -8313,7 +9052,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="VerbPhrase" title="http://www.lexinfo.net/ontology/3.0/lexinfo#VerbPhrase"></a> Class: verb phrase <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#VerbPhrase)</small>
 
+Term: `VerbPhrase`
 
+verb phrase. A kind of MultiWordExpression. Equivalent to: MultiWordExpression and head some Verb.
 
 Instances of this type MAY be present in the crate.
 
@@ -8358,7 +9099,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Voice" title="http://www.lexinfo.net/ontology/3.0/lexinfo#Voice"></a> Class: voice <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#Voice)</small>
 
+Term: `Voice`
 
+voice
 
 Instances of this type MAY be present in the crate.
 
@@ -8374,7 +9117,9 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="WeakPersonalPronoun" title="http://www.lexinfo.net/ontology/3.0/lexinfo#WeakPersonalPronoun"></a> Class: weak personal pronoun <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#WeakPersonalPronoun)</small>
 
+Term: `WeakPersonalPronoun`
 
+weak personal pronoun. A kind of Pronoun. Equivalent to: partOfSpeech = weakPersonalPronoun.
 
 Instances of this type MAY be present in the crate.
 
@@ -8418,6 +9163,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="ZeroMorph" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ZeroMorph"></a> Class: zero morph <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ZeroMorph)</small>
+
+Term: `ZeroMorph`
 
 A zero morph is a morph, consisting of no phonetic form, that is proposed in some analyses as an allomorph of a morpheme that is ordinarily realized by a morph having some phonetic form (as defined by the SIL Glossary of Linguistic Terms, https://glossary.sil.org/term/zero-morph). Examples include the English plural sheep along with the singular sheep.
 
@@ -8464,6 +9211,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Affix" title="http://www.w3.org/ns/lemon/ontolex#Affix"></a> Class: affix <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Affix)</small>
 
+Term: `Affix`
+
 An affix is a lexical entry that represents a morpheme (suffix, prefix, infix, circumfix) that is attached to a word stem to form a new word.
 
 Instances of this type MAY be present in the crate.
@@ -8509,6 +9258,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="ConceptSet" title="http://www.w3.org/ns/lemon/ontolex#ConceptSet"></a> Class: concept set <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#ConceptSet)</small>
 
+Term: `ConceptSet`
+
 A concept set represents a collection of lexical concepts.
 
 Instances of this type MAY be present in the crate.
@@ -8525,6 +9276,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="Form" title="http://www.w3.org/ns/lemon/ontolex#Form"></a> Class: form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Form)</small>
 
+Term: `Form`
+
 A form represents one grammatical realization of a lexical entry.
 
 Instances of this type MAY be present in the crate.
@@ -8537,19 +9290,21 @@ Instances of this type MAY be present in the crate.
 
 | Property | Required | Description | Range | Value |
 | -------- | -------- | ----------- | ----- | ----- |
-| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
-| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> | No |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> | No | form case variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> | No | form degree variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> | No | form mood variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> | No | form negative variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> | No | form number variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> | No | form person variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
+| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> | No | form tense variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |  |
 | <a href="#phoneticRep" title="http://www.w3.org/ns/lemon/ontolex#phoneticRep">phoneticRep</a> | No | The 'phonetic representation' property indicates one phonetic representation of the pronunciation of the form using a scheme such as the International Phonetic Alphabet (IPA).  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
 | <a href="#representation" title="http://www.w3.org/ns/lemon/ontolex#representation">representation</a> | No | The 'representation' property indicates a string by which the form is represented according to some orthography.  | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
 | <a href="#writtenRep" title="http://www.w3.org/ns/lemon/ontolex#writtenRep">writtenRep</a> | No | The 'written representation' property indicates the written representation of a form. | <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank" rel="noopener">langString</a> |  |
 
 
 ### <a id="LexicalConcept" title="http://www.w3.org/ns/lemon/ontolex#LexicalConcept"></a> Class: lexical concept <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalConcept)</small>
+
+Term: `LexicalConcept`
 
 A lexical concept represents a mental abstraction, concept or unit of thought that embodies the meaning of one or more lexical entries.
 
@@ -8569,6 +9324,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="LexicalEntry" title="http://www.w3.org/ns/lemon/ontolex#LexicalEntry"></a> Class: lexical entry <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalEntry)</small>
+
+Term: `LexicalEntry`
 
 A lexical entry represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses.
 
@@ -8609,6 +9366,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="LexicalSense" title="http://www.w3.org/ns/lemon/ontolex#LexicalSense"></a> Class: lexical sense <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#LexicalSense)</small>
+
+Term: `LexicalSense`
 
 A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element. A lexical sense thus represents a reification of a pair of a uniquely determined lexical entry and a uniquely determined ontology entity it refers to. A link between a lexical entry and an ontology entity via a Lexical Sense object implies that the lexical entry can be used to refer to the ontology entity in question.
 
@@ -8655,6 +9414,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MultiWordExpression" title="http://www.w3.org/ns/lemon/ontolex#MultiWordExpression"></a> Class: multi-word expression <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#MultiWordExpression)</small>
 
+Term: `MultiWordExpression`
+
 A multiword expression is a lexical entry that consists of two or more words.
 
 Instances of this type MAY be present in the crate.
@@ -8699,6 +9460,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="Word" title="http://www.w3.org/ns/lemon/ontolex#Word"></a> Class: word <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#Word)</small>
+
+Term: `Word`
 
 A word is a lexical entry that consists of a single token.
 
@@ -8745,6 +9508,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="OntoMap" title="http://www.w3.org/ns/lemon/synsem#OntoMap"></a> Class: ontology mapping <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#OntoMap)</small>
 
+Term: `OntoMap`
+
 An 'ontology mapping' (OntoMap for short) specifies how a syntactic frame and its syntactic arguments map to a set of concepts and properties in the ontology that together specify the meaning of the syntactic frame.
 
 Instances of this type MAY be present in the crate.
@@ -8766,6 +9531,8 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="SyntacticArgument" title="http://www.w3.org/ns/lemon/synsem#SyntacticArgument"></a> Class: Syntactic Argument <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#SyntacticArgument)</small>
 
+Term: `SyntacticArgument`
+
 A 'syntactic argument' represents a slot that needs to be filled for a certain syntactic frame to be complete. Syntactic arguments typically realize a certain grammatical function (e.g. subject, direct object, indirect object, prepositional object, etc.).
 
 Instances of this type MAY be present in the crate.
@@ -8783,6 +9550,8 @@ Instances of this type MAY be present in the crate.
 
 
 ### <a id="SyntacticFrame" title="http://www.w3.org/ns/lemon/synsem#SyntacticFrame"></a> Class: Syntactic Frame <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#SyntacticFrame)</small>
+
+Term: `SyntacticFrame`
 
 A 'syntactic frame' represents the syntactic behavior of an open class word in terms of the (syntactic) arguments it requires. It essentially describes the so called subcategorization structure of the word in question, in particular the syntactic arguments it requires.
 
@@ -8809,22 +9578,22 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#abessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCaseForm">abessiveCaseForm</a> |  |  |  |
+| <a href="#abessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#abessiveCaseForm">abessiveCaseForm</a> | abessive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="ablativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCaseForm"></a> Property: ablative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#ablativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCaseForm">ablativeCaseForm</a> |  |  |  |
+| <a href="#ablativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ablativeCaseForm">ablativeCaseForm</a> | ablative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="absolutiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCaseForm"></a> Property: absolutive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#absolutiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCaseForm">absolutiveCaseForm</a> |  |  |  |
+| <a href="#absolutiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#absolutiveCaseForm">absolutiveCaseForm</a> | absolutive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="accusativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCaseForm"></a> Property: accusative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#accusativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCaseForm">accusativeCaseForm</a> |  |  |  |
+| <a href="#accusativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#accusativeCaseForm">accusativeCaseForm</a> | accusative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="acronymFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor"></a> Property: acronym for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#acronymFor)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -8834,32 +9603,32 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#adessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCaseForm">adessiveCaseForm</a> |  |  |  |
+| <a href="#adessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adessiveCaseForm">adessiveCaseForm</a> | adessive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="aditiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCaseForm"></a> Property: aditive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#aditiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCaseForm">aditiveCaseForm</a> |  |  |  |
+| <a href="#aditiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#aditiveCaseForm">aditiveCaseForm</a> | aditive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="adjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adjunct"></a> Property: adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#adjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#adjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adjunct">adjunct</a> |  |  |  |
+| <a href="#adjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adjunct">adjunct</a> | adjunct. A sub-property of synArg. |  |  |
 ### <a id="adpositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adpositionalObject"></a> Property: adpositional object <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#adpositionalObject)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#adpositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adpositionalObject">adpositionalObject</a> |  |  |  |
+| <a href="#adpositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adpositionalObject">adpositionalObject</a> | adpositional object. A sub-property of object, synArg. |  |  |
 ### <a id="adverbialComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialComplement"></a> Property: adverbial complement <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialComplement)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#adverbialComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialComplement">adverbialComplement</a> |  |  |  |
+| <a href="#adverbialComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#adverbialComplement">adverbialComplement</a> | adverbial complement. A sub-property of complement, synArg. |  |  |
 ### <a id="allativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCaseForm"></a> Property: allative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#allativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCaseForm">allativeCaseForm</a> |  |  |  |
+| <a href="#allativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#allativeCaseForm">allativeCaseForm</a> | allative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="animacy" title="http://www.lexinfo.net/ontology/3.0/lexinfo#animacy"></a> Property: animacy <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#animacy)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -8899,12 +9668,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#attributiveArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#attributiveArg">attributiveArg</a> |  |  |  |
+| <a href="#attributiveArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#attributiveArg">attributiveArg</a> | attributive arg. A sub-property of synArg. |  |  |
 ### <a id="benefactiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm"></a> Property: benefactive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#benefactiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm">benefactiveCaseForm</a> |  |  |  |
+| <a href="#benefactiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#benefactiveCaseForm">benefactiveCaseForm</a> | benefactive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="canonicalForm" title="http://www.w3.org/ns/lemon/ontolex#canonicalForm"></a> Property: canonical form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#canonicalForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -8924,12 +9693,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#causativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCaseForm">causativeCaseForm</a> |  |  |  |
+| <a href="#causativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#causativeCaseForm">causativeCaseForm</a> | causative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="clausalArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clausalArg"></a> Property: clausal arg <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#clausalArg)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#clausalArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clausalArg">clausalArg</a> |  |  |  |
+| <a href="#clausalArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clausalArg">clausalArg</a> | clausal arg. A sub-property of synArg. |  |  |
 ### <a id="clippedTermFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor"></a> Property: clipped term for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#clippedTermFor)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -8944,7 +9713,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#collectiveNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collectiveNumberForm">collectiveNumberForm</a> |  |  |  |
+| <a href="#collectiveNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collectiveNumberForm">collectiveNumberForm</a> | collective number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="collocation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#collocation"></a> Property: collocation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#collocation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -8954,17 +9723,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#comitativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCaseForm">comitativeCaseForm</a> |  |  |  |
+| <a href="#comitativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comitativeCaseForm">comitativeCaseForm</a> | comitative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="comparativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeAdjunct"></a> Property: comparative adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeAdjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#comparativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeAdjunct">comparativeAdjunct</a> |  |  |  |
+| <a href="#comparativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeAdjunct">comparativeAdjunct</a> | comparative adjunct. A sub-property of predicativeAdjunct, synArg. |  |  |
 ### <a id="comparativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeDegreeForm"></a> Property: comparative degree form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeDegreeForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#comparativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeDegreeForm">comparativeDegreeForm</a> |  |  |  |
+| <a href="#comparativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#comparativeDegreeForm">comparativeDegreeForm</a> | comparative degree form. A sub-property of formDegreeVariant. |  |  |
 ### <a id="complement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#complement"></a> Property: complement <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#complement)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9014,12 +9783,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#dativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCaseForm">dativeCaseForm</a> |  |  |  |
+| <a href="#dativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#dativeCaseForm">dativeCaseForm</a> | dative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="declarativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#declarativeClause"></a> Property: declarative clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#declarativeClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#declarativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#declarativeClause">declarativeClause</a> |  |  |  |
+| <a href="#declarativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#declarativeClause">declarativeClause</a> | declarative clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="definiteness" title="http://www.lexinfo.net/ontology/3.0/lexinfo#definiteness"></a> Property: definiteness <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#definiteness)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9034,7 +9803,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#delativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCaseForm">delativeCaseForm</a> |  |  |  |
+| <a href="#delativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#delativeCaseForm">delativeCaseForm</a> | delative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="denotes" title="http://www.w3.org/ns/lemon/ontolex#denotes"></a> Property: denotes <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#denotes)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9054,7 +9823,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#directCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#directCaseForm">directCaseForm</a> |  |  |  |
+| <a href="#directCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#directCaseForm">directCaseForm</a> | direct case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="directObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#directObject"></a> Property: direct object <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#directObject)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9069,27 +9838,27 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#dualNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#dualNumberForm">dualNumberForm</a> |  |  |  |
+| <a href="#dualNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#dualNumberForm">dualNumberForm</a> | dual number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="elativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCaseForm"></a> Property: elative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#elativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCaseForm">elativeCaseForm</a> |  |  |  |
+| <a href="#elativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#elativeCaseForm">elativeCaseForm</a> | elative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="equativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCaseForm"></a> Property: equative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#equativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCaseForm">equativeCaseForm</a> |  |  |  |
+| <a href="#equativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#equativeCaseForm">equativeCaseForm</a> | equative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="ergativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCaseForm"></a> Property: ergative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#ergativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCaseForm">ergativeCaseForm</a> |  |  |  |
+| <a href="#ergativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#ergativeCaseForm">ergativeCaseForm</a> | ergative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="essiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCaseForm"></a> Property: essive case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#essiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCaseForm">essiveCaseForm</a> |  |  |  |
+| <a href="#essiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#essiveCaseForm">essiveCaseForm</a> | essive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="etymologicalRoot" title="http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot"></a> Property: etymological root <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#etymologicalRoot)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9124,42 +9893,42 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#firstPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#firstPersonForm">firstPersonForm</a> |  |  |  |
+| <a href="#firstPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#firstPersonForm">firstPersonForm</a> | first person form. A sub-property of formPersonVariant. |  |  |
 ### <a id="formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant"></a> Property: form case variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formCaseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formCaseVariant">formCaseVariant</a> | form case variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant"></a> Property: form degree variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formDegreeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formDegreeVariant">formDegreeVariant</a> | form degree variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant"></a> Property: form mood variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formMoodVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formMoodVariant">formMoodVariant</a> | form mood variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant"></a> Property: form negative variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formNegativeVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNegativeVariant">formNegativeVariant</a> | form negative variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant"></a> Property: form number variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formNumberVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formNumberVariant">formNumberVariant</a> | form number variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant"></a> Property: form person variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formPersonVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formPersonVariant">formPersonVariant</a> | form person variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant"></a> Property: form tense variant <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> |  | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
+| <a href="#formTenseVariant" title="http://www.lexinfo.net/ontology/3.0/lexinfo#formTenseVariant">formTenseVariant</a> | form tense variant | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> | <a href="#Form" title="http://www.w3.org/ns/lemon/ontolex#Form">form</a> |
 ### <a id="frequency" title="http://www.lexinfo.net/ontology/3.0/lexinfo#frequency"></a> Property: frequency <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#frequency)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9179,7 +9948,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#futureTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#futureTenseForm">futureTenseForm</a> |  |  |  |
+| <a href="#futureTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#futureTenseForm">futureTenseForm</a> | future tense form. A sub-property of formTenseVariant. |  |  |
 ### <a id="gender" title="http://www.lexinfo.net/ontology/3.0/lexinfo#gender"></a> Property: gender <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#gender)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9189,12 +9958,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#genitiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCaseForm">genitiveCaseForm</a> |  |  |  |
+| <a href="#genitiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveCaseForm">genitiveCaseForm</a> | genitive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="genitiveObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveObject"></a> Property: genitive object <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveObject)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#genitiveObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveObject">genitiveObject</a> |  |  |  |
+| <a href="#genitiveObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#genitiveObject">genitiveObject</a> | genitive object. A sub-property of object, synArg. |  |  |
 ### <a id="geographic" title="http://www.lexinfo.net/ontology/3.0/lexinfo#geographic"></a> Property: geographic <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#geographic)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9209,7 +9978,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#gerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#gerundClause">gerundClause</a> |  |  |  |
+| <a href="#gerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#gerundClause">gerundClause</a> | gerund clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="gloss" title="http://www.lexinfo.net/ontology/3.0/lexinfo#gloss"></a> Property: gloss <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#gloss)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9259,22 +10028,22 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#illativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCaseForm">illativeCaseForm</a> |  |  |  |
+| <a href="#illativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#illativeCaseForm">illativeCaseForm</a> | illative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="imperativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperativeMoodForm"></a> Property: imperative mood form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#imperativeMoodForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#imperativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperativeMoodForm">imperativeMoodForm</a> |  |  |  |
+| <a href="#imperativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperativeMoodForm">imperativeMoodForm</a> | imperative mood form. A sub-property of formMoodVariant. |  |  |
 ### <a id="imperfectTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperfectTenseForm"></a> Property: imperfect tense form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#imperfectTenseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#imperfectTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperfectTenseForm">imperfectTenseForm</a> |  |  |  |
+| <a href="#imperfectTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#imperfectTenseForm">imperfectTenseForm</a> | imperfect tense form. A sub-property of formTenseVariant. |  |  |
 ### <a id="indicativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#indicativeMoodForm"></a> Property: indicative mood form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#indicativeMoodForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#indicativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#indicativeMoodForm">indicativeMoodForm</a> |  |  |  |
+| <a href="#indicativeMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#indicativeMoodForm">indicativeMoodForm</a> | indicative mood form. A sub-property of formMoodVariant. |  |  |
 ### <a id="indirectObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#indirectObject"></a> Property: indirect object <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#indirectObject)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9284,12 +10053,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#inessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#inessiveCaseForm">inessiveCaseForm</a> |  |  |  |
+| <a href="#inessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#inessiveCaseForm">inessiveCaseForm</a> | inessive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="infinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveClause"></a> Property: infinitive clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#infinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveClause">infinitiveClause</a> |  |  |  |
+| <a href="#infinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#infinitiveClause">infinitiveClause</a> | infinitive clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="initialismFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor"></a> Property: initialism for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#initialismFor)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9304,17 +10073,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#instrumentalCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCaseForm">instrumentalCaseForm</a> |  |  |  |
+| <a href="#instrumentalCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#instrumentalCaseForm">instrumentalCaseForm</a> | instrumental case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="interrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeClause"></a> Property: interrogative clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#interrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeClause">interrogativeClause</a> |  |  |  |
+| <a href="#interrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeClause">interrogativeClause</a> | interrogative clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="interrogativeInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause"></a> Property: interrogative infinitive clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#interrogativeInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause">interrogativeInfinitiveClause</a> |  |  |  |
+| <a href="#interrogativeInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#interrogativeInfinitiveClause">interrogativeInfinitiveClause</a> | interrogative infinitive clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="isConceptOf" title="http://www.w3.org/ns/lemon/ontolex#isConceptOf"></a> Property: is concept of <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#isConceptOf)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9349,7 +10118,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#lativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm">lativeCaseForm</a> |  |  |  |
+| <a href="#lativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#lativeCaseForm">lativeCaseForm</a> | lative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="lexicalForm" title="http://www.w3.org/ns/lemon/ontolex#lexicalForm"></a> Property: lexical form <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#lexicalForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9364,7 +10133,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#locativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm">locativeCaseForm</a> |  |  |  |
+| <a href="#locativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#locativeCaseForm">locativeCaseForm</a> | locative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="marker" title="http://www.w3.org/ns/lemon/synsem#marker"></a> Property: marker <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#marker)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9374,7 +10143,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#massNounNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#massNounNumberForm">massNounNumberForm</a> |  |  |  |
+| <a href="#massNounNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#massNounNumberForm">massNounNumberForm</a> | mass noun number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="meaningType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#meaningType"></a> Property: meaning type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#meaningType)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9414,7 +10183,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#morphosyntacticProperty" title="http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty">morphosyntacticProperty</a> |  |  |  |
+| <a href="#morphosyntacticProperty" title="http://www.lexinfo.net/ontology/3.0/lexinfo#morphosyntacticProperty">morphosyntacticProperty</a> | morphosyntactic property |  |  |
 ### <a id="negative" title="http://www.lexinfo.net/ontology/3.0/lexinfo#negative"></a> Property: negative <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#negative)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9424,12 +10193,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#negativeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#negativeForm">negativeForm</a> |  |  |  |
+| <a href="#negativeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#negativeForm">negativeForm</a> | negative form. A sub-property of formNegativeVariant. |  |  |
 ### <a id="nominativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCaseForm"></a> Property: nominative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#nominativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCaseForm">nominativeCaseForm</a> |  |  |  |
+| <a href="#nominativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#nominativeCaseForm">nominativeCaseForm</a> | nominative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="normativeAuthorization" title="http://www.lexinfo.net/ontology/3.0/lexinfo#normativeAuthorization"></a> Property: normative authorization <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#normativeAuthorization)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9454,12 +10223,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#object" title="http://www.lexinfo.net/ontology/3.0/lexinfo#object">object</a> |  |  |  |
+| <a href="#object" title="http://www.lexinfo.net/ontology/3.0/lexinfo#object">object</a> | object. A sub-property of synArg. |  |  |
 ### <a id="objectComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement"></a> Property: object complement <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#objectComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement">objectComplement</a> |  |  |  |
+| <a href="#objectComplement" title="http://www.lexinfo.net/ontology/3.0/lexinfo#objectComplement">objectComplement</a> | object complement. A sub-property of complement, synArg. |  |  |
 ### <a id="objOfProp" title="http://www.w3.org/ns/lemon/synsem#objOfProp"></a> Property: object of property <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#objOfProp)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9469,7 +10238,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#obliqueCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm">obliqueCaseForm</a> |  |  |  |
+| <a href="#obliqueCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#obliqueCaseForm">obliqueCaseForm</a> | oblique case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="ontoCorrespondence" title="http://www.w3.org/ns/lemon/synsem#ontoCorrespondence"></a> Property: ontological correspondence <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#ontoCorrespondence)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9494,7 +10263,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#otherNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumberForm">otherNumberForm</a> |  |  |  |
+| <a href="#otherNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#otherNumberForm">otherNumberForm</a> | other number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="partHolonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym"></a> Property: part holonym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#partHolonym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9519,7 +10288,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#partitiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCaseForm">partitiveCaseForm</a> |  |  |  |
+| <a href="#partitiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveCaseForm">partitiveCaseForm</a> | partitive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="partitiveRelation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation"></a> Property: partitive relation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#partitiveRelation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9529,12 +10298,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#pastTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pastTenseForm">pastTenseForm</a> |  |  |  |
+| <a href="#pastTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pastTenseForm">pastTenseForm</a> | past tense form. A sub-property of formTenseVariant. |  |  |
 ### <a id="paucalNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#paucalNumberForm"></a> Property: paucal number form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#paucalNumberForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#paucalNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#paucalNumberForm">paucalNumberForm</a> |  |  |  |
+| <a href="#paucalNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#paucalNumberForm">paucalNumberForm</a> | paucal number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="person" title="http://www.lexinfo.net/ontology/3.0/lexinfo#person"></a> Property: person <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#person)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9554,27 +10323,27 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#pluralNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pluralNumberForm">pluralNumberForm</a> |  |  |  |
+| <a href="#pluralNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pluralNumberForm">pluralNumberForm</a> | plural number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="positiveDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveDegreeForm"></a> Property: positive degree form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#positiveDegreeForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#positiveDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveDegreeForm">positiveDegreeForm</a> |  |  |  |
+| <a href="#positiveDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveDegreeForm">positiveDegreeForm</a> | positive degree form. A sub-property of formDegreeVariant. |  |  |
 ### <a id="positiveForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveForm"></a> Property: positive form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#positiveForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#positiveForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveForm">positiveForm</a> |  |  |  |
+| <a href="#positiveForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#positiveForm">positiveForm</a> | positive form. A sub-property of formNegativeVariant. |  |  |
 ### <a id="possessiveAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjunct"></a> Property: possessive adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#possessiveAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjunct">possessiveAdjunct</a> |  |  |  |
+| <a href="#possessiveAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveAdjunct">possessiveAdjunct</a> | possessive adjunct. A sub-property of adjunct, synArg. |  |  |
 ### <a id="possessiveInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveInfinitiveClause"></a> Property: possessive infinitive clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveInfinitiveClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#possessiveInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveInfinitiveClause">possessiveInfinitiveClause</a> |  |  |  |
+| <a href="#possessiveInfinitiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#possessiveInfinitiveClause">possessiveInfinitiveClause</a> | possessive infinitive clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="postPositiveArg" title="http://www.lexinfo.net/ontology/3.0/lexinfo#postPositiveArg"></a> Property: post positive arg <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#postPositiveArg)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9584,57 +10353,57 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#predicativeAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjective">predicativeAdjective</a> |  |  |  |
+| <a href="#predicativeAdjective" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjective">predicativeAdjective</a> | predicative adjective. A sub-property of complement, synArg. |  |  |
 ### <a id="predicativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjunct"></a> Property: predicative adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#predicativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjunct">predicativeAdjunct</a> |  |  |  |
+| <a href="#predicativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdjunct">predicativeAdjunct</a> | predicative adjunct. A sub-property of adjunct, synArg. |  |  |
 ### <a id="predicativeAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdverb"></a> Property: predicative adverb <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdverb)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#predicativeAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdverb">predicativeAdverb</a> |  |  |  |
+| <a href="#predicativeAdverb" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeAdverb">predicativeAdverb</a> | predicative adverb. A sub-property of complement, synArg. |  |  |
 ### <a id="predicativeNominative" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeNominative"></a> Property: predicative nominative <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeNominative)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#predicativeNominative" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeNominative">predicativeNominative</a> |  |  |  |
+| <a href="#predicativeNominative" title="http://www.lexinfo.net/ontology/3.0/lexinfo#predicativeNominative">predicativeNominative</a> | predicative nominative. A sub-property of complement, synArg. |  |  |
 ### <a id="prepositionalAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdjunct"></a> Property: prepositional adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prepositionalAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdjunct">prepositionalAdjunct</a> |  |  |  |
+| <a href="#prepositionalAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalAdjunct">prepositionalAdjunct</a> | prepositional adjunct. A sub-property of adjunct, synArg. |  |  |
 ### <a id="prepositionalGerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalGerundClause"></a> Property: prepositional gerund clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalGerundClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prepositionalGerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalGerundClause">prepositionalGerundClause</a> |  |  |  |
+| <a href="#prepositionalGerundClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalGerundClause">prepositionalGerundClause</a> | prepositional gerund clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="prepositionalInterrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalInterrogativeClause"></a> Property: prepositional interrogative clause <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalInterrogativeClause)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prepositionalInterrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalInterrogativeClause">prepositionalInterrogativeClause</a> |  |  |  |
+| <a href="#prepositionalInterrogativeClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalInterrogativeClause">prepositionalInterrogativeClause</a> | prepositional interrogative clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="prepositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalObject"></a> Property: prepositional object <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalObject)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prepositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalObject">prepositionalObject</a> |  |  |  |
+| <a href="#prepositionalObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prepositionalObject">prepositionalObject</a> | prepositional object. A sub-property of adpositionalObject, synArg. |  |  |
 ### <a id="presentTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#presentTenseForm"></a> Property: present tense form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#presentTenseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#presentTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#presentTenseForm">presentTenseForm</a> |  |  |  |
+| <a href="#presentTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#presentTenseForm">presentTenseForm</a> | present tense form. A sub-property of formTenseVariant. |  |  |
 ### <a id="preteriteTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#preteriteTenseForm"></a> Property: preterite tense form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#preteriteTenseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#preteriteTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#preteriteTenseForm">preteriteTenseForm</a> |  |  |  |
+| <a href="#preteriteTenseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#preteriteTenseForm">preteriteTenseForm</a> | preterite tense form. A sub-property of formTenseVariant. |  |  |
 ### <a id="prolativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCaseForm"></a> Property: prolative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#prolativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCaseForm">prolativeCaseForm</a> |  |  |  |
+| <a href="#prolativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#prolativeCaseForm">prolativeCaseForm</a> | prolative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="pronunciation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#pronunciation"></a> Property: pronunciation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#pronunciation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9654,7 +10423,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#quadrialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quadrialNumberForm">quadrialNumberForm</a> |  |  |  |
+| <a href="#quadrialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quadrialNumberForm">quadrialNumberForm</a> | quadrial number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="quasiEquivalent" title="http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent"></a> Property: quasi equivalent <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#quasiEquivalent)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9674,7 +10443,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#reflexiveObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveObject">reflexiveObject</a> |  |  |  |
+| <a href="#reflexiveObject" title="http://www.lexinfo.net/ontology/3.0/lexinfo#reflexiveObject">reflexiveObject</a> | reflexive object. A sub-property of object, synArg. |  |  |
 ### <a id="register" title="http://www.lexinfo.net/ontology/3.0/lexinfo#register"></a> Property: register <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#register)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9704,7 +10473,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#secondPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#secondPersonForm">secondPersonForm</a> |  |  |  |
+| <a href="#secondPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#secondPersonForm">secondPersonForm</a> | second person form. A sub-property of formPersonVariant. |  |  |
 ### <a id="segmentation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#segmentation"></a> Property: segmentation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#segmentation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9729,7 +10498,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#sententialClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sententialClause">sententialClause</a> |  |  |  |
+| <a href="#sententialClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sententialClause">sententialClause</a> | sentential clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="shortFormFor" title="http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor"></a> Property: short form for <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#shortFormFor)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9739,12 +10508,12 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#singularNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#singularNumberForm">singularNumberForm</a> |  |  |  |
+| <a href="#singularNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#singularNumberForm">singularNumberForm</a> | singular number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="sociativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCaseForm"></a> Property: sociative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#sociativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCaseForm">sociativeCaseForm</a> |  |  |  |
+| <a href="#sociativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sociativeCaseForm">sociativeCaseForm</a> | sociative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="socioCultural" title="http://www.lexinfo.net/ontology/3.0/lexinfo#socioCultural"></a> Property: socio cultural <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#socioCultural)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9764,17 +10533,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#subjunctiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveClause">subjunctiveClause</a> |  |  |  |
+| <a href="#subjunctiveClause" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveClause">subjunctiveClause</a> | subjunctive clause. A sub-property of clausalArg, synArg. |  |  |
 ### <a id="subjunctiveMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveMoodForm"></a> Property: subjunctive mood form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveMoodForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#subjunctiveMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveMoodForm">subjunctiveMoodForm</a> |  |  |  |
+| <a href="#subjunctiveMoodForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#subjunctiveMoodForm">subjunctiveMoodForm</a> | subjunctive mood form. A sub-property of formMoodVariant. |  |  |
 ### <a id="sublativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm"></a> Property: sublative case form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#sublativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm">sublativeCaseForm</a> |  |  |  |
+| <a href="#sublativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#sublativeCaseForm">sublativeCaseForm</a> | sublative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="submap" title="http://www.w3.org/ns/lemon/synsem#submap"></a> Property: submap <small style="color:#aaa">(http://www.w3.org/ns/lemon/synsem#submap)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9794,17 +10563,17 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#superessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCaseForm">superessiveCaseForm</a> |  |  |  |
+| <a href="#superessiveCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superessiveCaseForm">superessiveCaseForm</a> | superessive case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="superlativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeAdjunct"></a> Property: superlative adjunct <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeAdjunct)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#superlativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeAdjunct">superlativeAdjunct</a> |  |  |  |
+| <a href="#superlativeAdjunct" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeAdjunct">superlativeAdjunct</a> | superlative adjunct. A sub-property of predicativeAdjunct, synArg. |  |  |
 ### <a id="superlativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeDegreeForm"></a> Property: superlative degree form <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeDegreeForm)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#superlativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeDegreeForm">superlativeDegreeForm</a> |  |  |  |
+| <a href="#superlativeDegreeForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#superlativeDegreeForm">superlativeDegreeForm</a> | superlative degree form. A sub-property of formDegreeVariant. |  |  |
 ### <a id="synonym" title="http://www.lexinfo.net/ontology/3.0/lexinfo#synonym"></a> Property: synonym <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#synonym)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9844,7 +10613,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#terminativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCaseForm">terminativeCaseForm</a> |  |  |  |
+| <a href="#terminativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#terminativeCaseForm">terminativeCaseForm</a> | terminative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="textType" title="http://www.lexinfo.net/ontology/3.0/lexinfo#textType"></a> Property: text type <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#textType)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9854,7 +10623,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#thirdPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#thirdPersonForm">thirdPersonForm</a> |  |  |  |
+| <a href="#thirdPersonForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#thirdPersonForm">thirdPersonForm</a> | third person form. A sub-property of formPersonVariant. |  |  |
 ### <a id="translation" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translation"></a> Property: translation <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#translation)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9869,7 +10638,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#translativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translativeCaseForm">translativeCaseForm</a> |  |  |  |
+| <a href="#translativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#translativeCaseForm">translativeCaseForm</a> | translative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="transliteration" title="http://www.lexinfo.net/ontology/3.0/lexinfo#transliteration"></a> Property: transliteration <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#transliteration)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9879,7 +10648,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#trialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#trialNumberForm">trialNumberForm</a> |  |  |  |
+| <a href="#trialNumberForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#trialNumberForm">trialNumberForm</a> | trial number form. A sub-property of formNumberVariant. |  |  |
 ### <a id="usage" title="http://www.w3.org/ns/lemon/ontolex#usage"></a> Property: usage <small style="color:#aaa">(http://www.w3.org/ns/lemon/ontolex#usage)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |
@@ -9899,7 +10668,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Description | Range | Occurs in Domain(s) |
 | -------- | ----------- | ----------- | ----------- |
-| <a href="#vocativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCaseForm">vocativeCaseForm</a> |  |  |  |
+| <a href="#vocativeCaseForm" title="http://www.lexinfo.net/ontology/3.0/lexinfo#vocativeCaseForm">vocativeCaseForm</a> | vocative case form. A sub-property of formCaseVariant. |  |  |
 ### <a id="voice" title="http://www.lexinfo.net/ontology/3.0/lexinfo#voice"></a> Property: voice <small style="color:#aaa">(http://www.lexinfo.net/ontology/3.0/lexinfo#voice)</small>
 
 | Property | Description | Range | Occurs in Domain(s) |

@@ -147,6 +147,15 @@ function clean(str) {
   return str.toString().replace(/\s+/g, " ");
 }
 
+// Usage examples (skos:example, e.g. from owl-to-masp.py) as a bullet list.
+function formatExamples(entity) {
+  const examples = (entity["skos:example"] || [])
+    .map((e) => (typeof e === "object" && e !== null ? e["@value"] : e))
+    .filter((e) => e !== undefined && e !== null && String(e).trim() !== "");
+  if (!examples.length) return "";
+  return `Examples:\n\n${examples.map((e) => `- ${clean(e)}`).join("\n")}\n\n`;
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -686,7 +695,15 @@ try {
     const specialized = classRule["prov:specializationOf"] || [];
     var classSummary = `\n### <a id="${classAnchorId}" title="${clean(classId)}"></a> ${clean(className)}\n\n`;
 
+    // The heading shows the human-readable name; when that differs from the
+    // term itself (e.g. OWL-converted schemas, where lexinfo:Adjective and
+    // lexinfo:AdjectivePOS are both "adjective") show the term first.
+    const classTerm = classRule["rdfs:label"];
+    if (classTerm && classRule["name"] && String(classTerm) !== String(classRule["name"])) {
+      classSummary += `Term: \`${clean(classTerm)}\`\n\n`;
+    }
     classSummary += `${clean(classDesc)}\n\n`;
+    classSummary += formatExamples(classRule);
 
     const min =
       classRule["sh:minCount"] !== undefined
@@ -963,6 +980,8 @@ try {
         rangeLinks
       )} | ${propDomains} |\n`;
     }
+    const propExamples = formatExamples(p);
+    if (propExamples) propSummary += `\n${propExamples}`;
 
     const propLabel = p["name"] || p["rdfs:label"] || p["@id"];
     setRuleDirect(p["@id"], propSummary);

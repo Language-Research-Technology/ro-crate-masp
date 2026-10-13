@@ -1266,6 +1266,8 @@ At least 1 instances of this type MUST be present in the crate.
 
 ### <a id="README_Entity" title="#README_Entity"></a> Class: README Entity
 
+Term: `README_Entity`
+
 An Data Package MUST contain a README file that describes the contents of the package. This entity represents the README.html file.
 
 At least 1 instances of this type MUST be present in the crate.

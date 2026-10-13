@@ -2,7 +2,8 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "skos": "http://www.w3.org/2004/02/skos/core#"
     },
     {
       "@base": null
@@ -2055,30 +2056,10 @@
       "dateModified": "2026-07-24T11:23:55+10:00"
     },
     {
-      "@id": "index.html",
-      "@type": "File",
-      "name": "index.html",
-      "description": "",
-      "dateModified": "2026-07-24T15:13:23+10:00",
-      "encodingFormat": [
-        {
-          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
-        },
-        "text/html"
-      ]
-    },
-    {
-      "@id": "schema-documentation.md",
-      "@type": "File",
-      "name": "schema-documentation.md",
-      "description": "",
-      "dateModified": "2026-07-24T15:13:23+10:00",
-      "encodingFormat": [
-        {
-          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
-        },
-        "text/markdown"
-      ]
+      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@type": "SoftwareApplication",
+      "name": "owl-to-masp.py",
+      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
     },
     {
       "@id": "#owl-to-masp-conversion",
@@ -2093,7 +2074,7 @@
       "result": {
         "@id": "./"
       },
-      "startTime": "2026-07-24T01:23:55.104329+00:00"
+      "startTime": "2026-10-13T02:56:38.182270+00:00"
     },
     {
       "@id": "https://www.ica.org/standards/RiC/ontology#AccumulationRelation",
@@ -3401,6 +3382,11 @@
       "rdfs:label": "accruals",
       "name": "accruals",
       "rdfs:comment": "Information on the anticipated accession(s) to the Record\n         Set.",
+      "skos:example": [
+        "Accruing - there is an agreement with the creator that additional\n         snapshots of their email directory will be accessioned at yearly intervals",
+        "Non-accruing",
+        "Unknown"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordSet"
       },
@@ -3650,6 +3636,12 @@
       "rdfs:label": "authenticityNote",
       "name": "authenticity note",
       "rdfs:comment": "Information on the evidence that a Record Resource or\n         Instantiation is what it purports to be, was created or sent by the said Agent at the said\n         time, and has not been tampered with, corrupted, or forged. ",
+      "skos:example": [
+        "The deed is digitally signed by the Notary. The electronic\n         signature validity cannot be assessed, but the content was not modified from the moment of\n         signing.",
+        "The letter is unsigned.",
+        "The record bears signatures.",
+        "The timestamp exists but cannot be verified."
+      ],
       "domainIncludes": [
         {
           "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
@@ -3772,6 +3764,11 @@
       "rdfs:label": "carrierExtent",
       "name": "carrier extent",
       "rdfs:comment": "Number of physical units and/or physical dimensions of the carrier\n         of an Instantiation. In order to manage an Instantiation of a record resource it is\n         necessary to note the extent of the carrier as well as that of the Instantiation itself.\n         Whether it is necessary to note dimensions, the number of relevant units, or both, depends\n         on the nature of the carrier and particular business needs.",
+      "skos:example": [
+        "1 page",
+        "3 GB (1 USB key)",
+        "32.5 x 49 cm (piece of parchment)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
       },
@@ -3798,6 +3795,13 @@
       "rdfs:label": "classification",
       "name": "classification",
       "rdfs:comment": "A term, number or alphanumeric string that is usually taken from\n         an external classification vocabulary or scheme that qualifies a Record\n         Resource.",
+      "skos:example": [
+        "BUD-01-F002 (classification number from a corporate file\n         plan)",
+        "digitized items",
+        "financial affairs",
+        "human resource management",
+        "student registration"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -3811,6 +3815,15 @@
       "rdfs:label": "conditionsOfAccess",
       "name": "conditions of access",
       "rdfs:comment": "Terms and circumstances affecting the availability of a Record\n         Resource or an Instantiation for consultation.",
+      "skos:example": [
+        "Acceso libre a través de los terminales de consulta",
+        "Closed as awaiting conservation treatment",
+        "Closed for 30 years",
+        "Closed under data protection legislation",
+        "Open",
+        "Recognita software, min. version 3.0, is needed in order to open\n         the file",
+        "The Archives cannot provide VHS reader to access the content of\n         the tape"
+      ],
       "domainIncludes": [
         {
           "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
@@ -3829,6 +3842,10 @@
       "rdfs:label": "conditionsOfUse",
       "name": "conditions of use",
       "rdfs:comment": "Terms and circumstances affecting the use of a Record Resource or\n         an Instantiation after access has been provided. Includes conditions governing reproduction\n         of the Record Resource under applicable copyright (intellectual property) and/or property\n         legislation or due to conservation status.",
+      "skos:example": [
+        "Cannot be copied using warm light copying machines or photographed\n         using flashlight",
+        "Permission of the copyright owner must be obtained before\n         use"
+      ],
       "domainIncludes": [
         {
           "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
@@ -3956,6 +3973,11 @@
       "rdfs:label": "dateQualifier",
       "name": "date qualifier",
       "rdfs:comment": "A human readable qualification of a Date to indicate the level of\n         precision or certainty.",
+      "skos:example": [
+        "approximate",
+        "circa",
+        "end unknown"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Date"
       },
@@ -4236,6 +4258,19 @@
       "rdfs:label": "expressedDate",
       "name": "expressed date",
       "rdfs:comment": "Natural language expression of a date. This property is a\n         specialization of the name property. In order that the precise meaning of the date can be\n         understood, information such as the calendar used or other specific context should be\n         included.",
+      "skos:example": [
+        "15 thermidor an IV (calendrier révolutionnaire\n         français)",
+        "1550-1553, 1555 (date range)",
+        "1925-1966 (date range)",
+        "8 avril 1258 (a. st., style de Pâques)",
+        "All of the years 1550, 1551, 1553, 1555",
+        "Die jovis ultima mensis martii anno domini millesimo quingentesimo\n         quadragesimo ante Pascha",
+        "October 24, 1999 (month day, year)",
+        "One of the years 1550, 1551, 1553, 1555",
+        "The Middle Ages",
+        "The second semester of 1951 to 1952 (academic reference\n         system)",
+        "XVIIe siècle"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Date"
       },
@@ -4353,6 +4388,12 @@
       "rdfs:label": "generalDescription",
       "name": "general description",
       "rdfs:comment": "General information about an entity. General description may be\n         used to describe any entity. There are different appropriate uses for general description.\n         First, while it is recommended that more specific properties be used in describing an\n         entity, it may be desirable, for economic or other reasons, to describe two or more\n         specific properties together. Second, general description may be used to describe one or\n         more characteristics that are not otherwise accommodated in RiC-O. Third, it may be used to\n         provide a succinct summary or abstract description in addition to more detailed specific\n         description.",
+      "skos:example": [
+        "Le massif du Mont-Blanc est un massif des Alpes partagé entre la\n         France, l'Italie et la Suisse. Il abrite le mont Blanc, plus haut sommet d'Europe\n         occidentale qui culmine à 4 809 mètres (altitude relevée en 2015). Il est traversé par le\n         tunnel du Mont-Blanc, entre Chamonix dans la vallée de l'Arve et Courmayeur dans la vallée\n         d'Aoste.",
+        "The Senate is the academic governing body of the University of\n         Strathclyde and is responsible for all academic matters including academic standards and\n         quality. Meetings of the Senate are chaired by the Principal and the membership is drawn\n         entirely from within the University, comprising academic and research staff. (about a\n         corporate body, University of Strathclyde Senate)",
+        "This activity involves regulating the nursing profession by\n         conducting examinations and on-going education for nurses, maintaining rolls of those\n         qualified as enrolled or registered nurses, midwives, psychiatric, and other specialised\n         nurses. It also covers hearing disciplinary charges against nurses (and where necessary,\n         removing them temporarily or permanently from the registers), as well as promoting the\n         nursing profession. (about an activity, Nursing Profession Regulation)",
+        "Thomas Blaikie (1750-1838) est un botaniste et jardinier écossais.\n         Il a dessiné notamment les jardins de Malmaison et Bagatelle."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Thing"
       },
@@ -4379,6 +4420,10 @@
       "rdfs:label": "geographicalCoordinates",
       "name": "geographical coordinates",
       "rdfs:comment": "Longitudinal and latitudinal information about a Place. ",
+      "skos:example": [
+        "Latitude 35.89421911, Longitude 139.94637467 (ISO\n         6709/F)",
+        "Latitude 50°40′46,461″N, Longitude 95°48′26,533″W, Height 123,45m\n         (ISO 6709/D)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Place"
       },
@@ -6549,6 +6594,11 @@
       "rdfs:label": "history",
       "name": "history",
       "rdfs:comment": "Summary of the development of an entity throughout its\n         existence.",
+      "skos:example": [
+        "El primer sorteo de lotería se celebró el 13 de mayo de 1771,\n         siendo desarrollado por la Real Lotería General de Nueva España… (sobre una\n         actividad)",
+        "Nacido en Barbastro en 1892, donde realizó sus primeros estudios\n         con los escolapios. Licenciado en Derecho por la Universidad de Zaragoza, aprobó las\n         oposiciones al cuerpo nacional de notarios… (sobre una persona)",
+        "The manuscripts are part of the collections of Robert Harley (d\n         1724) and Edward Harley (d 1741), 1st and 2nd Earls of Oxford, that were brought by\n         Parliament and transferred to the British Museum in 1753. Those materials were then\n         separated into this collection and those for Harley Charters and Harley Rolls and became\n         part of the collections of the British Library in 1972. (about a Record Set)"
+      ],
       "domainIncludes": [
         {
           "@id": "https://www.ica.org/standards/RiC/ontology#Agent"
@@ -6579,6 +6629,15 @@
       "rdfs:label": "identifier",
       "name": "identifier",
       "rdfs:comment": "A word, number, letter, symbol, or any combination of these used\n         to uniquely identify or reference an individual instance of an entity within a specific\n         information domain. Can include Global Persistent Identifiers (globally unique and\n         persistently resolvable identifier for the entity) and/or Local Identifiers. Both the\n         domain within which the identifier is unique, and the rules used in forming the identifier\n         value should be provided with the identifier value.",
+      "skos:example": [
+        "B-000091 (example of a unique identifier for an instantiation\n         assigned by a repository)",
+        "BUD-01-F002 (example of a classification number from a corporate\n         file plan)",
+        "F 1204 (example of a local identifier for a record set assigned by\n         a repository)",
+        "NAS1/A/1.1 (example of a local identifier for a\n         record)",
+        "http://isni.org/0000000073572182 (example of a persistent\n         International Standard Name Identifier for a person)",
+        "http://n2t.net/ark:/99166/w6tz44ht (example of an Archival\n         Resource Key for a person)",
+        "http://n2t.net/ark:/99166/w6v1266v (example of an Archival\n         Resource Key for a record)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Thing"
       },
@@ -6659,6 +6718,11 @@
       "rdfs:label": "instantiationExtent",
       "name": "Instantiation extent",
       "rdfs:comment": "Countable characteristics of an Instantiation expressed as a\n         quantity.",
+      "skos:example": [
+        "234 linear metres",
+        "Size of PDF file: 1.5 MB",
+        "The register has 345 written folios"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
       },
@@ -6698,6 +6762,12 @@
       "rdfs:label": "integrityNote",
       "name": "integrity note",
       "rdfs:comment": "Information about the known intellectual completeness of a Record\n         Resource.",
+      "skos:example": [
+        "A web page (HTML, 15 images, 2 CSS, 1 javascript), with 5 images\n         missing.",
+        "For record set: series of letters, one is missing so the integrity\n         is compromised.",
+        "Line three of a hand-written letter was cut out and a replacement\n         text was inserted by an unknown person.",
+        "Part of the text is missing (because a corner on the instantiation\n         was cut out, which is a physical characteristic). See also the examples of\n         physicalCharacteristics."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -9390,6 +9460,10 @@
       "rdfs:label": "location",
       "name": "location",
       "rdfs:comment": "A delimitation of the physical territory of a Place. Used to\n         describe basic human-readable text such as an address, a cadastral reference, or less\n         precise information found in a Record.",
+      "skos:example": [
+        "25 rue Saint-Denis à Paris",
+        "Montreal (city in Canada)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Place"
       },
@@ -9572,6 +9646,19 @@
       "rdfs:label": "name",
       "name": "name",
       "rdfs:comment": "A label, title or term designating an entity in order to make it\n         distinguishable from other similar entities.",
+      "skos:example": [
+        "D-Day (about a Date or Event)",
+        "Digital copy of the Pomarius archival inventory from 1575 (about\n         an Instantiation)",
+        "Fundraising, University of Glasgow (about an\n         Activity)",
+        "Halloween 2016 (about a Date)",
+        "Nelson Mandela (about a Person)",
+        "Papers of the Earls of Liverpool (about a Record\n         Set)",
+        "Paris (about a Place)",
+        "Prime Minister (about a Position)",
+        "Providing hearing services (about an Activity)",
+        "Sketch Map of the Qatar Peninsula (about a Record)",
+        "The Letter of Neacsu from Campulung to the Mayor of Brasov (about\n         a Record)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Thing"
       },
@@ -9585,6 +9672,18 @@
       "rdfs:label": "normalizedDateValue",
       "name": "normalized date value",
       "rdfs:comment": "Machine readable representation of the date based on a public\n         technical standard.",
+      "skos:example": [
+        "1550,1551,1553,1555 (a date set in EDTF, meaning one of the years\n         1550, 1551, 1553, 1555)",
+        "1948-03 (an ISO 8601 form of a single date)",
+        "1948-03-08 (an ISO 8601 form of a single date)",
+        "1948-03~ (a single date in ETDF, meaning March 1948\n         approximately)",
+        "1948/ (a date range in EDTF, starting in 1948, end\n         unknown)",
+        "1948/.. (an open date range in EDTF, starting in\n         1948)",
+        "2012-02-14/2015-03-08 (an ISO 8601 form of a date\n         range)",
+        "2012/2015-03 (an ISO 8601 form of a date range)",
+        "{1550,1551,1553,1555} (a date set in EDTF, meaning all of the\n         years 1550, 1551, 1553, 1555)",
+        "{1805,1815..1820} (a date set in EDTF, meaning all of the years\n         1805, 1815, 1816, 1817, 1818, 1819, 1820)"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Date"
       },
@@ -9733,6 +9832,17 @@
       "rdfs:label": "physicalCharacteristicsNote",
       "name": "physical characteristics note",
       "rdfs:comment": "Information about the physical features, completeness, or\n         conservation status of an Instantiation. Includes information about the physical nature and\n         condition such as conservation status or the deterioration of an Instantiation (for example\n         its carrier) affecting the ability to recover information. ",
+      "skos:example": [
+        "A web page (HTML, 15 images, 2 CSS, 1 JavaScript), with 1 CSS\n         missing.",
+        "British Library binding",
+        "Digital file format: JPEG-2000",
+        "For carrier: hard drives on which the author wrote physically\n         (using a pen).",
+        "Letter physical characteristics: corner without text missing – the\n         carrier is damaged, but no information of the content is missing",
+        "The charter is missing the seal.",
+        "Watermarked",
+        "carrier heavily foxed",
+        "some loss of text due to rodent damage"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
       },
@@ -9894,6 +10004,12 @@
       "rdfs:label": "productionTechnique",
       "name": "production technique",
       "rdfs:comment": "The method used in the representation of information on an\n         Instantiation.",
+      "skos:example": [
+        "engraving",
+        "handwriting",
+        "magnetic recording",
+        "optical recording"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
       },
@@ -10314,6 +10430,11 @@
       "rdfs:label": "qualityOfRepresentationNote",
       "name": "quality of representation note",
       "rdfs:comment": "Characteristics of an Instantiation that affect the ability to\n         recover the intellectual content. Such characteristics may be related to the methods used\n         in creating the Instantiation or introduced subsequent to the creation through\n         accident.",
+      "skos:example": [
+        "Black and white digitization may have led to loss of some\n         information.",
+        "some loss of information due to poor quality of image\n         capture",
+        "some loss of text due to rodent damage"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
       },
@@ -10376,6 +10497,14 @@
       "rdfs:label": "recordResourceExtent",
       "name": "Record Resource Extent",
       "rdfs:comment": "The quantity of information content, as human experienced,\n         contained in a Record Resource. The method and precision of expressing the quantity of\n         information represented in a Record Resource will vary according to the kind of Record\n         Resource being described, processing economy constraints, etc. For record sets, quantity\n         may be expressed as number of records, or, for analogue records in particular, by the\n         physical storage dimensions of the members of the Record Set. For individual records or\n         record parts, quantity may be expressed in more precise terms. ",
+      "skos:example": [
+        "1,500 words",
+        "2 films",
+        "2.065.735 characters",
+        "3 minutes and 24 seconds",
+        "6 maps",
+        "6 photographs"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -10428,6 +10557,9 @@
       "rdfs:label": "recordResourceSourceOfInformation",
       "name": "Record Resource source of information",
       "rdfs:comment": "Information about some source on which the content of a Record\n         Resource is based.",
+      "skos:example": [
+        "Dardy-Cretin (Michèle), Histoire administrative du ministère de la\n         culture et de la communication (1959-2012). Paris: Collection du Comité d’histoire du\n         ministère de la culture et de la communication, 2012."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -10441,6 +10573,12 @@
       "rdfs:label": "recordResourceStructure",
       "name": "Record Resource structure",
       "rdfs:comment": "Information about the intellectual arrangement and composition of\n         a Record Resource. For Record and Record Part, it encompasses information about the\n         intellectual composition of the record, the presence of record parts and their functions.\n         For Record Set, it encompasses information about the methodology or criteria used for\n         arranging the Record Set members or Record members within the containing Record\n         Set",
+      "skos:example": [
+        "Inside each file, the records are arranged\n         chronologically.",
+        "The database has 3 related tables: names, addresses, and passport\n         numbers.",
+        "The record has 2 appendixes, comprising a full account of the\n         income from car taxes and real estate taxes.",
+        "The series have the files arranged according to the alphabetical\n         order of the places concerned."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -10506,6 +10644,11 @@
       "rdfs:label": "relationCertainty",
       "name": "relation certainty ",
       "rdfs:comment": "Qualifies the level of certitude of the accuracy of a\n         Relation.",
+      "skos:example": [
+        "certain",
+        "uncertain",
+        "unknown"
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Relation"
       },
@@ -10714,6 +10857,13 @@
       "rdfs:label": "scopeAndContent",
       "name": "scope and content",
       "rdfs:comment": "Summary of the scope (such as time periods, geography) and content\n         (such as subject matter, administrative processes) of a Record Resource. Provides a more\n         complete summary of the informational content of the Record Resource highlighting the\n         information conveyed in the Record Resource, why it was created, received, and/or\n         maintained, and the agents connected to it. It may include description of relations with\n         agents, activities, dates and places, or with other record resources.",
+      "skos:example": [
+        "Among the witnesses, the Duke of Normandy.",
+        "Includes a detailed list of the lands and villages given by the\n         King to the Abbey.",
+        "Letter from Vlad the Impaler (Dracula) to the Council of Kronstadt\n         asking them to send military support against the Ottomans, within the framework of their\n         alliance treaty.",
+        "Se hace referencia a construcción del Gran Hotel, iniciada en 1899\n         bajo el nombre de Casa Celestino. Tras su interrupción en 1902, continuó la obra ya con su\n         nombre actual.",
+        "The author explains why he does not agree with the decision made\n         and adds that it cannot be applied."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#RecordResource"
       },
@@ -10810,6 +10960,12 @@
       "rdfs:label": "structure",
       "name": "structure",
       "rdfs:comment": "Information about the intellectual arrangement and composition of\n         a Record Resource or the physical arrangement and composition of an Instantiation. For\n         Record and Record Part, it encompasses information about the intellectual composition of\n         the record, the presence of record parts and their functions. For Record Set, it\n         encompasses information about the methodology or criteria used for arranging the Record Set\n         members or Record members within the containing Record Set. For Instantiation, it may\n         comprise information about the composition of the physical elements of the\n         instantiation",
+      "skos:example": [
+        "Inside each file, the records are arranged chronologically (about\n         a record set)",
+        "The database has three related tables: names, addresses, and\n         passport numbers (about a record)",
+        "The record has two appendices, comprising a full account of the\n         income from car taxes and real estate taxes",
+        "The series have the files arranged according to the alphabetical\n         order of the places concerned"
+      ],
       "domainIncludes": [
         {
           "@id": "https://www.ica.org/standards/RiC/ontology#Instantiation"
@@ -10867,6 +11023,9 @@
       "rdfs:label": "technicalCharacteristics",
       "name": "technical characteristics",
       "rdfs:comment": "Describes any relevant physical or software feature of any device\n         involved in the creation or management of a Record Resource.",
+      "skos:example": [
+        "Hubble Space Telescope had until 2002 a flawed mirror that\n         introduced severe spherical aberration for the images."
+      ],
       "domainIncludes": {
         "@id": "https://www.ica.org/standards/RiC/ontology#Mechanism"
       },
@@ -11270,6 +11429,32 @@
       }
     },
     {
+      "@id": "index.html",
+      "@type": "File",
+      "name": "index.html",
+      "description": "",
+      "dateModified": "2026-07-24T15:13:23+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/471"
+        },
+        "text/html"
+      ]
+    },
+    {
+      "@id": "schema-documentation.md",
+      "@type": "File",
+      "name": "schema-documentation.md",
+      "description": "",
+      "dateModified": "2026-07-24T15:13:23+10:00",
+      "encodingFormat": [
+        {
+          "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149"
+        },
+        "text/markdown"
+      ]
+    },
+    {
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/101",
       "@type": "DigitalFormat",
       "name": "Extensible Markup Language"
@@ -11283,12 +11468,6 @@
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/1149",
       "@type": "DigitalFormat",
       "name": "Markdown"
-    },
-    {
-      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
-      "@type": "SoftwareApplication",
-      "name": "owl-to-masp.py",
-      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
     }
   ]
 }

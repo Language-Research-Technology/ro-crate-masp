@@ -86,6 +86,54 @@ def test_label_is_local_name_and_name_is_the_expanded_owl_label(crate):
     assert has_widget["name"] == "has widget"
 
 
+def test_missing_comment_falls_back_to_the_expanded_owl_label(crate):
+    bare_frame = _by_id(crate["@graph"], "http://example.org/ns#BareFrame")
+    assert bare_frame["rdfs:comment"] == "bare frame"
+
+
+def test_fallback_comment_describes_the_owl_structure(crate):
+    red_widget = _by_id(crate["@graph"], "http://example.org/ns#RedWidget")
+    assert red_widget["rdfs:comment"] == (
+        "red widget. A kind of Widget. "
+        "Equivalent to: Widget and hasColour = red and at least 1 widgetName."
+    )
+    has_red_widget = _by_id(crate["@graph"], "http://example.org/ns#hasRedWidget")
+    assert has_red_widget["rdfs:comment"] == "has red widget. A sub-property of hasWidget."
+
+
+def test_no_fallback_comment_when_owl_label_is_just_the_term(crate):
+    bare = _by_id(crate["@graph"], "http://example.org/ns#bare")
+    assert bare["name"] == "bare"
+    assert "rdfs:comment" not in bare
+
+
+def test_real_comment_is_not_replaced_by_the_fallback(crate):
+    gadget = _by_id(crate["@graph"], "http://example.org/ns#Gadget")
+    assert gadget["rdfs:comment"] == "A fixture class that specialises Widget."
+
+
+def test_usage_examples_become_skos_example_in_every_language(crate):
+    bare_frame = _by_id(crate["@graph"], "http://example.org/ns#BareFrame")
+    assert bare_frame["skos:example"] == [
+        "an untagged example",
+        "his reputation SANK low",
+        "ich TUE mir WEH",
+    ]
+    assert "skos:example" not in _by_id(crate["@graph"], "http://example.org/ns#Widget")
+
+
+def test_skos_prefix_is_declared_when_examples_are_used(crate):
+    assert crate["@context"][1]["skos"] == "http://www.w3.org/2004/02/skos/core#"
+
+
+def test_skos_prefix_is_not_declared_without_examples(tmp_path):
+    metadata_path = owl_to_masp.convert(
+        str(EXTRA_FIXTURE), str(tmp_path / "extra"), namespace=EXTRA_NAMESPACE, start_time=FIXED_START_TIME
+    )
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+    assert crate["@context"][1] == {"@vocab": "http://schema.org/"}
+
+
 def test_out_of_namespace_class_is_excluded(crate):
     ids = {entity["@id"] for entity in crate["@graph"]}
     assert "http://example.org/external#Thing" not in ids

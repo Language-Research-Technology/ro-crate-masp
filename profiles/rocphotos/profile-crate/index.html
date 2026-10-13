@@ -268,6 +268,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </div>
 <h2>Types of entities (specializations of Classes) and expected Properties</h2>
 <h3><a id="RO-Crate_Metadata_Descriptor" title="#RO-Crate_Metadata_Descriptor"></a> Class: RO-Crate Metadata Descriptor</h3>
+<p>Term: <code>CreativeWork</code></p>
 <p>The entity that identifies the crate and points at its root data entity.</p>
 <p>At least 1 instances of this type MUST be present in the crate.</p>
 <p>A maximum of 1 instances of this type  MAY be present in the crate.</p>
@@ -325,6 +326,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_MainCollectionRoot" title="#class_MainCollectionRoot"></a> Class: Main collection root</h3>
+<p>Term: <code>Dataset</code></p>
 <p>The root dataset of a rocphotos Main Collection, which includes references to all the &quot;folder collections&quot;. This has the metadata for the Main Collection, which also includes detailed context such as relationships between people.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -381,6 +383,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_FolderCollectionRoot" title="#class_FolderCollectionRoot"></a> Class: Folder collection root</h3>
+<p>Term: <code>Dataset</code></p>
 <p>The root dataset of a Folder Collection - describing all the images in a directory and its sub-directories.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -437,6 +440,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_FacesRoot" title="#class_FacesRoot"></a> Class: Faces crate root</h3>
+<p>Term: <code>Dataset</code></p>
 <p>This is used by the rocphotos app for managing face data - it is not designed to be edited by people.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -493,6 +497,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_SubCollection" title="#class_SubCollection"></a> Class: Sub-collection reference</h3>
+<p>Term: <code>Dataset</code></p>
 <p>A reference to a Folder Collection from the Main Collection, just a pointer to where it is on disk. This is not intended to be edited by hand.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -541,6 +546,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_Photo" title="#class_Photo"></a> Class: Photo</h3>
+<p>Term: <code>ImageObject</code></p>
 <p>A photograph. Distinguished from the crate's other ImageObjects (thumbnails, album items).</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -677,6 +683,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_Thumbnail" title="#class_Thumbnail"></a> Class: Thumbnail</h3>
+<p>Term: <code>ImageObject</code></p>
 <p>A generated thumbnail, referenced by a photo's thumbnail property.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -725,6 +732,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_AlbumItem" title="#class_AlbumItem"></a> Class: Album item</h3>
+<p>Term: <code>ImageObject</code></p>
 <p>A proxy reference to a photo in an album so a caption or other metadata specific to this album can later be added without changing the original picture.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -773,6 +781,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_Album" title="#class_Album"></a> Class: Album</h3>
+<p>Term: <code>ImageGallery</code></p>
 <p>A named, ordered virtual collection of photos, which is stored in the Main Collection crate.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -901,6 +910,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="InstancePersonClass" title="#InstancePersonClass"></a> Class: Person in this crate</h3>
+<p>Term: <code>Person</code></p>
 <p>A person as depicted in one crate — one per person per crate, which everything in that crate points at rather than the shared identity. Lets the same person be recorded under the name they went by in this part of the collection.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -957,6 +967,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="MainPetClass" title="#MainPetClass"></a> Class: Pet</h3>
+<p>Term: <code>rocp:Pet</code></p>
 <p>A pet, identified by name the same way a Person is, in its own id space so the two never collide.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1005,6 +1016,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="InstancePetClass" title="#InstancePetClass"></a> Class: Pet in this crate</h3>
+<p>Term: <code>rocp:Pet</code></p>
 <p>A pet as depicted in one crate — see Person in this crate.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1061,6 +1073,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_ImageRegion_Exif" title="#class_ImageRegion_Exif"></a> Class: Region (from the file's own tags)</h3>
+<p>Term: <code>ImageRegion</code></p>
 <p>A face or pet tagged in the photo file itself (MWG), rebuilt from EXIF on every rescan. Its area is MWG's own convention: a centre point plus size, as fractions of the image.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1165,6 +1178,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_ImageRegion_Standoff" title="#class_ImageRegion_Standoff"></a> Class: Region (confirmed here)</h3>
+<p>Term: <code>ImageRegion</code></p>
 <p>A face confirmed in this application, recorded whether or not it is ever written into the photo file. Typed as a Web Annotation as well as an ImageRegion, which is what tells it apart from the EXIF-derived shape.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1253,6 +1267,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_RegionBody" title="#class_RegionBody"></a> Class: Region body</h3>
+<p>Term: <code>Person</code></p>
 <p>The body of a standoff region: a proxy for the subject, specializing this crate's instance of them (which in turn specializes the shared identity).</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1301,6 +1316,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_ExifValue" title="#class_ExifValue"></a> Class: EXIF value</h3>
+<p>Term: <code>PropertyValue</code></p>
 <p>One EXIF field, with a stable id so a rescan overwrites it rather than accumulating a new node.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1357,6 +1373,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="class_FaceEmbedding" title="#class_FaceEmbedding"></a> Class: Face embedding</h3>
+<p>Term: <code>FaceEmbedding</code></p>
 <p>One reference embedding in the faces crate, for inspection — matching itself queries the companion SQLite index. Points back at the region it came from rather than holding image data.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1453,6 +1470,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="SpouseRelationshipClass" title="#SpouseRelationshipClass"></a> Class: Spouses</h3>
+<p>Term: <code>rico:SpouseRelation</code></p>
 <p>Relationship between people who are, or were, in a spousal relationship to each other, includes marriages, de-facto marriages and other long term partnerships.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>
@@ -1517,6 +1535,7 @@ resolve a reference within the crate it is checking: a <code>FaceEmbedding</code
 </tbody>
 </table>
 <h3><a id="ParentChildRelationshipClass" title="#ParentChildRelationshipClass"></a> Class: Parent and child</h3>
+<p>Term: <code>rico:ChildRelation</code></p>
 <p>A parent-child relationship including biological, adoptive or other forms.</p>
 <p>Instances of this type MAY be present in the crate.</p>
 <table>

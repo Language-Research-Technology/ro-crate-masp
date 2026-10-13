@@ -4,6 +4,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex: <http://example.org/ns#> .
 @prefix ext: <http://example.org/external#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/3.0/lexinfo#> .
 
 # Minimal fixture ontology exercising every construct scripts/owl-to-masp.py
 # is expected to handle. See scripts/owl-to-masp.spec.md ("Test plan") for
@@ -113,3 +115,41 @@ ex:hasColour a owl:ObjectProperty ;
 
 ex:ignoredResource a rdfs:Resource ;
     rdfs:label "ignoredResource"@en .
+
+# No rdfs:comment, and an OWL label that differs from the local name: the
+# label phrase must be used as the rdfs:comment fallback (see
+# scripts/owl-to-masp.spec.md, "Comment fallback"). Also carries usage
+# examples via both lexinfo:example and skos:example, in two languages, which
+# must all be kept as skos:example (spec: "Usage examples").
+ex:BareFrame a owl:Class ;
+    rdfs:label "bare frame"@en ;
+    lexinfo:example "his reputation SANK low"@en ;
+    lexinfo:example "ich TUE mir WEH"@de ;
+    skos:example "an untagged example" .
+
+# No rdfs:comment, and the OWL label is identical to the local name: no
+# fallback comment, since it would just repeat the term.
+ex:bare a owl:DatatypeProperty ;
+    rdfs:label "bare"@en ;
+    rdfs:domain ex:BareFrame ;
+    rdfs:range xsd:string .
+
+# No rdfs:comment, but OWL structure to describe: the fallback comment must
+# add the superclass and the equivalentClass definition, using bare term
+# names (spec: "Comment fallback").
+ex:RedWidget a owl:Class ;
+    rdfs:label "red widget"@en ;
+    rdfs:subClassOf ex:Widget ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Widget
+            [ a owl:Restriction ; owl:onProperty ex:hasColour ; owl:hasValue ex:red ]
+            [ a owl:Restriction ; owl:onProperty ex:widgetName ; owl:minCardinality 1 ]
+        )
+    ] .
+
+# No rdfs:comment; super-property must appear in the fallback comment.
+ex:hasRedWidget a owl:ObjectProperty ;
+    rdfs:label "has red widget"@en ;
+    rdfs:subPropertyOf ex:hasWidget .

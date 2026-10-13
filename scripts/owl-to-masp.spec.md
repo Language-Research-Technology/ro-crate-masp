@@ -89,6 +89,7 @@ Based on the rule vocabulary documented in `CLAUDE.md` and implemented in `lib/m
 |---|---|---|
 | `owl:Class`, or plain `rdfs:Class` with no `owl:Class` typing | `rdfs:Class` entity | `@id` is the **full class IRI, unchanged** — see [Namespace filtering, not compaction](#namespace-filtering-not-compaction); `rdfs:label`/`name`/`rdfs:comment` set per [Label vs. name](#label-vs-name) below |
 | `owl:ObjectProperty` / `owl:DatatypeProperty`, or plain `rdf:Property` with none of those | `rdf:Property` entity | same label/name/comment handling, full IRI `@id` |
+| `skos:example`, `lexinfo:example` (annotation properties) | `skos:example` on the class/property entity, **always as an array of plain strings** | see [Usage examples](#usage-examples) below |
 | `rdfs:domain` | `domainIncludes` on the property entity | one value → `{"@id": ...}` object; 2+ values → array of the same, matching `austalk:age_from`'s single-domain shape and `schema-org`'s multi-value shape. A blank-node domain that is an `owl:unionOf` of named classes (see below) expands into one entry per union member — it is **not** dropped like other blank nodes. |
 | `rdfs:range` (class) | `rangeIncludes` on the property entity | same one-vs-many object/array rule, same `owl:unionOf` expansion; points at the full IRI of the range class, even if that class is outside `--namespace` (external range references are allowed; see edge cases) |
 | `rdfs:range` (datatype, e.g. `xsd:string`, `xsd:date`) | `rangeIncludes` → `{"@id": "schema:Text"}` / `{"@id": "schema:Date"}` / etc. | uses the fixed table below; unmapped datatypes warn on stderr and fall back to `schema:Text` |
@@ -110,6 +111,27 @@ Resolved: for every generated `rdfs:Class`/`rdf:Property` entity —
 - **`name`** is set to the OWL ontology's own `rdfs:label` literal (the expanded, human-readable phrase, e.g. `"is component of transitive"`), using the same language-tag preference as elsewhere ([Multiple/no `rdfs:label`](#edge-cases--open-questions) below). If the source ontology has no `rdfs:label` at all for a term, `name` falls back to the same local-name value as `rdfs:label`, so `name` is always present.
 
 This also lines up with how `lib/masp-validator.js`'s `Rule` base class already resolves a rule's display name — `asFirstString(entity["name"]) || asFirstString(entity["rdfs:label"]) || this.id` — i.e. it already prefers `name` over `rdfs:label`, so this convention was implicit in the validator before this converter existed; RiC-O's OWL just happened to have the two swapped relative to what MASP expects.
+
+### Comment fallback
+
+Some ontologies leave most terms without an `rdfs:comment`; LexInfo is the motivating case, where 330 of its 492 converted classes and properties have only an `rdfs:label` (e.g. `lexinfo:IntransitiveAdjectivalComplementFrame`, labelled `"intransitive adjectival complement frame"`). After the [label/name split](#label-vs-name), that phrase lives only in `name`, and several consumers never show `name`: Crate-O mode output (`toEditorDefinition` in `lib/masp-validator.js`) uses `rdfs:label` for the field name and only the description for its help text, and some docs tables prefer `rdfs:label` too.
+
+Resolved: when a term has no `rdfs:comment`, `rdfs:comment` is built from the `name` phrase plus what the OWL structure says about the term, as short sentences that name related terms by their bare term (local name), not their label phrase:
+
+- named `rdfs:subClassOf` → "A kind of X, Y"; named `rdfs:subPropertyOf` → "A sub-property of X"; `owl:inverseOf` → "Inverse of X";
+- `owl:equivalentClass` → "Equivalent to: …", rendering `owl:intersectionOf`/`owl:unionOf` as "and"/"or", restrictions as `P = v` (`owl:hasValue`), `P some C` / `P only C`, and `exactly`/`at least`/`at most n P [of type C]` (plain and qualified cardinalities). Any other expression is left out instead of guessed at.
+
+Label phrases alone don't tell terms apart, which is why the structure is needed. LexInfo's `Adjective` and `AdjectivePOS` are both labelled "adjective"; with the structure they become "adjective. A kind of Word. Equivalent to: partOfSpeech some AdjectivePOS." and "adjective. A kind of PartOfSpeech." If there is no structure, the comment is just the phrase. If even that is identical to the local name (e.g. `lexinfo:perfective`, labelled `"perfective"`), no comment is set, because it would add nothing. A real `rdfs:comment` always wins. This applies to `rdfs:Class`/`rdf:Property` entities only; instance entities already show `name` everywhere.
+
+`generate-masp-docs.js` also shows a `Term:` line (the `rdfs:label`) at the top of a class entry whenever it differs from the `name` used in the heading, so classes that share a label phrase can be told apart at a glance.
+
+### Usage examples
+
+LexInfo attaches usage examples to its frame classes with its own annotation property `lexinfo:example` (61 examples on 58 classes, in English, German and French, e.g. `"his reputation SANK low"`), and RiC-O uses `skos:example` directly (124 examples on 27 terms). Both are converted to **`skos:example`** on the class/property entity. SKOS defines it as "an example of the use of a concept", which is exactly what these are, and it avoids any confusion with MASP's existing *crate-level* examples (`ResourceDescriptor`s with `hasRole` `prof:role/example`). When any entity carries `skos:example`, a `"skos": "http://www.w3.org/2004/02/skos/core#"` prefix is added to the crate's local `@context`; crates with no examples get no new prefix, so their output is unchanged.
+
+- **All languages are kept.** Unlike labels (see [edge cases](#edge-cases--open-questions)), examples in different languages are different content, not translations of each other, so none are dropped.
+- **Values are plain strings, without language tags.** They are always an array, sorted for stable output. `{"@value": ..., "@language": ...}` objects would be more faithful, but `ro-crate-excel` (which `generate-masp-docs.js -x` syncs every schema crate through) turns them into bogus `"entity-N"` references on the xlsx round-trip. The language of an example is usually evident from its text; revisit if the spreadsheet toolchain learns to round-trip language-tagged literals.
+- `generate-masp-docs.js` renders them as an "Examples:" bullet list under the class description and under the property table.
 
 ### Namespace filtering, not compaction
 
