@@ -1,0 +1,3709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMLex (OASIS Data Model for Lexicography)</title>
+  <link rel="describedby" href="ro-crate-metadata.json" type="application/ld+json">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { padding: 2rem; }
+    table { width: 100%; margin-bottom: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #dee2e6; }
+    th { background-color: #f8f9fa; }
+    pre { background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    pre.mermaid { background: none; padding: 0; }
+    code { background: #f8f9fa; padding: 0.2em 0.4em; border-radius: 3px; }
+  </style>
+  <style>
+    .entity-filter { margin-bottom: 0.5rem; width: 100%; padding: 0.4rem 0.6rem; font-size: 0.95rem; border: 1px solid #ced4da; border-radius: 4px; }
+    .entity-list { height: 420px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 4px; padding: 0.5rem 1rem; background: #fff; list-style: none; margin: 0; }
+    .entity-list li { padding: 0.15rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .entity-list li:last-child { border-bottom: none; }
+    .entity-list li.hidden { display: none; }
+    .col-panel h3 { margin-top: 0; }
+    .col-panel { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <p>
+      <a href="ro-crate-metadata.json">⬇️ Download profile metadata (JSON-LD)</a> &nbsp;|&nbsp;
+      <a href="ro-crate-metadata.xlsx">⬇️ Download profile metadata (Excel)</a>
+    </p>
+    <hr>
+<h2>title: DMLex Schema Terms</h2>
+<h1>DMLex Schema Terms</h1>
+<p>This MASP Schema was auto-generated from the RDF vocabulary of <a href="https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html">DMLex</a>, the OASIS Data Model for Lexicography (v1.0, OASIS Standard), using the <code>scripts/owl-to-masp.py</code> script. DMLex models dictionaries (&quot;lexicographic resources&quot;): entries, senses, definitions, examples, pronunciations and inflected forms, plus optional modules for crosslingual (bilingual and multilingual) resources, controlled values, linking between entries and senses, inline annotation, and etymology.</p>
+<p>The source is <a href="https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/RDF/dmlex.ttl"><code>dmlex.ttl</code></a>, the vocabulary file that defines the <code>https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#</code> namespace (see the spec's <a href="https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html">RDF serialization design principles</a>). It combines all six modules; OASIS also publishes them as separate files alongside it.</p>
+<p>Conversion notes:</p>
+<ul>
+<li>DMLex links into the W3C OntoLex-Lemon model (e.g. <code>Entry</code> is a subclass of <code>ontolex:LexicalEntry</code>); those OntoLex terms are referenced by IRI but not documented here.</li>
+<li>Converted with <code>--flatten-mixins</code>. DMLex gives properties shared by several classes an undocumented &quot;Has…&quot; mixin class as their domain (e.g. <code>label</code> has domain <code>HasLabel</code>, a superclass of <code>Entry</code>, <code>Sense</code>, <code>Example</code> and others). Here those mixins are dropped and each property is put directly on the classes that use it, so <code>Entry</code> lists all of its properties itself.</li>
+<li>Some apparent errors in <code>dmlex.ttl</code> show through:
+<ul>
+<li><code>InflectedFormTag</code>, <code>LabelTag</code>, <code>PartOfSpeechTag</code> and <code>TranscriptionSchemeTag</code> are declared as subclasses of <code>HasInflectedForm</code>, which gives them the <code>inflectedForm</code> property. This looks like a typo for <code>HasForHeadwords</code>.</li>
+<li>Nothing is declared as a subclass of <code>HasForHeadwords</code>, so <code>forHeadwords</code> and <code>forTranslations</code> are put on the classes that restrict them (the four tag classes above). <code>forLanguage</code> has no such restriction, so it has no domain here.</li>
+<li><code>ItemMarker</code> is declared only as a subclass of <code>HasLemma</code> and is not used anywhere else, so it is not included.</li>
+</ul>
+</li>
+<li>Converted with <code>--describe-restrictions</code>. DMLex expresses arity (&quot;exactly 1 <code>headword</code>&quot; on <code>Entry</code>, &quot;at most 1 <code>title</code>&quot; on <code>LexicographicResource</code>, …) as 101 OWL class restrictions. A schema can't enforce these per class, so each class's description ends with them as &quot;Constraints: …&quot;, and the property tables show every property as not required. The draft <a href="../../profiles/ldac-dmlex/profile-crate/index.html">LDAC-DMLex profile</a> carries them as real, per-class cardinality rules. The <a href="https://docs.oasis-open.org/lexidma/dmlex/v1.0/dmlex-v1.0.html">DMLex spec</a> and its SHACL shapes (<a href="https://docs.oasis-open.org/lexidma/dmlex/v1.0/os/schemas/RDF/dmlex.shacl"><code>dmlex.shacl</code></a>) give the same arities.</li>
+<li><code>dmlex.ttl</code> differs slightly from the separate module files: <code>MemberType</code> allows at most one <code>role</code> (exactly one in the Linking module file), and <code>Etymon</code> is not a subclass of <code>HasTranslation</code> (it is in the Etymology module file).</li>
+</ul>
+<h2>All Rules:</h2>
+<p><strong>33</strong> classes &middot; <strong>71</strong> properties</p>
+<div class="row">
+  <div class="col-md-6 col-panel">
+    <h3>Classes</h3>
+    <input class="entity-filter" type="search" placeholder="Filter classes…" data-target="class-list">
+    <ul id="class-list" class="entity-list">
+<li><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a> — Marks up a substring other than the headword inside an example, inside an example translation or inside a definition. Constraints: exactly 1 endIndex; at most 1 lemma; exactly 1 startIndex.</li>
+<li><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a> — Represents one of possibly several definitions of a sense. Constraints: at most 1 definitionType; exactly 1 listingOrder; exactly 1 text.</li>
+<li><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a> — Represents one (of many) possible values for definitionType of definition. Constraints: at most 1 description; exactly 1 tag.</li>
+<li><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a> — Represents a dictionary entry. Constraints: exactly 1 headword; at most 1 homographNumber.</li>
+<li><a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a> — Represents a chain of historical derivations of a word. Constraints: at most 1 description; exactly 1 listingOrder.</li>
+<li><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a> — Represents one stage (of possibly several) in the etymological history of the headword. Constraints: at least 1 etymonUnit; exactly 1 listingOrder; at most 1 note; at most 1 translation; at most 1 type; at most 1 when.</li>
+<li><a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a> — Represents one of several allowed values for the language property of etymonUnit objects. Constraints: at most 1 displayName; exactly 1 langCode.</li>
+<li><a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a> — Represents one of possible values for the type of etymon. Constraints: at most 1 description; exactly 1 type.</li>
+<li><a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a> — Represents a form (typically a word) which is the etymological origin of the headword, or another etymologically related form. Constraints: exactly 1 language; exactly 1 listingOrder; at most 1 reconstructed; exactly 1 text; at most 1 translation.</li>
+<li><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a> — Represents a sentence or other text fragment which illustrates the headword being used. Constraints: exactly 1 listingOrder; at most 1 soundFile; at most 1 sourceElaboration; at most 1 sourceIdentity; exactly 1 text.</li>
+<li><a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a> — Represents the translation of an example. Constraints: at most 1 language; exactly 1 text.</li>
+<li><a href="#HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation">Headword Explanation</a> — Represents a statement in the translation language which explains (but does not translate) the meaning of the headword. Constraints: at most 1 language; exactly 1 text.</li>
+<li><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a> — Marks up a substring inside an example, inside an example translation or inside a definition which corresponds to the headword (or to a translation of the headword). Constraints: exactly 1 endIndex; exactly 1 startIndex.</li>
+<li><a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a> — Represents one of possibly multiple translations of a headword. Constraints: at most 1 language; exactly 1 listingOrder; exactly 1 text.</li>
+<li><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a> — Represents one (of possibly many) inflected forms of the headword. Constraints: exactly 1 listingOrder; at most 1 tag; exactly 1 text.</li>
+<li><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a> — Represents one (of many) possible values for tag of inflectedForm. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</li>
+<li><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a> — Represents a restriction on its parent such as temporal (old-fashioned, neologism), regional (dialect), register (formal, colloquial), domain (medicine, politics) or grammar (singular-only). Constraints: exactly 1 listingOrder; exactly 1 tag.</li>
+<li><a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a> — Represents one (of many) possible values for tag of label. Constraints: at most 1 description; at most 1 forCollocates; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag; at most 1 typeTag.</li>
+<li><a href="#LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag">Label Type Tag</a> — Represents one (of many) possible values for typeTag of labelTag. Constraints: exactly 1 description; exactly 1 tag.</li>
+<li><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a> — Represents a dictionary. Constraints: exactly 1 langCode; at most 1 title; at most 1 uri.</li>
+<li><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a> — Represents the fact that an object, such as an entry or a sense, is a member of a relation. Constraints: exactly 1 listingOrder; at most 1 obverseListingOrder; exactly 1 ref; at most 1 role.</li>
+<li><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a> — Represents one of possible values for the role of member, as well as various restrictions on members having this role. Constraints: at most 1 action; at most 1 description; at most 1 max; at most 1 min; at most 1 role; exactly 1 type.</li>
+<li><a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a> — Represents a part of speech label. Constraints: exactly 1 listingOrder; exactly 1 tag.</li>
+<li><a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a> — Represents one (of many) possible values for tag of partOfSpeech. Constraints: at most 1 description; at most 1 forEtymology; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</li>
+<li><a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a> — Marks up a substring inside a headword or inside a headword translation which is not part of the expression itself but stands for things that can take its place. Constraints: exactly 1 endIndex; exactly 1 startIndex.</li>
+<li><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a> — Represents the pronunciation of its parent. Pronunciations must have either a sound file or a transcription. Constraints: exactly 1 listingOrder; at most 1 soundFile.</li>
+<li><a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a> — Represents the fact that a relation exists between two or more objects. Constraints: at most 1 description; at least 2 member; exactly 1 type.</li>
+<li><a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a> — Represents one of possible values for the type of relation. Constraints: at most 1 description; at most 1 scope; exactly 1 type.</li>
+<li><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a> — Represents one of possibly many meanings (or meaning potentials) of the headword. Constraints: at most 1 indicator; exactly 1 listingOrder.</li>
+<li><a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a> — Represents one (of many) possible values for sourceIdentity of example. Constraints: at most 1 description; exactly 1 tag.</li>
+<li><a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a> — Represents the transcription of a pronunciation in some notation such as IPA. Constraints: exactly 1 listingOrder; at most 1 scheme; exactly 1 text.</li>
+<li><a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a> — Represents one (of many) possible values for scheme of transcription. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</li>
+<li><a href="#TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage">TranslationLanguage</a> — Represents one of the languages in which translations are given in this lexicographic resource. Constraints: exactly 1 langCode; exactly 1 listingOrder.</li>
+    </ul>
+  </div>
+  <div class="col-md-6 col-panel">
+    <h3>Properties</h3>
+    <input class="entity-filter" type="search" placeholder="Filter properties…" data-target="prop-list">
+    <ul id="prop-list" class="entity-list">
+<li><a href="#action" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action">Action</a> — Action</li>
+<li><a href="#collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker">Collocate Marker</a> — Collocate Marker</li>
+<li><a href="#definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition">Definition</a> — Definition</li>
+<li><a href="#definitionType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType">Definition Type</a> — Definition Type</li>
+<li><a href="#definitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag">Definition Type Tag</a> — Definition Type Tag</li>
+<li><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">Description</a> — Description</li>
+<li><a href="#displayName" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName">Display Name</a> — Display Name</li>
+<li><a href="#endIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex">End Index</a> — End Index</li>
+<li><a href="#entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry">Entry</a> — Entry. A sub-property of entry.</li>
+<li><a href="#etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology">Etymology</a> — Etymology</li>
+<li><a href="#etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon">Etymon</a> — Etymon</li>
+<li><a href="#etymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage">Etymon Language</a> — Etymon Language</li>
+<li><a href="#etymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType">Etymon Type</a> — Etymon Type</li>
+<li><a href="#etymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit">Etymon Unit</a> — Etymon Unit</li>
+<li><a href="#example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example">Example</a> — Example</li>
+<li><a href="#exampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation">Example Translation</a> — Example Translation</li>
+<li><a href="#forCollocates" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates">For Collocates</a> — For Collocates</li>
+<li><a href="#forEtymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology">For Etymology</a> — For Etymology</li>
+<li><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">For Headwords</a> — For Headwords</li>
+<li><a href="#forLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage">For Language</a> — For Language</li>
+<li><a href="#forPartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech">For Part of Speech</a> — For Part of Speech</li>
+<li><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">For Translations</a> — For Translations</li>
+<li><a href="#headword" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword">Headword</a> — Headword</li>
+<li><a href="#headwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation">Headword Explanation</a> — Headword Explanation</li>
+<li><a href="#headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker">Headword Marker</a> — Headword Marker</li>
+<li><a href="#headwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation">Headword Translation</a> — Headword Translation</li>
+<li><a href="#homographNumber" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber">Homograph Number</a> — Homograph Number</li>
+<li><a href="#indicator" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator">Indicator</a> — Indicator</li>
+<li><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">Inflected Form</a> — Inflected Form. A sub-property of otherForm.</li>
+<li><a href="#inflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag">Inflected Form Tag</a> — Inflected Form Tag</li>
+<li><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">Label</a> — Label</li>
+<li><a href="#labelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag">Label Tag</a> — Label Tag</li>
+<li><a href="#labelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag">Label Type Tag</a> — Label Type Tag</li>
+<li><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">Language</a> — Language. A sub-property of language.</li>
+<li><a href="#lemma" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma">Lemma</a> — Lemma</li>
+<li><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">Listing Order</a> — Listing Order</li>
+<li><a href="#max" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max">Max</a> — Max</li>
+<li><a href="#member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member">Member</a> — Member</li>
+<li><a href="#memberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType">Member Type</a> — Member Type</li>
+<li><a href="#min" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min">Min</a> — Min</li>
+<li><a href="#note" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note">Note</a> — Note</li>
+<li><a href="#obverseListingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder">Obverse Listing Order</a> — Obverse Listing Order</li>
+<li><a href="#partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech">Part of Speech</a> — Part of Speech</li>
+<li><a href="#partOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag">Part of Speech Tag</a> — Part of Speech Tag</li>
+<li><a href="#placeholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker">Placeholder Marker</a> — Placeholder Marker</li>
+<li><a href="#pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation">Pronunciation</a> — Pronunciation</li>
+<li><a href="#reconstructed" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed">Reconstructed</a> — Reconstructed</li>
+<li><a href="#ref" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref">Ref</a> — Ref</li>
+<li><a href="#relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation">Relation</a> — Relation</li>
+<li><a href="#relationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType">RelationType</a> — RelationType</li>
+<li><a href="#role" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role">Role</a> — Role</li>
+<li><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">Same As</a> — Same As</li>
+<li><a href="#scheme" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme">Scheme</a> — Scheme</li>
+<li><a href="#scope" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope">Scope</a> — Scope</li>
+<li><a href="#sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense">Sense</a> — Sense. A sub-property of evokes.</li>
+<li><a href="#soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile">Sound File</a> — Sound File</li>
+<li><a href="#sourceElaboration" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration">Source Elaboration</a> — Source Elaboration</li>
+<li><a href="#sourceIdentity" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity">Source Identity</a> — Source Identity</li>
+<li><a href="#sourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag">Source Identity Tag</a> — Source Identity Tag</li>
+<li><a href="#startIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex">Start Index</a> — Start Index</li>
+<li><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">Tag</a> — Tag</li>
+<li><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">Text</a> — Text</li>
+<li><a href="#title" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title">Title</a> — Title</li>
+<li><a href="#transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription">Transcription</a> — Transcription</li>
+<li><a href="#transcriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag">Transcription Scheme Tag</a> — Transcription Scheme Tag</li>
+<li><a href="#translation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation">Translation</a> — Translation</li>
+<li><a href="#translationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage">Translation Language</a> — Translation Language</li>
+<li><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">Type</a> — Type</li>
+<li><a href="#typeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag">Type Tag</a> — Type Tag</li>
+<li><a href="#uri" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri">URI</a> — URI</li>
+<li><a href="#when" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when">When</a> — When</li>
+    </ul>
+  </div>
+</div>
+<h2>Types of entities (specializations of Classes) and expected Properties</h2>
+<h3><a id="CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker"></a> Class: Collocate Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker)</small></h3>
+<p>Term: <code>CollocateMarker</code></p>
+<p>Marks up a substring other than the headword inside an example, inside an example translation or inside a definition. Constraints: exactly 1 endIndex; at most 1 lemma; exactly 1 startIndex.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Collocate Marker</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#lemma" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma">lemma</a></td>
+<td>No</td>
+<td>Lemma</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"></a> Class: Definition <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition)</small></h3>
+<p>Represents one of possibly several definitions of a sense. Constraints: at most 1 definitionType; exactly 1 listingOrder; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Definition</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker">collocateMarker</a></td>
+<td>No</td>
+<td>Collocate Marker</td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#definitionType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType">definitionType</a></td>
+<td>No</td>
+<td>Definition Type</td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker">headwordMarker</a></td>
+<td>No</td>
+<td>Headword Marker</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"></a> Class: Definition Type Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag)</small></h3>
+<p>Term: <code>DefinitionTypeTag</code></p>
+<p>Represents one (of many) possible values for definitionType of definition. Constraints: at most 1 description; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Definition Type Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"></a> Class: Entry <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry)</small></h3>
+<p>Represents a dictionary entry. Constraints: exactly 1 headword; at most 1 homographNumber.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Entry</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology">etymology</a></td>
+<td>No</td>
+<td>Etymology</td>
+<td><a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headword" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword">headword</a></td>
+<td>No</td>
+<td>Headword</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#homographNumber" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber">homographNumber</a></td>
+<td>No</td>
+<td>Homograph Number</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech">partOfSpeech</a></td>
+<td>No</td>
+<td>Part of Speech</td>
+<td><a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#placeholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker">placeholderMarker</a></td>
+<td>No</td>
+<td>Placeholder Marker</td>
+<td><a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation">pronunciation</a></td>
+<td>No</td>
+<td>Pronunciation</td>
+<td><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense">sense</a></td>
+<td>No</td>
+<td>Sense. A sub-property of evokes.</td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"></a> Class: Etymology <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology)</small></h3>
+<p>Represents a chain of historical derivations of a word. Constraints: at most 1 description; exactly 1 listingOrder.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Etymology</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon">etymon</a></td>
+<td>No</td>
+<td>Etymon</td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"></a> Class: Etymon <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon)</small></h3>
+<p>Represents one stage (of possibly several) in the etymological history of the headword. Constraints: at least 1 etymonUnit; exactly 1 listingOrder; at most 1 note; at most 1 translation; at most 1 type; at most 1 when.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Etymon</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit">etymonUnit</a></td>
+<td>No</td>
+<td>Etymon Unit</td>
+<td><a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#note" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note">note</a></td>
+<td>No</td>
+<td>Note</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>No</td>
+<td>Type</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#when" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when">when</a></td>
+<td>No</td>
+<td>When</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"></a> Class: Etymon Language <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage)</small></h3>
+<p>Term: <code>EtymonLanguage</code></p>
+<p>Represents one of several allowed values for the language property of etymonUnit objects. Constraints: at most 1 displayName; exactly 1 langCode.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Etymon Language</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#displayName" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName">displayName</a></td>
+<td>No</td>
+<td>Display Name</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"></a> Class: Etymon Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType)</small></h3>
+<p>Term: <code>EtymonType</code></p>
+<p>Represents one of possible values for the type of etymon. Constraints: at most 1 description; exactly 1 type.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Etymon Type</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>No</td>
+<td>Type</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"></a> Class: Etymon Unit <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit)</small></h3>
+<p>Term: <code>EtymonUnit</code></p>
+<p>Represents a form (typically a word) which is the etymological origin of the headword, or another etymologically related form. Constraints: exactly 1 language; exactly 1 listingOrder; at most 1 reconstructed; exactly 1 text; at most 1 translation.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Etymon Unit</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech">partOfSpeech</a></td>
+<td>No</td>
+<td>Part of Speech</td>
+<td><a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#reconstructed" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed">reconstructed</a></td>
+<td>No</td>
+<td>Reconstructed</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#translation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation">translation</a></td>
+<td>No</td>
+<td>Translation</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"></a> Class: Example <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example)</small></h3>
+<p>Represents a sentence or other text fragment which illustrates the headword being used. Constraints: exactly 1 listingOrder; at most 1 soundFile; at most 1 sourceElaboration; at most 1 sourceIdentity; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Example</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker">collocateMarker</a></td>
+<td>No</td>
+<td>Collocate Marker</td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#exampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation">exampleTranslation</a></td>
+<td>No</td>
+<td>Example Translation</td>
+<td><a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker">headwordMarker</a></td>
+<td>No</td>
+<td>Headword Marker</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile">soundFile</a></td>
+<td>No</td>
+<td>Sound File</td>
+<td>schema:URL</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceElaboration" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration">sourceElaboration</a></td>
+<td>No</td>
+<td>Source Elaboration</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceIdentity" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity">sourceIdentity</a></td>
+<td>No</td>
+<td>Source Identity</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"></a> Class: Example Translation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation)</small></h3>
+<p>Term: <code>ExampleTranslation</code></p>
+<p>Represents the translation of an example. Constraints: at most 1 language; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Example Translation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker">collocateMarker</a></td>
+<td>No</td>
+<td>Collocate Marker</td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker">headwordMarker</a></td>
+<td>No</td>
+<td>Headword Marker</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile">soundFile</a></td>
+<td>No</td>
+<td>Sound File</td>
+<td>schema:URL</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation"></a> Class: Headword Explanation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation)</small></h3>
+<p>Term: <code>HeadwordExplanation</code></p>
+<p>Represents a statement in the translation language which explains (but does not translate) the meaning of the headword. Constraints: at most 1 language; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Headword Explanation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker"></a> Class: Headword Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker)</small></h3>
+<p>Term: <code>HeadwordMarker</code></p>
+<p>Marks up a substring inside an example, inside an example translation or inside a definition which corresponds to the headword (or to a translation of the headword). Constraints: exactly 1 endIndex; exactly 1 startIndex.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Headword Marker</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#endIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex">endIndex</a></td>
+<td>No</td>
+<td>End Index</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#startIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex">startIndex</a></td>
+<td>No</td>
+<td>Start Index</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"></a> Class: Headword Translation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation)</small></h3>
+<p>Term: <code>HeadwordTranslation</code></p>
+<p>Represents one of possibly multiple translations of a headword. Constraints: at most 1 language; exactly 1 listingOrder; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Headword Translation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech">partOfSpeech</a></td>
+<td>No</td>
+<td>Part of Speech</td>
+<td><a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#placeholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker">placeholderMarker</a></td>
+<td>No</td>
+<td>Placeholder Marker</td>
+<td><a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation">pronunciation</a></td>
+<td>No</td>
+<td>Pronunciation</td>
+<td><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"></a> Class: Inflected Form <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm)</small></h3>
+<p>Term: <code>InflectedForm</code></p>
+<p>Represents one (of possibly many) inflected forms of the headword. Constraints: exactly 1 listingOrder; at most 1 tag; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Inflected Form</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation">pronunciation</a></td>
+<td>No</td>
+<td>Pronunciation</td>
+<td><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"></a> Class: Inflected Form Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag)</small></h3>
+<p>Term: <code>InflectedFormTag</code></p>
+<p>Represents one (of many) possible values for tag of inflectedForm. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Inflected Form Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">forHeadwords</a></td>
+<td>No</td>
+<td>For Headwords</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forPartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech">forPartOfSpeech</a></td>
+<td>No</td>
+<td>For Part of Speech</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">forTranslations</a></td>
+<td>No</td>
+<td>For Translations</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label"></a> Class: Label <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label)</small></h3>
+<p>Represents a restriction on its parent such as temporal (old-fashioned, neologism), regional (dialect), register (formal, colloquial), domain (medicine, politics) or grammar (singular-only). Constraints: exactly 1 listingOrder; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Label</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"></a> Class: Label Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag)</small></h3>
+<p>Term: <code>LabelTag</code></p>
+<p>Represents one (of many) possible values for tag of label. Constraints: at most 1 description; at most 1 forCollocates; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag; at most 1 typeTag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Label Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forCollocates" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates">forCollocates</a></td>
+<td>No</td>
+<td>For Collocates</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">forHeadwords</a></td>
+<td>No</td>
+<td>For Headwords</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forPartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech">forPartOfSpeech</a></td>
+<td>No</td>
+<td>For Part of Speech</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">forTranslations</a></td>
+<td>No</td>
+<td>For Translations</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag"></a> Class: Label Type Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag)</small></h3>
+<p>Term: <code>LabelTypeTag</code></p>
+<p>Represents one (of many) possible values for typeTag of labelTag. Constraints: exactly 1 description; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Label Type Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"></a> Class: Lexicographic resource <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource)</small></h3>
+<p>Term: <code>LexicographicResource</code></p>
+<p>Represents a dictionary. Constraints: exactly 1 langCode; at most 1 title; at most 1 uri.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Lexicographic resource</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag">definitionTypeTag</a></td>
+<td>No</td>
+<td>Definition Type Tag</td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry">entry</a></td>
+<td>No</td>
+<td>Entry. A sub-property of entry.</td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#etymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage">etymonLanguage</a></td>
+<td>No</td>
+<td>Etymon Language</td>
+<td><a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#etymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType">etymonType</a></td>
+<td>No</td>
+<td>Etymon Type</td>
+<td><a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag">inflectedFormTag</a></td>
+<td>No</td>
+<td>Inflected Form Tag</td>
+<td><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#labelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag">labelTypeTag</a></td>
+<td>No</td>
+<td>Label Type Tag</td>
+<td><a href="#LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag">Label Type Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#partOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag">partOfSpeechTag</a></td>
+<td>No</td>
+<td>Part of Speech Tag</td>
+<td><a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation">relation</a></td>
+<td>No</td>
+<td>Relation</td>
+<td><a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#relationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType">relationType</a></td>
+<td>No</td>
+<td>RelationType</td>
+<td><a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag">sourceIdentityTag</a></td>
+<td>No</td>
+<td>Source Identity Tag</td>
+<td><a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#title" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title">title</a></td>
+<td>No</td>
+<td>Title</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#transcriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag">transcriptionSchemeTag</a></td>
+<td>No</td>
+<td>Transcription Scheme Tag</td>
+<td><a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#translationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage">translationLanguage</a></td>
+<td>No</td>
+<td>Translation Language</td>
+<td><a href="#TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage">TranslationLanguage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#uri" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri">uri</a></td>
+<td>No</td>
+<td>URI</td>
+<td>schema:URL</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"></a> Class: Member <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member)</small></h3>
+<p>Represents the fact that an object, such as an entry or a sense, is a member of a relation. Constraints: exactly 1 listingOrder; at most 1 obverseListingOrder; exactly 1 ref; at most 1 role.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Member</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#obverseListingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder">obverseListingOrder</a></td>
+<td>No</td>
+<td>Obverse Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#ref" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref">ref</a></td>
+<td>No</td>
+<td>Ref</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#role" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role">role</a></td>
+<td>No</td>
+<td>Role</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"></a> Class: Member Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType)</small></h3>
+<p>Term: <code>MemberType</code></p>
+<p>Represents one of possible values for the role of member, as well as various restrictions on members having this role. Constraints: at most 1 action; at most 1 description; at most 1 max; at most 1 min; at most 1 role; exactly 1 type.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Member Type</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#action" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action">action</a></td>
+<td>No</td>
+<td>Action</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#max" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max">max</a></td>
+<td>No</td>
+<td>Max</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#min" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min">min</a></td>
+<td>No</td>
+<td>Min</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#role" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role">role</a></td>
+<td>No</td>
+<td>Role</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>No</td>
+<td>Type</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech"></a> Class: Part of Speech <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech)</small></h3>
+<p>Term: <code>PartOfSpeech</code></p>
+<p>Represents a part of speech label. Constraints: exactly 1 listingOrder; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Part of Speech</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"></a> Class: Part of Speech Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag)</small></h3>
+<p>Term: <code>PartOfSpeechTag</code></p>
+<p>Represents one (of many) possible values for tag of partOfSpeech. Constraints: at most 1 description; at most 1 forEtymology; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Part of Speech Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forEtymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology">forEtymology</a></td>
+<td>No</td>
+<td>For Etymology</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">forHeadwords</a></td>
+<td>No</td>
+<td>For Headwords</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">forTranslations</a></td>
+<td>No</td>
+<td>For Translations</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker"></a> Class: Placeholder Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker)</small></h3>
+<p>Term: <code>PlaceholderMarker</code></p>
+<p>Marks up a substring inside a headword or inside a headword translation which is not part of the expression itself but stands for things that can take its place. Constraints: exactly 1 endIndex; exactly 1 startIndex.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Placeholder Marker</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#endIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex">endIndex</a></td>
+<td>No</td>
+<td>End Index</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#startIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex">startIndex</a></td>
+<td>No</td>
+<td>Start Index</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"></a> Class: Pronunciation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation)</small></h3>
+<p>Represents the pronunciation of its parent. Pronunciations must have either a sound file or a transcription. Constraints: exactly 1 listingOrder; at most 1 soundFile.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Pronunciation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile">soundFile</a></td>
+<td>No</td>
+<td>Sound File</td>
+<td>schema:URL</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription">transcription</a></td>
+<td>No</td>
+<td>Transcription</td>
+<td><a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"></a> Class: Relation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation)</small></h3>
+<p>Represents the fact that a relation exists between two or more objects. Constraints: at most 1 description; at least 2 member; exactly 1 type.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Relation</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member">member</a></td>
+<td>No</td>
+<td>Member</td>
+<td><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>No</td>
+<td>Type</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"></a> Class: Relation Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType)</small></h3>
+<p>Term: <code>RelationType</code></p>
+<p>Represents one of possible values for the type of relation. Constraints: at most 1 description; at most 1 scope; exactly 1 type.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Relation Type</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#memberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType">memberType</a></td>
+<td>No</td>
+<td>Member Type</td>
+<td><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#scope" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope">scope</a></td>
+<td>No</td>
+<td>Scope</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>No</td>
+<td>Type</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"></a> Class: Sense <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense)</small></h3>
+<p>Represents one of possibly many meanings (or meaning potentials) of the headword. Constraints: at most 1 indicator; exactly 1 listingOrder.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Sense</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition">definition</a></td>
+<td>No</td>
+<td>Definition</td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example">example</a></td>
+<td>No</td>
+<td>Example</td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation">headwordExplanation</a></td>
+<td>No</td>
+<td>Headword Explanation</td>
+<td><a href="#HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation">Headword Explanation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#headwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation">headwordTranslation</a></td>
+<td>No</td>
+<td>Headword Translation</td>
+<td><a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#indicator" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator">indicator</a></td>
+<td>No</td>
+<td>Indicator</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>No</td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"></a> Class: Source Identity Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag)</small></h3>
+<p>Term: <code>SourceIdentityTag</code></p>
+<p>Represents one (of many) possible values for sourceIdentity of example. Constraints: at most 1 description; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Source Identity Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>No</td>
+<td>Same As</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"></a> Class: Transcription <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription)</small></h3>
+<p>Represents the transcription of a pronunciation in some notation such as IPA. Constraints: exactly 1 listingOrder; at most 1 scheme; exactly 1 text.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Transcription</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#scheme" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme">scheme</a></td>
+<td>No</td>
+<td>Scheme</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>No</td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"></a> Class: Transcription Scheme Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag)</small></h3>
+<p>Term: <code>TranscriptionSchemeTag</code></p>
+<p>Represents one (of many) possible values for scheme of transcription. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from Transcription Scheme Tag</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>No</td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">forHeadwords</a></td>
+<td>No</td>
+<td>For Headwords</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">forTranslations</a></td>
+<td>No</td>
+<td>For Translations</td>
+<td>schema:Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>No</td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>No</td>
+<td>Tag</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage"></a> Class: TranslationLanguage <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage)</small></h3>
+<p>Represents one of the languages in which translations are given in this lexicographic resource. Constraints: exactly 1 langCode; exactly 1 listingOrder.</p>
+<p>Instances of this type MAY be present in the crate.</p>
+<table>
+<thead>
+<tr>
+<th>Min Count</th>
+<th>Max Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h4>Properties from TranslationLanguage</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Description</th>
+<th>Range</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>No</td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>No</td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>All Properties</h2>
+<h3><a id="action" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action"></a> Property: Action <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#action" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action">action</a></td>
+<td>Action</td>
+<td>schema:Text</td>
+<td><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker"></a> Property: Collocate Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#collocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker">collocateMarker</a></td>
+<td>Collocate Marker</td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a></td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a>, <a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition"></a> Property: Definition <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition">definition</a></td>
+<td>Definition</td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a></td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="definitionType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType"></a> Property: Definition Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definitionType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType">definitionType</a></td>
+<td>Definition Type</td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a></td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="definitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag"></a> Property: Definition Type Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#definitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag">definitionTypeTag</a></td>
+<td>Definition Type Tag</td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description"></a> Property: Description <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#description" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description">description</a></td>
+<td>Description</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a>, <a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a>, <a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a>, <a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag">Label Type Tag</a>, <a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a>, <a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a>, <a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a>, <a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="displayName" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName"></a> Property: Display Name <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#displayName" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName">displayName</a></td>
+<td>Display Name</td>
+<td>schema:Text</td>
+<td><a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="endIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex"></a> Property: End Index <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#endIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex">endIndex</a></td>
+<td>End Index</td>
+<td>schema:Text</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a>, <a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry"></a> Property: Entry <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry">entry</a></td>
+<td>Entry. A sub-property of entry.</td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology"></a> Property: Etymology <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology">etymology</a></td>
+<td>Etymology</td>
+<td><a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon"></a> Property: Etymon <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon">etymon</a></td>
+<td>Etymon</td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a></td>
+<td><a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="etymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage"></a> Property: Etymon Language <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage">etymonLanguage</a></td>
+<td>Etymon Language</td>
+<td><a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="etymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType"></a> Property: Etymon Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType">etymonType</a></td>
+<td>Etymon Type</td>
+<td><a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="etymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit"></a> Property: Etymon Unit <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#etymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit">etymonUnit</a></td>
+<td>Etymon Unit</td>
+<td><a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a></td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example"></a> Property: Example <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example">example</a></td>
+<td>Example</td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a></td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="exampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation"></a> Property: Example Translation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#exampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation">exampleTranslation</a></td>
+<td>Example Translation</td>
+<td><a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a></td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forCollocates" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates"></a> Property: For Collocates <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forCollocates" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates">forCollocates</a></td>
+<td>For Collocates</td>
+<td>schema:Boolean</td>
+<td><a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forEtymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology"></a> Property: For Etymology <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forEtymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology">forEtymology</a></td>
+<td>For Etymology</td>
+<td>schema:Boolean</td>
+<td><a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords"></a> Property: For Headwords <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forHeadwords" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords">forHeadwords</a></td>
+<td>For Headwords</td>
+<td>schema:Boolean</td>
+<td><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage"></a> Property: For Language <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage">forLanguage</a></td>
+<td>For Language</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forPartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech"></a> Property: For Part of Speech <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forPartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech">forPartOfSpeech</a></td>
+<td>For Part of Speech</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations"></a> Property: For Translations <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#forTranslations" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations">forTranslations</a></td>
+<td>For Translations</td>
+<td>schema:Boolean</td>
+<td><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="headword" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword"></a> Property: Headword <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#headword" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword">headword</a></td>
+<td>Headword</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="headwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation"></a> Property: Headword Explanation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#headwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation">headwordExplanation</a></td>
+<td>Headword Explanation</td>
+<td><a href="#HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation">Headword Explanation</a></td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker"></a> Property: Headword Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#headwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker">headwordMarker</a></td>
+<td>Headword Marker</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a></td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a>, <a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="headwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation"></a> Property: Headword Translation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#headwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation">headwordTranslation</a></td>
+<td>Headword Translation</td>
+<td><a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a></td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="homographNumber" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber"></a> Property: Homograph Number <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#homographNumber" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber">homographNumber</a></td>
+<td>Homograph Number</td>
+<td>schema:Integer</td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="indicator" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator"></a> Property: Indicator <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#indicator" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator">indicator</a></td>
+<td>Indicator</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm"></a> Property: Inflected Form <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#inflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm">inflectedForm</a></td>
+<td>Inflected Form. A sub-property of otherForm.</td>
+<td><a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="inflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag"></a> Property: Inflected Form Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#inflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag">inflectedFormTag</a></td>
+<td>Inflected Form Tag</td>
+<td><a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label"></a> Property: Label <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label">label</a></td>
+<td>Label</td>
+<td><a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a></td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a>, <a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a>, <a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a>, <a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a>, <a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="labelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag"></a> Property: Label Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#labelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag">labelTag</a></td>
+<td>Label Tag</td>
+<td><a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="labelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag"></a> Property: Label Type Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#labelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag">labelTypeTag</a></td>
+<td>Label Type Tag</td>
+<td><a href="#LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag">Label Type Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode"></a> Property: Language <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#langCode" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode">langCode</a></td>
+<td>Language. A sub-property of language.</td>
+<td>schema:Text</td>
+<td><a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a>, <a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a>, <a href="#HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation">Headword Explanation</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a>, <a href="#TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage">TranslationLanguage</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="lemma" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma"></a> Property: Lemma <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#lemma" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma">lemma</a></td>
+<td>Lemma</td>
+<td>schema:Text</td>
+<td><a href="#CollocateMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker">Collocate Marker</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder"></a> Property: Listing Order <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#listingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder">listingOrder</a></td>
+<td>Listing Order</td>
+<td>schema:Integer</td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a>, <a href="#Etymology" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology">Etymology</a>, <a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a>, <a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a>, <a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a>, <a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a>, <a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a>, <a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a>, <a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a>, <a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a>, <a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a>, <a href="#TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage">TranslationLanguage</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="max" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max"></a> Property: Max <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#max" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max">max</a></td>
+<td>Max</td>
+<td>schema:Integer</td>
+<td><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member"></a> Property: Member <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member">member</a></td>
+<td>Member</td>
+<td><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a></td>
+<td><a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="memberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType"></a> Property: Member Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#memberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType">memberType</a></td>
+<td>Member Type</td>
+<td><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+<td><a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="min" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min"></a> Property: Min <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#min" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min">min</a></td>
+<td>Min</td>
+<td>schema:Integer</td>
+<td><a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="note" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note"></a> Property: Note <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#note" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note">note</a></td>
+<td>Note</td>
+<td>schema:Text</td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="obverseListingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder"></a> Property: Obverse Listing Order <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#obverseListingOrder" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder">obverseListingOrder</a></td>
+<td>Obverse Listing Order</td>
+<td>schema:Integer</td>
+<td><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech"></a> Property: Part of Speech <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#partOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech">partOfSpeech</a></td>
+<td>Part of Speech</td>
+<td><a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a>, <a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="partOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag"></a> Property: Part of Speech Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#partOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag">partOfSpeechTag</a></td>
+<td>Part of Speech Tag</td>
+<td><a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="placeholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker"></a> Property: Placeholder Marker <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#placeholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker">placeholderMarker</a></td>
+<td>Placeholder Marker</td>
+<td><a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation"></a> Property: Pronunciation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation">pronunciation</a></td>
+<td>Pronunciation</td>
+<td><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="reconstructed" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed"></a> Property: Reconstructed <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#reconstructed" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed">reconstructed</a></td>
+<td>Reconstructed</td>
+<td>schema:Boolean</td>
+<td><a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="ref" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref"></a> Property: Ref <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#ref" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref">ref</a></td>
+<td>Ref</td>
+<td>schema:Text</td>
+<td><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation"></a> Property: Relation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation">relation</a></td>
+<td>Relation</td>
+<td><a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="relationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType"></a> Property: RelationType <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#relationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType">relationType</a></td>
+<td>RelationType</td>
+<td><a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="role" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role"></a> Property: Role <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#role" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role">role</a></td>
+<td>Role</td>
+<td>schema:Text</td>
+<td><a href="#Member" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member">Member</a>, <a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs"></a> Property: Same As <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sameAs" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs">sameAs</a></td>
+<td>Same As</td>
+<td></td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a>, <a href="#EtymonLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage">Etymon Language</a>, <a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a>, <a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a>, <a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="scheme" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme"></a> Property: Scheme <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#scheme" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme">scheme</a></td>
+<td>Scheme</td>
+<td>schema:Text</td>
+<td><a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="scope" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope"></a> Property: Scope <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#scope" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope">scope</a></td>
+<td>Scope</td>
+<td>schema:Text</td>
+<td><a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense"></a> Property: Sense <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense">sense</a></td>
+<td>Sense. A sub-property of evokes.</td>
+<td><a href="#Sense" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense">Sense</a></td>
+<td><a href="#Entry" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry">Entry</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile"></a> Property: Sound File <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#soundFile" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile">soundFile</a></td>
+<td>Sound File</td>
+<td>schema:URL</td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a>, <a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceElaboration" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration"></a> Property: Source Elaboration <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceElaboration" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration">sourceElaboration</a></td>
+<td>Source Elaboration</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceIdentity" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity"></a> Property: Source Identity <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceIdentity" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity">sourceIdentity</a></td>
+<td>Source Identity</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="sourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag"></a> Property: Source Identity Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag">sourceIdentityTag</a></td>
+<td>Source Identity Tag</td>
+<td><a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="startIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex"></a> Property: Start Index <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#startIndex" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex">startIndex</a></td>
+<td>Start Index</td>
+<td>schema:Text</td>
+<td><a href="#HeadwordMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker">Headword Marker</a>, <a href="#PlaceholderMarker" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker">Placeholder Marker</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag"></a> Property: Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#tag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag">tag</a></td>
+<td>Tag</td>
+<td></td>
+<td><a href="#DefinitionTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag">Definition Type Tag</a>, <a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a>, <a href="#InflectedFormTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag">Inflected Form Tag</a>, <a href="#Label" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label">Label</a>, <a href="#LabelTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag">Label Tag</a>, <a href="#LabelTypeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag">Label Type Tag</a>, <a href="#PartOfSpeech" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech">Part of Speech</a>, <a href="#PartOfSpeechTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag">Part of Speech Tag</a>, <a href="#SourceIdentityTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag">Source Identity Tag</a>, <a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text"></a> Property: Text <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#text" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text">text</a></td>
+<td>Text</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#Definition" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition">Definition</a>, <a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a>, <a href="#Example" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example">Example</a>, <a href="#ExampleTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation">Example Translation</a>, <a href="#HeadwordExplanation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation">Headword Explanation</a>, <a href="#HeadwordTranslation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation">Headword Translation</a>, <a href="#InflectedForm" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm">Inflected Form</a>, <a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="title" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title"></a> Property: Title <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#title" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title">title</a></td>
+<td>Title</td>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" title="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" rel="noopener">Literal</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription"></a> Property: Transcription <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription">transcription</a></td>
+<td>Transcription</td>
+<td><a href="#Transcription" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription">Transcription</a></td>
+<td><a href="#Pronunciation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation">Pronunciation</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="transcriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag"></a> Property: Transcription Scheme Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#transcriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag">transcriptionSchemeTag</a></td>
+<td>Transcription Scheme Tag</td>
+<td><a href="#TranscriptionSchemeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag">Transcription Scheme Tag</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="translation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation"></a> Property: Translation <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#translation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation">translation</a></td>
+<td>Translation</td>
+<td>schema:Text</td>
+<td><a href="#EtymonUnit" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit">Etymon Unit</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="translationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage"></a> Property: Translation Language <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#translationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage">translationLanguage</a></td>
+<td>Translation Language</td>
+<td><a href="#TranslationLanguage" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage">TranslationLanguage</a></td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type"></a> Property: Type <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#type" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type">type</a></td>
+<td>Type</td>
+<td>schema:Text</td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a>, <a href="#EtymonType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType">Etymon Type</a>, <a href="#MemberType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType">Member Type</a>, <a href="#Relation" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation">Relation</a>, <a href="#RelationType" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType">Relation Type</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="typeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag"></a> Property: Type Tag <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#typeTag" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag">typeTag</a></td>
+<td>Type Tag</td>
+<td>schema:Text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="uri" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri"></a> Property: URI <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#uri" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri">uri</a></td>
+<td>URI</td>
+<td>schema:URL</td>
+<td><a href="#LexicographicResource" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource">Lexicographic resource</a></td>
+</tr>
+</tbody>
+</table>
+<h3><a id="when" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when"></a> Property: When <small style="color:#aaa">(https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when)</small></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Range</th>
+<th>Occurs in Domain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#when" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when">when</a></td>
+<td>When</td>
+<td>schema:Text</td>
+<td><a href="#Etymon" title="https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon">Etymon</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Property Values</h2>
+<p>No PropertyValue entities are defined.</p>
+
+  </div>
+  <script>
+    document.querySelectorAll('.entity-filter').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var q = this.value.toLowerCase();
+        var list = document.getElementById(this.dataset.target);
+        list.querySelectorAll('li').forEach(function(li) {
+          li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+        });
+      });
+    });
+  </script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>

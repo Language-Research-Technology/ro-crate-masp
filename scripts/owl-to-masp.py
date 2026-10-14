@@ -35,7 +35,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
-from rdflib import OWL, RDF, RDFS, SKOS, XSD, BNode, Graph, Namespace
+from rdflib import OWL, RDF, RDFS, SKOS, XSD, BNode, Graph, Namespace, URIRef
 
 LEXINFO = Namespace("http://www.lexinfo.net/ontology/3.0/lexinfo#")
 
@@ -49,6 +49,7 @@ XSD_TO_SCHEMA = {
     str(XSD.string): "schema:Text",
     str(XSD.normalizedString): "schema:Text",
     str(XSD.token): "schema:Text",
+    str(XSD.language): "schema:Text",
     str(XSD.boolean): "schema:Boolean",
     str(XSD.date): "schema:Date",
     str(XSD.dateTime): "schema:DateTime",
@@ -107,6 +108,19 @@ def parse_args(argv=None):
         "Repeatable -- a term matching any one of the given prefixes is included.",
     )
     parser.add_argument("--name", help="Human-readable schema name for schema-text.md")
+    parser.add_argument(
+        "--describe-restrictions",
+        action="store_true",
+        help='Append each class\'s OWL restrictions to its rdfs:comment as "Constraints: ..." '
+        '(e.g. "exactly 1 headword"). See spec: "Describing restrictions".',
+    )
+    parser.add_argument(
+        "--flatten-mixins",
+        action="store_true",
+        help="Don't emit mixin classes (undeclared classes, and unlabelled, uncommented superclasses such as "
+        "DMLex's HasLabel); move their properties' domains onto the real classes that use them. "
+        'See spec: "Flattening mixin classes".',
+    )
     return parser.parse_args(argv)
 
 
@@ -381,6 +395,61 @@ def range_ref(iri):
     return str(iri)
 
 
+def property_subjects_of(graph):
+    return (
+        set(graph.subjects(RDF.type, OWL.ObjectProperty))
+        | set(graph.subjects(RDF.type, OWL.DatatypeProperty))
+        | set(graph.subjects(RDF.type, RDF.Property))
+    )
+
+
+def implicit_classes(graph):
+    """Named terms that are used as classes without being declared as one:
+    either side of rdfs:subClassOf, or the object of rdfs:domain/rdfs:range
+    (RDFS semantics make all of these classes). DMLex relies on this for its
+    "Has..." mixin classes (e.g. dmlex:HasLabel), which are only ever used
+    as superclasses and property domains. Anything typed as a property is
+    excluded -- lemon:generates is a property that also, wrongly, has an
+    rdfs:subClassOf. See spec: "Implicit classes".
+    """
+    used = set()
+    for subject, obj in graph.subject_objects(RDFS.subClassOf):
+        used |= {subject, obj}
+    for predicate in (RDFS.domain, RDFS.range):
+        used |= set(graph.objects(None, predicate))
+    # Datatypes (xsd:string, rdfs:Literal) and OWL/RDF built-ins are not
+    # classes to convert, even when --namespace doesn't filter them out.
+    builtin_prefixes = tuple(str(ns) for ns in (XSD, RDF, RDFS, OWL))
+    return {
+        term for term in used if not isinstance(term, BNode) and not str(term).startswith(builtin_prefixes)
+    } - property_subjects_of(graph)
+
+
+def describe_restrictions(graph, class_entities):
+    """Append a class's anonymous restriction superclasses (dropped from
+    rdfs:subClassOf) to its rdfs:comment, e.g. DMLex's Entry gets
+    "Constraints: exactly 1 headword; at most 1 homographNumber." MASP schema
+    property rules have one global sh:minCount/sh:maxCount, so per-class
+    arity can only be documented here, not enforced (that needs a profile).
+    See spec: "Describing restrictions".
+    """
+    for entity in class_entities:
+        constraints = []
+        for obj in graph.objects(URIRef(entity["@id"]), RDFS.subClassOf):
+            if isinstance(obj, BNode) and (obj, RDF.type, OWL.Restriction) in graph:
+                text = describe_expression(graph, obj)
+                if text is not None:
+                    on_property = graph.value(obj, OWL.onProperty)
+                    constraints.append((local_name(on_property) if on_property is not None else "", text))
+        if not constraints:
+            continue
+        sentence = "Constraints: " + "; ".join(text for _, text in sorted(constraints)) + "."
+        comment = (entity.get("rdfs:comment") or "").rstrip()
+        if comment and not comment.endswith((".", "!", "?")):
+            comment += "."
+        entity["rdfs:comment"] = f"{comment} {sentence}" if comment else sentence
+
+
 def build_class_entities(graph, namespace):
     entities = []
     # Plain rdfs:Class (no owl:Class typing) is the idiom lightweight RDFS
@@ -389,6 +458,7 @@ def build_class_entities(graph, namespace):
     # replacing it so ontologies that do use full OWL typing (RiC-O, the
     # fixture) are unaffected; a subject asserted as both isn't emitted twice.
     class_subjects = set(graph.subjects(RDF.type, OWL.Class)) | set(graph.subjects(RDF.type, RDFS.Class))
+    class_subjects |= implicit_classes(graph)
     for subject in sorted(class_subjects, key=str):
         if isinstance(subject, BNode) or not in_namespace(subject, namespace):
             continue
@@ -408,11 +478,7 @@ def build_property_entities(graph, namespace):
     # Plain rdf:Property (no owl:ObjectProperty/DatatypeProperty typing) is
     # the property-side counterpart of the rdfs:Class case above -- same
     # reasoning, same spec section.
-    property_subjects = (
-        set(graph.subjects(RDF.type, OWL.ObjectProperty))
-        | set(graph.subjects(RDF.type, OWL.DatatypeProperty))
-        | set(graph.subjects(RDF.type, RDF.Property))
-    )
+    property_subjects = property_subjects_of(graph)
     for subject in sorted(property_subjects, key=str):
         if isinstance(subject, BNode) or not in_namespace(subject, namespace):
             continue
@@ -434,6 +500,119 @@ def build_property_entities(graph, namespace):
 
         entities.append(entity)
     return entities
+
+
+def find_mixins(graph, class_entities):
+    """Mixin classes: implicit (undeclared) classes, plus declared classes
+    with no rdfs:label and no rdfs:comment that are only there to be
+    superclasses (DMLex's HasListingOrder). See spec: "Flattening mixin
+    classes".
+    """
+    declared = set(graph.subjects(RDF.type, OWL.Class)) | set(graph.subjects(RDF.type, RDFS.Class))
+    mixins = set()
+    for entity in class_entities:
+        subject = URIRef(entity["@id"])
+        if subject not in declared:
+            mixins.add(entity["@id"])
+        elif (
+            (subject, RDFS.label, None) not in graph
+            and (subject, RDFS.comment, None) not in graph
+            and (None, RDFS.subClassOf, subject) in graph
+        ):
+            mixins.add(entity["@id"])
+    return mixins
+
+
+def nearest_real_classes(graph, iri, mixins, real_ids, direction):
+    """Walk rdfs:subClassOf from a mixin, down (to its subclasses) or up (to
+    its superclasses), through any other mixins, stopping at the first
+    non-mixin classes reached."""
+    found, seen, stack = set(), set(), [URIRef(iri)]
+    while stack:
+        node = stack.pop()
+        if node in seen:
+            continue
+        seen.add(node)
+        if direction == "down":
+            neighbours = graph.subjects(RDFS.subClassOf, node)
+        else:
+            neighbours = graph.objects(node, RDFS.subClassOf)
+        for neighbour in neighbours:
+            if isinstance(neighbour, BNode):
+                continue
+            if str(neighbour) in mixins:
+                stack.append(neighbour)
+            elif direction == "up" or str(neighbour) in real_ids:
+                found.add(str(neighbour))
+    return found
+
+
+def restricting_classes(graph, property_iri, real_ids):
+    """Classes that carry an OWL restriction on the property, e.g.
+    LabelTag rdfs:subClassOf [ owl:onProperty dmlex:forHeadwords ; ... ]."""
+    found = set()
+    for subject, obj in graph.subject_objects(RDFS.subClassOf):
+        if isinstance(obj, BNode) and str(graph.value(obj, OWL.onProperty)) == property_iri and str(subject) in real_ids:
+            found.add(str(subject))
+    return found
+
+
+def flatten_mixins(graph, class_entities, property_entities):
+    """Drop mixin classes and put their properties straight onto the classes
+    that use them: a property whose domain is a mixin gets the nearest real
+    subclasses of that mixin as its domain instead (or, if it has none, the
+    classes that carry a restriction on the property), and mixins are
+    removed from every class's rdfs:subClassOf. Returns the remaining class
+    entities. See spec: "Flattening mixin classes".
+    """
+    mixins = find_mixins(graph, class_entities)
+    real = [entity for entity in class_entities if entity["@id"] not in mixins]
+    real_ids = {entity["@id"] for entity in real}
+
+    for entity in real:
+        supers = []
+        for ref in entity.get("rdfs:subClassOf", []):
+            if ref["@id"] in mixins:
+                supers.extend(sorted(nearest_real_classes(graph, ref["@id"], mixins, real_ids, "up")))
+            else:
+                supers.append(ref["@id"])
+        if supers:
+            entity["rdfs:subClassOf"] = [{"@id": iri} for iri in dict.fromkeys(supers)]
+        else:
+            entity.pop("rdfs:subClassOf", None)
+
+    for entity in property_entities:
+        for field in ("domainIncludes", "rangeIncludes"):
+            value = entity.get(field)
+            if value is None:
+                continue
+            refs = value if isinstance(value, list) else [value]
+            if not any(ref["@id"] in mixins for ref in refs):
+                continue
+            resolved = []
+            for ref in refs:
+                if ref["@id"] not in mixins:
+                    resolved.append(ref["@id"])
+                    continue
+                targets = nearest_real_classes(graph, ref["@id"], mixins, real_ids, "down")
+                if not targets and field == "domainIncludes":
+                    targets = restricting_classes(graph, entity["@id"], real_ids)
+                    if targets:
+                        print(
+                            f"warning: mixin {ref['@id']} has no subclasses; domain of {entity['@id']} "
+                            "taken from the classes that restrict it",
+                            file=sys.stderr,
+                        )
+                resolved.extend(sorted(targets))
+            resolved = list(dict.fromkeys(resolved))
+            if not resolved:
+                print(f"warning: {entity['@id']} has no {field} left after flattening mixins", file=sys.stderr)
+                del entity[field]
+            elif field == "domainIncludes":
+                entity[field] = as_id_field(resolved)
+            else:
+                entity[field] = {"@id": resolved[0]} if len(resolved) == 1 else [{"@id": r} for r in resolved]
+    return real
 
 
 def build_instance_entities(graph, class_entities, namespace):
@@ -644,7 +823,9 @@ def write_schema_crate(output_dir, crate, name, fetched):
     return metadata_path
 
 
-def convert(input_sources, output_dir, namespace=None, name=None, start_time=None):
+def convert(
+    input_sources, output_dir, namespace=None, name=None, start_time=None, flatten=False, restrictions=False
+):
     # Accept a bare string, same as every caller before --input became
     # repeatable (the CLI, the Python unit tests, the JS shell-out test) --
     # only a merge needs to actually pass a list.
@@ -654,6 +835,10 @@ def convert(input_sources, output_dir, namespace=None, name=None, start_time=Non
 
     class_entities = build_class_entities(graph, namespace)
     property_entities = build_property_entities(graph, namespace)
+    if flatten:
+        class_entities = flatten_mixins(graph, class_entities, property_entities)
+    if restrictions:
+        describe_restrictions(graph, class_entities)
     instance_entities, item_lists = build_instance_entities(graph, class_entities, namespace)
     add_item_lists_to_ranges(property_entities, item_lists)
     ontology_label, ontology_comment = ontology_metadata(graph, namespace)
@@ -677,7 +862,14 @@ def convert(input_sources, output_dir, namespace=None, name=None, start_time=Non
 
 def main(argv=None):
     args = parse_args(argv)
-    metadata_path = convert(args.input, args.output_dir, args.namespace, args.name)
+    metadata_path = convert(
+        args.input,
+        args.output_dir,
+        args.namespace,
+        args.name,
+        flatten=args.flatten_mixins,
+        restrictions=args.describe_restrictions,
+    )
     print(f"Wrote {metadata_path}")
     return 0
 

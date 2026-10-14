@@ -161,3 +161,36 @@ ex:isA a owl:ObjectProperty ;
     rdfs:label "instansie van"@af ;
     rdfs:label "instanz von"@de ;
     rdfs:comment "Labelled only in other languages."@en .
+
+# Used as a superclass and a property domain but never declared as a class
+# -- the idiom DMLex uses for its "Has..." mixins (dmlex:HasLabel). Must be
+# converted as a class. ex:mislabelledProperty is a property that (wrongly,
+# like lemon:generates) also has an rdfs:subClassOf: it must stay a property
+# only. See scripts/owl-to-masp.spec.md, "Implicit classes".
+ex:Widget rdfs:subClassOf ex:HasSerialNumber .
+
+ex:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number"@en ;
+    rdfs:comment "A Widget's serial number."@en ;
+    rdfs:domain ex:HasSerialNumber ;
+    rdfs:range xsd:string .
+
+ex:mislabelledProperty a owl:ObjectProperty ;
+    rdfs:label "mislabelled property"@en ;
+    rdfs:comment "A property with a stray rdfs:subClassOf."@en ;
+    rdfs:subClassOf ex:Widget .
+
+# A mixin whose domain has no subclasses (like DMLex's HasForHeadwords): with
+# --flatten-mixins, ex:colourCode's domain must come from the class that
+# restricts it (ex:Gadget). See spec: "Flattening mixin classes".
+ex:colourCode a owl:DatatypeProperty ;
+    rdfs:label "colour code"@en ;
+    rdfs:comment "A Gadget's colour code."@en ;
+    rdfs:domain ex:HasColourCode ;
+    rdfs:range xsd:string .
+
+ex:Gadget rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty ex:colourCode ;
+    owl:maxCardinality 1
+] .

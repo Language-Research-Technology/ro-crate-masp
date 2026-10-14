@@ -1,0 +1,100 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/",
+      "dmlex": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": { "@id": "https://w3id.org/ro/crate/1.2" },
+      "about": { "@id": "./" }
+    },
+    {
+      "@id": "./",
+      "@type": ["Dataset", "dmlex:LexicographicResource"],
+      "name": "Example Dictionary",
+      "description": "The basic entry example (A.1.1) from the DMLex v1.0 specification, as an RO-Crate.",
+      "datePublished": "2026-10-14",
+      "license": { "@id": "https://creativecommons.org/licenses/by/4.0/" },
+      "dmlex:title": "Example Dictionary",
+      "dmlex:uri": "http://example.com",
+      "dmlex:langCode": "en",
+      "dmlex:entry": { "@id": "#abandon-verb" }
+    },
+    {
+      "@id": "#abandon-verb",
+      "@type": "dmlex:Entry",
+      "dmlex:headword": "abandon",
+      "dmlex:partOfSpeech": { "@id": "#abandon-verb-pos" },
+      "dmlex:sense": [{ "@id": "#abandon-verb-1" }, { "@id": "#abandon-verb-2" }]
+    },
+    {
+      "@id": "#abandon-verb-pos",
+      "@type": "dmlex:PartOfSpeech",
+      "dmlex:tag": "verb",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-1",
+      "@type": "dmlex:Sense",
+      "dmlex:listingOrder": 1,
+      "dmlex:definition": { "@id": "#abandon-verb-1-def" },
+      "dmlex:example": [{ "@id": "#abandon-verb-1-ex1" }, { "@id": "#abandon-verb-1-ex2" }]
+    },
+    {
+      "@id": "#abandon-verb-1-def",
+      "@type": "dmlex:Definition",
+      "dmlex:text": "to suddenly leave a place or a person",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-1-ex1",
+      "@type": "dmlex:Example",
+      "dmlex:text": "I'm sorry I abandoned you like that.",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-1-ex2",
+      "@type": "dmlex:Example",
+      "dmlex:text": "Abandon ship!",
+      "dmlex:label": { "@id": "#abandon-verb-1-ex2-label" },
+      "dmlex:listingOrder": 2
+    },
+    {
+      "@id": "#abandon-verb-1-ex2-label",
+      "@type": "dmlex:Label",
+      "dmlex:tag": "idiom",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-2",
+      "@type": "dmlex:Sense",
+      "dmlex:listingOrder": 2,
+      "dmlex:label": { "@id": "#abandon-verb-2-label" },
+      "dmlex:definition": { "@id": "#abandon-verb-2-def" },
+      "dmlex:example": { "@id": "#abandon-verb-2-ex1" }
+    },
+    {
+      "@id": "#abandon-verb-2-label",
+      "@type": "dmlex:Label",
+      "dmlex:tag": "mostly-passive",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-2-def",
+      "@type": "dmlex:Definition",
+      "dmlex:text": "to stop supporting an idea",
+      "dmlex:listingOrder": 1
+    },
+    {
+      "@id": "#abandon-verb-2-ex1",
+      "@type": "dmlex:Example",
+      "dmlex:text": "That theory has been abandoned.",
+      "dmlex:listingOrder": 1
+    }
+  ]
+}

@@ -1,0 +1,1870 @@
+{
+  "@context": [
+    "https://w3id.org/ro/crate/1.2/context",
+    {
+      "@vocab": "http://schema.org/"
+    },
+    {
+      "@base": null
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "DMLex (OASIS Data Model for Lexicography)",
+      "hasResource": [
+        {
+          "@id": "#hasSpecializedSchema"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "dmlex.ttl"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "#owl-to-masp-conversion"
+        }
+      ]
+    },
+    {
+      "@id": "#hasSpecializedSchema",
+      "@type": "ResourceDescriptor",
+      "name": "Specialized Schema Terms",
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasPart": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when"
+        }
+      ]
+    },
+    {
+      "@id": "dmlex.ttl",
+      "@type": "File",
+      "name": "dmlex.ttl",
+      "description": "Source OWL ontology this schema was converted from",
+      "encodingFormat": "text/turtle"
+    },
+    {
+      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@type": "SoftwareApplication",
+      "name": "owl-to-masp.py",
+      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+    },
+    {
+      "@id": "#owl-to-masp-conversion",
+      "@type": "CreateAction",
+      "name": "Convert OWL ontology to MASP schema crate",
+      "object": {
+        "@id": "dmlex.ttl"
+      },
+      "instrument": {
+        "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+      },
+      "result": {
+        "@id": "./"
+      },
+      "startTime": "2026-10-14T00:50:58.863325+00:00"
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CollocateMarker",
+      "name": "Collocate Marker",
+      "rdfs:comment": "Marks up a substring other than the headword inside an example, inside an example translation or inside a definition. Constraints: exactly 1 endIndex; at most 1 lemma; exactly 1 startIndex."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Definition",
+      "name": "Definition",
+      "rdfs:comment": "Represents one of possibly several definitions of a sense. Constraints: at most 1 definitionType; exactly 1 listingOrder; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "DefinitionTypeTag",
+      "name": "Definition Type Tag",
+      "rdfs:comment": "Represents one (of many) possible values for definitionType of definition. Constraints: at most 1 description; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Entry",
+      "name": "Entry",
+      "rdfs:comment": "Represents a dictionary entry. Constraints: exactly 1 headword; at most 1 homographNumber.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalEntry"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Etymology",
+      "name": "Etymology",
+      "rdfs:comment": "Represents a chain of historical derivations of a word. Constraints: at most 1 description; exactly 1 listingOrder."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Etymon",
+      "name": "Etymon",
+      "rdfs:comment": "Represents one stage (of possibly several) in the etymological history of the headword. Constraints: at least 1 etymonUnit; exactly 1 listingOrder; at most 1 note; at most 1 translation; at most 1 type; at most 1 when."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EtymonLanguage",
+      "name": "Etymon Language",
+      "rdfs:comment": "Represents one of several allowed values for the language property of etymonUnit objects. Constraints: at most 1 displayName; exactly 1 langCode."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EtymonType",
+      "name": "Etymon Type",
+      "rdfs:comment": "Represents one of possible values for the type of etymon. Constraints: at most 1 description; exactly 1 type."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit",
+      "@type": "rdfs:Class",
+      "rdfs:label": "EtymonUnit",
+      "name": "Etymon Unit",
+      "rdfs:comment": "Represents a form (typically a word) which is the etymological origin of the headword, or another etymologically related form. Constraints: exactly 1 language; exactly 1 listingOrder; at most 1 reconstructed; exactly 1 text; at most 1 translation."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Example",
+      "name": "Example",
+      "rdfs:comment": "Represents a sentence or other text fragment which illustrates the headword being used. Constraints: exactly 1 listingOrder; at most 1 soundFile; at most 1 sourceElaboration; at most 1 sourceIdentity; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ExampleTranslation",
+      "name": "Example Translation",
+      "rdfs:comment": "Represents the translation of an example. Constraints: at most 1 language; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HeadwordExplanation",
+      "name": "Headword Explanation",
+      "rdfs:comment": "Represents a statement in the translation language which explains (but does not translate) the meaning of the headword. Constraints: at most 1 language; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HeadwordMarker",
+      "name": "Headword Marker",
+      "rdfs:comment": "Marks up a substring inside an example, inside an example translation or inside a definition which corresponds to the headword (or to a translation of the headword). Constraints: exactly 1 endIndex; exactly 1 startIndex."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "HeadwordTranslation",
+      "name": "Headword Translation",
+      "rdfs:comment": "Represents one of possibly multiple translations of a headword. Constraints: at most 1 language; exactly 1 listingOrder; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm",
+      "@type": "rdfs:Class",
+      "rdfs:label": "InflectedForm",
+      "name": "Inflected Form",
+      "rdfs:comment": "Represents one (of possibly many) inflected forms of the headword. Constraints: exactly 1 listingOrder; at most 1 tag; exactly 1 text.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#Form"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "InflectedFormTag",
+      "name": "Inflected Form Tag",
+      "rdfs:comment": "Represents one (of many) possible values for tag of inflectedForm. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Label",
+      "name": "Label",
+      "rdfs:comment": "Represents a restriction on its parent such as temporal (old-fashioned, neologism), regional (dialect), register (formal, colloquial), domain (medicine, politics) or grammar (singular-only). Constraints: exactly 1 listingOrder; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LabelTag",
+      "name": "Label Tag",
+      "rdfs:comment": "Represents one (of many) possible values for tag of label. Constraints: at most 1 description; at most 1 forCollocates; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag; at most 1 typeTag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LabelTypeTag",
+      "name": "Label Type Tag",
+      "rdfs:comment": "Represents one (of many) possible values for typeTag of labelTag. Constraints: exactly 1 description; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource",
+      "@type": "rdfs:Class",
+      "rdfs:label": "LexicographicResource",
+      "name": "Lexicographic resource",
+      "rdfs:comment": "Represents a dictionary. Constraints: exactly 1 langCode; at most 1 title; at most 1 uri.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/lime#Lexicon"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Member",
+      "name": "Member",
+      "rdfs:comment": "Represents the fact that an object, such as an entry or a sense, is a member of a relation. Constraints: exactly 1 listingOrder; at most 1 obverseListingOrder; exactly 1 ref; at most 1 role."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MemberType",
+      "name": "Member Type",
+      "rdfs:comment": "Represents one of possible values for the role of member, as well as various restrictions on members having this role. Constraints: at most 1 action; at most 1 description; at most 1 max; at most 1 min; at most 1 role; exactly 1 type."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PartOfSpeech",
+      "name": "Part of Speech",
+      "rdfs:comment": "Represents a part of speech label. Constraints: exactly 1 listingOrder; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PartOfSpeechTag",
+      "name": "Part of Speech Tag",
+      "rdfs:comment": "Represents one (of many) possible values for tag of partOfSpeech. Constraints: at most 1 description; at most 1 forEtymology; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PlaceholderMarker",
+      "name": "Placeholder Marker",
+      "rdfs:comment": "Marks up a substring inside a headword or inside a headword translation which is not part of the expression itself but stands for things that can take its place. Constraints: exactly 1 endIndex; exactly 1 startIndex."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Pronunciation",
+      "name": "Pronunciation",
+      "rdfs:comment": "Represents the pronunciation of its parent. Pronunciations must have either a sound file or a transcription. Constraints: exactly 1 listingOrder; at most 1 soundFile."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Relation",
+      "name": "Relation",
+      "rdfs:comment": "Represents the fact that a relation exists between two or more objects. Constraints: at most 1 description; at least 2 member; exactly 1 type."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RelationType",
+      "name": "Relation Type",
+      "rdfs:comment": "Represents one of possible values for the type of relation. Constraints: at most 1 description; at most 1 scope; exactly 1 type."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Sense",
+      "name": "Sense",
+      "rdfs:comment": "Represents one of possibly many meanings (or meaning potentials) of the headword. Constraints: at most 1 indicator; exactly 1 listingOrder.",
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.w3.org/ns/lemon/ontolex#LexicalConcept"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SourceIdentityTag",
+      "name": "Source Identity Tag",
+      "rdfs:comment": "Represents one (of many) possible values for sourceIdentity of example. Constraints: at most 1 description; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Transcription",
+      "name": "Transcription",
+      "rdfs:comment": "Represents the transcription of a pronunciation in some notation such as IPA. Constraints: exactly 1 listingOrder; at most 1 scheme; exactly 1 text."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TranscriptionSchemeTag",
+      "name": "Transcription Scheme Tag",
+      "rdfs:comment": "Represents one (of many) possible values for scheme of transcription. Constraints: at most 1 description; at most 1 forHeadwords; at most 1 forTranslations; exactly 1 tag."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TranslationLanguage",
+      "name": "TranslationLanguage",
+      "rdfs:comment": "Represents one of the languages in which translations are given in this lexicographic resource. Constraints: exactly 1 langCode; exactly 1 listingOrder."
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#action",
+      "@type": "rdf:Property",
+      "rdfs:label": "action",
+      "name": "Action",
+      "rdfs:comment": "Action",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#collocateMarker",
+      "@type": "rdf:Property",
+      "rdfs:label": "collocateMarker",
+      "name": "Collocate Marker",
+      "rdfs:comment": "Collocate Marker",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definition",
+      "@type": "rdf:Property",
+      "rdfs:label": "definition",
+      "name": "Definition",
+      "rdfs:comment": "Definition",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionType",
+      "@type": "rdf:Property",
+      "rdfs:label": "definitionType",
+      "name": "Definition Type",
+      "rdfs:comment": "Definition Type",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#definitionTypeTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "definitionTypeTag",
+      "name": "Definition Type Tag",
+      "rdfs:comment": "Definition Type Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#description",
+      "@type": "rdf:Property",
+      "rdfs:label": "description",
+      "name": "Description",
+      "rdfs:comment": "Description",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#displayName",
+      "@type": "rdf:Property",
+      "rdfs:label": "displayName",
+      "name": "Display Name",
+      "rdfs:comment": "Display Name",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#endIndex",
+      "@type": "rdf:Property",
+      "rdfs:label": "endIndex",
+      "name": "End Index",
+      "rdfs:comment": "End Index",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#entry",
+      "@type": "rdf:Property",
+      "rdfs:label": "entry",
+      "name": "Entry",
+      "rdfs:comment": "Entry. A sub-property of entry.",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymology",
+      "@type": "rdf:Property",
+      "rdfs:label": "etymology",
+      "name": "Etymology",
+      "rdfs:comment": "Etymology",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymon",
+      "@type": "rdf:Property",
+      "rdfs:label": "etymon",
+      "name": "Etymon",
+      "rdfs:comment": "Etymon",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonLanguage",
+      "@type": "rdf:Property",
+      "rdfs:label": "etymonLanguage",
+      "name": "Etymon Language",
+      "rdfs:comment": "Etymon Language",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonType",
+      "@type": "rdf:Property",
+      "rdfs:label": "etymonType",
+      "name": "Etymon Type",
+      "rdfs:comment": "Etymon Type",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#etymonUnit",
+      "@type": "rdf:Property",
+      "rdfs:label": "etymonUnit",
+      "name": "Etymon Unit",
+      "rdfs:comment": "Etymon Unit",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#example",
+      "@type": "rdf:Property",
+      "rdfs:label": "example",
+      "name": "Example",
+      "rdfs:comment": "Example",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#exampleTranslation",
+      "@type": "rdf:Property",
+      "rdfs:label": "exampleTranslation",
+      "name": "Example Translation",
+      "rdfs:comment": "Example Translation",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forCollocates",
+      "@type": "rdf:Property",
+      "rdfs:label": "forCollocates",
+      "name": "For Collocates",
+      "rdfs:comment": "For Collocates",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forEtymology",
+      "@type": "rdf:Property",
+      "rdfs:label": "forEtymology",
+      "name": "For Etymology",
+      "rdfs:comment": "For Etymology",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forHeadwords",
+      "@type": "rdf:Property",
+      "rdfs:label": "forHeadwords",
+      "name": "For Headwords",
+      "rdfs:comment": "For Headwords",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forLanguage",
+      "@type": "rdf:Property",
+      "rdfs:label": "forLanguage",
+      "name": "For Language",
+      "rdfs:comment": "For Language",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forPartOfSpeech",
+      "@type": "rdf:Property",
+      "rdfs:label": "forPartOfSpeech",
+      "name": "For Part of Speech",
+      "rdfs:comment": "For Part of Speech",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#forTranslations",
+      "@type": "rdf:Property",
+      "rdfs:label": "forTranslations",
+      "name": "For Translations",
+      "rdfs:comment": "For Translations",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headword",
+      "@type": "rdf:Property",
+      "rdfs:label": "headword",
+      "name": "Headword",
+      "rdfs:comment": "Headword",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordExplanation",
+      "@type": "rdf:Property",
+      "rdfs:label": "headwordExplanation",
+      "name": "Headword Explanation",
+      "rdfs:comment": "Headword Explanation",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordMarker",
+      "@type": "rdf:Property",
+      "rdfs:label": "headwordMarker",
+      "name": "Headword Marker",
+      "rdfs:comment": "Headword Marker",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#headwordTranslation",
+      "@type": "rdf:Property",
+      "rdfs:label": "headwordTranslation",
+      "name": "Headword Translation",
+      "rdfs:comment": "Headword Translation",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#homographNumber",
+      "@type": "rdf:Property",
+      "rdfs:label": "homographNumber",
+      "name": "Homograph Number",
+      "rdfs:comment": "Homograph Number",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#indicator",
+      "@type": "rdf:Property",
+      "rdfs:label": "indicator",
+      "name": "Indicator",
+      "rdfs:comment": "Indicator",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedForm",
+      "@type": "rdf:Property",
+      "rdfs:label": "inflectedForm",
+      "name": "Inflected Form",
+      "rdfs:comment": "Inflected Form. A sub-property of otherForm.",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#inflectedFormTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "inflectedFormTag",
+      "name": "Inflected Form Tag",
+      "rdfs:comment": "Inflected Form Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#label",
+      "@type": "rdf:Property",
+      "rdfs:label": "label",
+      "name": "Label",
+      "rdfs:comment": "Label",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "labelTag",
+      "name": "Label Tag",
+      "rdfs:comment": "Label Tag",
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#labelTypeTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "labelTypeTag",
+      "name": "Label Type Tag",
+      "rdfs:comment": "Label Type Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#langCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "langCode",
+      "name": "Language",
+      "rdfs:comment": "Language. A sub-property of language.",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#lemma",
+      "@type": "rdf:Property",
+      "rdfs:label": "lemma",
+      "name": "Lemma",
+      "rdfs:comment": "Lemma",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#CollocateMarker"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#listingOrder",
+      "@type": "rdf:Property",
+      "rdfs:label": "listingOrder",
+      "name": "Listing Order",
+      "rdfs:comment": "Listing Order",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymology"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#max",
+      "@type": "rdf:Property",
+      "rdfs:label": "max",
+      "name": "Max",
+      "rdfs:comment": "Max",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#member",
+      "@type": "rdf:Property",
+      "rdfs:label": "member",
+      "name": "Member",
+      "rdfs:comment": "Member",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#memberType",
+      "@type": "rdf:Property",
+      "rdfs:label": "memberType",
+      "name": "Member Type",
+      "rdfs:comment": "Member Type",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#min",
+      "@type": "rdf:Property",
+      "rdfs:label": "min",
+      "name": "Min",
+      "rdfs:comment": "Min",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#note",
+      "@type": "rdf:Property",
+      "rdfs:label": "note",
+      "name": "Note",
+      "rdfs:comment": "Note",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#obverseListingOrder",
+      "@type": "rdf:Property",
+      "rdfs:label": "obverseListingOrder",
+      "name": "Obverse Listing Order",
+      "rdfs:comment": "Obverse Listing Order",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeech",
+      "@type": "rdf:Property",
+      "rdfs:label": "partOfSpeech",
+      "name": "Part of Speech",
+      "rdfs:comment": "Part of Speech",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#partOfSpeechTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "partOfSpeechTag",
+      "name": "Part of Speech Tag",
+      "rdfs:comment": "Part of Speech Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#placeholderMarker",
+      "@type": "rdf:Property",
+      "rdfs:label": "placeholderMarker",
+      "name": "Placeholder Marker",
+      "rdfs:comment": "Placeholder Marker",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#pronunciation",
+      "@type": "rdf:Property",
+      "rdfs:label": "pronunciation",
+      "name": "Pronunciation",
+      "rdfs:comment": "Pronunciation",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#reconstructed",
+      "@type": "rdf:Property",
+      "rdfs:label": "reconstructed",
+      "name": "Reconstructed",
+      "rdfs:comment": "Reconstructed",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ref",
+      "@type": "rdf:Property",
+      "rdfs:label": "ref",
+      "name": "Ref",
+      "rdfs:comment": "Ref",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relation",
+      "@type": "rdf:Property",
+      "rdfs:label": "relation",
+      "name": "Relation",
+      "rdfs:comment": "Relation",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#relationType",
+      "@type": "rdf:Property",
+      "rdfs:label": "relationType",
+      "name": "RelationType",
+      "rdfs:comment": "RelationType",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#role",
+      "@type": "rdf:Property",
+      "rdfs:label": "role",
+      "name": "Role",
+      "rdfs:comment": "Role",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Member"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sameAs",
+      "@type": "rdf:Property",
+      "rdfs:label": "sameAs",
+      "name": "Same As",
+      "rdfs:comment": "Same As",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonLanguage"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scheme",
+      "@type": "rdf:Property",
+      "rdfs:label": "scheme",
+      "name": "Scheme",
+      "rdfs:comment": "Scheme",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#scope",
+      "@type": "rdf:Property",
+      "rdfs:label": "scope",
+      "name": "Scope",
+      "rdfs:comment": "Scope",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sense",
+      "@type": "rdf:Property",
+      "rdfs:label": "sense",
+      "name": "Sense",
+      "rdfs:comment": "Sense. A sub-property of evokes.",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Entry"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Sense"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#soundFile",
+      "@type": "rdf:Property",
+      "rdfs:label": "soundFile",
+      "name": "Sound File",
+      "rdfs:comment": "Sound File",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:URL"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceElaboration",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceElaboration",
+      "name": "Source Elaboration",
+      "rdfs:comment": "Source Elaboration",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentity",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceIdentity",
+      "name": "Source Identity",
+      "rdfs:comment": "Source Identity",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#sourceIdentityTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceIdentityTag",
+      "name": "Source Identity Tag",
+      "rdfs:comment": "Source Identity Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#startIndex",
+      "@type": "rdf:Property",
+      "rdfs:label": "startIndex",
+      "name": "Start Index",
+      "rdfs:comment": "Start Index",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordMarker"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PlaceholderMarker"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#tag",
+      "@type": "rdf:Property",
+      "rdfs:label": "tag",
+      "name": "Tag",
+      "rdfs:comment": "Tag",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#DefinitionTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedFormTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Label"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LabelTypeTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeech"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#PartOfSpeechTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#SourceIdentityTag"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+        }
+      ]
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#text",
+      "@type": "rdf:Property",
+      "rdfs:label": "text",
+      "name": "Text",
+      "rdfs:comment": "Text",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Definition"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Example"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#ExampleTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordExplanation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#HeadwordTranslation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#InflectedForm"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#title",
+      "@type": "rdf:Property",
+      "rdfs:label": "title",
+      "name": "Title",
+      "rdfs:comment": "Title",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcription",
+      "@type": "rdf:Property",
+      "rdfs:label": "transcription",
+      "name": "Transcription",
+      "rdfs:comment": "Transcription",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Pronunciation"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Transcription"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#transcriptionSchemeTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "transcriptionSchemeTag",
+      "name": "Transcription Scheme Tag",
+      "rdfs:comment": "Transcription Scheme Tag",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranscriptionSchemeTag"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translation",
+      "@type": "rdf:Property",
+      "rdfs:label": "translation",
+      "name": "Translation",
+      "rdfs:comment": "Translation",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonUnit"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#translationLanguage",
+      "@type": "rdf:Property",
+      "rdfs:label": "translationLanguage",
+      "name": "Translation Language",
+      "rdfs:comment": "Translation Language",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#TranslationLanguage"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#type",
+      "@type": "rdf:Property",
+      "rdfs:label": "type",
+      "name": "Type",
+      "rdfs:comment": "Type",
+      "domainIncludes": [
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#EtymonType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#MemberType"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Relation"
+        },
+        {
+          "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#RelationType"
+        }
+      ],
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#typeTag",
+      "@type": "rdf:Property",
+      "rdfs:label": "typeTag",
+      "name": "Type Tag",
+      "rdfs:comment": "Type Tag",
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#uri",
+      "@type": "rdf:Property",
+      "rdfs:label": "uri",
+      "name": "URI",
+      "rdfs:comment": "URI",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#LexicographicResource"
+      },
+      "rangeIncludes": {
+        "@id": "schema:URL"
+      }
+    },
+    {
+      "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#when",
+      "@type": "rdf:Property",
+      "rdfs:label": "when",
+      "name": "When",
+      "rdfs:comment": "When",
+      "domainIncludes": {
+        "@id": "https://docs.oasis-open.org/lexidma/dmlex/v1.0/schemas/RDF/dmlex.ttl#Etymon"
+      },
+      "rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    }
+  ]
+}

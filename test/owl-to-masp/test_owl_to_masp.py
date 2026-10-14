@@ -139,6 +139,76 @@ def test_name_falls_back_to_local_name_when_no_english_label(crate):
     assert is_a["name"] == "isA"
 
 
+def test_undeclared_class_used_as_superclass_and_domain_is_converted(crate):
+    has_serial = _by_id(crate["@graph"], "http://example.org/ns#HasSerialNumber")
+    assert has_serial["@type"] == "rdfs:Class"
+    assert has_serial["rdfs:label"] == "HasSerialNumber"
+    widget = _by_id(crate["@graph"], "http://example.org/ns#Widget")
+    assert {"@id": "http://example.org/ns#HasSerialNumber"} in widget["rdfs:subClassOf"]
+
+
+def test_property_with_stray_subclass_of_is_not_made_a_class(crate):
+    entity = _by_id(crate["@graph"], "http://example.org/ns#mislabelledProperty")
+    assert entity["@type"] == "rdf:Property"
+    assert sum(1 for e in crate["@graph"] if e["@id"] == entity["@id"]) == 1
+
+
+def test_datatype_ranges_are_not_made_classes(tmp_path):
+    metadata_path = owl_to_masp.convert(str(FIXTURE), str(tmp_path / "unfiltered"), start_time=FIXED_START_TIME)
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+    class_ids = {e["@id"] for e in crate["@graph"] if e.get("@type") == "rdfs:Class"}
+    assert not any(i.startswith("http://www.w3.org/2001/XMLSchema#") for i in class_ids)
+
+
+@pytest.fixture
+def flat_crate(tmp_path):
+    metadata_path = owl_to_masp.convert(
+        str(FIXTURE), str(tmp_path / "flat"), namespace=NAMESPACE, start_time=FIXED_START_TIME, flatten=True
+    )
+    return json.loads(metadata_path.read_text(encoding="utf-8"))
+
+
+def test_flatten_mixins_drops_mixin_classes(flat_crate):
+    ids = {entity["@id"] for entity in flat_crate["@graph"]}
+    assert "http://example.org/ns#HasSerialNumber" not in ids
+    assert "http://example.org/ns#HasColourCode" not in ids
+    descriptor = _by_id(flat_crate["@graph"], "#hasSpecializedSchema")
+    assert {"@id": "http://example.org/ns#HasSerialNumber"} not in descriptor["hasPart"]
+
+
+def test_flatten_mixins_moves_domain_onto_the_real_subclass(flat_crate):
+    serial_number = _by_id(flat_crate["@graph"], "http://example.org/ns#serialNumber")
+    assert serial_number["domainIncludes"] == {"@id": "http://example.org/ns#Widget"}
+    widget = _by_id(flat_crate["@graph"], "http://example.org/ns#Widget")
+    assert "rdfs:subClassOf" not in widget
+
+
+def test_flatten_mixins_falls_back_to_restricting_classes(flat_crate):
+    colour_code = _by_id(flat_crate["@graph"], "http://example.org/ns#colourCode")
+    assert colour_code["domainIncludes"] == {"@id": "http://example.org/ns#Gadget"}
+
+
+def test_without_flatten_mixins_are_kept_as_classes(crate):
+    assert _by_id(crate["@graph"], "http://example.org/ns#HasColourCode")["@type"] == "rdfs:Class"
+
+
+def test_describe_restrictions_appends_constraints_to_comment(tmp_path):
+    metadata_path = owl_to_masp.convert(
+        str(FIXTURE), str(tmp_path / "r"), namespace=NAMESPACE, start_time=FIXED_START_TIME, restrictions=True
+    )
+    crate = json.loads(metadata_path.read_text(encoding="utf-8"))
+    gadget = _by_id(crate["@graph"], "http://example.org/ns#Gadget")
+    assert gadget["rdfs:comment"] == (
+        "A fixture class that specialises Widget. "
+        "Constraints: at most 1 colourCode; hasWidget some Widget."
+    )
+
+
+def test_restrictions_not_described_by_default(crate):
+    gadget = _by_id(crate["@graph"], "http://example.org/ns#Gadget")
+    assert "Constraints" not in gadget["rdfs:comment"]
+
+
 def test_out_of_namespace_class_is_excluded(crate):
     ids = {entity["@id"] for entity in crate["@graph"]}
     assert "http://example.org/external#Thing" not in ids

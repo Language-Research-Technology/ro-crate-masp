@@ -113,6 +113,35 @@ Resolved: for every generated `rdfs:Class`/`rdf:Property` entity —
 
 This also lines up with how `lib/masp-validator.js`'s `Rule` base class already resolves a rule's display name — `asFirstString(entity["name"]) || asFirstString(entity["rdfs:label"]) || this.id` — i.e. it already prefers `name` over `rdfs:label`, so this convention was implicit in the validator before this converter existed; RiC-O's OWL just happened to have the two swapped relative to what MASP expects.
 
+### Implicit classes
+
+Some ontologies use terms as classes without ever declaring them as `owl:Class`/`rdfs:Class`. DMLex is the motivating case: its 20 "Has…" mixin classes (e.g. `dmlex:HasLabel`, `dmlex:HasTag`) appear only as superclasses (`dmlex:Entry rdfs:subClassOf dmlex:HasLabel`) and as property domains (`dmlex:label rdfs:domain dmlex:HasLabel`). Converting only declared classes left 23 DMLex properties with a domain that didn't exist, so they never appeared under the classes that actually have them.
+
+Resolved: a named term is also treated as a class if it appears on either side of `rdfs:subClassOf`, or as the object of `rdfs:domain`/`rdfs:range`, which is what RDFS semantics already imply. Two exclusions:
+
+- Anything typed as a property is never treated as a class. lemon's `lemon:generates` is an `owl:ObjectProperty` that also, wrongly, has an `rdfs:subClassOf`.
+- Terms in the XSD, RDF, RDFS and OWL namespaces (`xsd:string`, `rdfs:Literal`, …) are datatypes or built-ins, not classes to convert. This matters when `--namespace` isn't given.
+
+Implicit classes then go through the normal namespace filter and label/comment handling. Because they usually have no label or comment, they get their local name as `name` and no description. This made no difference to RiC-O, CLDF, OA or lemon, which declare every class they use.
+
+### Flattening mixin classes
+
+Implicit classes on their own make the docs awkward for DMLex: `Entry` shows only 4 properties of its own, and its other 5 appear under "Properties from HasLabel", "Properties from HasPronunciation" and so on. These mixins carry no meaning of their own (no label, no comment); they exist only so one `rdfs:domain` can cover several classes.
+
+Resolved: an opt-in `--flatten-mixins` flag (`convert(..., flatten=True)`) drops the mixins and puts their properties straight onto the classes that use them. It is opt-in so that existing conversions don't change; lemon's `LemonElement` would also count as a mixin under this rule.
+
+- **What counts as a mixin:** every [implicit class](#implicit-classes), plus any declared class with no `rdfs:label` and no `rdfs:comment` that has at least one subclass (DMLex's `HasListingOrder`).
+- **Domains and ranges:** a mixin in a property's `domainIncludes`/`rangeIncludes` is replaced by the nearest non-mixin classes below it, walking `rdfs:subClassOf` down through any other mixins. `dmlex:label`'s domain `HasLabel` becomes `Entry`, `Sense`, `Example`, ….
+- **Restriction fallback:** if a mixin domain has no subclasses at all, the property's domain becomes the classes that carry an OWL restriction on that property, with a warning. DMLex's `HasForHeadwords` is the domain of `forHeadwords`, `forTranslations` and `forLanguage`, but no class is declared as its subclass. The four `…Tag` classes restrict `forHeadwords` and `forTranslations`, so those properties land on them. A property left with no domain at all is warned about and gets no `domainIncludes` (DMLex's `forLanguage`).
+- **Superclasses:** mixins are removed from every class's `rdfs:subClassOf`, replaced by the mixin's own nearest non-mixin superclasses, if it has any.
+- Mixins are not emitted as entities and are not listed in the `ResourceDescriptor`.
+
+### Describing restrictions
+
+Anonymous `owl:Restriction` superclasses are dropped from `rdfs:subClassOf` (see edge cases). For an ontology like DMLex, which expresses all of its arity this way (101 restrictions, e.g. `dmlex:Entry` "exactly 1 `headword`"), that loses real information. It can't be carried into the schema's rules: a MASP schema property rule has one global `sh:minCount`/`sh:maxCount`, but DMLex's counts differ per class (`langCode` is required on `LexicographicResource`, not on the other six classes that have it).
+
+Resolved: an opt-in `--describe-restrictions` flag (`convert(..., restrictions=True)`) appends each class's restrictions to its `rdfs:comment` as a sentence, rendered as for the [comment fallback](#comment-fallback) and sorted by property: `"Represents a dictionary entry. Constraints: exactly 1 headword; at most 1 homographNumber."` (adding a full stop to the comment if it lacks one) (or as the whole comment if there is none). This documents the arity but doesn't enforce it. Enforcing it needs a profile with per-class property rules; `profiles/ldac-dmlex` is generated from DMLex's restrictions this way.
+
 ### Comment fallback
 
 Some ontologies leave most terms without an `rdfs:comment`; LexInfo is the motivating case, where 330 of its 492 converted classes and properties have only an `rdfs:label` (e.g. `lexinfo:IntransitiveAdjectivalComplementFrame`, labelled `"intransitive adjectival complement frame"`). After the [label/name split](#label-vs-name), that phrase lives only in `name`, and several consumers never show `name`: Crate-O mode output (`toEditorDefinition` in `lib/masp-validator.js`) uses `rdfs:label` for the field name and only the description for its help text, and some docs tables prefer `rdfs:label` too.
@@ -189,7 +218,7 @@ Some vocabularies define the allowed values of a class as instances of it, e.g. 
 
 | XSD datatype | schema.org range |
 |---|---|
-| `xsd:string`, `xsd:normalizedString`, `xsd:token` | `schema:Text` |
+| `xsd:string`, `xsd:normalizedString`, `xsd:token`, `xsd:language` | `schema:Text` |
 | `xsd:boolean` | `schema:Boolean` |
 | `xsd:date` | `schema:Date` |
 | `xsd:dateTime` | `schema:DateTime` |

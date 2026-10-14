@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RO-Crate MASP Examples</title>
+<meta name="description" content="Example profiles and schemas from the RO-Crate Machine Actionable Schemas and Profiles (MASP) project.">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1d1f21;
+    --muted: #5d6166;
+    --border: #dcdcd7;
+    --accent: #1f5fa8;
+    --accent-soft: #e6eef8;
+    --profile: #1f5fa8;
+    --schema: #2f7d4f;
+    --warn-bg: #fff3d6;
+    --warn-text: #7a5300;
+    --chip-bg: #eeeeea;
+    --focus: #1f5fa8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151719;
+      --surface: #1e2124;
+      --text: #e8e9ea;
+      --muted: #a2a7ad;
+      --border: #33373b;
+      --accent: #7fb0ec;
+      --accent-soft: #23303f;
+      --profile: #7fb0ec;
+      --schema: #7cc79a;
+      --warn-bg: #3a2f14;
+      --warn-text: #f0c96a;
+      --chip-bg: #2a2e32;
+      --focus: #7fb0ec;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151719;
+    --surface: #1e2124;
+    --text: #e8e9ea;
+    --muted: #a2a7ad;
+    --border: #33373b;
+    --accent: #7fb0ec;
+    --accent-soft: #23303f;
+    --profile: #7fb0ec;
+    --schema: #7cc79a;
+    --warn-bg: #3a2f14;
+    --warn-text: #f0c96a;
+    --chip-bg: #2a2e32;
+    --focus: #7fb0ec;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; overflow-wrap: anywhere; }
+  header h1 { margin: 0 0 8px; font-size: 1.75rem; line-height: 1.2; }
+  header p { margin: 0 0 4px; color: var(--muted); max-width: 70ch; }
+  .notice {
+    margin: 20px 0 0; padding: 12px 16px; max-width: 70ch;
+    background: var(--warn-bg); color: var(--warn-text);
+    border-left: 4px solid currentColor; border-radius: 6px;
+  }
+  .notice p { margin: 0; color: inherit; }
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end;
+    margin: 28px 0 16px; padding: 16px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px;
+  }
+  .control { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .control.search { flex: 1 1 240px; }
+  .controls > * { max-width: 100%; }
+  .control label, .control .legend { font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  input[type="search"] {
+    width: 100%; padding: 8px 10px; font: inherit; color: var(--text);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  }
+  .segmented { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .segmented button {
+    font: inherit; font-size: 0.9rem; padding: 6px 12px; cursor: pointer;
+    color: var(--text); background: var(--chip-bg); border: 1px solid transparent; border-radius: 999px;
+  }
+  .segmented button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .toggle { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; padding-bottom: 6px; }
+  .count { margin: 0 0 12px; color: var(--muted); font-size: 0.9rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
+  .card {
+    display: flex; flex-direction: column; gap: 10px; padding: 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    border-top: 4px solid var(--kind-colour);
+  }
+  .card[data-kind="profile"] { --kind-colour: var(--profile); }
+  .card[data-kind="schema"] { --kind-colour: var(--schema); }
+  .card h2 { margin: 0; font-size: 1.05rem; line-height: 1.3; }
+  .card h2 a { color: var(--text); text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--chip-bg); color: var(--muted); }
+  .badge.kind { color: var(--kind-colour); }
+  .badge.status { background: var(--warn-bg); color: var(--warn-text); text-transform: uppercase; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.92rem; flex: 1; overflow-wrap: anywhere; }
+  .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px; }
+  .meta .links { display: flex; gap: 12px; }
+  .empty { padding: 32px 16px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; }
+  footer { margin-top: 32px; font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>RO-Crate MASP example profiles and schemas</h1>
+    <p>Machine Actionable Schemas and Profiles (MASP) for RO-Crate. <strong>Profiles</strong> say what a conforming crate must contain and can be used to validate one; <strong>schemas</strong> define vocabulary terms, some converted from OWL ontologies.</p>
+    <p>Source, validator and build tools: <a href="https://github.com/Language-Research-Technology/ro-crate-masp">ro-crate-masp on GitHub</a>.</p>
+    <div class="notice" role="note">
+      <p><strong>Examples only.</strong> These profiles and schemas are working examples for developing and testing MASP. This is not their permanent home: each will eventually be published and maintained elsewhere, so don't rely on these copies or their URLs.</p>
+    </div>
+  </header>
+
+  <section class="controls" aria-label="Filters">
+    <div class="control search">
+      <label for="q">Search</label>
+      <input id="q" type="search" placeholder="Name or description" autocomplete="off">
+    </div>
+    <div class="control">
+      <span class="legend" id="kind-label">Type</span>
+      <div class="segmented" role="group" aria-labelledby="kind-label" data-filter="kind">
+        <button type="button" data-value="" aria-pressed="true">All</button>
+        <button type="button" data-value="profile" aria-pressed="false">Profiles</button>
+        <button type="button" data-value="schema" aria-pressed="false">Schemas</button>
+      </div>
+    </div>
+    <div class="control">
+      <span class="legend" id="origin-label">Origin</span>
+      <div class="segmented" role="group" aria-labelledby="origin-label" data-filter="origin">
+        <button type="button" data-value="" aria-pressed="true">All</button>
+        <button type="button" data-value="authored" aria-pressed="false">Written for MASP</button>
+        <button type="button" data-value="owl" aria-pressed="false">Converted from OWL</button>
+      </div>
+    </div>
+    <label class="toggle"><input id="hide-provisional" type="checkbox"> Hide drafts, demos and templates</label>
+  </section>
+
+  <p class="count" id="count" aria-live="polite"></p>
+  <ul class="grid" id="list"></ul>
+
+  <footer>This list is generated from the profile and schema crates in the repository by <code>scripts/build-catalogue.js</code>.</footer>
+</div>
+
+<!-- catalogue-data:start -->
+<script id="catalogue-data" type="application/json">{"entries":[{"id":"cca-demo","kind":"profile","name":"Climate Change Adaptation RO-Crate Profile","summary":"A RO-Crate Profile defining conventions, contextual entities, and semantic terms for representing FAIR Digital Objects for Climate Change Adaptation research in FAIR2Adapt.","version":"0.9.0","status":"","origin":"authored","classes":3,"properties":51,"docs":"profiles/cca-demo/profile-crate/index.html","crate":"profiles/cca-demo/profile-crate/ro-crate-metadata.json","build":"build:cca-profile"},{"id":"ldac","kind":"profile","name":"Language Data Commons Comprehensive Collection Profile","summary":"Profile derived from Language Data Commons Comprehensive Collection: Implements the language data commons RO-Crate Metadata Profile for the top-level, objects and files.","version":"0.1.0","status":"","origin":"authored","classes":30,"properties":99,"docs":"profiles/ldac/profile-crate/index.html","crate":"profiles/ldac/profile-crate/ro-crate-metadata.json","build":"build:ldac-profile"},{"id":"ldac-dmlex","kind":"profile","name":"LDAC-DMLex Profile (DRAFT)","summary":"DRAFT: a Language Data Commons (LDAC) adaptation of the OASIS DMLex data model for lexicography.","version":"0.1.0","status":"draft","origin":"authored","classes":33,"properties":164,"docs":"profiles/ldac-dmlex/profile-crate/index.html","crate":"profiles/ldac-dmlex/profile-crate/ro-crate-metadata.json","build":"build:ldac-dmlex-profile"},{"id":"ro-crate","kind":"profile","name":"RO-Crate Machine Actionable Profile","summary":"This is a mini-profile for RO-Crate itself","version":"0.1.0","status":"","origin":"authored","classes":3,"properties":6,"docs":"profiles/ro-crate/profile-crate/index.html","crate":"profiles/ro-crate/profile-crate/ro-crate-metadata.json","build":"build:ro-crate-profile"},{"id":"ro-crate-2","kind":"profile","name":"RO-Crate 2.0 ExperimentalMachine Actionable Profile","summary":"This is an experimental profile for RO-Crate 2","version":"0.1.0","status":"experimental","origin":"authored","classes":4,"properties":7,"docs":"profiles/ro-crate-2/profile-crate/index.html","crate":"profiles/ro-crate-2/profile-crate/ro-crate-metadata.json","build":"build:ro-crate-2-profile"},{"id":"ro-crate-masp","kind":"profile","name":"RO-Crate MASP Profile","summary":"Profile for RO-Crate Machine Actionable Profiles and Schemas (MASP).","version":"0.1.0","status":"","origin":"authored","classes":13,"properties":29,"docs":"profiles/ro-crate-masp/profile-crate/index.html","crate":"profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json","build":"build:ro-crate-masp-profile"},{"id":"rocphotos","kind":"profile","name":"RO-Crate Photo Collection Profile","summary":"Photograph collections kept at rest on a filesystem as nested RO-Crates: a root crate describing the collection and the people in it, a crate per sub-collection of photos, and a companion crate of face-recognition…","version":"0.1.0","status":"","origin":"authored","classes":20,"properties":65,"docs":"profiles/rocphotos/profile-crate/index.html","crate":"profiles/rocphotos/profile-crate/ro-crate-metadata.json","build":"build:rocphotos-profile"},{"id":"schema-org","kind":"profile","name":"RO-Crate + Schema.org Profile","summary":"A self-contained RO-Crate profile with the minimal RO-Crate entry constraints and embedded Schema.org schema terms.","version":"0.1.0","status":"","origin":"authored","classes":936,"properties":1528,"docs":"profiles/schema-org/profile-crate/index.html","crate":"profiles/schema-org/profile-crate/ro-crate-metadata.json","build":""},{"id":"software","kind":"profile","name":"DEMO ONLY: Research Software Description Profile Schema","summary":"Schema derived from DEMO ONLY: Research Software Description Profile: A draft Crate-O Mode for describing research software source code / notebooks / workflows","version":"0.1","status":"demo","origin":"authored","classes":10,"properties":27,"docs":"profiles/software/profile-crate/index.html","crate":"profiles/software/profile-crate/ro-crate-metadata.json","build":"build:software-profile"},{"id":"workflow","kind":"profile","name":"Workflow Profile","summary":"This is an experimental port of the RO-Crate Workflow Profile to a proposed 'RO-Crate Schema' format.","version":"0.1.0","status":"experimental","origin":"authored","classes":9,"properties":19,"docs":"profiles/workflow/profile-crate/index.html","crate":"profiles/workflow/profile-crate/ro-crate-metadata.json","build":"build:workflow-profile"},{"id":"austalk","kind":"schema","name":"AusTalk Vocabulary Terms","summary":"This is a language data ontology based on the AusTalk ontology here: https://github.com/Alveo/bigasc-metadata/edit/master/schema/austalk.owl","version":"","status":"","origin":"authored","classes":3,"properties":84,"docs":"schemas/austalk/schema-crate/index.html","crate":"schemas/austalk/schema-crate/ro-crate-metadata.json","build":"build:austalk-schema"},{"id":"cldf","kind":"schema","name":"CLDF Ontology","summary":"The CLDF Ontology is an RDF vocabulary describing the dataset types, tables and columns specified in the CLDF standard.","version":"","status":"","origin":"owl","classes":23,"properties":59,"docs":"schemas/cldf/schema-crate/index.html","crate":"schemas/cldf/schema-crate/ro-crate-metadata.json","build":"build:cldf-schema"},{"id":"dmlex","kind":"schema","name":"DMLex (OASIS Data Model for Lexicography)","summary":"DMLex, the OASIS Data Model for Lexicography (v1.0, OASIS Standard), models dictionaries (\"lexicographic resources\"): entries, senses, definitions, examples, pronunciations and inflected forms, plus optional modules…","version":"","status":"","origin":"owl","classes":33,"properties":71,"docs":"schemas/dmlex/schema-crate/index.html","crate":"schemas/dmlex/schema-crate/ro-crate-metadata.json","build":"build:dmlex-schema"},{"id":"ldac","kind":"schema","name":"Language Data Commons Schema Terms","summary":"This is a language data schema, in the style of the Schema.org schema.","version":"","status":"","origin":"authored","classes":5,"properties":54,"docs":"schemas/ldac/schema-crate/index.html","crate":"schemas/ldac/schema-crate/ro-crate-metadata.json","build":"build:ldac-schema"},{"id":"lemon","kind":"schema","name":"lemon (Lexicon Model for Ontologies)","summary":"Lemon: The lexicon model for ontologies is designed to allow for descriptions of lexical information regarding ontological elements and other RDF resources.","version":"","status":"","origin":"owl","classes":29,"properties":54,"docs":"schemas/lemon/schema-crate/index.html","crate":"schemas/lemon/schema-crate/ro-crate-metadata.json","build":"build:lemon-schema"},{"id":"oa","kind":"schema","name":"Web Annotation Vocabulary","summary":"The Web Annotation ontology defines the terms of the Web Annotation vocabulary.","version":"","status":"","origin":"owl","classes":21,"properties":29,"docs":"schemas/oa/schema-crate/index.html","crate":"schemas/oa/schema-crate/ro-crate-metadata.json","build":"build:oa-schema"},{"id":"ric","kind":"schema","name":"Records in Context Ontology","summary":"The Records in Context Ontology (RiC-O) is published by the International Council on Archives (ICA) Expert Group on Archival Description (EGAD) as part of Records in Context, a conceptual model for archival description.","version":"","status":"","origin":"owl","classes":107,"properties":555,"docs":"schemas/ric/schema-crate/index.html","crate":"schemas/ric/schema-crate/ro-crate-metadata.json","build":"build:ric-schema"},{"id":"schema-org","kind":"schema","name":"Schema.org Vocabulary","summary":"The full schema.org vocabulary expressed as a MASP schema crate.","version":"","status":"","origin":"authored","classes":933,"properties":1521,"docs":"schemas/schema-org/schema-crate/index.html","crate":"schemas/schema-org/schema-crate/ro-crate-metadata.json","build":"build:schema-org-schema"},{"id":"template","kind":"schema","name":"Template RO-Crate Schema","summary":"This is a template for an RO-Crate schema.","version":"","status":"template","origin":"authored","classes":1,"properties":1,"docs":"schemas/template/schema-crate/index.html","crate":"schemas/template/schema-crate/ro-crate-metadata.json","build":"build:template-schema"}]}</script>
+<!-- catalogue-data:end -->
+
+<script>
+  (function () {
+    var entries = JSON.parse(document.getElementById("catalogue-data").textContent).entries;
+    var state = { q: "", kind: "", origin: "", hideProvisional: false };
+    var list = document.getElementById("list");
+    var count = document.getElementById("count");
+
+    function readHash() {
+      var params = new URLSearchParams(location.hash.slice(1));
+      state.q = params.get("q") || "";
+      state.kind = params.get("type") || "";
+      state.origin = params.get("origin") || "";
+      state.hideProvisional = params.get("final") === "1";
+    }
+    function writeHash() {
+      var params = new URLSearchParams();
+      if (state.q) params.set("q", state.q);
+      if (state.kind) params.set("type", state.kind);
+      if (state.origin) params.set("origin", state.origin);
+      if (state.hideProvisional) params.set("final", "1");
+      var hash = params.toString();
+      history.replaceState(null, "", hash ? "#" + hash : location.pathname + location.search);
+    }
+
+    function el(tag, attrs, text) {
+      var node = document.createElement(tag);
+      Object.keys(attrs || {}).forEach(function (k) { node.setAttribute(k, attrs[k]); });
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function card(e) {
+      var li = el("li", { class: "card", "data-kind": e.kind });
+      var h2 = el("h2");
+      h2.appendChild(e.docs ? el("a", { href: e.docs }, e.name) : document.createTextNode(e.name));
+      li.appendChild(h2);
+
+      var badges = el("div", { class: "badges" });
+      badges.appendChild(el("span", { class: "badge kind" }, e.kind === "profile" ? "Profile" : "Schema"));
+      if (e.status) badges.appendChild(el("span", { class: "badge status" }, e.status));
+      if (e.origin === "owl") badges.appendChild(el("span", { class: "badge" }, "from OWL"));
+      if (e.version) badges.appendChild(el("span", { class: "badge" }, "v" + e.version));
+      li.appendChild(badges);
+
+      li.appendChild(el("p", {}, e.summary || ""));
+
+      var meta = el("div", { class: "meta" });
+      meta.appendChild(el("span", {}, e.classes + " classes · " + e.properties + " properties"));
+      var links = el("span", { class: "links" });
+      if (e.docs) links.appendChild(el("a", { href: e.docs }, "Docs"));
+      links.appendChild(el("a", { href: e.crate }, "Crate JSON"));
+      meta.appendChild(links);
+      li.appendChild(meta);
+      return li;
+    }
+
+    function matches(e) {
+      if (state.kind && e.kind !== state.kind) return false;
+      if (state.origin && e.origin !== state.origin) return false;
+      if (state.hideProvisional && e.status && e.status !== "experimental") return false;
+      if (state.q) {
+        var hay = (e.name + " " + e.summary + " " + e.id).toLowerCase();
+        return state.q.toLowerCase().split(/\s+/).every(function (w) { return hay.indexOf(w) !== -1; });
+      }
+      return true;
+    }
+
+    function render() {
+      var shown = entries.filter(matches).sort(function (a, b) {
+        return a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === "profile" ? -1 : 1;
+      });
+      list.replaceChildren();
+      if (!shown.length) {
+        var empty = el("li", { class: "empty" }, "Nothing matches these filters.");
+        empty.style.gridColumn = "1 / -1";
+        list.appendChild(empty);
+      } else {
+        shown.forEach(function (e) { list.appendChild(card(e)); });
+      }
+      count.textContent = "Showing " + shown.length + " of " + entries.length;
+    }
+
+    function syncControls() {
+      document.getElementById("q").value = state.q;
+      document.getElementById("hide-provisional").checked = state.hideProvisional;
+      document.querySelectorAll(".segmented").forEach(function (group) {
+        var current = state[group.getAttribute("data-filter")];
+        group.querySelectorAll("button").forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.getAttribute("data-value") === current));
+        });
+      });
+    }
+
+    document.getElementById("q").addEventListener("input", function (ev) {
+      state.q = ev.target.value.trim(); writeHash(); render();
+    });
+    document.getElementById("hide-provisional").addEventListener("change", function (ev) {
+      state.hideProvisional = ev.target.checked; writeHash(); render();
+    });
+    document.querySelectorAll(".segmented").forEach(function (group) {
+      group.addEventListener("click", function (ev) {
+        var button = ev.target.closest("button");
+        if (!button) return;
+        state[group.getAttribute("data-filter")] = button.getAttribute("data-value");
+        syncControls(); writeHash(); render();
+      });
+    });
+    window.addEventListener("hashchange", function () { readHash(); syncControls(); render(); });
+
+    readHash(); syncControls(); render();
+  })();
+</script>
+</body>
+</html>
