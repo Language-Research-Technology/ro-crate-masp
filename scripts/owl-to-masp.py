@@ -45,6 +45,12 @@ LEXINFO = Namespace("http://www.lexinfo.net/ontology/3.0/lexinfo#")
 EXAMPLE_PREDICATES = (SKOS.example, LEXINFO.example)
 SKOS_PREFIX = str(SKOS)
 
+# schema.org publishes its vocabulary under both http:// and https:// (see
+# spec: "schema.org: http and https"); RO-Crate's context and schema.org's own
+# JSON-LD context both use http, so https IRIs are rewritten on input.
+SCHEMA_ORG_HTTP = "http://schema.org/"
+SCHEMA_ORG_HTTPS = "https://schema.org/"
+
 XSD_TO_SCHEMA = {
     str(XSD.string): "schema:Text",
     str(XSD.normalizedString): "schema:Text",
@@ -169,7 +175,37 @@ def load_ontology(sources):
         rdflib_format, encoding_format = guess_formats(filename)
         graph.parse(data=raw_bytes, format=rdflib_format)
         fetched.append((raw_bytes, filename, encoding_format))
-    return graph, fetched
+    return http_schema_org_graph(graph), fetched
+
+
+def http_schema_org(iri):
+    """https://schema.org/X -> http://schema.org/X; anything else unchanged."""
+    if isinstance(iri, URIRef) and str(iri).startswith(SCHEMA_ORG_HTTPS):
+        return URIRef(SCHEMA_ORG_HTTP + str(iri)[len(SCHEMA_ORG_HTTPS) :])
+    return iri
+
+
+def http_schema_org_graph(graph):
+    """Rewrite every https://schema.org/ IRI in the graph (subject, predicate
+    or object) to http://schema.org/, so an ontology using either variant
+    yields the same terms -- and a merge of both variants, one set."""
+    https_triples = [
+        triple for triple in graph if any(http_schema_org(term) is not term for term in triple)
+    ]
+    for s, p, o in https_triples:
+        graph.remove((s, p, o))
+        graph.add((http_schema_org(s), http_schema_org(p), http_schema_org(o)))
+    return graph
+
+
+def http_schema_org_namespaces(namespaces):
+    """Apply the same rewrite to --namespace prefixes, so that
+    --namespace https://schema.org/ still selects the (rewritten) terms."""
+    if not namespaces:
+        return namespaces
+    if isinstance(namespaces, str):
+        return str(http_schema_org(URIRef(namespaces)))
+    return [str(http_schema_org(URIRef(ns))) for ns in namespaces]
 
 
 def in_namespace(iri, namespaces):
@@ -832,6 +868,7 @@ def convert(
     sources = [input_sources] if isinstance(input_sources, str) else list(input_sources)
 
     graph, fetched = load_ontology(sources)
+    namespace = http_schema_org_namespaces(namespace)
 
     class_entities = build_class_entities(graph, namespace)
     property_entities = build_property_entities(graph, namespace)
