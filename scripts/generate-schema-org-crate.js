@@ -62,9 +62,11 @@ function normaliseArray(v) {
 }
 
 const SCHEMA_PREFIX = "schema:";
-const SCHEMA_BASE = "https://schema.org/";
+// http, not https: the RO-Crate and schema.org JSON-LD contexts both map
+// schema.org terms to http://schema.org/, so https IRIs would never match.
+const SCHEMA_BASE = "http://schema.org/";
 
-/** Expand a compact schema: CURIE to its full https://schema.org/ URI */
+/** Expand a compact schema: CURIE to its full http://schema.org/ URI */
 function expandId(id) {
   if (typeof id !== "string") return id;
   if (id.startsWith(SCHEMA_PREFIX)) return SCHEMA_BASE + id.slice(SCHEMA_PREFIX.length);

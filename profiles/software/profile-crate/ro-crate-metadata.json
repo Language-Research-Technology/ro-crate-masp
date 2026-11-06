@@ -2,7 +2,8 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "sh": "http://www.w3.org/ns/shacl#"
     }
   ],
   "@graph": [

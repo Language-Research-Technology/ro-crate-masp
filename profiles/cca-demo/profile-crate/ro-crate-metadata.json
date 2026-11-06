@@ -82,7 +82,7 @@
           "@id": "http://data.europa.eu/930/"
         },
         {
-          "@id": "https://schema.org/"
+          "@id": "http://schema.org/"
         },
         {
           "@id": "https://w3id.org/ro/terms/cca/"
@@ -241,7 +241,7 @@
       "url": "http://data.europa.eu/930/"
     },
     {
-      "@id": "https://schema.org/",
+      "@id": "http://schema.org/",
       "@type": "DefinedTermSet",
       "name": "Schema.org vocabulary",
       "url": "https://schema.org/"
@@ -573,7 +573,7 @@
         "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
       },
       "hasArtifact": {
-        "@id": "https://schema.org/"
+        "@id": "http://schema.org/"
       }
     },
     {
@@ -639,14 +639,14 @@
       "name": "scenarioId",
       "description": "Scenario/run id of the model output.",
       "domainIncludes": {
-        "@id": "https://schema.org/Product"
+        "@id": "http://schema.org/Product"
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/Identifier"
+          "@id": "http://schema.org/Identifier"
         }
       ],
       "inDefinedTermSet": {
@@ -662,17 +662,17 @@
       "name": "dmp_id",
       "description": "Identifies data managers for each type of data.",
       "domainIncludes": {
-        "@id": "https://schema.org/Project"
+        "@id": "http://schema.org/Project"
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/URL"
+          "@id": "http://schema.org/URL"
         },
         {
-          "@id": "https://schema.org/CreativeWork"
+          "@id": "http://schema.org/CreativeWork"
         }
       ],
       "inDefinedTermSet": {
@@ -688,10 +688,10 @@
       "name": "expectedDeliverable",
       "description": "Lists planned outputs with timeline codes.",
       "domainIncludes": {
-        "@id": "https://schema.org/Project"
+        "@id": "http://schema.org/Project"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -706,17 +706,17 @@
       "name": "reusedData",
       "description": "Identifies external data sources.",
       "domainIncludes": {
-        "@id": "https://schema.org/Project"
+        "@id": "http://schema.org/Project"
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Dataset"
+          "@id": "http://schema.org/Dataset"
         },
         {
-          "@id": "https://schema.org/CreativeWork"
+          "@id": "http://schema.org/CreativeWork"
         },
         {
-          "@id": "https://schema.org/URL"
+          "@id": "http://schema.org/URL"
         }
       ],
       "inDefinedTermSet": {
@@ -732,10 +732,10 @@
       "name": "generalWPProgram",
       "description": "Overview of data collection activities.",
       "domainIncludes": {
-        "@id": "https://schema.org/Project"
+        "@id": "http://schema.org/Project"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -750,7 +750,7 @@
       "name": "hasNetwork",
       "description": "Defines a relationship with a Network contextual entity.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
         "@id": "https://w3id.org/ro/terms/cca/Network"
@@ -771,7 +771,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Network"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Person"
+        "@id": "http://schema.org/Person"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -790,10 +790,10 @@
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Integer"
+          "@id": "http://schema.org/Integer"
         },
         {
-          "@id": "https://schema.org/Date"
+          "@id": "http://schema.org/Date"
         }
       ],
       "inDefinedTermSet": {
@@ -812,7 +812,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Network"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -830,7 +830,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Network"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Number"
+        "@id": "http://schema.org/Number"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -848,7 +848,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Network"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Number"
+        "@id": "http://schema.org/Number"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -863,10 +863,10 @@
       "name": "dataNature",
       "description": "Data nature (textual/numerical/audiovisual/modeled/discipline-specific).",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -881,10 +881,10 @@
       "name": "stability",
       "description": "Data stability (fixed/growing/revisable).",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -899,10 +899,10 @@
       "name": "acquisitionMethod",
       "description": "Collection/creation methods.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -917,14 +917,14 @@
       "name": "acquisitionFrequency",
       "description": "Average acquisition frequency.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/Duration"
+          "@id": "http://schema.org/Duration"
         }
       ],
       "inDefinedTermSet": {
@@ -940,10 +940,10 @@
       "name": "surveyAutomation",
       "description": "Automatic/manual collection.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -958,14 +958,14 @@
       "name": "dataRecoveryDelay",
       "description": "Average data recovery delays.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Duration"
+          "@id": "http://schema.org/Duration"
         },
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         }
       ],
       "inDefinedTermSet": {
@@ -981,10 +981,10 @@
       "name": "validationApproach",
       "description": "Data validation approach.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -999,10 +999,10 @@
       "name": "qualityApproach",
       "description": "Data quality approach.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1017,10 +1017,10 @@
       "name": "stationsStudied",
       "description": "Number of stations studied.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Integer"
+        "@id": "http://schema.org/Integer"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1035,10 +1035,10 @@
       "name": "datasetNumber",
       "description": "Number of datasets.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Integer"
+        "@id": "http://schema.org/Integer"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1056,7 +1056,7 @@
         "@id": "https://w3id.org/dpv#Processing"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Person"
+        "@id": "http://schema.org/Person"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1074,7 +1074,7 @@
         "@id": "https://w3id.org/dpv#Processing"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1093,10 +1093,10 @@
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/SoftwareApplication"
+          "@id": "http://schema.org/SoftwareApplication"
         }
       ],
       "inDefinedTermSet": {
@@ -1115,7 +1115,7 @@
         "@id": "https://w3id.org/dpv#Processing"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1133,7 +1133,7 @@
         "@id": "https://w3id.org/dpv#Analyse"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1152,10 +1152,10 @@
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/SoftwareApplication"
+          "@id": "http://schema.org/SoftwareApplication"
         }
       ],
       "inDefinedTermSet": {
@@ -1174,7 +1174,7 @@
         "@id": "https://w3id.org/dpv#Analyse"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1192,7 +1192,7 @@
         "@id": "https://w3id.org/dpv#Analyse"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1210,7 +1210,7 @@
         "@id": "https://w3id.org/dpv#Analyse"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1229,10 +1229,10 @@
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/Boolean"
+          "@id": "http://schema.org/Boolean"
         }
       ],
       "inDefinedTermSet": {
@@ -1251,7 +1251,7 @@
         "@id": "https://w3id.org/dpv#Store"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Person"
+        "@id": "http://schema.org/Person"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1269,7 +1269,7 @@
         "@id": "https://w3id.org/dpv#Store"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1287,7 +1287,7 @@
         "@id": "https://w3id.org/dpv#Store"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1305,7 +1305,7 @@
         "@id": "https://w3id.org/dpv#Store"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1323,7 +1323,7 @@
         "@id": "https://w3id.org/dpv#Access"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Person"
+        "@id": "http://schema.org/Person"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1341,7 +1341,7 @@
         "@id": "https://w3id.org/dpv#Access"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1359,7 +1359,7 @@
         "@id": "https://w3id.org/dpv#Access"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1378,10 +1378,10 @@
       },
       "rangeIncludes": [
         {
-          "@id": "https://schema.org/Text"
+          "@id": "http://schema.org/Text"
         },
         {
-          "@id": "https://schema.org/Organization"
+          "@id": "http://schema.org/Organization"
         }
       ],
       "inDefinedTermSet": {
@@ -1400,7 +1400,7 @@
         "@id": "https://w3id.org/dpv#Disseminate"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Person"
+        "@id": "http://schema.org/Person"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1418,7 +1418,7 @@
         "@id": "https://w3id.org/dpv#Disseminate"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1436,7 +1436,7 @@
         "@id": "https://w3id.org/dpv#Disseminate"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1454,7 +1454,7 @@
         "@id": "https://w3id.org/dpv#Disseminate"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Integer"
+        "@id": "http://schema.org/Integer"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1469,7 +1469,7 @@
       "name": "hasCampaign",
       "description": "Defines the relationship with the Campaign contextual entity.",
       "domainIncludes": {
-        "@id": "https://schema.org/Dataset"
+        "@id": "http://schema.org/Dataset"
       },
       "rangeIncludes": {
         "@id": "https://w3id.org/ro/terms/cca/Campaign"
@@ -1490,7 +1490,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Campaign"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1508,7 +1508,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Campaign"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1526,7 +1526,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Campaign"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1544,7 +1544,7 @@
         "@id": "https://w3id.org/dpv/tech#Model"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1562,7 +1562,7 @@
         "@id": "https://w3id.org/dpv/tech#Model"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
@@ -1598,7 +1598,7 @@
         "@id": "https://w3id.org/ro/terms/cca/Satellite"
       },
       "rangeIncludes": {
-        "@id": "https://schema.org/Text"
+        "@id": "http://schema.org/Text"
       },
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"

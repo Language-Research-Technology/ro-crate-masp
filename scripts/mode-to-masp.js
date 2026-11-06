@@ -63,8 +63,10 @@ class ModeConverter {
     // Map to track properties by ID to avoid duplication
     this.propertyMap = new Map();
 
-    // Create the RO-Crate object
+    // Create the RO-Crate object; sh: (used for sh:minCount/sh:maxCount)
+    // is not in the RO-Crate context, so declare it.
     this.crate = new ROCrate();
+    this.crate.addContext({ sh: "http://www.w3.org/ns/shacl#" });
   }
 
   /**

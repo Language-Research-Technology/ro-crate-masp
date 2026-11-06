@@ -25,57 +25,57 @@ describe("MaspValidator – enumeration support", function () {
 
   describe("isEnumerationClass()", function () {
     it("schema:Enumeration itself returns true", function () {
-      expect(validator.isEnumerationClass("https://schema.org/Enumeration")).to.be.true;
+      expect(validator.isEnumerationClass("http://schema.org/Enumeration")).to.be.true;
     });
 
     it("schema:DayOfWeek returns true (direct subclass of Enumeration)", function () {
-      expect(validator.isEnumerationClass("https://schema.org/DayOfWeek")).to.be.true;
+      expect(validator.isEnumerationClass("http://schema.org/DayOfWeek")).to.be.true;
     });
 
     it("schema:MedicalSpecialty returns true (via MedicalEnumeration → Enumeration)", function () {
-      expect(validator.isEnumerationClass("https://schema.org/MedicalSpecialty")).to.be.true;
+      expect(validator.isEnumerationClass("http://schema.org/MedicalSpecialty")).to.be.true;
     });
 
     it("schema:Person returns false", function () {
-      expect(validator.isEnumerationClass("https://schema.org/Person")).to.be.false;
+      expect(validator.isEnumerationClass("http://schema.org/Person")).to.be.false;
     });
 
     it("schema:Thing returns false", function () {
-      expect(validator.isEnumerationClass("https://schema.org/Thing")).to.be.false;
+      expect(validator.isEnumerationClass("http://schema.org/Thing")).to.be.false;
     });
   });
 
   describe("getEnumerationValues()", function () {
     it("schema:DayOfWeek returns 8 values including Monday, Sunday, PublicHolidays", function () {
-      const vals = validator.getEnumerationValues("https://schema.org/DayOfWeek");
+      const vals = validator.getEnumerationValues("http://schema.org/DayOfWeek");
       expect(vals).to.be.an("array");
       expect(vals.length).to.be.at.least(7);
       const ids = vals.map((v) => v["@id"]);
-      expect(ids).to.include("https://schema.org/Monday");
-      expect(ids).to.include("https://schema.org/Sunday");
-      expect(ids).to.include("https://schema.org/PublicHolidays");
+      expect(ids).to.include("http://schema.org/Monday");
+      expect(ids).to.include("http://schema.org/Sunday");
+      expect(ids).to.include("http://schema.org/PublicHolidays");
     });
 
     it("schema:GenderType returns 2 values (Male, Female)", function () {
-      const vals = validator.getEnumerationValues("https://schema.org/GenderType");
+      const vals = validator.getEnumerationValues("http://schema.org/GenderType");
       expect(vals).to.be.an("array");
       expect(vals.length).to.equal(2);
       const ids = vals.map((v) => v["@id"]);
-      expect(ids).to.include("https://schema.org/Male");
-      expect(ids).to.include("https://schema.org/Female");
+      expect(ids).to.include("http://schema.org/Male");
+      expect(ids).to.include("http://schema.org/Female");
     });
 
     it("schema:Boolean returns 2 values (True, False)", function () {
-      const vals = validator.getEnumerationValues("https://schema.org/Boolean");
+      const vals = validator.getEnumerationValues("http://schema.org/Boolean");
       expect(vals).to.be.an("array");
       expect(vals.length).to.equal(2);
       const ids = vals.map((v) => v["@id"]);
-      expect(ids).to.include("https://schema.org/True");
-      expect(ids).to.include("https://schema.org/False");
+      expect(ids).to.include("http://schema.org/True");
+      expect(ids).to.include("http://schema.org/False");
     });
 
     it("schema:Person returns empty array (not an enum class)", function () {
-      const vals = validator.getEnumerationValues("https://schema.org/Person");
+      const vals = validator.getEnumerationValues("http://schema.org/Person");
       expect(vals).to.be.an("array");
       expect(vals).to.be.empty;
     });
@@ -98,10 +98,10 @@ describe("MaspValidator – enumeration support", function () {
     });
 
     it("DayOfWeek entries in rules.enumerationValues include Monday", function () {
-      const dayOfWeekVals = validator.rules.enumerationValues["https://schema.org/DayOfWeek"];
+      const dayOfWeekVals = validator.rules.enumerationValues["http://schema.org/DayOfWeek"];
       expect(dayOfWeekVals).to.be.an("array");
       const ids = dayOfWeekVals.map((v) => v["@id"]);
-      expect(ids).to.include("https://schema.org/Monday");
+      expect(ids).to.include("http://schema.org/Monday");
     });
   });
 });

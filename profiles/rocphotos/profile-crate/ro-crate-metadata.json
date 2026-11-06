@@ -4,7 +4,8 @@
     {
       "@vocab": "http://schema.org/",
       "oa": "http://www.w3.org/ns/oa#",
-      "rocphotos": "https://w3id.org/ldac/rocphotos/terms#"
+      "rocphotos": "https://w3id.org/ldac/rocphotos/terms#",
+      "sh": "http://www.w3.org/ns/shacl#"
     }
   ],
   "@graph": [
