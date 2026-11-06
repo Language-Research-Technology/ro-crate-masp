@@ -10,7 +10,7 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "about": {
-        "@id": "https://w3id.org/cc-crate-profile/0.9"
+        "@id": "https://w3id.org/cca-crate-profile/0.9"
       },
       "conformsTo": {
         "@id": "https://w3id.org/ro/crate/1.2"
@@ -19,7 +19,7 @@
       "description": "Metadata file descriptor for the Climate Change Adaptation RO-Crate Profile."
     },
     {
-      "@id": "https://w3id.org/cc-crate-profile/0.9",
+      "@id": "https://w3id.org/cca-crate-profile/0.9",
       "@type": [
         "Dataset",
         "Profile"
