@@ -256,7 +256,7 @@ At least 1 instances of this type MUST be present in the crate.
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
 | <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |  |
-| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://purl.org/dc/terms/conformsTo" target="_blank" rel="noopener">http://purl.org/dc/terms/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 
 ### Examples of Type
 #### Examples
@@ -282,7 +282,7 @@ At least 1 instances of this type MUST be present in the crate.
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://www.w3.org/ns/dx/prof/Profile" title="http://www.w3.org/ns/dx/prof/Profile" target="_blank" rel="noopener">Profile</a> |
 | <a href="#prop_hasResource_ProfileDataset" title="#prop_hasResource_ProfileDataset">hasResource</a> | <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/hasResource</a> | Yes | Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | <a href="#class_ResourceDescriptor" title="#class_ResourceDescriptor">ResourceDescriptor</a> |  |
-| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">http://schema.org/isProfileOf</a> | Yes | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://www.w3.org/ns/dx/prof/isProfileOf" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/isProfileOf</a> | Yes | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 | <a href="#prop_license_ProfileDataset" title="#prop_license_ProfileDataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | License for this profile. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, Text |  |
 | <a href="#prop_name_ProfileDataset" title="#prop_name_ProfileDataset">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | A human-readable name for the profile. | Text |  |
 | <a href="#prop_author_ProfileDataset" title="#prop_author_ProfileDataset">author</a> | <a href="http://schema.org/author" target="_blank" rel="noopener">http://schema.org/author</a> | No | The person or organization responsible for creating this profile. | <a href="#class_Person" title="#class_Person">Person</a>, <a href="#class_Organization" title="#class_Organization">Organization</a> |  |
@@ -547,7 +547,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://purl.org/dc/terms/conformsTo" target="_blank" rel="noopener">http://purl.org/dc/terms/conformsTo</a> | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="prop_description_ProfileDataset" title="#prop_description_ProfileDataset"></a> Property: description
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -592,7 +592,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">http://schema.org/isProfileOf</a> | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |
+| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://www.w3.org/ns/dx/prof/isProfileOf" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/isProfileOf</a> | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |
 ### <a id="prop_itemListElement_ItemList" title="#prop_itemListElement_ItemList"></a> Property: itemListElement
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -1033,7 +1033,7 @@ Canonical identifiers that indicate conformance to this profile.
   "rdfs:label": "isProfileOf",
   "description": "MUST reference the base RO-Crate specification this profile extends.",
   "prov:specializationOf": {
-    "@id": "http://schema.org/isProfileOf"
+    "@id": "http://www.w3.org/ns/dx/prof/isProfileOf"
   },
   "domainIncludes": {
     "@id": "#class_ProfileDataset"

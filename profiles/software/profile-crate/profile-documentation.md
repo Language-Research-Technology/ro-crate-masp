@@ -337,7 +337,7 @@ Instances of this type MAY be present in the crate.
 | <a href="#prop_publisher_Dataset" title="#prop_publisher_Dataset">publisher</a> | <a href="http://schema.org/publisher" target="_blank" rel="noopener">http://schema.org/publisher</a> | No | The publisher of the creative work. | <a href="#class_Organization" title="#class_Organization">Organization</a> |  |
 | <a href="#prop_releaseNotes_Dataset" title="#prop_releaseNotes_Dataset">releaseNotes</a> | <a href="http://schema.org/releaseNotes" target="_blank" rel="noopener">http://schema.org/releaseNotes</a> | No | Description of what changed in this version. | <a href="#class_File" title="#class_File">File</a> |  |
 | <a href="#prop_runtime_Dataset" title="#prop_runtime_Dataset">runtime</a> | <a href="http://schema.org/runtime" target="_blank" rel="noopener">http://schema.org/runtime</a> | No | Runtime platform or script interpreter dependencies (example: Java v1, Python 2.3, .NET Framework 3.0). | Text |  |
-| <a href="#prop_screenshot_Dataset" title="#prop_screenshot_Dataset">screenshot</a> | <a href="http://schema.org/screenshot" target="_blank" rel="noopener">http://schema.org/screenshot</a> | No | A link to a screenshot image of the app. | <a href="#class_ImageObject" title="#class_ImageObject">class_ImageObject</a>, <a href="#class_File" title="#class_File">File</a> |  |
+| <a href="#prop_screenshot_Dataset" title="#prop_screenshot_Dataset">screenshot</a> | <a href="http://schema.org/screenshot" target="_blank" rel="noopener">http://schema.org/screenshot</a> | No | A link to a screenshot image of the app. | <a href="http://schema.org/ImageObject" title="http://schema.org/ImageObject" target="_blank" rel="noopener">ImageObject</a>, <a href="#class_File" title="#class_File">File</a> |  |
 | <a href="#prop_softwareHelp_Dataset" title="#prop_softwareHelp_Dataset">softwareHelp</a> | <a href="http://schema.org/softwareHelp" target="_blank" rel="noopener">http://schema.org/softwareHelp</a> | No | Software application help. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 | <a href="#prop_softwareRequirements_Dataset" title="#prop_softwareRequirements_Dataset">softwareRequirements</a> | <a href="http://schema.org/softwareRequirements" target="_blank" rel="noopener">http://schema.org/softwareRequirements</a> | No | Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime). | <a href="#class_File" title="#class_File">File</a> |  |
 | <a href="#prop_softwareVersion_Dataset" title="#prop_softwareVersion_Dataset">softwareVersion</a> | <a href="http://schema.org/softwareVersion" target="_blank" rel="noopener">http://schema.org/softwareVersion</a> | No | Version of the software instance. | Text |  |
@@ -359,7 +359,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  | <a href="http://schema.org/File" title="http://schema.org/File" target="_blank" rel="noopener">File</a> |
+| @type |  | Yes |  |  | <a href="http://schema.org/MediaObject" title="http://schema.org/MediaObject" target="_blank" rel="noopener">MediaObject</a> |
 
 
 ### <a id="class_Person" title="#class_Person"></a> Class: Person
@@ -427,7 +427,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareApplication" title="http://schema.org/terms#SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
+| @type |  | Yes |  |  | <a href="http://schema.org/SoftwareApplication" title="http://schema.org/SoftwareApplication" target="_blank" rel="noopener">SoftwareApplication</a> |
 
 
 ### <a id="class_SoftwareSourceCode" title="#class_SoftwareSourceCode"></a> Class: SoftwareSourceCode
@@ -444,7 +444,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Required | Description | Range | Value |
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
-| @type |  | Yes |  |  | <a href="http://schema.org/terms#SoftwareSourceCode" title="http://schema.org/terms#SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a> |
+| @type |  | Yes |  |  | <a href="http://schema.org/SoftwareSourceCode" title="http://schema.org/SoftwareSourceCode" target="_blank" rel="noopener">SoftwareSourceCode</a> |
 
 
 

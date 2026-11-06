@@ -468,7 +468,7 @@
       "rdfs:comment": "TODO: Deal with the supplied list of licenses (string values) SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY if necessary be a textual description of how the RO-Crate may be used",
       "rangeIncludes": [
         {
-          "@id": "#class_CreativeWork"
+          "@id": "schema:CreativeWork"
         },
         {
           "@id": "schema:URL"
@@ -719,7 +719,7 @@
           "@id": "http://schema.org/CreativeWork"
         },
         {
-          "@id": "http://schema.org/Profile"
+          "@id": "http://www.w3.org/ns/dx/prof/Profile"
         }
       ],
       "description": "A generic profile entity.",
