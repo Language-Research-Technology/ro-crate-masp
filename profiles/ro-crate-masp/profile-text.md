@@ -88,6 +88,17 @@ Schema.org describes its vocabulary using `rdf:Property` and `rdfs:Class` entiti
 
 MASP extends this approach with a few additions — `prov:specializationOf` to link a profile-specific class or property to its base vocabulary term, and `sh:minCount`/`sh:maxCount` borrowed from SHACL to express cardinality.
 
+#### Note: `rdfs:label` and `name` differ from RO-Crate's ad hoc terms
+
+Schema.org style schemas are essentially plain RDFS — `rdf:Property` and `rdfs:Class` with `rdfs:label` and `rdfs:comment` — plus Schema.org's `domainIncludes` and `rangeIncludes`. Schema.org does not describe its own terms with its own vocabulary (its `Class`, `Property` or `DefinedTerm` types, `name` or `termCode`), and its `rdfs:label` is the term itself, as written in JSON-LD: `"datePublished"`, not "Date published" (see e.g. [schema.org/datePublished](https://schema.org/datePublished) and the [schema.org vocabulary files](https://schema.org/docs/developers.html)).
+
+MASP follows Schema.org here:
+
+- **`rdfs:label`** is the term as it appears in a crate — the JSON-LD key of a property, or the `@type` of a class (`datePublished`, `dmlex:Entry`). The validator matches rules on it.
+- **`name`** is the human-readable name shown in documentation ("Date published"); without one, it is the same as `rdfs:label`.
+
+This can be confusing next to the RO-Crate specification's [Adding new or ad hoc vocabulary terms](https://www.researchobject.org/ro-crate/specification/1.3/appendix/jsonld.html#adding-new-or-ad-hoc-vocabulary-terms), which says the reverse: `name` is the human-readable version of the term (`makesFood` → "makes food"), and `name` and `description` SHOULD be duplicated as `rdfs:label` and `rdfs:comment` for RDFS/OWL tools. It also points to human-readable documentation for a term with `sameAs`. For a term like `datePublished`, a MASP rule's `rdfs:label` therefore differs from its `name`, where RO-Crate would have them equal. Both readings come from the same RDFS terms: RO-Crate treats `rdfs:label` as a display label, Schema.org (and MASP) as the term's name in JSON-LD.
+
 ## Profile Specific Schemas
 
 A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:
@@ -102,7 +113,7 @@ Example class and property rules for a hypothetical scholarly profile:
 {
   "@id": "#class_ScholarlyArticle",
   "@type": "rdfs:Class",
-  "prov:specializationOf": {"@id": "https://schema.org/ScholarlyArticle"},
+  "prov:specializationOf": {"@id": "http://schema.org/ScholarlyArticle"},
   "rdfs:label": "ScholarlyArticle",
   "rdfs:comment": "A scholarly article in this profile's context.",
   "sh:minCount": 1,
@@ -111,7 +122,7 @@ Example class and property rules for a hypothetical scholarly profile:
 {
   "@id": "#prop_author_ScholarlyArticle",
   "@type": "rdf:Property",
-  "prov:specializationOf": {"@id": "https://schema.org/author"},
+  "prov:specializationOf": {"@id": "http://schema.org/author"},
   "rdfs:label": "author",
   "rdfs:comment": "The author(s) of this scholarly article.",
   "domainIncludes": {"@id": "#class_ScholarlyArticle"},
@@ -120,7 +131,7 @@ Example class and property rules for a hypothetical scholarly profile:
 }
 ```
 
-**Important**: use `domainIncludes` (not `schema:domainIncludes`) — the validator resolves property names through the RO-Crate JSON-LD context, where the `schema:` prefix is not defined by default.
+**Important**: use `domainIncludes` (not `schema:domainIncludes`) — the validator reads the key `domainIncludes` as written. In JSON-LD both expand to the same IRI, as the RO-Crate context defines `domainIncludes` and the `schema:` prefix, but the validator only recognises the plain key.
 
 ### Linking the Metadata Descriptor
 
