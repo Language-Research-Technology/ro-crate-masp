@@ -443,7 +443,7 @@
       "rdfs:label": "datePublished",
       "name": "datePublished",
       "prov:specializationOf": {
-        "@id": "http://schema.org/datePubished"
+        "@id": "http://schema.org/datePublished"
       },
       "domainIncludes": {
         "@id": "#Root_Data_Entity"
