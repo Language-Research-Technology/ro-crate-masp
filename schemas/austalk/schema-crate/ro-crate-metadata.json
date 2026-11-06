@@ -390,14 +390,14 @@
       "@type": "rdfs:Class",
       "rdfs:label": "AusNCObject",
       "rdfs:comment": "An individual item in the corpus - one recording of a prompt/interview/map task.",
-      "url": "https://w3id.org/austalk/schema#ausnc%3AAusNCObject"
+      "url": "https://w3id.org/austalk/schema"
     },
     {
       "@id": "austalk:age_from",
       "@type": "rdf:Property",
       "rdfs:label": "age from",
       "rdfs:comment": "The age from which this person has resided in the specified town.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aage_from",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -410,7 +410,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "age to",
       "rdfs:comment": "The age to which this person has resided in the specified town. If still residing there, use null.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aage_to",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -423,7 +423,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "audio rating",
       "rdfs:comment": "A rating of audio quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aaudiorating",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -436,7 +436,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "basename",
       "rdfs:comment": " The base name of a media file without path, comprised of the speaker, session, component and prompt numbers.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Abasename",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -449,7 +449,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "birthPlace",
       "rdfs:comment": "The place of birth of this person (geolocated).",
-      "url": "https://w3id.org/austalk/schema#austalk%3AbirthPlace",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -462,7 +462,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cameraSN0",
       "rdfs:comment": "The serial number of camera 0.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AcameraSN0",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -475,7 +475,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cameraSN1",
       "rdfs:comment": "The serial number of camera 1.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AcameraSN1",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -488,7 +488,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "channel",
       "rdfs:comment": "The channel name of the media file.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Achannel",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -501,7 +501,7 @@
       "@type": "DefinedTermSet",
       "name": "ChannelTerms",
       "description": "Set of defined terms for austalk:channel.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AChannelTerms",
+      "url": "https://w3id.org/austalk/schema",
       "hasDefinedTerm": [
         {
           "@id": "austalk:BoundaryDeskMic"
@@ -527,7 +527,7 @@
       "@id": "austalk:BoundaryDeskMic",
       "@type": "DefinedTerm",
       "description": "Boundary / desk mic - Shure MX391/O. On table, ~ 60cm from speaker.",
-      "url": "https://w3id.org/austalk/schema#austalk%3ABoundaryDeskMic",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -537,7 +537,7 @@
       "@id": "austalk:LeftC2Mic",
       "@type": "DefinedTerm",
       "description": "Left C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions.",
-      "url": "https://w3id.org/austalk/schema#austalk%3ALeftC2Mic",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -547,7 +547,7 @@
       "@id": "austalk:MainSpeakerMic",
       "@type": "DefinedTerm",
       "description": "Main speaker mic - a head-worn AudioTechnica AT892c microphone used to record the main speaker in the recordings. This is the primary audio channel for most analyses of the data.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AMainSpeakerMic",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -557,7 +557,7 @@
       "@id": "austalk:MaptaskRAMic",
       "@type": "DefinedTerm",
       "description": "Maptask / RA mic - a head-worn AudioTechnica AT892c microphone used to record the research assistant.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AMaptaskRAMic",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -567,7 +567,7 @@
       "@id": "austalk:RightC2Mic",
       "@type": "DefinedTerm",
       "description": "Right C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions.",
-      "url": "https://w3id.org/austalk/schema#austalk%3ARightC2Mic",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -577,7 +577,7 @@
       "@id": "austalk:StrobeChannel",
       "@type": "DefinedTerm",
       "description": "Strobe channel - contains GPIO sync signal for aligning recordings.",
-      "url": "https://w3id.org/austalk/schema#austalk%3AStrobeChannel",
+      "url": "https://w3id.org/austalk/schema",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -588,7 +588,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "checksum",
       "rdfs:comment": "The checksum of the media file for integrity verification.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Achecksum",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -601,7 +601,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "city",
       "rdfs:comment": "The city of the recording site.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Acity",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -614,7 +614,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "comment",
       "rdfs:comment": "A comment on the recording quality.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Acomment",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -627,7 +627,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "consent",
       "rdfs:comment": "Boolean value true if this person has signed the consent form.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aconsent",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -640,7 +640,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "country",
       "rdfs:comment": "The country in which this person has residential history.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Acountry",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -653,7 +653,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cultural heritage",
       "rdfs:comment": "The cultural heritage of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Acultural_heritage",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -666,7 +666,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "education level",
       "rdfs:comment": "The highest level of education of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aeducation_level",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -679,7 +679,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father accent",
       "rdfs:comment": "The accent of the father of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_accent",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -692,7 +692,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father cultural heritage",
       "rdfs:comment": "The cultural heritage of the father of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_cultural_heritage",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -705,7 +705,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father education level",
       "rdfs:comment": "The highest level of education of the father of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_education_level",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -718,7 +718,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father first language",
       "rdfs:comment": "The first language of the father of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_first_language",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -731,7 +731,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father pob country",
       "rdfs:comment": "The country where the father of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_pob_country",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -744,7 +744,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "state of birth of Father",
       "rdfs:comment": "The state where the father of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_pob_state",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -757,7 +757,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father pob town",
       "rdfs:comment": "The town where the father of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_pob_town",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -770,7 +770,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father professional category",
       "rdfs:comment": "The professional category of the father of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afather_professional_category",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -783,7 +783,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "first language",
       "rdfs:comment": "The first language of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afirst_language",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -796,7 +796,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "frequency",
       "rdfs:comment": "The frequency of use of a language by this person, on a scale of 1-100.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Afrequency",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -809,7 +809,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has dentures",
       "rdfs:comment": "Boolean value true if this person has dentures.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_dentures",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -822,7 +822,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has health problems",
       "rdfs:comment": "Boolean value true if this person has health problems which might affect his/her voice.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_health_problems",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -835,7 +835,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has hearing problems",
       "rdfs:comment": "Boolean value true if this person has hearing problems.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_hearing_problems",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -848,7 +848,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has hobbies",
       "rdfs:comment": "Boolean value true if this person has hobbies.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_hobbies",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -861,7 +861,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has piercings",
       "rdfs:comment": "Boolean value true if this person has facial piercings.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_piercings",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -874,7 +874,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has reading problems",
       "rdfs:comment": "Boolean value true if this person has reading problems.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_reading_problems",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -887,7 +887,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has speech problems",
       "rdfs:comment": "Boolean value true if this person has speech problems.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_speech_problems",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -900,7 +900,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has vocal training",
       "rdfs:comment": "Boolean value true if this person has vocal training.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahas_vocal_training",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -913,7 +913,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "health problems details",
       "rdfs:comment": "Details of the health problems of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahealth_problems_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -926,7 +926,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "hearing problems details",
       "rdfs:comment": "Details of the hearing problems of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahearing_problems_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -939,7 +939,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "hobbies details",
       "rdfs:comment": "Details of the hobbies of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ahobbies_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -952,7 +952,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "id",
       "rdfs:comment": "The numerical identifier for a session/component/item.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aid",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -965,7 +965,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "information follower",
       "rdfs:comment": "The participant whose role was information follower in the map task.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ainformation_follower",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -978,7 +978,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "information giver",
       "rdfs:comment": "The participant whose role was information giver in the map task.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ainformation_giver",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -991,7 +991,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "institution",
       "rdfs:comment": "The institution associated with the recording site.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ainstitution",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1004,7 +1004,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is left handed",
       "rdfs:comment": "Boolean value true if this person is left handed.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ais_left_handed",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1017,7 +1017,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is smoker",
       "rdfs:comment": "Boolean value true if this person is a smoker.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ais_smoker",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1030,7 +1030,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is student",
       "rdfs:comment": "Boolean value true if this person is a student.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ais_student",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1043,7 +1043,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "language usage",
       "rdfs:comment": "The languages used by this person and the contexts in which they are used.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Alanguage_usage",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1056,7 +1056,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "less than a year",
       "rdfs:comment": "Boolean value true if this person has resided less than a year in the specified town.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aless_than_a_year",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1069,7 +1069,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "map",
       "rdfs:comment": "The map being used in the map task.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amap",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1082,7 +1082,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "maptaskcomment",
       "rdfs:comment": "A comment on the map task.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amaptaskcomment",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1095,7 +1095,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother accent",
       "rdfs:comment": "The accent of the mother of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_accent",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1108,7 +1108,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother cultural heritage",
       "rdfs:comment": "The cultural heritage of the mother of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_cultural_heritage",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1121,7 +1121,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother education level",
       "rdfs:comment": "The highest level of education of the mother of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_education_level",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1134,7 +1134,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother first language",
       "rdfs:comment": "The first language of the mother of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_first_language",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1147,7 +1147,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother's country of birth",
       "rdfs:comment": "The country where the mother of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_pob_country",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1160,7 +1160,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mothers birth state",
       "rdfs:comment": "The state where the mother of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_pob_state",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1173,7 +1173,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother's birth town",
       "rdfs:comment": "The town where the mother of this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_pob_town",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1186,7 +1186,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother professional category",
       "rdfs:comment": "The professional category of the mother of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Amother_professional_category",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1199,7 +1199,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "name",
       "rdfs:comment": "The name of the thing.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aname",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "owl:Class"
       },
@@ -1212,7 +1212,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "other languages",
       "rdfs:comment": "Other languages spoken or understood by this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aother_languages",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1225,7 +1225,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "piercings details",
       "rdfs:comment": "Details of the facial piercings of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Apiercings_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1238,7 +1238,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "country of birth",
       "rdfs:comment": "The country where this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Apob_country",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1251,7 +1251,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "pob state",
       "rdfs:comment": "The state where this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Apob_state",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1264,7 +1264,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "pob town",
       "rdfs:comment": "The town where this person was born.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Apob_town",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1277,7 +1277,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional category",
       "rdfs:comment": "The professional category of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aprofessional_category",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1290,7 +1290,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional occupation",
       "rdfs:comment": "The professional occupation of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aprofessional_occupation",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1303,7 +1303,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional qualification",
       "rdfs:comment": "The professional qualification of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aprofessional_qualification",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1316,7 +1316,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "prompt",
       "rdfs:comment": "The prompt text shown when recording an item.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aprompt",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1329,14 +1329,14 @@
       "@type": "rdf:Property",
       "rdfs:label": "prototype",
       "rdfs:comment": "A link to the prototype session/component/item for this thing.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aprototype"
+      "url": "https://w3id.org/austalk/schema"
     },
     {
       "@id": "austalk:reading_problems_details",
       "@type": "rdf:Property",
       "rdfs:label": "reading problems details",
       "rdfs:comment": "Details of the reading problems of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Areading_problems_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1349,14 +1349,14 @@
       "@type": "rdfs:Class",
       "rdfs:label": "Recorded Component",
       "rdfs:comment": "An instance of a component for one participant.",
-      "url": "https://w3id.org/austalk/schema#austalk%3ARecordedComponent"
+      "url": "https://w3id.org/austalk/schema"
     },
     {
       "@id": "austalk:recording_site",
       "@type": "rdf:Property",
       "rdfs:label": "recording site",
       "rdfs:comment": "A URI of the recording site where the recording was made.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Arecording_site",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1369,14 +1369,14 @@
       "@type": "rdfs:Class",
       "rdfs:label": "RecordingSite",
       "rdfs:comment": "A physical location where recordings were made.",
-      "url": "https://w3id.org/austalk/schema#austalk%3ARecordingSite"
+      "url": "https://w3id.org/austalk/schema"
     },
     {
       "@id": "austalk:research_assistant",
       "@type": "rdf:Property",
       "rdfs:label": "research assistant",
       "rdfs:comment": "The research assistant who ran the recording session.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aresearch_assistant",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1389,7 +1389,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "residential history",
       "rdfs:comment": "The residential history of this person, including the person's age and duration at each location.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aresidential_history",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1402,7 +1402,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "ses",
       "rdfs:comment": "The socio-economic status (SES) of this person (e.g. professional or non-professional).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ases",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1415,7 +1415,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "session",
       "rdfs:comment": "The session of each component.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Asession",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1428,7 +1428,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "shortname",
       "rdfs:comment": "The short name for a component.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Ashortname",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1441,7 +1441,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "situation",
       "rdfs:comment": "The situations in which a language is used by this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Asituation",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1454,7 +1454,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "speech problems details",
       "rdfs:comment": "Details of the speech problems of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aspeech_problems_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1467,7 +1467,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "state",
       "rdfs:comment": "The state in which this person has residential history.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Astate",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1480,7 +1480,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student aspiration",
       "rdfs:comment": "The career aspirations of this person who is a student.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Astudent_aspiration",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1493,7 +1493,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student course",
       "rdfs:comment": "The course that this person who is a student is enrolled in.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Astudent_course",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1506,7 +1506,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student enrollment",
       "rdfs:comment": "The enrollment status of this person who is a student (e.g. fulltime, parttime, null).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Astudent_enrollment",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1519,7 +1519,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "town",
       "rdfs:comment": "The town in which this person has residential history.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Atown",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1532,7 +1532,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "type",
       "rdfs:comment": "The type of the media file (e.g. audio or video).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Atype",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1545,7 +1545,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "version",
       "rdfs:comment": "The version number differentiating between sets of recordings for an item (default 1, incremented for additional recordings).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Aversion",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1558,7 +1558,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "video rating",
       "rdfs:comment": "A rating of video quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing).",
-      "url": "https://w3id.org/austalk/schema#austalk%3Avideorating",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -1571,7 +1571,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "vocal training details",
       "rdfs:comment": "Details of the vocal training of this person.",
-      "url": "https://w3id.org/austalk/schema#austalk%3Avocal_training_details",
+      "url": "https://w3id.org/austalk/schema",
       "domainIncludes": {
         "@id": "schema:Person"
       },

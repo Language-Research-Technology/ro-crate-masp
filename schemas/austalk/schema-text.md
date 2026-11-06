@@ -19,7 +19,7 @@ The terms keep the namespaces of the original AusTalk metadata, so that they are
 | `austalk:` | `http://ns.austalk.edu.au/` |
 | `ausnc:` | `http://ns.ausnc.org.au/schemas/ausnc_md_model/` |
 
-These come from the AusTalk metadata scripts of 2012 ([`schema/austalk.owl` and `readme.md` in bigasc-metadata](https://github.com/ptsefton/bigasc-metadata)); `ausnc:` is the Australian National Corpus (AusNC) metadata model, reused for items and some corpus-level metadata. Neither namespace resolves, so each term carries its label and description in this schema and a `url` to its entry in this documentation.
+These come from the AusTalk metadata scripts of 2012 ([`schema/austalk.owl` and `readme.md` in bigasc-metadata](https://github.com/ptsefton/bigasc-metadata)); `ausnc:` is the Australian National Corpus (AusNC) metadata model, reused for items and some corpus-level metadata. Neither namespace resolves, so each term carries its label and description in this schema and a `url` to this documentation.
 
 <br>
 
