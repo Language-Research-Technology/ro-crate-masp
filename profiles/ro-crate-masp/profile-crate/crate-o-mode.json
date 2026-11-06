@@ -22,7 +22,7 @@
         "http://schema.org/name",
         "http://schema.org/version",
         "#prop_description_Dataset",
-        "#prop_datePublished_Dataset",
+        "#prop_datePublised_Dataset",
         "#prop_license_Dataset",
         "http://schema.org/description",
         "http://schema.org/conformsTo",
