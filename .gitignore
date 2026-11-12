@@ -150,3 +150,6 @@ vite.config.ts.timestamp-*
 
 *.DS_Store
 tmp/
+
+# Excel lock files
+~$*

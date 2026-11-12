@@ -109,17 +109,17 @@ describe("Schema.org schema crate", function () {
 
   describe("Known classes", function () {
     const knownClasses = [
-      "https://schema.org/Thing",
-      "https://schema.org/Person",
-      "https://schema.org/Organization",
-      "https://schema.org/Dataset",
-      "https://schema.org/CreativeWork",
-      "https://schema.org/Event",
-      "https://schema.org/Place",
+      "http://schema.org/Thing",
+      "http://schema.org/Person",
+      "http://schema.org/Organization",
+      "http://schema.org/Dataset",
+      "http://schema.org/CreativeWork",
+      "http://schema.org/Event",
+      "http://schema.org/Place",
     ];
 
     for (const id of knownClasses) {
-      it(`should contain ${id.replace("https://schema.org/", "")}`, function () {
+      it(`should contain ${id.replace("http://schema.org/", "")}`, function () {
         const entity = graph.find((e) => e["@id"] === id);
         expect(entity, `missing entity ${id}`).to.exist;
         expect(entity["@type"]).to.equal("rdfs:Class");
@@ -130,7 +130,7 @@ describe("Schema.org schema crate", function () {
 
     it("schema:Person should have rdfs:subClassOf schema:Thing", function () {
       const person = graph.find(
-        (e) => e["@id"] === "https://schema.org/Person"
+        (e) => e["@id"] === "http://schema.org/Person"
       );
       const subClassOf = Array.isArray(person["rdfs:subClassOf"])
         ? person["rdfs:subClassOf"]
@@ -138,23 +138,23 @@ describe("Schema.org schema crate", function () {
       const ids = subClassOf.map((s) =>
         typeof s === "object" ? s["@id"] : s
       );
-      expect(ids).to.include("https://schema.org/Thing");
+      expect(ids).to.include("http://schema.org/Thing");
     });
   });
 
   describe("Known properties", function () {
     const knownProperties = [
-      "https://schema.org/name",
-      "https://schema.org/author",
-      "https://schema.org/license",
-      "https://schema.org/datePublished",
-      "https://schema.org/description",
-      "https://schema.org/identifier",
-      "https://schema.org/hasPart",
+      "http://schema.org/name",
+      "http://schema.org/author",
+      "http://schema.org/license",
+      "http://schema.org/datePublished",
+      "http://schema.org/description",
+      "http://schema.org/identifier",
+      "http://schema.org/hasPart",
     ];
 
     for (const id of knownProperties) {
-      it(`should contain ${id.replace("https://schema.org/", "")}`, function () {
+      it(`should contain ${id.replace("http://schema.org/", "")}`, function () {
         const entity = graph.find((e) => e["@id"] === id);
         expect(entity, `missing entity ${id}`).to.exist;
         expect(entity["@type"]).to.equal("rdf:Property");
@@ -164,7 +164,7 @@ describe("Schema.org schema crate", function () {
 
     it("schema:author should have domainIncludes and rangeIncludes", function () {
       const author = graph.find(
-        (e) => e["@id"] === "https://schema.org/author"
+        (e) => e["@id"] === "http://schema.org/author"
       );
       expect(author).to.have.property("domainIncludes");
       expect(author).to.have.property("rangeIncludes");
@@ -174,18 +174,18 @@ describe("Schema.org schema crate", function () {
       const domainIds = domain.map((d) =>
         typeof d === "object" ? d["@id"] : d
       );
-      expect(domainIds).to.include("https://schema.org/CreativeWork");
+      expect(domainIds).to.include("http://schema.org/CreativeWork");
     });
 
     it("schema:name should include schema:Thing in its domain", function () {
-      const name = graph.find((e) => e["@id"] === "https://schema.org/name");
+      const name = graph.find((e) => e["@id"] === "http://schema.org/name");
       const domain = Array.isArray(name["domainIncludes"])
         ? name["domainIncludes"]
         : [name["domainIncludes"]];
       const domainIds = domain.map((d) =>
         typeof d === "object" ? d["@id"] : d
       );
-      expect(domainIds).to.include("https://schema.org/Thing");
+      expect(domainIds).to.include("http://schema.org/Thing");
     });
   });
 
@@ -210,11 +210,11 @@ describe("Schema.org schema crate", function () {
       expect(missing.length).to.be.at.most(20);
     });
 
-    it("no entity should have @id starting with http: (all should use https:)", function () {
-      const httpEntities = graph.filter(
-        (e) => typeof e["@id"] === "string" && e["@id"].startsWith("http://schema.org/")
+    it("no entity should have @id starting with https://schema.org/ (the JSON-LD contexts use http:)", function () {
+      const httpsEntities = graph.filter(
+        (e) => typeof e["@id"] === "string" && e["@id"].startsWith("https://schema.org/")
       );
-      expect(httpEntities).to.be.empty;
+      expect(httpsEntities).to.be.empty;
     });
   });
 });

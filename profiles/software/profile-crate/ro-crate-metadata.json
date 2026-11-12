@@ -2,7 +2,8 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "sh": "http://www.w3.org/ns/shacl#"
     }
   ],
   "@graph": [
@@ -533,7 +534,7 @@
       "rdfs:label": "File",
       "name": "File",
       "prov:specializationOf": {
-        "@id": "http://schema.org/File"
+        "@id": "http://schema.org/MediaObject"
       }
     },
     {
@@ -670,7 +671,7 @@
       "rdfs:comment": "A link to a screenshot image of the app.",
       "rangeIncludes": [
         {
-          "@id": "#class_ImageObject"
+          "@id": "http://schema.org/ImageObject"
         },
         {
           "@id": "#class_File"
@@ -978,7 +979,7 @@
       "rdfs:label": "SoftwareApplication",
       "name": "SoftwareApplication",
       "prov:specializationOf": {
-        "@id": "http://schema.org/terms#SoftwareApplication"
+        "@id": "http://schema.org/SoftwareApplication"
       }
     },
     {
@@ -987,7 +988,7 @@
       "rdfs:label": "SoftwareSourceCode",
       "name": "SoftwareSourceCode",
       "prov:specializationOf": {
-        "@id": "http://schema.org/terms#SoftwareSourceCode"
+        "@id": "http://schema.org/SoftwareSourceCode"
       }
     },
     {

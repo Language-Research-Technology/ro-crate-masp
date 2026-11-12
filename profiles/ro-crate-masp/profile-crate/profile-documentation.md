@@ -88,6 +88,17 @@ Schema.org describes its vocabulary using `rdf:Property` and `rdfs:Class` entiti
 
 MASP extends this approach with a few additions — `prov:specializationOf` to link a profile-specific class or property to its base vocabulary term, and `sh:minCount`/`sh:maxCount` borrowed from SHACL to express cardinality.
 
+#### Note: `rdfs:label` and `name` differ from RO-Crate's ad hoc terms
+
+Schema.org style schemas are essentially plain RDFS — `rdf:Property` and `rdfs:Class` with `rdfs:label` and `rdfs:comment` — plus Schema.org's `domainIncludes` and `rangeIncludes`. Schema.org does not describe its own terms with its own vocabulary (its `Class`, `Property` or `DefinedTerm` types, `name` or `termCode`), and its `rdfs:label` is the term itself, as written in JSON-LD: `"datePublished"`, not "Date published" (see e.g. [schema.org/datePublished](https://schema.org/datePublished) and the [schema.org vocabulary files](https://schema.org/docs/developers.html)).
+
+MASP follows Schema.org here:
+
+- **`rdfs:label`** is the term as it appears in a crate — the JSON-LD key of a property, or the `@type` of a class (`datePublished`, `dmlex:Entry`). The validator matches rules on it.
+- **`name`** is the human-readable name shown in documentation ("Date published"); without one, it is the same as `rdfs:label`.
+
+This can be confusing next to the RO-Crate specification's [Adding new or ad hoc vocabulary terms](https://www.researchobject.org/ro-crate/specification/1.3/appendix/jsonld.html#adding-new-or-ad-hoc-vocabulary-terms), which says the reverse: `name` is the human-readable version of the term (`makesFood` → "makes food"), and `name` and `description` SHOULD be duplicated as `rdfs:label` and `rdfs:comment` for RDFS/OWL tools. It also points to human-readable documentation for a term with `sameAs`. For a term like `datePublished`, a MASP rule's `rdfs:label` therefore differs from its `name`, where RO-Crate would have them equal. Both readings come from the same RDFS terms: RO-Crate treats `rdfs:label` as a display label, Schema.org (and MASP) as the term's name in JSON-LD.
+
 ## Profile Specific Schemas
 
 A MASP profile-specific schema specializes Schema.org-style terms for a particular context. The key differences from plain Schema.org style:
@@ -102,7 +113,7 @@ Example class and property rules for a hypothetical scholarly profile:
 {
   "@id": "#class_ScholarlyArticle",
   "@type": "rdfs:Class",
-  "prov:specializationOf": {"@id": "https://schema.org/ScholarlyArticle"},
+  "prov:specializationOf": {"@id": "http://schema.org/ScholarlyArticle"},
   "rdfs:label": "ScholarlyArticle",
   "rdfs:comment": "A scholarly article in this profile's context.",
   "sh:minCount": 1,
@@ -111,7 +122,7 @@ Example class and property rules for a hypothetical scholarly profile:
 {
   "@id": "#prop_author_ScholarlyArticle",
   "@type": "rdf:Property",
-  "prov:specializationOf": {"@id": "https://schema.org/author"},
+  "prov:specializationOf": {"@id": "http://schema.org/author"},
   "rdfs:label": "author",
   "rdfs:comment": "The author(s) of this scholarly article.",
   "domainIncludes": {"@id": "#class_ScholarlyArticle"},
@@ -120,7 +131,7 @@ Example class and property rules for a hypothetical scholarly profile:
 }
 ```
 
-**Important**: use `domainIncludes` (not `schema:domainIncludes`) — the validator resolves property names through the RO-Crate JSON-LD context, where the `schema:` prefix is not defined by default.
+**Important**: use `domainIncludes` (not `schema:domainIncludes`) — the validator reads the key `domainIncludes` as written. In JSON-LD both expand to the same IRI, as the RO-Crate context defines `domainIncludes` and the `schema:` prefix, but the validator only recognises the plain key.
 
 ### Linking the Metadata Descriptor
 
@@ -256,7 +267,7 @@ At least 1 instances of this type MUST be present in the crate.
 | @type |  | Yes |  |  | <a href="http://schema.org/CreativeWork" title="http://schema.org/CreativeWork" target="_blank" rel="noopener">CreativeWork</a> |
 | <a href="#prop_id_MetadataDescriptor" title="#prop_id_MetadataDescriptor">@id</a> |  | Yes |  | <a href="#propertyValue_prop_id_MetadataDescriptor" title="#propertyValue_prop_id_MetadataDescriptor">RO-Crate Metadata Descriptor Identifier Constraint</a> |  |
 | <a href="#prop_about_MetadataDescriptor" title="#prop_about_MetadataDescriptor">about</a> | <a href="http://schema.org/about" target="_blank" rel="noopener">http://schema.org/about</a> | Yes | MUST reference the root profile Dataset entity. | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |  |
-| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://purl.org/dc/terms/conformsTo" target="_blank" rel="noopener">http://purl.org/dc/terms/conformsTo</a> | Yes | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 
 ### Examples of Type
 #### Examples
@@ -282,7 +293,7 @@ At least 1 instances of this type MUST be present in the crate.
 | -------- | ----------------- | -------- | ----------- | ----- | ----- |
 | @type |  | Yes |  |  | <a href="http://schema.org/Dataset" title="http://schema.org/Dataset" target="_blank" rel="noopener">Dataset</a>, <a href="http://www.w3.org/ns/dx/prof/Profile" title="http://www.w3.org/ns/dx/prof/Profile" target="_blank" rel="noopener">Profile</a> |
 | <a href="#prop_hasResource_ProfileDataset" title="#prop_hasResource_ProfileDataset">hasResource</a> | <a href="http://www.w3.org/ns/dx/prof/hasResource" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/hasResource</a> | Yes | Links to ResourceDescriptor entities that describe the profile's resources. MUST include at least one descriptor with role/specification. | <a href="#class_ResourceDescriptor" title="#class_ResourceDescriptor">ResourceDescriptor</a> |  |
-| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">http://schema.org/isProfileOf</a> | Yes | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
+| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://www.w3.org/ns/dx/prof/isProfileOf" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/isProfileOf</a> | Yes | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> |  |
 | <a href="#prop_license_ProfileDataset" title="#prop_license_ProfileDataset">license</a> | <a href="http://schema.org/license" target="_blank" rel="noopener">http://schema.org/license</a> | Yes | License for this profile. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a>, Text |  |
 | <a href="#prop_name_ProfileDataset" title="#prop_name_ProfileDataset">name</a> | <a href="http://schema.org/name" target="_blank" rel="noopener">http://schema.org/name</a> | Yes | A human-readable name for the profile. | Text |  |
 | <a href="#prop_author_ProfileDataset" title="#prop_author_ProfileDataset">author</a> | <a href="http://schema.org/author" target="_blank" rel="noopener">http://schema.org/author</a> | No | The person or organization responsible for creating this profile. | <a href="#class_Person" title="#class_Person">Person</a>, <a href="#class_Organization" title="#class_Organization">Organization</a> |  |
@@ -547,7 +558,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://schema.org/conformsTo" target="_blank" rel="noopener">http://schema.org/conformsTo</a> | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
+| <a href="#prop_conformsTo_MetadataDescriptor" title="#prop_conformsTo_MetadataDescriptor">conformsTo</a> | <a href="http://purl.org/dc/terms/conformsTo" target="_blank" rel="noopener">http://purl.org/dc/terms/conformsTo</a> | MUST reference the RO-Crate specification the crate conforms to. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_MetadataDescriptor" title="#class_MetadataDescriptor">RO-Crate Metadata Descriptor</a> |
 ### <a id="prop_description_ProfileDataset" title="#prop_description_ProfileDataset"></a> Property: description
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -592,7 +603,7 @@ Instances of this type MAY be present in the crate.
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
 | -------- | ----------------- | ----------- | ----------- | ----------- |
-| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://schema.org/isProfileOf" target="_blank" rel="noopener">http://schema.org/isProfileOf</a> | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |
+| <a href="#prop_isProfileOf_ProfileDataset" title="#prop_isProfileOf_ProfileDataset">isProfileOf</a> | <a href="http://www.w3.org/ns/dx/prof/isProfileOf" target="_blank" rel="noopener">http://www.w3.org/ns/dx/prof/isProfileOf</a> | MUST reference the base RO-Crate specification this profile extends. | <a href="#class_CreativeWork" title="#class_CreativeWork">CreativeWork</a> | <a href="#class_ProfileDataset" title="#class_ProfileDataset">Profile Dataset</a> |
 ### <a id="prop_itemListElement_ItemList" title="#prop_itemListElement_ItemList"></a> Property: itemListElement
 
 | Property | Specialization Of | Description | Range | Occurs in Domain(s) |
@@ -1033,7 +1044,7 @@ Canonical identifiers that indicate conformance to this profile.
   "rdfs:label": "isProfileOf",
   "description": "MUST reference the base RO-Crate specification this profile extends.",
   "prov:specializationOf": {
-    "@id": "http://schema.org/isProfileOf"
+    "@id": "http://www.w3.org/ns/dx/prof/isProfileOf"
   },
   "domainIncludes": {
     "@id": "#class_ProfileDataset"

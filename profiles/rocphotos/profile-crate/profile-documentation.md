@@ -368,7 +368,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="MainPetClass" title="#MainPetClass"></a> Class: Pet
 
-Term: `rocp:Pet`
+Term: `rocphotos:Pet`
 
 A pet, identified by name the same way a Person is, in its own id space so the two never collide.
 
@@ -388,7 +388,7 @@ Instances of this type MAY be present in the crate.
 
 ### <a id="InstancePetClass" title="#InstancePetClass"></a> Class: Pet in this crate
 
-Term: `rocp:Pet`
+Term: `rocphotos:Pet`
 
 A pet as depicted in one crate — see Person in this crate.
 

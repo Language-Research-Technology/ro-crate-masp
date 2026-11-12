@@ -2,7 +2,10 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "austalk": "http://ns.austalk.edu.au/",
+      "ausnc": "http://ns.ausnc.org.au/schemas/ausnc_md_model/",
+      "owl": "http://www.w3.org/2002/07/owl#"
     },
     {
       "@base": null
@@ -386,13 +389,15 @@
       "@id": "ausnc:AusNCObject",
       "@type": "rdfs:Class",
       "rdfs:label": "AusNCObject",
-      "rdfs:comment": "An individual item in the corpus - one recording of a prompt/interview/map task."
+      "rdfs:comment": "An individual item in the corpus - one recording of a prompt/interview/map task.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#ausnc%3AAusNCObject"
     },
     {
       "@id": "austalk:age_from",
       "@type": "rdf:Property",
       "rdfs:label": "age from",
       "rdfs:comment": "The age from which this person has resided in the specified town.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aage_from",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -405,6 +410,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "age to",
       "rdfs:comment": "The age to which this person has resided in the specified town. If still residing there, use null.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aage_to",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -417,6 +423,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "audio rating",
       "rdfs:comment": "A rating of audio quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aaudiorating",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -429,6 +436,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "basename",
       "rdfs:comment": " The base name of a media file without path, comprised of the speaker, session, component and prompt numbers.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Abasename",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -441,6 +449,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "birthPlace",
       "rdfs:comment": "The place of birth of this person (geolocated).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AbirthPlace",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -453,6 +462,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cameraSN0",
       "rdfs:comment": "The serial number of camera 0.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AcameraSN0",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -465,6 +475,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cameraSN1",
       "rdfs:comment": "The serial number of camera 1.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AcameraSN1",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -477,6 +488,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "channel",
       "rdfs:comment": "The channel name of the media file.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Achannel",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -489,6 +501,7 @@
       "@type": "DefinedTermSet",
       "name": "ChannelTerms",
       "description": "Set of defined terms for austalk:channel.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AChannelTerms",
       "hasDefinedTerm": [
         {
           "@id": "austalk:BoundaryDeskMic"
@@ -514,6 +527,7 @@
       "@id": "austalk:BoundaryDeskMic",
       "@type": "DefinedTerm",
       "description": "Boundary / desk mic - Shure MX391/O. On table, ~ 60cm from speaker.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3ABoundaryDeskMic",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -523,6 +537,7 @@
       "@id": "austalk:LeftC2Mic",
       "@type": "DefinedTerm",
       "description": "Left C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3ALeftC2Mic",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -532,6 +547,7 @@
       "@id": "austalk:MainSpeakerMic",
       "@type": "DefinedTerm",
       "description": "Main speaker mic - a head-worn AudioTechnica AT892c microphone used to record the main speaker in the recordings. This is the primary audio channel for most analyses of the data.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AMainSpeakerMic",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -541,6 +557,7 @@
       "@id": "austalk:MaptaskRAMic",
       "@type": "DefinedTerm",
       "description": "Maptask / RA mic - a head-worn AudioTechnica AT892c microphone used to record the research assistant.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AMaptaskRAMic",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -550,6 +567,7 @@
       "@id": "austalk:RightC2Mic",
       "@type": "DefinedTerm",
       "description": "Right C-2 mic - Behringer C-2 microphone. On table, ~60 cm from speaker, to record hands-free voice interaction conditions.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3ARightC2Mic",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -559,6 +577,7 @@
       "@id": "austalk:StrobeChannel",
       "@type": "DefinedTerm",
       "description": "Strobe channel - contains GPIO sync signal for aligning recordings.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3AStrobeChannel",
       "inDefinedTermSet": {
         "@id": "austalk:ChannelTerms"
       },
@@ -569,6 +588,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "checksum",
       "rdfs:comment": "The checksum of the media file for integrity verification.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Achecksum",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -581,6 +601,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "city",
       "rdfs:comment": "The city of the recording site.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Acity",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -593,6 +614,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "comment",
       "rdfs:comment": "A comment on the recording quality.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Acomment",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -605,6 +627,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "consent",
       "rdfs:comment": "Boolean value true if this person has signed the consent form.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aconsent",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -617,6 +640,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "country",
       "rdfs:comment": "The country in which this person has residential history.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Acountry",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -629,6 +653,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "cultural heritage",
       "rdfs:comment": "The cultural heritage of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Acultural_heritage",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -641,6 +666,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "education level",
       "rdfs:comment": "The highest level of education of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aeducation_level",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -653,6 +679,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father accent",
       "rdfs:comment": "The accent of the father of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_accent",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -665,6 +692,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father cultural heritage",
       "rdfs:comment": "The cultural heritage of the father of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_cultural_heritage",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -677,6 +705,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father education level",
       "rdfs:comment": "The highest level of education of the father of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_education_level",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -689,6 +718,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father first language",
       "rdfs:comment": "The first language of the father of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_first_language",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -701,6 +731,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father pob country",
       "rdfs:comment": "The country where the father of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_pob_country",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -713,6 +744,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "state of birth of Father",
       "rdfs:comment": "The state where the father of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_pob_state",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -725,6 +757,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father pob town",
       "rdfs:comment": "The town where the father of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_pob_town",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -737,6 +770,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "father professional category",
       "rdfs:comment": "The professional category of the father of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afather_professional_category",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -749,6 +783,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "first language",
       "rdfs:comment": "The first language of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afirst_language",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -761,6 +796,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "frequency",
       "rdfs:comment": "The frequency of use of a language by this person, on a scale of 1-100.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Afrequency",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -773,6 +809,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has dentures",
       "rdfs:comment": "Boolean value true if this person has dentures.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_dentures",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -785,6 +822,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has health problems",
       "rdfs:comment": "Boolean value true if this person has health problems which might affect his/her voice.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_health_problems",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -797,6 +835,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has hearing problems",
       "rdfs:comment": "Boolean value true if this person has hearing problems.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_hearing_problems",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -809,6 +848,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has hobbies",
       "rdfs:comment": "Boolean value true if this person has hobbies.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_hobbies",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -821,6 +861,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has piercings",
       "rdfs:comment": "Boolean value true if this person has facial piercings.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_piercings",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -833,6 +874,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has reading problems",
       "rdfs:comment": "Boolean value true if this person has reading problems.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_reading_problems",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -845,6 +887,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has speech problems",
       "rdfs:comment": "Boolean value true if this person has speech problems.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_speech_problems",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -857,6 +900,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "has vocal training",
       "rdfs:comment": "Boolean value true if this person has vocal training.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahas_vocal_training",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -869,6 +913,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "health problems details",
       "rdfs:comment": "Details of the health problems of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahealth_problems_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -881,6 +926,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "hearing problems details",
       "rdfs:comment": "Details of the hearing problems of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahearing_problems_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -893,6 +939,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "hobbies details",
       "rdfs:comment": "Details of the hobbies of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ahobbies_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -905,6 +952,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "id",
       "rdfs:comment": "The numerical identifier for a session/component/item.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aid",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -917,6 +965,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "information follower",
       "rdfs:comment": "The participant whose role was information follower in the map task.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ainformation_follower",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -929,6 +978,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "information giver",
       "rdfs:comment": "The participant whose role was information giver in the map task.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ainformation_giver",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -941,6 +991,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "institution",
       "rdfs:comment": "The institution associated with the recording site.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ainstitution",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -953,6 +1004,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is left handed",
       "rdfs:comment": "Boolean value true if this person is left handed.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ais_left_handed",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -965,6 +1017,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is smoker",
       "rdfs:comment": "Boolean value true if this person is a smoker.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ais_smoker",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -977,6 +1030,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "is student",
       "rdfs:comment": "Boolean value true if this person is a student.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ais_student",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -989,6 +1043,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "language usage",
       "rdfs:comment": "The languages used by this person and the contexts in which they are used.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Alanguage_usage",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1001,6 +1056,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "less than a year",
       "rdfs:comment": "Boolean value true if this person has resided less than a year in the specified town.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aless_than_a_year",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1013,6 +1069,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "map",
       "rdfs:comment": "The map being used in the map task.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amap",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1025,6 +1082,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "maptaskcomment",
       "rdfs:comment": "A comment on the map task.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amaptaskcomment",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1037,6 +1095,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother accent",
       "rdfs:comment": "The accent of the mother of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_accent",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1049,6 +1108,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother cultural heritage",
       "rdfs:comment": "The cultural heritage of the mother of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_cultural_heritage",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1061,6 +1121,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother education level",
       "rdfs:comment": "The highest level of education of the mother of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_education_level",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1073,6 +1134,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother first language",
       "rdfs:comment": "The first language of the mother of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_first_language",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1085,6 +1147,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother's country of birth",
       "rdfs:comment": "The country where the mother of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_pob_country",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1097,6 +1160,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mothers birth state",
       "rdfs:comment": "The state where the mother of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_pob_state",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1109,6 +1173,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother's birth town",
       "rdfs:comment": "The town where the mother of this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_pob_town",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1121,6 +1186,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "mother professional category",
       "rdfs:comment": "The professional category of the mother of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Amother_professional_category",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1133,6 +1199,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "name",
       "rdfs:comment": "The name of the thing.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aname",
       "domainIncludes": {
         "@id": "owl:Class"
       },
@@ -1145,6 +1212,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "other languages",
       "rdfs:comment": "Other languages spoken or understood by this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aother_languages",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1157,6 +1225,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "piercings details",
       "rdfs:comment": "Details of the facial piercings of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Apiercings_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1169,6 +1238,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "country of birth",
       "rdfs:comment": "The country where this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Apob_country",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1181,6 +1251,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "pob state",
       "rdfs:comment": "The state where this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Apob_state",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1193,6 +1264,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "pob town",
       "rdfs:comment": "The town where this person was born.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Apob_town",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1205,6 +1277,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional category",
       "rdfs:comment": "The professional category of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aprofessional_category",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1217,6 +1290,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional occupation",
       "rdfs:comment": "The professional occupation of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aprofessional_occupation",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1229,6 +1303,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "professional qualification",
       "rdfs:comment": "The professional qualification of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aprofessional_qualification",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1241,6 +1316,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "prompt",
       "rdfs:comment": "The prompt text shown when recording an item.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aprompt",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1252,13 +1328,15 @@
       "@id": "austalk:prototype",
       "@type": "rdf:Property",
       "rdfs:label": "prototype",
-      "rdfs:comment": "A link to the prototype session/component/item for this thing."
+      "rdfs:comment": "A link to the prototype session/component/item for this thing.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aprototype"
     },
     {
       "@id": "austalk:reading_problems_details",
       "@type": "rdf:Property",
       "rdfs:label": "reading problems details",
       "rdfs:comment": "Details of the reading problems of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Areading_problems_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1270,13 +1348,15 @@
       "@id": "austalk:RecordedComponent",
       "@type": "rdfs:Class",
       "rdfs:label": "Recorded Component",
-      "rdfs:comment": "An instance of a component for one participant."
+      "rdfs:comment": "An instance of a component for one participant.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3ARecordedComponent"
     },
     {
       "@id": "austalk:recording_site",
       "@type": "rdf:Property",
       "rdfs:label": "recording site",
       "rdfs:comment": "A URI of the recording site where the recording was made.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Arecording_site",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1288,13 +1368,15 @@
       "@id": "austalk:RecordingSite",
       "@type": "rdfs:Class",
       "rdfs:label": "RecordingSite",
-      "rdfs:comment": "A physical location where recordings were made."
+      "rdfs:comment": "A physical location where recordings were made.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3ARecordingSite"
     },
     {
       "@id": "austalk:research_assistant",
       "@type": "rdf:Property",
       "rdfs:label": "research assistant",
       "rdfs:comment": "The research assistant who ran the recording session.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aresearch_assistant",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1307,6 +1389,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "residential history",
       "rdfs:comment": "The residential history of this person, including the person's age and duration at each location.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aresidential_history",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1319,6 +1402,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "ses",
       "rdfs:comment": "The socio-economic status (SES) of this person (e.g. professional or non-professional).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ases",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1331,6 +1415,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "session",
       "rdfs:comment": "The session of each component.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Asession",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1343,6 +1428,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "shortname",
       "rdfs:comment": "The short name for a component.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Ashortname",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1355,6 +1441,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "situation",
       "rdfs:comment": "The situations in which a language is used by this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Asituation",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1367,6 +1454,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "speech problems details",
       "rdfs:comment": "Details of the speech problems of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aspeech_problems_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1379,6 +1467,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "state",
       "rdfs:comment": "The state in which this person has residential history.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Astate",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1391,6 +1480,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student aspiration",
       "rdfs:comment": "The career aspirations of this person who is a student.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Astudent_aspiration",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1403,6 +1493,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student course",
       "rdfs:comment": "The course that this person who is a student is enrolled in.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Astudent_course",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1415,6 +1506,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "student enrollment",
       "rdfs:comment": "The enrollment status of this person who is a student (e.g. fulltime, parttime, null).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Astudent_enrollment",
       "domainIncludes": {
         "@id": "schema:Person"
       },
@@ -1427,6 +1519,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "town",
       "rdfs:comment": "The town in which this person has residential history.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Atown",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1439,6 +1532,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "type",
       "rdfs:comment": "The type of the media file (e.g. audio or video).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Atype",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1451,6 +1545,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "version",
       "rdfs:comment": "The version number differentiating between sets of recordings for an item (default 1, incremented for additional recordings).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Aversion",
       "domainIncludes": {
         "@id": "ausnc:AusNCObject"
       },
@@ -1463,6 +1558,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "video rating",
       "rdfs:comment": "A rating of video quality A-D: A (A-OK), B (OK, but imperfect), C (bad, not acceptable), D (deficient or missing).",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Avideorating",
       "domainIncludes": {
         "@id": "austalk:RecordedComponent"
       },
@@ -1475,6 +1571,7 @@
       "@type": "rdf:Property",
       "rdfs:label": "vocal training details",
       "rdfs:comment": "Details of the vocal training of this person.",
+      "url": "https://language-research-technology.github.io/ro-crate-masp/schemas/austalk/schema-crate/index.html#austalk%3Avocal_training_details",
       "domainIncludes": {
         "@id": "schema:Person"
       },

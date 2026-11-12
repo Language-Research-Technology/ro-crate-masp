@@ -78,7 +78,7 @@ describe("Workflow Profile Tests", function () {
       "@id": "https://example.org/profile",
       "@type": [
         "http://schema.org/CreativeWork",
-        "http://schema.org/Profile",
+        "Profile",
       ],
       name: "Alt Profile",
     };
@@ -100,6 +100,8 @@ describe("Workflow Profile Tests", function () {
     const validator = new MaspValidator(workflowProfileCrate);
     const targetCrate = loadTargetCrate();
     const freshProfile = makeFreshProfileEntity();
+    // Replace the example's own profile entity; #classProfile allows only one.
+    targetCrate.deleteEntity("https://w3id.org/workflowhub/workflow-ro-crate/1.0", { references: true });
     targetCrate.addEntity(freshProfile);
     targetCrate.root.conformsTo = { "@id": freshProfile["@id"] };
 
@@ -107,7 +109,7 @@ describe("Workflow Profile Tests", function () {
     expect(results.error.some((error) => error.rule === "#classProfile")).to.equal(true);
 
     targetCrate.getEntity(freshProfile["@id"])["@type"].push(
-      "http://schema.org/Profile"
+      "Profile"
     );
     results = await validator.validateCrate(targetCrate);
 

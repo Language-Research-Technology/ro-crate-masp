@@ -15,7 +15,7 @@ change adaptation domain. This includes all the metadata properties expected to
 be captured and exposed about these resources to enable FAIR discovery, access
 and reuse.
 
-Profile URI: <https://w3id.org/cc-crate-profile/0.9>
+Profile URI: <https://w3id.org/cca-crate-profile/0.9>
 
 Source: <https://github.com/FAIR2Adapt/cca-crate-profile>
 
@@ -37,7 +37,7 @@ declare this using `conformsTo` on the Root Data Entity:
     "@id": "./",
     "@type": "Dataset",
     "conformsTo": {
-        "@id": "https://w3id.org/cc-crate-profile/0.9"
+        "@id": "https://w3id.org/cca-crate-profile/0.9"
     }
 }
 ```

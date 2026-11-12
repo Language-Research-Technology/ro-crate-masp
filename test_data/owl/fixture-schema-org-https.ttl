@@ -1,0 +1,31 @@
+# Fixture for scripts/owl-to-masp.py: schema.org terms written with
+# https://schema.org/ (see spec: "schema.org: http and https"), mixed with
+# one http://schema.org/ reference to the same term.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/ns#> .
+@prefix schemas: <https://schema.org/> .
+
+schemas:Thing a owl:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item." .
+
+schemas:CreativeWork a owl:Class ;
+    rdfs:label "CreativeWork" ;
+    rdfs:comment "The most generic kind of creative work, see https://schema.org/CreativeWork." ;
+    rdfs:subClassOf schemas:Thing .
+
+schemas:about a owl:ObjectProperty ;
+    rdfs:label "about" ;
+    rdfs:comment "The subject matter of the content." ;
+    rdfs:domain schemas:CreativeWork ;
+    rdfs:range <http://schema.org/Thing> .
+
+ex:Report a owl:Class ;
+    rdfs:label "Report" ;
+    rdfs:comment "A fixture class that specialises an https schema.org class." ;
+    rdfs:subClassOf schemas:CreativeWork .
+
+ex:annualReport a schemas:CreativeWork ;
+    rdfs:label "annual report" .

@@ -2,7 +2,8 @@
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
     {
-      "@vocab": "http://schema.org/"
+      "@vocab": "http://schema.org/",
+      "sh": "http://www.w3.org/ns/shacl#"
     }
   ],
   "@graph": [
@@ -461,7 +462,7 @@
       "rdfs:label": "conformsTo",
       "description": "MUST reference the RO-Crate specification the crate conforms to.",
       "prov:specializationOf": {
-        "@id": "http://schema.org/conformsTo"
+        "@id": "http://purl.org/dc/terms/conformsTo"
       },
       "domainIncludes": {
         "@id": "#class_MetadataDescriptor"
@@ -549,7 +550,7 @@
       "rdfs:label": "isProfileOf",
       "description": "MUST reference the base RO-Crate specification this profile extends.",
       "prov:specializationOf": {
-        "@id": "http://schema.org/isProfileOf"
+        "@id": "http://www.w3.org/ns/dx/prof/isProfileOf"
       },
       "domainIncludes": {
         "@id": "#class_ProfileDataset"

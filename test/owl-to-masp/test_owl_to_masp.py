@@ -15,6 +15,7 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE = REPO_ROOT / "test_data" / "owl" / "fixture.ttl"
 EXTRA_FIXTURE = REPO_ROOT / "test_data" / "owl" / "fixture-extra.ttl"
+SCHEMA_ORG_HTTPS_FIXTURE = REPO_ROOT / "test_data" / "owl" / "fixture-schema-org-https.ttl"
 NAMESPACE = "http://example.org/ns#"
 EXTRA_NAMESPACE = "http://example.org/extra#"
 FIXED_START_TIME = "2026-01-01T00:00:00+00:00"
@@ -456,3 +457,64 @@ def test_no_namespace_given_with_multiple_inputs_converts_everything_unfiltered(
     assert "http://example.org/ns#Widget" in ids
     assert "http://example.org/extra#Sprocket" in ids
     assert "http://example.org/external#Thing" in ids
+
+
+def _convert_schema_org_https(tmp_path, namespace=None):
+    metadata_path = owl_to_masp.convert(
+        str(SCHEMA_ORG_HTTPS_FIXTURE),
+        str(tmp_path / "schema-org-https"),
+        namespace=namespace,
+        name="schema.org https fixture",
+        start_time=FIXED_START_TIME,
+    )
+    return json.loads(metadata_path.read_text(encoding="utf-8"))
+
+
+def _iris_in(value):
+    """Every @id and @type string anywhere in value."""
+    if isinstance(value, list):
+        return [iri for item in value for iri in _iris_in(item)]
+    if not isinstance(value, dict):
+        return []
+    found = []
+    for key, item in value.items():
+        if key in ("@id", "@type"):
+            found.extend(item if isinstance(item, list) else [item])
+        else:
+            found.extend(_iris_in(item))
+    return found
+
+
+def test_https_schema_org_iris_are_rewritten_to_http(tmp_path):
+    crate = _convert_schema_org_https(tmp_path)
+    iris = _iris_in(crate["@graph"])
+    assert not [iri for iri in iris if iri.startswith("https://schema.org/")]
+    creative_work = _by_id(crate["@graph"], "http://schema.org/CreativeWork")
+    assert creative_work["rdfs:subClassOf"] == [{"@id": "http://schema.org/Thing"}]
+    about = _by_id(crate["@graph"], "http://schema.org/about")
+    assert about["domainIncludes"] == {"@id": "http://schema.org/CreativeWork"}
+    assert about["rangeIncludes"] == {"@id": "http://schema.org/Thing"}
+    report = _by_id(crate["@graph"], "http://example.org/ns#Report")
+    assert report["rdfs:subClassOf"] == [{"@id": "http://schema.org/CreativeWork"}]
+    annual_report = _by_id(crate["@graph"], "http://example.org/ns#annualReport")
+    assert annual_report["@type"] == "http://schema.org/CreativeWork"
+
+
+def test_https_and_http_schema_org_references_merge_into_one_term(tmp_path):
+    crate = _convert_schema_org_https(tmp_path)
+    things = [e for e in crate["@graph"] if e["@id"] in ("http://schema.org/Thing", "https://schema.org/Thing")]
+    assert [e["@id"] for e in things] == ["http://schema.org/Thing"]
+    assert things[0]["rdfs:comment"] == "The most generic type of item."
+
+
+def test_https_schema_org_in_literals_is_left_alone(tmp_path):
+    crate = _convert_schema_org_https(tmp_path)
+    creative_work = _by_id(crate["@graph"], "http://schema.org/CreativeWork")
+    assert "see https://schema.org/CreativeWork." in creative_work["rdfs:comment"]
+
+
+def test_https_schema_org_namespace_selects_the_rewritten_terms(tmp_path):
+    crate = _convert_schema_org_https(tmp_path, namespace="https://schema.org/")
+    ids = {e["@id"] for e in crate["@graph"]}
+    assert {"http://schema.org/Thing", "http://schema.org/CreativeWork", "http://schema.org/about"} <= ids
+    assert "http://example.org/ns#Report" not in ids
