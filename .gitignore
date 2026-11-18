@@ -153,3 +153,6 @@ tmp/
 
 # Excel lock files
 ~$*
+
+# Test output (mode-round-trip.test.js)
+output/

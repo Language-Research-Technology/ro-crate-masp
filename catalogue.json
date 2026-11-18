@@ -252,20 +252,6 @@
       "docs": "schemas/schema-org/schema-crate/index.html",
       "crate": "schemas/schema-org/schema-crate/ro-crate-metadata.json",
       "build": "build:schema-org-schema"
-    },
-    {
-      "id": "template",
-      "kind": "schema",
-      "name": "Template RO-Crate Schema",
-      "summary": "This is a template for an RO-Crate schema.",
-      "version": "",
-      "status": "template",
-      "origin": "authored",
-      "classes": 1,
-      "properties": 1,
-      "docs": "schemas/template/schema-crate/index.html",
-      "crate": "schemas/template/schema-crate/ro-crate-metadata.json",
-      "build": "build:template-schema"
     }
   ]
 }

@@ -84,7 +84,8 @@ Open issues, by where they belong:
 Each step is one PR (or commit) to main, and leaves main working.
 
 - [ ] 1. Validator: merge [crate-works/ro-crate-masp-validator#1](https://github.com/crate-works/ro-crate-masp-validator/pull/1) and [#2](https://github.com/crate-works/ro-crate-masp-validator/pull/2), do the first npm publish. Check the `crate-o-185-crate-o-masp-support` branch's validator changes are in crateworks.
-- [ ] 2. Quick deletions here that need no new home: `schemas/template` (superseded by masp-templates), `tmp/`, `output/`, `COPILOT_CONTEXT.md`, `.github/copilot-instructions.md`. Close PR #33 here (now in crateworks).
+- [x] 2. Quick deletions here that need no new home: `schemas/template` (superseded by masp-templates), `tmp/`, `output/` (now gitignored test output), `COPILOT_CONTEXT.md`, `.github/copilot-instructions.md`. Removed the template from the build scripts, mode-file test and catalogue; user guide points at masp-templates.
+  - [ ] Close PR #33 here once crate-works/ro-crate-masp-validator#1 is merged.
 - [ ] 3. Use the npm validator here: replace `lib/masp-validator.js` with a dependency on `@crate-works/ro-crate-masp-validator`, delete the validator-only tests. Everything else here keeps working, and the validator is maintained only in crateworks from then on.
 - [ ] 4. Tools: create `ro-crate-masp-tools`, copy the tools with their own test fixtures, get tests passing there. Then the examples' `build:*` scripts here call the tools package, and the tools code is deleted here.
 - [ ] 5. Examples: create `ro-crate-examples`, move `profiles/*` and `schemas/*` (except the MASP profile), the catalogue and landing page, with their build scripts. Delete them here. Keep the old GitHub Pages URLs working.

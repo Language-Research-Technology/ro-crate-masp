@@ -1,18 +1,10 @@
 # User Guide for Schema Creation
 
-This is a user guide for creating new schemas within `ro-crate-masp`. It uses a template directory as its basis.
+This is a user guide for creating new schemas with RO-Crate MASP.
 
-## Copy template directory
+## Start from the template
 
-Make a copy of the `schemas/template/` directory and save this under `schemas/` as well.
-```
-schemas/template
-├── schema-crate
-│   ├── ro-crate-metadata.json
-│   └── schema-documentation.md
-└── schema-text.md
-```
-Rename `template` to a descriptor for your schema.
+Schema and profile templates are in the [masp-templates](https://github.com/Language-Research-Technology/masp-templates) repository, which also has a fuller [schema user guide](https://github.com/Language-Research-Technology/masp-templates/blob/main/schema-user-guide.md). Fork or copy it to start a new schema.
 
 ## Update ro-crate-metadata.json
 
@@ -120,16 +112,9 @@ Complete list of the rules available to populate the document:
  - `${rules.allDefinedTermSets}`: Generate documentation for each entity with the type [DefinedTermSet](https://schema.org/DefinedTermSet).
  - `${rules.allItemLists}`: Generate documentation for each entity with the type [ItemList](https://schema.org/ItemList).
 
-## Update package.json
-
-Add a row for your schema in the `"scripts"` section of `package.json`, updating the `template` sections with your schema descriptor:
-```
-"build:template-schema": "node generate-soss-docs.js schemas/template/schema-crate/ro-crate-metadata.json schemas/template/schema-text.md schemas/template/schema-crate/schema-documentation.md",
-```
-
 ## Generate documentation
 
-To update the `schema-documentation.md` file, run the following command, replacing `template` with your schema descriptor:
+Generate `schema-documentation.md` from your crate and `schema-text.md` with `generate-masp-docs.js`:
 ```
-npm run build:template-schema
+node generate-masp-docs.js -x <schema-crate>/ro-crate-metadata.json <schema-text.md> <schema-crate>/schema-documentation.md
 ```

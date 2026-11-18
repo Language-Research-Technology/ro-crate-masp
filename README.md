@@ -14,6 +14,12 @@ Now that the work is more advanced, I'm moving it to this repository as a "clean
 
 If this work goes forward then this repository will probably turn into the home of a javascript/Node implementation of an RO-Crate based *RO-Crate Machine Actionable Profiles and Schemas* spec.
 
+## Reorganisation in progress
+
+This repository is being pared back to just the core MASP spec; tools, examples and the validator are moving to their own repositories. See [plan.md](plan.md) for the steps. Moved so far:
+
+- **Schema template** (`schemas/template`) → [masp-templates](https://github.com/Language-Research-Technology/masp-templates)
+
 ## Example Profiles and Schemas
 
 > **Examples only.** These profiles and schemas are working examples for developing and testing MASP. This repository is not their permanent home: each will eventually be published and maintained elsewhere, so don't rely on these copies or their URLs.
@@ -43,7 +49,6 @@ Browse and filter them all on the **[example profiles and schemas landing page](
 | [Web Annotation Vocabulary](https://language-research-technology.github.io/ro-crate-masp/schemas/oa/schema-crate/index.html) | Schema | from OWL | 21 / 29 | `npm run build:oa-schema` | The Web Annotation ontology defines the terms of the Web Annotation vocabulary. |
 | [Records in Context Ontology](https://language-research-technology.github.io/ro-crate-masp/schemas/ric/schema-crate/index.html) | Schema | from OWL | 107 / 555 | `npm run build:ric-schema` | The Records in Context Ontology (RiC-O) is published by the International Council on Archives (ICA) Expert Group on Archival Description (EGAD) as part of Records in Context, a conceptual model for archival description. |
 | [Schema.org Vocabulary](https://language-research-technology.github.io/ro-crate-masp/schemas/schema-org/schema-crate/index.html) | Schema |  | 933 / 1521 | `npm run build:schema-org-schema` | The full schema.org vocabulary expressed as a MASP schema crate. |
-| [Template RO-Crate Schema](https://language-research-technology.github.io/ro-crate-masp/schemas/template/schema-crate/index.html) | Schema | TEMPLATE | 1 / 1 | `npm run build:template-schema` | This is a template for an RO-Crate schema. |
 
 <!-- catalogue:end -->
 

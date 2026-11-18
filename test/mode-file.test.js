@@ -61,11 +61,6 @@ const PROFILE_ENTRIES = [
     profileCratePath: "schemas/austalk/schema-crate/ro-crate-metadata.json",
     modeFilePath: "schemas/austalk/schema-crate/crate-o-mode.json",
   },
-  {
-    name: "Template Schema",
-    profileCratePath: "schemas/template/schema-crate/ro-crate-metadata.json",
-    modeFilePath: "schemas/template/schema-crate/crate-o-mode.json",
-  },
 ];
 
 describe("Crate-O Mode File Tests", function () {
