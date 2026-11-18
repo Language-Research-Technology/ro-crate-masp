@@ -27,9 +27,9 @@ We will do this a bit at a time, merging each step back to main, until just the 
 | `docs/requirements-coverage.md` | stays (core) | |
 | `user-guide.md` | stays (core), rewritten | Current one is stale (refers to `generate-soss-docs.js` and copying `schemas/template`). Should become a short "how to write a MASP profile/schema" that points to masp-templates and the tools repo; masp-templates already has the fuller `schema-user-guide.md` |
 | `README.md`, `LICENSE` | stays, rewritten | README loses the example catalogue and the code sections |
-| `lib/masp-validator.js` | deleted (crateworks) | After the parity check below |
+| `lib/masp-validator.js` | deleted (crateworks) | Done: now `@crate-works/ro-crate-masp-validator` on npm |
 | `lib/register-rules.js` | tools | Not part of the crateworks validator |
-| `validate-crate.js` | tools | CLI wrapper; will use the crateworks validator as a dependency |
+| `validate-crate.js` | deleted | Done: same as the validator package's `masp-validate` CLI |
 | `generate-masp-docs.js` | tools | Currently imports `lib/masp-validator.js` |
 | `scripts/*` (owl-to-masp, mode files, catalogue, schema-org crate) | tools | `build-catalogue.js` may belong with the examples instead |
 | `pyproject.toml`, `uv.lock` | tools | For owl-to-masp |
@@ -83,10 +83,10 @@ Open issues, by where they belong:
 
 Each step is one PR (or commit) to main, and leaves main working.
 
-- [ ] 1. Validator: ~~merge [crate-works/ro-crate-masp-validator#1](https://github.com/crate-works/ro-crate-masp-validator/pull/1) and [#2](https://github.com/crate-works/ro-crate-masp-validator/pull/2)~~ (merged 2026-11-18), do the first npm publish by hand, then set up trusted publishing on npmjs.com (see the validator README). Check the `crate-o-185-crate-o-masp-support` branch's validator changes are in crateworks.
+- [x] 1. Validator: ~~merge [crate-works/ro-crate-masp-validator#1](https://github.com/crate-works/ro-crate-masp-validator/pull/1) and [#2](https://github.com/crate-works/ro-crate-masp-validator/pull/2)~~ (merged 2026-11-18), published 0.1.0 to npm. Still to do: set up trusted publishing on npmjs.com (see the validator README); check the `crate-o-185-crate-o-masp-support` branch's validator changes are in crateworks.
 - [x] 2. Quick deletions here that need no new home: `schemas/template` (superseded by masp-templates), `tmp/`, `output/` (now gitignored test output), `COPILOT_CONTEXT.md`, `.github/copilot-instructions.md`. Removed the template from the build scripts, mode-file test and catalogue; user guide points at masp-templates.
   - [x] Close PR #33 here once crate-works/ro-crate-masp-validator#1 is merged.
-- [ ] 3. Use the npm validator here: replace `lib/masp-validator.js` with a dependency on `@crate-works/ro-crate-masp-validator`, delete the validator-only tests. Everything else here keeps working, and the validator is maintained only in crateworks from then on.
+- [x] 3. Use the npm validator here: replace `lib/masp-validator.js` with a dependency on `@crate-works/ro-crate-masp-validator`, delete the validator-only tests. Everything else here keeps working, and the validator is maintained only in crateworks from then on.
 - [ ] 4. Tools: create `ro-crate-masp-tools`, copy the tools with their own test fixtures, get tests passing there. Then the examples' `build:*` scripts here call the tools package, and the tools code is deleted here.
 - [ ] 5. Examples: create `ro-crate-examples`, move `profiles/*` and `schemas/*` (except the MASP profile), the catalogue and landing page, with their build scripts. Delete them here. Keep the old GitHub Pages URLs working.
 - [ ] 6. Spec: rewrite `profile-text.md` as normative rules, rewrite the user guide and README, sort out the spec docs build (item 1 above).

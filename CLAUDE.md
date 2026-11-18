@@ -14,15 +14,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 1) Validator-first architecture
 
-- Put validation semantics in `MaspValidator` (and related rule classes), not in consuming apps.
-- If a rule interpretation changes (for example datatype handling), implement it here first.
-- Treat this repository as the reusable validation source for Crate-O and other projects.
+- The validator lives in [crate-works/ro-crate-masp-validator](https://github.com/crate-works/ro-crate-masp-validator) (npm: `@crate-works/ro-crate-masp-validator`). It is no longer in this repo; this repo depends on it.
+- Put validation semantics in `MaspValidator` (and related rule classes) in that repo, not in consuming apps or here.
+- If a rule interpretation changes (for example datatype handling), implement it there first, publish, then bump the dependency here.
 
 ### 2) Reuse over app-specific patches
 
 - Avoid requiring downstream projects to add custom validation workarounds.
 - Expose behavior through stable validator methods so multiple clients can consume the same logic.
-- Keep project-agnostic logic in `lib/masp-validator.js`; avoid UI-specific assumptions.
+
+### Repository reorganisation
+
+This repo is being split up; see `plan.md`. Work one step at a time, keep main working after each step, and tick off steps in `plan.md`.
 
 ### 3) Keep profile selection concerns out of validator internals
 
@@ -33,10 +36,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm install          # Install dependencies
-npm test             # Run all tests (Mocha, ~38 tests)
+npm test             # Run all tests (Mocha)
 
 # Run a single test file
-npx mocha test/ldac-validator.test.js
+npx mocha test/mode-file.test.js
 
 # Build documentation for a profile/schema
 npm run build:ldac-profile
@@ -44,15 +47,15 @@ npm run build:workflow-profile
 # (see package.json for all build:* targets)
 
 # Validate a crate from the CLI
-node validate-crate.js <target-crate.json> <profile-crate.json>
-node validate-crate.js --json <target-crate.json> <profile-crate.json>  # JSON output
+npx masp-validate <target-crate.json> <profile-crate.json>
+npx masp-validate --json <target-crate.json> <profile-crate.json>  # JSON output
 ```
 
 ## Architecture
 
 ### Core Engine
 
-**`lib/masp-validator.js`** — the entire validation engine (~1,100 lines):
+The validation engine is `@crate-works/ro-crate-masp-validator` (see above):
 - `MaspValidator` — loads a Profile/Schema crate, parses its rules, and validates target crates
 - `ClassRule` — validates entity `@type` and cardinality constraints (`sh:minCount`/`sh:maxCount`)
 - `PropertyRule` — validates property constraints (cardinality, `rangeIncludes`, fixed `value`)
@@ -64,7 +67,7 @@ node validate-crate.js --json <target-crate.json> <profile-crate.json>  # JSON o
 { error: [{message, rule, entity}], success: [{message, rule}], rules: { [ruleId]: { [entityId]: {...} } } }
 ```
 
-When adding new validation capability, update `MaspValidator` and tests in this repo so downstream tools receive the behavior automatically.
+When adding new validation capability, update `MaspValidator` and its tests in the validator repo so downstream tools receive the behavior automatically.
 
 ### Profile/Schema Crate Format
 

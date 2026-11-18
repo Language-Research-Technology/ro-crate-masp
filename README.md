@@ -1,5 +1,7 @@
 # RO-Crate Machine Actionable Schemas and Profile (Proof of concept)
 
+> **The MASP validator has moved** to [crate-works/ro-crate-masp-validator](https://github.com/crate-works/ro-crate-masp-validator) and is published on npm as [`@crate-works/ro-crate-masp-validator`](https://www.npmjs.com/package/@crate-works/ro-crate-masp-validator). Report validator bugs and make validator changes there; this repository now uses it as a dependency.
+
 ## About this repo
 
 This repository is for the development of RO-Crate Schemas and Profiles (RO-Crate-MASP) which implements the requirements set out in [The Notes] for RO-Crate Schemas and Machine Actionable Profiles.
@@ -19,6 +21,7 @@ If this work goes forward then this repository will probably turn into the home 
 This repository is being pared back to just the core MASP spec; tools, examples and the validator are moving to their own repositories. See [plan.md](plan.md) for the steps. Moved so far:
 
 - **Schema template** (`schemas/template`) → [masp-templates](https://github.com/Language-Research-Technology/masp-templates)
+- **Validator** (`lib/masp-validator.js`, its tests, and `validate-crate.js`) → [crate-works/ro-crate-masp-validator](https://github.com/crate-works/ro-crate-masp-validator), on npm as `@crate-works/ro-crate-masp-validator`
 
 ## Example Profiles and Schemas
 
@@ -119,11 +122,11 @@ This pattern is now the canonical way to express fixed and pattern-based value c
 ## Running the tests
 
 ```bash
-npm test                                   # run all tests (~38)
-npx mocha test/ldac-validator.test.js      # run a single test file
+npm test                                   # run all tests
+npx mocha test/mode-file.test.js           # run a single test file
 ```
 
-Tests use real profile crates from `profiles/` and sample crates from `test_data/`, so changes to either will affect test results.
+Tests use real profile crates from `profiles/` and sample crates from `test_data/`, so changes to either will affect test results. The validator's own tests are in [its repository](https://github.com/crate-works/ro-crate-masp-validator).
 
 ## Building documentation
 
@@ -224,18 +227,18 @@ The converter's own test suite (`test/owl-to-masp/test_owl_to_masp.py`, run via 
 
 ## Validating RO-Crates from the Command Line
 
-You can validate a target RO-Crate against a profile crate or schema using the command-line tool `validate-crate.js`.
+You can validate a target RO-Crate against a profile crate or schema using `masp-validate`, the command-line tool from [`@crate-works/ro-crate-masp-validator`](https://github.com/crate-works/ro-crate-masp-validator) (installed as a dependency here).
 
 ### Usage
 
 ```bash
-node validate-crate.js <target-crate.json> <profile-crate.json>
+npx masp-validate [--json] <target-crate.json> <profile-crate.json>
 ```
 
-For example, to validate the minimal workflow crate against the workflow profile:
+For example, to validate the minimal workflow crate against the workflow profile (also `npm run validate:workflow`):
 
 ```bash
-node validate-crate.js profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json
+npx masp-validate profiles/workflow/examples/minimal-example/ro-crate-metadata.json profiles/workflow/profile-crate/ro-crate-metadata.json
 ```
 
 The tool will print validation results to the console and exit with a nonzero code if errors are found.

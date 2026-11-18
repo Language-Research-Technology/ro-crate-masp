@@ -3,7 +3,7 @@ const { expect } = require("chai");
 const path = require("path");
 const fs = require("fs");
 const { ROCrate } = require("ro-crate");
-const { MaspValidator } = require("../lib/masp-validator");
+const { MaspValidator } = require("@crate-works/ro-crate-masp-validator");
 
 // The draft LDAC-DMLex profile carries DMLex's per-class cardinality as
 // property rules; its example is the DMLex spec's basic entry (A.1.1).

@@ -9,7 +9,7 @@
 const { ROCrate } = require("ro-crate");
 const fs = require("fs");
 const path = require("path");
-const { MaspValidator } = require("./lib/masp-validator");
+const { MaspValidator } = require("@crate-works/ro-crate-masp-validator");
 const { execSync } = require("child_process");
 const MarkdownIt = require("markdown-it");
 const md = new MarkdownIt("default", { html: true });

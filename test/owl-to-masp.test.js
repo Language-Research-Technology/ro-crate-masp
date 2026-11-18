@@ -4,7 +4,7 @@ const path = require("path");
 const { execSync } = require("child_process");
 const { expect } = require("chai");
 const { ROCrate } = require("ro-crate");
-const { MaspValidator } = require("../lib/masp-validator");
+const { MaspValidator } = require("@crate-works/ro-crate-masp-validator");
 
 /**
  * Integration test for scripts/owl-to-masp.py.
