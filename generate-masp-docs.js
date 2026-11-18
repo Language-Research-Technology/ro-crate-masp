@@ -988,6 +988,7 @@ try {
     setRuleAliases(propSummary, [propName, propLabel, anchorGithubId]);
     propsSummary += propSummary;
   }
+  rules.allProperties = propsSummary;
   rules.all += propsSummary;
 
   // Add a property values table
