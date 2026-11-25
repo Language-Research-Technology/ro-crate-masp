@@ -95,8 +95,8 @@ profile-crate/
 
 ### Documentation Generation
 
-**`generate-masp-docs.js`** combines `ro-crate-metadata.json` + `profile-text.md` → `profile-documentation.md`. The template uses `${rules.all}`, `${rules.allItemLists}`, etc. as placeholders for auto-generated rule summaries. Pass `--multi-page` to generate a multi-page HTML site (used for schema-org).
+**`generate-masp-docs`** (from [crate-works/ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools), a dev dependency here) combines `ro-crate-metadata.json` + `profile-text.md` → `profile-documentation.md`. The template uses `${rules.all}`, `${rules.allItemLists}`, etc. as placeholders for auto-generated rule summaries. Pass `--multi-page` to generate a multi-page HTML site (used for schema-org).
 
 ### Tests
 
-Tests live in `test/` and use Mocha + Chai (`expect` style). They load real profile crates from `profiles/` and real sample crates from `test_data/`, so changes to either affect tests.
+Tests live in `test/` and use Mocha + Chai (`expect` style). They check the example profiles and schemas themselves (mode files, the LDAC-DMLex and schema.org crates). Tests for the tools are in ro-crate-masp-tools; tests for the validator are in ro-crate-masp-validator.

@@ -7,7 +7,7 @@ The repo contains the spec for MASP and a bunch of tools and examples.
 All of this needs to be sorted out and moved into different repositories so that this repo gets pared back to being just the Core MASP spec (intro materials, and the MASP Profile for MASP itself) -> To ResearchObject.org (subject to governance at the RO-Crate steering committee level).
 
 - **Validator** - has already moved to crateworks - needs to be removed from here and maintained there.
-- **Tools** - all scripts, tools etc (doc generation, MASP generation from OWL etc) -> `ro-crate-masp-tools`. Will make a new repo here in language-research-technology; may move to the crateworks org later.
+- **Tools** - all scripts, tools etc (doc generation, MASP generation from OWL etc) -> [crate-works/ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools).
 - **Examples** (under `schemas/` and `profiles/` here) will move to an `ro-crate-examples` repo which may also end up at researchobject.org.
 - **Templates** - already live in [masp-templates](https://github.com/Language-Research-Technology/masp-templates); `schemas/template` here is superseded.
 
@@ -90,7 +90,10 @@ Each step is one PR (or commit) to main, and leaves main working.
 - [x] 2. Quick deletions here that need no new home: `schemas/template` (superseded by masp-templates), `tmp/`, `output/` (now gitignored test output), `COPILOT_CONTEXT.md`, `.github/copilot-instructions.md`. Removed the template from the build scripts, mode-file test and catalogue; user guide points at masp-templates.
   - [x] Close PR #33 here once crate-works/ro-crate-masp-validator#1 is merged.
 - [x] 3. Use the npm validator here: replace `lib/masp-validator.js` with a dependency on `@crate-works/ro-crate-masp-validator`, delete the validator-only tests. Everything else here keeps working, and the validator is maintained only in crateworks from then on.
-- [ ] 4. Tools: create `ro-crate-masp-tools`, copy the tools with their own test fixtures, get tests passing there. Then the examples' `build:*` scripts here call the tools package, and the tools code is deleted here.
+- [x] 4. Tools: ~~create `ro-crate-masp-tools`, copy the tools with their own test fixtures, get tests passing there. Then the examples' `build:*` scripts here call the tools package, and the tools code is deleted here.~~ Done 2026-11-25: [crate-works/ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools), a git dev dependency here (not on npm yet). `scripts/build-catalogue.js` stayed here to go with the examples; `test_data/` minus the tools' fixtures stays to be sorted with the examples (`test_data/modes` is still the input for `generate:mode:ldac-profile`).
+  - [ ] Publish the tools to npm as `@crate-works/ro-crate-masp-tools` (same setup as the validator) and switch the dependency here to the npm version.
+  - [ ] Fix #39 (`package.json` name `ro-crate-maps`) when this repo's `package.json` is split for the examples: Crate-O's `scripts/refresh-masp.js` installs this repo and reads `node_modules/ro-crate-maps`, so rename both together.
+  - [ ] Transfer tools issue #20 to the tools repo.
 - [ ] 5. Examples: create `ro-crate-examples`, move `profiles/*` and `schemas/*` (except the MASP profile), the catalogue and landing page, with their build scripts. Delete them here. Keep the old GitHub Pages URLs working. Crate-O's `scripts/refresh-masp.js` copies `profiles/*/profile-crate` from this repo (from GitHub main, or `../ro-crate-masp` if present) and `CrateEditor.vue` has the Pages URLs hard-coded, so repoint both in the same change.
 - [ ] 6. Spec: rewrite `profile-text.md` as normative rules, rewrite the user guide and README, sort out the spec docs build (item 1 above).
 - [ ] 7. Identifier: w3id for the MASP profile, update `@id` and references.

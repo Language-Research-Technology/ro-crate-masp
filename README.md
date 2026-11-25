@@ -22,6 +22,7 @@ This repository is being pared back to just the core MASP spec; tools, examples 
 
 - **Schema template** (`schemas/template`) → [masp-templates](https://github.com/Language-Research-Technology/masp-templates)
 - **Validator** (`lib/masp-validator.js`, its tests, and `validate-crate.js`) → [crate-works/ro-crate-masp-validator](https://github.com/crate-works/ro-crate-masp-validator), on npm as `@crate-works/ro-crate-masp-validator`
+- **Tools** (`generate-masp-docs.js`, `lib/register-rules.js`, the mode-file, schema.org and OWL converter scripts, and their tests) → [crate-works/ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools), installed here as a dev dependency; the `build:*` scripts call it
 
 ## Example Profiles and Schemas
 
@@ -184,46 +185,7 @@ This repository includes several profiles and schemas that can be built using np
 
 Each profile and schema's build command is in the "Build" column of the [Example Profiles and Schemas](#example-profiles-and-schemas) table above. `npm run build` builds them all. `npm run build:catalogue` regenerates that table, and the `catalogue.json` the landing page reads, from the crates themselves.
 
-### Usage note: spreadsheet synchronisation
-
-- **Flag**: `-x` or `--rocxl` — when running `generate-masp-docs` for profiles or schemas, you can pass `-x` to synchronise `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` first. The generator will choose the newer of the two files and update the other; if only the spreadsheet exists, the JSON will be created from it. It will then generate documentation from the JSON file as usual. When syncing from the spreadsheet, any `rdfs:Class`, `rdf:Property`, `ItemList`, `PropertyValue` or `DefinedTermSet` row not yet listed in the schema `ResourceDescriptor`'s `hasPart` is added to it automatically, and the spreadsheet is regenerated with a warning — if it is open in Excel, close it without saving and reopen it.
-
-  This is done in-process via the [`ro-crate-excel`](https://github.com/Language-Research-Technology/ro-crate-excel) package's `Workbook` API (a regular npm dependency), not by shelling out to its `rocxl` command-line tool — `rocxl` also recursively catalogues data files in the target directory using the external `sf` (Siegfried) binary, which MASP schema/profile crates (metadata-only, no data files) don't need and which isn't installed in every environment.
-
-Example:
-
-```bash
-npm exec -- generate-masp-docs -- profiles/ldac/profile-crate/ro-crate-metadata.json profiles/ldac/profile-text.md profiles/ldac/profile-crate/profile-documentation.md -x
-```
-
-
-Each build command runs the `generate-soss-docs.js` script with three arguments:
-1. Path to the `ro-crate-metadata.json` file
-2. Path to the profile/schema text markdown file
-3. Path to the output documentation markdown file
-
-
-## Converting an OWL ontology to a MASP schema
-
-`scripts/owl-to-masp.py` converts an OWL ontology (RDF/XML, Turtle, or JSON-LD) into a MASP schema crate — see [`scripts/owl-to-masp.spec.md`](scripts/owl-to-masp.spec.md) for the full design spec and mapping rules. It's a Python script run via [`uv`](https://docs.astral.sh/uv/) rather than Node, since OWL/RDF parsing is much better supported there (`rdflib`) than in the JS ecosystem the rest of this repo uses.
-
-This is a one-off, manually-run tool — it's deliberately **not** wired into `package.json` (there's no `build:*`/`generate:*` script for it), since converting a new ontology is a rare, deliberate action you review by hand afterwards, not something that should re-run on every `npm run build`.
-
-To convert an ontology, point it at the source file (a path or URL) and an output directory under `schemas/`:
-
-```bash
-uv run scripts/owl-to-masp.py \
-  --input https://www.ica.org/standards/RiC/RiC-O_1-1.rdf \
-  --output-dir schemas/ric \
-  --namespace "https://www.ica.org/standards/RiC/ontology#" \
-  --name "Records in Context Ontology"
-```
-
-This is exactly the command used to generate [`schemas/ric`](schemas/ric) (the Records in Context Ontology, RiC-O) from its published OWL source. `--namespace` restricts conversion to terms defined by the ontology itself, excluding anything it imports from other vocabularies (SKOS, Dublin Core, etc.) — without it, the converter would also try to re-mint schema entities for every imported term. The generated `schema-crate/` directory bundles the original OWL file alongside `ro-crate-metadata.json`, along with a `CreateAction` recording that this script produced the crate from that file, so the result is self-contained and its provenance is traceable without depending on the source URL remaining live.
-
-After conversion, review the generated `schema-text.md` stub and fill in a proper description, then build documentation as usual — for RiC-O that's `npm run build:ric-schema` (see [Available Build Commands](#available-build-commands) above), which also syncs (`-x`) to produce an Excel copy of the rules alongside the JSON.
-
-The converter's own test suite (`test/owl-to-masp/test_owl_to_masp.py`, run via `npm run test:owl-to-masp`) runs against a small fixture ontology, not the full RiC-O file — see the spec for why, and for the workflow used to extend it when converting a new ontology surfaces a construct the fixture doesn't yet cover.
+The build scripts run `generate-masp-docs` from [ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools) with `-x`, which first syncs `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` (the newer file wins). See that repository for the options, and for `generate-mode-file`, `mode-to-masp`, `generate-schema-org-crate` and the OWL converter (`owl-to-masp.py`, which produced [`schemas/ric`](schemas/ric) and the other OWL-derived schemas).
 
 ## Validating RO-Crates from the Command Line
 
