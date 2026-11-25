@@ -114,7 +114,7 @@ Complete list of the rules available to populate the document:
 
 ## Generate documentation
 
-Generate `schema-documentation.md` from your crate and `schema-text.md` with `generate-masp-docs.js`:
+Generate `schema-documentation.md` from your crate and `schema-text.md` with `generate-masp-docs` from [ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools):
 ```
-node generate-masp-docs.js -x <schema-crate>/ro-crate-metadata.json <schema-text.md> <schema-crate>/schema-documentation.md
+npx generate-masp-docs -x <schema-crate>/ro-crate-metadata.json <schema-text.md> <schema-crate>/schema-documentation.md
 ```
