@@ -28,36 +28,10 @@ const ROOT = path.join(__dirname, "..");
 // All profile/schema crate directories with their mode file expectations
 const PROFILE_ENTRIES = [
   {
-    name: "LDAC Profile",
-    profileCratePath: "profiles/ldac/profile-crate/ro-crate-metadata.json",
-    modeFilePath: "profiles/ldac/profile-crate/crate-o-mode.json",
-  },
-  {
-    name: "RO-Crate Profile",
-    profileCratePath: "profiles/ro-crate/profile-crate/ro-crate-metadata.json",
-    modeFilePath: "profiles/ro-crate/profile-crate/crate-o-mode.json",
-  },
-  {
     name: "RO-Crate MASP Profile",
     profileCratePath:
       "profiles/ro-crate-masp/profile-crate/ro-crate-metadata.json",
     modeFilePath: "profiles/ro-crate-masp/profile-crate/crate-o-mode.json",
-  },
-  {
-    name: "Workflow Profile",
-    profileCratePath:
-      "profiles/workflow/profile-crate/ro-crate-metadata.json",
-    modeFilePath: "profiles/workflow/profile-crate/crate-o-mode.json",
-  },
-  {
-    name: "LDAC Schema",
-    profileCratePath: "schemas/ldac/schema-crate/ro-crate-metadata.json",
-    modeFilePath: "schemas/ldac/schema-crate/crate-o-mode.json",
-  },
-  {
-    name: "AusTalk Schema",
-    profileCratePath: "schemas/austalk/schema-crate/ro-crate-metadata.json",
-    modeFilePath: "schemas/austalk/schema-crate/crate-o-mode.json",
   },
 ];
 

@@ -216,10 +216,10 @@
       "encodingFormat": "text/turtle"
     },
     {
-      "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py",
+      "@id": "https://github.com/crate-works/ro-crate-masp-tools/blob/main/scripts/owl-to-masp.py",
       "@type": "SoftwareApplication",
       "name": "owl-to-masp.py",
-      "url": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+      "url": "https://github.com/crate-works/ro-crate-masp-tools/blob/main/scripts/owl-to-masp.py"
     },
     {
       "@id": "#owl-to-masp-conversion",
@@ -229,7 +229,7 @@
         "@id": "oa.ttl"
       },
       "instrument": {
-        "@id": "https://github.com/Language-Research-Technology/ro-crate-masp/blob/main/scripts/owl-to-masp.py"
+        "@id": "https://github.com/crate-works/ro-crate-masp-tools/blob/main/scripts/owl-to-masp.py"
       },
       "result": {
         "@id": "./"
