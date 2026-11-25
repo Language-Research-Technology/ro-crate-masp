@@ -387,18 +387,18 @@
       "description": "Canonical identifiers that indicate conformance to this profile.",
       "itemListElement": [
         {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
+          "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/ro-crate/profile-crate/"
         }
       ]
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/#profile",
+      "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/ro-crate/profile-crate/#profile",
       "@type": [
         "CreativeWork",
         "Profile"
       ],
       "name": "Ro Crate Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/ro-crate/profile-crate/"
+      "url": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/ro-crate/profile-crate/"
     },
     {
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",

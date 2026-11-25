@@ -41,10 +41,8 @@ npm test             # Run all tests (Mocha)
 # Run a single test file
 npx mocha test/mode-file.test.js
 
-# Build documentation for a profile/schema
-npm run build:ldac-profile
-npm run build:workflow-profile
-# (see package.json for all build:* targets)
+# Build the MASP profile's documentation
+npm run build
 
 # Validate a crate from the CLI
 npx masp-validate <target-crate.json> <profile-crate.json>
@@ -83,7 +81,9 @@ Profiles and schemas are themselves RO-Crates (`ro-crate-metadata.json`). Rules 
 
 Both use identical crate structure. Conceptually:
 - **Profiles** (`profiles/`) — strict, define what a conforming crate *must* contain
-- **Schemas** (`schemas/`) — more permissive, extend or specialise profiles for a domain (e.g., LDAC, AusTalk)
+- **Schemas** — more permissive, extend or specialise profiles for a domain (e.g., LDAC, AusTalk)
+
+Only the MASP profile (`profiles/ro-crate-masp/`) lives in this repo. The example profiles and schemas are in [ro-crate-masp-examples](https://github.com/Language-Research-Technology/ro-crate-masp-examples). The other folders under `profiles/` and `schemas/` here hold only redirect pages and frozen `ro-crate-metadata.json` copies so old URLs keep working: don't edit them.
 
 Each profile/schema directory contains:
 ```

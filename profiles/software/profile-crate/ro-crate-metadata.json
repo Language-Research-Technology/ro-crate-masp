@@ -1001,13 +1001,13 @@
       "sh:maxCount": 1
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/software/profile-crate/#profile",
+      "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/software/profile-crate/#profile",
       "@type": [
         "CreativeWork",
         "Profile"
       ],
       "name": "Software Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/software/profile-crate/"
+      "url": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/software/profile-crate/"
     },
     {
       "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",

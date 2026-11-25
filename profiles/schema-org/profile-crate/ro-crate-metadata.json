@@ -7602,7 +7602,7 @@
       "name": "Values for conformsTo",
       "description": "Predefined values for the conformsTo property",
       "itemListElement": {
-        "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/"
+        "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/schema-org/profile-crate/"
       },
       "isPartOf": {
         "@id": "#hasSpecializedSchema"
@@ -7754,7 +7754,7 @@
       "description": "Canonical identifiers that indicate conformance to this profile.",
       "itemListElement": [
         {
-          "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/"
+          "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/schema-org/profile-crate/"
         }
       ]
     },
@@ -54823,13 +54823,13 @@
       "rdfs:comment": "A health profession of a person formally educated and trained in the care of the sick or infirm person."
     },
     {
-      "@id": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/#profile",
+      "@id": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/schema-org/profile-crate/#profile",
       "@type": [
         "CreativeWork",
         "Profile"
       ],
       "name": "Schema Org Profile",
-      "url": "https://language-research-technology.github.io/ro-crate-masp/profiles/schema-org/profile-crate/"
+      "url": "https://language-research-technology.github.io/ro-crate-masp-examples/profiles/schema-org/profile-crate/"
     },
     {
       "@id": "#propertyValue_RO-Crate_Metadata_Descriptor.id",
