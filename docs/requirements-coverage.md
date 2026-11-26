@@ -81,12 +81,12 @@ A Schema can be authored in an RO-Crate with a human readable document and a set
 > 8. In a Profile Specific Schema context:
 > - (a) MUST  allow for Classes and Properties to be specialised (typically more tightly constrained than a definition in a General Purpose Schema) for use in particular contexts. For example, the name property MAY have different descriptions and validation rules when used on a Person vs being used on a CreativeWork within a profile - and of course, profile-specific definitions are more tightly specified than in a general schema.
 
-Done: each class can have its own rule for a property (e.g. one name rule with domainIncludes Person and another with domainIncludes CreativeWork), each linked to the term it specialises with prov:specializationOf.
+Done: each class can have its own rule for a property (e.g. one `name` rule with `domainIncludes` `Person` and another with `domainIncludes` `CreativeWork`), each linked to the term it specialises with `prov:specializationOf`.
 
 >  - (b) MUST be self-contained - if a property has a range of potential type values, then the Class definitions for each type must be included.
 >    - (i) MUST NOT require validators to process inheritance – this should be compiled into a set of specific expectations about which properties are allowed/required on particular types of entity. (This is based on the assumption that in a typical repository or other environment which specifies a profile - the aim is interoperability and mutual intelligibility).
 
-This requirement might be a mistake - the MASP validators written so far do allow for inheritance WITHIN a MASP - but they do not floow links to source definutions from elsewhere.
+This requirement may be too strict. The reference validator does process inheritance *within* a MASP crate: property rules on a class also apply to its subclasses (`rdfs:subClassOf`), so a profile does not have to repeat them. It never follows links to definitions outside the crate, so the profile stays self-contained (8(b)). Profiles can also be written flat, with no `rdfs:subClassOf` (the MASP profile itself is), in which case a validator needs no inheritance processing at all.
 
 > - (C) MUST support machine validation of the following:
 > Range / domain constraints for classes and properties by type (values could be JSON-LD entities such as defined terms (in sets), standard values (such as ways of representing programming or natural languages) or scalar types such as strings or dates, see next point).
