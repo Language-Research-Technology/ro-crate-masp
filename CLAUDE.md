@@ -99,4 +99,4 @@ profile-crate/
 
 ### Tests
 
-Tests live in `test/` and use Mocha + Chai (`expect` style). They check the example profiles and schemas themselves (mode files, the LDAC-DMLex and schema.org crates). Tests for the tools are in ro-crate-masp-tools; tests for the validator are in ro-crate-masp-validator.
+Tests live in `test/` and use Mocha + Chai (`expect` style). They check the MASP profile's Crate-O mode file. Tests for the tools are in ro-crate-masp-tools; tests for the validator are in ro-crate-masp-validator.

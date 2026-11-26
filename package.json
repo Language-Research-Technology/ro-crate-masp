@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/Language-Research-Technology/ro-crate-masp#readme",
   "devDependencies": {
+    "@crate-works/ro-crate-masp-tools": "^0.1.0",
     "chai": "^6.2.1",
     "mocha": "^11.7.5",
-    "@crate-works/ro-crate-masp-tools": "github:crate-works/ro-crate-masp-tools",
     "ro-crate": "^3.6.1"
   },
   "private": true
