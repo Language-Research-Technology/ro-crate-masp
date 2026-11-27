@@ -1,0 +1,55 @@
+# Re-renders the PlantUML diagrams in docs/diagrams/ when their sources change
+# on main, and commits the SVG and PNG images back if they differ.
+name: Render diagrams
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/diagrams/**.puml"
+      - "docs/diagrams/**.iuml"
+      - ".github/workflows/diagrams.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-diagrams
+  cancel-in-progress: true
+
+env:
+  PLANTUML_VERSION: "1.2026.8"
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install Graphviz and fonts
+        run: sudo apt-get update && sudo apt-get install -y graphviz fonts-liberation
+
+      - name: Download PlantUML
+        run: curl -sSfL -o "$RUNNER_TEMP/plantuml.jar" "https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERSION}/plantuml-${PLANTUML_VERSION}.jar"
+
+      - name: Render
+        working-directory: docs/diagrams
+        run: java -Djava.awt.headless=true -jar "$RUNNER_TEMP/plantuml.jar" -tsvg -tpng *.puml
+
+      - name: Commit images if they changed
+        run: |
+          git add docs/diagrams/*.svg docs/diagrams/*.png
+          if git diff --cached --quiet; then
+            echo "Diagrams are up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Render diagrams"
+          git push

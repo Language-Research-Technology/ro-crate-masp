@@ -1,5 +1,9 @@
 # RO-Crate Machine Actionable Schemas and Profiles (RO-Crate MASP)
 
+A MASP is an RO-Crate that defines terms for use in making other RO-Crates. It contains either a general purpose vocabulary of classes and properties (a **schema**) or the **specialized** rules for combining them in a particular domain (a **profile**). Its rules can be kept in sync with a spreadsheet, and human-readable documentation is generated from them.
+
+![What a MASP is: a MASP RO-Crate package holds the rules (ro-crate-metadata.json), an optional spreadsheet version kept in sync with them, and a generated summary document. The doc generation script combines the rules with a text description to produce the documentation.](docs/diagrams/doc-generation.svg)
+
 > **Updated 2026-11-25: several things that used to be here have moved.**
 >
 > - **JavaScript MASP validator** → [crate-works/ro-crate-masp-validator](https://github.com/crate-works/ro-crate-masp-validator), on npm as [`@crate-works/ro-crate-masp-validator`](https://www.npmjs.com/package/@crate-works/ro-crate-masp-validator). Report validator bugs and make validator changes there; this repository uses it as a dependency.
@@ -38,7 +42,7 @@ JavaScript code for working with MASP crates lives in its own repositories:
 ### Editors
 
 - **[Crate-O](https://github.com/crate-works/crate-o)** ([try it](https://crate-works.github.io/crate-o/)) loads MASP profile crates and builds its forms from them, using the [MASP validator](https://github.com/crate-works/ro-crate-masp-validator) to work out the classes and fields to show and to validate crates as they are edited. A profile can add an optional `crate-o-mode.json` for layout hints such as field groups. Beta.
-- **[NovaCrate](https://github.com/kit-data-manager/NovaCrate)** ([try it](https://novacrate.datamanager.kit.edu/)), from KIT, has its own independent implementation. MASP is its default profile mechanism ([docs](https://github.com/kit-data-manager/NovaCrate/blob/main/docs/profiles.md)).
+- **[NovaCrate](https://github.com/kit-data-manager/NovaCrate)** ([try it](https://novacrate.datamanager.kit.edu/)), from KIT, has its own independent implementation. Since v1.14 it loads MASP profiles named in a crate's `conformsTo` and uses them to guide editing; MASP is its default profile mechanism ([docs](https://github.com/kit-data-manager/NovaCrate/blob/main/docs/profiles.md)). Early days: the release officially supports only the bundled Workflow profile, and checking crates against profiles is on its `dev` branch.
 - **[wpsld](https://github.com/stain/wpsld)**, a desktop RO-Crate editor in Java (JavaFX) by Stian Soiland-Reyes, narrows its schema.org-based forms using MASP profiles loaded from a file or URL. See its [MASP notes](https://github.com/stain/wpsld/blob/main/MASP.md).
 
 NovaCrate and wpsld are independent of the JavaScript linked above, which shows the profile format can be implemented from the spec alone.
@@ -57,55 +61,15 @@ The tool prints validation results to the console and exits with a nonzero code 
 
 The core of MASP uses RO-Crates to package Profiles (or Schemas, which can be authored in the same way but would typically be more permissive).
 
-A MASP crate can be combined with a textual summary of the Profile to create documentation with an automatically generated summary of what should be in conformant crates.
+A MASP crate can be combined with a textual summary of the Profile to create documentation with an automatically generated summary of what should be in conformant crates (see the diagram at the top of this README).
 
-<!--
-@startuml
+MASPs drive editors: a researcher describes their data in an editor whose forms come from a profile, and the editor checks the crate against the same rules as they go, so problems are fixed while editing. Editors can also edit MASPs themselves: load the MASP profile into an editor to create and edit other schemas and profiles, since they are RO-Crates too.
 
-package "Machine Actionable Profile Crate" as mapc {
-rectangle "ro-crate-metadata.json" as rcd
-rectangle "Profile summary document" as psd
-}
+![Editing: a researcher describes their data in the editor's forms, which save the RO-Crate; the validator inside the editor checks it and sends anything to fix back to the researcher. Below, the MASPs: a row of profiles (LDAC collection, Workflow RO-Crate, your profile, and the MASP profile, which is used to edit other MASPs) above a row of schemas (Schema.org, LDAC terms, Darwin Core, PROV-O). The LDAC collection profile drives the forms.](docs/diagrams/editing.svg)
 
-rectangle "Human-readable text description of profile (profile-text.md)" as pt
+MASPs also act as gatekeepers for repositories: a repository runs the validator on each deposited crate, using the profile the crate conforms to, and only accepts crates that pass.
 
-rectangle "Doc generation script"  as dgs
-
-dgs <-up- rcd : Use rules
-dgs <-up- pt : Use text
-dgs -up-> psd : Generate Documentation
-
-
-@enduml
--->
-
-![Documentation generation: the profile's rules and its text description go into the doc generation script, which writes the profile summary document](image.png)
-
-Validators use a MASP crate as a set of rules:
-
-<!--
-@startuml
-
-package "Machine Actionable Profile Crate" as mapc {
-rectangle "ro-crate-metadata.json" as rcd
-}
-
-rectangle "Candidate RO-Crate Metadata Document" as roc
-
-rectangle "Validator"  as dgs
-
-rectangle "Validation Report" as vr
-
-dgs <-up- rcd : Use rules
-dgs <-up- roc : Read
-dgs -down-> vr : Generate Report
-
-
-
-@enduml
--->
-
-![Validation: the validator reads a candidate RO-Crate, checks it against the profile crate's rules and generates a validation report](image-1.png)
+![Deposit: above, the MASPs, a row of schemas and a row of profiles. A depositor deposits an RO-Crate that conforms to the Workflow RO-Crate profile. The repository's validator checks it against that profile; crates that conform are accepted into the repository, and errors go back to the depositor in a validation report to fix and resubmit.](docs/diagrams/deposit.svg)
 
 ## Constraint modelling note
 
@@ -133,6 +97,14 @@ npm run build    # regenerates the MASP profile's documentation
 ```
 
 This runs `generate-masp-docs` from [ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools) with `-x`, which first syncs `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` (the newer file wins). See that repository for its options and the other tools: Crate-O mode files, and converters from OWL and schema.org.
+
+The diagrams in this README are PlantUML sources in [docs/diagrams/](docs/diagrams/), sharing a stylesheet (`masp-style.iuml`) and, for the editing and deposit diagrams, the MASP examples (`masp-examples.iuml`). After editing one, regenerate the images with [PlantUML](https://plantuml.com/):
+
+```bash
+cd docs/diagrams && plantuml -tsvg -tpng *.puml
+```
+
+You don't have to: when a change to `docs/diagrams/` is pushed to `main`, the [Render diagrams](.github/workflows/diagrams.yml) workflow re-renders the images and commits them if they changed.
 
 ## Help wanted!
 

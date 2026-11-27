@@ -1,0 +1,39 @@
+@startuml deposit
+' Depositing an RO-Crate in a repository that checks it against a MASP.
+' Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+!include masp-style.iuml
+!include masp-examples.iuml
+' Schemas row on top, profiles underneath nearest the validator
+m_ldact -[hidden]down- m_ldac
+m_dwc -[hidden]down- m_wf
+top to bottom direction
+skinparam ranksep 65
+<style>
+database {
+  HorizontalAlignment center
+}
+</style>
+
+actor "Depositor" as person
+folder "<size:15><b>RO-Crate</b></size>\n<size:11>ro-crate-metadata.json + data files</size>\n<size:11>conformsTo: Workflow RO-Crate</size>" <<crate>> as crate
+rectangle "<size:15><b>Validator</b></size>\n<size:11>masp-validate, run by the repository</size>" <<validate>> as validator
+rectangle "<b>Validation report</b>\n<size:11>why it was rejected</size>" <<validate>> as report
+
+database "\n<size:28><b>Repository</b></size>\n<size:14><color:#3F6B36><i>only crates that conform get in</i></color></size>\n\n<size:15>Data archives   ·   Workflow registries   ·   Institutional repositories</size>\n " <<repo>> as repo
+
+' Keep the MASPs at the top
+m_ldact -[hidden]down- person
+
+' The person deposits their crate
+person -down-> crate : deposits
+crate -down-> validator : submitted
+
+' The repository checks it against the profile the crate conforms to
+m_wf -down-> validator : rules
+
+' Gatekeeping
+validator -down-> repo : <color:#2E8B57><b>✔ conforms</b></color>\naccepted
+validator -left-> report : <color:#C0392B><b>✘ errors</b></color>
+report -up-> person : <b>fix and resubmit</b>
+
+@enduml
