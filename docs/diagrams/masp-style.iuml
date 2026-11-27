@@ -13,7 +13,7 @@
 '   actor                   a person (styled automatically)
 '   <<aside>>               an explanatory card, used instead of a note
 '                           (notes always have a folded corner)
-' Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+' Render with: plantuml -tsvg docs/diagrams/*.puml && plantuml -tpng docs/diagrams/*.puml
 
 skinparam backgroundColor white
 skinparam defaultFontName "Helvetica Neue"

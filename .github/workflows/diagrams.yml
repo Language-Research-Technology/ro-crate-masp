@@ -40,7 +40,10 @@ jobs:
 
       - name: Render
         working-directory: docs/diagrams
-        run: java -Djava.awt.headless=true -jar "$RUNNER_TEMP/plantuml.jar" -tsvg -tpng *.puml
+        # PlantUML uses only the last -t option, so render each format separately
+        run: |
+          java -Djava.awt.headless=true -jar "$RUNNER_TEMP/plantuml.jar" -tsvg *.puml
+          java -Djava.awt.headless=true -jar "$RUNNER_TEMP/plantuml.jar" -tpng *.puml
 
       - name: Commit images if they changed
         run: |

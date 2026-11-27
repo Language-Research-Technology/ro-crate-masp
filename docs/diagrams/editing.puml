@@ -1,5 +1,5 @@
 @startuml editing
-' Editing an RO-Crate with a MASP. Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+' Editing an RO-Crate with a MASP. Render with: plantuml -tsvg docs/diagrams/*.puml && plantuml -tpng docs/diagrams/*.puml
 !include masp-style.iuml
 top to bottom direction
 
