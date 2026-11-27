@@ -1,5 +1,5 @@
 @startuml doc-generation
-' Documentation generation. Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+' Documentation generation. Render with: plantuml -tsvg docs/diagrams/*.puml && plantuml -tpng docs/diagrams/*.puml
 !include masp-style.iuml
 top to bottom direction
 

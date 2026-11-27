@@ -103,7 +103,7 @@ This runs `generate-masp-docs` from [ro-crate-masp-tools](https://github.com/cra
 The diagrams in this README are PlantUML sources in [docs/diagrams/](docs/diagrams/), sharing a stylesheet (`masp-style.iuml`) and, for the editing and deposit diagrams, the MASP examples (`masp-examples.iuml`). After editing one, regenerate the images with [PlantUML](https://plantuml.com/), but this is not required as the [Render diagrams](.github/workflows/diagrams.yml) workflow re-renders the images and commits them if they changed.
 
 ```bash
-cd docs/diagrams && plantuml -tsvg -tpng *.puml
+cd docs/diagrams && plantuml -tsvg *.puml && plantuml -tpng *.puml
 ```
 
 ## Help wanted!
