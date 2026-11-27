@@ -7,7 +7,7 @@
 '   profiles on top:    m_ldac -[hidden]down- m_ldact
 '   schemas on top:     m_ldact -[hidden]down- m_ldac
 
-rectangle "<size:17><b>MASPs</b></size>\n<size:12><color:#4A6A8F><i>schemas and profiles, each an RO-Crate of machine-actionable rules</i></color></size>" <<masp>> as masps {
+rectangle "<size:17><b>MASPs</b></size>\n<size:12><color:#4A6A8F><i>MASP schema and profile RO-Crate packages</i></color></size>" <<masp>> as masps {
   rectangle "<b>Schema.org</b>\n<size:10><color:#2B7F9E>SCHEMA</color></size>" <<maspschema>> as m_org
   rectangle "<b>LDAC terms</b>\n<size:10><color:#2B7F9E>SCHEMA</color></size>" <<maspschema>> as m_ldact
   rectangle "<b>Darwin Core</b>\n<size:10><color:#2B7F9E>SCHEMA</color></size>" <<maspschema>> as m_dwc
