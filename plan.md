@@ -41,7 +41,7 @@ We will do this a bit at a time, merging each step back to main, until just the 
 | `schemas/template/` | deleted | Superseded by masp-templates - see check below |
 | `index.html`, `catalogue.json` | examples | The landing page / catalogue of examples |
 | `COPILOT_CONTEXT.md`, `.github/copilot-instructions.md`, `CLAUDE.md` | deleted or rewritten | Rewrite `CLAUDE.md` for whatever remains in each repo |
-| `image.png`, `image-1.png` | follow README | Used in `README.md` (lines 102, 168); keep or drop with whichever README section they illustrate |
+| `image.png`, `image-1.png` | follow README | Done 2026-11-27: replaced by PlantUML sources and images in `docs/diagrams/` |
 | `tmp/`, `output/` | deleted | Scratch output |
 
 `profiles/ro-crate` (the mini-profile for RO-Crate itself), `profiles/ro-crate-2` and the schema.org profile/schema are examples, not core (unless we change our minds later).

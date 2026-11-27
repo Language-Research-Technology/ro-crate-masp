@@ -1,0 +1,34 @@
+@startuml editing
+' Editing an RO-Crate with a MASP. Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+!include masp-style.iuml
+top to bottom direction
+
+actor "Researcher" as person
+
+' The crate being edited sits inside the editor, between the forms and the validator
+rectangle "<size:15><b>Editor</b></size>\n<size:11>Crate-O · NovaCrate · wpsld</size>" <<editor>> as editor {
+  rectangle "<b>Forms</b>\n<size:11>classes, fields,</size>\n<size:11>allowed values</size>" <<editoritem>> as forms
+  folder "<size:15><b>RO-Crate</b></size>\n<size:11>ro-crate-metadata.json + data files</size>\n<size:11>conformsTo: LDAC collection</size>" <<crate>> as crate
+  rectangle "<b>Validator</b>\n<size:11>checks as you edit</size>" <<validate>> as validator
+}
+
+' MASPs at the bottom, feeding up into the editor
+!include masp-examples.iuml
+' Profiles row on top, nearest the editor
+m_ldac -[hidden]down- m_ldact
+m_wf -[hidden]down- m_dwc
+
+' The edit loop
+person -down-> forms : describes\ntheir data
+forms -right-> crate : saves
+crate -right-> validator : check
+validator -up-> person : <color:#C0392B><b>✘ fix these</b></color>
+
+' The profile drives the forms
+m_ldac -up-> forms : drive forms
+
+' The MASP profile is used to edit MASPs themselves
+rectangle "Load the <b>MASP profile</b> into an editor\nto create and edit other MASPs:\nschemas and profiles are RO-Crates too." <<aside>> as masp_note
+m_masp -[#CBD5E1,dotted,thickness=3]down- masp_note
+
+@enduml

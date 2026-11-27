@@ -1,0 +1,29 @@
+@startuml doc-generation
+' Documentation generation. Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+!include masp-style.iuml
+top to bottom direction
+
+rectangle "<b>Machine Actionable Schemas and Profiles: MASP</b>\nDefines a vocabulary of classes and properties and the rules for combining them.\n<color:#2B7F9E><b>Schema</b></color>   a general vocabulary: a set of terms\n<color:#4453C4><b>Profile</b></color>    a stricter way of combining those terms, <color:#4453C4><b>specialized</b></color> for a particular domain" <<data>> as masp
+
+
+rectangle "<size:15><b>MASP RO-Crate Package</b></size>" <<masp>> as mapc {
+  rectangle "<b>ro-crate-metadata.json</b>\n<size:11>the rules</size>" <<maspitem>> as rcd
+  rectangle "<b>Profile summary document</b>\n<size:11>documentation.md / index.html</size>" <<maspitem>> as psd
+  rectangle "<b>Excel rules</b>\n<size:11>optional spreadsheet version</size>" <<maspitem>> as exc
+
+}
+
+rectangle "<b>Text description of the MASP</b>\n<size:11>profile-text.md</size>" <<data>> as pt
+rectangle "<b>Doc generation script</b>\n<size:11>generate-masp-docs</size>" <<docs>> as dgs
+
+masp -[#CBD5E1,dotted,thickness=3]down- rcd
+
+dgs <-up- rcd : use rules
+dgs <-up- pt : use text
+dgs -up-> exc : sync with rules
+exc <-up-> rcd : synced
+dgs -up-> psd : generate documentation
+
+
+
+@enduml

@@ -1,0 +1,117 @@
+' Shared look for the MASP diagrams. Include it with:
+'   !include masp-style.iuml
+' Then tag each element with one of these stereotypes:
+'   <<masp>> <<maspitem>>   MASPs and the files in a MASP crate (blue)
+'   <<maspschema>>          a schema: a vocabulary of terms (sky blue)
+'   <<maspprofile>>         a profile: rules for combining terms (indigo)
+'   <<repo>> <<repoitem>>   repositories (green)
+'   <<editor>> <<editoritem>> editors and parts of an editor (amber)
+'   <<validate>>            validator and its report (red)
+'   <<docs>>                documentation generation (purple)
+'   <<data>>                plain data, such as a text file (grey)
+'   <<crate>>               an RO-Crate instance, drawn as a folder (slate)
+'   actor                   a person (styled automatically)
+'   <<aside>>               an explanatory card, used instead of a note
+'                           (notes always have a folded corner)
+' Render with: plantuml -tsvg -tpng docs/diagrams/*.puml
+
+skinparam backgroundColor white
+skinparam defaultFontName "Helvetica Neue"
+skinparam defaultFontSize 13
+skinparam defaultFontColor #1D2733
+skinparam shadowing false
+skinparam nodesep 45
+skinparam ranksep 60
+
+hide stereotype
+
+<style>
+title {
+  FontSize 20
+  FontStyle bold
+  FontColor #1D2733
+}
+arrow {
+  LineColor #6B7785
+  LineThickness 1.6
+  FontSize 11
+  FontColor #5B6573
+}
+rectangle, database, folder {
+  LineThickness 2.5
+  RoundCorner 22
+  LineColor #C9D1DB
+  BackGroundColor white
+}
+note {
+  BackGroundColor #F8FAFC
+  LineColor #CBD5E1
+  LineThickness 1.5
+  RoundCorner 16
+  FontSize 12
+  FontColor #334155
+}
+.aside {
+  BackGroundColor #F8FAFC
+  LineColor #CBD5E1
+  LineThickness 1.5
+  RoundCorner 16
+  FontSize 12
+  FontColor #334155
+}
+actor {
+  LineThickness 2.5
+  LineColor #475569
+  BackGroundColor #E2E8F0
+  FontSize 14
+  FontStyle bold
+}
+.crate {
+  BackGroundColor #F8FAFC
+  LineColor #64748B
+}
+.masp {
+  BackGroundColor #EEF5FD
+  LineColor #5B8FD6
+}
+.maspitem {
+  BackGroundColor white
+  LineColor #A9C7EE
+}
+.maspschema {
+  BackGroundColor #E8F6FA
+  LineColor #3BA3C7
+}
+.maspprofile {
+  BackGroundColor #EEF0FD
+  LineColor #5B6BD6
+}
+.repo {
+  BackGroundColor #F1F8EE
+  LineColor #6DAA5C
+}
+.repoitem {
+  BackGroundColor white
+  LineColor #B5D8AA
+}
+.editor {
+  BackGroundColor #FFF7E8
+  LineColor #E0A43A
+}
+.editoritem {
+  BackGroundColor white
+  LineColor #F0CF8F
+}
+.docs {
+  BackGroundColor #F5F1FC
+  LineColor #8B6CC7
+}
+.validate {
+  BackGroundColor #FDEFEF
+  LineColor #D9605A
+}
+.data {
+  BackGroundColor white
+  LineColor #C9D1DB
+}
+</style>
