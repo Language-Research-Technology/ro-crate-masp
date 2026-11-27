@@ -2,6 +2,8 @@
 
 A MASP is an RO-Crate that defines terms for use in making other RO-Crates. It contains either a general purpose vocabulary of classes and properties (a **schema**) or the **specialized** rules for combining them in a particular domain (a **profile**). Its rules can be kept in sync with a spreadsheet, and human-readable documentation is generated from them.
 
+(There is actually no technical difference between a Schema and a Profile except its specificity - the same tools work with any MASP.)
+
 ![What a MASP is: a MASP RO-Crate package holds the rules (ro-crate-metadata.json), an optional spreadsheet version kept in sync with them, and a generated summary document. The doc generation script combines the rules with a text description to produce the documentation.](docs/diagrams/doc-generation.svg)
 
 > **Updated 2026-11-25: several things that used to be here have moved.**
@@ -67,7 +69,7 @@ MASPs drive editors: a researcher describes their data in an editor whose forms 
 
 ![Editing: a researcher describes their data in the editor's forms, which save the RO-Crate; the validator inside the editor checks it and sends anything to fix back to the researcher. Below, the MASPs: a row of profiles (LDAC collection, Workflow RO-Crate, your profile, and the MASP profile, which is used to edit other MASPs) above a row of schemas (Schema.org, LDAC terms, Darwin Core, PROV-O). The LDAC collection profile drives the forms.](docs/diagrams/editing.svg)
 
-MASPs also act as gatekeepers for repositories: a repository runs the validator on each deposited crate, using the profile the crate conforms to, and only accepts crates that pass.
+MASPs can also be used to validate crates deposited to a repository, or any other service that takes RO-Crate as an input.
 
 ![Deposit: above, the MASPs, a row of schemas and a row of profiles. A depositor deposits an RO-Crate that conforms to the Workflow RO-Crate profile. The repository's validator checks it against that profile; crates that conform are accepted into the repository, and errors go back to the depositor in a validation report to fix and resubmit.](docs/diagrams/deposit.svg)
 
@@ -98,13 +100,11 @@ npm run build    # regenerates the MASP profile's documentation
 
 This runs `generate-masp-docs` from [ro-crate-masp-tools](https://github.com/crate-works/ro-crate-masp-tools) with `-x`, which first syncs `ro-crate-metadata.json` and `ro-crate-metadata.xlsx` (the newer file wins). See that repository for its options and the other tools: Crate-O mode files, and converters from OWL and schema.org.
 
-The diagrams in this README are PlantUML sources in [docs/diagrams/](docs/diagrams/), sharing a stylesheet (`masp-style.iuml`) and, for the editing and deposit diagrams, the MASP examples (`masp-examples.iuml`). After editing one, regenerate the images with [PlantUML](https://plantuml.com/):
+The diagrams in this README are PlantUML sources in [docs/diagrams/](docs/diagrams/), sharing a stylesheet (`masp-style.iuml`) and, for the editing and deposit diagrams, the MASP examples (`masp-examples.iuml`). After editing one, regenerate the images with [PlantUML](https://plantuml.com/), but this is not required as the [Render diagrams](.github/workflows/diagrams.yml) workflow re-renders the images and commits them if they changed.
 
 ```bash
 cd docs/diagrams && plantuml -tsvg -tpng *.puml
 ```
-
-You don't have to: when a change to `docs/diagrams/` is pushed to `main`, the [Render diagrams](.github/workflows/diagrams.yml) workflow re-renders the images and commits them if they changed.
 
 ## Help wanted!
 
